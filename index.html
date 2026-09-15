@@ -41,14 +41,19 @@
 
       <!-- Action Buttons & Language Switcher -->
       <div class="header-actions">
-        <!-- Language Switcher Toggle -->
-        <div class="lang-switch-container">
-          <button type="button" class="lang-btn active" id="btnLangKo" onclick="setLanguage('ko')" aria-label="한국어">
-            🇰🇷 한국어
-          </button>
-          <button type="button" class="lang-btn" id="btnLangEn" onclick="setLanguage('en')" aria-label="English">
-            🇺🇸 English
-          </button>
+        <!-- Global Multi-Language Selector (8 Nations) -->
+        <div class="lang-dropdown-wrapper">
+          <span class="lang-icon">🌐</span>
+          <select class="global-lang-select" id="globalLangSelect" onchange="setLanguage(this.value)" aria-label="Language Selector">
+            <option value="ko">🇰🇷 한국어 (Korean)</option>
+            <option value="en">🇺🇸 English (Ghana / Nigeria)</option>
+            <option value="th">🇹🇭 ภาษาไทย (Thai)</option>
+            <option value="ar">🇪🇬 العربية (Arabic)</option>
+            <option value="fr">🇫🇷 Français (French)</option>
+            <option value="zh">🇨🇳 简体中文 (Chinese)</option>
+            <option value="id">🇮🇩 Bahasa Indonesia</option>
+            <option value="my">🇲🇲 မြန်မာဘာသာ (Burmese)</option>
+          </select>
         </div>
 
         <!-- Meeting Host Settings Button -->
