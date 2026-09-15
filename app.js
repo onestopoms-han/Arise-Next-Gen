@@ -94,7 +94,9 @@ const translations = {
     toast_copied: "모임 링크 및 안내문이 클립보드에 복사되었습니다! 📋",
     toast_settings_saved: "기도모임 정보가 성공적으로 저장되었습니다! ⚙️",
     toast_amen_clicked: "함께 중보기도에 동참하셨습니다. 아멘! ❤️",
-    local_time_prefix: "귀하의 현지 시각: "
+    local_time_prefix: "귀하의 현지 시각: ",
+    country_filter_title: "🌍 8개국 열방별 기도보기",
+    country_filter_all: "🌐 전체 열방"
   },
   en: {
     brand_title: "Arise Next-Gen",
@@ -183,7 +185,9 @@ const translations = {
     toast_copied: "Meeting invitation & link copied to clipboard! 📋",
     toast_settings_saved: "Meeting settings successfully saved! ⚙️",
     toast_amen_clicked: "You joined in prayer. Amen! ❤️",
-    local_time_prefix: "Your Local Time: "
+    local_time_prefix: "Your Local Time: ",
+    country_filter_title: "🌍 Filter by 8 Nations",
+    country_filter_all: "🌐 All Nations"
   },
   th: {
     brand_title: "Arise Next-Gen",
@@ -272,7 +276,9 @@ const translations = {
     toast_copied: "คัดลอกลิงก์เชิญไปยังคลิปบอร์ดแล้ว! 📋",
     toast_settings_saved: "บันทึกข้อมูลการประชุมเรียบร้อยแล้ว! ⚙️",
     toast_amen_clicked: "ท่านได้เข้าร่วมการอธิษฐาน เอเมน! ❤️",
-    local_time_prefix: "เวลาท้องถิ่นของคุณ: "
+    local_time_prefix: "เวลาท้องถิ่นของคุณ: ",
+    country_filter_title: "🌍 กรองตาม 8 ประเทศ",
+    country_filter_all: "🌐 ทุกประชาชาติ"
   },
   ar: {
     brand_title: "Arise Next-Gen",
@@ -361,7 +367,9 @@ const translations = {
     toast_copied: "تم نسخ رابط ومعلومات الدعوة إلى الحافظة! 📋",
     toast_settings_saved: "تم حفظ معلومات الاجتماع بنجاح! ⚙️",
     toast_amen_clicked: "لقد شاركت في الصلاة الشفاعية. آمين! ❤️",
-    local_time_prefix: "توقيتك المحلي: "
+    local_time_prefix: "توقيتك المحلي: ",
+    country_filter_title: "🌍 تصفية حسب الدول الثماني",
+    country_filter_all: "🌐 كل الأمم"
   },
   fr: {
     brand_title: "Arise Next-Gen",
@@ -450,7 +458,9 @@ const translations = {
     toast_copied: "L'invitation et le lien ont été copiés dans le presse-papiers ! 📋",
     toast_settings_saved: "Informations de réunion enregistrées ! ⚙️",
     toast_amen_clicked: "Vous avez rejoint l'intercession. Amen ! ❤️",
-    local_time_prefix: "Votre Heure Locale : "
+    local_time_prefix: "Votre Heure Locale : ",
+    country_filter_title: "🌍 Filtrer par 8 nations",
+    country_filter_all: "🌐 Toutes les nations"
   },
   zh: {
     brand_title: "Arise Next-Gen",
@@ -539,7 +549,9 @@ const translations = {
     toast_copied: "邀请链接与说明已复制到剪贴板！📋",
     toast_settings_saved: "聚会设置已成功保存！⚙️",
     toast_amen_clicked: "您已加入同心中保祷告。阿们！❤️",
-    local_time_prefix: "您的当地时间: "
+    local_time_prefix: "您的当地时间: ",
+    country_filter_title: "🌍 8国列国代祷筛选",
+    country_filter_all: "🌐 全球列国"
   },
   id: {
     brand_title: "Arise Next-Gen",
@@ -628,7 +640,9 @@ const translations = {
     toast_copied: "Tautan undangan dan detail telah disalin ke papan klip! 📋",
     toast_settings_saved: "Pengaturan pertemuan berhasil disimpan! ⚙️",
     toast_amen_clicked: "Anda telah bergabung dalam doa syafaat. Amin! ❤️",
-    local_time_prefix: "Waktu Lokal Anda: "
+    local_time_prefix: "Waktu Lokal Anda: ",
+    country_filter_title: "🌍 Filter Menurut 8 Negara",
+    country_filter_all: "🌐 Semua Bangsa"
   },
   my: {
     brand_title: "Arise Next-Gen",
@@ -717,7 +731,9 @@ const translations = {
     toast_copied: "ဖိတ်ကြားချက်လင့်ခ်ကို ကူးယူပြီးပါပြီ! 📋",
     toast_settings_saved: "အစည်းအဝေး အချက်အလက်များကို သိမ်းဆည်းပြီးပါပြီ! ⚙️",
     toast_amen_clicked: "သင်သည် ကြားဝင်ဆုတောင်းခြင်း၌ ပါဝင်ခဲ့ပါသည်။ အာမင်! ❤️",
-    local_time_prefix: "သင့်ဒေသ စံတော်ချိန်: "
+    local_time_prefix: "သင့်ဒေသ စံတော်ချိန်: ",
+    country_filter_title: "🌍 8 နိုင်ငံအလိုက် ဆုတောင်းချက်",
+    country_filter_all: "🌐 နိုင်ငံအားလုံး"
   }
 };
 
@@ -850,27 +866,26 @@ const defaultTestimonies = [
     content: "어려운 환경에 있는 고향 미얀마의 아이들에게 스마트폰으로 'Way Maker' 찬양을 가르쳐주었습니다. 아이들의 눈빛에 희망과 복음의 빛이 깃들기 시작했습니다.",
     content_en: "I taught the song 'Way Maker' to children back in Myanmar via smartphone. Hope and the light of Christ are filling their eyes!",
     date: "2026-09-06"
-  }
-];
-
-// Always sync newly added nations
-const DATA_VERSION = 'v2_8_nations';
-if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
-  localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
-  localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
-  localStorage.setItem('prayer_hub_data_ver', DATA_VERSION);
-}
-
-// App State
-let prayers = JSON.parse(localStorage.getItem('prayer_hub_prayers')) || defaultPrayers;
-let testimonies = JSON.parse(localStorage.getItem('prayer_hub_testimonies')) || defaultTestimonies;
-let currentFilter = 'all';
+  },
+  {
+    id: 4,
+    author: "Sister Grace (그레이스)",
+    country: "🇵🇭 Philippines",
+    title: "찬양을 통한 청소년 치유의 응답",
     title_en: "Youth Healed Through Gospel Worship",
     content: "우울증으로 방황하던 현지 청소년이 우리 모임에서 배운 'Way Maker' 찬양을 함께 부르며 눈물로 회복되었습니다. 이제는 유초등부 찬양팀을 돕고 있습니다.",
     content_en: "A struggling teenager found peace and joy in Christ while singing 'Way Maker' together. He is now serving on the children's worship team!",
     date: "2026-09-02"
   }
 ];
+
+// Always sync newly added nations
+const DATA_VERSION = 'v3_8_nations';
+if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
+  localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
+  localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
+  localStorage.setItem('prayer_hub_data_ver', DATA_VERSION);
+}
 
 // App State
 let prayers = JSON.parse(localStorage.getItem('prayer_hub_prayers')) || defaultPrayers;
@@ -1035,18 +1050,33 @@ function filterPrayers(category) {
   document.querySelectorAll('.filter-tab').forEach(tab => {
     tab.classList.toggle('active', tab.getAttribute('data-filter') === category);
   });
+  document.querySelectorAll('.country-chip').forEach(chip => {
+    chip.classList.toggle('active', chip.getAttribute('data-country') === 'all');
+  });
   renderPrayers();
 }
 
 function filterByCountry(countryKey) {
-  currentFilter = 'country:' + countryKey;
-  document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.remove('active'));
+  if (countryKey === 'all') {
+    currentFilter = 'all';
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.classList.toggle('active', tab.getAttribute('data-filter') === 'all');
+    });
+  } else {
+    currentFilter = 'country:' + countryKey;
+    document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.remove('active'));
+  }
+  document.querySelectorAll('.country-chip').forEach(chip => {
+    chip.classList.toggle('active', chip.getAttribute('data-country') === countryKey);
+  });
   renderPrayers();
   const prayerWall = document.getElementById('prayer-wall');
   if (prayerWall) {
     prayerWall.scrollIntoView({ behavior: 'smooth' });
   }
-  showToast(`${countryKey} ${translations[currentLang].prayer_badge}`, "🌍");
+  if (countryKey !== 'all') {
+    showToast(`${countryKey} ${translations[currentLang].prayer_badge}`, "🌍");
+  }
 }
 
 function renderPrayers() {
@@ -1076,8 +1106,8 @@ function renderPrayers() {
   }
 
   grid.innerHTML = filtered.map(item => {
-    // Show English version if current language is 'en' and translation exists
-    const content = (currentLang === 'en' && item.content_en) ? item.content_en : item.content;
+    // Show English version if current language is not Korean and translation exists
+    const content = (currentLang !== 'ko' && item.content_en) ? item.content_en : item.content;
     const catLabel = getCategoryLabel(item.category);
 
     return `
@@ -1194,8 +1224,8 @@ function renderTestimonies() {
   if (!grid) return;
 
   grid.innerHTML = testimonies.map(item => {
-    const title = (currentLang === 'en' && item.title_en) ? item.title_en : item.title;
-    const content = (currentLang === 'en' && item.content_en) ? item.content_en : item.content;
+    const title = (currentLang !== 'ko' && item.title_en) ? item.title_en : item.title;
+    const content = (currentLang !== 'ko' && item.content_en) ? item.content_en : item.content;
 
     return `
       <div class="testimony-card">

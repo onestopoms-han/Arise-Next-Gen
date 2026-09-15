@@ -296,6 +296,23 @@
         <button class="filter-tab" data-filter="evangelism" onclick="filterPrayers('evangelism')" data-i18n="filter_evangelism">✝️ 전도와 제자</button>
       </div>
 
+      <!-- 8 Nations Country Filter Bar -->
+      <div class="country-filter-container">
+        <div class="country-filter-label" data-i18n="country_filter_title">🌍 8개국 열방별 기도보기</div>
+        <div class="country-chips-row">
+          <button type="button" class="country-chip active" onclick="filterByCountry('all')" data-country="all" data-i18n="country_filter_all">🌐 전체 열방</button>
+          <button type="button" class="country-chip" onclick="filterByCountry('Ghana')" data-country="Ghana">🇬🇭 Ghana (가나)</button>
+          <button type="button" class="country-chip" onclick="filterByCountry('Nigeria')" data-country="Nigeria">🇳🇬 Nigeria (나이지리아)</button>
+          <button type="button" class="country-chip" onclick="filterByCountry('Thailand')" data-country="Thailand">🇹🇭 Thailand (태국)</button>
+          <button type="button" class="country-chip" onclick="filterByCountry('Egypt')" data-country="Egypt">🇪🇬 Egypt (이집트)</button>
+          <button type="button" class="country-chip" onclick="filterByCountry('France')" data-country="France">🇫🇷 France (프랑스)</button>
+          <button type="button" class="country-chip" onclick="filterByCountry('China')" data-country="China">🇨🇳 China (중국)</button>
+          <button type="button" class="country-chip" onclick="filterByCountry('Indonesia')" data-country="Indonesia">🇮🇩 Indonesia (인도네시아)</button>
+          <button type="button" class="country-chip" onclick="filterByCountry('Myanmar')" data-country="Myanmar">🇲🇲 Myanmar (미얀마)</button>
+          <button type="button" class="country-chip" onclick="filterByCountry('Korea')" data-country="Korea">🇰🇷 Korea (한국)</button>
+        </div>
+      </div>
+
       <!-- Prayer Cards Grid -->
       <div class="prayer-grid" id="prayerGrid">
         <!-- Dynamically rendered via app.js -->
