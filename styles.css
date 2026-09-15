@@ -334,32 +334,70 @@ body {
   gap: 0.75rem;
 }
 
-/* Language Switcher */
-.lang-switch-container {
-  display: flex;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border-subtle);
-  padding: 3px;
-  border-radius: 10px;
-}
-
-.lang-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.35rem 0.65rem;
-  border-radius: 7px;
-  cursor: pointer;
+/* Global Multi-Language Selector Dropdown */
+.lang-dropdown-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(22, 30, 56, 0.85);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  position: relative;
   transition: var(--transition-smooth);
 }
 
-.lang-btn.active {
-  background: rgba(255, 255, 255, 0.15);
+.lang-dropdown-wrapper:hover {
+  border-color: var(--accent-gold);
+  background: rgba(30, 41, 75, 0.95);
+}
+
+.lang-icon {
+  font-size: 1.05rem;
+}
+
+.global-lang-select {
+  background: transparent;
+  border: none;
   color: #FFF;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  padding-right: 0.5rem;
+}
+
+.global-lang-select option {
+  background: #0F172A;
+  color: #FFF;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+/* RTL Support for Arabic (Egypt) */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .hero-badge,
+[dir="rtl"] .scripture-ref,
+[dir="rtl"] .brand-logo,
+[dir="rtl"] .prayer-author-info {
+  direction: rtl;
+}
+
+[dir="rtl"] .core-prayer-item {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+[dir="rtl"] .testimony-quote {
+  border-left: none;
+  border-right: 2px solid var(--accent-indigo);
+  padding-left: 0;
+  padding-right: 0.8rem;
 }
 
 .mobile-toggle-btn {
