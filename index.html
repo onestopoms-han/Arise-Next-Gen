@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아라이즈 넥스트젠 | Arise Next-Gen Global Prayer Hub</title>
+  <meta name="description" content="전 세계 전도자와 성도들이 다음 세대(후대)를 위해 함께 모여 기도하고 은혜를 나누는 글로벌 기도 네트워크">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-lang="ko">
+  <!-- Background Glow Orbs -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-container">
+      <a href="#" class="brand-logo" id="brandLogo">
+        <span class="brand-icon">✨</span>
+        <div class="brand-text">
+          <span class="brand-title" data-i18n="brand_title">아라이즈 넥스트젠</span>
+          <span class="brand-sub" data-i18n="brand_subtitle">Arise Next-Gen Prayer Hub</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#countdown" class="nav-link" data-i18n="nav_meeting">기도모임 안내</a>
+        <a href="#routine" class="nav-link" data-i18n="nav_routine">30분 루틴</a>
+        <a href="#prayer-wall" class="nav-link" data-i18n="nav_prayer_wall">기도 정원</a>
+        <a href="#testimonies" class="nav-link" data-i18n="nav_testimonies">은혜의 간증</a>
+        <a href="#worship" class="nav-link" data-i18n="nav_worship">찬양 라운지</a>
+      </nav>
+
+      <!-- Action Buttons & Language Switcher -->
+      <div class="header-actions">
+        <!-- Language Switcher Toggle -->
+        <div class="lang-switch-container">
+          <button type="button" class="lang-btn active" id="btnLangKo" onclick="setLanguage('ko')" aria-label="한국어">
+            🇰🇷 한국어
+          </button>
+          <button type="button" class="lang-btn" id="btnLangEn" onclick="setLanguage('en')" aria-label="English">
+            🇺🇸 English
+          </button>
+        </div>
+
+        <!-- Meeting Host Settings Button -->
+        <button class="icon-btn" id="btnOpenSettings" title="모임 설정 / Meeting Settings" onclick="openModal('settingsModal')">
+          ⚙️
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle-btn" id="mobileToggleBtn" onclick="toggleMobileMenu()" aria-label="메뉴 열기">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Live Countdown -->
+  <section class="hero-section" id="countdown">
+    <div class="container hero-container">
+      <!-- Badge -->
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span data-i18n="hero_badge">월 1회 30분 | 전 세계가 함께하는 다음 세대 중보기도</span>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="hero-title" data-i18n="hero_title">
+        일어나 빛을 발하라!<br>
+        <span class="gradient-text">열방의 후대를 기도로 품다</span>
+      </h1>
+
+      <p class="hero-subtitle" data-i18n="hero_subtitle">
+        복음으로 만난 외국인 성도들과 전도자가 한자리에 모여 다음 세대와 렘넌트를 위해 간절히 기도하는 거룩한 다락방입니다.
+      </p>
+
+      <!-- Scripture Banner -->
+      <div class="scripture-card">
+        <div class="scripture-quote-icon">“</div>
+        <p class="scripture-text" data-i18n="hero_scripture_text">
+          "또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라 그들이 또 다른 사람들을 가르칠 수 있으리라"
+        </p>
+        <span class="scripture-ref" data-i18n="hero_scripture_ref">디모데후서 2:2 (2 Timothy 2:2)</span>
+      </div>
+
+      <!-- Countdown Card Box -->
+      <div class="countdown-card">
+        <div class="countdown-header">
+          <div class="meeting-meta">
+            <span class="meeting-status-tag" data-i18n="countdown_tag">다음 모임 D-Day</span>
+            <h3 class="next-meeting-date" id="displayMeetingDate">매월 첫째 주 화요일 오후 9:00 KST</h3>
+          </div>
+          <div class="world-clock-badge" id="worldClockInfo">
+            🌐 KST (UTC+9) | <span id="localTimeDisplay">현지 시각 변환 중...</span>
+          </div>
+        </div>
+
+        <!-- Countdown Digits Grid -->
+        <div class="countdown-grid">
+          <div class="time-block">
+            <div class="time-val" id="countDays">00</div>
+            <div class="time-label" data-i18n="time_days">일 (Days)</div>
+          </div>
+          <div class="time-sep">:</div>
+          <div class="time-block">
+            <div class="time-val" id="countHours">00</div>
+            <div class="time-label" data-i18n="time_hours">시간 (Hours)</div>
+          </div>
+          <div class="time-sep">:</div>
+          <div class="time-block">
+            <div class="time-val" id="countMinutes">00</div>
+            <div class="time-label" data-i18n="time_mins">분 (Mins)</div>
+          </div>
+          <div class="time-sep">:</div>
+          <div class="time-block">
+            <div class="time-val highlight" id="countSeconds">00</div>
+            <div class="time-label" data-i18n="time_secs">초 (Secs)</div>
+          </div>
+        </div>
+
+        <!-- Join Actions -->
+        <div class="countdown-actions">
+          <button class="btn btn-primary btn-glow" id="btnJoinMeeting" onclick="joinMeetingRoom()">
+            <span class="btn-icon">🕊️</span>
+            <span data-i18n="btn_join_room">온라인 기도모임 입장하기 (Zoom)</span>
+          </button>
+          <button class="btn btn-outline" id="btnCopyMeetingLink" onclick="copyMeetingLink()">
+            <span class="btn-icon">📋</span>
+            <span data-i18n="btn_copy_link">초대 링크 & ID 복사</span>
+          </button>
+        </div>
+
+        <!-- Global Timezones Bar for our 8+ nations -->
+        <div class="global-times-bar" id="globalTimesBar">
+          <div class="global-times-title" data-i18n="global_times_title">🌍 참여 열방 현지 시각 (Meeting Time by Nation)</div>
+          <div class="timezone-chips">
+            <span class="tz-chip">🇰🇷 <strong>서울</strong> 21:00</span>
+            <span class="tz-chip">🇬🇭 <strong>가나</strong> 12:00</span>
+            <span class="tz-chip">🇳🇬 <strong>나이지리아</strong> 13:00</span>
+            <span class="tz-chip">🇹🇭 <strong>태국</strong> 19:00</span>
+            <span class="tz-chip">🇪🇬 <strong>이집트</strong> 14:00</span>
+            <span class="tz-chip">🇫🇷 <strong>프랑스</strong> 14:00</span>
+            <span class="tz-chip">🇨🇳 <strong>중국</strong> 20:00</span>
+            <span class="tz-chip">🇮🇩 <strong>인도네시아</strong> 19:00</span>
+            <span class="tz-chip">🇲🇲 <strong>미얀마</strong> 18:30</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Participating Nations Marquee / Pills -->
+      <div class="nations-showcase">
+        <span class="nations-label" data-i18n="nations_label">함께 기도하는 열방 (클릭 시 기도 보기) :</span>
+        <div class="nations-pills">
+          <span class="nation-pill" onclick="filterByCountry('Ghana')" style="cursor: pointer;">🇬🇭 Ghana (가나)</span>
+          <span class="nation-pill" onclick="filterByCountry('Nigeria')" style="cursor: pointer;">🇳🇬 Nigeria (나이지리아)</span>
+          <span class="nation-pill" onclick="filterByCountry('Thailand')" style="cursor: pointer;">🇹🇭 Thailand (태국)</span>
+          <span class="nation-pill" onclick="filterByCountry('Egypt')" style="cursor: pointer;">🇪🇬 Egypt (이집트)</span>
+          <span class="nation-pill" onclick="filterByCountry('France')" style="cursor: pointer;">🇫🇷 France (프랑스)</span>
+          <span class="nation-pill" onclick="filterByCountry('China')" style="cursor: pointer;">🇨🇳 China (중국)</span>
+          <span class="nation-pill" onclick="filterByCountry('Indonesia')" style="cursor: pointer;">🇮🇩 Indonesia (인도네시아)</span>
+          <span class="nation-pill" onclick="filterByCountry('Myanmar')" style="cursor: pointer;">🇲🇲 Myanmar (미얀마)</span>
+          <span class="nation-pill" onclick="filterByCountry('Korea')" style="cursor: pointer;">🇰🇷 Korea (한국)</span>
+          <span class="nation-pill" onclick="filterByCountry('USA')" style="cursor: pointer;">🇺🇸 USA (미국)</span>
+          <span class="nation-pill" onclick="filterByCountry('Philippines')" style="cursor: pointer;">🇵🇭 Philippines (필리핀)</span>
+          <span class="nation-pill" onclick="filterByCountry('Vietnam')" style="cursor: pointer;">🇻🇳 Vietnam (베트남)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 30-Minute Routine Section -->
+  <section class="routine-section" id="routine">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge" data-i18n="routine_badge">타이트하고 깊은 은혜</span>
+        <h2 class="section-title" data-i18n="routine_title">30분 집중 기도모임 황금 루틴</h2>
+        <p class="section-desc" data-i18n="routine_desc">
+          시차와 국경을 넘어 짧은 시간 가장 강력하게 성령 안에서 하나 되는 4단계 순서입니다.
+        </p>
+      </div>
+
+      <div class="routine-grid">
+        <!-- Step 1 -->
+        <div class="routine-card">
+          <div class="step-time">00 ~ 05 min</div>
+          <div class="step-icon">🎶</div>
+          <h3 class="step-title" data-i18n="routine_step1_title">웰컴 & 글로벌 찬양</h3>
+          <p class="step-desc" data-i18n="routine_step1_desc">
+            전 세계 성도들이 함께 아는 익숙한 찬양 1곡으로 마음의 문을 열고 주님의 임재를 구합니다.
+          </p>
+          <div class="step-tag">Praise & Welcome</div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="routine-card">
+          <div class="step-time">05 ~ 12 min</div>
+          <div class="step-icon">📖</div>
+          <h3 class="step-title" data-i18n="routine_step2_title">후대 언약의 숏 메시지</h3>
+          <p class="step-desc" data-i18n="routine_step2_desc">
+            성경 1~2구절 중심의 핵심 말씀 나눔 (영어-한국어 자막 슬라이드 제공).
+          </p>
+          <div class="step-tag">Gospel Message</div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="routine-card highlight-card">
+          <div class="step-time">12 ~ 25 min</div>
+          <div class="step-icon">🔥</div>
+          <h3 class="step-title" data-i18n="routine_step3_title">3대 집중 중보기도</h3>
+          <p class="step-desc" data-i18n="routine_step3_desc">
+            ① 전 세계 후대 복음화 ② 각 나라 현장 사역 ③ 전도자와 교회. 각자의 모국어로 부르짖습니다!
+          </p>
+          <div class="step-tag highlight-tag">13-Min Intercession</div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="routine-card">
+          <div class="step-time">25 ~ 30 min</div>
+          <div class="step-icon">🌱</div>
+          <h3 class="step-title" data-i18n="routine_step4_title">1분 간증 & 축복 기도</h3>
+          <p class="step-desc" data-i18n="routine_step4_desc">
+            외국인 지체의 짧은 현장 응답 간증을 듣고, 서로를 향한 축도와 주기도문으로 마칩니다.
+          </p>
+          <div class="step-tag">Testimony & Blessing</div>
+        </div>
+      </div>
+
+      <!-- Quick Prayer Topic Card -->
+      <div class="core-prayer-card">
+        <h4 class="core-prayer-heading" data-i18n="core_prayer_heading">📌 이달의 3대 핵심 기도제목 (This Month's Focus)</h4>
+        <div class="core-prayer-list">
+          <div class="core-prayer-item">
+            <span class="core-num">01</span>
+            <div class="core-content">
+              <strong data-i18n="focus_1_title">열방의 후대들에게 구원의 빛이 비추어지도록</strong>
+              <p data-i18n="focus_1_desc">세속화와 영적 혼란 속에 있는 각 나라의 청소년, 청년들이 복음 안에서 참된 정체성을 발견하게 하옵소서.</p>
+            </div>
+          </div>
+          <div class="core-prayer-item">
+            <span class="core-num">02</span>
+            <div class="core-content">
+              <strong data-i18n="focus_2_title">외국인 성도들의 모국에 후대 사역자가 세워지도록</strong>
+              <p data-i18n="focus_2_desc">복음을 받은 성도들이 자기 나라와 가문의 후대들을 양육할 제자로 굳건히 서게 하옵소서.</p>
+            </div>
+          </div>
+          <div class="core-prayer-item">
+            <span class="core-num">03</span>
+            <div class="core-content">
+              <strong data-i18n="focus_3_title">복음 전하는 전도자들의 건강과 성령 충만을 위해</strong>
+              <p data-i18n="focus_3_desc">후대를 살리기 위해 현장에서 쉬지 않고 복음을 전파하는 전도자들에게 오력(영력·지력·체력·경제력·인력)을 더하옵소서.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Prayer Wall Section -->
+  <section class="prayer-wall-section" id="prayer-wall">
+    <div class="container">
+      <div class="section-header-row">
+        <div>
+          <span class="section-badge" data-i18n="prayer_badge">24시간 중보 네트워크</span>
+          <h2 class="section-title" data-i18n="prayer_title">글로벌 기도 정원 (Prayer Wall)</h2>
+          <p class="section-desc" data-i18n="prayer_desc">
+            각 나라 지체들이 올린 후대 기도제목입니다. [아멘 🙏]을 눌러 함께 기도해 주세요.
+          </p>
+        </div>
+        <button class="btn btn-primary" id="btnOpenPrayerModal" onclick="openModal('prayerModal')">
+          <span class="btn-icon">✍️</span>
+          <span data-i18n="btn_post_prayer">후대 기도제목 올리기</span>
+        </button>
+      </div>
+
+      <!-- Filter Categories -->
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all" onclick="filterPrayers('all')" data-i18n="filter_all">전체보기</button>
+        <button class="filter-tab" data-filter="next-gen" onclick="filterPrayers('next-gen')" data-i18n="filter_nextgen">👶 후대/청소년</button>
+        <button class="filter-tab" data-filter="missions" onclick="filterPrayers('missions')" data-i18n="filter_missions">🌍 열방 선교</button>
+        <button class="filter-tab" data-filter="evangelism" onclick="filterPrayers('evangelism')" data-i18n="filter_evangelism">✝️ 전도와 제자</button>
+      </div>
+
+      <!-- Prayer Cards Grid -->
+      <div class="prayer-grid" id="prayerGrid">
+        <!-- Dynamically rendered via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Grace & Testimonies Section -->
+  <section class="testimonies-section" id="testimonies">
+    <div class="container">
+      <div class="section-header-row">
+        <div>
+          <span class="section-badge" data-i18n="testimony_badge">하나님이 하신 일</span>
+          <h2 class="section-title" data-i18n="testimony_title">은혜의 현장 간증 (Grace Feed)</h2>
+          <p class="section-desc" data-i18n="testimony_desc">
+            외국인 성도들과 현장에서 일어난 감사의 열매와 복음 응답을 나눕니다.
+          </p>
+        </div>
+        <button class="btn btn-outline" id="btnOpenTestimonyModal" onclick="openModal('testimonyModal')">
+          <span class="btn-icon">🌟</span>
+          <span data-i18n="btn_post_testimony">간증 나누기</span>
+        </button>
+      </div>
+
+      <div class="testimony-grid" id="testimonyGrid">
+        <!-- Dynamically rendered via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Worship & Praise Lounge Section -->
+  <section class="worship-section" id="worship">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge" data-i18n="worship_badge">한 목소리로 찬양</span>
+        <h2 class="section-title" data-i18n="worship_title">글로벌 워십 라운지 (Worship Lounge)</h2>
+        <p class="section-desc" data-i18n="worship_desc">
+          기도모임 때 함께 부르거나 일상 속에서 묵상하기 좋은 전 세계 찬양 모음입니다.
+        </p>
+      </div>
+
+      <div class="worship-grid">
+        <!-- Song 1 -->
+        <div class="worship-card">
+          <div class="worship-video-preview">
+            <iframe src="https://www.youtube-nocookie.com/embed/2Zars01D38E" title="Way Maker (Official Live Video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="worship-info">
+            <span class="worship-tag">Worship Song #1</span>
+            <h4 class="worship-title">Way Maker (길을 만드시는 분)</h4>
+            <p class="worship-meta">Sinach / Leeland • 영어 & 한국어 버전</p>
+            <p class="worship-lyrics-snippet" data-i18n="lyrics_snippet_1">
+              "Way maker, Miracle worker, Promise keeper, Light in the darkness, my God, that is who You are."
+            </p>
+          </div>
+        </div>
+
+        <!-- Song 2 -->
+        <div class="worship-card">
+          <div class="worship-video-preview">
+            <iframe src="https://www.youtube-nocookie.com/embed/Zp6aygmvzM4" title="The Blessing (Live Video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="worship-info">
+            <span class="worship-tag">Worship Song #2</span>
+            <h4 class="worship-title">The Blessing (주의 축복이 네게 임하길)</h4>
+            <p class="worship-meta">Kari Jobe, Cody Carnes, Elevation Worship</p>
+            <p class="worship-lyrics-snippet" data-i18n="lyrics_snippet_2">
+              "The Lord bless you and keep you, make His face shine upon you and be gracious to you." (후대를 향한 민수기 6장 축복)
+            </p>
+          </div>
+        </div>
+
+        <!-- Song 3 -->
+        <div class="worship-card">
+          <div class="worship-video-preview">
+            <iframe src="https://www.youtube-nocookie.com/embed/y8yGZk-J18s" title="How Great Is Our God" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="worship-info">
+            <span class="worship-tag">Worship Song #3</span>
+            <h4 class="worship-title">How Great Is Our God (위대하신 주)</h4>
+            <p class="worship-meta">Chris Tomlin • 다국어 찬양</p>
+            <p class="worship-lyrics-snippet" data-i18n="lyrics_snippet_3">
+              "The King of Kings and Lord of Lords, how great is our God, sing with me, how great is our God."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-col brand-col">
+        <div class="brand-logo footer-logo">
+          <span class="brand-icon">✨</span>
+          <span class="brand-title" data-i18n="brand_title">아라이즈 넥스트젠</span>
+        </div>
+        <p class="footer-desc" data-i18n="footer_desc">
+          열방의 렘넌트와 후대를 위해 복음의 전도자와 세계 성도들이 기도로 하나 되는 곳입니다.
+        </p>
+      </div>
+
+      <div class="footer-col info-col">
+        <h5 class="footer-heading" data-i18n="footer_schedule_title">정기 기도모임 안내</h5>
+        <p class="footer-text" data-i18n="footer_schedule_text">
+          • 일시: 매월 첫째 주 화요일 21:00 ~ 21:30 (KST 기준 30분)<br>
+          • 방식: 온라인 화상회의 (Zoom / Google Meet)<br>
+          • 언어: 한국어 & 영어 (Bilingual Session)
+        </p>
+      </div>
+
+      <div class="footer-col contact-col">
+        <h5 class="footer-heading" data-i18n="footer_action_title">빠른 연결</h5>
+        <div class="footer-buttons">
+          <button class="btn btn-sm btn-primary" onclick="joinMeetingRoom()" data-i18n="btn_join_room_short">기도모임 접속</button>
+          <button class="btn btn-sm btn-outline" onclick="openModal('settingsModal')" data-i18n="btn_settings_short">관리 및 설정</button>
+        </div>
+        <p class="copyright-text">© 2026 아라이즈 넥스트젠 (Arise Next-Gen). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODALS ================= -->
+
+  <!-- 1. Post Prayer Modal -->
+  <div class="modal-overlay" id="prayerModal" onclick="closeModalOnBackdrop(event, 'prayerModal')">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" data-i18n="modal_prayer_title">🙏 후대를 위한 기도제목 작성</h3>
+        <button class="modal-close" onclick="closeModal('prayerModal')">&times;</button>
+      </div>
+      <form id="prayerForm" onsubmit="handlePrayerSubmit(event)">
+        <div class="form-group">
+          <label class="form-label" data-i18n="modal_lbl_name">이름 또는 닉네임 (Name / Nickname)</label>
+          <input type="text" class="form-input" id="prayerAuthor" placeholder="예: Grace Lee, Joshua (익명 가능)" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group half">
+            <label class="form-label" data-i18n="modal_lbl_flag">국가 / 국기 (Country)</label>
+            <select class="form-select" id="prayerCountry">
+              <option value="🇬🇭 가나 (Ghana)">🇬🇭 가나 (Ghana)</option>
+              <option value="🇳🇬 나이지리아 (Nigeria)">🇳🇬 나이지리아 (Nigeria)</option>
+              <option value="🇹🇭 태국 (Thailand)">🇹🇭 태국 (Thailand)</option>
+              <option value="🇪🇬 이집트 (Egypt)">🇪🇬 이집트 (Egypt)</option>
+              <option value="🇫🇷 프랑스 (France)">🇫🇷 프랑스 (France)</option>
+              <option value="🇨🇳 중국 (China)">🇨🇳 중국 (China)</option>
+              <option value="🇮🇩 인도네시아 (Indonesia)">🇮🇩 인도네시아 (Indonesia)</option>
+              <option value="🇲🇲 미얀마 (Myanmar)">🇲🇲 미얀마 (Myanmar)</option>
+              <option value="🇰🇷 한국 (Korea)">🇰🇷 한국 (Korea)</option>
+              <option value="🇺🇸 미국 (USA)">🇺🇸 미국 (USA)</option>
+              <option value="🇵🇭 필리핀 (Philippines)">🇵🇭 필리핀 (Philippines)</option>
+              <option value="🇻🇳 베트남 (Vietnam)">🇻🇳 베트남 (Vietnam)</option>
+              <option value="🇲🇳 몽골 (Mongolia)">🇲🇳 몽골 (Mongolia)</option>
+              <option value="🇯🇵 일본 (Japan)">🇯🇵 일본 (Japan)</option>
+              <option value="🌍 기타 열방 (Global)">🌍 기타 열방 (Global)</option>
+            </select>
+          </div>
+          <div class="form-group half">
+            <label class="form-label" data-i18n="modal_lbl_category">기도 분야 (Category)</label>
+            <select class="form-select" id="prayerCategory">
+              <option value="next-gen">👶 후대 / 청소년 (Next Gen)</option>
+              <option value="missions">🌍 열방 선교 (Missions)</option>
+              <option value="evangelism">✝️ 전도와 제자 (Evangelism)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" data-i18n="modal_lbl_content">기도 제목 (Prayer Request - 한국어 or English)</label>
+          <textarea class="form-textarea" id="prayerContent" rows="4" placeholder="후대들을 향한 소망, 치유, 학업, 복음화를 위한 기도를 남겨주세요." required></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost" onclick="closeModal('prayerModal')" data-i18n="btn_cancel">취소</button>
+          <button type="submit" class="btn btn-primary" data-i18n="btn_submit_prayer">기도 올리기</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Post Testimony Modal -->
+  <div class="modal-overlay" id="testimonyModal" onclick="closeModalOnBackdrop(event, 'testimonyModal')">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" data-i18n="modal_testimony_title">🌟 은혜의 간증 나누기</h3>
+        <button class="modal-close" onclick="closeModal('testimonyModal')">&times;</button>
+      </div>
+      <form id="testimonyForm" onsubmit="handleTestimonySubmit(event)">
+        <div class="form-row">
+          <div class="form-group half">
+            <label class="form-label" data-i18n="modal_lbl_name">작성자 (Name)</label>
+            <input type="text" class="form-input" id="testimonyAuthor" placeholder="예: Pastor David, Maria" required>
+          </div>
+          <div class="form-group half">
+            <label class="form-label" data-i18n="modal_lbl_flag">국가 (Country)</label>
+            <select class="form-select" id="testimonyCountry">
+              <option value="🇬🇭 Ghana">🇬🇭 Ghana</option>
+              <option value="🇳🇬 Nigeria">🇳🇬 Nigeria</option>
+              <option value="🇹🇭 Thailand">🇹🇭 Thailand</option>
+              <option value="🇪🇬 Egypt">🇪🇬 Egypt</option>
+              <option value="🇫🇷 France">🇫🇷 France</option>
+              <option value="🇨🇳 China">🇨🇳 China</option>
+              <option value="🇮🇩 Indonesia">🇮🇩 Indonesia</option>
+              <option value="🇲🇲 Myanmar">🇲🇲 Myanmar</option>
+              <option value="🇰🇷 Korea">🇰🇷 Korea</option>
+              <option value="🇺🇸 USA">🇺🇸 USA</option>
+              <option value="🇵🇭 Philippines">🇵🇭 Philippines</option>
+              <option value="🇻🇳 Vietnam">🇻🇳 Vietnam</option>
+              <option value="🇲🇳 Mongolia">🇲🇳 Mongolia</option>
+              <option value="🌍 Global">🌍 Global</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" data-i18n="modal_lbl_title">간증 제목 (Title)</label>
+          <input type="text" class="form-input" id="testimonyTitle" placeholder="예: 현지 청년이 예수님을 영접했습니다" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" data-i18n="modal_lbl_testimony_content">은혜 내용 (Testimony Content)</label>
+          <textarea class="form-textarea" id="testimonyContent" rows="4" placeholder="하나님께서 후대와 현장에 행하신 놀라운 일들을 나누어 주세요." required></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost" onclick="closeModal('testimonyModal')" data-i18n="btn_cancel">취소</button>
+          <button type="submit" class="btn btn-primary" data-i18n="btn_submit_testimony">간증 등록</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Host Settings Modal -->
+  <div class="modal-overlay" id="settingsModal" onclick="closeModalOnBackdrop(event, 'settingsModal')">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">⚙️ <span data-i18n="modal_settings_title">기도모임 일정 및 링크 설정</span></h3>
+        <button class="modal-close" onclick="closeModal('settingsModal')">&times;</button>
+      </div>
+      <form id="settingsForm" onsubmit="handleSettingsSubmit(event)">
+        <p class="modal-info-text" data-i18n="settings_info_text">
+          전도자님께서 다음 모임 일시와 Zoom/Meet 링크를 직접 입력하여 참여자들에게 안내할 수 있습니다.
+        </p>
+
+        <div class="form-group">
+          <label class="form-label" data-i18n="lbl_next_meeting_date">다음 모임 일시 (날짜 & 시간)</label>
+          <input type="datetime-local" class="form-input" id="settingsDateTime" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" data-i18n="lbl_zoom_link">Zoom / Google Meet 회의 링크 URL</label>
+          <input type="url" class="form-input" id="settingsZoomUrl" placeholder="https://zoom.us/j/1234567890" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" data-i18n="lbl_meeting_id">회의 ID & 암호 안내 (Meeting ID & Passcode)</label>
+          <input type="text" class="form-input" id="settingsMeetingId" placeholder="ID: 888 1234 5678 / PW: 7777">
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost" onclick="closeModal('settingsModal')" data-i18n="btn_cancel">취소</button>
+          <button type="submit" class="btn btn-primary" data-i18n="btn_save_settings">설정 저장</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification element -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="app.js"></script>
+</body>
+</html>
