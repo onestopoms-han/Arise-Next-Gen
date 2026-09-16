@@ -949,8 +949,16 @@ const defaultRoutineContent = {
   }
 };
 
-// Always sync newly added nations & routine content
-const DATA_VERSION = 'v7_qld_host_base_time';
+// Meeting Settings Seed Data (호주 퀸즈랜드 8:00 PM AEST 기준)
+const defaultMeetingSettings = {
+  // 2026년 10월 4일 (일) 호주 퀸즈랜드 8:00 PM (AEST, UTC+10) = 한국 19:00 KST (UTC+9)
+  meetingDate: "2026-10-04T20:00:00+10:00",
+  zoomUrl: "https://zoom.us/j/88812345678",
+  meetingId: "Zoom ID: 888 1234 5678 | Passcode: 7777"
+};
+
+// Always sync newly added nations & routine content & meeting settings
+const DATA_VERSION = 'v8_fix_tdz_countdown_clock';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -963,17 +971,8 @@ if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
 let prayers = JSON.parse(localStorage.getItem('prayer_hub_prayers')) || defaultPrayers;
 let testimonies = JSON.parse(localStorage.getItem('prayer_hub_testimonies')) || defaultTestimonies;
 let routineContent = JSON.parse(localStorage.getItem('prayer_hub_routine_content')) || defaultRoutineContent;
-let currentFilter = 'all';
-
-// Meeting Settings
-const defaultMeetingSettings = {
-  // 2026년 10월 4일 (일) 호주 퀸즈랜드 8:00 PM (AEST, UTC+10) = 한국 19:00 KST (UTC+9)
-  meetingDate: "2026-10-04T20:00:00+10:00",
-  zoomUrl: "https://zoom.us/j/88812345678",
-  meetingId: "Zoom ID: 888 1234 5678 | Passcode: 7777"
-};
-
 let meetingSettings = JSON.parse(localStorage.getItem('prayer_hub_meeting_settings')) || defaultMeetingSettings;
+let currentFilter = 'all';
 
 // Compute default next first Tuesday in Queensland (AEST, UTC+10) time
 function getNextMeetingDateString() {
@@ -1058,16 +1057,30 @@ function updateMeetingDisplay() {
   }
 }
 
+let countdownIntervalId = null;
+
 function startCountdown() {
   const daysEl = document.getElementById('countDays');
   const hoursEl = document.getElementById('countHours');
   const minsEl = document.getElementById('countMinutes');
   const secsEl = document.getElementById('countSeconds');
 
+  if (countdownIntervalId) {
+    clearInterval(countdownIntervalId);
+  }
+
   function tick() {
     const now = new Date().getTime();
     const target = new Date(meetingSettings.meetingDate).getTime();
     const diff = target - now;
+
+    if (isNaN(diff)) {
+      if (daysEl) daysEl.textContent = "00";
+      if (hoursEl) hoursEl.textContent = "00";
+      if (minsEl) minsEl.textContent = "00";
+      if (secsEl) secsEl.textContent = "00";
+      return;
+    }
 
     if (diff <= 0) {
       if (daysEl) daysEl.textContent = "00";
@@ -1089,7 +1102,7 @@ function startCountdown() {
   }
 
   tick();
-  setInterval(tick, 1000);
+  countdownIntervalId = setInterval(tick, 1000);
 }
 
 // Join Room Action
@@ -1380,6 +1393,7 @@ function handleSettingsSubmit(e) {
   localStorage.setItem('prayer_hub_meeting_settings', JSON.stringify(meetingSettings));
 
   updateMeetingDisplay();
+  startCountdown();
   closeModal('settingsModal');
   showToast(translations[currentLang].toast_settings_saved, "⚙️");
 }
