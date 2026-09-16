@@ -17,7 +17,7 @@ const translations = {
     nav_worship: "찬양 라운지",
     hero_badge: "월 1회 30분 | 전 세계가 함께하는 다음 세대 중보기도",
     hero_title: "일어나 빛을 발하라!<br><span class=\"gradient-text\">열방의 후대를 기도로 품다</span>",
-    hero_subtitle: "복음으로 만난 외국인 성도들과 전도자가 한자리에 모여 다음 세대와 렘넌트를 위해 간절히 기도하는 거룩한 다락방입니다.",
+    hero_subtitle: "복음으로 만난 다민족 제자들과 전도자가 한자리에 모여 하나님의 모든 관심인 모든 족속 복음화와 다음 세대에 이 복음을 전달하기 위해 간절히 기도하는 플랫폼입니다.",
     hero_scripture_text: "\"또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라 그들이 또 다른 사람들을 가르칠 수 있으리라\"",
     hero_scripture_ref: "디모데후서 2:2 (2 Timothy 2:2)",
     countdown_tag: "다음 모임 D-Day",
@@ -37,12 +37,12 @@ const translations = {
     routine_step3_title: "3대 집중 중보기도 (5~10분)",
     routine_step3_desc: "① 전 세계 후대 복음화 ② 각 나라 현장 사역 ③ 전도자와 교회. 각자의 모국어로 부르짖습니다!",
     routine_step4_title: "현장 간증 & 마무리 축복 (2~3분)",
-    routine_step4_desc: "외국인 지체의 짧은 현장 응답 간증을 듣고, 서로를 향한 축도와 주기도문으로 마칩니다.",
+    routine_step4_desc: "다민족 제자의 짧은 현장 응답 간증을 듣고, 서로를 향한 축도와 주기도문으로 마칩니다.",
     core_prayer_heading: "📌 이달의 3대 핵심 기도제목 (This Month's Focus)",
     focus_1_title: "열방의 후대들에게 구원의 빛이 비추어지도록",
     focus_1_desc: "세속화와 영적 혼란 속에 있는 각 나라의 청소년, 청년들이 복음 안에서 참된 정체성을 발견하게 하옵소서.",
-    focus_2_title: "외국인 성도들의 모국에 후대 사역자가 세워지도록",
-    focus_2_desc: "복음을 받은 성도들이 자기 나라와 가문의 후대들을 양육할 제자로 굳건히 서게 하옵소서.",
+    focus_2_title: "다민족 제자들의 모국에 후대 사역자가 세워지도록",
+    focus_2_desc: "복음을 받은 다민족 제자들이 자기 나라와 가문의 후대들을 양육할 사역자로 굳건히 서게 하옵소서.",
     focus_3_title: "복음 전하는 전도자들의 건강과 성령 충만을 위해",
     focus_3_desc: "후대를 살리기 위해 현장에서 쉬지 않고 복음을 전파하는 전도자들에게 오력(영력·지력·체력·경제력·인력)을 더하옵소서.",
     prayer_badge: "24시간 중보 네트워크",
@@ -55,7 +55,7 @@ const translations = {
     filter_evangelism: "✝️ 전도와 제자",
     testimony_badge: "하나님이 하신 일",
     testimony_title: "은혜의 현장 간증 (Grace Feed)",
-    testimony_desc: "외국인 성도들과 현장에서 일어난 감사의 열매와 복음 응답을 나눕니다.",
+    testimony_desc: "다민족 제자들과 현장에서 일어난 감사의 열매와 복음 응답을 나눕니다.",
     btn_post_testimony: "간증 나누기",
     worship_badge: "한 목소리로 찬양",
     worship_title: "글로벌 워십 라운지 (Worship Lounge)",
@@ -63,9 +63,9 @@ const translations = {
     lyrics_snippet_1: "\"Way maker, Miracle worker, Promise keeper, Light in the darkness, my God, that is who You are.\" (길을 만드시고 기적을 행하시는 주님)",
     lyrics_snippet_2: "\"주의 은혜가 네게 넘쳐나길 원하네. 천 대까지 네 자손에게 복이 있기를.\" (후대를 향한 민수기 6장 제사장적 축복)",
     lyrics_snippet_3: "\"온 땅이여 주를 찬양하라, 위대하신 우리 하나님을 노래하라.\" (만유의 주 예수 그리스도 찬양)",
-    footer_desc: "열방의 렘넌트와 후대를 위해 복음의 전도자와 세계 성도들이 기도로 하나 되는 곳입니다.",
+    footer_desc: "열방의 다음세대와 후대를 위해 복음의 전도자와 세계 성도들이 기도로 하나 되는 곳입니다.",
     footer_schedule_title: "정기 기도모임 안내",
-    footer_schedule_text: "• 일시: 매월 첫째 주 화요일 21:00 ~ 21:30 (KST 기준 30분)<br>• 방식: 온라인 화상회의 (Zoom / Google Meet)<br>• 언어: 한국어 & 영어 (Bilingual Session)",
+    footer_schedule_text: "• 일시: 2026년 10월 4일 (일) 20:00 퀸즈랜드 (호주) / 19:00 서울 (KST)<br>• 방식: 온라인 화상회의 (Zoom / Google Meet)<br>• 언어: 한국어 & 영어 (Bilingual Session)",
     footer_action_title: "빠른 연결",
     global_times_title: "🌍 참여 열방 현지 시각 (Meeting Time by Nation)",
     nations_label: "함께 기도하는 열방 :",
@@ -127,7 +127,7 @@ const translations = {
     nav_worship: "Worship Lounge",
     hero_badge: "Once a Month • 30 Mins | Global Intercession for Next-Gen",
     hero_title: "Arise, Shine!<br><span class=\"gradient-text\">Embracing the Next Generation in Prayer</span>",
-    hero_subtitle: "A sacred upper room where evangelists and believers from all nations unite once a month to pray for the next generation and remnants.",
+    hero_subtitle: "A prayer platform where disciples of all nations and evangelists gather to earnestly pray for world evangelization—God's ultimate heart—and passing the Gospel to the next generation.",
     hero_scripture_text: "\"And the things you have heard me say in the presence of many witnesses entrust to reliable people who will also be qualified to teach others.\"",
     hero_scripture_ref: "2 Timothy 2:2",
     countdown_tag: "Next Meeting Countdown",
@@ -147,12 +147,12 @@ const translations = {
     routine_step3_title: "3 Core Intercessory Prayers (5~10m)",
     routine_step3_desc: "① Next-Gen Salvation ② National Mission Fields ③ Gospel Preachers. Cry out in your own native tongue!",
     routine_step4_title: "1-Min Testimony & Blessing (2~3m)",
-    routine_step4_desc: "Hear a quick testimony of God's work abroad, followed by mutual blessings and benediction.",
+    routine_step4_desc: "Hear a quick testimony from a multi-ethnic disciple, followed by mutual blessings and benediction.",
     core_prayer_heading: "📌 This Month's 3 Core Prayer Topics",
     focus_1_title: "That the Light of Christ May Shine on the Next-Gen",
     focus_1_desc: "May youth and young adults trapped in secularism and confusion find their true identity in the Gospel.",
-    focus_2_title: "Disciples to be Raised in Each Believer's Homeland",
-    focus_2_desc: "May believers who embraced Christ stand as faithful leaders to nurture the next generation in their nations.",
+    focus_2_title: "Disciples to be Raised in Multi-Ethnic Believers' Homelands",
+    focus_2_desc: "May multi-ethnic disciples who embraced Christ stand as faithful leaders to nurture the next generation in their nations.",
     focus_3_title: "For the Health and Spiritual Fullness of Evangelists",
     focus_3_desc: "Grant five spiritual powers (spiritual, intellectual, physical, financial, human strength) to those preaching tirelessly.",
     prayer_badge: "24/7 Intercession Network",
@@ -165,7 +165,7 @@ const translations = {
     filter_evangelism: "✝️ Evangelism & Disciples",
     testimony_badge: "What God Has Done",
     testimony_title: "Grace & Field Testimonies",
-    testimony_desc: "Heartwarming fruits of faith, gospel answers, and field testimonies with international believers.",
+    testimony_desc: "Heartwarming fruits of faith, gospel answers, and field testimonies with multi-ethnic disciples.",
     btn_post_testimony: "Share Testimony",
     worship_badge: "Sing With One Voice",
     worship_title: "Global Worship Lounge",
@@ -175,7 +175,7 @@ const translations = {
     lyrics_snippet_3: "\"The King of Kings and Lord of Lords, how great is our God, sing with me, how great is our God.\"",
     footer_desc: "A united prayer hub connecting gospel evangelists and international saints for the next generation.",
     footer_schedule_title: "Monthly Meeting Info",
-    footer_schedule_text: "• When: 1st Tuesday of every month, 21:00 ~ 21:30 KST (30 mins)<br>• Platform: Online Video Conference (Zoom / Google Meet)<br>• Language: Korean & English (Bilingual Session)",
+    footer_schedule_text: "• When: Sun, Oct 4, 2026, 20:00 QLD (Australia) / 19:00 Seoul (KST)<br>• Platform: Online Video Conference (Zoom / Google Meet)<br>• Language: Korean & English (Bilingual Session)",
     footer_action_title: "Quick Links",
     global_times_title: "🌍 Meeting Time by Participating Nation",
     nations_label: "Participating Nations :",
@@ -509,7 +509,7 @@ const translations = {
     nav_testimonies: "恩典见证",
     nav_worship: "赞美休息室",
     hero_badge: "每月一次 • 30分钟 | 全球同心为下一代代祷",
-    hero_title: "兴起发光！<br><span class=\"gradient-text\">在祷告中怀抱万国的后代与Remnant</span>",
+    hero_title: "兴起发光！<br><span class=\"gradient-text\">在祷告中怀抱万国的后代与下一代</span>",
     hero_subtitle: "传道者与万国信徒每月一次齐聚一堂，为下一代和后代迫切祷告的神圣马可楼。",
     hero_scripture_text: "\"你在许多见证人面前听见我所教训的，也要交托那忠心能教导别人的人。\"",
     hero_scripture_ref: "提摩太后书 2:2",
@@ -556,7 +556,7 @@ const translations = {
     lyrics_snippet_1: "\"旷野开道路，沙漠开江河，成就应许，黑暗中的光，我的神就是这样一位神。\"",
     lyrics_snippet_2: "\"愿耶和华赐福给你，保护你；愿耶和华使祂的脸光照你，赐恩给你。\" (民数记 6章)",
     lyrics_snippet_3: "\"万王之王，万主之主，我们的神何等伟大，同来歌唱我们的神何等伟大。\"",
-    footer_desc: "为万国后代与Remnant，福音传道者与全球信徒以祷告合一的殿堂。",
+    footer_desc: "为万国后代与下一代，福音传道者与全球信徒以祷告合一的殿堂。",
     footer_schedule_title: "定期祷告会指南",
     footer_schedule_text: "• 时间: 每月第一个星期二 20:00 (北京时间，30分钟)<br>• 方式: 在线视频会议 (Zoom / Google Meet)<br>• 语言: 双语会议 (韩语与英语)",
     footer_action_title: "快速链接",
@@ -601,7 +601,7 @@ const translations = {
     nav_worship: "Ruang Pujian",
     hero_badge: "1 Kali Sebulan • 30 Menit | Doa Syafaat Global untuk Generasi Penerus",
     hero_title: "Bangkitlah, Menjadi Terang!<br><span class=\"gradient-text\">Merangkul Generasi Penerus Bangsa-Bangsa dalam Doa</span>",
-    hero_subtitle: "Kamar atas yang kudus tempat para penginjil dan orang percaya dari segala bangsa bersatu untuk berdoa bagi generasi penerus dan kaum remnant.",
+    hero_subtitle: "Kamar atas yang kudus tempat para penginjil dan orang percaya dari segala bangsa bersatu untuk berdoa bagi generasi penerus.",
     hero_scripture_text: "\"Apa yang telah engkau dengar dari padaku di depan banyak saksi, serahkanlah itu kepada orang-orang yang dapat dipercayai, yang juga cakap mengajar orang lain.\"",
     hero_scripture_ref: "2 Timotius 2:2",
     countdown_tag: "Hitung Mundur Pertemuan Doa",
@@ -827,8 +827,8 @@ const defaultPrayers = [
     author: "Claire Dubois",
     country: "🇫🇷 France",
     category: "next-gen",
-    content: "유럽과 파리의 극심한 세속화 속에서 방황하는 청소년들이 복음의 생명을 발견하고, 무너진 영적 성벽을 재건할 렘넌트로 일어나길 기도합니다.",
-    content_en: "Praying for wandering youth in Paris and Europe to discover the life of the gospel and rise as remnants to rebuild broken spiritual walls.",
+    content: "유럽과 파리의 극심한 세속화 속에서 방황하는 청소년들이 복음의 생명을 발견하고, 무너진 영적 성벽을 재건할 다음세대로 일어나길 기도합니다.",
+    content_en: "Praying for wandering youth in Paris and Europe to discover the life of the gospel and rise as next-generation disciples to rebuild broken spiritual walls.",
     amenCount: 41,
     date: "2026-09-12"
   },
@@ -857,8 +857,8 @@ const defaultPrayers = [
     author: "Aung San (아웅산)",
     country: "🇲🇲 Myanmar",
     category: "next-gen",
-    content: "오랜 분쟁과 경제적 시련 속에 있는 미얀마의 후대들에게 하나님의 특별한 위로가 임하고, 어떤 환경도 뛰어넘는 렘넌트의 믿음을 주옵소서.",
-    content_en: "May God's tender comfort heal the children of Myanmar suffering from conflict, granting them remnant faith to transcend all adversity.",
+    content: "오랜 분쟁과 경제적 시련 속에 있는 미얀마의 후대들에게 하나님의 특별한 위로가 임하고, 어떤 환경도 뛰어넘는 다음세대의 믿음을 주옵소서.",
+    content_en: "May God's tender comfort heal the children of Myanmar suffering from conflict, granting them steadfast faith to transcend all adversity.",
     amenCount: 44,
     date: "2026-09-09"
   },
@@ -867,10 +867,20 @@ const defaultPrayers = [
     author: "김전도자 (Evangelist Kim)",
     country: "🇰🇷 Korea",
     category: "next-gen",
-    content: "우리 후대들이 세상 미디어와 스마트폰의 흑암 문화에서 벗어나, 하나님의 말씀 속에서 참된 평안과 렘넌트의 정체성을 굳건히 발견하게 하옵소서.",
+    content: "우리 후대들이 세상 미디어와 스마트폰의 흑암 문화에서 벗어나, 하나님의 말씀 속에서 참된 평안과 다음세대의 정체성을 굳건히 발견하게 하옵소서.",
     content_en: "May our next generation break free from dark media and smartphone addictions, and firmly discover their true identity and peace in God's Word.",
     amenCount: 65,
     date: "2026-09-08"
+  },
+  {
+    id: 10,
+    author: "Sarah & David (브리즈번/골드코스트)",
+    country: "🇦🇺 Australia",
+    category: "next-gen",
+    content: "호주 퀸즈랜드와 다민족 캠퍼스의 다음세대들이 세속 문화 속에서 복음의 유일성을 발견하고, 237 치유와 서밋의 주역으로 굳건히 서게 하옵소서.",
+    content_en: "May the next generation on multi-ethnic campuses across Queensland, Australia firmly discover the uniqueness of the Gospel and stand as healed leaders for the nations.",
+    amenCount: 52,
+    date: "2026-09-14"
   }
 ];
 
@@ -879,7 +889,7 @@ const defaultTestimonies = [
     id: 1,
     author: "Kwame & Kofi",
     country: "🇬🇭 Ghana",
-    title: "가나 청년 5명의 렘넌트 성경공부 시작",
+    title: "가나 청년 5명의 다음세대 성경공부 시작",
     title_en: "5 Ghanaian Youths Began Gospel Study",
     content: "한국에서 전도자님을 통해 복음을 전해 들은 후 고향 가나에 연락했습니다. 고향의 사촌과 동네 청년 5명이 줌으로 함께 모여 성경을 공부하기 시작했습니다!",
     content_en: "After hearing the gospel in Korea, I contacted home. My cousins and 5 neighborhood youths in Ghana started a weekly Zoom Bible study!",
@@ -927,24 +937,25 @@ const defaultRoutineContent = {
   step2: {
     scripture: "디모데후서 2:1-2 (2 Tim 2:1-2)",
     title: "충성된 사람들에게 부탁하라",
-    content: "1. 내 아들아 그러므로 너는 그리스도 예수 안에 있는 은혜 가운데서 강하라\n2. 또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라\n3. 그들이 또 다른 사람들을 가르칠 수 있으리라\n\n📌 10~15분 복음 메시지 요약:\n• 다음 세대와 렘넌트를 살릴 복음의 제자 망대 세우기\n• 한국어 & 영어 2개 국어 핵심 자막 슬라이드 제공"
+    content: "1. 내 아들아 그러므로 너는 그리스도 예수 안에 있는 은혜 가운데서 강하라\n2. 또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라\n3. 그들이 또 다른 사람들을 가르칠 수 있으리라\n\n📌 10~15분 복음 메시지 요약:\n• 다음 세대를 살릴 복음의 제자 망대 세우기\n• 한국어 & 영어 2개 국어 핵심 자막 슬라이드 제공"
   },
   step3: {
     title: "후대와 열방을 향한 3대 집중 부르짖음",
-    content: "① 전 세계 렘넌트·후대 복음화 (세속화와 영적 혼란 치유)\n② 8개국 각 나라 현장 사역과 현지 지도자 세우기\n③ 전 세계에서 복음 전하는 전도자들의 영력·지력·체력·경제력·인력 충만\n\n💡 5~10분간 각자의 모국어로 성령 안에서 하나 되어 뜨겁게 부르짖습니다!"
+    content: "① 전 세계 다음세대·후대 복음화 (세속화와 영적 혼란 치유)\n② 8개국 각 나라 현장 사역과 현지 지도자 세우기\n③ 전 세계에서 복음 전하는 전도자들의 영력·지력·체력·경제력·인력 충만\n\n💡 5~10분간 각자의 모국어로 성령 안에서 하나 되어 뜨겁게 부르짖습니다!"
   },
   step4: {
-    speaker: "외국인 제자 1분 응답 간증 & 전도자 축도",
-    content: "• 외국인 성도의 1분 현장 응답 및 은혜 간증 나눔\n• 전도자의 축도 및 열방 지체들을 향한 제사장적 축복 기도\n• 주기도문으로 은혜의 30분 다락방 폐회"
+    speaker: "다민족 제자 1분 응답 간증 & 전도자 축도",
+    content: "• 다민족 제자의 1분 현장 응답 및 은혜 간증 나눔\n• 전도자의 축도 및 열방 지체들을 향한 제사장적 축복 기도\n• 주기도문으로 은혜의 30분 다락방 폐회"
   }
 };
 
 // Always sync newly added nations & routine content
-const DATA_VERSION = 'v4_routine_content';
+const DATA_VERSION = 'v6_qld_time_and_disciples';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
   localStorage.setItem('prayer_hub_routine_content', JSON.stringify(defaultRoutineContent));
+  localStorage.setItem('prayer_hub_meeting_settings', JSON.stringify(defaultMeetingSettings));
   localStorage.setItem('prayer_hub_data_ver', DATA_VERSION);
 }
 
@@ -956,8 +967,8 @@ let currentFilter = 'all';
 
 // Meeting Settings
 const defaultMeetingSettings = {
-  // Set default to first Tuesday of next month 21:00 KST
-  meetingDate: getNextMeetingDateString(),
+  // 2026년 10월 4일 (일) 호주 퀸즈랜드 8:00 PM (AEST, UTC+10) = 한국 19:00 KST (UTC+9)
+  meetingDate: "2026-10-04T20:00:00+10:00",
   zoomUrl: "https://zoom.us/j/88812345678",
   meetingId: "Zoom ID: 888 1234 5678 | Passcode: 7777"
 };
@@ -1026,10 +1037,17 @@ function updateMeetingDisplay() {
   if (!displayElem) return;
 
   const targetDate = new Date(meetingSettings.meetingDate);
-  const optionsKST = { month: 'long', day: 'numeric', weekday: 'short', hour: '2-digit', minute: '2-digit' };
+  const optionsKST = { month: 'long', day: 'numeric', weekday: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Seoul' };
+  const optionsQLD = { hour: '2-digit', minute: '2-digit', timeZone: 'Australia/Brisbane' };
   
   const kstString = targetDate.toLocaleDateString(currentLang === 'ko' ? 'ko-KR' : 'en-US', optionsKST);
-  displayElem.textContent = `${kstString} (KST / UTC+9)`;
+  const qldTime = targetDate.toLocaleTimeString(currentLang === 'ko' ? 'ko-KR' : 'en-US', optionsQLD);
+
+  if (currentLang === 'ko') {
+    displayElem.textContent = `${kstString} (KST) / 🇦🇺 퀸즈랜드 ${qldTime}`;
+  } else {
+    displayElem.textContent = `${kstString} (KST) / 🇦🇺 QLD ${qldTime}`;
+  }
 
   // Local user time display
   if (localTimeElem) {
@@ -1084,9 +1102,15 @@ function joinMeetingRoom() {
 // Copy Meeting Info
 function copyMeetingLink() {
   const targetDate = new Date(meetingSettings.meetingDate);
+  const qldStr = targetDate.toLocaleString('en-AU', { timeZone: 'Australia/Brisbane', dateStyle: 'medium', timeStyle: 'short' });
+  const kstStr = targetDate.toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' });
+  const nyStr = targetDate.toLocaleString('en-US', { timeZone: 'America/New_York', dateStyle: 'medium', timeStyle: 'short' });
+
   const text = `🕊️ [아라이즈 넥스트젠 | Arise Next-Gen] 
 Global Prayer Meeting for the Next Generation
-Date/Time: ${targetDate.toLocaleString()} (KST)
+🇦🇺 QLD (Australia): ${qldStr}
+🇰🇷 Korea (KST): ${kstStr}
+🇺🇸 USA (New York / Boston / Florida): ${nyStr}
 Link: ${meetingSettings.zoomUrl}
 ${meetingSettings.meetingId}
 "Arise, Shine! Praying together for the Next Generation across all nations!"`;
@@ -1420,7 +1444,7 @@ function renderRoutineDisplay() {
   const detailClosingContent = document.getElementById('detailClosingContent');
 
   if (routineSub4) {
-    routineSub4.textContent = routineContent.step4?.speaker || '외국인 제자 간증 & 축도';
+    routineSub4.textContent = routineContent.step4?.speaker || '다민족 제자 간증 & 축도';
   }
   if (detailClosingTitle) {
     detailClosingTitle.textContent = routineContent.step4?.speaker || '1분 간증 및 축복 기도';
@@ -1521,7 +1545,20 @@ function openModal(id) {
       const dtInput = document.getElementById('settingsDateTime');
       const zoomInput = document.getElementById('settingsZoomUrl');
       const idInput = document.getElementById('settingsMeetingId');
-      if (dtInput) dtInput.value = meetingSettings.meetingDate;
+      if (dtInput) {
+        try {
+          const d = new Date(meetingSettings.meetingDate);
+          const pad = n => String(n).padStart(2, '0');
+          const year = d.getFullYear();
+          const month = pad(d.getMonth() + 1);
+          const day = pad(d.getDate());
+          const hours = pad(d.getHours());
+          const mins = pad(d.getMinutes());
+          dtInput.value = `${year}-${month}-${day}T${hours}:${mins}`;
+        } catch (err) {
+          dtInput.value = meetingSettings.meetingDate.slice(0, 16);
+        }
+      }
       if (zoomInput) zoomInput.value = meetingSettings.zoomUrl;
       if (idInput) idInput.value = meetingSettings.meetingId;
     }

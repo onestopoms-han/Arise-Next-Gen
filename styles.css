@@ -648,6 +648,16 @@ body {
   font-weight: 600;
 }
 
+.tz-chip.highlight-chip {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+}
+
+.tz-chip.highlight-chip strong {
+  color: #FCD34D;
+}
+
 /* Participating Nations Showcase Pills */
 .nations-showcase {
   display: flex;

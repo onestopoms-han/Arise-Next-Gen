@@ -87,7 +87,7 @@
       </h1>
 
       <p class="hero-subtitle" data-i18n="hero_subtitle">
-        복음으로 만난 외국인 성도들과 전도자가 한자리에 모여 다음 세대와 렘넌트를 위해 간절히 기도하는 거룩한 다락방입니다.
+        복음으로 만난 다민족 제자들과 전도자가 한자리에 모여 하나님의 모든 관심인 모든 족속 복음화와 다음 세대에 이 복음을 전달하기 위해 간절히 기도하는 플랫폼입니다.
       </p>
 
       <!-- Scripture Banner -->
@@ -104,10 +104,10 @@
         <div class="countdown-header">
           <div class="meeting-meta">
             <span class="meeting-status-tag" data-i18n="countdown_tag">다음 모임 D-Day</span>
-            <h3 class="next-meeting-date" id="displayMeetingDate">매월 첫째 주 화요일 오후 9:00 KST</h3>
+            <h3 class="next-meeting-date" id="displayMeetingDate">10월 4일 (일) 오후 8:00 (호주 퀸즈랜드) / 19:00 KST</h3>
           </div>
           <div class="world-clock-badge" id="worldClockInfo">
-            🌐 KST (UTC+9) | <span id="localTimeDisplay">현지 시각 변환 중...</span>
+            🌐 🇦🇺 AEST (UTC+10) | 🇰🇷 KST (UTC+9) | <span id="localTimeDisplay">현지 시각 변환 중...</span>
           </div>
         </div>
 
@@ -146,19 +146,25 @@
           </button>
         </div>
 
-        <!-- Global Timezones Bar for our 8+ nations -->
+        <!-- Global Timezones Bar for our nations -->
         <div class="global-times-bar" id="globalTimesBar">
           <div class="global-times-title" data-i18n="global_times_title">🌍 참여 열방 현지 시각 (Meeting Time by Nation)</div>
           <div class="timezone-chips">
-            <span class="tz-chip">🇰🇷 <strong>서울</strong> 21:00</span>
-            <span class="tz-chip">🇬🇭 <strong>가나</strong> 12:00</span>
-            <span class="tz-chip">🇳🇬 <strong>나이지리아</strong> 13:00</span>
-            <span class="tz-chip">🇹🇭 <strong>태국</strong> 19:00</span>
-            <span class="tz-chip">🇪🇬 <strong>이집트</strong> 14:00</span>
-            <span class="tz-chip">🇫🇷 <strong>프랑스</strong> 14:00</span>
-            <span class="tz-chip">🇨🇳 <strong>중국</strong> 20:00</span>
-            <span class="tz-chip">🇮🇩 <strong>인도네시아</strong> 19:00</span>
-            <span class="tz-chip">🇲🇲 <strong>미얀마</strong> 18:30</span>
+            <span class="tz-chip highlight-chip">🇦🇺 <strong>호주(퀸즈랜드)</strong> 20:00</span>
+            <span class="tz-chip">🇰🇷 <strong>한국(서울)</strong> 19:00</span>
+            <span class="tz-chip">🇺🇸 <strong>미국(뉴욕)</strong> 06:00</span>
+            <span class="tz-chip">🇺🇸 <strong>미국(보스턴)</strong> 06:00</span>
+            <span class="tz-chip">🇺🇸 <strong>미국(플로리다)</strong> 06:00</span>
+            <span class="tz-chip">🇬🇭 <strong>가나</strong> 10:00</span>
+            <span class="tz-chip">🇳🇬 <strong>나이지리아</strong> 11:00</span>
+            <span class="tz-chip">🇫🇷 <strong>프랑스</strong> 12:00</span>
+            <span class="tz-chip">🇪🇬 <strong>이집트</strong> 13:00</span>
+            <span class="tz-chip">🇲🇲 <strong>미얀마</strong> 16:30</span>
+            <span class="tz-chip">🇹🇭 <strong>태국</strong> 17:00</span>
+            <span class="tz-chip">🇮🇩 <strong>인도네시아</strong> 17:00</span>
+            <span class="tz-chip">🇨🇳 <strong>중국</strong> 18:00</span>
+            <span class="tz-chip">🇵🇭 <strong>필리핀</strong> 18:00</span>
+            <span class="tz-chip">🇻🇳 <strong>베트남</strong> 17:00</span>
           </div>
         </div>
       </div>
@@ -167,6 +173,8 @@
       <div class="nations-showcase">
         <span class="nations-label" data-i18n="nations_label">함께 기도하는 열방 (클릭 시 기도 보기) :</span>
         <div class="nations-pills">
+          <span class="nation-pill" onclick="filterByCountry('Australia')" style="cursor: pointer;">🇦🇺 Australia (호주 / 퀸즈랜드)</span>
+          <span class="nation-pill" onclick="filterByCountry('USA')" style="cursor: pointer;">🇺🇸 USA (미국: 뉴욕·보스턴·플로리다)</span>
           <span class="nation-pill" onclick="filterByCountry('Ghana')" style="cursor: pointer;">🇬🇭 Ghana (가나)</span>
           <span class="nation-pill" onclick="filterByCountry('Nigeria')" style="cursor: pointer;">🇳🇬 Nigeria (나이지리아)</span>
           <span class="nation-pill" onclick="filterByCountry('Thailand')" style="cursor: pointer;">🇹🇭 Thailand (태국)</span>
@@ -176,7 +184,6 @@
           <span class="nation-pill" onclick="filterByCountry('Indonesia')" style="cursor: pointer;">🇮🇩 Indonesia (인도네시아)</span>
           <span class="nation-pill" onclick="filterByCountry('Myanmar')" style="cursor: pointer;">🇲🇲 Myanmar (미얀마)</span>
           <span class="nation-pill" onclick="filterByCountry('Korea')" style="cursor: pointer;">🇰🇷 Korea (한국)</span>
-          <span class="nation-pill" onclick="filterByCountry('USA')" style="cursor: pointer;">🇺🇸 USA (미국)</span>
           <span class="nation-pill" onclick="filterByCountry('Philippines')" style="cursor: pointer;">🇵🇭 Philippines (필리핀)</span>
           <span class="nation-pill" onclick="filterByCountry('Vietnam')" style="cursor: pointer;">🇻🇳 Vietnam (베트남)</span>
         </div>
@@ -304,7 +311,7 @@
             </div>
           </div>
           <p class="step-desc" id="routineDesc4" data-i18n="routine_step4_desc">
-            외국인 지체의 짧은 현장 응답 간증을 듣고, 서로를 향한 축도와 주기도문으로 마칩니다.
+            다민족 제자의 짧은 현장 응답 간증을 듣고, 서로를 향한 축도와 주기도문으로 마칩니다.
           </p>
           <div class="routine-expand-wrapper">
             <button type="button" class="btn-toggle-routine" onclick="toggleRoutineDetail(4)">
@@ -334,8 +341,8 @@
           <div class="core-prayer-item">
             <span class="core-num">02</span>
             <div class="core-content">
-              <strong data-i18n="focus_2_title">외국인 성도들의 모국에 후대 사역자가 세워지도록</strong>
-              <p data-i18n="focus_2_desc">복음을 받은 성도들이 자기 나라와 가문의 후대들을 양육할 제자로 굳건히 서게 하옵소서.</p>
+              <strong data-i18n="focus_2_title">다민족 제자들의 모국에 후대 사역자가 세워지도록</strong>
+              <p data-i18n="focus_2_desc">복음을 받은 다민족 제자들이 자기 나라와 가문의 후대들을 양육할 사역자로 굳건히 서게 하옵소서.</p>
             </div>
           </div>
           <div class="core-prayer-item">
@@ -407,7 +414,7 @@
           <span class="section-badge" data-i18n="testimony_badge">하나님이 하신 일</span>
           <h2 class="section-title" data-i18n="testimony_title">은혜의 현장 간증 (Grace Feed)</h2>
           <p class="section-desc" data-i18n="testimony_desc">
-            외국인 성도들과 현장에서 일어난 감사의 열매와 복음 응답을 나눕니다.
+            다민족 제자들과 현장에서 일어난 감사의 열매와 복음 응답을 나눕니다.
           </p>
         </div>
         <button class="btn btn-outline" id="btnOpenTestimonyModal" onclick="openModal('testimonyModal')">
@@ -491,14 +498,14 @@
           <span class="brand-title" data-i18n="brand_title">아라이즈 넥스트젠</span>
         </div>
         <p class="footer-desc" data-i18n="footer_desc">
-          열방의 렘넌트와 후대를 위해 복음의 전도자와 세계 성도들이 기도로 하나 되는 곳입니다.
+          열방의 다음세대와 후대를 위해 복음의 전도자와 세계 성도들이 기도로 하나 되는 곳입니다.
         </p>
       </div>
 
       <div class="footer-col info-col">
         <h5 class="footer-heading" data-i18n="footer_schedule_title">정기 기도모임 안내</h5>
         <p class="footer-text" data-i18n="footer_schedule_text">
-          • 일시: 매월 첫째 주 화요일 21:00 ~ 21:30 (KST 기준 30분)<br>
+          • 일시: 2026년 10월 4일 (일) 20:00 퀸즈랜드 (호주) / 19:00 서울 (KST)<br>
           • 방식: 온라인 화상회의 (Zoom / Google Meet)<br>
           • 언어: 한국어 & 영어 (Bilingual Session)
         </p>
@@ -729,11 +736,11 @@
           <div class="routine-form-badge">🌱 4단계: 현장 간증 & 마무리 축복 (2~3분)</div>
           <div class="form-group">
             <label class="form-label" data-i18n="lbl_routine_step4_speaker">간증자 / 축도 안내 (Speaker / Blessing)</label>
-            <input type="text" class="form-input" id="editStep4Speaker" placeholder="예: 외국인 제자 1분 응답 간증 & 전도자 축도" required>
+            <input type="text" class="form-input" id="editStep4Speaker" placeholder="예: 다민족 제자 1분 응답 간증 & 전도자 축도" required>
           </div>
           <div class="form-group">
             <label class="form-label" data-i18n="lbl_routine_step4_content">마무리 순서 및 축복 기도문</label>
-            <textarea class="form-textarea" id="editStep4Content" rows="2" placeholder="외국인 지체의 짧은 현장 간증 후 서로를 향한 축복과 주기도문 폐회"></textarea>
+            <textarea class="form-textarea" id="editStep4Content" rows="2" placeholder="다민족 제자의 짧은 현장 간증 후 서로를 향한 축복과 주기도문 폐회"></textarea>
           </div>
         </div>
 
