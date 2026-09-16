@@ -931,7 +931,7 @@ const defaultTestimonies = [
 const defaultRoutineContent = {
   step1: {
     songTitle: "Way Maker (길을 만드시는 분)",
-    link: "https://www.youtube.com/watch?v=2Zars01D38E",
+    link: "https://www.youtube.com/watch?v=iJCV_2H9xD0",
     content: "전 세계 성도들이 함께 고백하는 대표 찬양으로 마음의 문을 열고 주님의 임재를 구합니다.\n• 추천 찬양: Way Maker, The Blessing\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace to you)"
   },
   step2: {
@@ -958,7 +958,7 @@ const defaultMeetingSettings = {
 };
 
 // Always sync newly added nations & routine content & meeting settings
-const DATA_VERSION = 'v8_fix_tdz_countdown_clock';
+const DATA_VERSION = 'v9_fix_youtube_videos';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
