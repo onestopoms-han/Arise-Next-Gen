@@ -18,10 +18,11 @@
 ## 🕊️ 주요 기능 (Key Features)
 1. **Bilingual Switcher**: 한국어 ↔ 영어 실시간 원클릭 번역
 2. **30-Min Live Countdown**: 다음 모임까지 남은 시간 카운트다운 & 전 세계 8개국 현지 시각 자동 안내
-3. **Zoom / Meet 연동**: 원클릭 온라인 기도실 입장 및 초대장 복사
-4. **글로벌 기도 정원 (Global Prayer Wall)**: 국가별 국기와 함께 후대 기도제목 공유 & [아멘 🙏] 중보 카운트
-5. **은혜와 현장 간증 (Grace Feed)**: 선교 현장에서 일어난 생생한 복음 응답과 간증 나눔
-6. **글로벌 워십 라운지 (Worship Lounge)**: Way Maker, The Blessing 등 전 세계 찬양 영상 및 가사
+3. **공식 공동 기도문 (Official Prayer Guide)**: `기도문.pdf` 기반 3대 중보기도문(나를 위한 기도 · 모든 민족을 위한 기도 · 후대를 위한 기도 · 함께 기도합시다), 줌(Zoom) 발표 모드 슬라이드 뷰, 원클릭 채팅용 복사 및 원본 PDF 다운로드
+4. **Zoom / Meet 연동**: 원클릭 온라인 기도실 입장 및 초대장 복사
+5. **글로벌 기도 정원 (Global Prayer Wall)**: 국가별 국기와 함께 후대 기도제목 공유 & [아멘 🙏] 중보 카운트
+6. **은혜와 현장 간증 (Grace Feed)**: 선교 현장에서 일어난 생생한 복음 응답과 간증 나눔
+7. **글로벌 워십 라운지 (Worship Lounge)**: Way Maker, The Blessing 등 전 세계 찬양 영상 및 가사
 
 ---
 

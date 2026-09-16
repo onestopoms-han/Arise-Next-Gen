@@ -29,6 +29,7 @@ try {
                 ".png"  { "image/png" }
                 ".jpg"  { "image/jpeg" }
                 ".svg"  { "image/svg+xml" }
+                ".pdf"  { "application/pdf" }
                 Default { "application/octet-stream" }
             }
             $bytes = [System.IO.File]::ReadAllBytes($filePath)

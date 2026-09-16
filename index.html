@@ -34,6 +34,7 @@
       <nav class="nav-menu" id="navMenu">
         <a href="#countdown" class="nav-link" data-i18n="nav_meeting">기도모임 안내</a>
         <a href="#routine" class="nav-link" data-i18n="nav_routine">30분 루틴</a>
+        <a href="#prayer-guide" class="nav-link" data-i18n="nav_prayer_guide">공동 기도문</a>
         <a href="#prayer-wall" class="nav-link" data-i18n="nav_prayer_wall">기도 정원</a>
         <a href="#testimonies" class="nav-link" data-i18n="nav_testimonies">은혜의 간증</a>
         <a href="#worship" class="nav-link" data-i18n="nav_worship">찬양 라운지</a>
@@ -280,20 +281,20 @@
             <div class="step-icon">🔥</div>
             <div>
               <h3 class="step-title" id="routineTitle3" data-i18n="routine_step3_title">3대 집중 중보기도 (5~10분)</h3>
-              <div class="step-sub-info" id="routineSub3">후대·열방·전도자</div>
+              <div class="step-sub-info" id="routineSub3" data-i18n="routine_step3_sub">나 자신 · 모든 민족 · 후대</div>
             </div>
           </div>
           <p class="step-desc" id="routineDesc3" data-i18n="routine_step3_desc">
-            ① 전 세계 후대 복음화 ② 각 나라 현장 사역 ③ 전도자와 교회. 각자의 모국어로 부르짖습니다!
+            ① 나 자신을 위한 기도 ② 모든 민족을 위한 기도 ③ 후대를 위한 기도. 각자의 모국어로 함께 기도합시다!
           </p>
           <div class="routine-expand-wrapper">
             <button type="button" class="btn-toggle-routine" onclick="toggleRoutineDetail(3)">
-              <span id="routineBtnText3">이번 모임 집중 기도제목 보기</span>
+              <span id="routineBtnText3" data-i18n="routine_btn_text3">이번 모임 집중 기도제목 보기</span>
               <span class="chevron" id="routineChevron3">▼</span>
             </button>
             <div class="routine-detail-box" id="routineDetail3">
-              <div class="detail-badge">🔥 3대 집중 기도 가이드</div>
-              <div class="detail-highlight-title" id="detailPrayerTitle">후대와 열방을 향한 집중 부르짖음</div>
+              <div class="detail-badge" data-i18n="routine_detail_badge3">🔥 3대 집중 기도 가이드</div>
+              <div class="detail-highlight-title" id="detailPrayerTitle">함께 기도합시다 (Let Us Pray Together)</div>
               <div class="detail-text-body" id="detailPrayerContent"></div>
             </div>
           </div>
@@ -329,30 +330,167 @@
         </div>
       </div>
 
-      <!-- Quick Prayer Topic Card -->
-      <div class="core-prayer-card">
-        <h4 class="core-prayer-heading" data-i18n="core_prayer_heading">📌 이달의 3대 핵심 기도제목 (This Month's Focus)</h4>
-        <div class="core-prayer-list">
-          <div class="core-prayer-item">
-            <span class="core-num">01</span>
-            <div class="core-content">
-              <strong data-i18n="focus_1_title">열방의 후대들에게 구원의 빛이 비추어지도록</strong>
-              <p data-i18n="focus_1_desc">세속화와 영적 혼란 속에 있는 각 나라의 청소년, 청년들이 복음 안에서 참된 정체성을 발견하게 하옵소서.</p>
+      <!-- Official Prayer Guide Section (기도문.pdf 공식 반영) -->
+      <div class="official-prayer-section" id="prayer-guide">
+        <div class="prayer-guide-top">
+          <div class="prayer-guide-title-box">
+            <div class="prayer-guide-tag">
+              <span>🕊️</span>
+              <span data-i18n="prayer_guide_tag">공동 기도문 • Official Prayer Guide</span>
+            </div>
+            <h3 class="prayer-guide-heading" data-i18n="prayer_guide_heading">함께 기도합시다 (Let Us Pray Together)</h3>
+            <p class="prayer-guide-sub" data-i18n="prayer_guide_sub">
+              아라이즈 넥스트젠 모임 때 성도들과 전도자가 한마음으로 고백하는 3대 공식 기도문입니다.
+            </p>
+          </div>
+          <div class="prayer-guide-actions">
+            <button class="btn btn-primary btn-sm" onclick="openPrayerGuideModal()" title="기도문 슬라이드 발표 모드 열기">
+              <span class="btn-icon">📖</span>
+              <span data-i18n="btn_prayer_presentation">기도문 전문 발표 모드</span>
+            </button>
+            <button class="btn btn-outline btn-sm" onclick="copyPrayerGuideToClipboard()" title="줌 채팅창에 붙여넣기 할 수 있도록 복사">
+              <span class="btn-icon">📋</span>
+              <span data-i18n="btn_copy_prayer_guide">줌 채팅용 복사</span>
+            </button>
+            <a href="기도문.pdf" target="_blank" class="btn btn-ghost btn-sm" title="기도문 원본 PDF 보기 및 다운로드">
+              <span class="btn-icon">📄</span>
+              <span data-i18n="btn_open_pdf">PDF 원본</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3 Pillars Grid -->
+        <div class="prayer-guide-grid">
+          <!-- Pillar 1: Myself -->
+          <div class="prayer-pillar-card highlight-pillar">
+            <div class="pillar-header">
+              <div class="pillar-top-meta">
+                <span class="pillar-num">01</span>
+                <span class="pillar-category-tag" data-i18n="pillar_1_cat">내면과 믿음의 기초</span>
+              </div>
+              <h4 class="pillar-title" data-i18n="pillar_1_title">1. 나를 위한 기도</h4>
+              <span class="pillar-title-en">1. Prayer for Myself</span>
+              <div class="pillar-quote-box">
+                <div data-i18n="pillar_1_quote">“내가 제일 중요하다”</div>
+                <span class="pillar-quote-en">“I must begin with myself.”</span>
+              </div>
+            </div>
+            <div class="pillar-bullets">
+              <div class="prayer-bullet-item">
+                <span class="bullet-dot"></span>
+                <div class="bullet-text-box">
+                  <div class="bullet-kr" data-i18n="p1_b1_kr">내가 복음이 되기를</div>
+                  <div class="bullet-en">May the Gospel become real and evident in my life.</div>
+                </div>
+              </div>
+              <div class="prayer-bullet-item">
+                <span class="bullet-dot"></span>
+                <div class="bullet-text-box">
+                  <div class="bullet-kr" data-i18n="p1_b2_kr">무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를</div>
+                  <div class="bullet-en">May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture.</div>
+                </div>
+              </div>
+              <div class="prayer-bullet-item">
+                <span class="bullet-dot"></span>
+                <div class="bullet-text-box">
+                  <div class="bullet-kr" data-i18n="p1_b3_kr">Up & Down에 흔들리지 않고 다니엘처럼 항상 한결같은 믿음이 되기를</div>
+                  <div class="bullet-en">May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.</div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="core-prayer-item">
-            <span class="core-num">02</span>
-            <div class="core-content">
-              <strong data-i18n="focus_2_title">다민족 제자들의 모국에 후대 사역자가 세워지도록</strong>
-              <p data-i18n="focus_2_desc">복음을 받은 다민족 제자들이 자기 나라와 가문의 후대들을 양육할 사역자로 굳건히 서게 하옵소서.</p>
+
+          <!-- Pillar 2: All Nations -->
+          <div class="prayer-pillar-card">
+            <div class="pillar-header">
+              <div class="pillar-top-meta">
+                <span class="pillar-num">02</span>
+                <span class="pillar-category-tag" data-i18n="pillar_2_cat">열방과 세계 현장</span>
+              </div>
+              <h4 class="pillar-title" data-i18n="pillar_2_title">2. 모든 민족을 위한 기도</h4>
+              <span class="pillar-title-en">2. Prayer for All Nations</span>
+            </div>
+            <div class="pillar-bullets">
+              <div class="prayer-bullet-item">
+                <span class="bullet-dot"></span>
+                <div class="bullet-text-box">
+                  <div class="bullet-kr" data-i18n="p2_b1_kr">모든 민족이 그리스도 앞에 무릎 꿇도록</div>
+                  <div class="bullet-en">May all nations bow before Christ.</div>
+                </div>
+              </div>
+              <div class="prayer-bullet-item">
+                <span class="bullet-dot"></span>
+                <div class="bullet-text-box">
+                  <div class="bullet-kr" data-i18n="p2_b2_kr">이곳에 모인 나라들과 세계 모든 나라를 위하여</div>
+                  <div class="bullet-en">For the nations represented here and for every nation of the world.</div>
+                </div>
+              </div>
+              <div class="prayer-bullet-item">
+                <span class="bullet-dot"></span>
+                <div class="bullet-text-box">
+                  <div class="bullet-kr" data-i18n="p2_b3_kr">전쟁 속에서 고통받는 나라들과 사람들을 위하여</div>
+                  <div class="bullet-en">For countries and people suffering in the midst of war.</div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="core-prayer-item">
-            <span class="core-num">03</span>
-            <div class="core-content">
-              <strong data-i18n="focus_3_title">복음 전하는 전도자들의 건강과 성령 충만을 위해</strong>
-              <p data-i18n="focus_3_desc">후대를 살리기 위해 현장에서 쉬지 않고 복음을 전파하는 전도자들에게 오력(영력·지력·체력·경제력·인력)을 더하옵소서.</p>
+
+          <!-- Pillar 3: Next Generation -->
+          <div class="prayer-pillar-card">
+            <div class="pillar-header">
+              <div class="pillar-top-meta">
+                <span class="pillar-num">03</span>
+                <span class="pillar-category-tag" data-i18n="pillar_3_cat">다음 세대와 미래</span>
+              </div>
+              <h4 class="pillar-title" data-i18n="pillar_3_title">3. 후대를 위한 기도</h4>
+              <span class="pillar-title-en">3. Prayer for the Next Generation</span>
             </div>
+            <div class="pillar-bullets">
+              <div class="prayer-bullet-item">
+                <span class="bullet-dot"></span>
+                <div class="bullet-text-box">
+                  <div class="bullet-kr" data-i18n="p3_b1_kr">후대가 복음을 알도록</div>
+                  <div class="bullet-en">May the next generation know the Gospel.</div>
+                </div>
+              </div>
+              <div class="prayer-bullet-item">
+                <span class="bullet-dot"></span>
+                <div class="bullet-text-box">
+                  <div class="bullet-kr" data-i18n="p3_b2_kr">복음이 정말 좋은 것임을 알도록</div>
+                  <div class="bullet-en">May they discover that the Gospel is truly good news.</div>
+                </div>
+              </div>
+              <div class="prayer-bullet-item">
+                <span class="bullet-dot"></span>
+                <div class="bullet-text-box">
+                  <div class="bullet-kr" data-i18n="p3_b3_kr">인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록</div>
+                  <div class="bullet-en">May they know that whatever happens in life, they are secure when they are in Christ.</div>
+                </div>
+              </div>
+              <div class="prayer-bullet-item">
+                <span class="bullet-dot"></span>
+                <div class="bullet-text-box">
+                  <div class="bullet-kr" data-i18n="p3_b4_kr">학업과 모든 일이 모든 민족을 살리는 준비임을 알도록</div>
+                  <div class="bullet-en">May they see their studies and every part of life as preparation to serve and save all nations.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Together Summary Bar (Page 4) -->
+        <div class="together-prayer-bar">
+          <div class="together-left">
+            <span class="together-icon">🕊️</span>
+            <div>
+              <div class="together-heading" data-i18n="together_bar_title">함께 기도합시다 <span>Let Us Pray Together</span></div>
+              <div style="font-size: 0.8rem; color: #94A3B8;" data-i18n="together_bar_desc">성령 안에서 하나 되어 믿음으로 부르짖습니다</div>
+            </div>
+          </div>
+          <div class="together-pills">
+            <span class="together-pill"><strong data-i18n="pill_myself">나 자신을 위하여</strong> • For myself</span>
+            <span class="together-pill"><strong data-i18n="pill_nations">모든 민족을 위하여</strong> • For all nations</span>
+            <span class="together-pill"><strong data-i18n="pill_nextgen">후대를 위하여</strong> • For the next generation</span>
           </div>
         </div>
       </div>
@@ -722,14 +860,14 @@
 
         <!-- Step 3: Intercessory Prayer (5~10 min) -->
         <div class="routine-form-box">
-          <div class="routine-form-badge">🔥 3단계: 3대 집중 중보기도 (5~10분)</div>
+          <div class="routine-form-badge" data-i18n="routine_form_badge_step3">🔥 3단계: 3대 집중 중보기도 (5~10분) - 나 자신 · 모든 민족 · 후대</div>
           <div class="form-group">
             <label class="form-label" data-i18n="lbl_routine_step3_title">집중 기도 주제 (Focus Topic)</label>
-            <input type="text" class="form-input" id="editStep3Title" placeholder="예: 후대와 열방을 향한 3대 집중 부르짖음" required>
+            <input type="text" class="form-input" id="editStep3Title" placeholder="예: 함께 기도합시다 (Let Us Pray Together)" required>
           </div>
           <div class="form-group">
             <label class="form-label" data-i18n="lbl_routine_step3_content">3대 기도제목 상세 내용 (Prayer Topics)</label>
-            <textarea class="form-textarea" id="editStep3Content" rows="3" placeholder="① 전 세계 후대 복음화&#10;② 8개국 각 나라 현장 사역과 현지 지도자 세우기&#10;③ 전도자들의 건강과 성령 충만" required></textarea>
+            <textarea class="form-textarea" id="editStep3Content" rows="4" placeholder="1. 나를 위한 기도 (&quot;내가 제일 중요하다&quot;)&#10;2. 모든 민족을 위한 기도&#10;3. 후대를 위한 기도" required></textarea>
           </div>
         </div>
 
@@ -751,6 +889,160 @@
           <button type="submit" class="btn btn-primary" data-i18n="btn_save_routine">루틴 내용 저장하기</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- 5. Full Prayer Guide Presentation Modal (기도문.pdf 4개 슬라이드 공식 발표 뷰) -->
+  <div class="modal-overlay" id="prayerGuideModal" onclick="closeModalOnBackdrop(event, 'prayerGuideModal')">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <h3 class="modal-title">📖 <span data-i18n="modal_guide_title">공식 기도문 (Let Us Pray Together)</span></h3>
+        <button class="modal-close" onclick="closeModal('prayerGuideModal')">&times;</button>
+      </div>
+
+      <div class="prayer-slide-container">
+        <!-- Slide 1: Myself -->
+        <div class="prayer-slide-card active" id="prayerSlide1">
+          <div class="slide-badge-row">
+            <span class="slide-num-pill" data-i18n="slide_badge_1">슬라이드 1 / 4 • 나를 위한 기도</span>
+            <span class="pillar-category-tag">Prayer for Myself</span>
+          </div>
+          <div class="slide-title-area">
+            <h2 class="slide-main-title">1. 나를 위한 기도</h2>
+            <div class="slide-sub-title">1. Prayer for Myself</div>
+            <div class="slide-quote">
+              “내가 제일 중요하다” | “I must begin with myself.”
+            </div>
+          </div>
+          <div class="slide-bullets">
+            <div class="slide-bullet-item">
+              <div class="slide-bullet-kr">• 내가 복음이 되기를</div>
+              <div class="slide-bullet-en">May the Gospel become real and evident in my life.</div>
+            </div>
+            <div class="slide-bullet-item">
+              <div class="slide-bullet-kr">• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를</div>
+              <div class="slide-bullet-en">May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture.</div>
+            </div>
+            <div class="slide-bullet-item">
+              <div class="slide-bullet-kr">• Up & Down에 흔들리지 않고 다니엘처럼 항상 한결같은 믿음이 되기를</div>
+              <div class="slide-bullet-en">May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: All Nations -->
+        <div class="prayer-slide-card" id="prayerSlide2">
+          <div class="slide-badge-row">
+            <span class="slide-num-pill" data-i18n="slide_badge_2">슬라이드 2 / 4 • 모든 민족을 위한 기도</span>
+            <span class="pillar-category-tag">Prayer for All Nations</span>
+          </div>
+          <div class="slide-title-area">
+            <h2 class="slide-main-title">2. 모든 민족을 위한 기도</h2>
+            <div class="slide-sub-title">2. Prayer for All Nations</div>
+          </div>
+          <div class="slide-bullets">
+            <div class="slide-bullet-item">
+              <div class="slide-bullet-kr">• 모든 민족이 그리스도 앞에 무릎 꿇도록</div>
+              <div class="slide-bullet-en">May all nations bow before Christ.</div>
+            </div>
+            <div class="slide-bullet-item">
+              <div class="slide-bullet-kr">• 이곳에 모인 나라들과 세계 모든 나라를 위하여</div>
+              <div class="slide-bullet-en">For the nations represented here and for every nation of the world.</div>
+            </div>
+            <div class="slide-bullet-item">
+              <div class="slide-bullet-kr">• 전쟁 속에서 고통받는 나라들과 사람들을 위하여</div>
+              <div class="slide-bullet-en">For countries and people suffering in the midst of war.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Next Generation -->
+        <div class="prayer-slide-card" id="prayerSlide3">
+          <div class="slide-badge-row">
+            <span class="slide-num-pill" data-i18n="slide_badge_3">슬라이드 3 / 4 • 후대를 위한 기도</span>
+            <span class="pillar-category-tag">Prayer for Next Generation</span>
+          </div>
+          <div class="slide-title-area">
+            <h2 class="slide-main-title">3. 후대를 위한 기도</h2>
+            <div class="slide-sub-title">3. Prayer for the Next Generation</div>
+          </div>
+          <div class="slide-bullets">
+            <div class="slide-bullet-item">
+              <div class="slide-bullet-kr">• 후대가 복음을 알도록</div>
+              <div class="slide-bullet-en">May the next generation know the Gospel.</div>
+            </div>
+            <div class="slide-bullet-item">
+              <div class="slide-bullet-kr">• 복음이 정말 좋은 것임을 알도록</div>
+              <div class="slide-bullet-en">May they discover that the Gospel is truly good news.</div>
+            </div>
+            <div class="slide-bullet-item">
+              <div class="slide-bullet-kr">• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록</div>
+              <div class="slide-bullet-en">May they know that whatever happens in life, they are secure when they are in Christ.</div>
+            </div>
+            <div class="slide-bullet-item">
+              <div class="slide-bullet-kr">• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록</div>
+              <div class="slide-bullet-en">May they see their studies and every part of life as preparation to serve and save all nations.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Together -->
+        <div class="prayer-slide-card" id="prayerSlide4">
+          <div class="slide-badge-row">
+            <span class="slide-num-pill" data-i18n="slide_badge_4">슬라이드 4 / 4 • 함께 기도합시다</span>
+            <span class="pillar-category-tag">Let Us Pray Together</span>
+          </div>
+          <div class="slide-title-area text-center" style="text-align: center; margin: 1.5rem 0;">
+            <div style="font-size: 2.8rem; margin-bottom: 0.4rem;">🕊️</div>
+            <h2 class="slide-main-title" style="font-size: 2rem;">함께 기도합시다</h2>
+            <div class="slide-sub-title" style="font-size: 1.25rem;">Let Us Pray Together</div>
+          </div>
+          <div class="slide-bullets" style="max-width: 500px; margin: 0 auto 1.5rem;">
+            <div class="slide-bullet-item" style="border-left-color: var(--accent-gold);">
+              <div class="slide-bullet-kr" style="font-size: 1.2rem;">나 자신을 위하여</div>
+              <div class="slide-bullet-en" style="font-size: 0.95rem;">For myself</div>
+            </div>
+            <div class="slide-bullet-item" style="border-left-color: var(--accent-sky);">
+              <div class="slide-bullet-kr" style="font-size: 1.2rem;">모든 민족을 위하여</div>
+              <div class="slide-bullet-en" style="font-size: 0.95rem;">For all nations</div>
+            </div>
+            <div class="slide-bullet-item" style="border-left-color: #10B981;">
+              <div class="slide-bullet-kr" style="font-size: 1.2rem;">후대를 위하여</div>
+              <div class="slide-bullet-en" style="font-size: 0.95rem;">For the next generation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide Navigation Bar -->
+      <div class="slide-nav-bar">
+        <button type="button" class="btn btn-outline btn-sm" id="btnPrevSlide" onclick="changePrayerSlide(-1)">
+          ◀ <span data-i18n="btn_prev_slide">이전 슬라이드</span>
+        </button>
+        <div class="slide-indicators" id="slideIndicators">
+          <span class="slide-dot active" onclick="setPrayerSlide(1)" title="1. 나를 위한 기도"></span>
+          <span class="slide-dot" onclick="setPrayerSlide(2)" title="2. 모든 민족을 위한 기도"></span>
+          <span class="slide-dot" onclick="setPrayerSlide(3)" title="3. 후대를 위한 기도"></span>
+          <span class="slide-dot" onclick="setPrayerSlide(4)" title="4. 함께 기도합시다"></span>
+        </div>
+        <button type="button" class="btn btn-outline btn-sm" id="btnNextSlide" onclick="changePrayerSlide(1)">
+          <span data-i18n="btn_next_slide">다음 슬라이드</span> ▶
+        </button>
+      </div>
+
+      <div class="modal-footer" style="margin-top: 1.4rem; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;">
+        <a href="기도문.pdf" target="_blank" class="btn btn-ghost btn-sm">
+          <span>📄 기도문.pdf 원본 열기</span>
+        </a>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button type="button" class="btn btn-outline btn-sm" onclick="copyPrayerGuideToClipboard()">
+            📋 <span>줌 채팅용 복사</span>
+          </button>
+          <button type="button" class="btn btn-primary btn-sm" onclick="closeModal('prayerGuideModal')">
+            <span>닫기</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 

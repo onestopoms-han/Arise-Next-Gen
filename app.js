@@ -12,6 +12,7 @@ const translations = {
     brand_subtitle: "Arise Next-Gen Prayer Hub",
     nav_meeting: "기도모임 안내",
     nav_routine: "30분 루틴",
+    nav_prayer_guide: "공동 기도문",
     nav_prayer_wall: "기도 정원",
     nav_testimonies: "은혜의 간증",
     nav_worship: "찬양 라운지",
@@ -35,7 +36,7 @@ const translations = {
     routine_step2_title: "후대 복음 말씀 (10~15분)",
     routine_step2_desc: "성경 본문 중심의 핵심 복음 메시지 나눔 (영어-한국어 자막 슬라이드 제공).",
     routine_step3_title: "3대 집중 중보기도 (5~10분)",
-    routine_step3_desc: "① 전 세계 후대 복음화 ② 각 나라 현장 사역 ③ 전도자와 교회. 각자의 모국어로 부르짖습니다!",
+    routine_step3_desc: "① 나 자신을 위한 기도 ② 모든 민족을 위한 기도 ③ 후대를 위한 기도. 각자의 모국어로 함께 기도합시다!",
     routine_step4_title: "현장 간증 & 마무리 축복 (2~3분)",
     routine_step4_desc: "다민족 제자의 짧은 현장 응답 간증을 듣고, 서로를 향한 축도와 주기도문으로 마칩니다.",
     core_prayer_heading: "📌 이달의 3대 핵심 기도제목 (This Month's Focus)",
@@ -115,13 +116,54 @@ const translations = {
     lbl_routine_step4_speaker: "간증자 / 축도 안내 (Speaker / Blessing)",
     lbl_routine_step4_content: "마무리 순서 및 축복 기도문",
     btn_save_routine: "루틴 내용 저장하기",
-    toast_routine_saved: "30분 기도모임 루틴 내용이 성공적으로 저장되었습니다! 📋"
+    toast_routine_saved: "30분 기도모임 루틴 내용이 성공적으로 저장되었습니다! 📋",
+    routine_step3_sub: "나 자신 · 모든 민족 · 후대",
+    routine_btn_text3: "이번 모임 집중 기도제목 보기",
+    routine_detail_badge3: "🔥 3대 집중 기도 가이드",
+    routine_form_badge_step3: "🔥 3단계: 3대 집중 중보기도 (5~10분) - 나 자신 · 모든 민족 · 후대",
+    prayer_guide_tag: "공동 기도문 • Official Prayer Guide",
+    prayer_guide_heading: "함께 기도합시다 (Let Us Pray Together)",
+    prayer_guide_sub: "아라이즈 넥스트젠 모임 때 성도들과 전도자가 한마음으로 고백하는 3대 공식 기도문입니다.",
+    btn_prayer_presentation: "기도문 전문 발표 모드",
+    btn_copy_prayer_guide: "줌 채팅용 복사",
+    btn_open_pdf: "PDF 원본",
+    pillar_1_cat: "내면과 믿음의 기초",
+    pillar_1_title: "1. 나를 위한 기도",
+    pillar_1_quote: "“내가 제일 중요하다”",
+    p1_b1_kr: "내가 복음이 되기를",
+    p1_b2_kr: "무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를",
+    p1_b3_kr: "Up & Down에 흔들리지 않고 다니엘처럼 항상 한결같은 믿음이 되기를",
+    pillar_2_cat: "열방과 세계 현장",
+    pillar_2_title: "2. 모든 민족을 위한 기도",
+    p2_b1_kr: "모든 민족이 그리스도 앞에 무릎 꿇도록",
+    p2_b2_kr: "이곳에 모인 나라들과 세계 모든 나라를 위하여",
+    p2_b3_kr: "전쟁 속에서 고통받는 나라들과 사람들을 위하여",
+    pillar_3_cat: "다음 세대와 미래",
+    pillar_3_title: "3. 후대를 위한 기도",
+    p3_b1_kr: "후대가 복음을 알도록",
+    p3_b2_kr: "복음이 정말 좋은 것임을 알도록",
+    p3_b3_kr: "인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록",
+    p3_b4_kr: "학업과 모든 일이 모든 민족을 살리는 준비임을 알도록",
+    together_bar_title: "함께 기도합시다",
+    together_bar_desc: "성령 안에서 하나 되어 믿음으로 부르짖습니다",
+    pill_myself: "나 자신을 위하여",
+    pill_nations: "모든 민족을 위하여",
+    pill_nextgen: "후대를 위하여",
+    modal_guide_title: "공식 기도문 (Let Us Pray Together)",
+    slide_badge_1: "슬라이드 1 / 4 • 나를 위한 기도",
+    slide_badge_2: "슬라이드 2 / 4 • 모든 민족을 위한 기도",
+    slide_badge_3: "슬라이드 3 / 4 • 후대를 위한 기도",
+    slide_badge_4: "슬라이드 4 / 4 • 함께 기도합시다",
+    btn_prev_slide: "이전 슬라이드",
+    btn_next_slide: "다음 슬라이드",
+    toast_prayer_guide_copied: "공동 기도문이 클립보드에 복사되었습니다! 줌 채팅창에 붙여넣어 공유하세요. 📋"
   },
   en: {
     brand_title: "Arise Next-Gen",
     brand_subtitle: "Global Prayer Hub",
     nav_meeting: "Meeting Info",
     nav_routine: "30-Min Routine",
+    nav_prayer_guide: "Prayer Guide",
     nav_prayer_wall: "Prayer Wall",
     nav_testimonies: "Grace & Stories",
     nav_worship: "Worship Lounge",
@@ -145,7 +187,7 @@ const translations = {
     routine_step2_title: "Gospel Word for Next-Gen (10~15m)",
     routine_step2_desc: "Core Gospel message rooted in scripture (with Korean-English bilingual slides provided).",
     routine_step3_title: "3 Core Intercessory Prayers (5~10m)",
-    routine_step3_desc: "① Next-Gen Salvation ② National Mission Fields ③ Gospel Preachers. Cry out in your own native tongue!",
+    routine_step3_desc: "① Prayer for Myself ② Prayer for All Nations ③ Prayer for Next Generation. Cry out in your own tongue!",
     routine_step4_title: "1-Min Testimony & Blessing (2~3m)",
     routine_step4_desc: "Hear a quick testimony from a multi-ethnic disciple, followed by mutual blessings and benediction.",
     core_prayer_heading: "📌 This Month's 3 Core Prayer Topics",
@@ -225,13 +267,54 @@ const translations = {
     lbl_routine_step4_speaker: "Testimony Speaker / Blessing Guide",
     lbl_routine_step4_content: "Closing Order & Blessing Prayer",
     btn_save_routine: "Save Routine Program",
-    toast_routine_saved: "30-min prayer program successfully saved! 📋"
+    toast_routine_saved: "30-min prayer program successfully saved! 📋",
+    routine_step3_sub: "Myself • All Nations • Next-Gen",
+    routine_btn_text3: "View Focus Prayer Topics",
+    routine_detail_badge3: "🔥 3-Pillar Focus Prayer Guide",
+    routine_form_badge_step3: "🔥 Step 3: 3 Core Intercessory Prayers - Myself · All Nations · Next-Gen",
+    prayer_guide_tag: "Official Prayer Guide",
+    prayer_guide_heading: "Let Us Pray Together",
+    prayer_guide_sub: "The official three-pillar prayer recited united in faith during Arise Next-Gen global gatherings.",
+    btn_prayer_presentation: "Presentation Mode",
+    btn_copy_prayer_guide: "Copy for Zoom Chat",
+    btn_open_pdf: "PDF Original",
+    pillar_1_cat: "Inner Faith & Foundation",
+    pillar_1_title: "1. Prayer for Myself",
+    pillar_1_quote: "“I must begin with myself.”",
+    p1_b1_kr: "May the Gospel become real and evident in my life.",
+    p1_b2_kr: "May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture.",
+    p1_b3_kr: "May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.",
+    pillar_2_cat: "Global Mission Fields",
+    pillar_2_title: "2. Prayer for All Nations",
+    p2_b1_kr: "May all nations bow before Christ.",
+    p2_b2_kr: "For the nations represented here and for every nation of the world.",
+    p2_b3_kr: "For countries and people suffering in the midst of war.",
+    pillar_3_cat: "Next Generation & Future",
+    pillar_3_title: "3. Prayer for the Next Generation",
+    p3_b1_kr: "May the next generation know the Gospel.",
+    p3_b2_kr: "May they discover that the Gospel is truly good news.",
+    p3_b3_kr: "May they know that whatever happens in life, they are secure when they are in Christ.",
+    p3_b4_kr: "May they see their studies and every part of life as preparation to serve and save all nations.",
+    together_bar_title: "Let Us Pray Together",
+    together_bar_desc: "United as one in the Holy Spirit, crying out in faith",
+    pill_myself: "For myself",
+    pill_nations: "For all nations",
+    pill_nextgen: "For the next generation",
+    modal_guide_title: "Official Prayer Guide (Let Us Pray Together)",
+    slide_badge_1: "Slide 1 / 4 • Prayer for Myself",
+    slide_badge_2: "Slide 2 / 4 • Prayer for All Nations",
+    slide_badge_3: "Slide 3 / 4 • Prayer for Next-Gen",
+    slide_badge_4: "Slide 4 / 4 • Let Us Pray Together",
+    btn_prev_slide: "Previous Slide",
+    btn_next_slide: "Next Slide",
+    toast_prayer_guide_copied: "Prayer Guide copied to clipboard! Paste it into your Zoom chat. 📋"
   },
   th: {
     brand_title: "Arise Next-Gen",
     brand_subtitle: "เครือข่ายอธิษฐานเพื่อคนรุ่นหลังทั่วโลก",
     nav_meeting: "ข้อมูลการประชุม",
     nav_routine: "ขั้นตอน 30 นาที",
+    nav_prayer_guide: "บทอธิษฐานร่วมกัน",
     nav_prayer_wall: "สวนแห่งการอธิษฐาน",
     nav_testimonies: "คำพยานพระคุณ",
     nav_worship: "ห้องนมัสการ",
@@ -323,6 +406,7 @@ const translations = {
     brand_subtitle: "شبكة الصلاة العالمية للجيل القادم",
     nav_meeting: "معلومات الاجتماع",
     nav_routine: "برنامج 30 دقيقة",
+    nav_prayer_guide: "دليل الصلاة",
     nav_prayer_wall: "حائط الصلاة",
     nav_testimonies: "شهادات النعمة",
     nav_worship: "صالة التسبيح",
@@ -414,6 +498,7 @@ const translations = {
     brand_subtitle: "Réseau Mondial de Prière pour la Prochaine Génération",
     nav_meeting: "Infos Réunion",
     nav_routine: "Routine 30 Min",
+    nav_prayer_guide: "Guide de Prière",
     nav_prayer_wall: "Mur de Prière",
     nav_testimonies: "Témoignages",
     nav_worship: "Salon de Louange",
@@ -505,6 +590,7 @@ const translations = {
     brand_subtitle: "全球后代祷告网络",
     nav_meeting: "聚会指南",
     nav_routine: "30分钟流程",
+    nav_prayer_guide: "共同祷告文",
     nav_prayer_wall: "祷告花园",
     nav_testimonies: "恩典见证",
     nav_worship: "赞美休息室",
@@ -596,6 +682,7 @@ const translations = {
     brand_subtitle: "Jaringan Doa Global Generasi Penerus",
     nav_meeting: "Info Doa",
     nav_routine: "Rutin 30 Mnt",
+    nav_prayer_guide: "Panduan Doa",
     nav_prayer_wall: "Taman Doa",
     nav_testimonies: "Kesaksian",
     nav_worship: "Ruang Pujian",
@@ -687,6 +774,7 @@ const translations = {
     brand_subtitle: "မျိုးဆက်သစ် ကမ္ဘာလုံးဆိုင်ရာ ဆုတောင်းကွန်ရက်",
     nav_meeting: "ဆုတောင်းအစည်းအဝေး",
     nav_routine: "၃၀ မိနစ် အစီအစဉ်",
+    nav_prayer_guide: "စုပေါင်းဆုတောင်းချက်",
     nav_prayer_wall: "ဆုတောင်းဥယျာဉ်",
     nav_testimonies: "သက်သေခံချက်များ",
     nav_worship: "ချီးမွမ်းခြင်း",
@@ -940,8 +1028,8 @@ const defaultRoutineContent = {
     content: "1. 내 아들아 그러므로 너는 그리스도 예수 안에 있는 은혜 가운데서 강하라\n2. 또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라\n3. 그들이 또 다른 사람들을 가르칠 수 있으리라\n\n📌 10~15분 복음 메시지 요약:\n• 다음 세대를 살릴 복음의 제자 망대 세우기\n• 한국어 & 영어 2개 국어 핵심 자막 슬라이드 제공"
   },
   step3: {
-    title: "후대와 열방을 향한 3대 집중 부르짖음",
-    content: "① 전 세계 다음세대·후대 복음화 (세속화와 영적 혼란 치유)\n② 8개국 각 나라 현장 사역과 현지 지도자 세우기\n③ 전 세계에서 복음 전하는 전도자들의 영력·지력·체력·경제력·인력 충만\n\n💡 5~10분간 각자의 모국어로 성령 안에서 하나 되어 뜨겁게 부르짖습니다!"
+    title: "함께 기도합시다 (Let Us Pray Together)",
+    content: "🕊️ [1. 나를 위한 기도 / Prayer for Myself]\n“내가 제일 중요하다” | “I must begin with myself.”\n• 내가 복음이 되기를 (May the Gospel become real and evident in my life.)\n• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를 (May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture.)\n• Up & Down에 흔들리지 않고 다니엘처럼 항상 한결같은 믿음이 되기를 (May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.)\n\n🌍 [2. 모든 민족을 위한 기도 / Prayer for All Nations]\n• 모든 민족이 그리스도 앞에 무릎 꿇도록 (May all nations bow before Christ.)\n• 이곳에 모인 나라들과 세계 모든 나라를 위하여 (For the nations represented here and for every nation of the world.)\n• 전쟁 속에서 고통받는 나라들과 사람들을 위하여 (For countries and people suffering in the midst of war.)\n\n🌱 [3. 후대를 위한 기도 / Prayer for the Next Generation]\n• 후대가 복음을 알도록 (May the next generation know the Gospel.)\n• 복음이 정말 좋은 것임을 알도록 (May they discover that the Gospel is truly good news.)\n• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록 (May they know that whatever happens in life, they are secure when they are in Christ.)\n• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록 (May they see their studies and every part of life as preparation to serve and save all nations.)\n\n🔥 나 자신을 위하여 · 모든 민족을 위하여 · 후대를 위하여 각자의 모국어로 함께 기도합시다!"
   },
   step4: {
     speaker: "다민족 제자 1분 응답 간증 & 전도자 축도",
@@ -958,7 +1046,7 @@ const defaultMeetingSettings = {
 };
 
 // Always sync newly added nations & routine content & meeting settings
-const DATA_VERSION = 'v9_fix_youtube_videos';
+const DATA_VERSION = 'v10_official_prayer_guide';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -1450,10 +1538,10 @@ function renderRoutineDisplay() {
   const detailPrayerContent = document.getElementById('detailPrayerContent');
 
   if (routineSub3) {
-    routineSub3.textContent = routineContent.step3?.title || '후대와 열방을 향한 집중 부르짖음';
+    routineSub3.textContent = routineContent.step3?.title || '나 자신 · 모든 민족 · 후대';
   }
   if (detailPrayerTitle) {
-    detailPrayerTitle.textContent = routineContent.step3?.title || '3대 집중 기도 가이드';
+    detailPrayerTitle.textContent = routineContent.step3?.title || '함께 기도합시다 (Let Us Pray Together)';
   }
   if (detailPrayerContent) {
     detailPrayerContent.innerHTML = escapeHtml(routineContent.step3?.content || '').replace(/\n/g, '<br>');
@@ -1651,6 +1739,108 @@ function escapeHtml(string) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
+
+// ==========================================
+// 8.5. Official Prayer Guide Slide Presentation & Clipboard Copy
+// ==========================================
+let currentPrayerSlide = 1;
+
+function openPrayerGuideModal() {
+  setPrayerSlide(1);
+  openModal('prayerGuideModal');
+}
+
+function setPrayerSlide(slideNum) {
+  currentPrayerSlide = Math.max(1, Math.min(4, slideNum));
+  for (let i = 1; i <= 4; i++) {
+    const slide = document.getElementById(`prayerSlide${i}`);
+    if (slide) {
+      if (i === currentPrayerSlide) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    }
+  }
+
+  // Update dots
+  const indicators = document.getElementById('slideIndicators');
+  if (indicators) {
+    const dots = indicators.querySelectorAll('.slide-dot');
+    dots.forEach((dot, idx) => {
+      if (idx + 1 === currentPrayerSlide) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  const prevBtn = document.getElementById('btnPrevSlide');
+  const nextBtn = document.getElementById('btnNextSlide');
+  if (prevBtn) prevBtn.disabled = (currentPrayerSlide === 1);
+  if (nextBtn) nextBtn.disabled = (currentPrayerSlide === 4);
+}
+
+function changePrayerSlide(direction) {
+  setPrayerSlide(currentPrayerSlide + direction);
+}
+
+function copyPrayerGuideToClipboard() {
+  const prayerText = `🕊️ [아라이즈 넥스트젠 공식 기도문 | Arise Next-Gen Prayer Guide]
+함께 기도합시다 (Let Us Pray Together)
+
+1. 나를 위한 기도 (Prayer for Myself)
+“내가 제일 중요하다” | “I must begin with myself.”
+• 내가 복음이 되기를
+  (May the Gospel become real and evident in my life.)
+• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를
+  (May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture.)
+• Up & Down에 흔들리지 않고 다니엘처럼 항상 한결같은 믿음이 되기를
+  (May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.)
+
+2. 모든 민족을 위한 기도 (Prayer for All Nations)
+• 모든 민족이 그리스도 앞에 무릎 꿇도록
+  (May all nations bow before Christ.)
+• 이곳에 모인 나라들과 세계 모든 나라를 위하여
+  (For the nations represented here and for every nation of the world.)
+• 전쟁 속에서 고통받는 나라들과 사람들을 위하여
+  (For countries and people suffering in the midst of war.)
+
+3. 후대를 위한 기도 (Prayer for the Next Generation)
+• 후대가 복음을 알도록
+  (May the next generation know the Gospel.)
+• 복음이 정말 좋은 것임을 알도록
+  (May they discover that the Gospel is truly good news.)
+• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록
+  (May they know that whatever happens in life, they are secure when they are in Christ.)
+• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록
+  (May they see their studies and every part of life as preparation to serve and save all nations.)
+
+[함께 기도합시다 / Let Us Pray Together]
+나 자신을 위하여 (For myself) · 모든 민족을 위하여 (For all nations) · 후대를 위하여 (For the next generation)`;
+
+  navigator.clipboard.writeText(prayerText).then(() => {
+    showToast(translations[currentLang]?.toast_prayer_guide_copied || "공동 기도문이 복사되었습니다! 📋", "🕊️");
+  }).catch(() => {
+    const dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = prayerText;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+    showToast(translations[currentLang]?.toast_prayer_guide_copied || "공동 기도문이 복사되었습니다! 📋", "🕊️");
+  });
+}
+
+// Keyboard arrow controls for slide presentation
+document.addEventListener('keydown', (e) => {
+  const guideModal = document.getElementById('prayerGuideModal');
+  if (guideModal && guideModal.classList.contains('active')) {
+    if (e.key === 'ArrowLeft') changePrayerSlide(-1);
+    if (e.key === 'ArrowRight') changePrayerSlide(1);
+  }
+});
 
 // ==========================================
 // 9. App Initialization
