@@ -83,8 +83,8 @@ const translations = {
     modal_lbl_testimony_content: "은혜 내용 (Testimony Content)",
     btn_submit_testimony: "간증 등록",
     modal_settings_title: "기도모임 일정 및 링크 설정",
-    settings_info_text: "전도자님께서 다음 모임 일시와 Zoom/Meet 링크를 직접 입력하여 참여자들에게 안내할 수 있습니다.",
-    lbl_next_meeting_date: "다음 모임 일시 (날짜 & 시간)",
+    settings_info_text: "모임을 인도하시는 호주 퀸즈랜드(AEST / UTC+10) 현지 시각 기준으로 일시를 입력하시면, 참여하는 각국 성도들의 현지 시각 및 한국 시각으로 자동 변환되어 안내됩니다.",
+    lbl_next_meeting_date: "다음 모임 일시 (🇦🇺 호주 퀸즈랜드 시각 기준 / AEST)",
     lbl_zoom_link: "Zoom / Google Meet 회의 링크 URL",
     lbl_meeting_id: "회의 ID & 암호 안내 (Meeting ID & Passcode)",
     btn_save_settings: "설정 저장",
@@ -193,8 +193,8 @@ const translations = {
     modal_lbl_testimony_content: "Content",
     btn_submit_testimony: "Post Testimony",
     modal_settings_title: "Meeting Schedule & Link Settings",
-    settings_info_text: "The evangelist/host can update the next meeting time and Zoom/Meet URL here for all members.",
-    lbl_next_meeting_date: "Next Meeting Date & Time",
+    settings_info_text: "Please enter the meeting time based on Queensland, Australia (AEST / UTC+10) where the leader resides. It will be automatically converted to each nation's local time and Korea time.",
+    lbl_next_meeting_date: "Next Meeting Date & Time (🇦🇺 Queensland Base / AEST)",
     lbl_zoom_link: "Zoom / Google Meet URL",
     lbl_meeting_id: "Meeting ID & Passcode Info",
     btn_save_settings: "Save Settings",
@@ -950,7 +950,7 @@ const defaultRoutineContent = {
 };
 
 // Always sync newly added nations & routine content
-const DATA_VERSION = 'v6_qld_time_and_disciples';
+const DATA_VERSION = 'v7_qld_host_base_time';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -975,17 +975,17 @@ const defaultMeetingSettings = {
 
 let meetingSettings = JSON.parse(localStorage.getItem('prayer_hub_meeting_settings')) || defaultMeetingSettings;
 
-// Compute default next first Tuesday
+// Compute default next first Tuesday in Queensland (AEST, UTC+10) time
 function getNextMeetingDateString() {
   const now = new Date();
   const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-  // find first Tuesday
   while (nextMonth.getDay() !== 2) {
     nextMonth.setDate(nextMonth.getDate() + 1);
   }
-  nextMonth.setHours(21, 0, 0, 0);
-  // Return ISO string local format
-  return nextMonth.toISOString().slice(0, 16);
+  const year = nextMonth.getFullYear();
+  const month = String(nextMonth.getMonth() + 1).padStart(2, '0');
+  const date = String(nextMonth.getDate()).padStart(2, '0');
+  return `${year}-${month}-${date}T20:00:00+10:00`;
 }
 
 // ==========================================
@@ -1037,16 +1037,18 @@ function updateMeetingDisplay() {
   if (!displayElem) return;
 
   const targetDate = new Date(meetingSettings.meetingDate);
-  const optionsKST = { month: 'long', day: 'numeric', weekday: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Seoul' };
-  const optionsQLD = { hour: '2-digit', minute: '2-digit', timeZone: 'Australia/Brisbane' };
+  // 호주 퀸즈랜드 (AEST / UTC+10) - 인도자 기준 주 시간
+  const optionsQLD = { month: 'long', day: 'numeric', weekday: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Australia/Brisbane' };
+  // 한국 (KST / UTC+9)
+  const optionsKST = { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Seoul' };
   
-  const kstString = targetDate.toLocaleDateString(currentLang === 'ko' ? 'ko-KR' : 'en-US', optionsKST);
-  const qldTime = targetDate.toLocaleTimeString(currentLang === 'ko' ? 'ko-KR' : 'en-US', optionsQLD);
+  const qldString = targetDate.toLocaleDateString(currentLang === 'ko' ? 'ko-KR' : 'en-US', optionsQLD);
+  const kstTime = targetDate.toLocaleTimeString(currentLang === 'ko' ? 'ko-KR' : 'en-US', optionsKST);
 
   if (currentLang === 'ko') {
-    displayElem.textContent = `${kstString} (KST) / 🇦🇺 퀸즈랜드 ${qldTime}`;
+    displayElem.innerHTML = `🇦🇺 <strong>${qldString}</strong> (호주 퀸즈랜드 기준) <span style="opacity:0.85; font-size:0.92em; font-weight:normal; margin-left:0.4rem;">/ 🇰🇷 한국 ${kstTime} (KST)</span>`;
   } else {
-    displayElem.textContent = `${kstString} (KST) / 🇦🇺 QLD ${qldTime}`;
+    displayElem.innerHTML = `🇦🇺 <strong>${qldString}</strong> (Queensland Base) <span style="opacity:0.85; font-size:0.92em; font-weight:normal; margin-left:0.4rem;">/ 🇰🇷 Korea ${kstTime} (KST)</span>`;
   }
 
   // Local user time display
@@ -1107,10 +1109,10 @@ function copyMeetingLink() {
   const nyStr = targetDate.toLocaleString('en-US', { timeZone: 'America/New_York', dateStyle: 'medium', timeStyle: 'short' });
 
   const text = `🕊️ [아라이즈 넥스트젠 | Arise Next-Gen] 
-Global Prayer Meeting for the Next Generation
-🇦🇺 QLD (Australia): ${qldStr}
-🇰🇷 Korea (KST): ${kstStr}
-🇺🇸 USA (New York / Boston / Florida): ${nyStr}
+Global Prayer Meeting for the Next Generation (호주 퀸즈랜드 인도)
+🇦🇺 호주 퀸즈랜드 (AEST / 인도자 기준): ${qldStr}
+🇰🇷 한국 서울 (KST): ${kstStr}
+🇺🇸 미국 동부 (뉴욕 / 보스턴 / 플로리다 EDT): ${nyStr}
 Link: ${meetingSettings.zoomUrl}
 ${meetingSettings.meetingId}
 "Arise, Shine! Praying together for the Next Generation across all nations!"`;
@@ -1366,7 +1368,12 @@ function handleSettingsSubmit(e) {
   const zoomVal = document.getElementById('settingsZoomUrl').value.trim();
   const idVal = document.getElementById('settingsMeetingId').value.trim();
 
-  if (dateVal) meetingSettings.meetingDate = dateVal;
+  // 호주 퀸즈랜드(AEST / UTC+10) 기준 오프셋을 붙여 저장
+  if (dateVal) {
+    meetingSettings.meetingDate = (dateVal.includes('+') || dateVal.includes('Z'))
+      ? dateVal
+      : `${dateVal}:00+10:00`;
+  }
   if (zoomVal) meetingSettings.zoomUrl = zoomVal;
   if (idVal) meetingSettings.meetingId = idVal;
 
@@ -1548,12 +1555,23 @@ function openModal(id) {
       if (dtInput) {
         try {
           const d = new Date(meetingSettings.meetingDate);
-          const pad = n => String(n).padStart(2, '0');
-          const year = d.getFullYear();
-          const month = pad(d.getMonth() + 1);
-          const day = pad(d.getDate());
-          const hours = pad(d.getHours());
-          const mins = pad(d.getMinutes());
+          // 항상 호주 퀸즈랜드(Australia/Brisbane) 시간대 기준으로 YYYY-MM-DDTHH:mm 값을 추출하여 인풋에 세팅
+          const formatter = new Intl.DateTimeFormat('en-CA', {
+            timeZone: 'Australia/Brisbane',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+          });
+          const parts = formatter.formatToParts(d);
+          const getPart = type => parts.find(p => p.type === type)?.value;
+          const year = getPart('year');
+          const month = getPart('month');
+          const day = getPart('day');
+          const hours = getPart('hour') === '24' ? '00' : getPart('hour');
+          const mins = getPart('minute');
           dtInput.value = `${year}-${month}-${day}T${hours}:${mins}`;
         } catch (err) {
           dtInput.value = meetingSettings.meetingDate.slice(0, 16);
