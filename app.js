@@ -30,13 +30,13 @@ const translations = {
     routine_badge: "타이트하고 깊은 은혜",
     routine_title: "30분 집중 기도모임 황금 루틴",
     routine_desc: "시차와 국경을 넘어 짧은 시간 가장 강력하게 성령 안에서 하나 되는 4단계 순서입니다.",
-    routine_step1_title: "웰컴 & 글로벌 찬양",
+    routine_step1_title: "웰컴 & 글로벌 찬양 (~5분)",
     routine_step1_desc: "전 세계 성도들이 함께 아는 익숙한 찬양 1곡으로 마음의 문을 열고 주님의 임재를 구합니다.",
-    routine_step2_title: "후대 언약의 숏 메시지",
-    routine_step2_desc: "성경 1~2구절 중심의 핵심 말씀 나눔 (영어-한국어 자막 슬라이드 제공).",
-    routine_step3_title: "3대 집중 중보기도",
+    routine_step2_title: "후대 복음 말씀 (10~15분)",
+    routine_step2_desc: "성경 본문 중심의 핵심 복음 메시지 나눔 (영어-한국어 자막 슬라이드 제공).",
+    routine_step3_title: "3대 집중 중보기도 (5~10분)",
     routine_step3_desc: "① 전 세계 후대 복음화 ② 각 나라 현장 사역 ③ 전도자와 교회. 각자의 모국어로 부르짖습니다!",
-    routine_step4_title: "1분 간증 & 축복 기도",
+    routine_step4_title: "현장 간증 & 마무리 축복 (2~3분)",
     routine_step4_desc: "외국인 지체의 짧은 현장 응답 간증을 듣고, 서로를 향한 축도와 주기도문으로 마칩니다.",
     core_prayer_heading: "📌 이달의 3대 핵심 기도제목 (This Month's Focus)",
     focus_1_title: "열방의 후대들에게 구원의 빛이 비추어지도록",
@@ -96,7 +96,26 @@ const translations = {
     toast_amen_clicked: "함께 중보기도에 동참하셨습니다. 아멘! ❤️",
     local_time_prefix: "귀하의 현지 시각: ",
     country_filter_title: "🌍 8개국 열방별 기도보기",
-    country_filter_all: "🌐 전체 열방"
+    country_filter_all: "🌐 전체 열방",
+    btn_edit_routine: "이번 모임 순서 & 내용 등록",
+    routine_time_step1: "00 ~ 05 min (약 5분)",
+    routine_time_step2: "05 ~ 18 min (10~15분)",
+    routine_time_step3: "18 ~ 26 min (5~10분)",
+    routine_time_step4: "26 ~ 30 min (2~3분)",
+    modal_routine_title: "30분 기도모임 순서 & 세부 내용 작성",
+    routine_modal_info: "매월 모임의 4단계 순서별 실제 프로그램(찬양곡, 10~15분 말씀 본문/요약, 5~10분 집중 기도제목, 2~3분 마무리 간증/축복)을 입력하여 성도들에게 안내합니다.",
+    lbl_routine_step1_song: "지정 찬양 곡명 (Song Title)",
+    lbl_routine_step1_link: "유튜브 찬양 영상 링크 (선택)",
+    lbl_routine_step1_desc: "찬양 안내 및 묵상 가사",
+    lbl_routine_step2_scripture: "본문 성경구절 (Scripture)",
+    lbl_routine_step2_title: "설교 / 나눔 제목 (Title)",
+    lbl_routine_step2_content: "핵심 말씀 요약 / 3포인트 나눔 (10~15분 내용)",
+    lbl_routine_step3_title: "집중 기도 주제 (Focus Topic)",
+    lbl_routine_step3_content: "3대 기도제목 상세 내용 (Prayer Topics)",
+    lbl_routine_step4_speaker: "간증자 / 축도 안내 (Speaker / Blessing)",
+    lbl_routine_step4_content: "마무리 순서 및 축복 기도문",
+    btn_save_routine: "루틴 내용 저장하기",
+    toast_routine_saved: "30분 기도모임 루틴 내용이 성공적으로 저장되었습니다! 📋"
   },
   en: {
     brand_title: "Arise Next-Gen",
@@ -121,13 +140,13 @@ const translations = {
     routine_badge: "Tight & Spirit-Filled",
     routine_title: "The 30-Minute Golden Prayer Routine",
     routine_desc: "A powerful 4-step sequence designed to transcend time zones and unite our hearts deeply in the Holy Spirit.",
-    routine_step1_title: "Welcome & Global Praise",
+    routine_step1_title: "Welcome & Global Praise (~5m)",
     routine_step1_desc: "Open our hearts with 1 globally known worship song to seek the Holy Spirit's presence together.",
-    routine_step2_title: "Gospel Word for Next-Gen",
-    routine_step2_desc: "A concise 7-minute core message rooted in 1-2 key scriptures (with bilingual slides provided).",
-    routine_step3_title: "3 Core Intercessory Prayers",
+    routine_step2_title: "Gospel Word for Next-Gen (10~15m)",
+    routine_step2_desc: "Core Gospel message rooted in scripture (with Korean-English bilingual slides provided).",
+    routine_step3_title: "3 Core Intercessory Prayers (5~10m)",
     routine_step3_desc: "① Next-Gen Salvation ② National Mission Fields ③ Gospel Preachers. Cry out in your own native tongue!",
-    routine_step4_title: "1-Min Testimony & Blessing",
+    routine_step4_title: "1-Min Testimony & Blessing (2~3m)",
     routine_step4_desc: "Hear a quick testimony of God's work abroad, followed by mutual blessings and benediction.",
     core_prayer_heading: "📌 This Month's 3 Core Prayer Topics",
     focus_1_title: "That the Light of Christ May Shine on the Next-Gen",
@@ -187,7 +206,26 @@ const translations = {
     toast_amen_clicked: "You joined in prayer. Amen! ❤️",
     local_time_prefix: "Your Local Time: ",
     country_filter_title: "🌍 Filter by 8 Nations",
-    country_filter_all: "🌐 All Nations"
+    country_filter_all: "🌐 All Nations",
+    btn_edit_routine: "Edit Meeting Program & Content",
+    routine_time_step1: "00 ~ 05 min (~5 mins)",
+    routine_time_step2: "05 ~ 18 min (10~15 mins)",
+    routine_time_step3: "18 ~ 26 min (5~10 mins)",
+    routine_time_step4: "26 ~ 30 min (2~3 mins)",
+    modal_routine_title: "Edit 30-Min Prayer Routine Program",
+    routine_modal_info: "Post and update the actual program for each of the 4 steps (Praise, 10-15m Gospel Message, 5-10m Intercession, 2-3m Closing & Blessing) for all global attendees.",
+    lbl_routine_step1_song: "Song Title",
+    lbl_routine_step1_link: "YouTube Music Link (Optional)",
+    lbl_routine_step1_desc: "Praise Guide & Lyrics Meditation",
+    lbl_routine_step2_scripture: "Scripture Reference",
+    lbl_routine_step2_title: "Sermon / Sharing Title",
+    lbl_routine_step2_content: "Gospel Word Summary / 3 Core Points (10~15m)",
+    lbl_routine_step3_title: "Intercessory Prayer Theme",
+    lbl_routine_step3_content: "3 Core Prayer Topics & Details",
+    lbl_routine_step4_speaker: "Testimony Speaker / Blessing Guide",
+    lbl_routine_step4_content: "Closing Order & Blessing Prayer",
+    btn_save_routine: "Save Routine Program",
+    toast_routine_saved: "30-min prayer program successfully saved! 📋"
   },
   th: {
     brand_title: "Arise Next-Gen",
@@ -879,17 +917,41 @@ const defaultTestimonies = [
   }
 ];
 
-// Always sync newly added nations
-const DATA_VERSION = 'v3_8_nations';
+// Routine 4-Step Actual Program Content Seed Data
+const defaultRoutineContent = {
+  step1: {
+    songTitle: "Way Maker (길을 만드시는 분)",
+    link: "https://www.youtube.com/watch?v=2Zars01D38E",
+    content: "전 세계 성도들이 함께 고백하는 대표 찬양으로 마음의 문을 열고 주님의 임재를 구합니다.\n• 추천 찬양: Way Maker, The Blessing\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace to you)"
+  },
+  step2: {
+    scripture: "디모데후서 2:1-2 (2 Tim 2:1-2)",
+    title: "충성된 사람들에게 부탁하라",
+    content: "1. 내 아들아 그러므로 너는 그리스도 예수 안에 있는 은혜 가운데서 강하라\n2. 또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라\n3. 그들이 또 다른 사람들을 가르칠 수 있으리라\n\n📌 10~15분 복음 메시지 요약:\n• 다음 세대와 렘넌트를 살릴 복음의 제자 망대 세우기\n• 한국어 & 영어 2개 국어 핵심 자막 슬라이드 제공"
+  },
+  step3: {
+    title: "후대와 열방을 향한 3대 집중 부르짖음",
+    content: "① 전 세계 렘넌트·후대 복음화 (세속화와 영적 혼란 치유)\n② 8개국 각 나라 현장 사역과 현지 지도자 세우기\n③ 전 세계에서 복음 전하는 전도자들의 영력·지력·체력·경제력·인력 충만\n\n💡 5~10분간 각자의 모국어로 성령 안에서 하나 되어 뜨겁게 부르짖습니다!"
+  },
+  step4: {
+    speaker: "외국인 제자 1분 응답 간증 & 전도자 축도",
+    content: "• 외국인 성도의 1분 현장 응답 및 은혜 간증 나눔\n• 전도자의 축도 및 열방 지체들을 향한 제사장적 축복 기도\n• 주기도문으로 은혜의 30분 다락방 폐회"
+  }
+};
+
+// Always sync newly added nations & routine content
+const DATA_VERSION = 'v4_routine_content';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
+  localStorage.setItem('prayer_hub_routine_content', JSON.stringify(defaultRoutineContent));
   localStorage.setItem('prayer_hub_data_ver', DATA_VERSION);
 }
 
 // App State
 let prayers = JSON.parse(localStorage.getItem('prayer_hub_prayers')) || defaultPrayers;
 let testimonies = JSON.parse(localStorage.getItem('prayer_hub_testimonies')) || defaultTestimonies;
+let routineContent = JSON.parse(localStorage.getItem('prayer_hub_routine_content')) || defaultRoutineContent;
 let currentFilter = 'all';
 
 // Meeting Settings
@@ -948,9 +1010,10 @@ function setLanguage(lang) {
     }
   });
 
-  // Re-render prayers and testimonies with updated language tags/content
+  // Re-render prayers, testimonies, and routine display
   renderPrayers();
   renderTestimonies();
+  renderRoutineDisplay();
   updateMeetingDisplay();
 }
 
@@ -1291,6 +1354,160 @@ function handleSettingsSubmit(e) {
 }
 
 // ==========================================
+// 7.5. Routine 4-Step Interactive Display & Management
+// ==========================================
+function renderRoutineDisplay() {
+  if (!routineContent) return;
+
+  // Step 1: Praise (~5 min)
+  const routineSub1 = document.getElementById('routineSub1');
+  const detailSongTitle = document.getElementById('detailSongTitle');
+  const detailSongContent = document.getElementById('detailSongContent');
+  const detailSongLinkArea = document.getElementById('detailSongLinkArea');
+
+  if (routineSub1) routineSub1.textContent = routineContent.step1?.songTitle || 'Way Maker';
+  if (detailSongTitle) detailSongTitle.textContent = routineContent.step1?.songTitle || 'Way Maker';
+  if (detailSongContent) {
+    detailSongContent.innerHTML = escapeHtml(routineContent.step1?.content || '').replace(/\n/g, '<br>');
+  }
+  if (detailSongLinkArea) {
+    if (routineContent.step1?.link) {
+      detailSongLinkArea.innerHTML = `
+        <a href="${escapeHtml(routineContent.step1.link)}" target="_blank" rel="noopener noreferrer" class="detail-yt-btn">
+          ▶ 유튜브 찬양 영상 함께 듣기 (Watch on YouTube)
+        </a>
+      `;
+    } else {
+      detailSongLinkArea.innerHTML = '';
+    }
+  }
+
+  // Step 2: Gospel Message (10~15 min)
+  const routineSub2 = document.getElementById('routineSub2');
+  const detailMessageTitle = document.getElementById('detailMessageTitle');
+  const detailMessageContent = document.getElementById('detailMessageContent');
+
+  if (routineSub2) {
+    routineSub2.textContent = routineContent.step2?.scripture || '디모데후서 2:1-2';
+  }
+  if (detailMessageTitle) {
+    const scripturePart = routineContent.step2?.scripture ? `[${escapeHtml(routineContent.step2.scripture)}] ` : '';
+    const titlePart = escapeHtml(routineContent.step2?.title || '');
+    detailMessageTitle.textContent = `${scripturePart}${titlePart}`;
+  }
+  if (detailMessageContent) {
+    detailMessageContent.innerHTML = escapeHtml(routineContent.step2?.content || '').replace(/\n/g, '<br>');
+  }
+
+  // Step 3: Intercessory Prayer (5~10 min)
+  const routineSub3 = document.getElementById('routineSub3');
+  const detailPrayerTitle = document.getElementById('detailPrayerTitle');
+  const detailPrayerContent = document.getElementById('detailPrayerContent');
+
+  if (routineSub3) {
+    routineSub3.textContent = routineContent.step3?.title || '후대와 열방을 향한 집중 부르짖음';
+  }
+  if (detailPrayerTitle) {
+    detailPrayerTitle.textContent = routineContent.step3?.title || '3대 집중 기도 가이드';
+  }
+  if (detailPrayerContent) {
+    detailPrayerContent.innerHTML = escapeHtml(routineContent.step3?.content || '').replace(/\n/g, '<br>');
+  }
+
+  // Step 4: Closing & Blessing (2~3 min)
+  const routineSub4 = document.getElementById('routineSub4');
+  const detailClosingTitle = document.getElementById('detailClosingTitle');
+  const detailClosingContent = document.getElementById('detailClosingContent');
+
+  if (routineSub4) {
+    routineSub4.textContent = routineContent.step4?.speaker || '외국인 제자 간증 & 축도';
+  }
+  if (detailClosingTitle) {
+    detailClosingTitle.textContent = routineContent.step4?.speaker || '1분 간증 및 축복 기도';
+  }
+  if (detailClosingContent) {
+    detailClosingContent.innerHTML = escapeHtml(routineContent.step4?.content || '').replace(/\n/g, '<br>');
+  }
+}
+
+function toggleRoutineDetail(stepNum) {
+  const detailBox = document.getElementById(`routineDetail${stepNum}`);
+  const btn = detailBox ? detailBox.previousElementSibling : null;
+  if (!detailBox) return;
+
+  const isOpen = detailBox.classList.contains('open');
+  if (isOpen) {
+    detailBox.classList.remove('open');
+    if (btn) btn.classList.remove('open');
+  } else {
+    detailBox.classList.add('open');
+    if (btn) btn.classList.add('open');
+  }
+}
+
+function openRoutineModal() {
+  const s1Song = document.getElementById('editStep1Song');
+  const s1Link = document.getElementById('editStep1Link');
+  const s1Desc = document.getElementById('editStep1Desc');
+
+  const s2Scripture = document.getElementById('editStep2Scripture');
+  const s2Title = document.getElementById('editStep2Title');
+  const s2Content = document.getElementById('editStep2Content');
+
+  const s3Title = document.getElementById('editStep3Title');
+  const s3Content = document.getElementById('editStep3Content');
+
+  const s4Speaker = document.getElementById('editStep4Speaker');
+  const s4Content = document.getElementById('editStep4Content');
+
+  if (s1Song) s1Song.value = routineContent.step1?.songTitle || '';
+  if (s1Link) s1Link.value = routineContent.step1?.link || '';
+  if (s1Desc) s1Desc.value = routineContent.step1?.content || '';
+
+  if (s2Scripture) s2Scripture.value = routineContent.step2?.scripture || '';
+  if (s2Title) s2Title.value = routineContent.step2?.title || '';
+  if (s2Content) s2Content.value = routineContent.step2?.content || '';
+
+  if (s3Title) s3Title.value = routineContent.step3?.title || '';
+  if (s3Content) s3Content.value = routineContent.step3?.content || '';
+
+  if (s4Speaker) s4Speaker.value = routineContent.step4?.speaker || '';
+  if (s4Content) s4Content.value = routineContent.step4?.content || '';
+
+  openModal('routineModal');
+}
+
+function handleRoutineSubmit(e) {
+  e.preventDefault();
+
+  routineContent = {
+    step1: {
+      songTitle: document.getElementById('editStep1Song')?.value.trim() || '',
+      link: document.getElementById('editStep1Link')?.value.trim() || '',
+      content: document.getElementById('editStep1Desc')?.value.trim() || ''
+    },
+    step2: {
+      scripture: document.getElementById('editStep2Scripture')?.value.trim() || '',
+      title: document.getElementById('editStep2Title')?.value.trim() || '',
+      content: document.getElementById('editStep2Content')?.value.trim() || ''
+    },
+    step3: {
+      title: document.getElementById('editStep3Title')?.value.trim() || '',
+      content: document.getElementById('editStep3Content')?.value.trim() || ''
+    },
+    step4: {
+      speaker: document.getElementById('editStep4Speaker')?.value.trim() || '',
+      content: document.getElementById('editStep4Content')?.value.trim() || ''
+    }
+  };
+
+  localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
+  renderRoutineDisplay();
+  closeModal('routineModal');
+  showToast(translations[currentLang]?.toast_routine_saved || "30분 기도모임 루틴 내용이 저장되었습니다! ✨", "📋");
+}
+
+// ==========================================
 // 8. Modals, Mobile Menu & Toast Helpers
 // ==========================================
 function openModal(id) {
@@ -1375,4 +1592,5 @@ document.addEventListener('DOMContentLoaded', () => {
   startCountdown();
   renderPrayers();
   renderTestimonies();
+  renderRoutineDisplay();
 });

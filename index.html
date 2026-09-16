@@ -187,57 +187,136 @@
   <!-- 30-Minute Routine Section -->
   <section class="routine-section" id="routine">
     <div class="container">
-      <div class="section-header text-center">
-        <span class="section-badge" data-i18n="routine_badge">타이트하고 깊은 은혜</span>
-        <h2 class="section-title" data-i18n="routine_title">30분 집중 기도모임 황금 루틴</h2>
-        <p class="section-desc" data-i18n="routine_desc">
-          시차와 국경을 넘어 짧은 시간 가장 강력하게 성령 안에서 하나 되는 4단계 순서입니다.
-        </p>
+      <div class="section-header-row">
+        <div>
+          <span class="section-badge" data-i18n="routine_badge">타이트하고 깊은 은혜</span>
+          <h2 class="section-title" data-i18n="routine_title">30분 집중 기도모임 황금 루틴</h2>
+          <p class="section-desc" data-i18n="routine_desc">
+            시차와 국경을 넘어 짧은 시간 가장 강력하게 성령 안에서 하나 되는 4단계 순서입니다.
+          </p>
+        </div>
+        <button class="btn btn-outline" id="btnOpenRoutineModal" onclick="openRoutineModal()" title="이번 모임 순서 & 내용 작성">
+          <span class="btn-icon">✍️</span>
+          <span data-i18n="btn_edit_routine">이번 모임 순서 & 내용 등록</span>
+        </button>
       </div>
 
-      <div class="routine-grid">
-        <!-- Step 1 -->
-        <div class="routine-card">
-          <div class="step-time">00 ~ 05 min</div>
-          <div class="step-icon">🎶</div>
-          <h3 class="step-title" data-i18n="routine_step1_title">웰컴 & 글로벌 찬양</h3>
-          <p class="step-desc" data-i18n="routine_step1_desc">
+      <div class="routine-grid" id="routineGrid">
+        <!-- Step 1: Praise (~5 min) -->
+        <div class="routine-card" id="routineCard1">
+          <div class="routine-top-bar">
+            <div class="step-time" id="routineTime1" data-i18n="routine_time_step1">00 ~ 05 min (약 5분)</div>
+            <div class="step-tag">🎶 Praise</div>
+          </div>
+          <div class="step-header">
+            <div class="step-icon">🎶</div>
+            <div>
+              <h3 class="step-title" id="routineTitle1" data-i18n="routine_step1_title">웰컴 & 글로벌 찬양</h3>
+              <div class="step-sub-info" id="routineSub1">Way Maker (길을 만드시는 분)</div>
+            </div>
+          </div>
+          <p class="step-desc" id="routineDesc1" data-i18n="routine_step1_desc">
             전 세계 성도들이 함께 아는 익숙한 찬양 1곡으로 마음의 문을 열고 주님의 임재를 구합니다.
           </p>
-          <div class="step-tag">Praise & Welcome</div>
+          <div class="routine-expand-wrapper">
+            <button type="button" class="btn-toggle-routine" onclick="toggleRoutineDetail(1)">
+              <span id="routineBtnText1">이번 모임 찬양 보기</span>
+              <span class="chevron" id="routineChevron1">▼</span>
+            </button>
+            <div class="routine-detail-box" id="routineDetail1">
+              <div class="detail-badge">🎵 이번 모임 지정 찬양</div>
+              <div class="detail-highlight-title" id="detailSongTitle">Way Maker</div>
+              <div class="detail-text-body" id="detailSongContent"></div>
+              <div class="detail-link-area" id="detailSongLinkArea"></div>
+            </div>
+          </div>
         </div>
 
-        <!-- Step 2 -->
-        <div class="routine-card">
-          <div class="step-time">05 ~ 12 min</div>
-          <div class="step-icon">📖</div>
-          <h3 class="step-title" data-i18n="routine_step2_title">후대 언약의 숏 메시지</h3>
-          <p class="step-desc" data-i18n="routine_step2_desc">
-            성경 1~2구절 중심의 핵심 말씀 나눔 (영어-한국어 자막 슬라이드 제공).
+        <!-- Step 2: Message (10~15 min) -->
+        <div class="routine-card highlight-step2" id="routineCard2">
+          <div class="routine-top-bar">
+            <div class="step-time highlight-time" id="routineTime2" data-i18n="routine_time_step2">05 ~ 18 min (10~15분)</div>
+            <div class="step-tag highlight-tag">📖 Word Message</div>
+          </div>
+          <div class="step-header">
+            <div class="step-icon">📖</div>
+            <div>
+              <h3 class="step-title" id="routineTitle2" data-i18n="routine_step2_title">후대 복음 말씀 (10~15분)</h3>
+              <div class="step-sub-info" id="routineSub2">디모데후서 2:1-2</div>
+            </div>
+          </div>
+          <p class="step-desc" id="routineDesc2" data-i18n="routine_step2_desc">
+            성경 본문 중심의 핵심 복음 메시지 나눔 (영어-한국어 자막 슬라이드 제공).
           </p>
-          <div class="step-tag">Gospel Message</div>
+          <div class="routine-expand-wrapper">
+            <button type="button" class="btn-toggle-routine" onclick="toggleRoutineDetail(2)">
+              <span id="routineBtnText2">이번 모임 말씀 요약 보기</span>
+              <span class="chevron" id="routineChevron2">▼</span>
+            </button>
+            <div class="routine-detail-box" id="routineDetail2">
+              <div class="detail-badge">📖 이번 모임 말씀 본문</div>
+              <div class="detail-highlight-title" id="detailMessageTitle">충성된 사람들에게 부탁하라</div>
+              <div class="detail-text-body" id="detailMessageContent"></div>
+            </div>
+          </div>
         </div>
 
-        <!-- Step 3 -->
-        <div class="routine-card highlight-card">
-          <div class="step-time">12 ~ 25 min</div>
-          <div class="step-icon">🔥</div>
-          <h3 class="step-title" data-i18n="routine_step3_title">3대 집중 중보기도</h3>
-          <p class="step-desc" data-i18n="routine_step3_desc">
+        <!-- Step 3: Prayer (5~10 min) -->
+        <div class="routine-card highlight-card" id="routineCard3">
+          <div class="routine-top-bar">
+            <div class="step-time highlight-time" id="routineTime3" data-i18n="routine_time_step3">18 ~ 26 min (5~10분)</div>
+            <div class="step-tag highlight-tag">🔥 Intercession</div>
+          </div>
+          <div class="step-header">
+            <div class="step-icon">🔥</div>
+            <div>
+              <h3 class="step-title" id="routineTitle3" data-i18n="routine_step3_title">3대 집중 중보기도 (5~10분)</h3>
+              <div class="step-sub-info" id="routineSub3">후대·열방·전도자</div>
+            </div>
+          </div>
+          <p class="step-desc" id="routineDesc3" data-i18n="routine_step3_desc">
             ① 전 세계 후대 복음화 ② 각 나라 현장 사역 ③ 전도자와 교회. 각자의 모국어로 부르짖습니다!
           </p>
-          <div class="step-tag highlight-tag">13-Min Intercession</div>
+          <div class="routine-expand-wrapper">
+            <button type="button" class="btn-toggle-routine" onclick="toggleRoutineDetail(3)">
+              <span id="routineBtnText3">이번 모임 집중 기도제목 보기</span>
+              <span class="chevron" id="routineChevron3">▼</span>
+            </button>
+            <div class="routine-detail-box" id="routineDetail3">
+              <div class="detail-badge">🔥 3대 집중 기도 가이드</div>
+              <div class="detail-highlight-title" id="detailPrayerTitle">후대와 열방을 향한 집중 부르짖음</div>
+              <div class="detail-text-body" id="detailPrayerContent"></div>
+            </div>
+          </div>
         </div>
 
-        <!-- Step 4 -->
-        <div class="routine-card">
-          <div class="step-time">25 ~ 30 min</div>
-          <div class="step-icon">🌱</div>
-          <h3 class="step-title" data-i18n="routine_step4_title">1분 간증 & 축복 기도</h3>
-          <p class="step-desc" data-i18n="routine_step4_desc">
+        <!-- Step 4: Closing & Blessing (2~3 min) -->
+        <div class="routine-card" id="routineCard4">
+          <div class="routine-top-bar">
+            <div class="step-time" id="routineTime4" data-i18n="routine_time_step4">26 ~ 30 min (2~3분)</div>
+            <div class="step-tag">🌱 Blessing</div>
+          </div>
+          <div class="step-header">
+            <div class="step-icon">🌱</div>
+            <div>
+              <h3 class="step-title" id="routineTitle4" data-i18n="routine_step4_title">현장 간증 & 마무리 축복 (2~3분)</h3>
+              <div class="step-sub-info" id="routineSub4">축도 & 주기도문</div>
+            </div>
+          </div>
+          <p class="step-desc" id="routineDesc4" data-i18n="routine_step4_desc">
             외국인 지체의 짧은 현장 응답 간증을 듣고, 서로를 향한 축도와 주기도문으로 마칩니다.
           </p>
-          <div class="step-tag">Testimony & Blessing</div>
+          <div class="routine-expand-wrapper">
+            <button type="button" class="btn-toggle-routine" onclick="toggleRoutineDetail(4)">
+              <span id="routineBtnText4">간증 & 축복 순서 보기</span>
+              <span class="chevron" id="routineChevron4">▼</span>
+            </button>
+            <div class="routine-detail-box" id="routineDetail4">
+              <div class="detail-badge">🌱 축복 & 폐회</div>
+              <div class="detail-highlight-title" id="detailClosingTitle">1분 간증 및 축복 기도</div>
+              <div class="detail-text-body" id="detailClosingContent"></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -577,6 +656,90 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-ghost" onclick="closeModal('settingsModal')" data-i18n="btn_cancel">취소</button>
           <button type="submit" class="btn btn-primary" data-i18n="btn_save_settings">설정 저장</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Routine Content Management Modal -->
+  <div class="modal-overlay" id="routineModal" onclick="closeModalOnBackdrop(event, 'routineModal')">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <h3 class="modal-title">✍️ <span data-i18n="modal_routine_title">30분 기도모임 순서 & 세부 내용 작성</span></h3>
+        <button class="modal-close" onclick="closeModal('routineModal')">&times;</button>
+      </div>
+      <form id="routineForm" onsubmit="handleRoutineSubmit(event)">
+        <p class="modal-info-text" data-i18n="routine_modal_info">
+          매월 모임의 4단계 순서별 실제 프로그램(찬양곡, 10~15분 말씀 본문/요약, 5~10분 집중 기도제목, 2~3분 마무리 간증/축복)을 입력하여 성도들에게 안내합니다.
+        </p>
+
+        <!-- Step 1: Praise (~5 min) -->
+        <div class="routine-form-box">
+          <div class="routine-form-badge">🎶 1단계: 웰컴 & 글로벌 찬양 (~5분)</div>
+          <div class="form-row">
+            <div class="form-group half">
+              <label class="form-label" data-i18n="lbl_routine_step1_song">지정 찬양 곡명 (Song Title)</label>
+              <input type="text" class="form-input" id="editStep1Song" placeholder="예: Way Maker (길을 만드시는 분)" required>
+            </div>
+            <div class="form-group half">
+              <label class="form-label" data-i18n="lbl_routine_step1_link">유튜브 찬양 영상 링크 (선택)</label>
+              <input type="url" class="form-input" id="editStep1Link" placeholder="https://www.youtube.com/watch?v=...">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="lbl_routine_step1_desc">찬양 안내 및 묵상 가사</label>
+            <textarea class="form-textarea" id="editStep1Desc" rows="2" placeholder="전 세계 성도들이 함께 고백할 찬양 안내와 핵심 가사"></textarea>
+          </div>
+        </div>
+
+        <!-- Step 2: Gospel Message (10~15 min) -->
+        <div class="routine-form-box highlight-form-box">
+          <div class="routine-form-badge highlight-badge">📖 2단계: 후대 복음 말씀 (10~15분)</div>
+          <div class="form-row">
+            <div class="form-group half">
+              <label class="form-label" data-i18n="lbl_routine_step2_scripture">본문 성경구절 (Scripture)</label>
+              <input type="text" class="form-input" id="editStep2Scripture" placeholder="예: 디모데후서 2:1-2 (2 Tim 2:1-2)" required>
+            </div>
+            <div class="form-group half">
+              <label class="form-label" data-i18n="lbl_routine_step2_title">설교 / 나눔 제목 (Title)</label>
+              <input type="text" class="form-input" id="editStep2Title" placeholder="예: 충성된 사람들에게 부탁하라" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="lbl_routine_step2_content">핵심 말씀 요약 / 3포인트 나눔 (10~15분 내용)</label>
+            <textarea class="form-textarea" id="editStep2Content" rows="4" placeholder="1. 은혜 속에서 강하라&#10;2. 충성된 사람들에게 복음을 부탁하라&#10;3. 또 다른 사람을 가르칠 제자의 망대" required></textarea>
+          </div>
+        </div>
+
+        <!-- Step 3: Intercessory Prayer (5~10 min) -->
+        <div class="routine-form-box">
+          <div class="routine-form-badge">🔥 3단계: 3대 집중 중보기도 (5~10분)</div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="lbl_routine_step3_title">집중 기도 주제 (Focus Topic)</label>
+            <input type="text" class="form-input" id="editStep3Title" placeholder="예: 후대와 열방을 향한 3대 집중 부르짖음" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="lbl_routine_step3_content">3대 기도제목 상세 내용 (Prayer Topics)</label>
+            <textarea class="form-textarea" id="editStep3Content" rows="3" placeholder="① 전 세계 후대 복음화&#10;② 8개국 각 나라 현장 사역과 현지 지도자 세우기&#10;③ 전도자들의 건강과 성령 충만" required></textarea>
+          </div>
+        </div>
+
+        <!-- Step 4: Closing & Blessing (2~3 min) -->
+        <div class="routine-form-box">
+          <div class="routine-form-badge">🌱 4단계: 현장 간증 & 마무리 축복 (2~3분)</div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="lbl_routine_step4_speaker">간증자 / 축도 안내 (Speaker / Blessing)</label>
+            <input type="text" class="form-input" id="editStep4Speaker" placeholder="예: 외국인 제자 1분 응답 간증 & 전도자 축도" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="lbl_routine_step4_content">마무리 순서 및 축복 기도문</label>
+            <textarea class="form-textarea" id="editStep4Content" rows="2" placeholder="외국인 지체의 짧은 현장 간증 후 서로를 향한 축복과 주기도문 폐회"></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-ghost" onclick="closeModal('routineModal')" data-i18n="btn_cancel">취소</button>
+          <button type="submit" class="btn btn-primary" data-i18n="btn_save_routine">루틴 내용 저장하기</button>
         </div>
       </form>
     </div>
