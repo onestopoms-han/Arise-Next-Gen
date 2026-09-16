@@ -17,7 +17,7 @@ const translations = {
     nav_worship: "찬양 라운지",
     hero_badge: "월 1회 30분 | 전 세계가 함께하는 다음 세대 중보기도",
     hero_title: "일어나 빛을 발하라!<br><span class=\"gradient-text\">열방의 후대를 기도로 품다</span>",
-    hero_subtitle: "복음으로 만난 다민족 제자들과 전도자가 한자리에 모여 하나님의 모든 관심인 모든 족속 복음화와<br>다음 세대에 이 복음을 전달하기 위해 간절히 기도하는 플랫폼입니다.",
+    hero_subtitle: "복음으로 만난 다민족 제자들과 전도자가 한자리에 모여<br>하나님의 모든 관심인 모든 족속 복음화와<br>다음 세대에 이 복음을 전달하기 위해 간절히 기도하는 플랫폼입니다.",
     hero_scripture_text: "\"또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라 그들이 또 다른 사람들을 가르칠 수 있으리라\"",
     hero_scripture_ref: "디모데후서 2:2 (2 Timothy 2:2)",
     countdown_tag: "다음 모임 D-Day",
