@@ -205,10 +205,16 @@
             시차와 국경을 넘어 짧은 시간 가장 강력하게 성령 안에서 하나 되는 4단계 순서입니다.
           </p>
         </div>
-        <button class="btn btn-outline" id="btnOpenRoutineModal" onclick="openRoutineModal()" title="이번 모임 순서 & 내용 작성">
-          <span class="btn-icon">✍️</span>
-          <span data-i18n="btn_edit_routine">이번 모임 순서 & 내용 등록</span>
-        </button>
+        <div class="routine-header-actions" style="display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap;">
+          <span id="routineTranslateBadge" class="translate-badge-live" style="display: none;">🌐 실시간 번역됨</span>
+          <button type="button" class="btn btn-outline" id="btnToggleRoutineOriginal" onclick="toggleRoutineOriginal()" style="display: none;">
+            <span>🌐</span> <span id="btnRoutineOriginalText">원문 보기</span>
+          </button>
+          <button class="btn btn-outline" id="btnOpenRoutineModal" onclick="openRoutineModal()" title="이번 모임 순서 & 내용 작성">
+            <span class="btn-icon">✍️</span>
+            <span data-i18n="btn_edit_routine">이번 모임 순서 & 내용 등록</span>
+          </button>
+        </div>
       </div>
 
       <div class="routine-grid" id="routineGrid">

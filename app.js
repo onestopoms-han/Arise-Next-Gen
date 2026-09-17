@@ -1247,8 +1247,177 @@ const translations = {
   }
 };
 
+// ==========================================
+// 1.5 Real-Time On-Demand Auto Translate Engine
+// ==========================================
+const AriseTranslateEngine = {
+  // Language mappings for translation API
+  langMap: {
+    ko: 'ko',
+    en: 'en',
+    th: 'th',
+    ar: 'ar',
+    fr: 'fr',
+    zh: 'zh-CN',
+    id: 'id',
+    my: 'my'
+  },
+
+  // Glossary mappings to preserve Christian/Mission spiritual terminology accuracy
+  glossaryReplacements: {
+    en: [
+      { regex: /\b(offspring|descendants)\b/gi, replacement: "Next Generation" },
+      { regex: /\b(remnants?)\b/gi, replacement: "Remnant" },
+      { regex: /\ball nations\b/gi, replacement: "All Nations" },
+      { regex: /\bfive powers\b/gi, replacement: "Five Spiritual Powers" },
+      { regex: /\bintercession\b/gi, replacement: "Intercessory Prayer" },
+      { regex: /\bevangelization\b/gi, replacement: "Evangelization" }
+    ]
+  },
+
+  // Persistent translation cache (v2)
+  cache: (() => {
+    try {
+      const stored = localStorage.getItem('arise_translation_cache_v2');
+      return stored ? JSON.parse(stored) : {};
+    } catch (e) {
+      console.warn("Could not load translation cache:", e);
+      return {};
+    }
+  })(),
+
+  saveCache() {
+    try {
+      localStorage.setItem('arise_translation_cache_v2', JSON.stringify(this.cache));
+    } catch (e) {
+      console.warn("Could not save translation cache:", e);
+    }
+  },
+
+  getCacheKey(text, targetLang, sourceLang = 'auto') {
+    const targetCode = this.langMap[targetLang] || targetLang;
+    return `${sourceLang}__${targetCode}__${text.trim()}`;
+  },
+
+  // Check if translation is cached
+  hasCached(text, targetLang, sourceLang = 'auto') {
+    if (!text || targetLang === 'ko') return true;
+    const key = this.getCacheKey(text, targetLang, sourceLang);
+    return Boolean(this.cache[key]);
+  },
+
+  getCached(text, targetLang, sourceLang = 'auto') {
+    if (!text) return '';
+    if (targetLang === 'ko') return text;
+    const key = this.getCacheKey(text, targetLang, sourceLang);
+    return this.cache[key] || text;
+  },
+
+  // Translate a single string on-demand
+  async translate(text, targetLang = 'en', sourceLang = 'auto') {
+    if (!text || typeof text !== 'string') return text || '';
+    const cleanText = text.trim();
+    if (!cleanText) return '';
+
+    // If target is Korean and source is Korean, no translation needed
+    if (targetLang === 'ko' && (sourceLang === 'ko' || sourceLang === 'auto')) {
+      return text;
+    }
+
+    const targetCode = this.langMap[targetLang] || targetLang;
+    const cacheKey = this.getCacheKey(cleanText, targetLang, sourceLang);
+
+    if (this.cache[cacheKey]) {
+      return this.cache[cacheKey];
+    }
+
+    try {
+      // Use high-availability Google gtx endpoint
+      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLang}&tl=${targetCode}&dt=t&q=${encodeURIComponent(cleanText)}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+      const data = await response.json();
+
+      let translated = '';
+      if (Array.isArray(data) && Array.isArray(data[0])) {
+        translated = data[0].map(item => item[0]).filter(Boolean).join('');
+      }
+
+      if (!translated) {
+        translated = cleanText;
+      }
+
+      // Apply spiritual glossary replacements if target is English
+      if (this.glossaryReplacements[targetLang]) {
+        this.glossaryReplacements[targetLang].forEach(rule => {
+          translated = translated.replace(rule.regex, rule.replacement);
+        });
+      }
+
+      this.cache[cacheKey] = translated;
+      this.saveCache();
+      return translated;
+    } catch (err) {
+      console.warn(`[AriseTranslateEngine] Translation error for "${cleanText.slice(0, 20)}...":`, err);
+      return text; // Graceful fallback to original text
+    }
+  },
+
+  // Translate an entire routine content object
+  async translateRoutine(routine, targetLang) {
+    if (!routine || targetLang === 'ko') return routine;
+
+    const translated = JSON.parse(JSON.stringify(routine));
+
+    const tasks = [
+      (async () => {
+        if (routine.step1?.songTitle) {
+          translated.step1.songTitle = await this.translate(routine.step1.songTitle, targetLang);
+        }
+        if (routine.step1?.content) {
+          translated.step1.content = await this.translate(routine.step1.content, targetLang);
+        }
+      })(),
+      (async () => {
+        if (routine.step2?.title) {
+          translated.step2.title = await this.translate(routine.step2.title, targetLang);
+        }
+        if (routine.step2?.content) {
+          translated.step2.content = await this.translate(routine.step2.content, targetLang);
+        }
+      })(),
+      (async () => {
+        if (routine.step3?.title) {
+          translated.step3.title = await this.translate(routine.step3.title, targetLang);
+        }
+        if (routine.step3?.content) {
+          translated.step3.content = await this.translate(routine.step3.content, targetLang);
+        }
+      })(),
+      (async () => {
+        if (routine.step4?.speaker) {
+          translated.step4.speaker = await this.translate(routine.step4.speaker, targetLang);
+        }
+        if (routine.step4?.content) {
+          translated.step4.content = await this.translate(routine.step4.content, targetLang);
+        }
+      })()
+    ];
+
+    await Promise.all(tasks);
+    return translated;
+  }
+};
+
 // Current active language
 let currentLang = localStorage.getItem('prayer_hub_lang') || 'ko';
+
+// Track which items are toggled to original view by the user
+const originalViewMap = {
+  prayers: new Set(),
+  testimonies: new Set(),
+  routine: false
+};
 
 // ==========================================
 // 2. Default Initial Seed Data (12 Global Nations)
@@ -1653,6 +1822,26 @@ function filterByCountry(countryKey) {
   }
 }
 
+// Toggle individual prayer between original and translated
+function togglePrayerOriginal(id) {
+  if (originalViewMap.prayers.has(id)) {
+    originalViewMap.prayers.delete(id);
+  } else {
+    originalViewMap.prayers.add(id);
+  }
+  renderPrayers();
+}
+
+// Toggle individual testimony between original and translated
+function toggleTestimonyOriginal(id) {
+  if (originalViewMap.testimonies.has(id)) {
+    originalViewMap.testimonies.delete(id);
+  } else {
+    originalViewMap.testimonies.add(id);
+  }
+  renderTestimonies();
+}
+
 function renderPrayers() {
   const grid = document.getElementById('prayerGrid');
   if (!grid) return;
@@ -1680,9 +1869,27 @@ function renderPrayers() {
   }
 
   grid.innerHTML = filtered.map(item => {
-    // Show English version if current language is not Korean and translation exists
-    const content = (currentLang !== 'ko' && item.content_en) ? item.content_en : item.content;
+    const isOriginalToggled = originalViewMap.prayers.has(item.id);
     const catLabel = getCategoryLabel(item.category);
+
+    // Determine initial content
+    let contentToDisplay = item.content;
+    let isTranslated = false;
+
+    if (currentLang !== 'ko' && !isOriginalToggled) {
+      if (AriseTranslateEngine.hasCached(item.content, currentLang)) {
+        contentToDisplay = AriseTranslateEngine.getCached(item.content, currentLang);
+        isTranslated = true;
+      } else if (item.content_en && currentLang === 'en') {
+        contentToDisplay = item.content_en;
+        isTranslated = true;
+      }
+    }
+
+    const showToggleBtn = currentLang !== 'ko';
+    const toggleBtnText = isOriginalToggled 
+      ? (currentLang === 'ko' ? '번역 보기' : 'Translate') 
+      : (currentLang === 'ko' ? '원문' : 'Original');
 
     return `
       <div class="prayer-card" id="prayer-${item.id}">
@@ -1694,19 +1901,45 @@ function renderPrayers() {
               <div class="prayer-date">${item.date} • ${getCountryNameOnly(item.country)}</div>
             </div>
           </div>
-          <span class="prayer-category-tag">${catLabel}</span>
+          <div style="display: flex; align-items: center; gap: 0.4rem;">
+            <span class="prayer-category-tag">${catLabel}</span>
+          </div>
         </div>
-        <p class="prayer-content">${escapeHtml(content)}</p>
+        <p class="prayer-content ${isTranslated ? 'fade-in-content' : ''}" id="prayer-content-${item.id}">${escapeHtml(contentToDisplay)}</p>
         <div class="prayer-card-footer">
           <button type="button" class="btn-amen" onclick="handleAmenClick(event, ${item.id})">
             <span>🙏</span>
             <span>${translations[currentLang].amen_btn_label}</span>
             <strong id="amen-count-${item.id}">${item.amenCount}</strong>
           </button>
+          ${showToggleBtn ? `
+            <button type="button" class="btn-translate-toggle ${isOriginalToggled ? '' : 'active'}" onclick="togglePrayerOriginal(${item.id})" title="Toggle Original / Translation">
+              <span>🌐</span>
+              <span>${toggleBtnText}</span>
+            </button>
+          ` : ''}
         </div>
       </div>
     `;
   }).join('');
+
+  // Asynchronously perform on-demand translation for items not yet translated
+  if (currentLang !== 'ko') {
+    filtered.forEach(item => {
+      if (originalViewMap.prayers.has(item.id)) return;
+      if (AriseTranslateEngine.hasCached(item.content, currentLang)) return;
+
+      const contentElem = document.getElementById(`prayer-content-${item.id}`);
+      if (!contentElem) return;
+
+      AriseTranslateEngine.translate(item.content, currentLang).then(translatedText => {
+        if (!originalViewMap.prayers.has(item.id) && contentElem) {
+          contentElem.textContent = translatedText;
+          contentElem.classList.add('fade-in-content');
+        }
+      });
+    });
+  }
 }
 
 function getCategoryLabel(cat) {
@@ -1776,7 +2009,7 @@ function handlePrayerSubmit(e) {
     country,
     category,
     content,
-    content_en: content, // stored same initially
+    content_en: content, // stored initially
     amenCount: 1,
     date: new Date().toISOString().slice(0, 10)
   };
@@ -1788,6 +2021,12 @@ function handlePrayerSubmit(e) {
   closeModal('prayerModal');
   e.target.reset();
   showToast(translations[currentLang].toast_prayer_added, "🕊️");
+
+  // On-demand translate to English in the background and cache
+  AriseTranslateEngine.translate(content, 'en').then(enText => {
+    newPrayer.content_en = enText;
+    localStorage.setItem('prayer_hub_prayers', JSON.stringify(prayers));
+  });
 }
 
 // ==========================================
@@ -1798,21 +2037,76 @@ function renderTestimonies() {
   if (!grid) return;
 
   grid.innerHTML = testimonies.map(item => {
-    const title = (currentLang !== 'ko' && item.title_en) ? item.title_en : item.title;
-    const content = (currentLang !== 'ko' && item.content_en) ? item.content_en : item.content;
+    const isOriginalToggled = originalViewMap.testimonies.has(item.id);
+
+    let displayTitle = item.title;
+    let displayContent = item.content;
+    let isTranslated = false;
+
+    if (currentLang !== 'ko' && !isOriginalToggled) {
+      if (AriseTranslateEngine.hasCached(item.content, currentLang)) {
+        displayContent = AriseTranslateEngine.getCached(item.content, currentLang);
+        displayTitle = AriseTranslateEngine.getCached(item.title, currentLang);
+        isTranslated = true;
+      } else if (item.content_en && currentLang === 'en') {
+        displayContent = item.content_en;
+        displayTitle = item.title_en || item.title;
+        isTranslated = true;
+      }
+    }
+
+    const showToggleBtn = currentLang !== 'ko';
+    const toggleBtnText = isOriginalToggled 
+      ? (currentLang === 'ko' ? '번역 보기' : 'Translate') 
+      : (currentLang === 'ko' ? '원문' : 'Original');
 
     return `
-      <div class="testimony-card">
-        <div class="testimony-top">
-          <span class="country-flag">${getCountryFlag(item.country)}</span>
-          <span class="prayer-author-name">${escapeHtml(item.author)}</span>
-          <span class="prayer-date">(${getCountryNameOnly(item.country)}) • ${item.date}</span>
+      <div class="testimony-card" id="testimony-${item.id}">
+        <div class="testimony-top" style="justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 0.6rem;">
+            <span class="country-flag">${getCountryFlag(item.country)}</span>
+            <span class="prayer-author-name">${escapeHtml(item.author)}</span>
+            <span class="prayer-date">(${getCountryNameOnly(item.country)}) • ${item.date}</span>
+          </div>
+          ${showToggleBtn ? `
+            <button type="button" class="btn-translate-toggle ${isOriginalToggled ? '' : 'active'}" onclick="toggleTestimonyOriginal(${item.id})" title="Toggle Original / Translation">
+              <span>🌐</span>
+              <span>${toggleBtnText}</span>
+            </button>
+          ` : ''}
         </div>
-        <h4 class="testimony-title">${escapeHtml(title)}</h4>
-        <p class="testimony-quote">“${escapeHtml(content)}”</p>
+        <h4 class="testimony-title ${isTranslated ? 'fade-in-content' : ''}" id="testimony-title-${item.id}">${escapeHtml(displayTitle)}</h4>
+        <p class="testimony-quote ${isTranslated ? 'fade-in-content' : ''}" id="testimony-content-${item.id}">“${escapeHtml(displayContent)}”</p>
       </div>
     `;
   }).join('');
+
+  // Asynchronously translate un-cached testimonies
+  if (currentLang !== 'ko') {
+    testimonies.forEach(item => {
+      if (originalViewMap.testimonies.has(item.id)) return;
+      if (AriseTranslateEngine.hasCached(item.content, currentLang)) return;
+
+      const titleElem = document.getElementById(`testimony-title-${item.id}`);
+      const contentElem = document.getElementById(`testimony-content-${item.id}`);
+
+      Promise.all([
+        AriseTranslateEngine.translate(item.title, currentLang),
+        AriseTranslateEngine.translate(item.content, currentLang)
+      ]).then(([transTitle, transContent]) => {
+        if (!originalViewMap.testimonies.has(item.id)) {
+          if (titleElem) {
+            titleElem.textContent = transTitle;
+            titleElem.classList.add('fade-in-content');
+          }
+          if (contentElem) {
+            contentElem.textContent = `“${transContent}”`;
+            contentElem.classList.add('fade-in-content');
+          }
+        }
+      });
+    });
+  }
 }
 
 function handleTestimonySubmit(e) {
@@ -1842,6 +2136,16 @@ function handleTestimonySubmit(e) {
   closeModal('testimonyModal');
   e.target.reset();
   showToast(translations[currentLang].toast_testimony_added, "🌟");
+
+  // On-demand translate in background
+  Promise.all([
+    AriseTranslateEngine.translate(title, 'en'),
+    AriseTranslateEngine.translate(content, 'en')
+  ]).then(([enTitle, enContent]) => {
+    newTestimony.title_en = enTitle;
+    newTestimony.content_en = enContent;
+    localStorage.setItem('prayer_hub_testimonies', JSON.stringify(testimonies));
+  });
 }
 
 // ==========================================
@@ -1873,77 +2177,140 @@ function handleSettingsSubmit(e) {
 // ==========================================
 // 7.5. Routine 4-Step Interactive Display & Management
 // ==========================================
+function toggleRoutineOriginal() {
+  originalViewMap.routine = !originalViewMap.routine;
+  renderRoutineDisplay();
+}
+
 function renderRoutineDisplay() {
   if (!routineContent) return;
 
-  // Step 1: Praise (~5 min)
-  const routineSub1 = document.getElementById('routineSub1');
-  const detailSongTitle = document.getElementById('detailSongTitle');
-  const detailSongContent = document.getElementById('detailSongContent');
-  const detailSongLinkArea = document.getElementById('detailSongLinkArea');
+  const isOriginal = originalViewMap.routine;
+  const targetLang = isOriginal ? 'ko' : currentLang;
 
-  if (routineSub1) routineSub1.textContent = routineContent.step1?.songTitle || 'Way Maker';
-  if (detailSongTitle) detailSongTitle.textContent = routineContent.step1?.songTitle || 'Way Maker';
-  if (detailSongContent) {
-    detailSongContent.innerHTML = escapeHtml(routineContent.step1?.content || '').replace(/\n/g, '<br>');
-  }
-  if (detailSongLinkArea) {
-    if (routineContent.step1?.link) {
-      detailSongLinkArea.innerHTML = `
-        <a href="${escapeHtml(routineContent.step1.link)}" target="_blank" rel="noopener noreferrer" class="detail-yt-btn">
-          ▶ 유튜브 찬양 영상 함께 듣기 (Watch on YouTube)
-        </a>
-      `;
+  // Update header translation controls
+  const badge = document.getElementById('routineTranslateBadge');
+  const toggleBtn = document.getElementById('btnToggleRoutineOriginal');
+  const toggleBtnText = document.getElementById('btnRoutineOriginalText');
+
+  if (badge) {
+    if (currentLang !== 'ko' && !isOriginal) {
+      badge.style.display = 'inline-flex';
+      badge.textContent = `🌐 실시간 번역됨 (${currentLang.toUpperCase()})`;
     } else {
-      detailSongLinkArea.innerHTML = '';
+      badge.style.display = 'none';
     }
   }
 
-  // Step 2: Gospel Message (10~15 min)
-  const routineSub2 = document.getElementById('routineSub2');
-  const detailMessageTitle = document.getElementById('detailMessageTitle');
-  const detailMessageContent = document.getElementById('detailMessageContent');
-
-  if (routineSub2) {
-    routineSub2.textContent = routineContent.step2?.scripture || '디모데후서 2:1-2';
-  }
-  if (detailMessageTitle) {
-    const scripturePart = routineContent.step2?.scripture ? `[${escapeHtml(routineContent.step2.scripture)}] ` : '';
-    const titlePart = escapeHtml(routineContent.step2?.title || '');
-    detailMessageTitle.textContent = `${scripturePart}${titlePart}`;
-  }
-  if (detailMessageContent) {
-    detailMessageContent.innerHTML = escapeHtml(routineContent.step2?.content || '').replace(/\n/g, '<br>');
+  if (toggleBtn) {
+    if (currentLang !== 'ko') {
+      toggleBtn.style.display = 'inline-flex';
+      if (toggleBtnText) {
+        toggleBtnText.textContent = isOriginal 
+          ? (currentLang === 'ko' ? '번역 보기' : 'View Translation') 
+          : (currentLang === 'ko' ? '원문 보기' : 'View Original');
+      }
+    } else {
+      toggleBtn.style.display = 'none';
+    }
   }
 
-  // Step 3: Intercessory Prayer (5~10 min)
-  const routineSub3 = document.getElementById('routineSub3');
-  const detailPrayerTitle = document.getElementById('detailPrayerTitle');
-  const detailPrayerContent = document.getElementById('detailPrayerContent');
+  // Render routine data to DOM
+  const applyRoutineToDom = (data, isTranslated = false) => {
+    // Step 1: Praise (~5 min)
+    const routineSub1 = document.getElementById('routineSub1');
+    const detailSongTitle = document.getElementById('detailSongTitle');
+    const detailSongContent = document.getElementById('detailSongContent');
+    const detailSongLinkArea = document.getElementById('detailSongLinkArea');
 
-  if (routineSub3) {
-    routineSub3.textContent = routineContent.step3?.title || '나 자신 · 모든 민족 · 후대';
-  }
-  if (detailPrayerTitle) {
-    detailPrayerTitle.textContent = routineContent.step3?.title || '함께 기도합시다 (Let Us Pray Together)';
-  }
-  if (detailPrayerContent) {
-    detailPrayerContent.innerHTML = escapeHtml(routineContent.step3?.content || '').replace(/\n/g, '<br>');
-  }
+    if (routineSub1) routineSub1.textContent = data.step1?.songTitle || 'Way Maker';
+    if (detailSongTitle) detailSongTitle.textContent = data.step1?.songTitle || 'Way Maker';
+    if (detailSongContent) {
+      detailSongContent.innerHTML = escapeHtml(data.step1?.content || '').replace(/\n/g, '<br>');
+      if (isTranslated) detailSongContent.classList.add('fade-in-content');
+    }
+    if (detailSongLinkArea) {
+      if (routineContent.step1?.link) {
+        detailSongLinkArea.innerHTML = `
+          <a href="${escapeHtml(routineContent.step1.link)}" target="_blank" rel="noopener noreferrer" class="detail-yt-btn">
+            ▶ 유튜브 찬양 영상 함께 듣기 (Watch on YouTube)
+          </a>
+        `;
+      } else {
+        detailSongLinkArea.innerHTML = '';
+      }
+    }
 
-  // Step 4: Closing & Blessing (2~3 min)
-  const routineSub4 = document.getElementById('routineSub4');
-  const detailClosingTitle = document.getElementById('detailClosingTitle');
-  const detailClosingContent = document.getElementById('detailClosingContent');
+    // Step 2: Gospel Message (10~15 min)
+    const routineSub2 = document.getElementById('routineSub2');
+    const detailMessageTitle = document.getElementById('detailMessageTitle');
+    const detailMessageContent = document.getElementById('detailMessageContent');
 
-  if (routineSub4) {
-    routineSub4.textContent = routineContent.step4?.speaker || '다민족 제자 간증 & 축도';
-  }
-  if (detailClosingTitle) {
-    detailClosingTitle.textContent = routineContent.step4?.speaker || '1분 간증 및 축복 기도';
-  }
-  if (detailClosingContent) {
-    detailClosingContent.innerHTML = escapeHtml(routineContent.step4?.content || '').replace(/\n/g, '<br>');
+    if (routineSub2) {
+      routineSub2.textContent = data.step2?.scripture || '디모데후서 2:1-2';
+    }
+    if (detailMessageTitle) {
+      const scripturePart = data.step2?.scripture ? `[${escapeHtml(data.step2.scripture)}] ` : '';
+      const titlePart = escapeHtml(data.step2?.title || '');
+      detailMessageTitle.textContent = `${scripturePart}${titlePart}`;
+    }
+    if (detailMessageContent) {
+      detailMessageContent.innerHTML = escapeHtml(data.step2?.content || '').replace(/\n/g, '<br>');
+      if (isTranslated) detailMessageContent.classList.add('fade-in-content');
+    }
+
+    // Step 3: Intercessory Prayer (5~10 min)
+    const routineSub3 = document.getElementById('routineSub3');
+    const detailPrayerTitle = document.getElementById('detailPrayerTitle');
+    const detailPrayerContent = document.getElementById('detailPrayerContent');
+
+    if (routineSub3) {
+      routineSub3.textContent = data.step3?.title || '나 자신 · 모든 민족 · 후대';
+    }
+    if (detailPrayerTitle) {
+      detailPrayerTitle.textContent = data.step3?.title || '함께 기도합시다 (Let Us Pray Together)';
+    }
+    if (detailPrayerContent) {
+      detailPrayerContent.innerHTML = escapeHtml(data.step3?.content || '').replace(/\n/g, '<br>');
+      if (isTranslated) detailPrayerContent.classList.add('fade-in-content');
+    }
+
+    // Step 4: Closing & Blessing (2~3 min)
+    const routineSub4 = document.getElementById('routineSub4');
+    const detailClosingTitle = document.getElementById('detailClosingTitle');
+    const detailClosingContent = document.getElementById('detailClosingContent');
+
+    if (routineSub4) {
+      routineSub4.textContent = data.step4?.speaker || '다민족 제자 간증 & 축도';
+    }
+    if (detailClosingTitle) {
+      detailClosingTitle.textContent = data.step4?.speaker || '1분 간증 및 축복 기도';
+    }
+    if (detailClosingContent) {
+      detailClosingContent.innerHTML = escapeHtml(data.step4?.content || '').replace(/\n/g, '<br>');
+      if (isTranslated) detailClosingContent.classList.add('fade-in-content');
+    }
+  };
+
+  // 1. Initial render (fast sync)
+  applyRoutineToDom(routineContent, false);
+
+  // 2. Asynchronous on-demand translation if foreign language
+  if (targetLang !== 'ko') {
+    if (badge) {
+      badge.classList.add('loading');
+      badge.textContent = `🌐 번역 중 (${targetLang.toUpperCase()})...`;
+    }
+
+    AriseTranslateEngine.translateRoutine(routineContent, targetLang).then(translatedData => {
+      if (!originalViewMap.routine && currentLang === targetLang) {
+        applyRoutineToDom(translatedData, true);
+        if (badge) {
+          badge.classList.remove('loading');
+          badge.textContent = `🌐 실시간 번역됨 (${targetLang.toUpperCase()})`;
+        }
+      }
+    });
   }
 }
 
