@@ -33,11 +33,11 @@ const translations = {
     routine_desc: "시차와 국경을 넘어 짧은 시간 가장 강력하게 성령 안에서 하나 되는 4단계 순서입니다.",
     routine_step1_title: "웰컴 & 글로벌 찬양 (~5분)",
     routine_step1_desc: "전 세계 성도들이 함께 아는 익숙한 찬양 1곡으로 마음의 문을 열고 주님의 임재를 구합니다.",
-    routine_step2_title: "후대 복음 말씀 (10~15분)",
+    routine_step2_title: "후대 복음 말씀 (5분)",
     routine_step2_desc: "성경 본문 중심의 핵심 복음 메시지 나눔 (영어-한국어 자막 슬라이드 제공).",
-    routine_step3_title: "3대 집중 중보기도 (5~10분)",
+    routine_step3_title: "3대 집중 중보기도 (15분)",
     routine_step3_desc: "① 나 자신을 위한 기도 ② 모든 민족을 위한 기도 ③ 후대를 위한 기도. 각자의 모국어로 함께 기도합시다!",
-    routine_step4_title: "현장 간증 & 마무리 축복 (2~3분)",
+    routine_step4_title: "현장 간증 & 마무리 축복 (5분)",
     routine_step4_desc: "다민족 제자의 짧은 현장 응답 간증을 듣고, 서로를 향한 축도와 주기도문으로 마칩니다.",
     core_prayer_heading: "📌 이달의 3대 핵심 기도제목 (This Month's Focus)",
     focus_1_title: "열방의 후대들에게 구원의 빛이 비추어지도록",
@@ -99,18 +99,18 @@ const translations = {
     country_filter_title: "🌍 8개국 열방별 기도보기",
     country_filter_all: "🌐 전체 열방",
     btn_edit_routine: "이번 모임 순서 & 내용 등록",
-    routine_time_step1: "00 ~ 05 min (약 5분)",
-    routine_time_step2: "05 ~ 18 min (10~15분)",
-    routine_time_step3: "18 ~ 26 min (5~10분)",
-    routine_time_step4: "26 ~ 30 min (2~3분)",
+    routine_time_step1: "00 ~ 05 min (5분)",
+    routine_time_step2: "05 ~ 10 min (5분)",
+    routine_time_step3: "10 ~ 25 min (15분)",
+    routine_time_step4: "25 ~ 30 min (5분)",
     modal_routine_title: "30분 기도모임 순서 & 세부 내용 작성",
-    routine_modal_info: "매월 모임의 4단계 순서별 실제 프로그램(찬양곡, 10~15분 말씀 본문/요약, 5~10분 집중 기도제목, 2~3분 마무리 간증/축복)을 입력하여 성도들에게 안내합니다.",
+    routine_modal_info: "매월 모임의 4단계 순서별 실제 프로그램(찬양곡, 5분 말씀 본문/요약, 15분 집중 기도제목, 5분 마무리 간증/축복)을 입력하여 성도들에게 안내합니다.",
     lbl_routine_step1_song: "지정 찬양 곡명 (Song Title)",
     lbl_routine_step1_link: "유튜브 찬양 영상 링크 (선택)",
     lbl_routine_step1_desc: "찬양 안내 및 묵상 가사",
     lbl_routine_step2_scripture: "본문 성경구절 (Scripture)",
     lbl_routine_step2_title: "설교 / 나눔 제목 (Title)",
-    lbl_routine_step2_content: "핵심 말씀 요약 / 3포인트 나눔 (10~15분 내용)",
+    lbl_routine_step2_content: "핵심 말씀 요약 / 3포인트 나눔 (5분 내용)",
     lbl_routine_step3_title: "집중 기도 주제 (Focus Topic)",
     lbl_routine_step3_content: "3대 기도제목 상세 내용 (Prayer Topics)",
     lbl_routine_step4_speaker: "간증자 / 축도 안내 (Speaker / Blessing)",
@@ -120,7 +120,7 @@ const translations = {
     routine_step3_sub: "나 자신 · 모든 민족 · 후대",
     routine_btn_text3: "이번 모임 집중 기도제목 보기",
     routine_detail_badge3: "🔥 3대 집중 기도 가이드",
-    routine_form_badge_step3: "🔥 3단계: 3대 집중 중보기도 (5~10분) - 나 자신 · 모든 민족 · 후대",
+    routine_form_badge_step3: "🔥 3단계: 3대 집중 중보기도 (15분) - 나 자신 · 모든 민족 · 후대",
     prayer_guide_tag: "공동 기도문 • Official Prayer Guide",
     prayer_guide_heading: "함께 기도합시다 (Let Us Pray Together)",
     prayer_guide_sub: "어라이즈 넥스트젠 모임 때 성도들과 전도자가 한마음으로 고백하는 3대 공식 기도문입니다.",
@@ -200,13 +200,13 @@ const translations = {
     routine_badge: "Tight & Spirit-Filled",
     routine_title: "The 30-Minute Golden Prayer Routine",
     routine_desc: "A powerful 4-step sequence designed to transcend time zones and unite our hearts deeply in the Holy Spirit.",
-    routine_step1_title: "Welcome & Global Praise (~5m)",
+    routine_step1_title: "Welcome & Global Praise (5m)",
     routine_step1_desc: "Open our hearts with 1 globally known worship song to seek the Holy Spirit's presence together.",
-    routine_step2_title: "Gospel Word for Next-Gen (10~15m)",
+    routine_step2_title: "Gospel Word for Next-Gen (5m)",
     routine_step2_desc: "Core Gospel message rooted in scripture (with Korean-English bilingual slides provided).",
-    routine_step3_title: "3 Core Intercessory Prayers (5~10m)",
+    routine_step3_title: "3 Core Intercessory Prayers (15m)",
     routine_step3_desc: "① Prayer for Myself ② Prayer for All Nations ③ Prayer for Next Generation. Cry out in your own tongue!",
-    routine_step4_title: "1-Min Testimony & Blessing (2~3m)",
+    routine_step4_title: "Field Testimony & Blessing (5m)",
     routine_step4_desc: "Hear a quick testimony from a multi-ethnic disciple, followed by mutual blessings and benediction.",
     core_prayer_heading: "📌 This Month's 3 Core Prayer Topics",
     focus_1_title: "That the Light of Christ May Shine on the Next-Gen",
@@ -268,18 +268,18 @@ const translations = {
     country_filter_title: "🌍 Filter by 8 Nations",
     country_filter_all: "🌐 All Nations",
     btn_edit_routine: "Edit Meeting Program & Content",
-    routine_time_step1: "00 ~ 05 min (~5 mins)",
-    routine_time_step2: "05 ~ 18 min (10~15 mins)",
-    routine_time_step3: "18 ~ 26 min (5~10 mins)",
-    routine_time_step4: "26 ~ 30 min (2~3 mins)",
+    routine_time_step1: "00 ~ 05 min (5 mins)",
+    routine_time_step2: "05 ~ 10 min (5 mins)",
+    routine_time_step3: "10 ~ 25 min (15 mins)",
+    routine_time_step4: "25 ~ 30 min (5 mins)",
     modal_routine_title: "Edit 30-Min Prayer Routine Program",
-    routine_modal_info: "Post and update the actual program for each of the 4 steps (Praise, 10-15m Gospel Message, 5-10m Intercession, 2-3m Closing & Blessing) for all global attendees.",
+    routine_modal_info: "Post and update the actual program for each of the 4 steps (Praise, 5m Gospel Message, 15m Intercession, 5m Closing & Blessing) for all global attendees.",
     lbl_routine_step1_song: "Song Title",
     lbl_routine_step1_link: "YouTube Music Link (Optional)",
     lbl_routine_step1_desc: "Praise Guide & Lyrics Meditation",
     lbl_routine_step2_scripture: "Scripture Reference",
     lbl_routine_step2_title: "Sermon / Sharing Title",
-    lbl_routine_step2_content: "Gospel Word Summary / 3 Core Points (10~15m)",
+    lbl_routine_step2_content: "Gospel Word Summary / 3 Core Points (5m)",
     lbl_routine_step3_title: "Intercessory Prayer Theme",
     lbl_routine_step3_content: "3 Core Prayer Topics & Details",
     lbl_routine_step4_speaker: "Testimony Speaker / Blessing Guide",
@@ -289,7 +289,7 @@ const translations = {
     routine_step3_sub: "Myself • All Nations • Next-Gen",
     routine_btn_text3: "View Focus Prayer Topics",
     routine_detail_badge3: "🔥 3-Pillar Focus Prayer Guide",
-    routine_form_badge_step3: "🔥 Step 3: 3 Core Intercessory Prayers - Myself · All Nations · Next-Gen",
+    routine_form_badge_step3: "🔥 Step 3: 3 Core Intercessory Prayers (15m) - Myself · All Nations · Next-Gen",
     prayer_guide_tag: "Official Prayer Guide",
     prayer_guide_heading: "Let Us Pray Together",
     prayer_guide_sub: "The official three-pillar prayer recited united in faith during Arise Next-Gen global gatherings.",
@@ -439,7 +439,7 @@ const translations = {
     routine_step3_sub: "เพื่อตนเอง • เพื่อทุกชนชาติ • เพื่อคนรุ่นหลัง",
     routine_btn_text3: "ดูหัวข้อการอธิษฐานมุ่งเน้น",
     routine_detail_badge3: "🔥 คู่มือการอธิษฐาน 3 เสาหลัก",
-    routine_form_badge_step3: "🔥 ขั้นตอนที่ 3: การอธิษฐานวิงวอน 3 ด้าน (5~10 นาที) - ตนเอง · ทุกชนชาติ · คนรุ่นหลัง",
+    routine_form_badge_step3: "🔥 ขั้นตอนที่ 3: การอธิษฐานวิงวอน 3 ด้าน (15 นาที) - ตนเอง · ทุกชนชาติ · คนรุ่นหลัง",
     prayer_guide_tag: "บทอธิษฐานร่วมกัน • Official Prayer Guide",
     prayer_guide_heading: "มาร่วมอธิษฐานด้วยกัน (Let Us Pray Together)",
     prayer_guide_sub: "บทอธิษฐาน 3 เสาหลักอย่างเป็นทางการที่ธรรมิกชนและผู้ประกาศข่าวประเสริฐสารภาพด้วยใจเดียวกันในการประชุม Arise Next-Gen",
@@ -589,7 +589,7 @@ const translations = {
     routine_step3_sub: "من أجل نفسي • من أجل جميع الأمم • من أجل الجيل القادم",
     routine_btn_text3: "عرض موضوعات الصلاة المركزة",
     routine_detail_badge3: "🔥 دليل الصلاة المركزة لثلاثة محاور",
-    routine_form_badge_step3: "🔥 الخطوة 3: الصلاة الشفاعية المركزة (5~10 دقائق) - نفسي · جميع الأمم · الجيل القادم",
+    routine_form_badge_step3: "🔥 الخطوة 3: الصلاة الشفاعية المركزة (15 دقيقة) - نفسي · جميع الأمم · الجيل القادم",
     prayer_guide_tag: "دليل الصلاة المشتركة • Official Prayer Guide",
     prayer_guide_heading: "لِنُصَلِّ معاً (Let Us Pray Together)",
     prayer_guide_sub: "الصلاة الرسمية ذات المحاور الثلاثة التي يعترف بها القديسون والمبشرون بقلب واحد في اجتماعات Arise Next-Gen.",
@@ -739,7 +739,7 @@ const translations = {
     routine_step3_sub: "Moi-même • Toutes les nations • Prochaine génération",
     routine_btn_text3: "Voir les sujets de prière ciblés",
     routine_detail_badge3: "🔥 Guide de prière ciblée en 3 piliers",
-    routine_form_badge_step3: "🔥 Étape 3: Intercession ciblée (5~10 min) - Moi-même · Toutes les nations · Prochaine génération",
+    routine_form_badge_step3: "🔥 Étape 3: Intercession ciblée (15 min) - Moi-même · Toutes les nations · Prochaine génération",
     prayer_guide_tag: "Guide officiel de prière • Official Prayer Guide",
     prayer_guide_heading: "Prions ensemble (Let Us Pray Together)",
     prayer_guide_sub: "La prière officielle en 3 piliers confessée d'un commun accord lors des rassemblements Arise Next-Gen.",
@@ -889,7 +889,7 @@ const translations = {
     routine_step3_sub: "我自己 • 万国万民 • 下一代后代",
     routine_btn_text3: "查看本次聚会重点祷告题目",
     routine_detail_badge3: "🔥 3大重点祷告指南",
-    routine_form_badge_step3: "🔥 第3步：3大重点代祷 (5~10分钟) - 我自己 · 万国万民 · 下一代后代",
+    routine_form_badge_step3: "🔥 第3步：3大重点代祷 (15分钟) - 我自己 · 万国万民 · 下一代后代",
     prayer_guide_tag: "共同祷告文 • Official Prayer Guide",
     prayer_guide_heading: "让我们同心祷告 (Let Us Pray Together)",
     prayer_guide_sub: "Arise Next-Gen 国际聚会时，圣徒与传道者同心合意宣告的三大官方祷告文。",
@@ -1039,7 +1039,7 @@ const translations = {
     routine_step3_sub: "Diri Sendiri • Semua Bangsa • Generasi Penerus",
     routine_btn_text3: "Lihat Pokok Doa Fokus",
     routine_detail_badge3: "🔥 Panduan Doa Fokus 3 Pilar",
-    routine_form_badge_step3: "🔥 Langkah 3: Doa Syafaat Fokus 3 Pilar (5~10 menit) - Diri Sendiri · Semua Bangsa · Generasi Penerus",
+    routine_form_badge_step3: "🔥 Langkah 3: Doa Syafaat Fokus 3 Pilar (15 menit) - Diri Sendiri · Semua Bangsa · Generasi Penerus",
     prayer_guide_tag: "Panduan Doa Bersama • Official Prayer Guide",
     prayer_guide_heading: "Mari Berdoa Bersama (Let Us Pray Together)",
     prayer_guide_sub: "Doa resmi 3 pilar yang diakui dengan satu hati oleh jemaat dan penginjil dalam persekutuan Arise Next-Gen.",
@@ -1189,7 +1189,7 @@ const translations = {
     routine_step3_sub: "မိမိကိုယ်တိုင် • လူမျိုးအပေါင်းတို့ • မျိုးဆက်သစ်",
     routine_btn_text3: "အဓိက ဆုတောင်းချက် ခေါင်းစဉ်များ ကြည့်ရှုရန်",
     routine_detail_badge3: "🔥 မဏ္ဍိုင် ၃ ရပ် အဓိက ဆုတောင်းလမ်းညွှန်",
-    routine_form_badge_step3: "🔥 အဆင့် ၃: မဏ္ဍိုင် ၃ ရပ် အဓိက ကြားဝင်ဆုတောင်းခြင်း (၅~၁၀ မိနစ်) - မိမိကိုယ်တိုင် · လူမျိုးအပေါင်း · မျိုးဆက်သစ်",
+    routine_form_badge_step3: "🔥 အဆင့် ၃: မဏ္ဍိုင် ၃ ရပ် အဓိက ကြားဝင်ဆုတောင်းခြင်း (၁၅ မိနစ်) - မိမိကိုယ်တိုင် · လူမျိုးအပေါင်း · မျိုးဆက်သစ်",
     prayer_guide_tag: "တရားဝင် ဆုတောင်းချက် လမ်းညွှန် • Official Prayer Guide",
     prayer_guide_heading: "အတူတကွ ဆုတောင်းကြပါစို့ (Let Us Pray Together)",
     prayer_guide_sub: "Arise Next-Gen စုဝေးမှု၌ သန့်ရှင်းသူများနှင့် သာသနာပြုများ စိတ်နှလုံးတစ်လုံးတည်းဖြင့် ဝန်ခံသော တရားဝင် မဏ္ဍိုင် ၃ ရပ် ဆုတောင်းချက်ဖြစ်သည်။",
@@ -1576,7 +1576,7 @@ const defaultRoutineContent = {
   step2: {
     scripture: "디모데후서 2:1-2 (2 Tim 2:1-2)",
     title: "충성된 사람들에게 부탁하라",
-    content: "1. 내 아들아 그러므로 너는 그리스도 예수 안에 있는 은혜 가운데서 강하라\n2. 또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라\n3. 그들이 또 다른 사람들을 가르칠 수 있으리라\n\n📌 10~15분 복음 메시지 요약:\n• 다음 세대를 살릴 복음의 신실한 제자 세우기\n• 한국어 & 영어 2개 국어 핵심 자막 슬라이드 제공"
+    content: "1. 내 아들아 그러므로 너는 그리스도 예수 안에 있는 은혜 가운데서 강하라\n2. 또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라\n3. 그들이 또 다른 사람들을 가르칠 수 있으리라\n\n📌 5분 복음 메시지 요약:\n• 다음 세대를 살릴 복음의 신실한 제자 세우기\n• 한국어 & 영어 2개 국어 핵심 자막 슬라이드 제공"
   },
   step3: {
     title: "함께 기도합시다 (Let Us Pray Together)",
@@ -1597,7 +1597,7 @@ const defaultMeetingSettings = {
 };
 
 // Always sync newly added nations & routine content & meeting settings
-const DATA_VERSION = 'v11_orthodox_evangelical';
+const DATA_VERSION = 'v12_routine_times_updated';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -2443,7 +2443,7 @@ function renderRoutineDisplay() {
       }
     }
 
-    // Step 2: Gospel Message (10~15 min)
+    // Step 2: Gospel Message (5 min)
     const routineSub2 = document.getElementById('routineSub2');
     const detailMessageTitle = document.getElementById('detailMessageTitle');
     const detailMessageContent = document.getElementById('detailMessageContent');
@@ -2461,7 +2461,7 @@ function renderRoutineDisplay() {
       if (isTranslated) detailMessageContent.classList.add('fade-in-content');
     }
 
-    // Step 3: Intercessory Prayer (5~10 min)
+    // Step 3: Intercessory Prayer (15 min)
     const routineSub3 = document.getElementById('routineSub3');
     const detailPrayerTitle = document.getElementById('detailPrayerTitle');
     const detailPrayerContent = document.getElementById('detailPrayerContent');
@@ -2477,7 +2477,7 @@ function renderRoutineDisplay() {
       if (isTranslated) detailPrayerContent.classList.add('fade-in-content');
     }
 
-    // Step 4: Closing & Blessing (2~3 min)
+    // Step 4: Closing & Blessing (5 min)
     const routineSub4 = document.getElementById('routineSub4');
     const detailClosingTitle = document.getElementById('detailClosingTitle');
     const detailClosingContent = document.getElementById('detailClosingContent');
