@@ -8,7 +8,7 @@
 // ==========================================
 const translations = {
   ko: {
-    brand_title: "아라이즈 넥스트젠",
+    brand_title: "어라이즈 넥스트젠",
     brand_subtitle: "Arise Next-Gen Prayer Hub",
     nav_meeting: "기도모임 안내",
     nav_routine: "30분 루틴",
@@ -45,7 +45,7 @@ const translations = {
     focus_2_title: "다민족 제자들의 모국에 후대 사역자가 세워지도록",
     focus_2_desc: "복음을 받은 다민족 제자들이 자기 나라와 가문의 후대들을 양육할 사역자로 굳건히 서게 하옵소서.",
     focus_3_title: "복음 전하는 전도자들의 건강과 성령 충만을 위해",
-    focus_3_desc: "후대를 살리기 위해 현장에서 쉬지 않고 복음을 전파하는 전도자들에게 오력(영력·지력·체력·경제력·인력)을 더하옵소서.",
+    focus_3_desc: "후대를 살리기 위해 현장에서 쉬지 않고 복음을 전파하는 전도자들에게 영육 간의 강건함과 성령 충만, 지혜를 더하옵소서.",
     prayer_badge: "24시간 중보 네트워크",
     prayer_title: "글로벌 기도 정원 (Prayer Wall)",
     prayer_desc: "각 나라 지체들이 올린 후대 기도제목입니다. [아멘 🙏]을 눌러 함께 기도해 주세요.",
@@ -123,7 +123,7 @@ const translations = {
     routine_form_badge_step3: "🔥 3단계: 3대 집중 중보기도 (5~10분) - 나 자신 · 모든 민족 · 후대",
     prayer_guide_tag: "공동 기도문 • Official Prayer Guide",
     prayer_guide_heading: "함께 기도합시다 (Let Us Pray Together)",
-    prayer_guide_sub: "아라이즈 넥스트젠 모임 때 성도들과 전도자가 한마음으로 고백하는 3대 공식 기도문입니다.",
+    prayer_guide_sub: "어라이즈 넥스트젠 모임 때 성도들과 전도자가 한마음으로 고백하는 3대 공식 기도문입니다.",
     btn_prayer_presentation: "기도문 전문 발표 모드",
     btn_copy_prayer_guide: "줌 채팅용 복사",
     btn_open_pdf: "PDF 원본",
@@ -214,7 +214,7 @@ const translations = {
     focus_2_title: "Disciples to be Raised in Multi-Ethnic Believers' Homelands",
     focus_2_desc: "May multi-ethnic disciples who embraced Christ stand as faithful leaders to nurture the next generation in their nations.",
     focus_3_title: "For the Health and Spiritual Fullness of Evangelists",
-    focus_3_desc: "Grant five spiritual powers (spiritual, intellectual, physical, financial, human strength) to those preaching tirelessly.",
+    focus_3_desc: "Grant spiritual fullness, physical health, divine wisdom, and strength to those preaching the Gospel tirelessly.",
     prayer_badge: "24/7 Intercession Network",
     prayer_title: "Global Prayer Wall (Next-Gen)",
     prayer_desc: "Prayer requests from international believers. Click [Amen 🙏] to join in intercession.",
@@ -383,7 +383,7 @@ const translations = {
     focus_2_title: "ขอให้เกิดสาวกผู้นำในบ้านเกิดของผู้เชื่อแต่ละคน",
     focus_2_desc: "ขอให้ผู้เชื่อที่รับพระคริสต์ยืนหยัดเป็นผู้นำที่สัตย์ซื่อเพื่อดูแลคนรุ่นหลังในประเทศของตน",
     focus_3_title: "ขอพระวิญญาณบริสุทธิ์ทรงสถิตและเสริมกำลังผู้ประกาศข่าวประเสริฐ",
-    focus_3_desc: "ขอประทานกำลังฝ่ายวิญญาณ ปัญญา กำลังกาย ทรัพย์สิน และผู้ร่วมงานแก่ผู้ประกาศที่ทุ่มเทอย่างไม่เหน็ดเหนื่อย",
+    focus_3_desc: "ขอพระวิญญาณบริสุทธิ์ประทานกำลัง สุขภาพ และสติปัญญาแก่ผู้ประกาศข่าวประเสริฐที่ทุ่มเทอย่างไม่เหน็ดเหนื่อย",
     prayer_badge: "เครือข่ายอธิษฐาน 24 ชั่วโมง",
     prayer_title: "สวนอธิษฐานเพื่อคนรุ่นหลัง (Prayer Wall)",
     prayer_desc: "หัวข้ออธิษฐานจากผู้เชื่อทั่วโลก กด [เอเมน 🙏] เพื่อร่วมอธิษฐานไปด้วยกัน",
@@ -533,7 +533,7 @@ const translations = {
     focus_2_title: "إقامة تلاميذ قادة في أوطان كل المؤمنين",
     focus_2_desc: "ليقف المؤمنون الذين قبلوا المسيح كقادة أمناء لتنشئة الجيل القادم في بلدانهم.",
     focus_3_title: "من أجل الصحة والامتلاء الروحي للمبشرين",
-    focus_3_desc: "امنح القوى الروحية الخمس لأولئك الذين يكرزون بالإنجيل دون كلل في الميادين.",
+    focus_3_desc: "امنح القوة الروحية والجسدية والحكمة لأولئك الذين يكرزون بالإنجيل دون كلل في الميادين.",
     prayer_badge: "شبكة صلاة على مدار 24 ساعة",
     prayer_title: "حائط الصلاة العالمي للجيل القادم (Prayer Wall)",
     prayer_desc: "طلبات صلاة من مؤمنين حول العالم. انقر فوق [آمين 🙏] للمشاركة في الصلاة الشفاعية.",
@@ -683,7 +683,7 @@ const translations = {
     focus_2_title: "Que des Disciples Soient Établis dans la Patrie de Chaque Croyant",
     focus_2_desc: "Que les croyants qui ont reçu le Christ se lèvent comme des leaders fidèles pour élever la prochaine génération.",
     focus_3_title: "Pour la Santé et la Plénitude Spirituelle des Évangélisateurs",
-    focus_3_desc: "Accorde les cinq forces spirituelles à ceux qui prêchent sans relâche sur les champs de mission.",
+    focus_3_desc: "Accorde force spirituelle, santé et sagesse à ceux qui prêchent sans relâche sur les champs de mission.",
     prayer_badge: "Réseau d'Intercession 24h/24",
     prayer_title: "Mur Mondial de Prière (Next-Gen)",
     prayer_desc: "Demandes de prière des croyants internationaux. Cliquez sur [Amen 🙏] pour vous joindre à l'intercession.",
@@ -833,7 +833,7 @@ const translations = {
     focus_2_title: "在每位信徒的祖国兴起后代门徒领袖",
     focus_2_desc: "愿接受福音的信徒坚立为忠心的门徒，在自己的国家和家庭中养育下一代。",
     focus_3_title: "为传道者的健康与圣灵充满代祷",
-    focus_3_desc: "赐予不知疲倦在现场传扬福音的传道者五力（灵力、智力、体力、财力、人力）。",
+    focus_3_desc: "赐予不知疲倦在现场传扬福音的传道者身心强健、圣灵充满与属天的智慧。",
     prayer_badge: "24小时代祷网络",
     prayer_title: "全球后代祷告花园 (Prayer Wall)",
     prayer_desc: "来自世界各地信徒的祷告题目。点击 [阿们 🙏] 一同代祷。",
@@ -983,7 +983,7 @@ const translations = {
     focus_2_title: "Bangkitnya Murid Pemimpin di Tanah Air Setiap Orang Percaya",
     focus_2_desc: "Kiranya orang percaya yang menerima Kristus berdiri sebagai pemimpin setia untuk membimbing generasi penerus di bangsa mereka.",
     focus_3_title: "Untuk Kesehatan dan Kepenuhan Roh Kudus bagi Para Penginjil",
-    focus_3_desc: "Berikan lima kekuatan rohani kepada mereka yang memberitakan Injil tanpa kenal lelah di ladang pelayanan.",
+    focus_3_desc: "Berikan kekuatan rohani, kesehatan jasmani, dan hikmat kepada mereka yang memberitakan Injil tanpa kenal lelah di ladang pelayanan.",
     prayer_badge: "Jaringan Syafaat 24 Jam",
     prayer_title: "Taman Doa Global (Prayer Wall)",
     prayer_desc: "Pokok doa dari orang percaya di seluruh dunia. Klik [Amin 🙏] untuk bergabung dalam doa syafaat.",
@@ -1133,7 +1133,7 @@ const translations = {
     focus_2_title: "ယုံကြည်သူတိုင်း၏ မိခင်နိုင်ငံတွင် တပည့်တော်ခေါင်းဆောင်များ ပေါ်ထွက်လာပါစေ",
     focus_2_desc: "ခရစ်တော်ကို လက်ခံယုံကြည်သူများသည် မိမိတို့နိုင်ငံရှိ မျိုးဆက်သစ်များကို ပြုစုပျိုးထောင်မည့် ခေါင်းဆောင်များအဖြစ် ရပ်တည်နိုင်ပါစေ။",
     focus_3_title: "ဧဝံဂေလိဆရာများ၏ ကျန်းမာရေးနှင့် ဝိညာဉ်တော်ပြည့်ဝမှုအတွက်",
-    focus_3_desc: "မမောမပန်း ဧဝံဂေလိတရားဟောပြောနေကြသော သာသနာပြုများအား ဝိညာဉ်ရေးခွန်အားငါးပါး ပေးသနားတော်မူပါ။",
+    focus_3_desc: "မမောမပန်း ဧဝံဂေလိတရားဟောပြောနေကြသော သာသနာပြုများအား ဝိညာဉ်ရေးနှင့် ရုပ်ပိုင်းဆိုင်ရာခွန်အား၊ ဉာဏ်ပညာ ပေးသနားတော်မူပါ။",
     prayer_badge: "၂၄ နာရီ ကြားဝင်ဆုတောင်းခြင်း ကွန်ရက်",
     prayer_title: "ကမ္ဘာလုံးဆိုင်ရာ ဆုတောင်းဥယျာဉ် (Prayer Wall)",
     prayer_desc: "ကမ္ဘာတစ်ဝှမ်းရှိ ယုံကြည်သူများထံမှ ဆုတောင်းချက်များ။ [အာမင် 🙏] ကိုနှိပ်၍ အတူတကွ ဆုတောင်းပါ။",
@@ -1267,18 +1267,16 @@ const AriseTranslateEngine = {
   glossaryReplacements: {
     en: [
       { regex: /\b(offspring|descendants)\b/gi, replacement: "Next Generation" },
-      { regex: /\b(remnants?)\b/gi, replacement: "Remnant" },
       { regex: /\ball nations\b/gi, replacement: "All Nations" },
-      { regex: /\bfive powers\b/gi, replacement: "Five Spiritual Powers" },
       { regex: /\bintercession\b/gi, replacement: "Intercessory Prayer" },
       { regex: /\bevangelization\b/gi, replacement: "Evangelization" }
     ]
   },
 
-  // Persistent translation cache (v2)
+  // Persistent translation cache (v3)
   cache: (() => {
     try {
-      const stored = localStorage.getItem('arise_translation_cache_v2');
+      const stored = localStorage.getItem('arise_translation_cache_v3');
       return stored ? JSON.parse(stored) : {};
     } catch (e) {
       console.warn("Could not load translation cache:", e);
@@ -1478,8 +1476,8 @@ const defaultPrayers = [
     author: "왕전도사 (Brother Wang)",
     country: "🇨🇳 China",
     category: "evangelism",
-    content: "중국의 가정교회와 다음 세대들에게 참된 복음의 언약이 끊어지지 않고 온전히 전수되며, 캠퍼스마다 복음 가진 제자들이 세워지게 하옵소서.",
-    content_en: "May the covenant of the true gospel be faithfully passed on to the next generation across China, and gospel disciples be raised on campuses.",
+    content: "중국의 가정교회와 다음 세대들에게 참된 복음의 신앙이 끊어지지 않고 온전히 전수되며, 캠퍼스마다 그리스도의 신실한 제자들이 세워지게 하옵소서.",
+    content_en: "May the true faith of the Gospel be faithfully passed on to the next generation across China, and faithful disciples of Christ be raised on campuses.",
     amenCount: 48,
     date: "2026-09-11"
   },
@@ -1488,8 +1486,8 @@ const defaultPrayers = [
     author: "Budi Santoso",
     country: "🇮🇩 Indonesia",
     category: "missions",
-    content: "수천 개의 섬으로 이루어진 인도네시아의 어린이와 청년들에게 복음의 빛이 전파되고, 영적 치유와 제자 운동이 일어나게 하소서.",
-    content_en: "May the light of Christ shine across the thousands of islands in Indonesia, bringing spiritual healing and raising next-generation disciples.",
+    content: "수천 개의 섬으로 이루어진 인도네시아의 어린이와 청년들에게 복음의 빛이 전파되고, 참된 회복과 제자로 세워지는 역사가 일어나게 하소서.",
+    content_en: "May the light of Christ shine across the thousands of islands in Indonesia, bringing true restoration in Christ and raising faithful disciples among the youth.",
     amenCount: 37,
     date: "2026-09-10"
   },
@@ -1508,8 +1506,8 @@ const defaultPrayers = [
     author: "김전도자 (Evangelist Kim)",
     country: "🇰🇷 Korea",
     category: "next-gen",
-    content: "우리 후대들이 세상 미디어와 스마트폰의 흑암 문화에서 벗어나, 하나님의 말씀 속에서 참된 평안과 다음세대의 정체성을 굳건히 발견하게 하옵소서.",
-    content_en: "May our next generation break free from dark media and smartphone addictions, and firmly discover their true identity and peace in God's Word.",
+    content: "우리 후대들이 세상 미디어와 스마트폰의 유혹과 중독에서 벗어나, 하나님의 말씀 속에서 참된 평안과 하나님 자녀의 정체성을 굳건히 발견하게 하옵소서.",
+    content_en: "May our next generation break free from media and smartphone addictions and worldly temptations, and firmly discover their true identity and peace as children of God.",
     amenCount: 65,
     date: "2026-09-08"
   },
@@ -1518,8 +1516,8 @@ const defaultPrayers = [
     author: "Sarah & David (브리즈번/골드코스트)",
     country: "🇦🇺 Australia",
     category: "next-gen",
-    content: "호주 퀸즈랜드와 다민족 캠퍼스의 다음세대들이 세속 문화 속에서 복음의 유일성을 발견하고, 237 치유와 서밋의 주역으로 굳건히 서게 하옵소서.",
-    content_en: "May the next generation on multi-ethnic campuses across Queensland, Australia firmly discover the uniqueness of the Gospel and stand as healed leaders for the nations.",
+    content: "호주 퀸즈랜드와 다민족 캠퍼스의 다음세대들이 세속 문화 속에서 예수 그리스도의 참된 복음을 발견하고, 온 열방과 민족을 섬길 믿음의 주역으로 굳건히 서게 하옵소서.",
+    content_en: "May the next generation on multi-ethnic campuses across Queensland, Australia discover the true Gospel of Jesus Christ and stand firmly as faithful leaders to bless all nations.",
     amenCount: 52,
     date: "2026-09-14"
   }
@@ -1560,8 +1558,8 @@ const defaultTestimonies = [
     id: 4,
     author: "Sister Grace (그레이스)",
     country: "🇵🇭 Philippines",
-    title: "찬양을 통한 청소년 치유의 응답",
-    title_en: "Youth Healed Through Gospel Worship",
+    title: "찬양을 통한 청소년 회복의 은혜",
+    title_en: "Youth Restored Through Gospel Worship",
     content: "우울증으로 방황하던 현지 청소년이 우리 모임에서 배운 'Way Maker' 찬양을 함께 부르며 눈물로 회복되었습니다. 이제는 유초등부 찬양팀을 돕고 있습니다.",
     content_en: "A struggling teenager found peace and joy in Christ while singing 'Way Maker' together. He is now serving on the children's worship team!",
     date: "2026-09-02"
@@ -1578,7 +1576,7 @@ const defaultRoutineContent = {
   step2: {
     scripture: "디모데후서 2:1-2 (2 Tim 2:1-2)",
     title: "충성된 사람들에게 부탁하라",
-    content: "1. 내 아들아 그러므로 너는 그리스도 예수 안에 있는 은혜 가운데서 강하라\n2. 또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라\n3. 그들이 또 다른 사람들을 가르칠 수 있으리라\n\n📌 10~15분 복음 메시지 요약:\n• 다음 세대를 살릴 복음의 제자 망대 세우기\n• 한국어 & 영어 2개 국어 핵심 자막 슬라이드 제공"
+    content: "1. 내 아들아 그러므로 너는 그리스도 예수 안에 있는 은혜 가운데서 강하라\n2. 또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라\n3. 그들이 또 다른 사람들을 가르칠 수 있으리라\n\n📌 10~15분 복음 메시지 요약:\n• 다음 세대를 살릴 복음의 신실한 제자 세우기\n• 한국어 & 영어 2개 국어 핵심 자막 슬라이드 제공"
   },
   step3: {
     title: "함께 기도합시다 (Let Us Pray Together)",
@@ -1586,7 +1584,7 @@ const defaultRoutineContent = {
   },
   step4: {
     speaker: "다민족 제자 1분 응답 간증 & 전도자 축도",
-    content: "• 다민족 제자의 1분 현장 응답 및 은혜 간증 나눔\n• 전도자의 축도 및 열방 지체들을 향한 제사장적 축복 기도\n• 주기도문으로 은혜의 30분 다락방 폐회"
+    content: "• 다민족 제자의 1분 현장 응답 및 은혜 간증 나눔\n• 전도자의 축도 및 열방 지체들을 향한 제사장적 축복 기도\n• 주기도문으로 은혜의 30분 기도모임 폐회"
   }
 };
 
@@ -1599,7 +1597,7 @@ const defaultMeetingSettings = {
 };
 
 // Always sync newly added nations & routine content & meeting settings
-const DATA_VERSION = 'v10_official_prayer_guide';
+const DATA_VERSION = 'v11_orthodox_evangelical';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -1763,7 +1761,7 @@ function copyMeetingLink() {
   const kstStr = targetDate.toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', dateStyle: 'medium', timeStyle: 'short' });
   const nyStr = targetDate.toLocaleString('en-US', { timeZone: 'America/New_York', dateStyle: 'medium', timeStyle: 'short' });
 
-  const text = `🕊️ [아라이즈 넥스트젠 | Arise Next-Gen] 
+  const text = `🕊️ [어라이즈 넥스트젠 | Arise Next-Gen] 
 Global Prayer Meeting for the Next Generation (호주 퀸즈랜드 인도)
 🇦🇺 호주 퀸즈랜드 (AEST / 인도자 기준): ${qldStr}
 🇰🇷 한국 서울 (KST): ${kstStr}
