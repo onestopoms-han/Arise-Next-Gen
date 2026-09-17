@@ -1661,10 +1661,11 @@ function setLanguage(lang) {
     }
   });
 
-  // Re-render prayers, testimonies, and routine display
+  // Re-render prayers, testimonies, routine, and worship display
   renderPrayers();
   renderTestimonies();
   renderRoutineDisplay();
+  renderWorshipLounge();
   updateMeetingDisplay();
 }
 
@@ -2149,6 +2150,209 @@ function handleTestimonySubmit(e) {
 }
 
 // ==========================================
+// 6.5. Weekly Auto-Rotating Worship Lounge System (12 Global Worship Pool)
+// ==========================================
+const worshipSongPool = [
+  {
+    id: 1,
+    videoId: "iJCV_2H9xD0",
+    title: "Way Maker (길을 만드시는 분)",
+    title_en: "Way Maker",
+    artist: "Sinach / Leeland • 전 세계 대표 찬양",
+    artist_en: "Sinach / Leeland • Global Worship Anthem",
+    lyrics: "\"Way maker, Miracle worker, Promise keeper, Light in the darkness, my God, that is who You are.\"",
+    lyrics_ko: "\"길을 만드시고 기적을 행하시며 언약을 지키시는 주, 어둠 속의 빛이 되시는 주 하나님.\""
+  },
+  {
+    id: 2,
+    videoId: "Zp6aygmvzM4",
+    title: "The Blessing (주의 축복이 네게 임하길)",
+    title_en: "The Blessing",
+    artist: "Kari Jobe, Cody Carnes, Elevation Worship",
+    artist_en: "Kari Jobe, Cody Carnes, Elevation Worship",
+    lyrics: "\"The Lord bless you and keep you, make His face shine upon you and be gracious to you.\"",
+    lyrics_ko: "\"여호와는 네게 복을 주시고 너를 지키시기를 원하며 그 얼굴을 네게 비추사 은혜 베푸시기를 원하노라. (민수기 6장)\""
+  },
+  {
+    id: 3,
+    videoId: "vg5qDljEw7Q",
+    title: "How Great Is Our God (위대하신 주 - World Edition)",
+    title_en: "How Great Is Our God (World Edition)",
+    artist: "Chris Tomlin • 전 세계 다국어 찬양",
+    artist_en: "Chris Tomlin • Multi-Language Edition",
+    lyrics: "\"The King of Kings and Lord of Lords, how great is our God, sing with me, how great is our God.\"",
+    lyrics_ko: "\"만왕의 왕, 만유의 주재, 온 땅이여 다 함께 찬양하라 우리 위대하신 하나님을.\""
+  },
+  {
+    id: 4,
+    videoId: "93Xq_56pWk0",
+    title: "Goodness of God (하나님의 선하심)",
+    title_en: "Goodness of God",
+    artist: "CeCe Winans / Bethel Music",
+    artist_en: "CeCe Winans / Bethel Music",
+    lyrics: "\"All my life You have been faithful, and all my life You have been so, so good.\"",
+    lyrics_ko: "\"내 평생 살아온 모든 순간 주님은 신실하셨고, 내 모든 삶 속에 주님의 선하심이 가득했습니다.\""
+  },
+  {
+    id: 5,
+    videoId: "XtwIT8JtvdM",
+    title: "10,000 Reasons (Bless the Lord)",
+    title_en: "10,000 Reasons (Bless the Lord)",
+    artist: "Matt Redman • 그래미 어워드 수상 찬양",
+    artist_en: "Matt Redman • Grammy Award Winning Worship",
+    lyrics: "\"Bless the Lord, O my soul, O my soul, worship His holy name. Sing like never before.\"",
+    lyrics_ko: "\"내 영혼아 여호와를 송축하라 내 속에 있는 것들아 다 그의 거룩한 이름을 송축하라. (시편 103편)\""
+  },
+  {
+    id: 6,
+    videoId: "1m_sWJQm2fs",
+    title: "Oceans (Where Feet May Fail - 오션스)",
+    title_en: "Oceans (Where Feet May Fail)",
+    artist: "Hillsong UNITED",
+    artist_en: "Hillsong UNITED",
+    lyrics: "\"Spirit lead me where my trust is without borders, let me walk upon the waters wherever You would call me.\"",
+    lyrics_ko: "\"성령이여 나를 이끄소서, 한계 없는 믿음으로 주님이 부르시는 깊은 바다 위를 걷게 하소서.\""
+  },
+  {
+    id: 7,
+    videoId: "6xx0d3R2LoU",
+    title: "Reckless Love (끝없는 사랑)",
+    title_en: "Reckless Love",
+    artist: "Cory Asbury / Bethel Music",
+    artist_en: "Cory Asbury / Bethel Music",
+    lyrics: "\"Oh, the overwhelming, never-ending, reckless love of God. It chases me down, fights 'til I'm found.\"",
+    lyrics_ko: "\"비교할 수 없고 끝이 없는 하나님의 놀라운 사랑, 아흔아홉 마리 양을 두고 날 찾으러 오신 주님.\""
+  },
+  {
+    id: 8,
+    videoId: "nQWFzMvCfLE",
+    title: "What A Beautiful Name (아름다운 그 이름)",
+    title_en: "What A Beautiful Name",
+    artist: "Hillsong Worship",
+    artist_en: "Hillsong Worship",
+    lyrics: "\"What a beautiful Name it is, the Name of Jesus Christ my King. Nothing compares to this.\"",
+    lyrics_ko: "\"얼마나 아름다운 이름인가, 나의 왕 예수 그리스도의 이름! 세상 그 어떤 것도 비할 수 없네.\""
+  },
+  {
+    id: 9,
+    videoId: "Of5IcFWiEpg",
+    title: "King of Kings (만왕의 왕)",
+    title_en: "King of Kings",
+    artist: "Hillsong Worship",
+    artist_en: "Hillsong Worship",
+    lyrics: "\"Praise the Father, praise the Son, praise the Spirit, three in one. God of glory, majesty, praise forever to the King of Kings.\"",
+    lyrics_ko: "\"성부 성자 성령 삼위일체 하나님께 찬양, 영광과 위엄의 하나님, 만왕의 왕께 영원한 찬양을 드리세.\""
+  },
+  {
+    id: 10,
+    videoId: "u-_xSWZ-mCE",
+    title: "Living Hope (산 소망 되신 주)",
+    title_en: "Living Hope",
+    artist: "Phil Wickham",
+    artist_en: "Phil Wickham",
+    lyrics: "\"Hallelujah, praise the One who set me free! Hallelujah, death has lost its grip on me! Jesus Christ, my living hope.\"",
+    lyrics_ko: "\"할렐루야, 나를 자유케 하신 주를 찬양해! 사망 권세를 깨뜨리시고 산 소망 되신 예수 그리스도!\""
+  },
+  {
+    id: 11,
+    videoId: "QZW4_8_zCBE",
+    title: "Build My Life (내 삶을 드리네)",
+    title_en: "Build My Life",
+    artist: "Pat Barrett / Housefires",
+    artist_en: "Pat Barrett / Housefires",
+    lyrics: "\"I will build my life upon Your love, it is a firm foundation. I will put my trust in You alone.\"",
+    lyrics_ko: "\"견고한 반석 되신 주님의 사랑 위에 내 삶을 세우리니, 오직 주님만을 의지하리라.\""
+  },
+  {
+    id: 12,
+    videoId: "b_31xW5-g6g",
+    title: "Holy Forever (영원히 거룩하신 주)",
+    title_en: "Holy Forever",
+    artist: "Chris Tomlin / CeCe Winans",
+    artist_en: "Chris Tomlin / CeCe Winans",
+    lyrics: "\"A thousand generations falling down in worship to sing the song of ages to the Lamb. Holy, holy forever.\"",
+    lyrics_ko: "\"천 대에 이르는 열방이 엎드려 어린양 예수께 영원의 찬양을 노래하네. 영원토록 거룩 거룩하신 주.\""
+  }
+];
+
+// Calculate ISO week number of the year
+function getCurrentWeekNumber() {
+  const now = new Date();
+  const date = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  date.setUTCDate(date.getUTCDate() + 4 - (date.getUTCDay() || 7));
+  const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
+  return Math.ceil((((date - yearStart) / 86400000) + 1) / 7);
+}
+
+// Render weekly auto-rotated worship songs (3 songs per week)
+function renderWorshipLounge() {
+  const grid = document.getElementById('worshipGrid');
+  const badgeText = document.getElementById('worshipWeekText');
+  if (!grid) return;
+
+  const currentYear = new Date().getFullYear();
+  const weekNum = getCurrentWeekNumber();
+  const currentMonth = new Date().getMonth() + 1;
+  const monthWeek = Math.min(5, Math.ceil(new Date().getDate() / 7));
+
+  if (badgeText) {
+    if (currentLang === 'ko') {
+      badgeText.textContent = `이번 주 추천 찬양 (${currentYear}년 ${currentMonth}월 ${monthWeek}주차 • W${weekNum}) 🔄 매주 자동 교체`;
+    } else {
+      badgeText.textContent = `Weekly Featured Worship (Week ${weekNum}, ${currentYear}) • Auto-Rotates Every Week`;
+    }
+  }
+
+  // Calculate 3 songs for this week
+  const total = worshipSongPool.length;
+  const startIndex = (weekNum * 3) % total;
+  const weekSongs = [
+    worshipSongPool[startIndex],
+    worshipSongPool[(startIndex + 1) % total],
+    worshipSongPool[(startIndex + 2) % total]
+  ];
+
+  grid.innerHTML = weekSongs.map((song, idx) => {
+    const isKorean = currentLang === 'ko';
+    const displayTitle = isKorean ? song.title : song.title_en;
+    const displayArtist = isKorean ? song.artist : song.artist_en;
+    const displayLyrics = isKorean ? song.lyrics_ko : song.lyrics;
+    const songTag = isKorean ? `이번 주 찬양 #${idx + 1}` : `Weekly Song #${idx + 1}`;
+    const directBtnLabel = isKorean ? `▶ YouTube 고음질로 직접 듣기` : `▶ Watch Full Video on YouTube`;
+    const soundHint = isKorean 
+      ? `💡 소리가 안 나면 영상 좌측 하단의 스피커(🔇)를 클릭해 주세요.` 
+      : `💡 If muted, click the speaker (🔇) icon on the bottom-left.`;
+
+    return `
+      <div class="worship-card">
+        <div class="worship-video-preview">
+          <iframe 
+            src="https://www.youtube.com/embed/${song.videoId}?enablejsapi=1" 
+            title="${escapeHtml(displayTitle)}" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="worship-info">
+          <span class="worship-tag">${songTag}</span>
+          <h4 class="worship-title">${escapeHtml(displayTitle)}</h4>
+          <p class="worship-meta">${escapeHtml(displayArtist)}</p>
+          <p class="worship-lyrics-snippet">${escapeHtml(displayLyrics)}</p>
+          <div class="worship-card-actions">
+            <a href="https://www.youtube.com/watch?v=${song.videoId}" target="_blank" rel="noopener noreferrer" class="worship-yt-direct-btn">
+              ${directBtnLabel}
+            </a>
+            <div class="worship-sound-hint">
+              ${soundHint}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ==========================================
 // 7. Settings Modal Handling
 // ==========================================
 function handleSettingsSubmit(e) {
@@ -2604,4 +2808,5 @@ document.addEventListener('DOMContentLoaded', () => {
   renderPrayers();
   renderTestimonies();
   renderRoutineDisplay();
+  renderWorshipLounge();
 });

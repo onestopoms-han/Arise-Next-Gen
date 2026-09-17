@@ -584,51 +584,24 @@
         <p class="section-desc" data-i18n="worship_desc">
           기도모임 때 함께 부르거나 일상 속에서 묵상하기 좋은 전 세계 찬양 모음입니다.
         </p>
+        <div>
+          <span class="worship-week-badge" id="worshipWeekBadge">
+            <span>📅</span> <span id="worshipWeekText">이번 주 추천 찬양 • 매주 자동 교체</span>
+          </span>
+        </div>
       </div>
 
-      <div class="worship-grid">
-        <!-- Song 1 -->
+      <div class="worship-grid" id="worshipGrid">
+        <!-- Dynamically rendered via app.js (Weekly Rotation) -->
         <div class="worship-card">
           <div class="worship-video-preview">
-            <iframe src="https://www.youtube.com/embed/iJCV_2H9xD0" title="Way Maker (Official Live Video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/iJCV_2H9xD0" title="Way Maker" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="worship-info">
             <span class="worship-tag">Worship Song #1</span>
             <h4 class="worship-title">Way Maker (길을 만드시는 분)</h4>
             <p class="worship-meta">Sinach / Leeland • 전 세계 대표 찬양</p>
-            <p class="worship-lyrics-snippet" data-i18n="lyrics_snippet_1">
-              "Way maker, Miracle worker, Promise keeper, Light in the darkness, my God, that is who You are."
-            </p>
-          </div>
-        </div>
-
-        <!-- Song 2 -->
-        <div class="worship-card">
-          <div class="worship-video-preview">
-            <iframe src="https://www.youtube.com/embed/Zp6aygmvzM4" title="The Blessing (Live Video)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <div class="worship-info">
-            <span class="worship-tag">Worship Song #2</span>
-            <h4 class="worship-title">The Blessing (주의 축복이 네게 임하길)</h4>
-            <p class="worship-meta">Kari Jobe, Cody Carnes, Elevation Worship</p>
-            <p class="worship-lyrics-snippet" data-i18n="lyrics_snippet_2">
-              "The Lord bless you and keep you, make His face shine upon you and be gracious to you." (후대를 향한 민수기 6장 축복)
-            </p>
-          </div>
-        </div>
-
-        <!-- Song 3 -->
-        <div class="worship-card">
-          <div class="worship-video-preview">
-            <iframe src="https://www.youtube.com/embed/vg5qDljEw7Q" title="How Great Is Our God (World Edition)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <div class="worship-info">
-            <span class="worship-tag">Worship Song #3</span>
-            <h4 class="worship-title">How Great Is Our God (위대하신 주 - World Edition)</h4>
-            <p class="worship-meta">Chris Tomlin • 전 세계 다국어 찬양</p>
-            <p class="worship-lyrics-snippet" data-i18n="lyrics_snippet_3">
-              "The King of Kings and Lord of Lords, how great is our God, sing with me, how great is our God."
-            </p>
+            <p class="worship-lyrics-snippet">"Way maker, Miracle worker, Promise keeper, Light in the darkness, my God, that is who You are."</p>
           </div>
         </div>
       </div>

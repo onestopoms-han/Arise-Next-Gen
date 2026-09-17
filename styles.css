@@ -2129,3 +2129,61 @@ body {
   color: #94A3B8;
   margin-left: 0.5rem;
 }
+
+/* ================= WEEKLY WORSHIP ROTATION STYLES ================= */
+.worship-week-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: #C084FC;
+  margin-top: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+.worship-card-actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.worship-yt-direct-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #F87171;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.worship-yt-direct-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #EF4444;
+  color: #FFF;
+  transform: translateY(-2px);
+}
+
+.worship-sound-hint {
+  font-size: 0.74rem;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+}
