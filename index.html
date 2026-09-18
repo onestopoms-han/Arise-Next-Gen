@@ -206,21 +206,17 @@
           </p>
         </div>
         <div class="routine-header-actions" style="display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap;">
-          <span id="routineSheetSyncBadge" class="sheet-sync-pill" style="display: none;" title="구글 스프레드시트 실시간 연동 중">
+          <span id="routineGlobalSyncBadge" class="sheet-sync-pill" style="display: inline-flex;" title="전 세계 공식 순서지 동기화됨">
             <span class="dot-live"></span>
-            <span>시트 실시간 연동</span>
+            <span>공식 순서지 실시간 연동</span>
           </span>
           <span id="routineTranslateBadge" class="translate-badge-live" style="display: none;">🌐 실시간 번역됨</span>
           <button type="button" class="btn btn-outline" id="btnToggleRoutineOriginal" onclick="toggleRoutineOriginal()" style="display: none;">
             <span>🌐</span> <span id="btnRoutineOriginalText">원문 보기</span>
           </button>
-          <a id="btnRoutineSheetDirect" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="display: none;" title="구글 시트 바로 열어서 편집">
-            <span class="btn-icon">📊</span>
-            <span data-i18n="btn_edit_sheet">구글 시트에서 편집</span>
-          </a>
-          <button class="btn btn-outline" id="btnOpenRoutineModal" onclick="openRoutineModal()" title="이번 모임 순서 & 내용 작성">
+          <button class="btn btn-primary" id="btnOpenRoutineModal" onclick="openRoutineModal()" title="30분 기도모임 순서 편집 (3인 관리자 전용)">
             <span class="btn-icon">✍️</span>
-            <span data-i18n="btn_edit_routine">이번 모임 순서 & 내용 등록</span>
+            <span>순서 편집 (3인 관리자)</span>
           </button>
         </div>
       </div>
@@ -830,9 +826,19 @@
           매월 모임의 4단계 순서별 실제 프로그램(찬양곡, 5분 말씀 본문/요약, 15분 집중 기도제목, 5분 마무리 간증/축복)을 입력하여 성도들에게 안내합니다.
         </p>
 
-        <!-- Dynamic Google Sheets Status Banner -->
-        <div id="routineSheetBanner" class="sheet-sync-banner">
-          <!-- Populated by JavaScript -->
+        <!-- 3-Admin Authentication PIN Box -->
+        <div class="routine-admin-auth-box">
+          <div class="auth-header">
+            <span class="auth-icon">🔑</span>
+            <div>
+              <div class="auth-title">3인 관리자 전용 인증</div>
+              <div class="auth-sub">지정된 3명의 담당자만 순서를 변경할 수 있습니다. 4자리 암호를 입력해 주세요.</div>
+            </div>
+          </div>
+          <div class="pin-input-group">
+            <label for="routineAdminPin">관리자 암호 (PIN)</label>
+            <input type="password" id="routineAdminPin" class="pin-input" placeholder="••••" maxlength="8" autocomplete="off" required>
+          </div>
         </div>
 
         <!-- Step 1: Praise (~5 min) -->
@@ -901,7 +907,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-ghost" onclick="closeModal('routineModal')" data-i18n="btn_cancel">취소</button>
-          <button type="submit" class="btn btn-primary" data-i18n="btn_save_routine">루틴 내용 저장하기</button>
+          <button type="submit" class="btn btn-primary btn-save-routine" id="btnRoutineSubmit">💾 전 세계 성도들에게 즉시 반영 및 저장</button>
         </div>
       </form>
     </div>

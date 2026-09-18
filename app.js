@@ -2834,6 +2834,9 @@ function toggleRoutineDetail(stepNum) {
 }
 
 function openRoutineModal() {
+  const pinInput = document.getElementById('routineAdminPin');
+  if (pinInput) pinInput.value = '';
+
   const s1Song = document.getElementById('editStep1Song');
   const s1Link = document.getElementById('editStep1Link');
   const s1Desc = document.getElementById('editStep1Desc');
@@ -2862,56 +2865,22 @@ function openRoutineModal() {
   if (s4Speaker) s4Speaker.value = routineContent.step4?.speaker || '';
   if (s4Content) s4Content.value = routineContent.step4?.content || '';
 
-  // 구글 시트 연동 배너 렌더링
-  const banner = document.getElementById('routineSheetBanner');
-  if (banner) {
-    if (googleSheetId) {
-      const sheetUrl = `https://docs.google.com/spreadsheets/d/${googleSheetId}/edit`;
-      banner.className = 'sheet-sync-banner';
-      banner.innerHTML = `
-        <div class="sheet-banner-header">
-          <div class="sheet-banner-title">
-            <span>🟢</span> <span>구글 스프레드시트 3인 연동 중</span>
-          </div>
-          <span style="font-size: 0.76rem; color: #34D399; font-weight: 700;">실시간 자동 반영</span>
-        </div>
-        <p class="sheet-banner-desc">
-          지정된 3명의 담당자가 스마트폰이나 PC 구글 시트에서 수정하면 웹사이트에 자동으로 실시간 반영됩니다.
-        </p>
-        <div class="sheet-banner-actions">
-          <a href="${sheetUrl}" target="_blank" rel="noopener noreferrer" class="btn-sheet-direct">
-            <span>📊</span> <span>구글 시트 열어서 편집하기 ↗</span>
-          </a>
-          <button type="button" class="btn btn-sm btn-outline" onclick="syncRoutineFromGoogleSheet('${googleSheetId}', true)">
-            🔄 최신 내용 지금 동기화
-          </button>
-        </div>
-      `;
-    } else {
-      banner.className = 'sheet-sync-banner empty-state';
-      banner.innerHTML = `
-        <div class="sheet-banner-header">
-          <div class="sheet-banner-title">
-            <span>💡</span> <span>3인 공동 관리 (구글 스프레드시트)</span>
-          </div>
-          <button type="button" class="btn btn-sm btn-ghost" onclick="closeModal('routineModal'); openModal('settingsModal');" style="color: #60A5FA; padding: 0.2rem 0.5rem; text-decoration: underline;">
-            ⚙️ 시트 등록하기
-          </button>
-        </div>
-        <p class="sheet-banner-desc">
-          3명의 담당자가 스마트폰 엑셀(구글 시트)로 편리하게 순서를 바꾸시려면, 우측 상단 [모임 설정 ⚙️]에서 구글 시트를 연동해 보세요!
-        </p>
-      `;
-    }
-  }
-
   openModal('routineModal');
 }
 
-function handleRoutineSubmit(e) {
+async function handleRoutineSubmit(e) {
   e.preventDefault();
 
-  routineContent = {
+  const pinInput = document.getElementById('routineAdminPin');
+  const pin = pinInput ? pinInput.value.trim() : '';
+
+  if (!pin) {
+    showToast("3인 관리자 비밀번호를 입력해 주세요! 🔑", "⚠️");
+    if (pinInput) pinInput.focus();
+    return;
+  }
+
+  const newRoutineData = {
     step1: {
       songTitle: document.getElementById('editStep1Song')?.value.trim() || '',
       link: document.getElementById('editStep1Link')?.value.trim() || '',
@@ -2932,10 +2901,59 @@ function handleRoutineSubmit(e) {
     }
   };
 
-  localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
-  renderRoutineDisplay();
-  closeModal('routineModal');
-  showToast(translations[currentLang]?.toast_routine_saved || "30분 기도모임 루틴 내용이 저장되었습니다! ✨", "📋");
+  const submitBtn = document.getElementById('btnRoutineSubmit');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = '⏳ 전 세계 저장 중...';
+  }
+
+  try {
+    const res = await fetch('/api/routine', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin, routine: newRoutineData })
+    });
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok) {
+      if (res.status === 401) {
+        showToast("⚠️ 관리자 비밀번호가 일치하지 않습니다. 4자리 암호를 다시 확인해 주세요.", "❌");
+        if (pinInput) {
+          pinInput.focus();
+          pinInput.select();
+        }
+        return;
+      }
+      throw new Error(data.error || `서버 오류 (${res.status})`);
+    }
+
+    // Success! Update local state and display
+    routineContent = data.routine || newRoutineData;
+    localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
+    renderRoutineDisplay();
+    closeModal('routineModal');
+    showToast("30분 기도모임 순서가 전 세계 성도들에게 즉시 반영되었습니다! ✨", "🎉");
+
+  } catch (err) {
+    console.warn("Serverless API fallback to local/offline mode:", err.message);
+
+    // Local / Offline fallback (기본 관리자 암호 7777 일치 시 허용)
+    if (pin === '7777') {
+      routineContent = newRoutineData;
+      localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
+      renderRoutineDisplay();
+      closeModal('routineModal');
+      showToast("30분 기도모임 순서가 저장되었습니다! ✨", "📋");
+    } else {
+      showToast("저장 실패: 올바른 4자리 관리자 암호를 입력해 주세요. ⚠️", "❌");
+    }
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = '💾 전 세계 성도들에게 즉시 반영 및 저장';
+    }
+  }
 }
 
 // ==========================================
@@ -3149,6 +3167,40 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ==========================================
+// 8.8. Global Routine Sync Loader
+// ==========================================
+async function loadGlobalRoutine() {
+  try {
+    const res = await fetch('/api/routine');
+    if (res.ok) {
+      const remoteData = await res.json();
+      if (remoteData && remoteData.step1) {
+        routineContent = remoteData;
+        localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
+        renderRoutineDisplay();
+        return;
+      }
+    }
+  } catch (err) {
+    // API not reachable, try static routine.json
+  }
+
+  try {
+    const staticRes = await fetch('/routine.json');
+    if (staticRes.ok) {
+      const staticData = await staticRes.json();
+      if (staticData && staticData.step1) {
+        routineContent = staticData;
+        localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
+        renderRoutineDisplay();
+      }
+    }
+  } catch (err) {
+    console.warn("Could not load remote routine.json:", err.message);
+  }
+}
+
+// ==========================================
 // 9. App Initialization
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -3159,12 +3211,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTestimonies();
   renderRoutineDisplay();
   renderWorshipLounge();
-  updateSheetSyncUI();
 
-  // Background Google Sheets Sync (Stale-while-revalidate)
-  if (googleSheetId) {
-    syncRoutineFromGoogleSheet(googleSheetId, false).catch(err => {
-      console.warn("Background Google Sheet routine sync notice:", err.message);
-    });
-  }
+  // Load latest official routine from serverless API / routine.json
+  loadGlobalRoutine();
 });
