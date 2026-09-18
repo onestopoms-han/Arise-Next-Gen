@@ -2187,3 +2187,223 @@ body {
   border-radius: 6px;
   border: 1px dashed rgba(255, 255, 255, 0.12);
 }
+
+/* ================= GOOGLE SHEETS INTEGRATION ================= */
+.sheet-sync-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34D399;
+  letter-spacing: -0.01em;
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.sheet-sync-pill .dot-live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; filter: brightness(1.2); }
+}
+
+.sheet-sync-banner {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(59, 130, 246, 0.1) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sheet-sync-banner.empty-state {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.sheet-banner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sheet-banner-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #34D399;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sheet-sync-banner.empty-state .sheet-banner-title {
+  color: var(--text-secondary);
+}
+
+.sheet-banner-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.sheet-banner-actions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.3rem;
+}
+
+.btn-sheet-direct {
+  background: #10B981;
+  color: #064E3B;
+  font-weight: 700;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-sheet-direct:hover {
+  background: #34D399;
+  transform: translateY(-1px);
+  color: #064E3B;
+}
+
+.settings-sheet-box {
+  margin-top: 1.4rem;
+  padding: 1.2rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge-optional {
+  font-size: 0.72rem;
+  font-weight: normal;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+}
+
+.form-sub-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 0.7rem;
+}
+
+.sheet-actions-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.7rem;
+}
+
+.sheet-status-msg {
+  font-size: 0.82rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  margin-top: 0.6rem;
+  line-height: 1.4;
+}
+
+.sheet-status-msg.success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34D399;
+}
+
+.sheet-status-msg.error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #F87171;
+}
+
+/* Sheet Template Guide Table */
+.sheet-guide-table-wrap {
+  overflow-x: auto;
+  margin: 1rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+}
+
+.sheet-guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  text-align: left;
+}
+
+.sheet-guide-table th {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.7rem 0.9rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sheet-guide-table td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  line-height: 1.4;
+  vertical-align: top;
+}
+
+.sheet-guide-table tr:last-child td {
+  border-bottom: none;
+}
+
+.sheet-guide-key {
+  font-family: monospace;
+  font-weight: 700;
+  color: #60A5FA;
+}
+
+.sheet-step-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.8rem;
+}
+
+.sheet-step-box h4 {
+  font-size: 0.92rem;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sheet-step-box p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}

@@ -116,7 +116,10 @@ const translations = {
     lbl_routine_step4_speaker: "간증자 / 축도 안내 (Speaker / Blessing)",
     lbl_routine_step4_content: "마무리 순서 및 축복 기도문",
     btn_save_routine: "루틴 내용 저장하기",
+    btn_edit_sheet: "구글 시트에서 편집",
     toast_routine_saved: "30분 기도모임 루틴 내용이 성공적으로 저장되었습니다! 📋",
+    toast_sheet_synced: "구글 스프레드시트의 최신 내용이 동기화되었습니다! 📊",
+    toast_sheet_sync_failed: "구글 시트 동기화에 실패했습니다. 링크 및 공개 설정을 확인해 주세요. ⚠️",
     routine_step3_sub: "나 자신 · 모든 민족 · 후대",
     routine_btn_text3: "이번 모임 집중 기도제목 보기",
     routine_detail_badge3: "🔥 3대 집중 기도 가이드",
@@ -285,7 +288,10 @@ const translations = {
     lbl_routine_step4_speaker: "Testimony Speaker / Blessing Guide",
     lbl_routine_step4_content: "Closing Order & Blessing Prayer",
     btn_save_routine: "Save Routine Program",
+    btn_edit_sheet: "Edit in Google Sheet",
     toast_routine_saved: "30-min prayer program successfully saved! 📋",
+    toast_sheet_synced: "Latest routine synced from Google Sheet! 📊",
+    toast_sheet_sync_failed: "Failed to sync Google Sheet. Please check the URL and sharing permissions. ⚠️",
     routine_step3_sub: "Myself • All Nations • Next-Gen",
     routine_btn_text3: "View Focus Prayer Topics",
     routine_detail_badge3: "🔥 3-Pillar Focus Prayer Guide",
@@ -1613,6 +1619,10 @@ let routineContent = JSON.parse(localStorage.getItem('prayer_hub_routine_content
 let meetingSettings = JSON.parse(localStorage.getItem('prayer_hub_meeting_settings')) || defaultMeetingSettings;
 let currentFilter = 'all';
 
+// Google Sheets Integration State (3인 공동 관리)
+const DEFAULT_GOOGLE_SHEET_ID = '';
+let googleSheetId = localStorage.getItem('prayer_hub_google_sheet_id') || DEFAULT_GOOGLE_SHEET_ID;
+
 // Compute default next first Tuesday in Queensland (AEST, UTC+10) time
 function getNextMeetingDateString() {
   const now = new Date();
@@ -2370,10 +2380,301 @@ function handleSettingsSubmit(e) {
 
   localStorage.setItem('prayer_hub_meeting_settings', JSON.stringify(meetingSettings));
 
+  // 구글 스프레드시트 설정 저장 및 동기화 처리
+  const sheetInputEl = document.getElementById('settingsGoogleSheetId');
+  if (sheetInputEl) {
+    const rawSheetVal = sheetInputEl.value.trim();
+    const newSheetId = extractSheetId(rawSheetVal);
+    const prevSheetId = googleSheetId;
+    googleSheetId = newSheetId;
+    localStorage.setItem('prayer_hub_google_sheet_id', googleSheetId);
+
+    if (googleSheetId && googleSheetId !== prevSheetId) {
+      syncRoutineFromGoogleSheet(googleSheetId, true);
+    } else {
+      updateSheetSyncUI();
+    }
+  }
+
   updateMeetingDisplay();
   startCountdown();
   closeModal('settingsModal');
   showToast(translations[currentLang].toast_settings_saved, "⚙️");
+}
+
+// ==========================================
+// 7.2. Google Sheets 3-Admin Sync & Parser
+// ==========================================
+function extractSheetId(input) {
+  if (!input) return '';
+  const trimmed = input.trim();
+  const match = trimmed.match(/\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/);
+  if (match && match[1]) return match[1];
+  if (/^[a-zA-Z0-9_-]{15,}$/.test(trimmed)) return trimmed;
+  return trimmed;
+}
+
+function parseRoutineFromRows(rows) {
+  const parsed = {
+    step1: {},
+    step2: {},
+    step3: {},
+    step4: {},
+    meetingSettings: {}
+  };
+
+  rows.forEach(([rawKey, rawVal]) => {
+    if (!rawKey || !rawVal) return;
+    const key = String(rawKey).trim().toLowerCase().replace(/\s+/g, '');
+    const val = String(rawVal).trim();
+
+    // Step 1: Praise
+    if (key.includes('1단계') || key.includes('찬양') || key.includes('step1') || key.includes('praise')) {
+      if (key.includes('링크') || key.includes('link') || key.includes('유튜브') || key.includes('youtube')) {
+        parsed.step1.link = val;
+      } else if (key.includes('제목') || key.includes('곡명') || key.includes('title') || key.includes('song')) {
+        parsed.step1.songTitle = val;
+      } else if (key.includes('안내') || key.includes('내용') || key.includes('가사') || key.includes('desc') || key.includes('content')) {
+        parsed.step1.content = val;
+      }
+    }
+    // Step 2: Gospel Message
+    else if (key.includes('2단계') || key.includes('말씀') || key.includes('메시지') || key.includes('step2') || key.includes('message')) {
+      if (key.includes('성경') || key.includes('본문') || key.includes('구절') || key.includes('scripture')) {
+        parsed.step2.scripture = val;
+      } else if (key.includes('제목') || key.includes('title')) {
+        parsed.step2.title = val;
+      } else if (key.includes('내용') || key.includes('요약') || key.includes('설교') || key.includes('content') || key.includes('desc')) {
+        parsed.step2.content = val;
+      }
+    }
+    // Step 3: Intercessory Prayer
+    else if (key.includes('3단계') || key.includes('기도') || key.includes('step3') || key.includes('prayer')) {
+      if (key.includes('제목') || key.includes('주제') || key.includes('title') || key.includes('topic')) {
+        parsed.step3.title = val;
+      } else if (key.includes('내용') || key.includes('기도제목') || key.includes('content') || key.includes('desc')) {
+        parsed.step3.content = val;
+      }
+    }
+    // Step 4: Closing & Blessing
+    else if (key.includes('4단계') || key.includes('간증') || key.includes('축도') || key.includes('마무리') || key.includes('step4') || key.includes('closing')) {
+      if (key.includes('담당') || key.includes('인도') || key.includes('제목') || key.includes('speaker') || key.includes('title')) {
+        parsed.step4.speaker = val;
+      } else if (key.includes('내용') || key.includes('축복') || key.includes('content') || key.includes('desc')) {
+        parsed.step4.content = val;
+      }
+    }
+    // Optional: Meeting Settings
+    else if (key.includes('모임일시') || key.includes('일시') || key.includes('meetingdate')) {
+      parsed.meetingSettings.meetingDate = val;
+    } else if (key.includes('줌링크') || key.includes('zoomurl') || key.includes('회의링크')) {
+      parsed.meetingSettings.zoomUrl = val;
+    } else if (key.includes('줌id') || key.includes('회의id') || key.includes('meetingid') || key.includes('비밀번호')) {
+      parsed.meetingSettings.meetingId = val;
+    }
+  });
+
+  return parsed;
+}
+
+async function syncRoutineFromGoogleSheet(sheetInput, isUserAction = false) {
+  const targetId = extractSheetId(sheetInput || googleSheetId);
+  if (!targetId) return { success: false, count: 0 };
+
+  const url = `https://docs.google.com/spreadsheets/d/${targetId}/gviz/tq?tqx=out:json&tq=&headers=0`;
+  
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`구글 서버 응답 오류 (${response.status})`);
+    }
+    const text = await response.text();
+    const jsonMatch = text.match(/google\.visualization\.Query\.setResponse\s*\(([\s\S]+)\);?/);
+    if (!jsonMatch || !jsonMatch[1]) {
+      throw new Error("구글 시트 응답 형식이 올바르지 않습니다. '링크가 있는 모든 사용자에게 뷰어' 공유를 확인해 주세요.");
+    }
+
+    const data = JSON.parse(jsonMatch[1]);
+    if (data.status !== 'ok') {
+      throw new Error(data.errors?.[0]?.detailed_message || data.errors?.[0]?.message || "구글 시트 조회 실패");
+    }
+
+    const rows = [];
+    if (data.table && Array.isArray(data.table.rows)) {
+      for (const r of data.table.rows) {
+        if (!r || !Array.isArray(r.c)) continue;
+        const col0 = r.c[0] ? (r.c[0].f || r.c[0].v || '') : '';
+        const col1 = r.c[1] ? (r.c[1].f || r.c[1].v || '') : '';
+        if (col0 || col1) {
+          rows.push([String(col0).trim(), String(col1).trim()]);
+        }
+      }
+    }
+
+    if (rows.length === 0) {
+      throw new Error("구글 시트에 읽어올 수 있는 행 데이터가 없습니다.");
+    }
+
+    const parsed = parseRoutineFromRows(rows);
+
+    // Merge Routine Content
+    if (parsed.step1.songTitle || parsed.step1.content || parsed.step2.title || parsed.step3.title || parsed.step4.speaker) {
+      routineContent = {
+        step1: {
+          songTitle: parsed.step1.songTitle || routineContent.step1?.songTitle || defaultRoutineContent.step1.songTitle,
+          link: parsed.step1.link !== undefined ? parsed.step1.link : (routineContent.step1?.link || defaultRoutineContent.step1.link),
+          content: parsed.step1.content !== undefined ? parsed.step1.content : (routineContent.step1?.content || defaultRoutineContent.step1.content)
+        },
+        step2: {
+          scripture: parsed.step2.scripture || routineContent.step2?.scripture || defaultRoutineContent.step2.scripture,
+          title: parsed.step2.title || routineContent.step2?.title || defaultRoutineContent.step2.title,
+          content: parsed.step2.content !== undefined ? parsed.step2.content : (routineContent.step2?.content || defaultRoutineContent.step2.content)
+        },
+        step3: {
+          title: parsed.step3.title || routineContent.step3?.title || defaultRoutineContent.step3.title,
+          content: parsed.step3.content !== undefined ? parsed.step3.content : (routineContent.step3?.content || defaultRoutineContent.step3.content)
+        },
+        step4: {
+          speaker: parsed.step4.speaker || routineContent.step4?.speaker || defaultRoutineContent.step4.speaker,
+          content: parsed.step4.content !== undefined ? parsed.step4.content : (routineContent.step4?.content || defaultRoutineContent.step4.content)
+        }
+      };
+      localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
+      renderRoutineDisplay();
+    }
+
+    // Merge Meeting Settings if present
+    if (parsed.meetingSettings && (parsed.meetingSettings.meetingDate || parsed.meetingSettings.zoomUrl || parsed.meetingSettings.meetingId)) {
+      if (parsed.meetingSettings.meetingDate) meetingSettings.meetingDate = parsed.meetingSettings.meetingDate;
+      if (parsed.meetingSettings.zoomUrl) meetingSettings.zoomUrl = parsed.meetingSettings.zoomUrl;
+      if (parsed.meetingSettings.meetingId) meetingSettings.meetingId = parsed.meetingSettings.meetingId;
+      localStorage.setItem('prayer_hub_meeting_settings', JSON.stringify(meetingSettings));
+      updateMeetingDisplay();
+      startCountdown();
+    }
+
+    googleSheetId = targetId;
+    localStorage.setItem('prayer_hub_google_sheet_id', googleSheetId);
+    updateSheetSyncUI();
+
+    if (isUserAction) {
+      showToast(translations[currentLang]?.toast_sheet_synced || "구글 스프레드시트의 최신 내용이 동기화되었습니다! 📊", "📊");
+    }
+
+    return { success: true, count: rows.length };
+  } catch (err) {
+    if (isUserAction) {
+      showToast(translations[currentLang]?.toast_sheet_sync_failed || "구글 시트 동기화 실패: 공유 권한을 확인해 주세요.", "⚠️");
+    }
+    throw err;
+  }
+}
+
+async function testGoogleSheetSync() {
+  const inputEl = document.getElementById('settingsGoogleSheetId');
+  const statusMsg = document.getElementById('sheetSyncStatusMsg');
+  const testBtn = document.getElementById('btnTestSheetSync');
+
+  const rawVal = inputEl ? inputEl.value.trim() : '';
+  const parsedId = extractSheetId(rawVal);
+
+  if (!parsedId) {
+    if (statusMsg) {
+      statusMsg.style.display = 'block';
+      statusMsg.className = 'sheet-status-msg error';
+      statusMsg.textContent = '⚠️ 구글 시트 링크(URL) 또는 시트 ID를 먼저 입력해 주세요.';
+    }
+    return;
+  }
+
+  if (testBtn) {
+    testBtn.disabled = true;
+    testBtn.textContent = '⏳ 동기화 테스트 중...';
+  }
+  if (statusMsg) {
+    statusMsg.style.display = 'block';
+    statusMsg.className = 'sheet-status-msg';
+    statusMsg.textContent = '🔄 구글 스프레드시트와 통신하는 중...';
+  }
+
+  try {
+    const result = await syncRoutineFromGoogleSheet(parsedId, false);
+    if (statusMsg) {
+      statusMsg.className = 'sheet-status-msg success';
+      statusMsg.innerHTML = `✅ 성공! 구글 시트에서 <b>${result.count}개 행 데이터</b>를 정상적으로 읽어왔습니다. 아래 [설정 저장]을 누르시면 적용됩니다.`;
+    }
+    showToast("구글 시트 데이터가 정상적으로 확인되었습니다! ✨", "📊");
+  } catch (err) {
+    if (statusMsg) {
+      statusMsg.className = 'sheet-status-msg error';
+      statusMsg.innerHTML = `❌ 연결 실패: ${escapeHtml(err.message)}<br><small style="color: var(--text-muted); display: block; margin-top: 0.3rem;">💡 구글 시트 우측 상단 <b>[공유]</b>에서 일반 액세스를 <b>'링크가 있는 모든 사용자에게 뷰어'</b>로 설정해 주세요.</small>`;
+    }
+  } finally {
+    if (testBtn) {
+      testBtn.disabled = false;
+      testBtn.textContent = '🔄 즉시 연결 테스트 & 동기화';
+    }
+  }
+}
+
+function updateSheetSyncUI() {
+  const badge = document.getElementById('routineSheetSyncBadge');
+  const directBtn = document.getElementById('btnRoutineSheetDirect');
+
+  if (googleSheetId) {
+    if (badge) badge.style.display = 'inline-flex';
+    if (directBtn) {
+      directBtn.style.display = 'inline-flex';
+      directBtn.href = `https://docs.google.com/spreadsheets/d/${googleSheetId}/edit`;
+    }
+  } else {
+    if (badge) badge.style.display = 'none';
+    if (directBtn) directBtn.style.display = 'none';
+  }
+}
+
+function openSheetTemplateGuide() {
+  openModal('sheetTemplateModal');
+}
+
+function copySheetTemplateTsv() {
+  const tsv = [
+    "구분 항목\t입력 내용 (3명의 담당자가 작성하는 칸)",
+    "1단계_찬양제목\tWay Maker (길을 만드시는 분)",
+    "1단계_유튜브링크\thttps://www.youtube.com/watch?v=iJCV_2H9xD0",
+    "1단계_찬양안내\t전 세계 성도들이 함께 고백하는 대표 찬양으로 마음의 문을 열고 주님의 임재를 구합니다.",
+    "2단계_성경본문\t디모데후서 2:1-2 (2 Tim 2:1-2)",
+    "2단계_말씀제목\t충성된 사람들에게 부탁하라",
+    "2단계_말씀요약\t1. 내 아들아 그러므로 너는 그리스도 예수 안에 있는 은혜 가운데서 강하라\n2. 또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라\n3. 그들이 또 다른 사람들을 가르칠 수 있으리라",
+    "3단계_기도제목\t함께 기도합시다 (Let Us Pray Together)",
+    "3단계_기도내용\t🕊️ [1. 나를 위한 기도]\n“내가 제일 중요하다”\n• 내가 복음이 되기를\n• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를\n• Up & Down에 흔들리지 않고 다니엘처럼 항상 한결같은 믿음이 되기를\n\n🌍 [2. 모든 민족을 위한 기도]\n• 모든 민족이 그리스도 앞에 무릎 꿇도록\n• 이곳에 모인 나라들과 세계 모든 나라를 위하여\n• 전쟁 속에서 고통받는 나라들과 사람들을 위하여\n\n🌱 [3. 후대를 위한 기도]\n• 후대가 복음을 알도록\n• 복음이 정말 좋은 것임을 알도록\n• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록\n• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록",
+    "4단계_담당자\t다민족 제자 1분 응답 간증 & 전도자 축도",
+    "4단계_마무리내용\t• 다민족 제자의 1분 현장 응답 및 은혜 간증 나눔\n• 전도자의 축도 및 열방 지체들을 향한 제사장적 축복 기도\n• 주기도문으로 은혜의 30분 기도모임 폐회",
+    "모임일시\t2026-10-04T20:00:00+10:00",
+    "줌링크\thttps://zoom.us/j/88812345678",
+    "줌ID_비번\tZoom ID: 888 1234 5678 | Passcode: 7777"
+  ].join("\n");
+
+  const successMsg = "구글 시트용 양식이 복사되었습니다! 새 구글 시트 A1 셀에 Ctrl+V 하세요. 📋";
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(tsv).then(() => {
+      showToast(successMsg, "📋");
+    }).catch(() => {
+      fallbackCopy(tsv, successMsg);
+    });
+  } else {
+    fallbackCopy(tsv, successMsg);
+  }
+
+  function fallbackCopy(text, msg) {
+    const dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+    showToast(msg, "📋");
+  }
 }
 
 // ==========================================
@@ -2432,9 +2733,10 @@ function renderRoutineDisplay() {
       if (isTranslated) detailSongContent.classList.add('fade-in-content');
     }
     if (detailSongLinkArea) {
-      if (routineContent.step1?.link) {
+      const activeLink = data.step1?.link || routineContent.step1?.link;
+      if (activeLink) {
         detailSongLinkArea.innerHTML = `
-          <a href="${escapeHtml(routineContent.step1.link)}" target="_blank" rel="noopener noreferrer" class="detail-yt-btn">
+          <a href="${escapeHtml(activeLink)}" target="_blank" rel="noopener noreferrer" class="detail-yt-btn">
             ▶ 유튜브 찬양 영상 함께 듣기 (Watch on YouTube)
           </a>
         `;
@@ -2560,6 +2862,49 @@ function openRoutineModal() {
   if (s4Speaker) s4Speaker.value = routineContent.step4?.speaker || '';
   if (s4Content) s4Content.value = routineContent.step4?.content || '';
 
+  // 구글 시트 연동 배너 렌더링
+  const banner = document.getElementById('routineSheetBanner');
+  if (banner) {
+    if (googleSheetId) {
+      const sheetUrl = `https://docs.google.com/spreadsheets/d/${googleSheetId}/edit`;
+      banner.className = 'sheet-sync-banner';
+      banner.innerHTML = `
+        <div class="sheet-banner-header">
+          <div class="sheet-banner-title">
+            <span>🟢</span> <span>구글 스프레드시트 3인 연동 중</span>
+          </div>
+          <span style="font-size: 0.76rem; color: #34D399; font-weight: 700;">실시간 자동 반영</span>
+        </div>
+        <p class="sheet-banner-desc">
+          지정된 3명의 담당자가 스마트폰이나 PC 구글 시트에서 수정하면 웹사이트에 자동으로 실시간 반영됩니다.
+        </p>
+        <div class="sheet-banner-actions">
+          <a href="${sheetUrl}" target="_blank" rel="noopener noreferrer" class="btn-sheet-direct">
+            <span>📊</span> <span>구글 시트 열어서 편집하기 ↗</span>
+          </a>
+          <button type="button" class="btn btn-sm btn-outline" onclick="syncRoutineFromGoogleSheet('${googleSheetId}', true)">
+            🔄 최신 내용 지금 동기화
+          </button>
+        </div>
+      `;
+    } else {
+      banner.className = 'sheet-sync-banner empty-state';
+      banner.innerHTML = `
+        <div class="sheet-banner-header">
+          <div class="sheet-banner-title">
+            <span>💡</span> <span>3인 공동 관리 (구글 스프레드시트)</span>
+          </div>
+          <button type="button" class="btn btn-sm btn-ghost" onclick="closeModal('routineModal'); openModal('settingsModal');" style="color: #60A5FA; padding: 0.2rem 0.5rem; text-decoration: underline;">
+            ⚙️ 시트 등록하기
+          </button>
+        </div>
+        <p class="sheet-banner-desc">
+          3명의 담당자가 스마트폰 엑셀(구글 시트)로 편리하게 순서를 바꾸시려면, 우측 상단 [모임 설정 ⚙️]에서 구글 시트를 연동해 보세요!
+        </p>
+      `;
+    }
+  }
+
   openModal('routineModal');
 }
 
@@ -2634,6 +2979,13 @@ function openModal(id) {
       }
       if (zoomInput) zoomInput.value = meetingSettings.zoomUrl;
       if (idInput) idInput.value = meetingSettings.meetingId;
+
+      const sheetInput = document.getElementById('settingsGoogleSheetId');
+      if (sheetInput) {
+        sheetInput.value = googleSheetId ? `https://docs.google.com/spreadsheets/d/${googleSheetId}/edit` : '';
+      }
+      const statusMsg = document.getElementById('sheetSyncStatusMsg');
+      if (statusMsg) statusMsg.style.display = 'none';
     }
   }
 }
@@ -2807,4 +3159,12 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTestimonies();
   renderRoutineDisplay();
   renderWorshipLounge();
+  updateSheetSyncUI();
+
+  // Background Google Sheets Sync (Stale-while-revalidate)
+  if (googleSheetId) {
+    syncRoutineFromGoogleSheet(googleSheetId, false).catch(err => {
+      console.warn("Background Google Sheet routine sync notice:", err.message);
+    });
+  }
 });

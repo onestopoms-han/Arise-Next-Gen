@@ -206,10 +206,18 @@
           </p>
         </div>
         <div class="routine-header-actions" style="display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap;">
+          <span id="routineSheetSyncBadge" class="sheet-sync-pill" style="display: none;" title="구글 스프레드시트 실시간 연동 중">
+            <span class="dot-live"></span>
+            <span>시트 실시간 연동</span>
+          </span>
           <span id="routineTranslateBadge" class="translate-badge-live" style="display: none;">🌐 실시간 번역됨</span>
           <button type="button" class="btn btn-outline" id="btnToggleRoutineOriginal" onclick="toggleRoutineOriginal()" style="display: none;">
             <span>🌐</span> <span id="btnRoutineOriginalText">원문 보기</span>
           </button>
+          <a id="btnRoutineSheetDirect" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="display: none;" title="구글 시트 바로 열어서 편집">
+            <span class="btn-icon">📊</span>
+            <span data-i18n="btn_edit_sheet">구글 시트에서 편집</span>
+          </a>
           <button class="btn btn-outline" id="btnOpenRoutineModal" onclick="openRoutineModal()" title="이번 모임 순서 & 내용 작성">
             <span class="btn-icon">✍️</span>
             <span data-i18n="btn_edit_routine">이번 모임 순서 & 내용 등록</span>
@@ -779,6 +787,29 @@
           <input type="text" class="form-input" id="settingsMeetingId" placeholder="ID: 888 1234 5678 / PW: 7777">
         </div>
 
+        <!-- Google Sheets 3-Admin Sync Section -->
+        <div class="settings-sheet-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+            <label class="form-label" style="margin-bottom: 0; font-weight: 700; color: #34D399;">
+              📊 구글 스프레드시트 연동 (3인 공동 관리)
+            </label>
+            <span class="badge-optional">선택 사항</span>
+          </div>
+          <p class="form-sub-hint">
+            3명의 담당자가 스마트폰 구글 시트에서 수정한 내용이 웹사이트에 실시간 자동 반영됩니다. 구글 시트 전체 주소 또는 시트 ID를 입력하세요.
+          </p>
+          <input type="text" class="form-input" id="settingsGoogleSheetId" placeholder="예: https://docs.google.com/spreadsheets/d/시트ID/edit 또는 시트ID">
+          <div class="sheet-actions-row">
+            <button type="button" class="btn btn-sm btn-outline" id="btnTestSheetSync" onclick="testGoogleSheetSync()">
+              🔄 즉시 연결 테스트 & 동기화
+            </button>
+            <button type="button" class="btn btn-sm btn-ghost" onclick="openSheetTemplateGuide()" style="color: #60A5FA;">
+              📋 양식 안내 & 간편 복사
+            </button>
+          </div>
+          <div id="sheetSyncStatusMsg" class="sheet-status-msg" style="display: none;"></div>
+        </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-ghost" onclick="closeModal('settingsModal')" data-i18n="btn_cancel">취소</button>
           <button type="submit" class="btn btn-primary" data-i18n="btn_save_settings">설정 저장</button>
@@ -798,6 +829,11 @@
         <p class="modal-info-text" data-i18n="routine_modal_info">
           매월 모임의 4단계 순서별 실제 프로그램(찬양곡, 5분 말씀 본문/요약, 15분 집중 기도제목, 5분 마무리 간증/축복)을 입력하여 성도들에게 안내합니다.
         </p>
+
+        <!-- Dynamic Google Sheets Status Banner -->
+        <div id="routineSheetBanner" class="sheet-sync-banner">
+          <!-- Populated by JavaScript -->
+        </div>
 
         <!-- Step 1: Praise (~5 min) -->
         <div class="routine-form-box">
@@ -868,6 +904,109 @@
           <button type="submit" class="btn btn-primary" data-i18n="btn_save_routine">루틴 내용 저장하기</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- 4.5. Google Sheet Template & 3-Admin Guide Modal -->
+  <div class="modal-overlay" id="sheetTemplateModal" onclick="closeModalOnBackdrop(event, 'sheetTemplateModal')">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <h3 class="modal-title">📊 <span>구글 스프레드시트 3인 관리 가이드 & 양식</span></h3>
+        <button class="modal-close" onclick="closeModal('sheetTemplateModal')">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 1.2rem 1.4rem; max-height: 75vh; overflow-y: auto;">
+        
+        <div class="sheet-step-box">
+          <h4>👥 1. 3명에게만 편집 권한 주는 방법 (구글 시트 설정)</h4>
+          <p>
+            1) 새 구글 스프레드시트를 생성하고 우측 상단 <b>[공유]</b> 버튼을 누릅니다.<br>
+            2) 함께 순서를 작성할 <b>3분의 구글 계정(이메일)</b>을 입력하고 권한을 <b>'편집자'</b>로 설정합니다.<br>
+            3) 아래쪽 <b>[일반 액세스]</b>를 <b>'링크가 있는 모든 사용자'</b> ➡️ <b>'뷰어'</b>로 설정합니다. (전 세계 성도가 홈페이지를 통해 읽을 수 있게 허용)<br>
+            4) 브라우저 상단의 시트 주소창 전체 링크를 복사하여 <b>[모임 설정 ⚙️]</b>의 구글 시트 입력창에 붙여넣으면 끝!
+          </p>
+        </div>
+
+        <div class="sheet-step-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+            <h4 style="margin: 0;">📋 2. 권장 시트 양식 (A열: 구분 항목 / B열: 내용)</h4>
+            <button type="button" class="btn btn-sm btn-primary" onclick="copySheetTemplateTsv()" style="font-size: 0.78rem;">
+              📋 전체 양식 복사하기 (시트에 바로 Ctrl+V)
+            </button>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">
+            💡 [전체 양식 복사하기] 버튼을 누른 후 새 구글 시트 <b>A1 셀</b>을 클릭하고 <b>Ctrl + V</b>를 누르면 아래 표가 자동으로 채워집니다.
+          </p>
+
+          <div class="sheet-guide-table-wrap">
+            <table class="sheet-guide-table">
+              <thead>
+                <tr>
+                  <th style="width: 32%;">A열 (구분 항목 - 고정)</th>
+                  <th>B열 (입력 내용 - 3명이 수시로 편집)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="sheet-guide-key">1단계_찬양제목</td>
+                  <td>Way Maker (길을 만드시는 분)</td>
+                </tr>
+                <tr>
+                  <td class="sheet-guide-key">1단계_유튜브링크</td>
+                  <td>https://www.youtube.com/watch?v=iJCV_2H9xD0</td>
+                </tr>
+                <tr>
+                  <td class="sheet-guide-key">1단계_찬양안내</td>
+                  <td>전 세계 성도들이 함께 고백하는 대표 찬양으로 마음의 문을 엽니다.</td>
+                </tr>
+                <tr>
+                  <td class="sheet-guide-key">2단계_성경본문</td>
+                  <td>디모데후서 2:1-2 (2 Tim 2:1-2)</td>
+                </tr>
+                <tr>
+                  <td class="sheet-guide-key">2단계_말씀제목</td>
+                  <td>충성된 사람들에게 부탁하라</td>
+                </tr>
+                <tr>
+                  <td class="sheet-guide-key">2단계_말씀요약</td>
+                  <td>1. 은혜 가운데서 강하라<br>2. 충성된 사람들에게 복음을 부탁하라<br>3. 또 다른 사람을 가르칠 제자 세우기</td>
+                </tr>
+                <tr>
+                  <td class="sheet-guide-key">3단계_기도제목</td>
+                  <td>함께 기도합시다 (Let Us Pray Together)</td>
+                </tr>
+                <tr>
+                  <td class="sheet-guide-key">3단계_기도내용</td>
+                  <td>🕊️ [1. 나를 위한 기도]<br>• 내가 복음이 되기를<br><br>🌍 [2. 모든 민족을 위한 기도]<br>• 모든 민족이 그리스도 앞에 무릎 꿇도록<br><br>🌱 [3. 후대를 위한 기도]<br>• 후대가 복음을 알도록</td>
+                </tr>
+                <tr>
+                  <td class="sheet-guide-key">4단계_담당자</td>
+                  <td>다민족 제자 1분 응답 간증 & 전도자 축도</td>
+                </tr>
+                <tr>
+                  <td class="sheet-guide-key">4단계_마무리내용</td>
+                  <td>• 다민족 제자의 1분 현장 응답 및 은혜 간증 나눔<br>• 전도자의 축도 및 주기도문 폐회</td>
+                </tr>
+                <tr>
+                  <td class="sheet-guide-key">모임일시 (선택)</td>
+                  <td>2026-10-04T20:00:00+10:00</td>
+                </tr>
+                <tr>
+                  <td class="sheet-guide-key">줌링크 (선택)</td>
+                  <td>https://zoom.us/j/88812345678</td>
+                </tr>
+                <tr>
+                  <td class="sheet-guide-key">줌ID_비번 (선택)</td>
+                  <td>Zoom ID: 888 1234 5678 | Passcode: 7777</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="closeModal('sheetTemplateModal')">확인 완료</button>
+      </div>
     </div>
   </div>
 
