@@ -254,14 +254,11 @@
                   <span>🎬 찬양 한/영 자막 플레이어 & 줌 화면 공유</span>
                 </div>
                 <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                  <button type="button" class="btn btn-sm btn-primary" onclick="openWorshipStudio('amazing-grace')">
-                    ▶️ 나 같은 죄인 살리신 (자막 영상)
+                  <button type="button" class="btn btn-sm btn-primary" id="btnPlayMeetingSongStudio" onclick="openCurrentMeetingPraiseStudio()">
+                    ▶️ 지정 찬양 한/영 자막 플레이어
                   </button>
-                  <a href="assets/amazing_grace_bilingual.mp4" download class="btn btn-sm btn-outline">
-                    📥 MP4 다운로드
-                  </a>
-                  <button type="button" class="btn btn-sm btn-ghost" onclick="openWorshipStudio()">
-                    ⚙️ 자막 스튜디오
+                  <button type="button" class="btn btn-sm btn-outline" onclick="openWorshipStudio()">
+                    🎶 찬양 보관함 (10곡 전체)
                   </button>
                 </div>
               </div>
@@ -1241,11 +1238,14 @@
             <button type="button" class="btn btn-sm btn-assign-meeting" onclick="setCurrentMeetingSong()" title="현재 선택된 찬양을 이번 30분 기도모임의 지정 찬양으로 즉시 설정">
               📌 이번 모임 찬양으로 지정
             </button>
+            <button type="button" class="btn btn-sm btn-ghost" id="btnToggleMediaSource" onclick="toggleMediaSource()" style="display:none;" title="수록 음원과 YouTube 공식 영상 간 재생 모드 전환">
+              📺 YouTube 영상
+            </button>
             <button type="button" class="btn btn-sm btn-primary" onclick="toggleStudioFullscreen()" title="줌 화면 공유에 최적화된 전체화면 모드 (단축키: F)">
               🖥️ 줌 전체화면 (F)
             </button>
-            <button type="button" class="btn btn-sm btn-outline" onclick="downloadCurrentVideo()" title="한/영 자막이 포함된 MP4 동영상 다운로드">
-              📥 MP4 영상 다운
+            <button type="button" class="btn btn-sm btn-outline" onclick="downloadCurrentVideo()" title="고음질 음원 또는 MP4 동영상 다운로드">
+              📥 음원/영상 다운
             </button>
             <button type="button" class="btn btn-sm btn-ghost" onclick="downloadCurrentSrt()" title="SRT 자막 파일 다운로드">
               📄 SRT 자막
@@ -1270,6 +1270,10 @@
               <source src="assets/amazing_grace_bilingual.mp4" type="video/mp4">
             </video>
             <audio id="studioAudioPlayer" class="studio-audio" controls style="display:none;"></audio>
+            <!-- YouTube IFrame Player Container -->
+            <div id="studioYouTubePlayerWrapper" class="studio-video" style="display:none;">
+              <div id="studioYouTubePlayer"></div>
+            </div>
             <!-- Live Subtitle Overlay for Zoom screen share -->
             <div class="studio-live-subtitle" id="studioLiveSubtitle"></div>
           </div>
@@ -1365,6 +1369,7 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Main JavaScript Files -->
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="worship-studio.js"></script>
   <script src="app.js"></script>
 </body>

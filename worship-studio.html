@@ -73,11 +73,14 @@
             <button type="button" class="btn btn-sm btn-assign-meeting" onclick="setCurrentMeetingSong()" title="현재 선택된 찬양을 이번 30분 기도모임의 지정 찬양으로 즉시 설정">
               📌 이번 모임 찬양으로 지정
             </button>
+            <button type="button" class="btn btn-sm btn-ghost" id="btnToggleMediaSource" onclick="toggleMediaSource()" style="display:none;" title="수록 음원과 YouTube 공식 영상 간 재생 모드 전환">
+              📺 YouTube 영상
+            </button>
             <button type="button" class="btn btn-sm btn-primary" onclick="toggleStudioFullscreen()" title="줌 화면 공유에 최적화된 전체화면 모드 (단축키: F)">
               🖥️ 줌 전체화면 (F)
             </button>
-            <button type="button" class="btn btn-sm btn-outline" onclick="downloadCurrentVideo()" title="한/영 자막이 포함된 MP4 동영상 다운로드">
-              📥 MP4 영상 다운
+            <button type="button" class="btn btn-sm btn-outline" onclick="downloadCurrentVideo()" title="고음질 음원 또는 MP4 동영상 다운로드">
+              📥 음원/영상 다운
             </button>
             <button type="button" class="btn btn-sm btn-ghost" onclick="downloadCurrentSrt()" title="SRT 자막 파일 다운로드">
               📄 SRT 자막
@@ -99,6 +102,10 @@
               <source src="assets/amazing_grace_bilingual.mp4" type="video/mp4">
             </video>
             <audio id="studioAudioPlayer" class="studio-audio" controls style="display:none;"></audio>
+            <!-- YouTube IFrame Player Container -->
+            <div id="studioYouTubePlayerWrapper" class="studio-video" style="display:none;">
+              <div id="studioYouTubePlayer"></div>
+            </div>
             <div class="studio-live-subtitle" id="studioLiveSubtitle"></div>
           </div>
 
@@ -183,6 +190,7 @@
 
   <div class="toast-container" id="toastContainer"></div>
 
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="worship-studio.js"></script>
 </body>
 </html>

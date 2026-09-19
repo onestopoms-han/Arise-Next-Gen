@@ -2192,7 +2192,7 @@ const worshipSongPool = [
   },
   {
     id: 4,
-    videoId: "93Xq_56pWk0",
+    videoId: "9sE5kEnitqE",
     title: "Goodness of God (하나님의 선하심)",
     title_en: "Goodness of God",
     artist: "CeCe Winans / Bethel Music",
@@ -2202,7 +2202,7 @@ const worshipSongPool = [
   },
   {
     id: 5,
-    videoId: "XtwIT8JtvdM",
+    videoId: "XtwIT8JjddM",
     title: "10,000 Reasons (Bless the Lord)",
     title_en: "10,000 Reasons (Bless the Lord)",
     artist: "Matt Redman • 그래미 어워드 수상 찬양",
@@ -2252,7 +2252,7 @@ const worshipSongPool = [
   },
   {
     id: 10,
-    videoId: "u-_xSWZ-mCE",
+    videoId: "u-1fwZtKJSM",
     title: "Living Hope (산 소망 되신 주)",
     title_en: "Living Hope",
     artist: "Phil Wickham",
@@ -2272,7 +2272,7 @@ const worshipSongPool = [
   },
   {
     id: 12,
-    videoId: "b_31xW5-g6g",
+    videoId: "SlEEgMWwxhc",
     title: "Holy Forever (영원히 거룩하신 주)",
     title_en: "Holy Forever",
     artist: "Chris Tomlin / CeCe Winans",
@@ -2444,6 +2444,7 @@ function renderWorshipLounge() {
           src="https://www.youtube-nocookie.com/embed/${song.videoId}?enablejsapi=1" 
           title="${escapeHtml(song.titleKo)}" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen 
           loading="lazy">
         </iframe>
@@ -2489,9 +2490,13 @@ function renderWorshipLounge() {
             </div>
             ${song.videoUrl ? `
               <a href="${song.videoUrl}" download class="btn-routine-link" style="margin-top: 0.3rem; text-align: center; font-size: 0.76rem; padding: 0.35rem; display: block;">
-                📥 MP4 고화질 다운로드 (1080p)
+                📥 1080p MP4 자막 영상 다운로드
               </a>
-            ` : ''}
+            ` : (song.audioUrl ? `
+              <a href="${song.audioUrl}" download class="btn-routine-link" style="margin-top: 0.3rem; text-align: center; font-size: 0.76rem; padding: 0.35rem; display: block;">
+                📥 고음질 MP3 음원 다운로드
+              </a>
+            ` : '')}
           </div>
         </div>
       </div>
@@ -2866,9 +2871,14 @@ function renderRoutineDisplay() {
     const detailSongTitle = document.getElementById('detailSongTitle');
     const detailSongContent = document.getElementById('detailSongContent');
     const detailSongLinkArea = document.getElementById('detailSongLinkArea');
+    const btnPlayMeetingSongStudio = document.getElementById('btnPlayMeetingSongStudio');
 
-    if (routineSub1) routineSub1.textContent = data.step1?.songTitle || 'Way Maker';
-    if (detailSongTitle) detailSongTitle.textContent = data.step1?.songTitle || 'Way Maker';
+    const songTitleText = data.step1?.songTitle || 'Way Maker';
+    if (routineSub1) routineSub1.textContent = songTitleText;
+    if (detailSongTitle) detailSongTitle.textContent = songTitleText;
+    if (btnPlayMeetingSongStudio) {
+      btnPlayMeetingSongStudio.innerHTML = `▶️ ${escapeHtml(songTitleText)} (한/영 자막)`;
+    }
     if (detailSongContent) {
       detailSongContent.innerHTML = escapeHtml(data.step1?.content || '').replace(/\n/g, '<br>');
       if (isTranslated) detailSongContent.classList.add('fade-in-content');

@@ -2690,6 +2690,21 @@ body {
   object-fit: contain;
 }
 
+#studioYouTubePlayerWrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#studioYouTubePlayerWrapper iframe,
+#studioYouTubePlayer {
+  width: 100% !important;
+  height: 100% !important;
+  border: none;
+}
+
 .studio-audio {
   width: 80%;
   position: absolute;
