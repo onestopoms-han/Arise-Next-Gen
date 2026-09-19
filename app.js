@@ -1559,16 +1559,6 @@ const defaultTestimonies = [
     content: "어려운 환경에 있는 고향 미얀마의 아이들에게 스마트폰으로 'Way Maker' 찬양을 가르쳐주었습니다. 아이들의 눈빛에 희망과 복음의 빛이 깃들기 시작했습니다.",
     content_en: "I taught the song 'Way Maker' to children back in Myanmar via smartphone. Hope and the light of Christ are filling their eyes!",
     date: "2026-09-06"
-  },
-  {
-    id: 4,
-    author: "Sister Grace (그레이스)",
-    country: "🇵🇭 Philippines",
-    title: "찬양을 통한 청소년 회복의 은혜",
-    title_en: "Youth Restored Through Gospel Worship",
-    content: "우울증으로 방황하던 현지 청소년이 우리 모임에서 배운 'Way Maker' 찬양을 함께 부르며 눈물로 회복되었습니다. 이제는 유초등부 찬양팀을 돕고 있습니다.",
-    content_en: "A struggling teenager found peace and joy in Christ while singing 'Way Maker' together. He is now serving on the children's worship team!",
-    date: "2026-09-02"
   }
 ];
 
@@ -1603,7 +1593,7 @@ const defaultMeetingSettings = {
 };
 
 // Always sync newly added nations & routine content & meeting settings
-const DATA_VERSION = 'v12_routine_times_updated';
+const DATA_VERSION = 'v13_remove_artificial_testimony';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -1614,7 +1604,8 @@ if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
 
 // App State
 let prayers = JSON.parse(localStorage.getItem('prayer_hub_prayers')) || defaultPrayers;
-let testimonies = JSON.parse(localStorage.getItem('prayer_hub_testimonies')) || defaultTestimonies;
+let testimonies = (JSON.parse(localStorage.getItem('prayer_hub_testimonies')) || defaultTestimonies)
+  .filter(t => t && t.id !== 4 && !t.title?.includes('찬양을 통한 청소년 회복'));
 let routineContent = JSON.parse(localStorage.getItem('prayer_hub_routine_content')) || defaultRoutineContent;
 let meetingSettings = JSON.parse(localStorage.getItem('prayer_hub_meeting_settings')) || defaultMeetingSettings;
 let currentFilter = 'all';
