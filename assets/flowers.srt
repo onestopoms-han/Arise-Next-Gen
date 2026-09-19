@@ -1,70 +1,69 @@
-1
-00:00:00,000 --> 00:00:28,000
+﻿1
+00:00:00,000 --> 00:00:06,000
 🎵 꽃들도 (花も - 열방의 회복) - 오케스트라 전주
 Even If The Flowers - JWorship (Intro)
 
 2
-00:00:28,000 --> 00:00:52,000
+00:00:06,000 --> 00:00:18,000
 [1절] 이곳에 생명 샘 솟아나, 눈물 골짝 지나갈 때에
-Here springs of living water will overflow, as we pass through the valley of weeping tears
+Here springs of living water will overflow, as we pass through the valley of weeping
 
 3
-00:00:52,000 --> 00:01:16,000
+00:00:18,000 --> 00:00:30,000
 머잖아 열매 맺히고, 웃음 소리 넘쳐나리라
 Soon fruit of righteousness will bear, and songs of joy and laughter will resound
 
 4
-00:01:16,000 --> 00:01:40,000
-[후렴] 꽃들도 구름도 바람도 넓은 바다도
-Even flowers, the clouds, the wind, and the rolling sea
-
-5
-00:01:40,000 --> 00:02:05,000
-찬양하라 찬양하라 예수를
-Praise Him, praise Jesus our King!
-
-6
-00:02:05,000 --> 00:02:30,000
-하늘을 울리며 노래해 나의 영혼아
-Sing so the heavens echo, O my soul!
-
-7
-00:02:30,000 --> 00:02:54,000
-은혜의 주, 은혜의 주, 은혜의 주
-Lord of grace, Lord of grace, Lord of endless grace
-
-8
-00:02:54,000 --> 00:03:18,000
-[간주 묵상]
-Interlude
-
-9
-00:03:18,000 --> 00:03:42,000
-[2절] 이곳에 생명 샘 솟아나, 눈물 골짝 지나갈 때에
+00:00:30,000 --> 00:00:42,000
+이곳에 생명 샘 솟아나, 눈물 골짝 지나갈 때에
 Here springs of living water will overflow, as we pass through the valley of weeping
 
-10
-00:03:42,000 --> 00:04:06,000
-머잖아 풍성한 열매 맺히고, 큰 기쁨의 웃음 소리 넘쳐나리라
+5
+00:00:42,000 --> 00:00:54,000
+머잖아 열매 맺히고, 웃음 소리 넘쳐나리라
 Soon fruit of righteousness will bear, and songs of joy and laughter will resound
 
+6
+00:00:54,000 --> 00:01:18,000
+[후렴] 꽃들도 구름도 바람도 넓은 바다도, 찬양하라 찬양하라 예수를!
+Even flowers, the clouds, the wind, and the rolling sea: Praise our Jesus!
+
+7
+00:01:18,000 --> 00:01:44,000
+하늘을 울리며 노래해 나의 영혼아, 은혜의 주 은혜의 주 은혜의 주!
+Sing so the heavens echo, O my soul! Lord of grace, Lord of endless grace!
+
+8
+00:01:44,000 --> 00:01:58,000
+[간주 묵상]
+Instrumental Interlude
+
+9
+00:01:58,000 --> 00:02:10,000
+[2절] 예수님 오실 길 예비해, 십자가를 바라볼 때에
+Preparing the way of our coming Lord, fixing our eyes on the Cross
+
+10
+00:02:10,000 --> 00:02:22,000
+머잖아 열방이 엎드려, 주의 영광 찬양하리라
+Soon all nations will bow and worship, praising the glory of our Lord
+
 11
-00:04:06,000 --> 00:04:30,000
-[후렴 반복] 꽃들도 구름도 바람도 바다도 찬양하라 예수를!
-Even flowers, clouds, wind, and sea: Praise our Jesus!
+00:02:22,000 --> 00:02:46,000
+[후렴 반복] 꽃들도 구름도 바람도 넓은 바다도, 찬양하라 찬양하라 예수를!
+Even flowers, the clouds, the wind, and the rolling sea: Praise our Jesus!
 
 12
-00:04:30,000 --> 00:04:54,000
-하늘을 울리며 노래해 나의 영혼아, 은혜의 주 예수 그리스도!
-Sing so the heavens echo, O my soul! Lord of endless grace!
+00:02:46,000 --> 00:03:12,000
+하늘을 울리며 노래해 나의 영혼아, 은혜의 주 은혜의 주 은혜의 주!
+Sing so the heavens echo, O my soul! Lord of grace, Lord of endless grace!
 
 13
-00:04:54,000 --> 00:05:35,000
-[후렴 절정] 찬양하라 찬양하라 예수를! 온 땅과 만물이 주를 경배하리라!
-Praise Him, praise Jesus our King! All creation will bow and worship the Lord!
+00:03:12,000 --> 00:04:05,000
+[후렴 절정] 찬양하라 찬양하라 예수를! 온 땅과 열방이 주를 찬양하라!
+Praise Him, praise Jesus our King! All the earth and nations praise the Lord!
 
 14
-00:05:35,000 --> 00:05:59,000
+00:04:05,000 --> 00:05:59,000
 🕊️ 모든 열방이 예수 그리스도를 찬양하게 하옵소서 · 아멘
 May All Nations Praise Jesus Christ Forever · Amen
-

@@ -2438,6 +2438,15 @@ function renderWorshipLounge() {
           <source src="${song.videoUrl}" type="video/mp4">
         </video>
       `;
+    } else if (song.audioUrl) {
+      previewHtml = `
+        <div class="worship-card-audio-preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.75)), url('${song.bgImage || 'assets/worship_bg.jpg'}'); background-size: cover; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem;">
+          <button type="button" class="btn btn-primary btn-sm" onclick="openWorshipStudio('${song.id}')" style="box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4); font-weight: 700; display: flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1rem; border-radius: 9999px; margin-bottom: 0.6rem;">
+            <span>▶️</span> <span>한/영 자막 영상 재생</span>
+          </button>
+          <audio controls preload="none" style="width: 90%; height: 32px; opacity: 0.9;" src="${song.audioUrl}"></audio>
+        </div>
+      `;
     } else if (song.videoId) {
       previewHtml = `
         <iframe 

@@ -1,4 +1,4 @@
-1
+﻿1
 00:00:00,500 --> 00:00:05,000
 🎵 나 같은 죄인 살리신 (찬송가 305장)
 Amazing Grace (Hymn 305) - Arise Next Gen
@@ -47,4 +47,3 @@ We've no less days to sing God's praise Than when we'd first begun.
 00:02:45,000 --> 00:02:50,000
 🕊️ 주님의 은혜에 감사드립니다 · 아멘
 Giving Thanks to God's Abundant Grace · Amen
-
