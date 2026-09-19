@@ -87,7 +87,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Way Maker",
     "artist": "Sinach / Leeland • 전 세계 대표 찬양",
     "category": "global",
-    "videoUrl": "",
+    "videoUrl": "assets/way_maker.mp4",
     "audioUrl": "assets/way_maker.mp3",
     "srtUrl": "assets/way_maker.srt",
     "lrcUrl": "assets/way_maker.lrc",
@@ -253,7 +253,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "The Blessing",
     "artist": "Kari Jobe / Cody Carnes • 민수기 6장 축복",
     "category": "global",
-    "videoUrl": "",
+    "videoUrl": "assets/the_blessing.mp4",
     "audioUrl": "assets/the_blessing.mp3",
     "srtUrl": "assets/the_blessing.srt",
     "lrcUrl": "assets/the_blessing.lrc",
@@ -437,7 +437,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Goodness of God",
     "artist": "Bethel Music / Jenn Johnson • 시편 23편",
     "category": "global",
-    "videoUrl": "",
+    "videoUrl": "assets/goodness_of_god.mp4",
     "audioUrl": "assets/goodness_of_god.mp3",
     "srtUrl": "assets/goodness_of_god.srt",
     "lrcUrl": "assets/goodness_of_god.lrc",
@@ -567,7 +567,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "10,000 Reasons (Bless the Lord)",
     "artist": "Matt Redman • 시편 103편",
     "category": "hymn",
-    "videoUrl": "",
+    "videoUrl": "assets/10000_reasons.mp4",
     "audioUrl": "assets/10000_reasons.mp3",
     "srtUrl": "assets/10000_reasons.srt",
     "lrcUrl": "assets/10000_reasons.lrc",
@@ -667,7 +667,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "What a Beautiful Name",
     "artist": "Hillsong Worship • 부활과 영광의 찬양",
     "category": "global",
-    "videoUrl": "",
+    "videoUrl": "assets/what_a_beautiful_name.mp4",
     "audioUrl": "assets/what_a_beautiful_name.mp3",
     "srtUrl": "assets/what_a_beautiful_name.srt",
     "lrcUrl": "assets/what_a_beautiful_name.lrc",
@@ -773,7 +773,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Oceans (Where Feet May Fail)",
     "artist": "Hillsong UNITED • 믿음의 결단과 신뢰",
     "category": "global",
-    "videoUrl": "",
+    "videoUrl": "assets/oceans.mp4",
     "audioUrl": "assets/oceans.mp3",
     "srtUrl": "assets/oceans.srt",
     "lrcUrl": "assets/oceans.lrc",
@@ -873,7 +873,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Even If The Flowers (花も)",
     "artist": "제이워십 (JWorship) • 열방의 회복",
     "category": "confession",
-    "videoUrl": "",
+    "videoUrl": "assets/flowers.mp4",
     "audioUrl": "assets/flowers.mp3",
     "srtUrl": "assets/flowers.srt",
     "lrcUrl": "assets/flowers.lrc",
@@ -973,7 +973,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Grace of God (Only By Grace)",
     "artist": "박종호 / 조은아 / 신상우 • 복음의 고백",
     "category": "confession",
-    "videoUrl": "",
+    "videoUrl": "assets/only_by_grace.mp4",
     "audioUrl": "assets/only_by_grace.mp3",
     "srtUrl": "assets/only_by_grace.srt",
     "lrcUrl": "assets/only_by_grace.lrc",
@@ -1061,7 +1061,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Living Hope",
     "artist": "Phil Wickham • 부활과 영생의 복음",
     "category": "global",
-    "videoUrl": "",
+    "videoUrl": "assets/living_hope.mp4",
     "audioUrl": "assets/living_hope.mp3",
     "srtUrl": "assets/living_hope.srt",
     "lrcUrl": "assets/living_hope.lrc",
@@ -1184,6 +1184,15 @@ document.addEventListener('DOMContentLoaded', () => {
 function initWorshipStudio() {
   loadCustomSongs();
   setupStudioKeyboardShortcuts();
+  
+  // Initialize praise dropdown and pre-select target song
+  const select = document.getElementById('studioSongSelect');
+  if (select) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetSongId = urlParams.get('song') || 'amazing-grace';
+    populateSongSelector(targetSongId);
+    selectWorshipSong(targetSongId, null, false);
+  }
 }
 
 function loadCustomSongs() {
@@ -1203,7 +1212,7 @@ function loadCustomSongs() {
 function openWorshipStudio(targetSongId = 'amazing-grace') {
   loadCustomSongs();
   populateSongSelector(targetSongId);
-  selectWorshipSong(targetSongId);
+  selectWorshipSong(targetSongId, null, true);
   switchStudioTab('player');
   
   const modal = document.getElementById('worshipStudioModal');
@@ -1363,6 +1372,9 @@ function populateSongSelector(selectedId) {
     });
     select.appendChild(customGroup);
   }
+  if (selectedId) {
+    select.value = selectedId;
+  }
 }
 
 // Select Song
@@ -1398,7 +1410,7 @@ function updateSourceToggleBtn(song) {
   }
 }
 
-function selectWorshipSong(songId, requestedMode = null) {
+function selectWorshipSong(songId, requestedMode = null, autoPlay = true) {
   const song = worshipStudioState.allSongs.find(s => s.id === songId) || PRESET_PRAISE_SONGS[0];
   worshipStudioState.currentSong = song;
   worshipStudioState.currentLineIndex = -1;
@@ -1414,8 +1426,13 @@ function selectWorshipSong(songId, requestedMode = null) {
   // Update Display
   const titleDisplay = document.getElementById('studioActiveSongTitle');
   if (titleDisplay) {
-    titleDisplay.innerHTML = `<span class="title-kr">${song.titleKo}</span> <span class="title-en">${song.titleEn}</span>`;
+    titleDisplay.innerHTML = `<span class="title-kr">${escapeHtml(song.titleKo)}</span> <span class="title-en">${escapeHtml(song.titleEn)}</span>`;
   }
+  const songSelectEl = document.getElementById('studioSongSelect');
+  if (songSelectEl && songSelectEl.value !== song.id) {
+    songSelectEl.value = song.id;
+  }
+  displayOverlaySubtitle(null);
 
   // Update Media Elements
   const video = document.getElementById('studioVideoPlayer');
@@ -1434,19 +1451,36 @@ function selectWorshipSong(songId, requestedMode = null) {
     }
     mountYouTubePlayer(song.videoId);
   } else if (song.videoUrl) {
-    // 2. Has local MP4 Video (e.g. Amazing Grace)
+    // 2. High-Definition 1080p MP4 Video (All 10 Songs)
     if (ytWrapper) ytWrapper.style.display = 'none';
     if (ytStudioPlayer && typeof ytStudioPlayer.pauseVideo === 'function') {
       try { ytStudioPlayer.pauseVideo(); } catch(e) {}
     }
-    if (audio) audio.style.display = 'none';
+    if (audio) {
+      audio.pause();
+      audio.style.display = 'none';
+    }
     if (mediaWrapper) mediaWrapper.style.backgroundImage = 'none';
     if (video) {
       video.style.display = 'block';
-      video.src = song.videoUrl;
+      try { video.pause(); } catch(e) {}
+      
+      const curSrc = video.getAttribute('src') || '';
+      if (!curSrc.endsWith(song.videoUrl)) {
+        video.src = song.videoUrl;
+      }
+      video.currentTime = 0;
       video.load();
       setupMediaTimeUpdate(video);
-      video.play().catch(() => {});
+      
+      if (autoPlay) {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(err => {
+            console.log('Browser deferred autoplay:', err);
+          });
+        }
+      }
     }
   } else if (song.audioUrl) {
     // 3. Local High-Quality Audio with Worship Background Visual & Subtitles
@@ -2022,5 +2056,6 @@ window.openWorshipStudio = openWorshipStudio;
 window.closeWorshipStudio = closeWorshipStudio;
 window.setCurrentMeetingSong = setCurrentMeetingSong;
 window.selectWorshipSong = selectWorshipSong;
+window.populateSongSelector = populateSongSelector;
 window.loadCustomSongs = loadCustomSongs;
 
