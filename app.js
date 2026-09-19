@@ -2291,73 +2291,215 @@ function getCurrentWeekNumber() {
   return Math.ceil((((date - yearStart) / 86400000) + 1) / 7);
 }
 
-// Render weekly auto-rotated worship songs (3 songs per week)
+// ==========================================
+// 6.5. Worship Lounge System (Library & Weekly Selection)
+// ==========================================
+let currentWorshipFilter = 'weekly';
+
+function filterWorshipLounge(category) {
+  currentWorshipFilter = category;
+
+  const btnWeekly = document.getElementById('filterBtnWeekly');
+  const btnAll = document.getElementById('filterBtnAll');
+  const btnHymn = document.getElementById('filterBtnHymn');
+  const btnGlobal = document.getElementById('filterBtnGlobal');
+  const btnConfession = document.getElementById('filterBtnConfession');
+
+  [btnWeekly, btnAll, btnHymn, btnGlobal, btnConfession].forEach(b => {
+    if (b) b.classList.remove('active');
+  });
+
+  if (category === 'weekly' && btnWeekly) btnWeekly.classList.add('active');
+  else if (category === 'all' && btnAll) btnAll.classList.add('active');
+  else if (category === 'hymn' && btnHymn) btnHymn.classList.add('active');
+  else if (category === 'global' && btnGlobal) btnGlobal.classList.add('active');
+  else if (category === 'confession' && btnConfession) btnConfession.classList.add('active');
+
+  renderWorshipLounge();
+}
+window.filterWorshipLounge = filterWorshipLounge;
+
+// Render weekly or filtered worship songs
 function renderWorshipLounge() {
   const grid = document.getElementById('worshipGrid');
   const badgeText = document.getElementById('worshipWeekText');
   if (!grid) return;
 
+  const isKorean = currentLang === 'ko';
   const currentYear = new Date().getFullYear();
   const weekNum = getCurrentWeekNumber();
   const currentMonth = new Date().getMonth() + 1;
   const monthWeek = Math.min(5, Math.ceil(new Date().getDate() / 7));
 
+  // Determine pool of songs: from worshipStudioState or PRESET_PRAISE_SONGS
+  let pool = [];
+  if (typeof worshipStudioState !== 'undefined' && worshipStudioState.allSongs && worshipStudioState.allSongs.length > 0) {
+    pool = worshipStudioState.allSongs;
+  } else if (typeof PRESET_PRAISE_SONGS !== 'undefined' && PRESET_PRAISE_SONGS.length > 0) {
+    pool = PRESET_PRAISE_SONGS;
+  }
+
+  // Update badge text based on filter
   if (badgeText) {
-    if (currentLang === 'ko') {
-      badgeText.textContent = `이번 주 추천 찬양 (${currentYear}년 ${currentMonth}월 ${monthWeek}주차 • W${weekNum}) 🔄 매주 자동 교체`;
-    } else {
-      badgeText.textContent = `Weekly Featured Worship (Week ${weekNum}, ${currentYear}) • Auto-Rotates Every Week`;
+    if (currentWorshipFilter === 'weekly') {
+      badgeText.innerHTML = isKorean
+        ? `📅 이번 주 추천 찬양 (${currentYear}년 ${currentMonth}월 ${monthWeek}주차) • 매주 자동 순환`
+        : `📅 Weekly Featured Worship (Week ${weekNum}, ${currentYear}) • Auto-Rotates`;
+    } else if (currentWorshipFilter === 'all') {
+      badgeText.innerHTML = isKorean
+        ? `🎶 전체 찬양 보관함 (${pool.length}곡 라이브러리) • 자유 선곡 & 감상`
+        : `🎶 Complete Praise Library (${pool.length} Songs) • Browse & Worship`;
+    } else if (currentWorshipFilter === 'hymn') {
+      badgeText.innerHTML = isKorean
+        ? `✝️ 클래식 찬송가 컬렉션 • 세대를 넘어 전해진 은혜`
+        : `✝️ Classic Hymns Collection • Timeless Grace`;
+    } else if (currentWorshipFilter === 'global') {
+      badgeText.innerHTML = isKorean
+        ? `🌍 글로벌 다민족 찬양 • 온 열방이 함께 부르는 찬양`
+        : `🌍 Global Multi-Language Worship • Sung Across Nations`;
+    } else if (currentWorshipFilter === 'confession') {
+      badgeText.innerHTML = isKorean
+        ? `🕊️ 은혜와 믿음의 결단 찬양 • 깊은 묵상과 기도`
+        : `🕊️ Grace & Surrender Worship • Deep Reflection`;
     }
   }
 
-  // Calculate 3 songs for this week
-  const total = worshipSongPool.length;
-  const startIndex = (weekNum * 3) % total;
-  const weekSongs = [
-    worshipSongPool[startIndex],
-    worshipSongPool[(startIndex + 1) % total],
-    worshipSongPool[(startIndex + 2) % total]
-  ];
+  // Filter songs
+  let displaySongs = [];
+  if (currentWorshipFilter === 'weekly') {
+    const total = pool.length;
+    if (total > 0) {
+      const startIndex = (weekNum * 3) % total;
+      displaySongs = [
+        pool[startIndex % total],
+        pool[(startIndex + 1) % total],
+        pool[(startIndex + 2) % total]
+      ];
+      // Highlight amazing-grace in weekly if available
+      if (!displaySongs.some(s => s.id === 'amazing-grace')) {
+        const ag = pool.find(s => s.id === 'amazing-grace');
+        if (ag) displaySongs[0] = ag;
+      }
+    }
+  } else if (currentWorshipFilter === 'all') {
+    displaySongs = [...pool];
+  } else {
+    displaySongs = pool.filter(s => s.category === currentWorshipFilter);
+  }
 
-  grid.innerHTML = weekSongs.map((song, idx) => {
-    const isKorean = currentLang === 'ko';
-    const displayTitle = isKorean ? song.title : song.title_en;
-    const displayArtist = isKorean ? song.artist : song.artist_en;
-    const displayLyrics = isKorean ? song.lyrics_ko : song.lyrics;
-    const songTag = isKorean ? `이번 주 찬양 #${idx + 1}` : `Weekly Song #${idx + 1}`;
-    const directBtnLabel = isKorean ? `▶ YouTube 고음질로 직접 듣기` : `▶ Watch Full Video on YouTube`;
-    const soundHint = isKorean 
-      ? `💡 소리가 안 나면 영상 좌측 하단의 스피커(🔇)를 클릭해 주세요.` 
-      : `💡 If muted, click the speaker (🔇) icon on the bottom-left.`;
+  // Fallback if pool was empty
+  if (displaySongs.length === 0 && typeof worshipSongPool !== 'undefined') {
+    displaySongs = worshipSongPool.slice(0, 3).map(old => ({
+      id: `legacy-${old.id}`,
+      titleKo: old.title,
+      titleEn: old.title_en,
+      artist: old.artist,
+      category: 'global',
+      videoId: old.videoId,
+      lines: [{ start: 0, end: 10, kr: old.lyrics_ko, en: old.lyrics }]
+    }));
+  }
+
+  // Current meeting praise title check
+  const currentMeetingSongTitle = (typeof routineContent !== 'undefined' && routineContent.step1?.songTitle) || '';
+
+  grid.innerHTML = displaySongs.map((song, idx) => {
+    const isCurrentMeeting = currentMeetingSongTitle && 
+      (currentMeetingSongTitle.includes(song.titleKo) || 
+       (song.titleEn && currentMeetingSongTitle.includes(song.titleEn)));
+
+    let catLabel = isKorean ? '찬양' : 'Worship';
+    if (song.category === 'hymn') catLabel = isKorean ? '✝️ 클래식 찬송가' : '✝️ Classic Hymn';
+    else if (song.category === 'global') catLabel = isKorean ? '🌍 글로벌 찬양' : '🌍 Global Praise';
+    else if (song.category === 'confession') catLabel = isKorean ? '🕊️ 은혜와 결단' : '🕊️ Grace & Faith';
+    else if (currentWorshipFilter === 'weekly') catLabel = isKorean ? `⭐ 이번 주 추천 #${idx + 1}` : `⭐ Weekly #${idx + 1}`;
+
+    // Snippet
+    let snippetKr = '';
+    let snippetEn = '';
+    if (song.lines && song.lines.length > 1) {
+      const chorusLine = song.lines.find(l => l.kr && l.kr.includes('[후렴]')) || song.lines[1];
+      snippetKr = chorusLine.kr || '';
+      snippetEn = chorusLine.en || '';
+    } else {
+      snippetKr = song.titleKo;
+      snippetEn = song.titleEn;
+    }
+
+    // Video preview markup
+    let previewHtml = '';
+    if (song.videoUrl) {
+      previewHtml = `
+        <video 
+          poster="${song.bgImage || 'assets/worship_bg.jpg'}" 
+          controls 
+          preload="metadata" 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+          <source src="${song.videoUrl}" type="video/mp4">
+        </video>
+      `;
+    } else if (song.videoId) {
+      previewHtml = `
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/${song.videoId}?enablejsapi=1" 
+          title="${escapeHtml(song.titleKo)}" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen 
+          loading="lazy">
+        </iframe>
+      `;
+    } else {
+      previewHtml = `
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: #1e293b; display:flex; align-items:center; justify-content:center; color:#94a3b8; font-size: 0.9rem;">
+          🎵 음원 전용 찬양
+        </div>
+      `;
+    }
+
+    const watchStudioBtnLabel = isKorean ? '🎬 한/영 자막 감상' : '🎬 Watch Subtitles';
+    const assignMeetingBtnLabel = isKorean ? '📌 모임 찬양 지정' : '📌 Set as Meeting Song';
+    const meetingSelectedBadge = isKorean ? '📌 이번 모임 찬양' : '📌 Current Meeting Praise';
 
     return `
-      <div class="worship-card">
+      <div class="worship-card ${isCurrentMeeting ? 'is-meeting-selected' : ''}" id="worshipCard_${song.id}">
         <div class="worship-video-preview">
-          <iframe 
-            src="https://www.youtube.com/embed/${song.videoId}?enablejsapi=1" 
-            title="${escapeHtml(displayTitle)}" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-          </iframe>
+          ${previewHtml}
         </div>
         <div class="worship-info">
-          <span class="worship-tag">${songTag}</span>
-          <h4 class="worship-title">${escapeHtml(displayTitle)}</h4>
-          <p class="worship-meta">${escapeHtml(displayArtist)}</p>
-          <p class="worship-lyrics-snippet">${escapeHtml(displayLyrics)}</p>
+          <div class="worship-card-top-tags" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+            <span class="worship-tag">${catLabel}</span>
+            ${isCurrentMeeting ? `<span class="badge-meeting-song">${meetingSelectedBadge}</span>` : ''}
+          </div>
+          <h4 class="worship-title">${escapeHtml(song.titleKo)}</h4>
+          <p class="worship-meta" style="margin-bottom: 0.35rem; color: #38bdf8; font-weight: 600;">${escapeHtml(song.titleEn)}</p>
+          <p class="worship-meta" style="margin-bottom: 0.7rem;">${escapeHtml(song.artist || '')}</p>
+          <p class="worship-lyrics-snippet">
+            "${escapeHtml(snippetKr)}"<br>
+            <span style="font-size:0.78rem; opacity:0.85; font-style:normal; color:#93c5fd;">${escapeHtml(snippetEn)}</span>
+          </p>
+
           <div class="worship-card-actions">
-            <a href="https://www.youtube.com/watch?v=${song.videoId}" target="_blank" rel="noopener noreferrer" class="worship-yt-direct-btn">
-              ${directBtnLabel}
-            </a>
-            <div class="worship-sound-hint">
-              ${soundHint}
+            <div class="worship-card-btns">
+              <button type="button" class="btn btn-primary btn-sm" onclick="openWorshipStudio('${song.id}')" title="한/영 자막 플레이어 및 줌 화면 공유">
+                ${watchStudioBtnLabel}
+              </button>
+              <button type="button" class="btn btn-outline btn-sm btn-assign-meeting" onclick="setCurrentMeetingSong('${song.id}')" title="이 찬양을 30분 기도모임의 1단계 찬양으로 설정합니다">
+                ${assignMeetingBtnLabel}
+              </button>
             </div>
+            ${song.videoUrl ? `
+              <a href="${song.videoUrl}" download class="btn-routine-link" style="margin-top: 0.3rem; text-align: center; font-size: 0.76rem; padding: 0.35rem; display: block;">
+                📥 MP4 고화질 다운로드 (1080p)
+              </a>
+            ` : ''}
           </div>
         </div>
       </div>
     `;
   }).join('');
 }
+window.renderWorshipLounge = renderWorshipLounge;
+
 
 // ==========================================
 // 7. Settings Modal Handling

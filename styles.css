@@ -2188,6 +2188,40 @@ body {
   border: 1px dashed rgba(255, 255, 255, 0.12);
 }
 
+.worship-card.is-meeting-selected {
+  border-color: rgba(245, 158, 11, 0.65) !important;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.28) !important;
+}
+
+.badge-meeting-song {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(245, 158, 11, 0.18);
+  border: 1px solid rgba(245, 158, 11, 0.65);
+  color: #fbbf24;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 12px;
+}
+
+.worship-card-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  margin-top: 0.4rem;
+}
+
+.worship-card-btns .btn {
+  font-size: 0.76rem !important;
+  padding: 0.45rem 0.5rem !important;
+  white-space: nowrap !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+
 /* ================= GOOGLE SHEETS INTEGRATION ================= */
 .sheet-sync-pill {
   display: inline-flex;
@@ -2984,5 +3018,52 @@ body {
   box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
   transform: translateY(-1px);
 }
+
+/* Worship Lounge Filter Bar */
+.worship-filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.2rem auto 1.8rem;
+  flex-wrap: wrap;
+}
+
+.worship-filter-btn {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 0.45rem 0.95rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.worship-filter-btn:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #f8fafc;
+}
+
+.worship-filter-btn.active {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.3), rgba(56, 189, 248, 0.35));
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+}
+
+.btn-assign-meeting {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(251, 191, 36, 0.25)) !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+  color: #fbbf24 !important;
+  font-weight: 600 !important;
+}
+
+.btn-assign-meeting:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.35), rgba(251, 191, 36, 0.4)) !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
+}
+
 
 

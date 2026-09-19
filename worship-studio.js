@@ -3,16 +3,19 @@
  * 한/영 찬양 자막 영상 재생, 줌(Zoom) 화면공유 최적화, 가사 싱크 및 커스텀 찬양 제작 도구
  */
 
-// 1. Preset Worship Songs Data
+// 1. Preset Worship Songs Data (10곡 대표 라이브러리)
 const PRESET_PRAISE_SONGS = [
   {
     id: "amazing-grace",
     titleKo: "나 같은 죄인 살리신 (찬송가 305장)",
     titleEn: "Amazing Grace (Hymn 305)",
+    artist: "John Newton • 전통 찬송가",
+    category: "hymn",
     videoUrl: "assets/amazing_grace_bilingual.mp4",
-    audioUrl: "amazing_grace.mp3",
-    srtUrl: "amazing_grace.srt",
-    lrcUrl: "amazing_grace.lrc",
+    audioUrl: "assets/amazing_grace.mp3",
+    srtUrl: "assets/amazing_grace.srt",
+    lrcUrl: "assets/amazing_grace.lrc",
+    videoId: "",
     duration: 172,
     bgImage: "assets/worship_bg.jpg",
     lines: [
@@ -31,32 +34,40 @@ const PRESET_PRAISE_SONGS = [
   {
     id: "way-maker",
     titleKo: "Way Maker (길을 만드시는 분)",
-    titleEn: "Way Maker (Sinach / Leeland)",
+    titleEn: "Way Maker",
+    artist: "Sinach / Leeland • 전 세계 대표 찬양",
+    category: "global",
     videoUrl: "",
     audioUrl: "",
     srtUrl: "",
     lrcUrl: "",
-    duration: 180,
+    videoId: "iJCV_2H9xD0",
+    duration: 300,
     bgImage: "assets/worship_bg.jpg",
     lines: [
-      { start: 0.0, end: 10.0, kr: "🎵 Way Maker (길을 만드시는 분)", en: "Way Maker, Miracle Worker, Promise Keeper" },
-      { start: 10.0, end: 35.0, kr: "이곳에 운행하시는 주님을 예배합니다", en: "You are here, moving in our midst, I worship You, I worship You" },
-      { start: 35.0, end: 60.0, kr: "이곳에 역사하시는 주님을 찬양합니다", en: "You are here, working in this place, I worship You, I worship You" },
-      { start: 60.0, end: 95.0, kr: "[후렴] 길을 만드시는 분, 기적을 행하시는 분, 약속을 지키시는 분", en: "Way maker, miracle worker, promise keeper, light in the darkness" },
+      { start: 0.0, end: 15.0, kr: "🎵 Way Maker (길을 만드시는 분)", en: "Way Maker, Miracle Worker, Promise Keeper" },
+      { start: 15.0, end: 40.0, kr: "이곳에 운행하시는 주님을 예배합니다", en: "You are here, moving in our midst, I worship You, I worship You" },
+      { start: 40.0, end: 65.0, kr: "이곳에 역사하시는 주님을 찬양합니다", en: "You are here, working in this place, I worship You, I worship You" },
+      { start: 65.0, end: 95.0, kr: "[후렴] 길을 만드시는 분, 기적을 행하시는 분, 언약을 지키시는 분", en: "Way maker, miracle worker, promise keeper, light in the darkness" },
       { start: 95.0, end: 125.0, kr: "어둠 속의 빛, 그분은 나의 하나님", en: "My God, that is who You are" },
-      { start: 125.0, end: 155.0, kr: "마음의 상처를 치유하시는 주님을 예배합니다", en: "You are here, touching every heart, I worship You, I worship You" },
-      { start: 155.0, end: 180.0, kr: "우리의 길을 비추시는 신실하신 나의 하나님", en: "Even when I don't see it, You're working; You never stop working" }
+      { start: 125.0, end: 155.0, kr: "상한 마음을 치유하시는 주님을 예배합니다", en: "You are here, touching every heart, I worship You, I worship You" },
+      { start: 155.0, end: 190.0, kr: "모든 것을 새롭게 하시는 주님을 찬양합니다", en: "You are here, turning lives around, I worship You, I worship You" },
+      { start: 190.0, end: 230.0, kr: "비록 보이지 않아도 주님은 일하고 계시네", en: "Even when I don't see it, You're working; You never stop working" },
+      { start: 230.0, end: 280.0, kr: "길을 만드시는 분, 신실하신 나의 하나님", en: "Way maker, miracle worker, that is who You are!" }
     ]
   },
   {
     id: "the-blessing",
-    titleKo: "The Blessing (축복)",
-    titleEn: "The Blessing (Kari Jobe / Cody Carnes)",
+    titleKo: "The Blessing (주의 축복이 네게 임하길)",
+    titleEn: "The Blessing",
+    artist: "Kari Jobe / Cody Carnes • 민수기 6장 축복",
+    category: "global",
     videoUrl: "",
     audioUrl: "",
     srtUrl: "",
     lrcUrl: "",
-    duration: 180,
+    videoId: "Zp6aygmvzM4",
+    duration: 320,
     bgImage: "assets/worship_bg.jpg",
     lines: [
       { start: 0.0, end: 12.0, kr: "🎵 The Blessing (축복 - 민수기 6:24-26)", en: "The Blessing (Numbers 6:24-26)" },
@@ -64,7 +75,154 @@ const PRESET_PRAISE_SONGS = [
       { start: 40.0, end: 70.0, kr: "여호와는 그의 얼굴을 네게 비추사 은혜 베푸시기를 원하며", en: "Make His face shine upon you and be gracious to you" },
       { start: 70.0, end: 105.0, kr: "여호와는 그 얼굴을 네게로 향하여 드사 평강 주시기를 원하노라", en: "The Lord turn His face toward you and give you peace" },
       { start: 105.0, end: 140.0, kr: "[후렴] 아멘, 아멘, 아멘", en: "Amen, Amen, Amen" },
-      { start: 140.0, end: 180.0, kr: "주님의 임재가 네 앞서 가시며 천대까지 너와 네 후대를 지키시리", en: "May His presence go before you, and behind you, and beside you" }
+      { start: 140.0, end: 190.0, kr: "주님의 임재가 네 앞서 가시며 네 뒤를 따르시네", en: "May His presence go before you, and behind you, and beside you" },
+      { start: 190.0, end: 250.0, kr: "천 대에 이르기까지 너와 네 자녀와 후대들을 지키시리", en: "To a thousand generations, and your family and your children" },
+      { start: 250.0, end: 300.0, kr: "주님은 영원히 너와 함께 계시네", en: "He is for you, He is for you!" }
+    ]
+  },
+  {
+    id: "goodness-of-god",
+    titleKo: "Goodness of God (하나님의 선하심)",
+    titleEn: "Goodness of God",
+    artist: "CeCe Winans / Bethel Music",
+    category: "confession",
+    videoUrl: "",
+    audioUrl: "",
+    srtUrl: "",
+    lrcUrl: "",
+    videoId: "93Xq_56pWk0",
+    duration: 298,
+    bgImage: "assets/worship_bg.jpg",
+    lines: [
+      { start: 0.0, end: 15.0, kr: "🎵 Goodness of God (하나님의 선하심)", en: "Goodness of God - Bethel Music" },
+      { start: 15.0, end: 45.0, kr: "주님의 자비는 결코 마르지 않으며 내 모든 날들을 지키셨네", en: "I love You, Lord, for Your mercy never fails me; all my days I've been held in Your hands" },
+      { start: 45.0, end: 75.0, kr: "아침에 눈을 뜰 때부터 잠자리에 들 때까지 주의 선하심을 노래하리라", en: "From the moment that I wake up until I lay my head, I will sing of the goodness of God" },
+      { start: 75.0, end: 120.0, kr: "[후렴] 내 평생 주님은 언제나 신실하셨고, 한결같이 선하셨네", en: "All my life You have been faithful, and all my life You have been so, so good" },
+      { start: 120.0, end: 160.0, kr: "내 모든 호흡이 다하는 그날까지 주의 선하심을 영원히 찬양하리", en: "With every breath that I am able, I will sing of the goodness of God" },
+      { start: 160.0, end: 210.0, kr: "주님의 선하심이 내 평생에 나를 따르며 영원토록 나를 인도하시네", en: "Your goodness is running after, it's running after me!" }
+    ]
+  },
+  {
+    id: "10000-reasons",
+    titleKo: "10,000 Reasons (송축해 내 영혼)",
+    titleEn: "10,000 Reasons (Bless the Lord)",
+    artist: "Matt Redman • 시편 103편",
+    category: "hymn",
+    videoUrl: "",
+    audioUrl: "",
+    srtUrl: "",
+    lrcUrl: "",
+    videoId: "XtwIT8JtvdM",
+    duration: 340,
+    bgImage: "assets/worship_bg.jpg",
+    lines: [
+      { start: 0.0, end: 15.0, kr: "🎵 10,000 Reasons (송축해 내 영혼)", en: "10,000 Reasons (Bless the Lord) - Matt Redman" },
+      { start: 15.0, end: 50.0, kr: "[후렴] 송축해 내 영혼, 내 영혼아 거룩하신 주의 이름 찬양해", en: "Bless the Lord, O my soul, O my soul, worship His holy name" },
+      { start: 50.0, end: 85.0, kr: "이전에도 없었던 뜨거운 노래로 주님의 거룩한 이름을 높이세", en: "Sing like never before, O my soul, I'll worship Your holy name" },
+      { start: 85.0, end: 120.0, kr: "새 날이 밝았고 새 아침이 왔네, 이제 다시 감사의 찬양을 드리네", en: "The sun comes up, it's a new day dawning; it's time to sing Your song again" },
+      { start: 120.0, end: 165.0, kr: "주님의 사랑은 끝없고 마음은 온유하시니, 만 가지 이유로 찬양하리라", en: "You're rich in love and You're slow to anger; 10,000 reasons for my heart to find" }
+    ]
+  },
+  {
+    id: "what-a-beautiful-name",
+    titleKo: "What A Beautiful Name (아름다운 그 이름)",
+    titleEn: "What A Beautiful Name",
+    artist: "Hillsong Worship • 예수 그리스도의 이름",
+    category: "global",
+    videoUrl: "",
+    audioUrl: "",
+    srtUrl: "",
+    lrcUrl: "",
+    videoId: "nQWFzMvCfLE",
+    duration: 330,
+    bgImage: "assets/worship_bg.jpg",
+    lines: [
+      { start: 0.0, end: 15.0, kr: "🎵 What A Beautiful Name (아름다운 그 이름)", en: "What A Beautiful Name - Hillsong Worship" },
+      { start: 15.0, end: 50.0, kr: "태초부터 계셨던 말씀, 높고 영화로우신 하나님과 하나 되셨네", en: "You were the Word at the beginning, one with God the Lord Most High" },
+      { start: 50.0, end: 95.0, kr: "[후렴] 얼마나 아름다운 이름인가, 나의 왕 예수 그리스도의 이름!", en: "What a beautiful Name it is, the Name of Jesus Christ my King" },
+      { start: 95.0, end: 140.0, kr: "비할 데 없는 그 이름, 예수 나의 주님", en: "Nothing compares to this, what a beautiful Name it is, the Name of Jesus" },
+      { start: 140.0, end: 190.0, kr: "사망 권세 깨뜨리시고 휘장을 찢으사 영광으로 부활하셨네", en: "Death could not hold You, the veil tore before You; You silenced the boast of sin and grave" }
+    ]
+  },
+  {
+    id: "oceans",
+    titleKo: "Oceans (오션스 - 깊은 곳으로)",
+    titleEn: "Oceans (Where Feet May Fail)",
+    artist: "Hillsong UNITED • 믿음의 결단",
+    category: "confession",
+    videoUrl: "",
+    audioUrl: "",
+    srtUrl: "",
+    lrcUrl: "",
+    videoId: "1m_sWJQm2fs",
+    duration: 350,
+    bgImage: "assets/worship_bg.jpg",
+    lines: [
+      { start: 0.0, end: 20.0, kr: "🎵 Oceans (깊은 곳으로 나아가라)", en: "Oceans (Where Feet May Fail) - Hillsong United" },
+      { start: 20.0, end: 60.0, kr: "주님 나를 깊은 바다로 부르실 때, 미지의 세계로 발걸음을 옮기네", en: "You call me out upon the waters, the great unknown where feet may fail" },
+      { start: 60.0, end: 100.0, kr: "내 믿음이 흔들릴 때에도 깊은 물 위에서 주님의 임재를 발견하네", en: "And there I find You in the mystery, in oceans deep, my faith will stand" },
+      { start: 100.0, end: 150.0, kr: "성령이여 한계 없는 믿음으로 나를 이끄소서, 바다 위를 걷게 하소서", en: "Spirit lead me where my trust is without borders, let me walk upon the waters" }
+    ]
+  },
+  {
+    id: "flowers",
+    titleKo: "꽃들도 (Even If The Flowers)",
+    titleEn: "Even If The Flowers (花も)",
+    artist: "제이러브 (J-Love) • 열방의 회복",
+    category: "confession",
+    videoUrl: "",
+    audioUrl: "",
+    srtUrl: "",
+    lrcUrl: "",
+    videoId: "Q1M8F-qB22c",
+    duration: 280,
+    bgImage: "assets/worship_bg.jpg",
+    lines: [
+      { start: 0.0, end: 15.0, kr: "🎵 꽃들도 (구름도 바람도 바다도 찬양하라)", en: "Even If The Flowers (花も) - J-Love" },
+      { start: 15.0, end: 50.0, kr: "이곳에 생명 샘 솟아나 눈물 골짝 지나갈 때에 머잖아 열매 맺히고 웃음 소리 넘쳐나리라", en: "Springs of living water will flow here, walking through the valley of tears; soon fruits will bear and joy will overflow" },
+      { start: 50.0, end: 95.0, kr: "[후렴] 꽃들도 구름도 바람도 넓은 바다도 찬양하라 찬양하라 예수를", en: "Even flowers, clouds, the wind, and the wide sea: Praise, praise Jesus!" },
+      { start: 95.0, end: 140.0, kr: "하늘을 울리며 노래해 나의 영혼아, 은혜의 주 은혜의 주 은혜의 주", en: "Sing so the heavens echo, O my soul! Lord of grace, Lord of grace, Lord of grace" }
+    ]
+  },
+  {
+    id: "only-by-grace",
+    titleKo: "은혜 아니면 (Only By Grace)",
+    titleEn: "Only By Grace (나를 지으신 이가)",
+    artist: "조은아 / 신상우 • 복음의 고백",
+    category: "confession",
+    videoUrl: "",
+    audioUrl: "",
+    srtUrl: "",
+    lrcUrl: "",
+    videoId: "6xx0d3R2LoU",
+    duration: 300,
+    bgImage: "assets/worship_bg.jpg",
+    lines: [
+      { start: 0.0, end: 15.0, kr: "🎵 은혜 아니면 살아갈 수가 없네", en: "Only By Grace - Song of Faith" },
+      { start: 15.0, end: 50.0, kr: "나를 지으신 이가 하나님, 나를 부르신 이가 하나님", en: "The One who made me is God, the One who called me is God" },
+      { start: 50.0, end: 90.0, kr: "나를 보내신 이도 하나님, 나의 달려갈 길 다 가도록", en: "The One who sent me is God, to run the race set before me" },
+      { start: 90.0, end: 140.0, kr: "[후렴] 나의 나 된 것은 다 하나님의 은혜라, 한량없는 은혜", en: "By the grace of God I am what I am; boundless grace, endless grace" },
+      { start: 140.0, end: 190.0, kr: "갚을 길 없는 은혜, 내 삶을 에워싸는 하나님의 은혜", en: "Grace that I can never repay, God's grace that surrounds my whole life" }
+    ]
+  },
+  {
+    id: "living-hope",
+    titleKo: "Living Hope (산 소망 되신 주)",
+    titleEn: "Living Hope",
+    artist: "Phil Wickham • 십자가와 부활의 승리",
+    category: "global",
+    videoUrl: "",
+    audioUrl: "",
+    srtUrl: "",
+    lrcUrl: "",
+    videoId: "u-_xSWZ-mCE",
+    duration: 315,
+    bgImage: "assets/worship_bg.jpg",
+    lines: [
+      { start: 0.0, end: 15.0, kr: "🎵 Living Hope (산 소망 되신 주)", en: "Living Hope - Phil Wickham" },
+      { start: 15.0, end: 50.0, kr: "우리가 건널 수 없던 깊은 죄의 골짜기, 주 예수 십자가로 다리를 놓으셨네", en: "How great the chasm that lay between us; how high the mountain I could not climb" },
+      { start: 50.0, end: 95.0, kr: "[후렴] 할렐루야, 나를 자유케 하신 주를 찬양해! 사망 권세를 깨뜨리신 예수 그리스도", en: "Hallelujah, praise the One who set me free! Hallelujah, death has lost its grip on me!" },
+      { start: 95.0, end: 140.0, kr: "모든 쇠사슬을 끊으시고 산 소망이 되신 예수 그리스도!", en: "You have broken every chain; there's salvation in Your name, Jesus Christ, my living hope" }
     ]
   }
 ];
@@ -76,7 +234,8 @@ let worshipStudioState = {
   activeTab: 'player', // 'player' | 'creator'
   currentLineIndex: -1,
   isFullscreen: false,
-  customAudioBlob: null
+  customAudioBlob: null,
+  ytSyncTimer: null
 };
 
 // Initialize Studio on DOM Ready
@@ -127,6 +286,12 @@ function closeWorshipStudio() {
   if (video) video.pause();
   const audio = document.getElementById('studioAudioPlayer');
   if (audio) audio.pause();
+  const ytIframe = document.getElementById('studioYouTubeIframe');
+  if (ytIframe) ytIframe.src = '';
+  if (worshipStudioState.ytSyncTimer) {
+    clearInterval(worshipStudioState.ytSyncTimer);
+    worshipStudioState.ytSyncTimer = null;
+  }
 }
 
 // Populate Song Dropdown
@@ -136,7 +301,7 @@ function populateSongSelector(selectedId) {
   select.innerHTML = '';
 
   const presetGroup = document.createElement('optgroup');
-  presetGroup.label = "⭐ 공식 찬양 프리셋 (Official Presets)";
+  presetGroup.label = "⭐ 공식 찬양 보관함 (10곡 라이브러리)";
   PRESET_PRAISE_SONGS.forEach(song => {
     const opt = document.createElement('option');
     opt.value = song.id;
@@ -150,7 +315,7 @@ function populateSongSelector(selectedId) {
   const customSongs = worshipStudioState.allSongs.filter(s => !PRESET_PRAISE_SONGS.some(p => p.id === s.id));
   if (customSongs.length > 0) {
     const customGroup = document.createElement('optgroup');
-    customGroup.label = "📂 내가 만든 찬양 (My Songs)";
+    customGroup.label = "📂 내가 등록한 찬양 (Custom Songs)";
     customSongs.forEach(song => {
       const opt = document.createElement('option');
       opt.value = song.id;
@@ -168,6 +333,11 @@ function selectWorshipSong(songId) {
   worshipStudioState.currentSong = song;
   worshipStudioState.currentLineIndex = -1;
 
+  if (worshipStudioState.ytSyncTimer) {
+    clearInterval(worshipStudioState.ytSyncTimer);
+    worshipStudioState.ytSyncTimer = null;
+  }
+
   // Update Display
   const titleDisplay = document.getElementById('studioActiveSongTitle');
   if (titleDisplay) {
@@ -177,20 +347,41 @@ function selectWorshipSong(songId) {
   // Update Media Elements
   const video = document.getElementById('studioVideoPlayer');
   const audio = document.getElementById('studioAudioPlayer');
-  const videoContainer = document.getElementById('studioVideoWrapper');
+  let ytIframe = document.getElementById('studioYouTubeIframe');
   const liveSubtitleOverlay = document.getElementById('studioLiveSubtitle');
 
   if (song.videoUrl) {
-    // Has MP4 Video
+    // 1. Has local MP4 Video (e.g. Amazing Grace)
+    if (ytIframe) ytIframe.style.display = 'none';
+    if (audio) audio.style.display = 'none';
     if (video) {
       video.style.display = 'block';
       video.src = song.videoUrl;
       video.load();
       setupMediaTimeUpdate(video);
     }
+  } else if (song.videoId) {
+    // 2. YouTube Video
+    if (video) video.style.display = 'none';
     if (audio) audio.style.display = 'none';
+    
+    if (!ytIframe) {
+      const wrapper = document.getElementById('studioVideoWrapper');
+      ytIframe = document.createElement('iframe');
+      ytIframe.id = 'studioYouTubeIframe';
+      ytIframe.className = 'studio-video';
+      ytIframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      ytIframe.allowFullscreen = true;
+      wrapper.appendChild(ytIframe);
+    }
+    ytIframe.style.display = 'block';
+    ytIframe.src = `https://www.youtube.com/embed/${song.videoId}?autoplay=1&enablejsapi=1`;
+
+    // Start synthetic timer for YouTube lyrics auto-sync
+    startYouTubeLyricsTimer(song);
   } else if (song.audioUrl) {
-    // Audio Only with ambient background
+    // 3. Audio Only
+    if (ytIframe) ytIframe.style.display = 'none';
     if (video) video.style.display = 'none';
     if (audio) {
       audio.style.display = 'block';
@@ -199,13 +390,26 @@ function selectWorshipSong(songId) {
       setupMediaTimeUpdate(audio);
     }
   } else {
-    // Subtitle preview mode
+    // Subtitle preview
+    if (ytIframe) ytIframe.style.display = 'none';
     if (video) video.style.display = 'none';
     if (audio) audio.style.display = 'none';
   }
 
   // Render Lyric Stream Table
   renderLyricStream(song);
+}
+
+// Synthetic timer for YouTube lyrics sync
+function startYouTubeLyricsTimer(song) {
+  let elapsed = 0;
+  worshipStudioState.ytSyncTimer = setInterval(() => {
+    elapsed += 1;
+    updateActiveSubtitleLine(elapsed);
+    if (elapsed > (song.duration || 300)) {
+      clearInterval(worshipStudioState.ytSyncTimer);
+    }
+  }, 1000);
 }
 
 // Media Timeupdate Handler for real-time Subtitle Sync
@@ -296,6 +500,59 @@ function jumpToLyricTime(seconds) {
   }
 }
 
+// ========================================================
+// 📌 ONE-CLICK: Set as Current Meeting Song for Step 1
+// ========================================================
+function setCurrentMeetingSong(songId) {
+  if (!worshipStudioState.allSongs || worshipStudioState.allSongs.length === 0) {
+    loadCustomSongs();
+  }
+  const targetId = songId || worshipStudioState.currentSong?.id;
+  const song = worshipStudioState.allSongs.find(s => s.id === targetId);
+  if (!song) return;
+
+  // 1. Update global routineContent in app.js
+  if (typeof routineContent !== 'undefined') {
+    routineContent.step1.songTitle = `${song.titleKo} (${song.titleEn})`;
+    if (song.videoId) {
+      routineContent.step1.link = `https://www.youtube.com/watch?v=${song.videoId}`;
+    } else if (song.videoUrl) {
+      routineContent.step1.link = song.videoUrl;
+    }
+    routineContent.step1.content = `전 세계 성도들이 함께 고백하는 대표 찬양으로 마음의 문을 열고 주님의 임재를 구합니다.\n• 지정 찬양: ${song.titleKo}\n• 한/영 2개 국어 자막 슬라이드 제공`;
+    localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
+  }
+
+  // 2. Update Step 1 DOM elements on main page immediately
+  const routineSub1 = document.getElementById('routineSub1');
+  const detailSongTitle = document.getElementById('detailSongTitle');
+  const detailSongContent = document.getElementById('detailSongContent');
+  const detailSongLinkArea = document.getElementById('detailSongLinkArea');
+
+  if (routineSub1) routineSub1.textContent = `${song.titleKo} (${song.titleEn})`;
+  if (detailSongTitle) detailSongTitle.textContent = `${song.titleKo} (${song.titleEn})`;
+  if (detailSongContent && typeof routineContent !== 'undefined') {
+    detailSongContent.innerHTML = routineContent.step1.content.replace(/\n/g, '<br>');
+  }
+  if (detailSongLinkArea) {
+    const linkUrl = song.videoUrl || (song.videoId ? `https://www.youtube.com/watch?v=${song.videoId}` : '');
+    if (linkUrl) {
+      detailSongLinkArea.innerHTML = `
+        <a href="${linkUrl}" target="_blank" rel="noopener noreferrer" class="btn-routine-link">
+          <span>🔗 찬양 바로가기 (${song.titleKo})</span>
+        </a>
+      `;
+    }
+  }
+
+  // 3. Re-render Lounge cards if lounge is active
+  if (typeof renderWorshipLounge === 'function') {
+    renderWorshipLounge();
+  }
+
+  showStudioToast(`🎉 '${song.titleKo}'이(가) 이번 30분 기도모임의 찬양으로 설정되었습니다!`);
+}
+
 // Tab Switching
 function switchStudioTab(tab) {
   worshipStudioState.activeTab = tab;
@@ -378,8 +635,6 @@ function setupStudioKeyboardShortcuts() {
 // ========================================================
 // Subtitle & Media Download Handlers
 // ========================================================
-
-// 1. Download MP4 Video
 function downloadCurrentVideo() {
   const song = worshipStudioState.currentSong;
   if (song.videoUrl) {
@@ -391,11 +646,10 @@ function downloadCurrentVideo() {
     document.body.removeChild(a);
     showStudioToast(`📥 '${song.titleKo}' MP4 동영상 다운로드를 시작합니다.`);
   } else {
-    showStudioToast(`💡 이 찬양은 가사 기반입니다. 아래 '동영상 렌더링 내보내기'를 눌러주세요.`);
+    showStudioToast(`💡 이 찬양은 가사 기반입니다. 상단의 YouTube 버튼을 통해 고화질로 감상하실 수 있습니다.`);
   }
 }
 
-// 2. Download SRT Subtitle File
 function downloadCurrentSrt() {
   const song = worshipStudioState.currentSong;
   let srtContent = "";
@@ -423,10 +677,9 @@ function downloadCurrentSrt() {
   showStudioToast(`📄 '${song.titleKo}' SRT 자막 파일이 다운로드되었습니다.`);
 }
 
-// 3. Download LRC Synchronized Lyrics File
 function downloadCurrentLrc() {
   const song = worshipStudioState.currentSong;
-  let lrcContent = `[ti:${song.titleKo}]\n[ar:Arise Next Gen]\n`;
+  let lrcContent = `[ti:${song.titleKo}]\n[ar:${song.artist || 'Arise Next Gen'}]\n`;
 
   if (song.lines && song.lines.length > 0) {
     song.lines.forEach((line) => {
@@ -449,8 +702,6 @@ function downloadCurrentLrc() {
 // ========================================================
 // Subtitle Creator & Generator Module
 // ========================================================
-
-// Auto Time-division of raw lyrics
 function autoSplitLyrics() {
   const rawKr = document.getElementById('newSongLyricsKr').value.trim();
   const rawEn = document.getElementById('newSongLyricsEn').value.trim();
@@ -575,7 +826,6 @@ function saveCustomPraiseSong() {
     lines: lines
   };
 
-  // Save to localStorage
   const saved = localStorage.getItem('arise_custom_praise_songs');
   let list = saved ? JSON.parse(saved) : [];
   list.unshift(newSong);
@@ -630,3 +880,13 @@ function showStudioToast(msg) {
     setTimeout(() => toast.remove(), 400);
   }, 4000);
 }
+
+// Global Window Exports
+window.PRESET_PRAISE_SONGS = PRESET_PRAISE_SONGS;
+window.worshipStudioState = worshipStudioState;
+window.openWorshipStudio = openWorshipStudio;
+window.closeWorshipStudio = closeWorshipStudio;
+window.setCurrentMeetingSong = setCurrentMeetingSong;
+window.selectWorshipSong = selectWorshipSong;
+window.loadCustomSongs = loadCustomSongs;
+
