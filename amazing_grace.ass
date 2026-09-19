@@ -1,0 +1,27 @@
+[Script Info]
+Title: Amazing Grace Bilingual Subtitles
+ScriptType: v4.00+
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.601
+PlayResX: 1920
+PlayResY: 1080
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Title,Malgun Gothic,48,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,1,0,0,0,100,100,1,0,1,3,2,2,40,40,120,129
+Style: Korean,Malgun Gothic,52,&H00FFFFFF,&H000000FF,&H000B0B14,&HB0000000,1,0,0,0,100,100,1,0,1,3.5,2,2,40,40,140,129
+Style: English,Arial,34,&H004ADE80,&H000000FF,&H000B0B14,&HB0000000,0,0,0,0,100,100,0.5,0,1,2.5,1.5,2,40,40,80,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.50,0:00:04.80,Title,,0,0,130,,{\fade(400,400)}🎵 나 같은 죄인 살리신 (찬송가 305장)\N{\fnArial\fs32\c&H00D4E7FE&}Amazing Grace (Hymn 305) - Arise Next Gen
+Dialogue: 0,0:00:05.00,0:00:24.80,Korean,,0,0,130,,{\fade(400,400)}[1절] 나 같은 죄인 살리신 주 은혜 놀라워\N{\fnArial\fs34\c&H0070DCFE&}Amazing grace! how sweet the sound That saved a wretch like me!
+Dialogue: 0,0:00:25.00,0:00:44.80,Korean,,0,0,130,,{\fade(400,400)}잃었던 생명 찾았고 광명을 얻었네\N{\fnArial\fs34\c&H0070DCFE&}I once was lost, but now am found, Was blind, but now I see.
+Dialogue: 0,0:00:45.00,0:01:04.80,Korean,,0,0,130,,{\fade(400,400)}[2절] 큰 죄악에서 건지신 주 은혜 고마워\N{\fnArial\fs34\c&H0070DCFE&}'Twas grace that taught my heart to fear, And grace my fears relieved;
+Dialogue: 0,0:01:05.00,0:01:24.80,Korean,,0,0,130,,{\fade(400,400)}나 처음 믿은 그 시간 귀하고 귀하다\N{\fnArial\fs34\c&H0070DCFE&}How precious did that grace appear The hour I first believed!
+Dialogue: 0,0:01:25.00,0:01:44.80,Korean,,0,0,130,,{\fade(400,400)}[3절] 이제껏 내가 산 것도 주님의 은혜라\N{\fnArial\fs34\c&H0070DCFE&}Through many dangers, toils and snares, I have already come;
+Dialogue: 0,0:01:45.00,0:02:04.80,Korean,,0,0,130,,{\fade(400,400)}또 나를 장차 본향에 인도해 주시리\N{\fnArial\fs34\c&H0070DCFE&}'Tis grace hath brought me safe thus far, And grace will lead me home.
+Dialogue: 0,0:02:05.00,0:02:24.80,Korean,,0,0,130,,{\fade(400,400)}[4절] 거기서 우리 영원히 주님의 은혜로\N{\fnArial\fs34\c&H0070DCFE&}When we've been there ten thousand years, Bright shining as the sun,
+Dialogue: 0,0:02:25.00,0:02:44.80,Korean,,0,0,130,,{\fade(400,400)}해처럼 밝게 살면서 주 찬양 하리라\N{\fnArial\fs34\c&H0070DCFE&}We've no less days to sing God's praise Than when we'd first begun.
+Dialogue: 0,0:02:45.00,0:02:50.00,Title,,0,0,130,,{\fade(500,800)}🕊️ 주님의 은혜에 감사드립니다 · 아멘\N{\fnArial\fs32\c&H00D4E7FE&}Giving Thanks to God's Abundant Grace · Amen

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>어라이즈 찬양 한/영 자막 스튜디오 (Worship Subtitle Studio)</title>
+  <meta name="description" content="어라이즈 넥스트젠 30분 기도모임 전용 한/영 찬양 자막 플레이어 & 줌 화면 공유 도구">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800&family=Outfit:wght@400;600;700;800&family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: radial-gradient(circle at 50% 20%, #0b132b, #030712 100%);
+      min-height: 100vh;
+      color: #f8fafc;
+      padding: 1.5rem;
+    }
+    .standalone-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .studio-top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .standalone-card {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <div class="standalone-container">
+    <div class="studio-top-nav">
+      <div style="display: flex; align-items: center; gap: 0.8rem;">
+        <a href="index.html" class="btn btn-sm btn-ghost" style="text-decoration: none;">
+          ⬅️ 메인 홈으로
+        </a>
+        <h2 style="margin: 0; font-size: 1.35rem; display: flex; align-items: center; gap: 0.5rem;">
+          <span>🎬 어라이즈 찬양 한/영 자막 스튜디오</span>
+        </h2>
+      </div>
+      <div class="studio-tabs">
+        <button type="button" class="studio-tab-btn active" id="studioTabPlayer" onclick="switchStudioTab('player')">
+          🖥️ 줌 플레이어
+        </button>
+        <button type="button" class="studio-tab-btn" id="studioTabCreator" onclick="switchStudioTab('creator')">
+          ✍️ 새 찬양 자막 만들기
+        </button>
+      </div>
+    </div>
+
+    <div class="standalone-card">
+      <!-- Tab 1: Zoom Subtitle Player -->
+      <div class="studio-section" id="studioSectionPlayer" style="padding: 0;">
+        <div class="studio-player-toolbar">
+          <div class="studio-song-picker">
+            <label class="toolbar-label">선택 찬양:</label>
+            <select class="form-select studio-select" id="studioSongSelect" onchange="selectWorshipSong(this.value)">
+            </select>
+          </div>
+          <div class="studio-player-actions">
+            <button type="button" class="btn btn-sm btn-primary" onclick="toggleStudioFullscreen()" title="줌 화면 공유에 최적화된 전체화면 모드 (단축키: F)">
+              🖥️ 줌 전체화면 (F)
+            </button>
+            <button type="button" class="btn btn-sm btn-outline" onclick="downloadCurrentVideo()" title="한/영 자막이 포함된 MP4 동영상 다운로드">
+              📥 MP4 영상 다운
+            </button>
+            <button type="button" class="btn btn-sm btn-ghost" onclick="downloadCurrentSrt()" title="SRT 자막 파일 다운로드">
+              📄 SRT 자막
+            </button>
+            <button type="button" class="btn btn-sm btn-ghost" onclick="downloadCurrentLrc()" title="LRC 가사 파일 다운로드">
+              🎵 LRC 가사
+            </button>
+          </div>
+        </div>
+
+        <div class="studio-stage-area" id="studioStageArea">
+          <div class="studio-stage-title" id="studioActiveSongTitle">
+            <span class="title-kr">나 같은 죄인 살리신</span>
+            <span class="title-en">Amazing Grace (Hymn 305)</span>
+          </div>
+
+          <div class="studio-media-wrapper" id="studioVideoWrapper">
+            <video id="studioVideoPlayer" class="studio-video" controls playsinline preload="auto">
+              <source src="assets/amazing_grace_bilingual.mp4" type="video/mp4">
+            </video>
+            <audio id="studioAudioPlayer" class="studio-audio" controls style="display:none;"></audio>
+            <div class="studio-live-subtitle" id="studioLiveSubtitle"></div>
+          </div>
+
+          <div class="stage-footer-guide">
+            <span>⌨️ 단축키 안내: <b>[Space]</b> 재생/일시정지 &nbsp;|&nbsp; <b>[F]</b> 줌 전체화면 &nbsp;|&nbsp; <b>[← / →]</b> 5초 앞뒤 이동</span>
+          </div>
+        </div>
+
+        <div class="studio-lyric-stream-box">
+          <div class="stream-header">
+            <h4>📜 실시간 한/영 가사 스트림 (소절을 클릭하면 해당 시간으로 이동합니다)</h4>
+          </div>
+          <div class="stream-list" id="studioLyricStreamList"></div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Subtitle Creator -->
+      <div class="studio-section" id="studioSectionCreator" style="display: none; padding: 0;">
+        <div class="creator-container">
+          <div class="creator-help-card">
+            <h4>💡 새 찬양 한/영 자막 등록 안내</h4>
+            <p>
+              원하시는 찬양의 한글 가사와 영문 가사를 붙여넣고 <b>[시간 자동 분할]</b>을 누르시면 각 소절별 타임스탬프가 자동으로 계산됩니다.<br>
+              저장하시면 웹 플레이어에서 즉시 재생 및 줌 전체화면 공유, SRT 자막 내보내기가 가능합니다.
+            </p>
+          </div>
+
+          <div class="creator-form-grid">
+            <div class="form-group">
+              <label class="form-label">찬양 곡명 (한국어) *</label>
+              <input type="text" class="form-input" id="newSongTitleKr" placeholder="예: 은혜 아니면 살아갈 수가 없네" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">찬양 곡명 (영어 - English)</label>
+              <input type="text" class="form-input" id="newSongTitleEn" placeholder="예: Only By Grace">
+            </div>
+            <div class="form-group">
+              <label class="form-label">음원 총 길이(초) - 자동 분할 기준</label>
+              <input type="number" class="form-input" id="newSongDuration" value="180" min="30" max="600" step="5">
+            </div>
+          </div>
+
+          <div class="creator-lyrics-columns">
+            <div class="form-group">
+              <label class="form-label">한글 가사 (줄바꿈으로 소절 구분)</label>
+              <textarea class="form-textarea" id="newSongLyricsKr" rows="7" placeholder="소절별로 줄바꿈하여 입력하세요.&#10;예:&#10;나 같은 죄인 살리신 주 은혜 놀라워&#10;잃었던 생명 찾았고 광명을 얻었네"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">영어 가사 (English Lyrics)</label>
+              <textarea class="form-textarea" id="newSongLyricsEn" rows="7" placeholder="한글 소절 순서와 일치하도록 줄바꿈하여 입력하세요.&#10;예:&#10;Amazing grace! how sweet the sound That saved a wretch like me!&#10;I once was lost, but now am found, Was blind, but now I see."></textarea>
+            </div>
+          </div>
+
+          <div class="creator-split-action">
+            <button type="button" class="btn btn-primary" onclick="autoSplitLyrics()">
+              ⚡ 시간 및 소절 자동 분할 생성
+            </button>
+            <button type="button" class="btn btn-outline" onclick="addCreatorLine()">
+              ➕ 소절 직접 추가
+            </button>
+          </div>
+
+          <div class="creator-lines-wrapper">
+            <div class="creator-lines-header">
+              <span>#</span>
+              <span>시작~종료 시간(초)</span>
+              <span>한글 가사 / 영문 가사</span>
+              <span>삭제</span>
+            </div>
+            <div id="creatorLinesContainer"></div>
+          </div>
+
+          <div class="creator-footer-actions">
+            <button type="button" class="btn btn-primary btn-lg" onclick="saveCustomPraiseSong()">
+              💾 내 찬양 목록에 저장 및 즉시 재생
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="worship-studio.js"></script>
+</body>
+</html>
