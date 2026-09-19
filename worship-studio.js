@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Arise Next-Gen Worship Subtitle Studio & Player (찬양 자막 스튜디오 & 플레이어)
  * 한/영 찬양 자막 영상 재생, 줌(Zoom) 화면공유 최적화, 가사 싱크 및 커스텀 찬양 제작 도구
  */
@@ -19,66 +19,16 @@ const PRESET_PRAISE_SONGS = [
     "duration": 170,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      {
-        "start": 0.5,
-        "end": 5.0,
-        "kr": "🎵 나 같은 죄인 살리신 (찬송가 305장)",
-        "en": "Amazing Grace (Hymn 305) - Arise Next Gen"
-      },
-      {
-        "start": 5.0,
-        "end": 25.0,
-        "kr": "[1절] 나 같은 죄인 살리신 주 은혜 놀라워",
-        "en": "Amazing grace! how sweet the sound That saved a wretch like me!"
-      },
-      {
-        "start": 25.0,
-        "end": 45.0,
-        "kr": "잃었던 생명 찾았고 광명을 얻었네",
-        "en": "I once was lost, but now am found, Was blind, but now I see."
-      },
-      {
-        "start": 45.0,
-        "end": 65.0,
-        "kr": "[2절] 큰 죄악에서 건지신 주 은혜 고마워",
-        "en": "'Twas grace that taught my heart to fear, And grace my fears relieved;"
-      },
-      {
-        "start": 65.0,
-        "end": 85.0,
-        "kr": "나 처음 믿은 그 시간 귀하고 귀하다",
-        "en": "How precious did that grace appear The hour I first believed!"
-      },
-      {
-        "start": 85.0,
-        "end": 105.0,
-        "kr": "[3절] 이제껏 내가 산 것도 주님의 은혜라",
-        "en": "Through many dangers, toils and snares, I have already come;"
-      },
-      {
-        "start": 105.0,
-        "end": 125.0,
-        "kr": "또 나를 장차 본향에 인도해 주시리",
-        "en": "'Tis grace hath brought me safe thus far, And grace will lead me home."
-      },
-      {
-        "start": 125.0,
-        "end": 145.0,
-        "kr": "[4절] 거기서 우리 영원히 주님의 은혜로",
-        "en": "When we've been there ten thousand years, Bright shining as the sun,"
-      },
-      {
-        "start": 145.0,
-        "end": 165.0,
-        "kr": "해처럼 밝게 살면서 주 찬양 하리라",
-        "en": "We've no less days to sing God's praise Than when we'd first begun."
-      },
-      {
-        "start": 165.0,
-        "end": 170.0,
-        "kr": "🕊️ 주님의 은혜에 감사드립니다 · 아멘",
-        "en": "Giving Thanks to God's Abundant Grace · Amen"
-      }
+      { "start": 0.5, "end": 5.0, "kr": "🎵 나 같은 죄인 살리신 (찬송가 305장)", "en": "Amazing Grace (Hymn 305) - Arise Next Gen" },
+      { "start": 5.0, "end": 25.0, "kr": "[1절] 나 같은 죄인 살리신 주 은혜 놀라워", "en": "Amazing grace! how sweet the sound That saved a wretch like me!" },
+      { "start": 25.0, "end": 45.0, "kr": "잃었던 생명 찾았고 광명을 얻었네", "en": "I once was lost, but now am found, Was blind, but now I see." },
+      { "start": 45.0, "end": 65.0, "kr": "[2절] 큰 죄악에서 건지신 주 은혜 고마워", "en": "'Twas grace that taught my heart to fear, And grace my fears relieved;" },
+      { "start": 65.0, "end": 85.0, "kr": "나 처음 믿은 그 시간 귀하고 귀하다", "en": "How precious did that grace appear The hour I first believed!" },
+      { "start": 85.0, "end": 105.0, "kr": "[3절] 이제껏 내가 산 것도 주님의 은혜라", "en": "Through many dangers, toils and snares, I have already come;" },
+      { "start": 105.0, "end": 125.0, "kr": "또 나를 장차 본향에 인도해 주시리", "en": "'Tis grace hath brought me safe thus far, And grace will lead me home." },
+      { "start": 125.0, "end": 145.0, "kr": "[4절] 거기서 우리 영원히 주님의 은혜로", "en": "When we've been there ten thousand years, Bright shining as the sun," },
+      { "start": 145.0, "end": 165.0, "kr": "해처럼 밝게 살면서 주 찬양 하리라", "en": "We've no less days to sing God's praise Than when we'd first begun." },
+      { "start": 165.0, "end": 170.0, "kr": "🕊️ 주님의 은혜에 감사드립니다 · 아멘", "en": "Giving Thanks to God's Abundant Grace · Amen" }
     ]
   },
   {
@@ -95,156 +45,44 @@ const PRESET_PRAISE_SONGS = [
     "duration": 503,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      {
-        "start": 0.0,
-        "end": 37.0,
-        "kr": "🎵 Way Maker (길을 만드시는 분) - 찬양 전주",
-        "en": "Way Maker - Leeland (Intro)"
-      },
-      {
-        "start": 37.0,
-        "end": 51.0,
-        "kr": "[1절] 이곳에 운행하시는 주님, 주를 예배합니다",
-        "en": "You are here, moving in our midst; I worship You, I worship You"
-      },
-      {
-        "start": 51.0,
-        "end": 65.0,
-        "kr": "이곳에 역사하시는 주님, 주를 찬양합니다",
-        "en": "You are here, working in this place; I worship You, I worship You"
-      },
-      {
-        "start": 65.0,
-        "end": 79.0,
-        "kr": "이곳에 임재하시는 주님, 주를 예배합니다",
-        "en": "You are here, moving in our midst; I worship You, I worship You"
-      },
-      {
-        "start": 79.0,
-        "end": 95.0,
-        "kr": "이곳에 일하시는 주님, 주를 찬양합니다",
-        "en": "You are here, working in this place; I worship You, I worship You"
-      },
-      {
-        "start": 95.0,
-        "end": 108.0,
-        "kr": "[후렴] 길을 만드시는 분, 기적의 주, 약속을 지키시는 분",
-        "en": "You are Way maker, miracle worker, promise keeper"
-      },
-      {
-        "start": 108.0,
-        "end": 122.0,
-        "kr": "어둠 속의 빛, 나의 하나님, 그분은 나의 주님",
-        "en": "Light in the darkness, my God, that is who You are"
-      },
-      {
-        "start": 122.0,
-        "end": 135.0,
-        "kr": "[후렴] 길을 만드시는 분, 기적의 주, 언약의 하나님",
-        "en": "Way maker, miracle worker, promise keeper, Light in the darkness"
-      },
-      {
-        "start": 135.0,
-        "end": 150.0,
-        "kr": "어둠 속의 빛, 나의 하나님, 그분은 나의 주님",
-        "en": "My God, that is who You are"
-      },
-      {
-        "start": 150.0,
-        "end": 164.0,
-        "kr": "[2절] 상한 마음 만지시는 주님, 주를 예배합니다",
-        "en": "You are here, touching every heart; I worship You, I worship You"
-      },
-      {
-        "start": 164.0,
-        "end": 178.0,
-        "kr": "모든 아픔 고치시는 주님, 주를 예배합니다",
-        "en": "You are here, healing every heart; I worship You, I worship You"
-      },
-      {
-        "start": 178.0,
-        "end": 192.0,
-        "kr": "모든 삶을 돌이키시는 주님, 주를 찬양합니다",
-        "en": "You are here, turning lives around; I worship You, I worship You"
-      },
-      {
-        "start": 192.0,
-        "end": 207.0,
-        "kr": "부서진 맘 싸매시는 주님, 주를 경배합니다",
-        "en": "You are here, mending every heart; I worship You, I worship You"
-      },
-      {
-        "start": 207.0,
-        "end": 230.0,
-        "kr": "[후렴] 길을 만드시는 분, 기적의 하나님, 언약을 지키시는 분",
-        "en": "Way maker, miracle worker, promise keeper, Light in the darkness"
-      },
-      {
-        "start": 230.0,
-        "end": 259.0,
-        "kr": "어둠 속의 빛, 그분은 나의 하나님, 신실하신 나의 주",
-        "en": "My God, that is who You are, that is who You are"
-      },
-      {
-        "start": 259.0,
-        "end": 289.0,
-        "kr": "[후렴 반복] 길을 만드시는 분, 기적의 주, 나의 하나님",
-        "en": "Way maker, miracle worker, promise keeper, that is who You are"
-      },
-      {
-        "start": 289.0,
-        "end": 303.0,
-        "kr": "[브릿지] 보이지 않아도 주 일하시네, 느껴지지 않아도 역사하시네",
-        "en": "Even when I don't see it, You're working; Even when I don't feel it, You're working"
-      },
-      {
-        "start": 303.0,
-        "end": 318.0,
-        "kr": "결코 멈추지 않으시네, 주님은 결코 멈추지 않으시네",
-        "en": "You never stop, You never stop working; You never stop, You never stop working"
-      },
-      {
-        "start": 318.0,
-        "end": 331.0,
-        "kr": "보이지 않아도 주 일하시네, 느껴지지 않아도 역사하시네",
-        "en": "Even when I don't see it, You're working; Even when I don't feel it, You're working"
-      },
-      {
-        "start": 331.0,
-        "end": 346.0,
-        "kr": "결코 멈추지 않으시네, 주님은 결코 멈추지 않으시네",
-        "en": "You never stop, You never stop working; You never stop, You never stop working"
-      },
-      {
-        "start": 346.0,
-        "end": 372.0,
-        "kr": "[후렴 절정] 길을 만드시는 분, 기적의 하나님, 어둠 속의 빛!",
-        "en": "Way maker, miracle worker, promise keeper, Light in the darkness, that is who You are!"
-      },
-      {
-        "start": 372.0,
-        "end": 405.0,
-        "kr": "그분은 나의 하나님, 신실하신 나의 구원자!",
-        "en": "That is who You are! That is who You are!"
-      },
-      {
-        "start": 405.0,
-        "end": 432.0,
-        "kr": "[선포] 모든 이름 위에 뛰어난 주 예수 그리스도!",
-        "en": "His Name is above depression, His Name is above loneliness, disease and every name!"
-      },
-      {
-        "start": 432.0,
-        "end": 475.0,
-        "kr": "살아계신 나의 주, 영원한 나의 하나님을 찬양합니다",
-        "en": "That is who You are, Jesus, that is who You are!"
-      },
-      {
-        "start": 475.0,
-        "end": 503.0,
-        "kr": "🕊️ 길을 만드시는 신실하신 주님을 영원히 찬양합니다 · 아멘",
-        "en": "Giving Praise to the Way Maker, Our Faithful God · Amen"
-      }
+      { "start": 0.0, "end": 37.4, "kr": "🎵 Way Maker (길을 만드시는 분) - 찬양 전주", "en": "Way Maker - Leeland (Intro)" },
+      { "start": 37.4, "end": 48.0, "kr": "[1절] 이곳에 운행하시는 주님, 주를 예배합니다", "en": "You are here, moving in our midst; I worship You" },
+      { "start": 48.0, "end": 51.5, "kr": "주를 예배합니다", "en": "I worship You" },
+      { "start": 51.5, "end": 62.0, "kr": "이곳에 역사하시는 주님, 주를 찬양합니다", "en": "You are here, working in this place; I worship You" },
+      { "start": 62.0, "end": 65.6, "kr": "주를 찬양합니다", "en": "I worship You" },
+      { "start": 65.6, "end": 76.0, "kr": "[1절 반복] 이곳에 임재하시는 주님, 주를 경배합니다", "en": "You are here, moving in our midst; I worship You" },
+      { "start": 76.0, "end": 79.7, "kr": "주를 예배합니다", "en": "I worship You" },
+      { "start": 79.7, "end": 90.0, "kr": "이곳에 일하시는 하나님, 주를 찬양합니다", "en": "You are here, working in this place; I worship You" },
+      { "start": 90.0, "end": 94.0, "kr": "주를 찬양합니다", "en": "I worship You" },
+      { "start": 94.0, "end": 100.3, "kr": "[후렴] 길을 만드시는 분, 기적의 주, 약속을 지키시는 분", "en": "You are Way maker, miracle worker, promise keeper" },
+      { "start": 100.3, "end": 108.4, "kr": "어둠 속의 빛, 나의 하나님, 그분은 나의 주님", "en": "Light in the darkness, my God, that is who You are" },
+      { "start": 108.4, "end": 114.6, "kr": "[후렴 반복] 길을 만드시는 분, 기적의 주, 언약의 하나님", "en": "Way maker, miracle worker, promise keeper" },
+      { "start": 114.6, "end": 122.5, "kr": "어둠 속의 빛, 나의 하나님, 그분은 나의 주님", "en": "Light in the darkness, my God, that is who You are" },
+      { "start": 122.5, "end": 133.0, "kr": "[2절] 상한 마음 만지시는 주님, 주를 예배합니다", "en": "You are here, touching every heart; I worship You" },
+      { "start": 133.0, "end": 136.6, "kr": "주를 예배합니다", "en": "I worship You" },
+      { "start": 136.6, "end": 147.0, "kr": "모든 아픔 고치시는 주님, 주를 찬양합니다", "en": "You are here, healing every heart; I worship You" },
+      { "start": 147.0, "end": 150.8, "kr": "주를 예배합니다", "en": "I worship You" },
+      { "start": 150.8, "end": 161.0, "kr": "모든 삶을 변화시키는 주님, 주를 예배합니다", "en": "You are here, turning lives around; I worship You" },
+      { "start": 161.0, "end": 164.7, "kr": "주를 찬양합니다", "en": "I worship You" },
+      { "start": 164.7, "end": 175.0, "kr": "부서진 맘 싸매시는 주님, 주를 경배합니다", "en": "You are here, mending every heart; I worship You" },
+      { "start": 175.0, "end": 178.9, "kr": "주를 예배합니다", "en": "I worship You" },
+      { "start": 178.9, "end": 194.0, "kr": "[후렴] 길을 만드시는 분, 기적의 하나님, 약속을 지키시는 분", "en": "Way maker, miracle worker, promise keeper" },
+      { "start": 194.0, "end": 207.0, "kr": "어둠 속의 빛, 나의 하나님, 그분은 나의 주님", "en": "Light in the darkness, my God, that is who You are" },
+      { "start": 207.0, "end": 223.0, "kr": "[후렴 반복] 길을 만드시는 주, 기적의 하나님, 나의 구원자", "en": "Way maker, miracle worker, promise keeper" },
+      { "start": 223.0, "end": 234.0, "kr": "어둠 속의 빛, 나의 하나님, 신실하신 나의 주", "en": "Light in the darkness, my God, that is who You are" },
+      { "start": 234.0, "end": 264.0, "kr": "[선포] 그분은 나의 하나님, 신실하신 나의 주!", "en": "That is who You are! That is who You are!" },
+      { "start": 264.0, "end": 293.3, "kr": "길을 만드시는 주, 나의 하나님, 살아계신 나의 주님", "en": "That is who You are, Jesus, that is who You are" },
+      { "start": 293.3, "end": 300.0, "kr": "[브릿지] 보이지 않아도 주 일하시네", "en": "Even when I don't see it, You're working" },
+      { "start": 300.0, "end": 303.7, "kr": "느껴지지 않아도 역사하시네", "en": "Even when I don't feel it, You're working" },
+      { "start": 303.7, "end": 307.4, "kr": "결코 멈추지 않으시네", "en": "You never stop, You never stop working" },
+      { "start": 307.4, "end": 314.0, "kr": "주님은 결코 멈추지 않으시네", "en": "You never stop, You never stop working" },
+      { "start": 314.0, "end": 321.0, "kr": "보이지 않아도 주 일하시며, 느껴지지 않아도 역사하시네", "en": "Even when I don't see it, You're working; Even when I don't feel it, You're working" },
+      { "start": 321.0, "end": 335.0, "kr": "결코 멈추지 않으시네, 주님은 결코 멈추지 않으시네!", "en": "You never stop, You never stop working! You never stop!" },
+      { "start": 335.0, "end": 370.0, "kr": "[브릿지 절정] 결코 멈추지 않으시는 나의 하나님! 길을 만드시는 분!", "en": "You never stop working! Way maker, miracle worker!" },
+      { "start": 370.0, "end": 410.0, "kr": "[후렴 절정] 길을 만드시는 분, 기적의 하나님, 어둠 속의 빛!", "en": "Way maker, miracle worker, promise keeper, Light in the darkness!" },
+      { "start": 410.0, "end": 450.0, "kr": "모든 이름 위에 뛰어난 주 예수 그리스도!", "en": "His Name is above every name, Jesus Christ!" },
+      { "start": 450.0, "end": 485.0, "kr": "살아계신 나의 주, 영원한 나의 하나님을 찬양합니다", "en": "That is who You are, that is who You are!" },
+      { "start": 485.0, "end": 503.2, "kr": "🕊️ 길을 만드시는 신실하신 주님을 영원히 찬양합니다 · 아멘", "en": "Giving Praise to the Way Maker, Our Faithful God · Amen" }
     ]
   },
   {
@@ -261,174 +99,37 @@ const PRESET_PRAISE_SONGS = [
     "duration": 730,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      {
-        "start": 0.0,
-        "end": 31.0,
-        "kr": "🎵 The Blessing (주의 축복 - 민수기 6:24-26) 전주",
-        "en": "The Blessing - Elevation Worship / Kari Jobe (Intro)"
-      },
-      {
-        "start": 31.0,
-        "end": 38.0,
-        "kr": "[1절] 여호와는 너에게 복을 주시고 너를 지키시기를 원하며",
-        "en": "The Lord bless you and keep you"
-      },
-      {
-        "start": 38.0,
-        "end": 44.5,
-        "kr": "그의 얼굴을 네게 비추사 은혜 베푸시기를 원하며",
-        "en": "Make His face shine upon you and be gracious to you"
-      },
-      {
-        "start": 44.5,
-        "end": 51.5,
-        "kr": "여호와는 그 얼굴을 네게로 향하여 드사",
-        "en": "The Lord turn His face toward you"
-      },
-      {
-        "start": 51.5,
-        "end": 60.0,
-        "kr": "네게 평강 주시기를 원하노라",
-        "en": "And give you peace"
-      },
-      {
-        "start": 60.0,
-        "end": 92.0,
-        "kr": "[간주 묵상]",
-        "en": "Instrumental Interlude"
-      },
-      {
-        "start": 92.0,
-        "end": 110.0,
-        "kr": "[후렴] 아멘, 아멘, 아멘",
-        "en": "Amen, amen, amen"
-      },
-      {
-        "start": 110.0,
-        "end": 130.0,
-        "kr": "아멘, 아멘, 아멘 (평강이 임할지어다)",
-        "en": "Amen, amen, amen"
-      },
-      {
-        "start": 130.0,
-        "end": 146.0,
-        "kr": "[간주]",
-        "en": "Interlude"
-      },
-      {
-        "start": 146.0,
-        "end": 170.0,
-        "kr": "[후렴 반복] 아멘, 아멘, 아멘",
-        "en": "Amen, amen, amen (We sing)"
-      },
-      {
-        "start": 170.0,
-        "end": 200.0,
-        "kr": "[간주]",
-        "en": "Instrumental Interlude"
-      },
-      {
-        "start": 200.0,
-        "end": 214.0,
-        "kr": "[2절] 주께서 네게 복을 주시고 너를 지키시며 은혜 베푸시기를 원하노라",
-        "en": "The Lord bless you and keep you, make His face shine upon you and be gracious to you"
-      },
-      {
-        "start": 214.0,
-        "end": 230.0,
-        "kr": "여호와께서 그 얼굴을 네게로 드사 평강 주시기를 원하노라",
-        "en": "The Lord turn His face toward you and give you peace"
-      },
-      {
-        "start": 230.0,
-        "end": 260.0,
-        "kr": "[후렴 절정] 아멘, 아멘, 아멘",
-        "en": "Amen, amen, amen"
-      },
-      {
-        "start": 260.0,
-        "end": 300.0,
-        "kr": "아멘, 아멘, 아멘",
-        "en": "Amen, amen, amen"
-      },
-      {
-        "start": 300.0,
-        "end": 339.0,
-        "kr": "[간주 - 브릿지 준비]",
-        "en": "Instrumental Build-up"
-      },
-      {
-        "start": 339.0,
-        "end": 352.0,
-        "kr": "[브릿지 1] 주의 은혜가 네 위에 머물며, 천 대에 이르기까지",
-        "en": "May His favor be upon you and a thousand generations"
-      },
-      {
-        "start": 352.0,
-        "end": 365.0,
-        "kr": "너와 네 가문과 네 자녀와 그의 후대들에게 임하기를",
-        "en": "And your family and your children, and their children, and their children"
-      },
-      {
-        "start": 365.0,
-        "end": 378.0,
-        "kr": "주의 은혜가 네 위에 머물며, 천 대에 이르기까지",
-        "en": "May His favor be upon you and a thousand generations"
-      },
-      {
-        "start": 378.0,
-        "end": 392.0,
-        "kr": "너와 네 가문과 네 자녀와 그의 후대들에게 임하기를",
-        "en": "And your family and your children, and their children, and their children"
-      },
-      {
-        "start": 392.0,
-        "end": 434.0,
-        "kr": "[간주 - 성령의 임재]",
-        "en": "Instrumental Worship"
-      },
-      {
-        "start": 434.0,
-        "end": 448.0,
-        "kr": "[브릿지 2] 주님의 임재가 네 앞서 가시며 네 뒤를 따르시네",
-        "en": "May His presence go before you, and behind you, and beside you"
-      },
-      {
-        "start": 448.0,
-        "end": 462.0,
-        "kr": "네 사방을 둘러싸시며 언제나 네 안에 함께 계시네",
-        "en": "All around you, and within you, He is with you, He is with you"
-      },
-      {
-        "start": 462.0,
-        "end": 476.0,
-        "kr": "[브릿지 3] 아침에도 저녁에도 네 출입을 지키시며",
-        "en": "In the morning, in the evening, in your coming, and your going"
-      },
-      {
-        "start": 476.0,
-        "end": 495.0,
-        "kr": "네 눈물과 네 기쁨 속에서 주님은 너를 위하시네",
-        "en": "In your weeping, and rejoicing, He is for you, He is for you"
-      },
-      {
-        "start": 495.0,
-        "end": 540.0,
-        "kr": "[선포] 주님은 너를 위하시네! 그는 네 편이시라!",
-        "en": "He is for you! He is for you! He is for you!"
-      },
-      {
-        "start": 540.0,
-        "end": 620.0,
-        "kr": "[후렴 대합창] 아멘! 아멘! 열방과 후대들에게 평강이 임할지어다!",
-        "en": "Amen! Amen! Amen! Peace be upon all generations!"
-      },
-      {
-        "start": 620.0,
-        "end": 730.0,
-        "kr": "🕊️ 천 대에 이르는 하나님의 축복을 선포합니다 · 아멘",
-        "en": "Declaring God's Generational Blessing Forever · Amen"
-      }
+      { "start": 0.0, "end": 31.0, "kr": "🎵 The Blessing (주의 축복이 네게 임하길) - 찬양 전주", "en": "The Blessing - Live (Intro)" },
+      { "start": 31.0, "end": 38.2, "kr": "[1절] 여호와는 네게 복을 주시고 너를 지키시기를 원하며", "en": "The Lord bless you and keep you" },
+      { "start": 38.2, "end": 44.8, "kr": "그 얼굴을 네게 비추사 은혜 베푸시기를 원하며", "en": "Make His face shine upon you and be gracious to you" },
+      { "start": 44.8, "end": 55.0, "kr": "여호와는 그 얼굴을 네게로 향하여 드사 평강 주시기를 원하노라", "en": "The Lord turn His face toward you and give you peace" },
+      { "start": 55.0, "end": 92.5, "kr": "(악기 연주 및 기도 · 후렴 준비)", "en": "(Worship Interlude · Preparing for Amen)" },
+      { "start": 92.5, "end": 106.0, "kr": "[후렴] 아멘, 아멘, 아멘", "en": "Amen, amen, amen" },
+      { "start": 106.0, "end": 120.0, "kr": "아멘, 아멘, 아멘", "en": "Amen, amen, amen" },
+      { "start": 120.0, "end": 132.5, "kr": "주님의 은혜와 평강이 넘치기를 기도합니다", "en": "May His grace and peace be upon you" },
+      { "start": 132.5, "end": 146.0, "kr": "[후렴 반복] 아멘, 아멘, 아멘", "en": "Amen, amen, amen" },
+      { "start": 146.0, "end": 160.0, "kr": "아멘, 아멘, 아멘", "en": "Amen, amen, amen" },
+      { "start": 160.0, "end": 200.2, "kr": "(간주 · 2절 준비)", "en": "(Interlude)" },
+      { "start": 200.2, "end": 207.3, "kr": "[1절 반복 - 화답] 여호와는 네게 복을 주시고 너를 지키시기를 원하며", "en": "The Lord bless you and keep you" },
+      { "start": 207.3, "end": 214.1, "kr": "그 얼굴을 네게 비추사 은혜 베푸시기를 원하며", "en": "Make His face shine upon you and be gracious to you" },
+      { "start": 214.1, "end": 230.3, "kr": "여호와는 그 얼굴을 네게로 향하여 드사 평강 주시기를 원하노라", "en": "The Lord turn His face toward you and give you peace" },
+      { "start": 230.3, "end": 243.8, "kr": "[후렴] 아멘, 아멘, 아멘", "en": "Amen, amen, amen" },
+      { "start": 243.8, "end": 260.0, "kr": "아멘, 아멘, 아멘", "en": "Amen, amen, amen" },
+      { "start": 260.0, "end": 339.0, "kr": "(간주 · 천 대의 축복 브릿지 준비)", "en": "(Interlude · Preparing Generational Blessing)" },
+      { "start": 339.0, "end": 345.2, "kr": "[브릿지 1] 주의 은혜가 네게 임하고 천 대에 이르기까지", "en": "May His favor be upon you and a thousand generations" },
+      { "start": 345.2, "end": 352.1, "kr": "네 가족과 자녀와 그 자녀의 자녀들에게 임하길", "en": "And your family and your children, and their children, and their children" },
+      { "start": 352.1, "end": 359.0, "kr": "주의 은혜가 네게 임하고 천 대에 이르기까지", "en": "May His favor be upon you and a thousand generations" },
+      { "start": 359.0, "end": 370.0, "kr": "네 가족과 자녀와 그 자녀의 자녀들에게 임하길!", "en": "And your family and your children, and their children!" },
+      { "start": 370.0, "end": 434.0, "kr": "(주의 은혜의 선포와 찬양의 빌드업)", "en": "(Building up Praise and Declaration)" },
+      { "start": 434.0, "end": 440.3, "kr": "[브릿지 2] 주의 임재가 네 앞서 행하시며 네 뒤에서 너를 지키시네", "en": "May His presence go before you, and behind you, and beside you" },
+      { "start": 440.3, "end": 447.5, "kr": "네 주위를 둘러싸고 네 안에 거하시며 주 너와 함께하시네", "en": "All around you, and within you, He is with you, He is with you" },
+      { "start": 447.5, "end": 454.1, "kr": "아침에도 저녁에도 네가 들어올 때나 나갈 때나", "en": "In the morning, in the evening, in your coming, and your going" },
+      { "start": 454.1, "end": 461.0, "kr": "네가 울 때에도 기뻐할 때에도 주님은 너를 위하시네!", "en": "In your weeping, and rejoicing, He is for you, He is for you!" },
+      { "start": 461.0, "end": 515.2, "kr": "주님은 너를 위하시네! 주님은 너를 위하시네!", "en": "He is for you, He is for you, He is for you!" },
+      { "start": 515.2, "end": 528.8, "kr": "[후렴 절정] 아멘! 아멘! 아멘!", "en": "Amen, amen, amen!" },
+      { "start": 528.8, "end": 550.0, "kr": "아멘! 아멘! 아멘!", "en": "Amen, amen, amen!" },
+      { "start": 550.0, "end": 620.0, "kr": "주의 임재가 함께하시네! 주님은 너를 위하시네!", "en": "His presence goes before you! He is for you!" },
+      { "start": 620.0, "end": 729.9, "kr": "🕊️ 여호와의 크신 축복이 모든 세대에 영원하길 기도합니다 · 아멘", "en": "Declaring God's Generational Blessing Forever · Amen" }
     ]
   },
   {
@@ -445,120 +146,24 @@ const PRESET_PRAISE_SONGS = [
     "duration": 296,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      {
-        "start": 0.0,
-        "end": 5.0,
-        "kr": "🎵 Goodness of God (선하신 주) - 전주",
-        "en": "Goodness of God - Bethel Music (Intro)"
-      },
-      {
-        "start": 5.0,
-        "end": 15.0,
-        "kr": "[1절] 사랑합니다 주님, 주의 자비는 결코 마르지 않네",
-        "en": "I love You, Lord, for Your mercy never fails me"
-      },
-      {
-        "start": 15.0,
-        "end": 22.0,
-        "kr": "내 평생 살아온 모든 날들 주님의 손에 붙들렸네",
-        "en": "All my days I've been held in Your hands"
-      },
-      {
-        "start": 22.0,
-        "end": 31.0,
-        "kr": "아침에 눈을 뜰 때부터 밤에 잠자리에 들 때까지",
-        "en": "From the moment that I wake up until I lay my head"
-      },
-      {
-        "start": 31.0,
-        "end": 37.0,
-        "kr": "오, 나는 하나님의 선하심을 노래하리라",
-        "en": "Oh, I will sing of the goodness of God"
-      },
-      {
-        "start": 37.0,
-        "end": 42.0,
-        "kr": "[후렴] 내 평생 주님은 언제나 신실하셨고",
-        "en": "'Cause all my life You have been faithful"
-      },
-      {
-        "start": 42.0,
-        "end": 48.0,
-        "kr": "내 평생 주님은 너무나도 선하셨네",
-        "en": "And all my life You have been so, so good"
-      },
-      {
-        "start": 48.0,
-        "end": 58.0,
-        "kr": "내 모든 호흡이 다하는 그날까지 주의 선하심을 노래하리라",
-        "en": "With every breath that I am able, I will sing of the goodness of God"
-      },
-      {
-        "start": 58.0,
-        "end": 67.0,
-        "kr": "[2절] 주님의 음성을 사랑합니다, 깊은 불 가운데서도 나를 이끄셨네",
-        "en": "I love Your voice, You have led me through the fire"
-      },
-      {
-        "start": 67.0,
-        "end": 75.0,
-        "kr": "가장 어두운 밤에도 주님은 내 곁에 가장 가까이 계셨네",
-        "en": "In darkest nights You are close like no other"
-      },
-      {
-        "start": 75.0,
-        "end": 83.0,
-        "kr": "주는 나의 아버지, 나의 가장 귀한 친구",
-        "en": "I've known You as a Father, I've known You as a Friend"
-      },
-      {
-        "start": 83.0,
-        "end": 89.0,
-        "kr": "주의 은혜 안에서 살았네",
-        "en": "And I have lived in the goodness of God"
-      },
-      {
-        "start": 89.0,
-        "end": 99.0,
-        "kr": "[후렴] 내 평생 주님은 언제나 신실하셨고",
-        "en": "'Cause all my life You have been faithful"
-      },
-      {
-        "start": 99.0,
-        "end": 110.0,
-        "kr": "내 평생 주님은 너무나도 선하셨네, 주의 선하심을 노래하리라",
-        "en": "And all my life You have been so good, I will sing of the goodness of God"
-      },
-      {
-        "start": 110.0,
-        "end": 127.0,
-        "kr": "[브릿지] 주의 선하심이 내 평생에 나를 따르네, 나를 쫓아오네!",
-        "en": "Your goodness is running after, it's running after me!"
-      },
-      {
-        "start": 127.0,
-        "end": 145.0,
-        "kr": "내 모든 삶을 주 앞에 내려놓고 주께 온전히 드리네",
-        "en": "With my life laid down, I'm surrendered now, I give You everything"
-      },
-      {
-        "start": 145.0,
-        "end": 165.0,
-        "kr": "주의 선하심이 내 평생에 나를 따르네, 나를 쫓아오네!",
-        "en": "Your goodness is running after, it's running after me!"
-      },
-      {
-        "start": 165.0,
-        "end": 205.0,
-        "kr": "[후렴 절정] 내 평생 주님은 신실하셨고 선하셨네, 주의 선하심을 영원히 노래하리라!",
-        "en": "All my life You have been faithful! I will sing of the goodness of God!"
-      },
-      {
-        "start": 205.0,
-        "end": 296.0,
-        "kr": "🕊️ 모든 날 동안 베푸신 하나님의 선하심에 감사드립니다 · 아멘",
-        "en": "Forever Thankful for the Goodness of God · Amen"
-      }
+      { "start": 0.0, "end": 16.1, "kr": "🎵 Goodness of God (선하신 주) - 찬양 전주", "en": "Goodness of God - Bethel Music (Intro)" },
+      { "start": 16.1, "end": 26.5, "kr": "[1절] 사랑합니다 주님, 주의 자비는 결코 날 떠나지 않네", "en": "I love You, Lord, Oh, Your mercy never failed me" },
+      { "start": 26.5, "end": 34.8, "kr": "내 모든 날 동안 주의 손에 붙들렸네", "en": "All my days, I've been held in Your hands" },
+      { "start": 34.8, "end": 52.9, "kr": "내가 눈뜰 때부터 잠자리에 들 때까지, 주의 선하심을 노래하리라", "en": "From the moment that I wake up until I lay my head, Oh, I will sing of the goodness of God" },
+      { "start": 52.9, "end": 61.8, "kr": "[후렴] 내 평생 주님은 언제나 신실하셨고", "en": "And all my life You have been faithful" },
+      { "start": 61.8, "end": 70.3, "kr": "내 평생 주님은 참으로 선하셨네", "en": "And all my life You have been so, so good" },
+      { "start": 70.3, "end": 89.3, "kr": "내 호흡이 다하는 그 순간까지, 주의 선하심을 노래하리라", "en": "With every breath that I am able, Oh, I will sing of the goodness of God" },
+      { "start": 89.3, "end": 100.8, "kr": "[2절] 주님의 음성을 사랑합니다, 불 가운데로 날 인도하셨네", "en": "I love Your voice, You have led me through the fire" },
+      { "start": 100.8, "end": 108.8, "kr": "가장 어두운 밤에도 누구보다 가까이 계셨네", "en": "And in darkest night You are close like no other" },
+      { "start": 108.8, "end": 127.6, "kr": "나의 아버지, 나의 친구 되신 주, 나 주의 선하심 안에 살아가리", "en": "I've known You as a Father, I've known You as a Friend, and I have lived in the goodness of God" },
+      { "start": 127.6, "end": 142.0, "kr": "[후렴] 내 평생 주님은 신실하셨고", "en": "And all my life You have been faithful" },
+      { "start": 142.0, "end": 155.0, "kr": "내 평생 주님은 참으로 선하셨네", "en": "And all my life You have been so, so good" },
+      { "start": 155.0, "end": 183.5, "kr": "내 호흡이 다하도록 주의 선하심을 노래하리라", "en": "With every breath that I am able, Oh, I will sing of the goodness of God" },
+      { "start": 183.5, "end": 208.1, "kr": "[브릿지] 주의 선하심이 나를 따르네, 날마다 나를 따르네", "en": "'Cause Your goodness is running after, it's running after me" },
+      { "start": 208.1, "end": 225.0, "kr": "내 삶을 주께 드리며 온전히 순종하오니 주께 모든 것 드립니다", "en": "With my life laid down, I'm surrendered now, I give You everything" },
+      { "start": 225.0, "end": 249.0, "kr": "[브릿지 절정] 주의 선하심이 나를 따르네, 끊임없이 나를 따르네!", "en": "'Cause Your goodness is running after, it keeps running after me!" },
+      { "start": 249.0, "end": 275.0, "kr": "[후렴 절정] 내 평생 주님은 신실하셨네, 주의 선하심을 영원히 찬양하리라", "en": "All my life You have been faithful, I will sing of the goodness of God" },
+      { "start": 275.0, "end": 295.7, "kr": "🕊️ 평생토록 신실하신 주님의 선하심에 감사드립니다 · 아멘", "en": "Forever Thankful for the Goodness of God · Amen" }
     ]
   },
   {
@@ -575,90 +180,22 @@ const PRESET_PRAISE_SONGS = [
     "duration": 261,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      {
-        "start": 0.0,
-        "end": 11.0,
-        "kr": "🎵 10,000 Reasons (송축해 내 영혼) - 어쿠스틱 전주",
-        "en": "10,000 Reasons - Matt Redman (Intro)"
-      },
-      {
-        "start": 11.0,
-        "end": 19.0,
-        "kr": "[후렴] 송축해 내 영혼, 내 영혼아, 거룩하신 주 이름 찬양해",
-        "en": "Bless the Lord, O my soul, O my soul, worship His holy name"
-      },
-      {
-        "start": 19.0,
-        "end": 38.0,
-        "kr": "새 노래로 주를 예배하리, 거룩한 주의 이름을 높이세",
-        "en": "Sing like never before, O my soul, I'll worship Your holy name"
-      },
-      {
-        "start": 38.0,
-        "end": 52.0,
-        "kr": "[1절] 새 날이 밝았고 새 아침이 왔네, 이제 다시 감사의 노래를 드리네",
-        "en": "The sun comes up, it's a new day dawning, it's time to sing Your song again"
-      },
-      {
-        "start": 52.0,
-        "end": 68.0,
-        "kr": "내게 무슨 일이 생기든지, 저녁이 올 때까지 감사로 노래하리라",
-        "en": "Whatever may pass and whatever lies before me, let me be singing when the evening comes"
-      },
-      {
-        "start": 68.0,
-        "end": 86.0,
-        "kr": "[후렴] 송축해 내 영혼, 내 영혼아, 거룩하신 이름 찬양해",
-        "en": "Bless the Lord, O my soul, worship His holy name, sing like never before"
-      },
-      {
-        "start": 86.0,
-        "end": 95.0,
-        "kr": "거룩한 주의 이름을 높이세",
-        "en": "I'll worship Your holy name"
-      },
-      {
-        "start": 95.0,
-        "end": 108.0,
-        "kr": "[2절] 인자와 자비가 풍성하시며 주의 이름 광대하시네",
-        "en": "You're rich in love and You're slow to anger, Your name is great and Your heart is kind"
-      },
-      {
-        "start": 108.0,
-        "end": 124.0,
-        "kr": "주의 선하심을 찬양할 만 가지 이유를 내 영혼이 노래하네",
-        "en": "For all Your goodness, I will keep on singing, ten thousand reasons for my heart to find"
-      },
-      {
-        "start": 124.0,
-        "end": 151.0,
-        "kr": "[후렴] 송축해 내 영혼, 내 영혼아, 거룩하신 이름 찬양해",
-        "en": "Bless the Lord, O my soul, worship His holy name, sing like never before"
-      },
-      {
-        "start": 151.0,
-        "end": 164.0,
-        "kr": "[3절] 내 육신의 힘이 다하고 마지막 날이 이를 때에도",
-        "en": "And on that day when my strength is failing, the end draws near and my time has come"
-      },
-      {
-        "start": 164.0,
-        "end": 182.0,
-        "kr": "내 영혼은 영원토록 주를 찬양하리라, 만 년이 지나도 영원토록",
-        "en": "Still, my soul will sing Your praise unending, ten thousand years and then forevermore"
-      },
-      {
-        "start": 182.0,
-        "end": 220.0,
-        "kr": "[후렴 절정] 송축해 내 영혼, 온 맘 다해 주를 예배하리라!",
-        "en": "Bless the Lord, O my soul! I'll worship Your holy name!"
-      },
-      {
-        "start": 220.0,
-        "end": 261.0,
-        "kr": "🕊️ 만 가지 이유로 주님을 영원토록 찬양합니다 · 아멘",
-        "en": "Praising the Lord with 10,000 Reasons Forever · Amen"
-      }
+      { "start": 0.0, "end": 12.5, "kr": "🎵 10,000 Reasons (송축해 내 영혼) - 찬양 전주", "en": "10,000 Reasons - Matt Redman (Intro)" },
+      { "start": 12.5, "end": 25.7, "kr": "[후렴] 송축해 내 영혼, 내 영혼아, 거룩하신 주의 이름", "en": "Bless the Lord, O my soul, O my soul, Worship His holy name" },
+      { "start": 25.7, "end": 36.7, "kr": "이전에 없던 노래로, 주님을 찬양해", "en": "Sing like never before, O my soul, I'll worship Your holy name" },
+      { "start": 36.7, "end": 49.0, "kr": "[1절] 해가 뜨는 새 아침 밝았네, 이제 다시 주를 노래할 시간", "en": "The sun comes up, it's a new day dawning, It's time to sing Your song again" },
+      { "start": 49.0, "end": 65.0, "kr": "무슨 일이 내게 닥쳐와도, 저녁이 올 때까지 찬양하리라", "en": "Whatever may pass and whatever lies before me, Let me be singing when the evening comes" },
+      { "start": 65.0, "end": 78.5, "kr": "[후렴] 송축해 내 영혼, 내 영혼아, 거룩하신 주의 이름", "en": "Bless the Lord, O my soul, O my soul, Worship His holy name" },
+      { "start": 78.5, "end": 95.0, "kr": "이전에 없던 노래로, 주님을 찬양해", "en": "Sing like never before, O my soul, I'll worship Your holy name" },
+      { "start": 95.0, "end": 107.0, "kr": "[2절] 주는 자비롭고 노하기를 더디하시며, 주는 위대하고 온유하시네", "en": "You're rich in love and You're slow to anger, Your name is great and Your heart is kind" },
+      { "start": 107.0, "end": 124.0, "kr": "주의 모든 선하심을 노래하리, 내 마음이 발견한 만 가지 이유로", "en": "For all Your goodness I will keep on singing, Ten thousand reasons for my heart to find" },
+      { "start": 124.0, "end": 138.5, "kr": "[후렴] 송축해 내 영혼, 내 영혼아, 거룩하신 주의 이름", "en": "Bless the Lord, O my soul, O my soul, Worship His holy name" },
+      { "start": 138.5, "end": 155.0, "kr": "이전에 없던 노래로, 주님을 찬양해", "en": "Sing like never before, O my soul, I'll worship Your holy name" },
+      { "start": 155.0, "end": 168.0, "kr": "[3절] 내 힘이 다하고 그 날이 이를 때, 주를 찬양하는 내 영혼의 노래는 끝나지 않으리", "en": "And on that day when my strength is failing, The end draws near and my time has come, Still my soul will sing Your praise unending" },
+      { "start": 168.0, "end": 185.0, "kr": "영원토록, 만 년이 지나도 영원토록 찬양하리라", "en": "Ten thousand years and then forevermore, Forevermore" },
+      { "start": 185.0, "end": 215.0, "kr": "[후렴 절정] 송축해 내 영혼, 내 영혼아, 거룩하신 주의 이름을 경배해!", "en": "Bless the Lord, O my soul, worship His holy name! Sing like never before!" },
+      { "start": 215.0, "end": 245.0, "kr": "거룩하신 주의 이름을 영원히 경배하리라", "en": "Yes, I will worship Your holy name, Lord, I'll worship Your holy name" },
+      { "start": 245.0, "end": 261.1, "kr": "🕊️ 만 가지 이유로 주님을 영원히 송축합니다 · 아멘", "en": "Praising the Lord with 10,000 Reasons Forever · Amen" }
     ]
   },
   {
@@ -675,96 +212,23 @@ const PRESET_PRAISE_SONGS = [
     "duration": 343,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      {
-        "start": 0.0,
-        "end": 8.2,
-        "kr": "🎵 What a Beautiful Name (아름다우신 이름) - 전주",
-        "en": "What a Beautiful Name - Hillsong Worship (Intro)"
-      },
-      {
-        "start": 8.2,
-        "end": 22.0,
-        "kr": "[1절] 태초에 말씀으로 계신 주, 지존하신 하나님과 함께 계셨네",
-        "en": "You were the Word at the beginning, One with God the Lord Most High"
-      },
-      {
-        "start": 22.0,
-        "end": 33.0,
-        "kr": "만물 가운데 감추어졌던 주의 영광, 그리스도 예수 안에서 나타나셨네",
-        "en": "Your hidden glory in creation, now revealed in You our Christ"
-      },
-      {
-        "start": 33.0,
-        "end": 47.0,
-        "kr": "[후렴 1] 얼마나 아름다운 이름인가, 나의 왕 예수 그리스도의 이름!",
-        "en": "What a beautiful Name it is, the Name of Jesus Christ my King"
-      },
-      {
-        "start": 47.0,
-        "end": 63.9,
-        "kr": "비길 데 없는 그 이름, 얼마나 아름다운 이름인가 예수!",
-        "en": "What a beautiful Name it is, nothing compares to this, the Name of Jesus"
-      },
-      {
-        "start": 63.9,
-        "end": 78.2,
-        "kr": "[2절] 우리를 잃어버린 채 하늘에 머물지 않으시고, 하늘 영광 버리고 낮아지셨네",
-        "en": "You didn't want heaven without us, so Jesus, You brought heaven down"
-      },
-      {
-        "start": 78.2,
-        "end": 89.5,
-        "kr": "나의 죄는 컸으나 주의 사랑은 더 크시니, 무엇이 우리를 주의 사랑에서 끊으리요",
-        "en": "My sin was great, Your love was greater, what could separate us now?"
-      },
-      {
-        "start": 89.5,
-        "end": 103.4,
-        "kr": "[후렴 2] 얼마나 놀라운 이름인가, 나의 왕 예수 그리스도의 이름!",
-        "en": "What a wonderful Name it is, the Name of Jesus Christ my King"
-      },
-      {
-        "start": 103.4,
-        "end": 125.0,
-        "kr": "비길 데 없는 그 이름, 얼마나 놀라운 이름인가 예수!",
-        "en": "What a wonderful Name it is, nothing compares to this, the Name of Jesus"
-      },
-      {
-        "start": 125.0,
-        "end": 148.0,
-        "kr": "[간주 - 브릿지 준비]",
-        "en": "Instrumental Build-up"
-      },
-      {
-        "start": 148.0,
-        "end": 166.0,
-        "kr": "[브릿지] 사망이 주를 가둘 수 없었고 휘장이 찢겼네! 죄와 무덤의 자랑을 꺾으셨네!",
-        "en": "Death could not hold You, the veil tore before You, You silence the boast of sin and grave"
-      },
-      {
-        "start": 166.0,
-        "end": 185.0,
-        "kr": "하늘이 포효하며 주의 영광을 찬양하네! 주 다시 살아나셨네!",
-        "en": "The heavens are roaring the praise of Your glory, for You are raised to life again!"
-      },
-      {
-        "start": 185.0,
-        "end": 205.0,
-        "kr": "주께 비길 자 누구며 주의 권세에 대적할 자 누구리요!",
-        "en": "You have no rival, You have no equal, now and forever God You reign!"
-      },
-      {
-        "start": 205.0,
-        "end": 240.0,
-        "kr": "[후렴 절정] 얼마나 능력 있는 이름인가, 나의 왕 예수 그리스도의 이름!",
-        "en": "What a powerful Name it is, what a powerful Name it is, the Name of Jesus Christ my King!"
-      },
-      {
-        "start": 240.0,
-        "end": 343.0,
-        "kr": "🕊️ 가장 아름답고 능력 있는 예수 그리스도의 이름을 찬양합니다 · 아멘",
-        "en": "Praising the Beautiful and Powerful Name of Jesus · Amen"
-      }
+      { "start": 0.0, "end": 8.2, "kr": "🎵 What a Beautiful Name (아름다우신 이름) - 찬양 전주", "en": "What a Beautiful Name - Hillsong Worship (Intro)" },
+      { "start": 8.2, "end": 22.0, "kr": "[1절] 태초에 말씀으로 계셨던 주, 지극히 높으신 하나님과 하나이셨네", "en": "You were the Word at the beginning, One with God the Lord Most High" },
+      { "start": 22.0, "end": 32.9, "kr": "창조물 속에 감추어졌던 주의 영광, 이제 그리스도 안에서 나타나셨네", "en": "Your hidden glory in creation, Now revealed in You our Christ" },
+      { "start": 32.9, "end": 47.1, "kr": "[후렴 1] 얼마나 아름다운 이름인가, 예수 그리스도 나의 왕의 이름!", "en": "What a beautiful Name it is, What a beautiful Name it is, The Name of Jesus Christ my King" },
+      { "start": 47.1, "end": 63.9, "kr": "그 무엇도 비교할 수 없는 아름다운 이름, 예수의 이름!", "en": "What a beautiful Name it is, nothing compares to this, What a beautiful Name it is, the Name of Jesus" },
+      { "start": 63.9, "end": 78.2, "kr": "[2절] 우리를 잃고 홀로 하늘에 머물길 원치 않으셔서, 예수님 하늘을 이 땅에 가져오셨네", "en": "You didn't want heaven without us, So Jesus You brought heaven down" },
+      { "start": 78.2, "end": 89.5, "kr": "나의 죄는 컸으나 주의 사랑은 더 크시니, 무엇이 이제 우리를 끊으리요", "en": "My sin was great Your love was greater, What could separate us now?" },
+      { "start": 89.5, "end": 103.4, "kr": "[후렴 2] 얼마나 놀라운 이름인가, 예수 그리스도 나의 왕의 이름!", "en": "What a wonderful Name it is, What a wonderful Name it is, The Name of Jesus Christ my King" },
+      { "start": 103.4, "end": 135.0, "kr": "그 무엇도 비교할 수 없는 놀라운 이름, 예수의 이름!", "en": "What a wonderful Name it is, nothing compares to this, What a wonderful Name it is, the Name of Jesus" },
+      { "start": 135.0, "end": 155.0, "kr": "(간주 · 브릿지 준비)", "en": "(Interlude)" },
+      { "start": 155.0, "end": 172.0, "kr": "[브릿지] 사망도 주를 가둘 수 없었고 휘장은 찢어졌네, 죄와 사망의 권세를 잠잠케 하셨네!", "en": "Death could not hold You, the veil tore before You, You silenced the boast of sin and grave" },
+      { "start": 172.0, "end": 188.0, "kr": "하늘은 주의 영광을 찬양하며 외치네, 주께서 다시 살아나셨음이라!", "en": "The Heavens are roaring the praise of Your glory, For You are raised to life again" },
+      { "start": 188.0, "end": 205.0, "kr": "주께는 경쟁자도 대적할 자도 없으니, 지금도 영원히 주 하나님 다스리시네!", "en": "You have no rival, You have no equal, Now and forever God You reign" },
+      { "start": 205.0, "end": 225.0, "kr": "주의 나라이며 주의 영광이며, 모든 이름 위에 뛰어난 주의 이름이라!", "en": "Yours is the Kingdom, Yours is the Glory, Yours is the Name above all names" },
+      { "start": 225.0, "end": 255.0, "kr": "[후렴 절정] 얼마나 능력 있는 이름인가, 예수 그리스도 나의 왕의 이름!", "en": "What a powerful Name it is, What a powerful Name it is, The Name of Jesus Christ my King" },
+      { "start": 255.0, "end": 308.0, "kr": "그 무엇도 대적할 수 없는 능력의 이름, 예수의 이름!", "en": "What a powerful Name it is, nothing can stand against, What a powerful Name it is, the Name of Jesus" },
+      { "start": 308.0, "end": 342.6, "kr": "🕊️ 사망을 이기신 예수 그리스도의 거룩한 이름을 찬양합니다 · 아멘", "en": "All Praise to the Powerful Name of Jesus Christ · Amen" }
     ]
   },
   {
@@ -781,90 +245,20 @@ const PRESET_PRAISE_SONGS = [
     "duration": 351,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      {
-        "start": 0.0,
-        "end": 35.4,
-        "kr": "🎵 Oceans (주 품에 품으소서) - 잔잔한 건반 전주",
-        "en": "Oceans (Where Feet May Fail) - Hillsong UNITED (Intro)"
-      },
-      {
-        "start": 35.4,
-        "end": 49.8,
-        "kr": "[1절] 깊은 바다 위로 나를 부르시네, 발 디딜 수 없는 깊은 곳으로",
-        "en": "You call me out upon the waters, the great unknown where feet may fail"
-      },
-      {
-        "start": 49.8,
-        "end": 64.5,
-        "kr": "그곳에서 신비로우신 주를 뵈오리, 깊은 바다 속에서도 내 믿음 굳게 서리라",
-        "en": "And there I find You in the mystery, in oceans deep, my faith will stand"
-      },
-      {
-        "start": 64.5,
-        "end": 77.0,
-        "kr": "[후렴] 주의 이름을 부르며, 파도 위로 내 눈을 들어 주를 바라보리라",
-        "en": "And I will call upon Your name, and keep my eyes above the waves"
-      },
-      {
-        "start": 77.0,
-        "end": 95.0,
-        "kr": "바다가 흉흉할 때에도 내 영혼 주의 품에 안식하리, 나는 주의 것, 주는 나의 하나님",
-        "en": "When oceans rise my soul will rest in Your embrace, for I am Yours and You are mine"
-      },
-      {
-        "start": 95.0,
-        "end": 104.4,
-        "kr": "[2절] 깊은 바다 속에서도 주의 은혜 넘치며",
-        "en": "Your grace abounds in deepest waters"
-      },
-      {
-        "start": 104.4,
-        "end": 119.0,
-        "kr": "주의 전능하신 손이 나를 인도하시네, 두려움이 나를 둘러쌀 때에도",
-        "en": "Your sovereign hand will be my guide, where feet may fail and fear surrounds me"
-      },
-      {
-        "start": 119.0,
-        "end": 133.4,
-        "kr": "주님은 결코 날 포기치 않으시며 실패하지 않으시네",
-        "en": "You've never failed and You won't start now"
-      },
-      {
-        "start": 133.4,
-        "end": 155.0,
-        "kr": "[후렴] 주의 이름을 부르리, 파도 위로 내 눈을 들어 주를 바라보리라",
-        "en": "So I will call upon Your name, and keep my eyes above the waves"
-      },
-      {
-        "start": 155.0,
-        "end": 218.0,
-        "kr": "[간주 - 깊은 바다의 묵상]",
-        "en": "Instrumental Interlude"
-      },
-      {
-        "start": 218.0,
-        "end": 235.0,
-        "kr": "[브릿지] 성령이여 한계 없는 믿음으로 날 이끄소서, 어디로 부르시든지 물 위를 걷게 하소서",
-        "en": "Spirit lead me where my trust is without borders, let me walk upon the waters wherever You would call me"
-      },
-      {
-        "start": 235.0,
-        "end": 260.0,
-        "kr": "주 임재 안으로 더 깊이 들어가게 하소서, 나의 구주 예수 안에서 내 믿음 더욱 견고해지리",
-        "en": "Take me deeper than my feet could ever wander, and my faith will be made stronger in the presence of my Savior"
-      },
-      {
-        "start": 260.0,
-        "end": 310.0,
-        "kr": "[브릿지 반복 및 절정] 성령이여 나를 이끄소서! 깊은 바다 위로!",
-        "en": "Spirit lead me where my trust is without borders! Take me deeper!"
-      },
-      {
-        "start": 310.0,
-        "end": 351.0,
-        "kr": "🕊️ 파도를 넘어 주님 품 안에 영원히 안식합니다 · 아멘",
-        "en": "Resting Forever in Your Sovereign Embrace · Amen"
-      }
+      { "start": 0.0, "end": 36.2, "kr": "🎵 Oceans (주 품에 품으소서) - 찬양 전주", "en": "Oceans - Hillsong UNITED (Intro)" },
+      { "start": 36.2, "end": 50.2, "kr": "[1절] 주 날 깊은 바다 위로 부르시네, 발 딛기 두려운 깊은 곳으로", "en": "You call me out upon the waters, The great unknown where feet may fail" },
+      { "start": 50.2, "end": 64.5, "kr": "그 신비 속에 주를 만나며, 깊은 바다에서도 내 믿음 굳게 서리라", "en": "And there I find You in the mystery, In oceans deep my faith will stand" },
+      { "start": 64.5, "end": 77.0, "kr": "[후렴] 주의 이름을 부르며 파도 위를 바라보리라", "en": "And I will call upon Your name, And keep my eyes above the waves" },
+      { "start": 77.0, "end": 95.0, "kr": "바다 솟구쳐도 내 영혼 주 품에 안기리, 난 주의 것 주는 내 것", "en": "When oceans rise my soul will rest in Your embrace, For I am Yours and You are mine" },
+      { "start": 95.0, "end": 113.0, "kr": "[2절] 깊은 바다 속에도 주의 은혜 넘치며, 주의 전능하신 손이 날 인도하시네", "en": "Your grace abounds in deepest waters, Your sovereign hand will be my guide" },
+      { "start": 113.0, "end": 133.4, "kr": "발 헛디디고 두려움 둘러싸도, 주는 결코 실패하지 않으시네", "en": "Where feet may fail and fear surrounds me, You've never failed and You won't start now" },
+      { "start": 133.4, "end": 155.0, "kr": "[후렴] 주의 이름을 부르며 파도 위를 바라보리라, 난 주의 것 주는 내 것", "en": "So I will call upon Your name, And keep my eyes above the waves, For I am Yours and You are mine" },
+      { "start": 155.0, "end": 219.0, "kr": "(간주 · 브릿지 준비)", "en": "(Interlude)" },
+      { "start": 219.0, "end": 235.0, "kr": "[브릿지] 성령이여 내 믿음 경계 없게 하사, 바다 위를 걷게 하소서", "en": "Spirit lead me where my trust is without borders, Let me walk upon the waters" },
+      { "start": 235.0, "end": 255.0, "kr": "주 나를 부르시는 곳 어디든지, 내 발 닿을 수 없는 깊은 곳으로 날 이끄소서", "en": "Wherever You would call me, Take me deeper than my feet could ever wander" },
+      { "start": 255.0, "end": 285.0, "kr": "구주 예수의 임재 안에서 내 믿음 더욱 견고해지리라!", "en": "And my faith will be made stronger in the presence of my Savior" },
+      { "start": 285.0, "end": 320.0, "kr": "[브릿지 절정] 바다 위를 걷게 하소서! 주의 이름을 부르리라!", "en": "Spirit lead me where my trust is without borders! I will call upon Your name!" },
+      { "start": 320.0, "end": 350.6, "kr": "🕊️ 깊은 바다에서도 우리를 굳게 붙드시는 주님을 신뢰합니다 · 아멘", "en": "Resting in the Savior's Sovereign Embrace · Amen" }
     ]
   },
   {
@@ -881,90 +275,25 @@ const PRESET_PRAISE_SONGS = [
     "duration": 359,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      {
-        "start": 0.0,
-        "end": 6.0,
-        "kr": "🎵 꽃들도 (花も - 열방의 회복) - 오케스트라 전주",
-        "en": "Even If The Flowers - JWorship (Intro)"
-      },
-      {
-        "start": 6.0,
-        "end": 18.0,
-        "kr": "[1절] 이곳에 생명 샘 솟아나, 눈물 골짝 지나갈 때에",
-        "en": "Here springs of living water will overflow, as we pass through the valley of weeping"
-      },
-      {
-        "start": 18.0,
-        "end": 30.0,
-        "kr": "머잖아 열매 맺히고, 웃음 소리 넘쳐나리라",
-        "en": "Soon fruit of righteousness will bear, and songs of joy and laughter will resound"
-      },
-      {
-        "start": 30.0,
-        "end": 42.0,
-        "kr": "이곳에 생명 샘 솟아나, 눈물 골짝 지나갈 때에",
-        "en": "Here springs of living water will overflow, as we pass through the valley of weeping"
-      },
-      {
-        "start": 42.0,
-        "end": 54.0,
-        "kr": "머잖아 열매 맺히고, 웃음 소리 넘쳐나리라",
-        "en": "Soon fruit of righteousness will bear, and songs of joy and laughter will resound"
-      },
-      {
-        "start": 54.0,
-        "end": 78.0,
-        "kr": "[후렴] 꽃들도 구름도 바람도 넓은 바다도, 찬양하라 찬양하라 예수를!",
-        "en": "Even flowers, the clouds, the wind, and the rolling sea: Praise our Jesus!"
-      },
-      {
-        "start": 78.0,
-        "end": 104.0,
-        "kr": "하늘을 울리며 노래해 나의 영혼아, 은혜의 주 은혜의 주 은혜의 주!",
-        "en": "Sing so the heavens echo, O my soul! Lord of grace, Lord of endless grace!"
-      },
-      {
-        "start": 104.0,
-        "end": 118.0,
-        "kr": "[간주 묵상]",
-        "en": "Instrumental Interlude"
-      },
-      {
-        "start": 118.0,
-        "end": 130.0,
-        "kr": "[2절] 예수님 오실 길 예비해, 십자가를 바라볼 때에",
-        "en": "Preparing the way of our coming Lord, fixing our eyes on the Cross"
-      },
-      {
-        "start": 130.0,
-        "end": 142.0,
-        "kr": "머잖아 열방이 엎드려, 주의 영광 찬양하리라",
-        "en": "Soon all nations will bow and worship, praising the glory of our Lord"
-      },
-      {
-        "start": 142.0,
-        "end": 166.0,
-        "kr": "[후렴 반복] 꽃들도 구름도 바람도 넓은 바다도, 찬양하라 찬양하라 예수를!",
-        "en": "Even flowers, the clouds, the wind, and the rolling sea: Praise our Jesus!"
-      },
-      {
-        "start": 166.0,
-        "end": 192.0,
-        "kr": "하늘을 울리며 노래해 나의 영혼아, 은혜의 주 은혜의 주 은혜의 주!",
-        "en": "Sing so the heavens echo, O my soul! Lord of grace, Lord of endless grace!"
-      },
-      {
-        "start": 192.0,
-        "end": 245.0,
-        "kr": "[후렴 절정] 찬양하라 찬양하라 예수를! 온 땅과 열방이 주를 찬양하라!",
-        "en": "Praise Him, praise Jesus our King! All the earth and nations praise the Lord!"
-      },
-      {
-        "start": 245.0,
-        "end": 359.0,
-        "kr": "🕊️ 모든 열방이 예수 그리스도를 찬양하게 하옵소서 · 아멘",
-        "en": "May All Nations Praise Jesus Christ Forever · Amen"
-      }
+      { "start": 0.0, "end": 17.5, "kr": "🎵 꽃들도 (Even If The Flowers) - 찬양 전주", "en": "Even If The Flowers - JWorship (Intro)" },
+      { "start": 17.5, "end": 29.0, "kr": "[1절] 이곳에 생명 샘 솟아나, 눈물 골짝 지나갈 때에", "en": "Here the spring of life gushes forth, As we pass through the valley of tears" },
+      { "start": 29.0, "end": 40.5, "kr": "머잖아 열매 맺히고, 웃음 소리 넘쳐나리라", "en": "Soon the fruit will bear, And laughter will overflow" },
+      { "start": 40.5, "end": 52.0, "kr": "[1절 반복] 이곳에 생명 샘 솟아나, 눈물 골짝 지나갈 때에", "en": "Here the spring of life gushes forth, As we pass through the valley of tears" },
+      { "start": 52.0, "end": 63.5, "kr": "머잖아 열매 맺히고, 웃음 소리 넘쳐나리라", "en": "Soon the fruit will bear, And laughter will overflow" },
+      { "start": 63.5, "end": 76.0, "kr": "[후렴] 꽃들도 구름도 바람도 넓은 바다도", "en": "Even if the flowers, the clouds, the wind, and the wide sea" },
+      { "start": 76.0, "end": 88.0, "kr": "찬양하라 찬양하라 예수를!", "en": "Praise, praise Jesus!" },
+      { "start": 88.0, "end": 99.5, "kr": "하늘을 울리며 노래해, 나의 영혼아", "en": "Sing resounding to the heavens, O my soul" },
+      { "start": 99.5, "end": 115.0, "kr": "은혜의 주, 은혜의 주, 은혜의 주", "en": "Lord of grace, Lord of grace, Lord of grace" },
+      { "start": 115.0, "end": 133.0, "kr": "(간주)", "en": "(Interlude)" },
+      { "start": 133.0, "end": 144.5, "kr": "[2절] 그 날에 하늘이 열리고, 모든 이가 보게 되리라", "en": "On that day heaven will open, And all shall see" },
+      { "start": 144.5, "end": 156.5, "kr": "마침내 꽃들이 피고, 영광의 주가 오시리라", "en": "At last the flowers will bloom, And the Lord of glory will come" },
+      { "start": 156.5, "end": 169.0, "kr": "[후렴] 꽃들도 구름도 바람도 넓은 바다도", "en": "Even if the flowers, the clouds, the wind, and the wide sea" },
+      { "start": 169.0, "end": 181.0, "kr": "찬양하라 찬양하라 예수를!", "en": "Praise, praise Jesus!" },
+      { "start": 181.0, "end": 193.0, "kr": "하늘을 울리며 노래해, 나의 영혼아", "en": "Sing resounding to the heavens, O my soul" },
+      { "start": 193.0, "end": 210.0, "kr": "은혜의 주, 은혜의 주, 은혜의 주!", "en": "Lord of grace, Lord of grace, Lord of grace!" },
+      { "start": 210.0, "end": 260.0, "kr": "[후렴 절정] 찬양하라 예수를! 하늘을 울리며 노래해, 나의 영혼아!", "en": "Praise Jesus! Sing resounding to the heavens, O my soul!" },
+      { "start": 260.0, "end": 310.0, "kr": "은혜의 주 예수 그리스도, 영광의 주님을 영원히 찬양하라!", "en": "Lord of grace, Jesus Christ, Praise the Lord of glory forever!" },
+      { "start": 310.0, "end": 359.2, "kr": "🕊️ 온 열방과 만물이 주 예수 그리스도를 영원히 찬양합니다 · 아멘", "en": "All Creation Praises Jesus Christ Our Lord · Amen" }
     ]
   },
   {
@@ -981,78 +310,26 @@ const PRESET_PRAISE_SONGS = [
     "duration": 312,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      {
-        "start": 0.0,
-        "end": 17.0,
-        "kr": "🎵 하나님의 은혜 (나를 지으신 이가 하나님) - 피아노 전주",
-        "en": "Grace of God (Only by Grace) - Park Jong Ho (Intro)"
-      },
-      {
-        "start": 17.0,
-        "end": 31.0,
-        "kr": "[1절] 나를 지으신 이가 하나님, 나를 부르신 이가 하나님",
-        "en": "The One who made me is God, the One who called me is God"
-      },
-      {
-        "start": 31.0,
-        "end": 45.0,
-        "kr": "나를 보내신 이도 하나님, 나의 달려갈 길 다 가도록",
-        "en": "The One who sent me is God, all along the race that I run"
-      },
-      {
-        "start": 45.0,
-        "end": 60.0,
-        "kr": "나의 마지막 호흡 다하도록, 십자가 그 길을 가게 하신 이",
-        "en": "Until my very last breath, the One who led me to walk the way of the Cross"
-      },
-      {
-        "start": 60.0,
-        "end": 74.0,
-        "kr": "[후렴] 한량없는 은혜, 갚을 길 없는 은혜, 내 삶을 에워싸는 하나님의 은혜",
-        "en": "Boundless grace, unpayable grace, God's grace surrounding all my life"
-      },
-      {
-        "start": 74.0,
-        "end": 89.0,
-        "kr": "나 주저함 없이 그 땅을 밟음도, 나를 붙드시는 하나님의 은혜",
-        "en": "Stepping boldly on that land without hesitation, it is God's grace that holds me"
-      },
-      {
-        "start": 89.0,
-        "end": 103.0,
-        "kr": "[2절] 나를 세우신 이가 하나님, 나를 쓰시는 이가 하나님",
-        "en": "The One who established me is God, the One who uses me is God"
-      },
-      {
-        "start": 103.0,
-        "end": 117.0,
-        "kr": "나를 이끄신 이도 하나님, 나의 모든 삶이 주의 것이라",
-        "en": "The One who guided me is God, all my life belongs to the Lord"
-      },
-      {
-        "start": 117.0,
-        "end": 131.0,
-        "kr": "나의 나 된 것은 다 하나님 은혜라, 주의 사랑이 날 살리셨네",
-        "en": "By the grace of God I am what I am, His love gave me life"
-      },
-      {
-        "start": 131.0,
-        "end": 160.0,
-        "kr": "[후렴 절정] 한량없는 은혜, 갚을 길 없는 은혜, 내 삶을 에워싸는 하나님의 은혜!",
-        "en": "Boundless grace, unpayable grace, God's grace surrounding all my life!"
-      },
-      {
-        "start": 160.0,
-        "end": 207.0,
-        "kr": "나 주저함 없이 그 땅을 밟음도, 나를 붙드시는 하나님의 은혜!",
-        "en": "It is God's grace that holds me, His amazing and boundless grace!"
-      },
-      {
-        "start": 207.0,
-        "end": 312.0,
-        "kr": "🕊️ 나의 나 된 것은 다 하나님의 은혜입니다 · 아멘",
-        "en": "By the Grace of God I am What I am · Amen"
-      }
+      { "start": 0.0, "end": 17.5, "kr": "🎵 하나님의 은혜 (나를 지으신 이가 하나님) - 찬양 전주", "en": "Grace of God - Park Jong-ho (Intro)" },
+      { "start": 17.5, "end": 30.0, "kr": "[1절] 나를 지으신 이가 하나님, 나를 부르신 이가 하나님", "en": "The One who made me is God, The One who called me is God" },
+      { "start": 30.0, "end": 42.0, "kr": "나를 보내신 이도 하나님, 나의 달려갈 길 다 가도록", "en": "The One who sent me is also God, That I may run my entire race" },
+      { "start": 42.0, "end": 54.5, "kr": "나의 마지막 호흡 다하도록, 나로 그 십자가 품게 하시니", "en": "Until my very last breath, Letting me embrace that cross" },
+      { "start": 54.5, "end": 67.0, "kr": "나의 달려갈 길 다 가도록, 나의 마지막 호흡 다하도록", "en": "That I may run my entire race, until my very last breath" },
+      { "start": 67.0, "end": 80.5, "kr": "[후렴] 한량없는 은혜, 갚을 길 없는 은혜", "en": "Boundless grace, grace that cannot be repaid" },
+      { "start": 80.5, "end": 94.0, "kr": "내 삶을 에워싸는 하나님의 은혜", "en": "God's grace that surrounds my life" },
+      { "start": 94.0, "end": 107.0, "kr": "나 주저함 없이 그 땅을 밟음도", "en": "That I walk upon that land without hesitation" },
+      { "start": 107.0, "end": 124.0, "kr": "나를 붙드시는 하나님의 은혜", "en": "Is the grace of God that holds me fast" },
+      { "start": 124.0, "end": 143.0, "kr": "(간주)", "en": "(Interlude)" },
+      { "start": 143.0, "end": 155.5, "kr": "[2절] 나를 지으신 이가 하나님, 나를 부르신 이가 하나님", "en": "The One who made me is God, The One who called me is God" },
+      { "start": 155.5, "end": 168.0, "kr": "나를 보내신 이도 하나님, 나의 달려갈 길 다 가도록", "en": "The One who sent me is also God, That I may run my entire race" },
+      { "start": 168.0, "end": 180.5, "kr": "나의 마지막 호흡 다하도록, 나로 그 십자가 품게 하시니", "en": "Until my very last breath, Letting me embrace that cross" },
+      { "start": 180.5, "end": 193.0, "kr": "나의 달려갈 길 다 가도록, 나의 마지막 호흡 다하도록", "en": "That I may run my entire race, until my very last breath" },
+      { "start": 193.0, "end": 207.0, "kr": "[후렴] 한량없는 은혜, 갚을 길 없는 은혜", "en": "Boundless grace, grace that cannot be repaid" },
+      { "start": 207.0, "end": 220.5, "kr": "내 삶을 에워싸는 하나님의 은혜", "en": "God's grace that surrounds my life" },
+      { "start": 220.5, "end": 235.0, "kr": "나 주저함 없이 그 땅을 밟음도", "en": "That I walk upon that land without hesitation" },
+      { "start": 235.0, "end": 258.0, "kr": "나를 붙드시는 하나님의 은혜!", "en": "Is the grace of God that holds me fast!" },
+      { "start": 258.0, "end": 290.0, "kr": "[후렴 절정] 내 삶을 에워싸는 크신 은혜, 오직 하나님의 은혜라", "en": "Surrounded by God's abundant grace, only by God's grace" },
+      { "start": 290.0, "end": 312.1, "kr": "🕊️ 나의 모든 삶을 붙드시는 하나님의 은혜에 감사드립니다 · 아멘", "en": "Praising God's Unfailing Grace in My Entire Life · Amen" }
     ]
   },
   {
@@ -1069,100 +346,27 @@ const PRESET_PRAISE_SONGS = [
     "duration": 331,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      {
-        "start": 0.0,
-        "end": 19.0,
-        "kr": "🎵 Living Hope (살아계신 주 나의 참된 소망) - 어쿠스틱 기타 전주",
-        "en": "Living Hope - Phil Wickham (Intro)"
-      },
-      {
-        "start": 19.0,
-        "end": 31.7,
-        "kr": "[1절] 우리 사이 깊은 단절의 골짜기, 내 힘으로 오를 수 없었던 높은 산",
-        "en": "How great the chasm that lay between us, how high the mountain I could not climb"
-      },
-      {
-        "start": 31.7,
-        "end": 45.1,
-        "kr": "절망 속에서 하늘을 바라보며, 캄캄한 밤 주의 이름을 불렀네",
-        "en": "In desperation, I turned to heaven, and spoke Your name into the night"
-      },
-      {
-        "start": 45.1,
-        "end": 58.0,
-        "kr": "어둠을 뚫고 오신 주의 인자하심, 내 영혼의 어두운 그늘을 찢으셨네",
-        "en": "Then through the darkness, Your loving kindness tore through the shadows of my soul"
-      },
-      {
-        "start": 58.0,
-        "end": 75.5,
-        "kr": "모든 일 다 이루셨고 결말은 선포되었네, 예수 그리스도 나의 참된 소망!",
-        "en": "The work is finished, the end is written, Jesus Christ, my living hope"
-      },
-      {
-        "start": 75.5,
-        "end": 94.8,
-        "kr": "[2절] 그 크신 자비를 뉘라서 생각하며, 측량 못할 그 무한한 은혜를 어찌 다 헤아리리",
-        "en": "Who could imagine so great a mercy? What heart could fathom such boundless grace?"
-      },
-      {
-        "start": 94.8,
-        "end": 114.8,
-        "kr": "만유의 하나님 하늘 영광 버리고 낮아지사, 내 죄를 짊어지고 십자가 수치를 당하셨네",
-        "en": "The God of ages stepped down from glory to wear my sin and bear my shame"
-      },
-      {
-        "start": 114.8,
-        "end": 128.5,
-        "kr": "십자가가 선포했네, 내 모든 죄 용서받았음을! 만왕의 왕께서 날 주의 자녀라 부르시네!",
-        "en": "The cross has spoken, I am forgiven, the King of kings calls me His own"
-      },
-      {
-        "start": 128.5,
-        "end": 148.5,
-        "kr": "[후렴] 할렐루야! 나를 자유케 하신 주를 찬양해! 할렐루야! 사망이 내게서 권세를 잃었네!",
-        "en": "Hallelujah, praise the One who set me free! Hallelujah, death has lost its grip on me!"
-      },
-      {
-        "start": 148.5,
-        "end": 181.2,
-        "kr": "주 모든 쇠사슬을 끊으셨고 주의 이름에 구원이 있네, 예수 그리스도 나의 참된 소망!",
-        "en": "You have broken every chain, there's salvation in Your name, Jesus Christ, my living hope!"
-      },
-      {
-        "start": 181.2,
-        "end": 205.4,
-        "kr": "[3절] 약속이 성취되던 그 부활의 아침, 무덤 속 주의 몸이 다시 숨쉬기 시작했네!",
-        "en": "Then came the morning that sealed the promise, Your buried body began to breathe"
-      },
-      {
-        "start": 205.4,
-        "end": 238.7,
-        "kr": "침묵을 깨뜨리고 포효하는 유다의 사자, 무덤은 더 이상 내게 권세 없다고 선포하셨네! 예수, 주의 승리로다!",
-        "en": "Out of the silence, the roaring lion declared the grave has no claim on me! Jesus, Yours is the victory!"
-      },
-      {
-        "start": 238.7,
-        "end": 268.9,
-        "kr": "[후렴 대합창] 할렐루야! 나를 자유케 하신 주를 찬양해! 할렐루야! 사망이 권세를 잃었네!",
-        "en": "Hallelujah, praise the One who set me free! Hallelujah, death has lost its grip on me!"
-      },
-      {
-        "start": 268.9,
-        "end": 300.0,
-        "kr": "주 모든 쇠사슬을 끊으셨고 주의 이름에 구원이 있네, 예수 그리스도 나의 참된 소망!",
-        "en": "You have broken every chain, there's salvation in Your name, Jesus Christ, my living hope!"
-      },
-      {
-        "start": 300.0,
-        "end": 331.0,
-        "kr": "🕊️ 부활의 첫 열매 되신 살아계신 주를 영원히 찬양합니다 · 아멘",
-        "en": "Praising the Living Hope, Our Resurrected Lord · Amen"
-      }
+      { "start": 0.0, "end": 8.9, "kr": "🎵 살아계신 주 나의 참된 소망 (Living Hope) - 찬양 전주", "en": "Living Hope - Phil Wickham (Intro)" },
+      { "start": 8.9, "end": 27.8, "kr": "[1절] 우리와 하나님 사이의 깊은 죄의 심연, 넘을 수 없던 높은 산", "en": "How great the chasm that lay between us, How high the mountain I could not climb" },
+      { "start": 27.8, "end": 43.8, "kr": "절망 속에서 하늘을 바라보며, 어두운 밤 주의 이름을 불렀네", "en": "In desperation I turned to heaven, and spoke Your name into the night" },
+      { "start": 43.8, "end": 56.5, "kr": "어둠을 뚫고 주의 인자하심이 내 영혼의 그림자를 찢으셨네", "en": "Then through the darkness Your loving kindness, tore through the shadows of my soul" },
+      { "start": 56.5, "end": 67.8, "kr": "모든 사역 다 이루시고 승리의 결말 기록하셨네, 예수 그리스도 나의 참된 소망!", "en": "The work is finished the end is written, Jesus Christ my living hope" },
+      { "start": 67.8, "end": 85.2, "kr": "[2절] 그 크신 자비를 누가 상상이나 할 수 있으며, 한량없는 은혜를 어떤 마음이 헤아리랴", "en": "Who could imagine so great a mercy? What heart could fathom such boundless grace?" },
+      { "start": 85.2, "end": 105.5, "kr": "영원하신 하나님 영광 버리고 내려오사, 내 죄와 수치를 대신 짊어지셨네", "en": "The God of ages stepped down from glory, to wear my sin and bear my shame" },
+      { "start": 105.5, "end": 118.0, "kr": "십자가가 말씀하시네 '너는 용서받았노라', 만왕의 왕이 날 주의 자녀라 부르시네", "en": "The cross has spoken I am forgiven, the King of kings calls me His own" },
+      { "start": 118.0, "end": 125.0, "kr": "아름다우신 구주여 난 영원히 주의 것, 예수 그리스도 나의 참된 소망!", "en": "Beautiful Savior I'm Yours forever, Jesus Christ my living hope!" },
+      { "start": 125.0, "end": 138.0, "kr": "[후렴] 할렐루야! 나를 자유케 하신 주를 찬양해!", "en": "Hallelujah, praise the One who set me free!" },
+      { "start": 138.0, "end": 150.0, "kr": "할렐루야! 사망 권세 내게서 힘을 잃었네!", "en": "Hallelujah, death has lost its grip on me!" },
+      { "start": 150.0, "end": 168.0, "kr": "주 모든 사슬 끊으셨고, 주의 이름에 구원이 있네, 예수 그리스도 나의 참된 소망!", "en": "You have broken every chain, there's salvation in Your name, Jesus Christ my living hope!" },
+      { "start": 168.0, "end": 195.4, "kr": "[3절] 약속을 인치시는 그 부활의 아침이 밝았네, 무덤에 묻히셨던 주의 몸이 숨쉬기 시작하셨네!", "en": "Then came the morning that sealed the promise, Your buried body began to breathe!" },
+      { "start": 195.4, "end": 215.0, "kr": "침묵을 깨고 포효하는 유다의 사자, '무덤은 더 이상 그에게 권세 없노라' 선포하셨네!", "en": "Out of the silence the roaring Lion declared the grave has no claim on me!" },
+      { "start": 215.0, "end": 235.0, "kr": "예수님 주께서 승리하셨습니다!", "en": "Jesus, Yours is the victory!" },
+      { "start": 235.0, "end": 258.0, "kr": "[후렴 절정] 할렐루야! 나를 자유케 하신 주를 찬양해! 사망 권세 무너졌네!", "en": "Hallelujah, praise the One who set me free! Death has lost its grip on me!" },
+      { "start": 258.0, "end": 285.0, "kr": "주 모든 사슬 끊으셨고 주의 이름에 구원이 있네, 예수 그리스도 나의 참된 소망!", "en": "You have broken every chain, there's salvation in Your name, Jesus Christ my living hope!" },
+      { "start": 285.0, "end": 331.3, "kr": "🕊️ 부활이요 생명 되신 예수 그리스도, 나의 영원한 소망을 찬양합니다 · 아멘", "en": "Jesus Christ, You Are My Living Hope Forever · Amen" }
     ]
   }
-]
-;
+];
 
 // App Studio State
 let worshipStudioState = {
