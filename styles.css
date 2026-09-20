@@ -2377,6 +2377,40 @@ body {
   color: #F87171;
 }
 
+/* Praise Subtitle Studio in Settings Modal */
+.settings-studio-box {
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  padding: 1.2rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(2, 132, 199, 0.1));
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.settings-studio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge-studio-host {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.settings-studio-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 /* Sheet Template Guide Table */
 .sheet-guide-table-wrap {
   overflow-x: auto;
