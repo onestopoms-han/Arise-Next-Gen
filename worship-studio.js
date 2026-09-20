@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Arise Next-Gen Worship Subtitle Studio & Player (찬양 자막 스튜디오 & 플레이어)
  * 한/영 찬양 자막 영상 재생, 줌(Zoom) 화면공유 최적화, 가사 싱크 및 커스텀 찬양 제작 도구
  */
@@ -9,13 +9,13 @@ const PRESET_PRAISE_SONGS = [
     "id": "amazing-grace",
     "titleKo": "나 같은 죄인 살리신 (찬송가 305장)",
     "titleEn": "Amazing Grace (Hymn 305)",
-    "artist": "John Newton • 전통 찬송가",
+    "artist": "V-WORSHIP (브이워십) • 나 같은 죄인 살리신 + 놀라우신 은혜",
     "category": "hymn",
     "videoUrl": "assets/amazing_grace_bilingual.mp4",
     "audioUrl": "assets/amazing_grace.mp3",
     "srtUrl": "assets/amazing_grace.srt",
     "lrcUrl": "assets/amazing_grace.lrc",
-    "videoId": "",
+    "videoId": "gLpoLRsIPko",
     "duration": 170,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -374,7 +374,9 @@ let worshipStudioState = {
   allSongs: [],
   activeTab: 'player', // 'player' | 'creator'
   mediaMode: 'local', // 'local' (고음질 수록 음원/영상 & 100% 실시간 자막) | 'youtube' (공식 영상)
-  currentLineIndex: -1,
+  subtitleMode: 'manual', // 'manual' (클릭 및 키보드 수동 넘김 - 권장) | 'auto' (시간 기반 자동 싱크)
+  isSubtitleHidden: false, // 전주/간주 중 자막 일시 숨김
+  currentLineIndex: 0,
   isFullscreen: false,
   customAudioBlob: null,
   ytSyncTimer: null
@@ -388,6 +390,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function initWorshipStudio() {
   loadCustomSongs();
   setupStudioKeyboardShortcuts();
+  setupStageClickHandler();
+  updateSubtitleControlBar();
   
   // Initialize praise dropdown and pre-select target song
   const select = document.getElementById('studioSongSelect');
@@ -595,22 +599,90 @@ function toggleMediaSource() {
 }
 window.toggleMediaSource = toggleMediaSource;
 
+// 줌(Zoom) 전용 초경량 오디오+실시간 자막 모드 토글
+function toggleZoomSafeMode() {
+  const isSafe = worshipStudioState.mediaMode === 'safe-audio';
+  const newMode = isSafe ? 'local' : 'safe-audio';
+  worshipStudioState.mediaMode = newMode;
+
+  const btn = document.getElementById('btnToggleZoomSafeMode');
+  if (btn) {
+    if (newMode === 'safe-audio') {
+      btn.innerHTML = '🛡️ 줌 끊김방지 (ON)';
+      btn.classList.add('active-safe-mode');
+      btn.style.borderColor = '#38bdf8';
+      btn.style.color = '#38bdf8';
+      btn.style.boxShadow = '0 0 12px rgba(56, 189, 248, 0.4)';
+      showStudioToast("🛡️ [줌 끊김방지 모드 ON] 초경량 오디오 + 실시간 자막 모드로 전환되었습니다.");
+    } else {
+      btn.innerHTML = '🛡️ 줌 끊김방지 모드';
+      btn.classList.remove('active-safe-mode');
+      btn.style.borderColor = '';
+      btn.style.color = '';
+      btn.style.boxShadow = '';
+      showStudioToast("🎬 일반 고화질 영상 모드로 복귀했습니다.");
+    }
+  }
+
+  if (worshipStudioState.currentSong) {
+    selectWorshipSong(worshipStudioState.currentSong.id, newMode, true);
+  }
+}
+window.toggleZoomSafeMode = toggleZoomSafeMode;
+
+// 줌(Zoom) 찬양 끊김 완벽 해결 가이드 모달 제어
+function openZoomGuideModal() {
+  const modal = document.getElementById('zoomGuideModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+window.openZoomGuideModal = openZoomGuideModal;
+
+function closeZoomGuideModal() {
+  const modal = document.getElementById('zoomGuideModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+window.closeZoomGuideModal = closeZoomGuideModal;
+
 function updateSourceToggleBtn(song) {
   const btn = document.getElementById('btnToggleMediaSource');
-  if (!btn) return;
-  if (song && song.videoId && song.audioUrl) {
-    btn.style.display = 'inline-flex';
-    if (worshipStudioState.mediaMode === 'youtube') {
-      btn.innerHTML = '🎵 수록 음원 & 자막 모드';
-      btn.classList.add('btn-primary');
-      btn.classList.remove('btn-ghost');
+  if (btn) {
+    if (song && song.videoId && song.audioUrl) {
+      btn.style.display = 'inline-flex';
+      if (worshipStudioState.mediaMode === 'youtube') {
+        btn.innerHTML = '🎵 수록 음원 & 자막 모드';
+        btn.classList.add('btn-primary');
+        btn.classList.remove('btn-ghost');
+      } else {
+        btn.innerHTML = '📺 YouTube 공식 영상';
+        btn.classList.remove('btn-primary');
+        btn.classList.add('btn-ghost');
+      }
     } else {
-      btn.innerHTML = '📺 YouTube 공식 영상';
-      btn.classList.remove('btn-primary');
-      btn.classList.add('btn-ghost');
+      btn.style.display = 'none';
     }
-  } else {
-    btn.style.display = 'none';
+  }
+
+  const safeBtn = document.getElementById('btnToggleZoomSafeMode');
+  if (safeBtn) {
+    if (worshipStudioState.mediaMode === 'safe-audio') {
+      safeBtn.innerHTML = '🛡️ 줌 끊김방지 (ON)';
+      safeBtn.classList.add('active-safe-mode');
+      safeBtn.style.borderColor = '#38bdf8';
+      safeBtn.style.color = '#38bdf8';
+      safeBtn.style.boxShadow = '0 0 12px rgba(56, 189, 248, 0.4)';
+    } else {
+      safeBtn.innerHTML = '🛡️ 줌 끊김방지 모드';
+      safeBtn.classList.remove('active-safe-mode');
+      safeBtn.style.borderColor = '';
+      safeBtn.style.color = '';
+      safeBtn.style.boxShadow = '';
+    }
   }
 }
 
@@ -646,8 +718,36 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = true) {
 
   updateSourceToggleBtn(song);
 
-  if (worshipStudioState.mediaMode === 'youtube' && song.videoId) {
-    // 1. User opted for YouTube mode
+  // 1. Zoom Safe Mode (Ultra-lightweight MP3 + High-contrast live subtitles, 0% stuttering)
+  if (worshipStudioState.mediaMode === 'safe-audio' && song.audioUrl) {
+    if (ytWrapper) ytWrapper.style.display = 'none';
+    if (ytStudioPlayer && typeof ytStudioPlayer.pauseVideo === 'function') {
+      try { ytStudioPlayer.pauseVideo(); } catch(e) {}
+    }
+    if (video) {
+      video.pause();
+      video.style.display = 'none';
+    }
+    if (mediaWrapper) {
+      mediaWrapper.style.backgroundImage = `linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.65)), url("${song.bgImage || 'assets/worship_bg.jpg'}")`;
+      mediaWrapper.style.backgroundSize = 'cover';
+      mediaWrapper.style.backgroundPosition = 'center';
+    }
+    if (audio) {
+      audio.style.display = 'block';
+      const curSrc = audio.getAttribute('src') || '';
+      if (!curSrc.endsWith(song.audioUrl)) {
+        audio.src = song.audioUrl;
+      }
+      audio.currentTime = 0;
+      audio.load();
+      setupMediaTimeUpdate(audio);
+      if (autoPlay) {
+        audio.play().catch(e => console.log('Audio autoplay:', e));
+      }
+    }
+  } else if (worshipStudioState.mediaMode === 'youtube' && song.videoId) {
+    // 2. User opted for YouTube mode
     if (video) { video.pause(); video.style.display = 'none'; }
     if (audio) { audio.pause(); audio.style.display = 'none'; }
     if (mediaWrapper) {
@@ -655,7 +755,7 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = true) {
     }
     mountYouTubePlayer(song.videoId);
   } else if (song.videoUrl) {
-    // 2. High-Definition 1080p MP4 Video (All 10 Songs)
+    // 3. High-Definition 1080p MP4 Video (All 10 Songs)
     if (ytWrapper) ytWrapper.style.display = 'none';
     if (ytStudioPlayer && typeof ytStudioPlayer.pauseVideo === 'function') {
       try { ytStudioPlayer.pauseVideo(); } catch(e) {}
@@ -673,6 +773,7 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = true) {
       if (!curSrc.endsWith(song.videoUrl)) {
         video.src = song.videoUrl;
       }
+      video.preload = "auto";
       video.currentTime = 0;
       video.load();
       setupMediaTimeUpdate(video);
@@ -687,7 +788,7 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = true) {
       }
     }
   } else if (song.audioUrl) {
-    // 3. Local High-Quality Audio with Worship Background Visual & Subtitles
+    // 4. Local High-Quality Audio with Worship Background Visual & Subtitles
     if (ytWrapper) ytWrapper.style.display = 'none';
     if (ytStudioPlayer && typeof ytStudioPlayer.pauseVideo === 'function') {
       try { ytStudioPlayer.pauseVideo(); } catch(e) {}
@@ -719,17 +820,199 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = true) {
 
   // Render Lyric Stream Table
   renderLyricStream(song);
+
+  // Initialize Subtitle for selected mode
+  worshipStudioState.isSubtitleHidden = false;
+  if (worshipStudioState.subtitleMode === 'manual' && song.lines && song.lines.length > 0) {
+    worshipStudioState.currentLineIndex = 0;
+    displayOverlaySubtitle(song.lines[0]);
+    highlightLyricStreamRow(0);
+  } else {
+    displayOverlaySubtitle(null);
+  }
+  updateSubtitleControlBar();
 }
 
-// Media Timeupdate Handler for real-time Subtitle Sync
+// Media Timeupdate & Buffer Stall Handler for real-time Subtitle Sync
 function setupMediaTimeUpdate(mediaEl) {
   mediaEl.ontimeupdate = () => {
     const curTime = mediaEl.currentTime;
     updateActiveSubtitleLine(curTime);
   };
+
+  // Stalled detection for Zoom users
+  let stallTimeout = null;
+  mediaEl.onwaiting = () => {
+    if (!stallTimeout && worshipStudioState.mediaMode !== 'safe-audio') {
+      stallTimeout = setTimeout(() => {
+        if (mediaEl.readyState < 3 && worshipStudioState.mediaMode !== 'safe-audio') {
+          showStudioToast("⚠️ 영상 버퍼링 감지됨: 상단의 [🛡️ 줌 끊김방지 모드]를 누르시면 끊김 없이 즉시 재생됩니다.");
+        }
+        stallTimeout = null;
+      }, 4000);
+    }
+  };
+
+  mediaEl.onplaying = () => {
+    if (stallTimeout) {
+      clearTimeout(stallTimeout);
+      stallTimeout = null;
+    }
+  };
+}
+
+// ========================================================
+// 🎤 Subtitle Navigation & Real-time Live Control
+// ========================================================
+
+// Next Lyric Line (수동 다음 가사 넘김)
+function nextSubtitleLine() {
+  const song = worshipStudioState.currentSong;
+  if (!song || !song.lines || song.lines.length === 0) return;
+
+  worshipStudioState.isSubtitleHidden = false;
+  let nextIdx = worshipStudioState.currentLineIndex + 1;
+  if (nextIdx >= song.lines.length) {
+    nextIdx = song.lines.length - 1;
+    showStudioToast("마지막 소절입니다 (Last lyric line reached)");
+  }
+  setSubtitleLine(nextIdx, false);
+}
+
+// Previous Lyric Line (수동 이전 가사 넘김)
+function prevSubtitleLine() {
+  const song = worshipStudioState.currentSong;
+  if (!song || !song.lines || song.lines.length === 0) return;
+
+  worshipStudioState.isSubtitleHidden = false;
+  let prevIdx = worshipStudioState.currentLineIndex - 1;
+  if (prevIdx < 0) {
+    prevIdx = 0;
+  }
+  setSubtitleLine(prevIdx, false);
+}
+
+// Set Specific Subtitle Line (가사 직접 지정)
+function setSubtitleLine(index, seekAudio = false) {
+  const song = worshipStudioState.currentSong;
+  if (!song || !song.lines || index < 0 || index >= song.lines.length) return;
+
+  worshipStudioState.currentLineIndex = index;
+  worshipStudioState.isSubtitleHidden = false;
+  displayOverlaySubtitle(song.lines[index]);
+  highlightLyricStreamRow(index);
+  updateSubtitleControlBar();
+
+  if (seekAudio) {
+    jumpToLyricTime(song.lines[index].start);
+  }
+}
+
+// Toggle Subtitle Hide/Show (전주/간주/기도 시 자막 숨김)
+function toggleHideSubtitle() {
+  worshipStudioState.isSubtitleHidden = !worshipStudioState.isSubtitleHidden;
+  const song = worshipStudioState.currentSong;
+  const curLine = (song && song.lines && worshipStudioState.currentLineIndex >= 0) 
+    ? song.lines[worshipStudioState.currentLineIndex] 
+    : null;
+
+  displayOverlaySubtitle(curLine);
+  updateSubtitleControlBar();
+  showStudioToast(worshipStudioState.isSubtitleHidden ? "👁️ 자막이 숨겨졌습니다 (간주/기도 중)" : "👁️ 자막이 다시 표시됩니다");
+}
+
+// Toggle Manual vs Auto Subtitle Mode (수동 클릭 ↔ 자동 싱크 전환)
+function toggleSubtitleMode(targetMode = null) {
+  if (targetMode) {
+    worshipStudioState.subtitleMode = targetMode;
+  } else {
+    worshipStudioState.subtitleMode = (worshipStudioState.subtitleMode === 'manual') ? 'auto' : 'manual';
+  }
+
+  const isManual = worshipStudioState.subtitleMode === 'manual';
+  updateSubtitleControlBar();
+
+  const song = worshipStudioState.currentSong;
+  if (isManual && song && song.lines && song.lines.length > 0) {
+    if (worshipStudioState.currentLineIndex < 0) {
+      setSubtitleLine(0, false);
+    } else {
+      displayOverlaySubtitle(song.lines[worshipStudioState.currentLineIndex]);
+    }
+  }
+
+  showStudioToast(isManual 
+    ? "👆 [수동 클릭 모드] 활성화: 클릭 또는 [→] 키로 가사를 넘깁니다." 
+    : "🔄 [자동 싱크 모드] 활성화: 음악 시간에 맞춰 자막이 자동으로 넘어갑니다."
+  );
+}
+
+// Update On-Screen Subtitle Control Bar UI
+function updateSubtitleControlBar() {
+  const song = worshipStudioState.currentSong;
+  const total = (song && song.lines) ? song.lines.length : 0;
+  const cur = worshipStudioState.currentLineIndex;
+  const isManual = worshipStudioState.subtitleMode === 'manual';
+  const isHidden = worshipStudioState.isSubtitleHidden;
+
+  // Indicators
+  const curEl = document.getElementById('subCurLineNum');
+  const totalEl = document.getElementById('subTotalLinesNum');
+  if (curEl) curEl.textContent = (cur >= 0 && total > 0) ? (cur + 1) : '-';
+  if (totalEl) totalEl.textContent = total;
+
+  // Prev / Next buttons
+  const prevBtn = document.querySelector('.btn-sub-prev');
+  const nextBtn = document.querySelector('.btn-sub-next');
+  if (prevBtn) prevBtn.disabled = (cur <= 0);
+  if (nextBtn) nextBtn.disabled = (cur >= total - 1);
+
+  // Mode Toggle Buttons
+  const barModeBtn = document.getElementById('btnToggleSubtitleMode');
+  const toolbarModeBtn = document.getElementById('btnToolbarSubMode');
+  const modeText = isManual ? '수동 클릭' : '자동 싱크';
+
+  if (barModeBtn) {
+    barModeBtn.innerHTML = `<span>${isManual ? '👆' : '🔄'}</span> <span>${modeText}</span>`;
+    barModeBtn.className = isManual ? 'btn-sub-mode manual-active' : 'btn-sub-mode auto-active';
+  }
+  if (toolbarModeBtn) {
+    toolbarModeBtn.innerHTML = `${isManual ? '👆' : '🔄'} ${isManual ? '수동 모드 (ON)' : '자동 싱크 (ON)'}`;
+    toolbarModeBtn.className = isManual ? 'btn btn-sm btn-sub-mode-toggle active-manual' : 'btn btn-sm btn-sub-mode-toggle active-auto';
+  }
+
+  // Hide / Show Subtitle Button
+  const hideBtn = document.getElementById('btnToggleHideSub');
+  if (hideBtn) {
+    hideBtn.innerHTML = `<span>${isHidden ? '👁️‍🗨️' : '👁️'}</span> <span>${isHidden ? '자막 보이기' : '자막 숨김'}</span>`;
+    hideBtn.style.opacity = isHidden ? '0.7' : '1';
+  }
+}
+
+// Setup Stage Click Handler (화면 클릭 시 다음 가사 넘김)
+function setupStageClickHandler() {
+  const stage = document.getElementById('studioVideoWrapper');
+  if (!stage || stage.dataset.hasClickHandler) return;
+  stage.dataset.hasClickHandler = 'true';
+
+  stage.addEventListener('click', (e) => {
+    // If clicked on controls, inputs, buttons, audio native elements, ignore
+    if (e.target.closest('button') || e.target.closest('input') || e.target.closest('select') || e.target.closest('a') || e.target.tagName === 'AUDIO') {
+      return;
+    }
+    // In manual mode, click advances to next lyric
+    if (worshipStudioState.subtitleMode === 'manual') {
+      nextSubtitleLine();
+    }
+  });
 }
 
 function updateActiveSubtitleLine(currentTime) {
+  // If in manual mode, DO NOT automatically advance lyrics based on currentTime!
+  if (worshipStudioState.subtitleMode === 'manual') {
+    return;
+  }
+
   const song = worshipStudioState.currentSong;
   if (!song || !song.lines) return;
 
@@ -745,6 +1028,7 @@ function updateActiveSubtitleLine(currentTime) {
     worshipStudioState.currentLineIndex = activeIndex;
     displayOverlaySubtitle(activeIndex >= 0 ? song.lines[activeIndex] : null);
     highlightLyricStreamRow(activeIndex);
+    updateSubtitleControlBar();
   }
 }
 
@@ -753,15 +1037,15 @@ function displayOverlaySubtitle(lineObj) {
   const overlay = document.getElementById('studioLiveSubtitle');
   if (!overlay) return;
 
-  const song = worshipStudioState.currentSong;
-  // Amazing Grace MP4 already has beautiful burned-in subtitles
-  if (song && song.id === 'amazing-grace' && song.videoUrl) {
+  if (worshipStudioState.isSubtitleHidden || !lineObj) {
     overlay.innerHTML = '';
     overlay.classList.remove('visible');
     return;
   }
 
-  if (!lineObj) {
+  const song = worshipStudioState.currentSong;
+  // Only suppress HTML overlay if we are playing local video of Amazing Grace which has burned-in subs AND we are in auto mode
+  if (worshipStudioState.subtitleMode === 'auto' && worshipStudioState.mediaMode === 'local' && song && song.id === 'amazing-grace' && song.videoUrl) {
     overlay.innerHTML = '';
     overlay.classList.remove('visible');
     return;
@@ -785,15 +1069,25 @@ function renderLyricStream(song) {
   }
 
   listEl.innerHTML = song.lines.map((line, idx) => `
-    <div class="lyric-row" id="lyricRow_${idx}" onclick="jumpToLyricTime(${line.start})">
+    <div class="lyric-row" id="lyricRow_${idx}" onclick="onLyricRowClick(${idx})" title="클릭하여 대형 자막에 즉시 송출">
       <div class="lyric-time-badge">${formatTime(line.start)}</div>
       <div class="lyric-text-block">
-        <div class="lyric-kr-text">${line.kr}</div>
-        <div class="lyric-en-text">${line.en}</div>
+        <div class="lyric-kr-text">${escapeHtml(line.kr)}</div>
+        <div class="lyric-en-text">${escapeHtml(line.en)}</div>
       </div>
-      <button class="lyric-play-btn" title="이 소절부터 재생">▶</button>
+      <button type="button" class="lyric-play-btn" onclick="event.stopPropagation(); jumpToLyricTime(${line.start});" title="이 소절 시간으로 음원 이동">▶ 이동</button>
     </div>
   `).join('');
+}
+
+function onLyricRowClick(idx) {
+  // In manual mode, clicking the line sets the overlay subtitle immediately without interrupting audio!
+  if (worshipStudioState.subtitleMode === 'manual') {
+    setSubtitleLine(idx, false);
+  } else {
+    // In auto mode, also jump audio
+    setSubtitleLine(idx, true);
+  }
 }
 
 function highlightLyricStreamRow(idx) {
@@ -826,6 +1120,15 @@ function jumpToLyricTime(seconds) {
   }
   updateActiveSubtitleLine(seconds);
 }
+
+// Expose subtitle navigation to global window
+window.nextSubtitleLine = nextSubtitleLine;
+window.prevSubtitleLine = prevSubtitleLine;
+window.setSubtitleLine = setSubtitleLine;
+window.toggleHideSubtitle = toggleHideSubtitle;
+window.toggleSubtitleMode = toggleSubtitleMode;
+window.updateSubtitleControlBar = updateSubtitleControlBar;
+window.onLyricRowClick = onLyricRowClick;
 
 // ========================================================
 // 📌 ONE-CLICK: Set as Current Meeting Song for Step 1
@@ -959,6 +1262,66 @@ function setupStudioKeyboardShortcuts() {
     const audio = document.getElementById('studioAudioPlayer');
     const media = (video && video.style.display !== 'none') ? video : audio;
 
+    // 1. Fullscreen
+    if (e.code === 'KeyF') {
+      e.preventDefault();
+      toggleStudioFullscreen();
+      return;
+    }
+
+    // 2. Hide / Show Subtitles (Interlude/Intro/Prayer)
+    if (e.code === 'KeyC') {
+      e.preventDefault();
+      toggleHideSubtitle();
+      return;
+    }
+
+    // 3. Subtitle Mode Toggle (Manual <-> Auto)
+    if (e.code === 'KeyM') {
+      e.preventDefault();
+      toggleSubtitleMode();
+      return;
+    }
+
+    // 4. Subtitle Navigation / Slide Advance
+    // Right Arrow, PageDown, Enter advance lyrics
+    if ((e.code === 'ArrowRight' && !e.shiftKey) || e.code === 'PageDown' || (e.code === 'Enter' && !e.shiftKey && !e.ctrlKey)) {
+      e.preventDefault();
+      nextSubtitleLine();
+      return;
+    }
+    // Left Arrow, PageUp go to previous lyric
+    if ((e.code === 'ArrowLeft' && !e.shiftKey) || e.code === 'PageUp') {
+      e.preventDefault();
+      prevSubtitleLine();
+      return;
+    }
+
+    // 5. Shift + Arrow: Media Seek 5s
+    if (e.code === 'ArrowRight' && e.shiftKey) {
+      e.preventDefault();
+      if (worshipStudioState.mediaMode === 'youtube' && song && song.videoId && ytStudioPlayer && typeof ytStudioPlayer.getCurrentTime === 'function') {
+        try {
+          ytStudioPlayer.seekTo(ytStudioPlayer.getCurrentTime() + 5, true);
+        } catch(err) {}
+      } else if (media) {
+        media.currentTime = Math.min(media.duration || 9999, media.currentTime + 5);
+      }
+      return;
+    }
+    if (e.code === 'ArrowLeft' && e.shiftKey) {
+      e.preventDefault();
+      if (worshipStudioState.mediaMode === 'youtube' && song && song.videoId && ytStudioPlayer && typeof ytStudioPlayer.getCurrentTime === 'function') {
+        try {
+          ytStudioPlayer.seekTo(Math.max(0, ytStudioPlayer.getCurrentTime() - 5), true);
+        } catch(err) {}
+      } else if (media) {
+        media.currentTime = Math.max(0, media.currentTime - 5);
+      }
+      return;
+    }
+
+    // 6. Space: Play / Pause Music
     if (e.code === 'Space') {
       e.preventDefault();
       if (worshipStudioState.mediaMode === 'youtube' && song && song.videoId && ytStudioPlayer && typeof ytStudioPlayer.getPlayerState === 'function') {
@@ -970,27 +1333,6 @@ function setupStudioKeyboardShortcuts() {
       } else if (media) {
         if (media.paused) media.play();
         else media.pause();
-      }
-    } else if (e.code === 'KeyF') {
-      e.preventDefault();
-      toggleStudioFullscreen();
-    } else if (e.code === 'ArrowRight') {
-      e.preventDefault();
-      if (worshipStudioState.mediaMode === 'youtube' && song && song.videoId && ytStudioPlayer && typeof ytStudioPlayer.getCurrentTime === 'function') {
-        try {
-          ytStudioPlayer.seekTo(ytStudioPlayer.getCurrentTime() + 5, true);
-        } catch(err) {}
-      } else if (media) {
-        media.currentTime = Math.min(media.duration || 9999, media.currentTime + 5);
-      }
-    } else if (e.code === 'ArrowLeft') {
-      e.preventDefault();
-      if (worshipStudioState.mediaMode === 'youtube' && song && song.videoId && ytStudioPlayer && typeof ytStudioPlayer.getCurrentTime === 'function') {
-        try {
-          ytStudioPlayer.seekTo(Math.max(0, ytStudioPlayer.getCurrentTime() - 5), true);
-        } catch(err) {}
-      } else if (media) {
-        media.currentTime = Math.max(0, media.currentTime - 5);
       }
     }
   });

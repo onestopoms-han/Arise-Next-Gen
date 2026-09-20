@@ -73,6 +73,15 @@
             <button type="button" class="btn btn-sm btn-assign-meeting" onclick="setCurrentMeetingSong()" title="현재 선택된 찬양을 이번 30분 기도모임의 지정 찬양으로 즉시 설정">
               📌 이번 모임 찬양으로 지정
             </button>
+            <button type="button" class="btn btn-sm btn-sub-mode-toggle active-manual" id="btnToolbarSubMode" onclick="toggleSubtitleMode()" title="찬양 자막 넘김 방식: 수동 클릭 ↔ 자동 시간 싱크 (단축키: M)">
+              👆 수동 모드 (ON)
+            </button>
+            <button type="button" class="btn btn-sm btn-zoom-guide" onclick="openZoomGuideModal()" style="background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff; font-weight: 700; border: none; box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);" title="줌 화면 공유 시 소리가 끊길 때 해결 방법">
+              ⚡ 줌 끊김 해결
+            </button>
+            <button type="button" class="btn btn-sm btn-outline" id="btnToggleZoomSafeMode" onclick="toggleZoomSafeMode()" title="무거운 1080p 영상 대신 초경량 고음질 오디오+자막으로 전환하여 줌 끊김을 방지합니다">
+              🛡️ 줌 끊김방지 모드
+            </button>
             <button type="button" class="btn btn-sm btn-ghost" id="btnToggleMediaSource" onclick="toggleMediaSource()" style="display:none;" title="수록 음원과 YouTube 공식 영상 간 재생 모드 전환">
               📺 YouTube 영상
             </button>
@@ -97,7 +106,7 @@
             <span class="title-en">Amazing Grace (Hymn 305)</span>
           </div>
 
-          <div class="studio-media-wrapper" id="studioVideoWrapper">
+          <div class="studio-media-wrapper" id="studioVideoWrapper" title="클릭 시 다음 가사로 넘어갑니다 (수동 모드)">
             <video id="studioVideoPlayer" class="studio-video" controls playsinline preload="auto">
               <source src="assets/amazing_grace_bilingual.mp4" type="video/mp4">
             </video>
@@ -109,14 +118,42 @@
             <div class="studio-live-subtitle" id="studioLiveSubtitle"></div>
           </div>
 
+          <!-- On-Stage Subtitle Live Navigation Bar -->
+          <div class="studio-sub-control-bar" id="studioSubControlBar">
+            <div class="sub-ctrl-nav">
+              <button type="button" class="btn-sub-nav btn-sub-prev" onclick="prevSubtitleLine()" title="이전 소절 가사 (단축키: ← 또는 PageUp)">
+                <span>◀</span> <span>이전</span>
+              </button>
+              <div class="sub-line-indicator" id="subLineIndicator" title="현재 소절 / 전체 소절 수">
+                소절 <b id="subCurLineNum">1</b> / <span id="subTotalLinesNum">10</span>
+              </div>
+              <button type="button" class="btn-sub-nav btn-sub-next" onclick="nextSubtitleLine()" title="다음 소절 가사 (단축키: → 또는 Enter/PageDown)">
+                <span>다음</span> <span>▶</span>
+              </button>
+            </div>
+
+            <div class="sub-ctrl-actions">
+              <button type="button" class="btn-sub-action" id="btnToggleHideSub" onclick="toggleHideSubtitle()" title="전주/간주/기도 중 자막 숨기기/보이기 (단축키: C)">
+                <span id="hideSubIcon">👁️</span> <span id="hideSubText">자막 숨김</span>
+              </button>
+              <button type="button" class="btn-sub-mode manual-active" id="btnToggleSubtitleMode" onclick="toggleSubtitleMode()" title="수동 클릭 ↔ 자동 시간 싱크 전환 (단축키: M)">
+                <span>👆</span> <span>수동 클릭</span>
+              </button>
+            </div>
+
+            <div class="sub-ctrl-hint">
+              <span>💡 <b>화면 클릭</b> 또는 <b>[→] 방향키</b>로 다음 가사</span>
+            </div>
+          </div>
+
           <div class="stage-footer-guide">
-            <span>⌨️ 단축키 안내: <b>[Space]</b> 재생/일시정지 &nbsp;|&nbsp; <b>[F]</b> 줌 전체화면 &nbsp;|&nbsp; <b>[← / →]</b> 5초 앞뒤 이동</span>
+            <span>⌨️ 단축키 안내: <b>[→ / ←]</b> 가사 넘김 &nbsp;|&nbsp; <b>[C]</b> 자막 숨김(간주/기도) &nbsp;|&nbsp; <b>[M]</b> 수동/자동 전환 &nbsp;|&nbsp; <b>[Space]</b> 재생/정지 &nbsp;|&nbsp; <b>[F]</b> 줌 전체화면</span>
           </div>
         </div>
 
         <div class="studio-lyric-stream-box">
           <div class="stream-header">
-            <h4>📜 실시간 한/영 가사 스트림 (소절을 클릭하면 해당 시간으로 이동합니다)</h4>
+            <h4>📜 실시간 한/영 가사 스트림 (소절을 클릭하면 대형 자막에 즉시 송출됩니다)</h4>
           </div>
           <div class="stream-list" id="studioLyricStreamList"></div>
         </div>
@@ -184,6 +221,111 @@
             </button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zoom Worship Audio & Video Optimization Guide Modal (줌 찬양 끊김 완벽 해결 가이드) -->
+  <div class="modal-overlay" id="zoomGuideModal">
+    <div class="modal-card zoom-guide-modal-card" style="max-width: 720px; width: 95%;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span style="font-size: 1.6rem;">⚡</span>
+          <div>
+            <h3 class="modal-title" style="margin: 0; font-size: 1.25rem;">
+              줌(Zoom) 찬양 재생 끊김 100% 해결 가이드
+            </h3>
+            <span style="font-size: 0.82rem; color: #94a3b8;">Zoom Audio & Video Screen Share Optimization</span>
+          </div>
+        </div>
+        <button class="modal-close" onclick="closeZoomGuideModal()">&times;</button>
+      </div>
+
+      <div class="modal-body" style="padding: 1.2rem; max-height: 75vh; overflow-y: auto;">
+        <!-- Core Cause Alert -->
+        <div class="zoom-alert-box" style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 10px; padding: 1rem; margin-bottom: 1.25rem; display: flex; gap: 0.75rem; align-items: flex-start;">
+          <span style="font-size: 1.5rem; line-height: 1;">💡</span>
+          <div style="font-size: 0.9rem; line-height: 1.5; color: #fecaca;">
+            <b style="color: #fff;">왜 줌에서 찬양이 뚝뚝 끊길까요?</b><br>
+            컴퓨터 내부 사운드가 직접 전송되지 않고 스피커 소리가 마이크로 들어가면, 줌의 <b>'배경 소음 억제(Noise Suppression)'</b> 알고리즘이 찬양 음악과 악기 소리를 '잡음'으로 인식하여 강제로 소리를 차단하기 때문입니다. 아래 3가지를 설정하시면 끊김 없이 웅장하게 재생됩니다!
+          </div>
+        </div>
+
+        <!-- 3 Step Cards -->
+        <div class="zoom-steps-list" style="display: flex; flex-direction: column; gap: 1rem;">
+          <!-- Step 1 -->
+          <div class="zoom-step-card" style="background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 1.1rem; position: relative;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="zoom-step-num" style="background: #0284c7; color: #fff; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem;">1</span>
+                <h4 style="margin: 0; font-size: 1.05rem; color: #38bdf8;">[화면 공유] 창 좌측 하단 [소리 공유] 체크 (가장 중요 ⭐⭐⭐)</h4>
+              </div>
+              <span style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 9999px; font-weight: 700;">필수 설정</span>
+            </div>
+            <p style="font-size: 0.88rem; color: #cbd5e1; margin: 0 0 0.6rem 0; line-height: 1.5;">
+              줌 화면 공유 창을 띄운 뒤, <b>좌측 하단의 ☑ [소리 공유 (Share sound)]</b> 체크박스를 반드시 체크하세요.<br>
+              체크박스 옆의 <b>[⌵] 화살표</b>를 눌러 <b>'스테레오(고음질)'</b>를 선택하면 음질이 2배 선명해집니다.
+            </p>
+            <div style="background: rgba(0, 0, 0, 0.35); padding: 0.6rem 0.8rem; border-radius: 6px; font-size: 0.82rem; color: #94a3b8;">
+              📌 <i>효과: 스피커를 거치지 않고 웹 브라우저의 원본 디지털 사운드가 줌 참여자들에게 무손실 직통 전송됩니다.</i>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="zoom-step-card" style="background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 1.1rem; position: relative;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="zoom-step-num" style="background: #0284c7; color: #fff; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem;">2</span>
+                <h4 style="margin: 0; font-size: 1.05rem; color: #38bdf8;">[비디오 클립에 최적화] 체크 (영상/자막 버벅임 방지)</h4>
+              </div>
+              <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 9999px; font-weight: 700;">영상 부드러움</span>
+            </div>
+            <p style="font-size: 0.88rem; color: #cbd5e1; margin: 0 0 0.6rem 0; line-height: 1.5;">
+              화면 공유 창 하단의 <b>☑ [비디오 클립에 최적화 (Optimize for video clip)]</b>도 함께 체크하세요.
+            </p>
+            <div style="background: rgba(0, 0, 0, 0.35); padding: 0.6rem 0.8rem; border-radius: 6px; font-size: 0.82rem; color: #94a3b8;">
+              📌 <i>효과: 줌이 초당 5프레임 정적 슬라이드 방식에서 초당 30프레임 부드러운 스트리밍 방식으로 전환되어 화면이 끊기지 않습니다.</i>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="zoom-step-card" style="background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 1.1rem; position: relative;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="zoom-step-num" style="background: #0284c7; color: #fff; width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem;">3</span>
+                <h4 style="margin: 0; font-size: 1.05rem; color: #38bdf8;">줌 오디오 설정: [음악가용 원본 오디오] 켜기</h4>
+              </div>
+              <span style="background: rgba(147, 51, 234, 0.2); color: #c084fc; font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 9999px; font-weight: 700;">고음질 모드</span>
+            </div>
+            <p style="font-size: 0.88rem; color: #cbd5e1; margin: 0 0 0.6rem 0; line-height: 1.5;">
+              줌 환경설정 → <b>오디오(Audio)</b>에서 <b>[회의 중 '음악가용 원본 오디오' 활성화 옵션 표시]</b>를 체크하고, 배경 소음 억제를 <b>'낮음(Low)'</b>으로 설정하세요.
+            </p>
+            <div style="background: rgba(0, 0, 0, 0.35); padding: 0.6rem 0.8rem; border-radius: 6px; font-size: 0.82rem; color: #94a3b8;">
+              📌 <i>효과: 찬양 찬송가, 피아노, 성도들의 합창 소리가 소음으로 오인되어 음소거되는 현상을 완벽 차단합니다.</i>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="zoom-step-card" style="background: linear-gradient(135deg, rgba(2, 132, 199, 0.15), rgba(37, 99, 235, 0.2)); border: 1px solid #38bdf8; border-radius: 12px; padding: 1.1rem; position: relative;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="font-size: 1.2rem;">🛡️</span>
+                <h4 style="margin: 0; font-size: 1.05rem; color: #fff;">찬양 스튜디오의 [🛡️ 줌 끊김방지 모드] 활용</h4>
+              </div>
+              <span style="background: #0284c7; color: #fff; font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 9999px; font-weight: 700;">원클릭 해결</span>
+            </div>
+            <p style="font-size: 0.88rem; color: #e2e8f0; margin: 0 0 0.6rem 0; line-height: 1.5;">
+              인터넷이나 컴퓨터가 느릴 때는 찬양 플레이어 상단의 <b>[🛡️ 줌 끊김방지 모드]</b>를 누르세요.<br>
+              무거운 1080p 영상 대신 <b>초경량 고음질 MP3(3~4MB) + 대형 실시간 한/영 자막 스트림</b>으로 즉시 전환되어 버퍼링 0%로 완벽하게 송출됩니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="padding: 1rem 1.2rem; display: flex; justify-content: flex-end; gap: 0.6rem;">
+        <button type="button" class="btn btn-primary" onclick="closeZoomGuideModal()">
+          확인했습니다 👍
+        </button>
       </div>
     </div>
   </div>

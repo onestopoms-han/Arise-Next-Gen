@@ -1570,25 +1570,25 @@ const defaultTestimonies = [
   }
 ];
 
-// Routine 4-Step Actual Program Content Seed Data
+// Routine 4-Step Actual Program Content Seed Data (2026.10 기준)
 const defaultRoutineContent = {
   step1: {
-    songTitle: "Way Maker (길을 만드시는 분)",
-    link: "https://www.youtube.com/watch?v=iJCV_2H9xD0",
-    content: "전 세계 성도들이 함께 고백하는 대표 찬양으로 마음의 문을 열고 주님의 임재를 구합니다.\n• 추천 찬양: Way Maker, The Blessing\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace to you)"
+    songTitle: "나 같은 죄인 살리신 (Amazing Grace)",
+    link: "https://www.youtube.com/watch?v=gLpoLRsIPko",
+    content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다.\n• 지정 찬양: V-WORSHIP · 나 같은 죄인 살리신 + 놀라우신 은혜 (Amazing Grace)\n• 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace to you)"
   },
   step2: {
-    scripture: "디모데후서 2:1-2 (2 Tim 2:1-2)",
-    title: "충성된 사람들에게 부탁하라",
-    content: "1. 내 아들아 그러므로 너는 그리스도 예수 안에 있는 은혜 가운데서 강하라\n2. 또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라\n3. 그들이 또 다른 사람들을 가르칠 수 있으리라\n\n📌 5분 복음 메시지 요약:\n• 다음 세대를 살릴 복음의 신실한 제자 세우기\n• 한국어 & 영어 2개 국어 핵심 자막 슬라이드 제공"
+    scripture: "창세기 1:27-28 (Genesis 1:27-28)",
+    title: "다스리고 정복하라 (Rule & Subdue)",
+    content: "📖 성경 본문 (창세기 1:27-28):\n27. 하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n28. 하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라\n(Gen 1:27-28: So God created mankind in his own image... be fruitful and multiply; fill the earth and subdue it; and rule over every living thing.)\n\n📌 후대에게 전달할 5분 메시지 요약 (A 5-Minute Message to Share with the Next Generation):\n• 하나님이 사람에게 주신 원래 축복: 하나님의 형상과 세상을 살리는 영적 권세\n• 세상의 헛된 문화와 흑암에 끌려가는 것이 아니라 복음으로 세상을 살리고 다스리는 언약의 후대\n• 한국어 & 영어 2개 국어 핵심 자막 슬라이드 제공"
   },
   step3: {
     title: "함께 기도합시다 (Let Us Pray Together)",
-    content: "🕊️ [1. 나를 위한 기도 / Prayer for Myself]\n“내가 제일 중요하다” | “I must begin with myself.”\n• 내가 복음이 되기를 (May the Gospel become real and evident in my life.)\n• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를 (May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture.)\n• Up & Down에 흔들리지 않고 다니엘처럼 항상 한결같은 믿음이 되기를 (May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.)\n\n🌍 [2. 모든 민족을 위한 기도 / Prayer for All Nations]\n• 모든 민족이 그리스도 앞에 무릎 꿇도록 (May all nations bow before Christ.)\n• 이곳에 모인 나라들과 세계 모든 나라를 위하여 (For the nations represented here and for every nation of the world.)\n• 전쟁 속에서 고통받는 나라들과 사람들을 위하여 (For countries and people suffering in the midst of war.)\n\n🌱 [3. 후대를 위한 기도 / Prayer for the Next Generation]\n• 후대가 복음을 알도록 (May the next generation know the Gospel.)\n• 복음이 정말 좋은 것임을 알도록 (May they discover that the Gospel is truly good news.)\n• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록 (May they know that whatever happens in life, they are secure when they are in Christ.)\n• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록 (May they see their studies and every part of life as preparation to serve and save all nations.)\n\n🔥 나 자신을 위하여 · 모든 민족을 위하여 · 후대를 위하여 각자의 모국어로 함께 기도합시다!"
+    content: "🕊️ [1. 나를 위한 기도 / Prayer for Myself]\n“내가 제일 중요하다” | “I must begin with myself.”\n• 나의 복음이 되기를 (May the Gospel become real and evident in my life.)\n• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를 (May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture.)\n• Up & Down 되지 않는 항상이 되기를 - 성경 속 다니엘처럼 (May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.)\n\n🌍 [2. 모든 민족을 위한 기도 / Prayer for All Nations]\n• 모든 민족이 그리스도 앞에 무릎 꿇도록 (May all nations bow before Christ.)\n• 이곳에 모인 나라들과 세계 모든 나라를 위하여 (For the nations represented here and for every nation of the world.)\n• 전쟁 속에서 고통받는 나라들과 사람들을 위하여 (For countries and people suffering in the midst of war.)\n\n🌱 [3. 후대를 위한 기도 / Prayer for the Next Generation]\n• 후대가 복음을 알도록 (May the next generation know the Gospel.)\n• 복음이 정말 좋은 것임을 알도록 (May they discover that the Gospel is truly good news.)\n• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록 (May they know that whatever happens in life, they are secure when they are in Christ.)\n• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록 (May they see their studies and every part of life as preparation to serve and save all nations.)\n\n🔥 나 자신을 위하여 · 모든 민족을 위하여 · 후대를 위하여 각자의 모국어로 함께 기도합시다!"
   },
   step4: {
-    speaker: "다민족 제자 1분 응답 간증 & 전도자 축도",
-    content: "• 다민족 제자의 1분 현장 응답 및 은혜 간증 나눔\n• 전도자의 축도 및 열방 지체들을 향한 제사장적 축복 기도\n• 주기도문으로 은혜의 30분 기도모임 폐회"
+    speaker: "클로징 기도: 죠지 (George) & 모임 나눔",
+    content: "• 오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim)\n• 진행: 한옥주 | 통역: 아이리스 (Host: Christine HAN | Interpreter: Iris)\n• 클로징 기도: 죠지 (Closing Prayer — George)\n• 광고 안내: 개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임\n• 주기도문으로 은혜의 30분 기도모임 폐회"
   }
 };
 
@@ -1601,7 +1601,7 @@ const defaultMeetingSettings = {
 };
 
 // Always sync newly added nations & routine content & meeting settings
-const DATA_VERSION = 'v13_remove_artificial_testimony';
+const DATA_VERSION = 'v14_october_2026_genesis_word';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -2795,16 +2795,16 @@ function openSheetTemplateGuide() {
 function copySheetTemplateTsv() {
   const tsv = [
     "구분 항목\t입력 내용 (3명의 담당자가 작성하는 칸)",
-    "1단계_찬양제목\tWay Maker (길을 만드시는 분)",
-    "1단계_유튜브링크\thttps://www.youtube.com/watch?v=iJCV_2H9xD0",
-    "1단계_찬양안내\t전 세계 성도들이 함께 고백하는 대표 찬양으로 마음의 문을 열고 주님의 임재를 구합니다.",
-    "2단계_성경본문\t디모데후서 2:1-2 (2 Tim 2:1-2)",
-    "2단계_말씀제목\t충성된 사람들에게 부탁하라",
-    "2단계_말씀요약\t1. 내 아들아 그러므로 너는 그리스도 예수 안에 있는 은혜 가운데서 강하라\n2. 또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라\n3. 그들이 또 다른 사람들을 가르칠 수 있으리라",
+    "1단계_찬양제목\t나 같은 죄인 살리신 (Amazing Grace)",
+    "1단계_유튜브링크\thttps://www.youtube.com/watch?v=gLpoLRsIPko",
+    "1단계_찬양안내\t전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양 (V-WORSHIP).",
+    "2단계_성경본문\t창세기 1:27-28 (Genesis 1:27-28)",
+    "2단계_말씀제목\t다스리고 정복하라 (Rule & Subdue)",
+    "2단계_말씀요약\t27. 하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n28. 하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라\n\n📌 5분 메시지 요약: 복음으로 세상을 살리고 다스리는 언약의 후대",
     "3단계_기도제목\t함께 기도합시다 (Let Us Pray Together)",
-    "3단계_기도내용\t🕊️ [1. 나를 위한 기도]\n“내가 제일 중요하다”\n• 내가 복음이 되기를\n• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를\n• Up & Down에 흔들리지 않고 다니엘처럼 항상 한결같은 믿음이 되기를\n\n🌍 [2. 모든 민족을 위한 기도]\n• 모든 민족이 그리스도 앞에 무릎 꿇도록\n• 이곳에 모인 나라들과 세계 모든 나라를 위하여\n• 전쟁 속에서 고통받는 나라들과 사람들을 위하여\n\n🌱 [3. 후대를 위한 기도]\n• 후대가 복음을 알도록\n• 복음이 정말 좋은 것임을 알도록\n• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록\n• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록",
-    "4단계_담당자\t다민족 제자 1분 응답 간증 & 전도자 축도",
-    "4단계_마무리내용\t• 다민족 제자의 1분 현장 응답 및 은혜 간증 나눔\n• 전도자의 축도 및 열방 지체들을 향한 제사장적 축복 기도\n• 주기도문으로 은혜의 30분 기도모임 폐회",
+    "3단계_기도내용\t🕊️ [1. 나를 위한 기도]\n“내가 제일 중요하다”\n• 나의 복음이 되기를\n• 성경에 나타난 능력의 그리스도를 누리기를\n• Up & Down 되지 않는 항상이 되기를\n\n🌍 [2. 모든 민족을 위한 기도]\n• 모든 민족이 그리스도 앞에 무릎 꿇도록\n• 모인 나라들과 세계 모든 나라를 위하여\n• 전쟁 속 고통받는 사람들을 위하여\n\n🌱 [3. 후대를 위한 기도]\n• 후대가 복음을 알고 복음이 참된 축복임을 알도록\n• 학업과 삶이 열방을 살리는 준비가 되도록",
+    "4단계_담당자\t클로징 기도: 죠지 (George) & 모임 나눔",
+    "4단계_마무리내용\t• 오픈닝 기도: 김은덕 목사\n• 진행: 한옥주 | 통역: 아이리스\n• 클로징 기도: 죠지\n• 광고: 개인/부부/가족 및 충성된 자와 함께하는 기도모임\n• 주기도문 폐회",
     "모임일시\t2026-10-04T20:00:00+10:00",
     "줌링크\thttps://zoom.us/j/88812345678",
     "줌ID_비번\tZoom ID: 888 1234 5678 | Passcode: 7777"
@@ -2911,7 +2911,7 @@ function renderRoutineDisplay() {
     const detailMessageContent = document.getElementById('detailMessageContent');
 
     if (routineSub2) {
-      routineSub2.textContent = data.step2?.scripture || '디모데후서 2:1-2';
+      routineSub2.textContent = data.step2?.scripture || '창세기 1:27-28';
     }
     if (detailMessageTitle) {
       const scripturePart = data.step2?.scripture ? `[${escapeHtml(data.step2.scripture)}] ` : '';
@@ -3175,6 +3175,11 @@ function closeModal(id) {
     document.body.style.overflow = '';
   }
 }
+
+function openZoomGuideModal() {
+  openModal('zoomGuideModal');
+}
+window.openZoomGuideModal = openZoomGuideModal;
 
 function closeModalOnBackdrop(e, id) {
   if (e.target.id === id) {
