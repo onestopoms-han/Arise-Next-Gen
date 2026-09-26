@@ -260,7 +260,7 @@
                     ▶️ 지정 찬양 한/영 자막 플레이어
                   </button>
                   <button type="button" class="btn btn-sm btn-outline" onclick="openWorshipStudio()">
-                    🎶 찬양 보관함 (10곡 전체)
+                    🎶 찬양 보관함 (30곡 전체)
                   </button>
                 </div>
               </div>
@@ -616,7 +616,7 @@
             ⭐ 이번 주 추천 (3곡)
           </button>
           <button type="button" class="worship-filter-btn" id="filterBtnAll" onclick="filterWorshipLounge('all')">
-            🎶 전체 찬양 보관함 (10곡 전체)
+            🎶 전체 찬양 보관함 (30곡 전체)
           </button>
           <button type="button" class="worship-filter-btn" id="filterBtnHymn" onclick="filterWorshipLounge('hymn')">
             ✝️ 클래식 찬송가
@@ -810,7 +810,8 @@
 
         <div class="form-group">
           <label class="form-label" data-i18n="lbl_zoom_link">Zoom / Google Meet 회의 링크 URL</label>
-          <input type="url" class="form-input" id="settingsZoomUrl" placeholder="https://zoom.us/j/1234567890" required>
+          <input type="text" class="form-input" id="settingsZoomUrl" placeholder="https://zoom.us/j/1234567890 (초대장 전체 붙여넣기 가능)" required>
+          <small id="zoomInputHelperMsg" style="display: none; color: #38bdf8; font-size: 0.8rem; margin-top: 0.35rem;"></small>
         </div>
 
         <div class="form-group">
@@ -853,7 +854,7 @@
             <span class="badge-studio-host">호스트 / 관리자</span>
           </div>
           <p class="form-sub-hint" style="margin: 0.4rem 0 0.8rem 0; font-size: 0.82rem; color: #cbd5e1; line-height: 1.45;">
-            줌(Zoom) 화면 공유용 대형 한/영 자막 플레이어(10곡 라이브러리)를 실행하거나, 새로운 찬양의 가사를 등록하고 실시간 자막 싱크를 제작할 수 있습니다.
+            줌(Zoom) 화면 공유용 대형 한/영 자막 플레이어(30곡 라이브러리)를 실행하거나, 새로운 찬양의 가사를 등록하고 실시간 자막 싱크를 제작할 수 있습니다.
           </p>
           <div class="settings-studio-actions">
             <button type="button" class="btn btn-sm btn-primary" onclick="closeModal('settingsModal'); openWorshipStudio();" style="display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700;">
@@ -924,7 +925,7 @@
             <button type="button" class="btn btn-xs btn-outline" onclick="closeModal('routineModal'); openWorshipStudio();" style="border-color: #38bdf8; color: #38bdf8; font-weight: 700;">
               🎬 찬양 자막 스튜디오 열기
             </button>
-            <span style="font-size: 0.78rem; color: #94a3b8;">* 스튜디오에서 10곡 한/영 자막을 미리 확인하고 지정할 수 있습니다.</span>
+            <span style="font-size: 0.78rem; color: #94a3b8;">* 스튜디오에서 30곡 한/영 자막을 미리 확인하고 지정할 수 있습니다.</span>
           </div>
         </div>
 

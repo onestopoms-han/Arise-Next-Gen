@@ -3,32 +3,32 @@
  * 한/영 찬양 자막 영상 재생, 줌(Zoom) 화면공유 최적화, 가사 싱크 및 커스텀 찬양 제작 도구
  */
 
-// 1. Preset Worship Songs Data (10곡 대표 라이브러리 - 전곡 풀타임 싱크 완비)
+// 1. Preset Worship Songs Data (30곡 대표 라이브러리 - 전곡 풀타임 싱크 완비)
 const PRESET_PRAISE_SONGS = [
   {
     "id": "amazing-grace",
-    "titleKo": "나 같은 죄인 살리신 (찬송가 305장)",
-    "titleEn": "Amazing Grace (Hymn 305)",
-    "artist": "V-WORSHIP (브이워십) • 나 같은 죄인 살리신 + 놀라우신 은혜",
+    "titleKo": "나 같은 죄인 살리신 (찬송가 305장 / 피아버전)",
+    "titleEn": "Amazing Grace, How Sweet the Sound (Hymn 305 / FIA)",
+    "artist": "피아워십 (F.I.A WORSHIP) • 찬송가 305장 완곡 풀버전 (끊김 없음)",
     "category": "hymn",
     "videoUrl": "assets/amazing_grace_bilingual.mp4",
     "audioUrl": "assets/amazing_grace.mp3",
     "srtUrl": "assets/amazing_grace.srt",
     "lrcUrl": "assets/amazing_grace.lrc",
-    "videoId": "gLpoLRsIPko",
-    "duration": 170,
+    "videoId": "4-IlkTVvqKk",
+    "duration": 278,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      { "start": 0.5, "end": 5.0, "kr": "🎵 나 같은 죄인 살리신 (찬송가 305장)", "en": "Amazing Grace (Hymn 305) - Arise Next Gen" },
-      { "start": 5.0, "end": 25.0, "kr": "[1절] 나 같은 죄인 살리신 주 은혜 놀라워", "en": "Amazing grace! how sweet the sound That saved a wretch like me!" },
-      { "start": 25.0, "end": 45.0, "kr": "잃었던 생명 찾았고 광명을 얻었네", "en": "I once was lost, but now am found, Was blind, but now I see." },
-      { "start": 45.0, "end": 65.0, "kr": "[2절] 큰 죄악에서 건지신 주 은혜 고마워", "en": "'Twas grace that taught my heart to fear, And grace my fears relieved;" },
-      { "start": 65.0, "end": 85.0, "kr": "나 처음 믿은 그 시간 귀하고 귀하다", "en": "How precious did that grace appear The hour I first believed!" },
-      { "start": 85.0, "end": 105.0, "kr": "[3절] 이제껏 내가 산 것도 주님의 은혜라", "en": "Through many dangers, toils and snares, I have already come;" },
-      { "start": 105.0, "end": 125.0, "kr": "또 나를 장차 본향에 인도해 주시리", "en": "'Tis grace hath brought me safe thus far, And grace will lead me home." },
-      { "start": 125.0, "end": 145.0, "kr": "[4절] 거기서 우리 영원히 주님의 은혜로", "en": "When we've been there ten thousand years, Bright shining as the sun," },
-      { "start": 145.0, "end": 165.0, "kr": "해처럼 밝게 살면서 주 찬양 하리라", "en": "We've no less days to sing God's praise Than when we'd first begun." },
-      { "start": 165.0, "end": 170.0, "kr": "🕊️ 주님의 은혜에 감사드립니다 · 아멘", "en": "Giving Thanks to God's Abundant Grace · Amen" }
+      { "start": 0.5, "end": 14.0, "kr": "🎵 나 같은 죄인 살리신 (찬송가 305장) - 피아워십 전주", "en": "Amazing Grace, How Sweet The Sound - F.I.A Worship (Intro)" },
+      { "start": 14.0, "end": 42.0, "kr": "[1절] 나 같은 죄인 살리신 주 은혜 놀라워", "en": "Amazing grace! how sweet the sound That saved a wretch like me!" },
+      { "start": 42.0, "end": 72.0, "kr": "잃었던 생명 찾았고 광명을 얻었네", "en": "I once was lost, but now am found, Was blind, but now I see." },
+      { "start": 72.0, "end": 102.0, "kr": "[2절] 큰 죄악에서 건지신 주 은혜 고마워", "en": "'Twas grace that taught my heart to fear, And grace my fears relieved;" },
+      { "start": 102.0, "end": 133.0, "kr": "나 처음 믿은 그 시간 귀하고 귀하다", "en": "How precious did that grace appear The hour I first believed!" },
+      { "start": 133.0, "end": 164.0, "kr": "[3절] 이제껏 내가 산 것도 주님의 은혜라", "en": "Through many dangers, toils and snares, I have already come;" },
+      { "start": 164.0, "end": 196.0, "kr": "또 나를 장차 본향에 인도해 주시리", "en": "'Tis grace hath brought me safe thus far, And grace will lead me home." },
+      { "start": 196.0, "end": 228.0, "kr": "[4절] 거기서 우리 영원히 주님의 은혜로", "en": "When we've been there ten thousand years, Bright shining as the sun," },
+      { "start": 228.0, "end": 260.0, "kr": "해처럼 밝게 살면서 주 찬양 하리라", "en": "We've no less days to sing God's praise Than when we'd first begun." },
+      { "start": 260.0, "end": 278.0, "kr": "🕊️ 주 예수 그리스도의 은혜에 감사드립니다 · 아멘", "en": "Giving Thanks to God's Abundant Grace Forever · Amen" }
     ]
   },
   {
@@ -365,6 +365,514 @@ const PRESET_PRAISE_SONGS = [
       { "start": 258.0, "end": 285.0, "kr": "주 모든 사슬 끊으셨고 주의 이름에 구원이 있네, 예수 그리스도 나의 참된 소망!", "en": "You have broken every chain, there's salvation in Your name, Jesus Christ my living hope!" },
       { "start": 285.0, "end": 331.3, "kr": "🕊️ 부활이요 생명 되신 예수 그리스도, 나의 영원한 소망을 찬양합니다 · 아멘", "en": "Jesus Christ, You Are My Living Hope Forever · Amen" }
     ]
+  },
+  {
+    "id": "grace-son-kyung-min",
+    "titleKo": "은혜 (내가 누려왔던 모든 것들이)",
+    "titleEn": "Grace (By the Grace of God)",
+    "artist": "손경민 (Son Kyung-min) • 은혜와 감사",
+    "category": "confession",
+    "videoId": "fWYcujNh4mI",
+    "duration": 320,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 16.0, "kr": "🎵 은혜 (내가 누려왔던 모든 것들이) - 찬양 전주", "en": "Grace - Son Kyung-min (Intro)" },
+      { "start": 16.0, "end": 28.5, "kr": "[1절] 내가 누려왔던 모든 것들이, 내가 지나왔던 모든 시간이", "en": "Everything I have enjoyed, all the times I have passed through" },
+      { "start": 28.5, "end": 42.0, "kr": "내가 걸어왔던 모든 순간이, 당연한 것 아니라 은혜였소", "en": "Every moment I have walked was not taken for granted, but was grace" },
+      { "start": 42.0, "end": 54.0, "kr": "아침 해가 뜨고 저녁의 노을, 봄의 꽃향기와 가을의 열매", "en": "The morning sunrise, the evening glow, fragrance of spring, fruit of autumn" },
+      { "start": 54.0, "end": 69.0, "kr": "변하는 계절의 모든 순간이, 당연한 것 아니라 은혜였소", "en": "Every passing moment of seasons was not taken for granted, but was grace" },
+      { "start": 69.0, "end": 84.0, "kr": "[후렴] 모든 것이 은혜 은혜 은혜 한없는 은혜", "en": "Everything was grace, grace, boundless grace" },
+      { "start": 84.0, "end": 98.0, "kr": "내 삶에 당연한 건 하나도 없었던 것을", "en": "There was nothing in my life that could be taken for granted" },
+      { "start": 98.0, "end": 115.0, "kr": "모든 것이 은혜 은혜였소", "en": "Everything was grace, all was by His grace" },
+      { "start": 115.0, "end": 133.0, "kr": "(간주 · 2절 묵상)", "en": "(Interlude)" },
+      { "start": 133.0, "end": 145.5, "kr": "[2절] 내가 이 땅에 태어나 사는 것, 어린아이 시절과 지금까지", "en": "Being born on this earth, from my childhood until now" },
+      { "start": 145.5, "end": 158.0, "kr": "숨을 쉬며 꿈을 꾸는 삶, 당연한 것 아니라 은혜였소", "en": "Breathing and dreaming every day was not taken for granted, but was grace" },
+      { "start": 158.0, "end": 171.0, "kr": "하나님의 자녀로 살아가며, 오늘까지 이 길을 걷는 것도", "en": "Living as a child of God, walking along this path until today" },
+      { "start": 171.0, "end": 185.0, "kr": "주의 복음 전할 수 있는 삶도, 당연한 것 아니라 은혜였소", "en": "Sharing the Gospel of Christ was not taken for granted, but was grace" },
+      { "start": 185.0, "end": 200.0, "kr": "[후렴] 모든 것이 은혜 은혜 은혜 한없는 은혜", "en": "Everything was grace, grace, boundless grace" },
+      { "start": 200.0, "end": 215.0, "kr": "내 삶에 당연한 건 하나도 없었던 것을", "en": "There was nothing in my life that could be taken for granted" },
+      { "start": 215.0, "end": 240.0, "kr": "모든 것이 은혜 은혜였소!", "en": "Everything was grace, all was by His grace!" },
+      { "start": 240.0, "end": 275.0, "kr": "[후렴 절정] 모든 것이 하나님의 크신 은혜 은혜였소", "en": "All was the boundless and everlasting grace of Almighty God" },
+      { "start": 275.0, "end": 320.0, "kr": "🕊️ 내 삶의 모든 순간을 채우신 하나님의 은혜를 영원히 찬양합니다 · 아멘", "en": "Praising God's Boundless Grace Surrounding All My Life · Amen" }
+    ]
+  },
+  {
+    "id": "hope-desire-pray",
+    "titleKo": "원하고 바라고 기도합니다",
+    "titleEn": "I Hope, Desire, and Pray",
+    "artist": "민호기 (찬미워십) / 마커스워십 • 신앙의 고백",
+    "category": "confession",
+    "videoId": "O1aL1g8S5Bw",
+    "duration": 325,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 18.0, "kr": "🎵 원하고 바라고 기도합니다 - 찬양 전주", "en": "I Hope, Desire, and Pray (Intro)" },
+      { "start": 18.0, "end": 32.5, "kr": "[1절] 이 세상을 살아가는 동안에 나의 힘을 의지할 수 없으니", "en": "While living in this world, I cannot lean on my own strength" },
+      { "start": 32.5, "end": 48.0, "kr": "기도하고 낙심하지 말 것은 주께서 참 소망이 되심이라", "en": "I pray and will not despair, for the Lord is my true living hope" },
+      { "start": 48.0, "end": 62.0, "kr": "[후렴] 주의 길을 걸어가는 동안에 세상의 것 의지할 수 없으니", "en": "While walking on the way of the Lord, I cannot trust worldly things" },
+      { "start": 62.0, "end": 78.0, "kr": "감사하고 낙심하지 말 것은 주께서 참 기쁨이 되심이라", "en": "I give thanks and will not despair, for the Lord is my true joy" },
+      { "start": 78.0, "end": 92.0, "kr": "[선포] 하나님의 꿈이 나의 비전이 되고", "en": "May the dream of God become my vision" },
+      { "start": 92.0, "end": 105.0, "kr": "예수님의 성품이 나의 인격이 되고", "en": "May the character of Jesus become my personality" },
+      { "start": 105.0, "end": 119.0, "kr": "성령님의 권능이 나의 능력이 되길", "en": "May the power of the Holy Spirit become my strength" },
+      { "start": 119.0, "end": 136.0, "kr": "원하고 바라고 기도합니다", "en": "I earnestly hope, desire, and pray" },
+      { "start": 136.0, "end": 160.0, "kr": "(간주 · 묵상과 기도)", "en": "(Interlude)" },
+      { "start": 160.0, "end": 175.0, "kr": "[1절 반복] 이 세상을 살아가는 동안에 나의 힘을 의지할 수 없으니", "en": "While living in this world, I cannot lean on my own strength" },
+      { "start": 175.0, "end": 190.0, "kr": "기도하고 낙심하지 말 것은 주께서 참 소망이 되심이라", "en": "I pray and will not despair, for the Lord is my true living hope" },
+      { "start": 190.0, "end": 204.0, "kr": "[선포 절정] 하나님의 꿈이 나의 비전이 되고!", "en": "May the dream of God become my vision!" },
+      { "start": 204.0, "end": 218.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
+      { "start": 218.0, "end": 232.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
+      { "start": 232.0, "end": 260.0, "kr": "원하고 바라고 기도합니다!", "en": "I earnestly hope, desire, and pray!" },
+      { "start": 260.0, "end": 325.0, "kr": "🕊️ 하나님의 온전하신 뜻이 우리의 모든 삶에 이루어지길 기도합니다 · 아멘", "en": "May God's Perfect Will Be Accomplished in Our Lives · Amen" }
+    ]
+  },
+  {
+    "id": "where-you-call-me",
+    "titleKo": "부르신 곳에서 (따스한 성령님)",
+    "titleEn": "Where You Call Me (Wherever He Leads)",
+    "artist": "마커스워십 (Markers Worship) • 소명과 헌신",
+    "category": "confession",
+    "videoId": "6vtdjpmIkn0",
+    "duration": 360,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 19.5, "kr": "🎵 부르신 곳에서 (따스한 성령님) - 찬양 전주", "en": "Where You Call Me - Markers Worship (Intro)" },
+      { "start": 19.5, "end": 32.0, "kr": "[1절] 따스한 성령님 마음으로 보네", "en": "The warm Holy Spirit, I perceive with my heart" },
+      { "start": 32.0, "end": 44.0, "kr": "내 몸을 감싸며 주어지는 평안함", "en": "The heavenly peace that wraps around my soul" },
+      { "start": 44.0, "end": 56.5, "kr": "빛으로 부르신 생명의 길을", "en": "The path of life called forth by the Light" },
+      { "start": 56.5, "end": 70.0, "kr": "인도하시는 하나님 바라보네", "en": "I gaze upon God who guides my way" },
+      { "start": 70.0, "end": 84.0, "kr": "[후렴] 내가 걸어갈 때 길이 되고 살아갈 때 삶이 되는 그곳에서", "en": "Where He becomes the way as I walk, and becomes my life as I live" },
+      { "start": 84.0, "end": 96.0, "kr": "부르신 곳에서 나는 예배하네", "en": "Wherever You call me, I will worship You" },
+      { "start": 96.0, "end": 110.0, "kr": "어떤 상황에도 나는 예배하네", "en": "In every circumstance, I will worship You" },
+      { "start": 110.0, "end": 130.0, "kr": "(간주 · 2절 준비)", "en": "(Interlude)" },
+      { "start": 130.0, "end": 143.0, "kr": "[2절] 내가 서 있는 곳 어디서나 하나님을 예배합니다", "en": "Wherever I stand, I will worship Almighty God" },
+      { "start": 143.0, "end": 156.0, "kr": "내가 여호와를 항상 송축하며", "en": "I will bless the Lord at all times" },
+      { "start": 156.0, "end": 170.0, "kr": "내 입술로 항상 주를 찬양하리라", "en": "My lips will continually sing His praise" },
+      { "start": 170.0, "end": 184.0, "kr": "[후렴] 내가 걸어갈 때 길이 되고 살아갈 때 삶이 되는 그곳에서", "en": "Where He becomes the way as I walk, and becomes my life as I live" },
+      { "start": 184.0, "end": 196.0, "kr": "부르신 곳에서 나는 예배하네", "en": "Wherever You call me, I will worship You" },
+      { "start": 196.0, "end": 215.0, "kr": "어떤 상황에도 나는 예배하네!", "en": "In every circumstance, I will worship You!" },
+      { "start": 215.0, "end": 260.0, "kr": "[선포 절정] 부르신 곳에서 나는 예배하네! 온 맘 다해 주를 예배하네!", "en": "Where You call me, I will worship! Worship with all my heart!" },
+      { "start": 260.0, "end": 360.0, "kr": "🕊️ 주께서 세우신 자리에서 참된 예배자로 서기를 결단합니다 · 아멘", "en": "Standing as True Worshipers Wherever the Lord Calls Us · Amen" }
+    ]
+  },
+  {
+    "id": "this-is-grace",
+    "titleKo": "주 은혜임을 (주 나의 모습 보시네)",
+    "titleEn": "This is the Grace of the Lord (By His Grace)",
+    "artist": "마커스워십 (소진영 인도) • 긍휼과 위로",
+    "category": "confession",
+    "videoId": "kY31W-9q56Q",
+    "duration": 345,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 20.0, "kr": "🎵 주 은혜임을 (주 나의 모습 보시네) - 찬양 전주", "en": "This is the Grace of the Lord - Markers Worship (Intro)" },
+      { "start": 20.0, "end": 33.5, "kr": "[1절] 주 나의 모습 보시네 상한 나의 맘 만지시네", "en": "The Lord sees my heart and touches my wounded soul" },
+      { "start": 33.5, "end": 49.0, "kr": "주 나의 눈물 아시네 홀로 울던 맘 아시네", "en": "The Lord knows my tears and understands my lonely weeping" },
+      { "start": 49.0, "end": 64.0, "kr": "[후렴] 주 은혜임을 날 둘러싼 하나님의 은혜", "en": "This is the grace of God that surrounds all my life" },
+      { "start": 64.0, "end": 79.0, "kr": "그 사랑이 날 붙드시네", "en": "His everlasting love holds me fast" },
+      { "start": 79.0, "end": 94.0, "kr": "주 은혜임을 갚을 길 없는 크신 은혜", "en": "This is the grace of the Lord, boundless grace beyond measure" },
+      { "start": 94.0, "end": 110.0, "kr": "내 모든 삶 주님의 은혜라", "en": "All of my life is by the grace of God" },
+      { "start": 110.0, "end": 130.0, "kr": "(간주)", "en": "(Interlude)" },
+      { "start": 130.0, "end": 144.0, "kr": "[2절] 세상 소망 다 사라져 가도 주의 사랑은 끝이 없으니", "en": "Even when earthly hopes fade away, the love of the Lord never ends" },
+      { "start": 144.0, "end": 160.0, "kr": "살아가는 이 모든 순간이 주 은혜임을 나는 믿네", "en": "I believe that every living moment is the grace of God" },
+      { "start": 160.0, "end": 175.0, "kr": "[후렴] 주 은혜임을 날 둘러싼 하나님의 은혜", "en": "This is the grace of God that surrounds all my life" },
+      { "start": 175.0, "end": 190.0, "kr": "그 사랑이 날 붙드시네", "en": "His everlasting love holds me fast" },
+      { "start": 190.0, "end": 210.0, "kr": "주 은혜임을 갚을 길 없는 크신 은혜, 내 모든 삶 주님의 은혜라!", "en": "This is grace beyond measure, all my life is by the grace of God!" },
+      { "start": 210.0, "end": 260.0, "kr": "[후렴 절정] 내 모든 삶 하나님의 은혜라! 주 은혜임을 고백합니다!", "en": "All of my life is by His grace! Declaring the grace of the Lord!" },
+      { "start": 260.0, "end": 345.0, "kr": "🕊️ 우리를 품으시고 붙드시는 하나님의 무한하신 은혜에 감사드립니다 · 아멘", "en": "Forever Thankful for the Unfailing Grace of God · Amen" }
+    ]
+  },
+  {
+    "id": "eyes-upon-you",
+    "titleKo": "시선 (내게로부터 눈을 들어)",
+    "titleEn": "My Eyes Upon Jesus (Eyes Upon You)",
+    "artist": "예수전도단 (YWAM) • 영적 시선과 부흥",
+    "category": "confession",
+    "videoId": "FNQhG27uzt8",
+    "duration": 330,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 18.0, "kr": "🎵 시선 (내게로부터 눈을 들어) - 찬양 전주", "en": "My Eyes Upon Jesus - YWAM (Intro)" },
+      { "start": 18.0, "end": 31.0, "kr": "[1절] 내게로부터 눈을 들어 주를 보기 시작할 때, 주의 일을 보겠네", "en": "When I lift my eyes from myself to gaze upon the Lord, I will see His work" },
+      { "start": 31.0, "end": 46.0, "kr": "내 작은 마음 돌이키사 하늘의 꿈 꾸게 하네, 주님을 볼 때", "en": "Turning my small heart to dream heaven's dreams, when I look to Him" },
+      { "start": 46.0, "end": 57.0, "kr": "[후렴] 모든 시선을 주님께 드리고, 살아계신 하나님을 느낄 때", "en": "When I turn all my eyes to the Lord, and feel the living God" },
+      { "start": 57.0, "end": 72.0, "kr": "내 삶은 주의 역사가 되고, 하나님이 일하기 시작하네", "en": "My life becomes His miracle, and God begins to work" },
+      { "start": 72.0, "end": 85.0, "kr": "[2절] 성령이 나를 변화시켜 모든 두렴 사라질 때, 주의 일을 보겠네", "en": "When the Spirit transforms me and all fears fade, I will see His work" },
+      { "start": 85.0, "end": 100.0, "kr": "황폐한 땅 한가운데서 주님 마음 알게 되리, 주님을 볼 때", "en": "In the midst of barren land I will know His heart, when I look to Him" },
+      { "start": 100.0, "end": 112.0, "kr": "[후렴] 모든 시선을 주님께 드리고, 살아계신 하나님을 느낄 때", "en": "When I turn all my eyes to the Lord, and feel the living God" },
+      { "start": 112.0, "end": 126.0, "kr": "내 삶은 주의 역사가 되고, 하나님이 일하기 시작하네", "en": "My life becomes His miracle, and God begins to work" },
+      { "start": 126.0, "end": 140.0, "kr": "모든 시선을 주님께 드리고, 전능하신 하나님을 느낄 때", "en": "When I turn all my eyes to the Lord, and feel the Almighty God" },
+      { "start": 140.0, "end": 160.0, "kr": "세상은 주의 나라가 되고, 하나님이 일하기 시작하네!", "en": "The world becomes His Kingdom, and God begins to work!" },
+      { "start": 160.0, "end": 195.0, "kr": "[브릿지] 주님의 영광 임하네 주 볼 때! 주님의 영광 임하네 주 볼 때!", "en": "The glory of the Lord descends when we look to Him!" },
+      { "start": 195.0, "end": 240.0, "kr": "[선포 절정] 세상은 주의 나라가 되고 하나님이 일하시네!", "en": "The world becomes His Kingdom and God is working!" },
+      { "start": 240.0, "end": 330.0, "kr": "🕊️ 모든 시선을 주께 고정하며 주님의 일하심을 찬양합니다 · 아멘", "en": "Fixing Our Eyes on Jesus and Witnessing God's Kingdom · Amen" }
+    ]
+  },
+  {
+    "id": "jesus-always-with-me",
+    "titleKo": "예수 늘 함께 하시네 (고단한 인생길)",
+    "titleEn": "Jesus, Always With Me",
+    "artist": "마커스워십 (소진영 인도) • 동행과 평안",
+    "category": "confession",
+    "videoId": "4v0oHeJ8-2k",
+    "duration": 335,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 20.0, "kr": "🎵 예수 늘 함께 하시네 - 찬양 전주", "en": "Jesus, Always With Me - Markers Worship (Intro)" },
+      { "start": 20.0, "end": 34.0, "kr": "[1절] 고단한 인생길 힘겨운 오늘도, 예수 내 마음을 아시네", "en": "On this weary road of life, even in today's struggles, Jesus knows my heart" },
+      { "start": 34.0, "end": 49.0, "kr": "지나간 아픔도 마주할 두려움도, 예수 내 마음을 아시네", "en": "Past sorrows and future fears alike, Jesus understands my heart" },
+      { "start": 49.0, "end": 64.0, "kr": "[후렴] 하루를 살아도 기쁨으로 살리, 예수 늘 함께 하시네", "en": "Even if I live one day, I will live with joy: Jesus is always with me" },
+      { "start": 64.0, "end": 80.0, "kr": "후회도 염려도 온전히 맡기리, 예수 늘 함께 하시네", "en": "Entrusting all regrets and worries completely: Jesus is always with me" },
+      { "start": 80.0, "end": 100.0, "kr": "(간주 · 2절 묵상)", "en": "(Interlude)" },
+      { "start": 100.0, "end": 114.0, "kr": "[2절] 믿음의 눈 들어 주를 바라봅니다, 영원한 자비로 날 붙드시는 주", "en": "Lifting eyes of faith I look to the Lord, who holds me with everlasting mercy" },
+      { "start": 114.0, "end": 130.0, "kr": "나의 가는 길 오직 그가 아시나니, 나를 단련하신 후에 정금같이 나오리", "en": "He knows the way that I take, when He has tested me I shall come forth as gold" },
+      { "start": 130.0, "end": 145.0, "kr": "[후렴] 하루를 살아도 기쁨으로 살리, 예수 늘 함께 하시네", "en": "Even if I live one day, I will live with joy: Jesus is always with me" },
+      { "start": 145.0, "end": 165.0, "kr": "후회도 염려도 온전히 맡기리, 예수 늘 함께 하시네!", "en": "Entrusting all regrets and worries: Jesus is always with me!" },
+      { "start": 165.0, "end": 210.0, "kr": "[후렴 절정] 예수 늘 함께 하시네! 영원토록 나와 동행하시네!", "en": "Jesus is always with me! Walking beside me forever and ever!" },
+      { "start": 210.0, "end": 335.0, "kr": "🕊️ 어떤 상황 속에서도 결코 날 떠나지 않으시는 예수님을 찬양합니다 · 아멘", "en": "Praising Jesus Who Never Leaves Nor Forsakes Us · Amen" }
+    ]
+  },
+  {
+    "id": "he-empathizes",
+    "titleKo": "공감하시네 (혼자서만 앓고 있던)",
+    "titleEn": "He Empathizes (He Understands)",
+    "artist": "WELOVE (위러브) • 치유와 공감",
+    "category": "confession",
+    "videoId": "4jH3MqokNMw",
+    "duration": 310,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 17.0, "kr": "🎵 공감하시네 (혼자서만 앓고 있던) - 찬양 전주", "en": "He Empathizes - WELOVE (Intro)" },
+      { "start": 17.0, "end": 32.0, "kr": "[1절] 혼자서만 앓고 있던 깊은 슬픔과 누구에게도 말할 수 없던 눈물", "en": "The deep sorrow kept only to myself, the tears I could tell to no one" },
+      { "start": 32.0, "end": 48.0, "kr": "주님은 이미 다 알고 계시네, 내 상한 영혼을 안아주시네", "en": "The Lord already knows it all, embracing my broken spirit" },
+      { "start": 48.0, "end": 63.0, "kr": "[후렴] 우리의 모든 순간을 공감하시네", "en": "He empathizes with every moment of our lives" },
+      { "start": 63.0, "end": 78.0, "kr": "아파하는 자와 함께 우시며, 슬픔 속에서도 소망을 주시네", "en": "Weeping with those who weep, giving living hope in sorrow" },
+      { "start": 78.0, "end": 95.0, "kr": "온전한 사랑으로 품으시네", "en": "Embracing us with His perfect, unconditional love" },
+      { "start": 95.0, "end": 115.0, "kr": "(간주)", "en": "(Interlude)" },
+      { "start": 115.0, "end": 130.0, "kr": "[2절] 캄캄한 어둠 속에서도 빛을 비추사, 길 잃은 영혼을 인도하시네", "en": "Shining light in deepest darkness, guiding every wandering soul" },
+      { "start": 130.0, "end": 145.0, "kr": "주의 신실하신 손이 날 붙드사, 다시 일어설 용기 주시네", "en": "His faithful hand holds me fast, giving courage to rise again" },
+      { "start": 145.0, "end": 160.0, "kr": "[후렴] 우리의 모든 순간을 공감하시네", "en": "He empathizes with every moment of our lives" },
+      { "start": 160.0, "end": 180.0, "kr": "아파하는 자와 함께 우시며 온전한 사랑으로 품으시네!", "en": "Weeping with the brokenhearted, holding us with perfect love!" },
+      { "start": 180.0, "end": 230.0, "kr": "[브릿지 절정] 결코 우리를 홀로 두지 않으시는 주님의 따뜻한 위로!", "en": "His comforting embrace that never leaves us alone!" },
+      { "start": 230.0, "end": 310.0, "kr": "🕊️ 우리의 아픔을 온전히 공감하시고 치유하시는 주님을 찬양합니다 · 아멘", "en": "Giving Glory to the Lord Who Heals and Empathizes · Amen" }
+    ]
+  },
+  {
+    "id": "heart-of-worship",
+    "titleKo": "마음의 예배 (The Heart of Worship)",
+    "titleEn": "The Heart of Worship",
+    "artist": "Matt Redman (매트 레드맨) • 참된 예배",
+    "category": "global",
+    "videoId": "k0u461C0hsc",
+    "duration": 320,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 16.0, "kr": "🎵 마음의 예배 (The Heart of Worship) - 찬양 전주", "en": "The Heart of Worship - Matt Redman (Intro)" },
+      { "start": 16.0, "end": 32.0, "kr": "[1절] 찬양의 열기 모두 끝나고 주 앞에 나아갈 때", "en": "When the music fades, all is stripped away, and I simply come" },
+      { "start": 32.0, "end": 48.0, "kr": "내 마음 깊은 곳 고백하기 원하네, 주 기뻐하실 참된 것을", "en": "Longing just to bring something that's of worth that will bless Your heart" },
+      { "start": 48.0, "end": 64.0, "kr": "[프리코러스] 노래 그 이상의 것을 주께 드리기 원해, 주께서 원하시는 것", "en": "I'll bring You more than a song, for a song in itself is not what You have required" },
+      { "start": 64.0, "end": 78.0, "kr": "주님은 겉모습 보지 않으시고 마음 중심을 보시네", "en": "You search much deeper within through the way things appear, You're looking into my heart" },
+      { "start": 78.0, "end": 92.0, "kr": "[후렴] 난 돌아가네 마음의 예배로", "en": "I'm coming back to the heart of worship" },
+      { "start": 92.0, "end": 106.0, "kr": "오직 주님만을 예배하기 원하네, 예수님", "en": "And it's all about You, all about You, Jesus" },
+      { "start": 106.0, "end": 120.0, "kr": "주님께 용서를 구합니다, 내가 만든 그릇된 것들을", "en": "I'm sorry, Lord, for the thing I've made it" },
+      { "start": 120.0, "end": 138.0, "kr": "모든 것이 주님께 속해 있습니다, 예수님", "en": "When it's all about You, all about You, Jesus" },
+      { "start": 138.0, "end": 160.0, "kr": "(간주)", "en": "(Interlude)" },
+      { "start": 160.0, "end": 176.0, "kr": "[2절] 영원하신 왕, 그 어떤 말로도 주를 다 표현할 수 없네", "en": "King of endless worth, no one could express how much You deserve" },
+      { "start": 176.0, "end": 192.0, "kr": "비록 연약하고 부족할지라도 내 모든 호흡 주께 드리네", "en": "Though I'm weak and poor, all I have is Yours, every single breath" },
+      { "start": 192.0, "end": 220.0, "kr": "[후렴 절정] 난 돌아가네 마음의 예배로! 오직 예수 그리스도만을!", "en": "I'm coming back to the heart of worship! It's all about You, Jesus!" },
+      { "start": 220.0, "end": 320.0, "kr": "🕊️ 형식과 노래를 넘어 마음 중심의 참된 예배로 주께 나아갑니다 · 아멘", "en": "Returning to the Heart of True Worship in Christ Jesus · Amen" }
+    ]
+  },
+  {
+    "id": "here-i-am-to-worship",
+    "titleKo": "빛 되신 주 (Here I Am to Worship)",
+    "titleEn": "Here I Am to Worship (Light of the World)",
+    "artist": "Tim Hughes (팀 휴즈) / 마커스워십 • 경배",
+    "category": "global",
+    "videoId": "kYJjT7N-8Qo",
+    "duration": 305,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 16.0, "kr": "🎵 빛 되신 주 (Here I Am to Worship) - 찬양 전주", "en": "Here I Am to Worship - Tim Hughes (Intro)" },
+      { "start": 16.0, "end": 31.0, "kr": "[1절] 빛 되신 주 어둠 가운데 비추사 내 눈을 열어 보게 하셨네", "en": "Light of the world, You stepped down into darkness, opened my eyes, let me see" },
+      { "start": 31.0, "end": 46.0, "kr": "내 맘 다해 주를 사모하게 하사 영원한 생명의 소망 주셨네", "en": "Beauty that made this heart adore You, hope of a life spent with You" },
+      { "start": 46.0, "end": 57.0, "kr": "[후렴] 여기 와서 경배해 엎드려 절하며", "en": "Here I am to worship, here I am to bow down" },
+      { "start": 57.0, "end": 68.0, "kr": "주 나의 하나님이라 고백해", "en": "Here I am to say that You're my God" },
+      { "start": 68.0, "end": 79.0, "kr": "주는 온전히 사랑스럽고 지극히 존귀하시며", "en": "You're altogether lovely, altogether worthy" },
+      { "start": 79.0, "end": 92.0, "kr": "내게 너무나 놀라우신 주", "en": "Altogether wonderful to me" },
+      { "start": 92.0, "end": 107.0, "kr": "[2절] 만왕의 왕, 높이 들리신 주 영광 중에 좌정하셨네", "en": "King of all days, oh so highly exalted, glorious in heaven above" },
+      { "start": 107.0, "end": 124.0, "kr": "낮아지사 이 땅에 오신 주, 그 크신 사랑 베푸셨네", "en": "Humbly You came to the earth You created, all for love's sake became poor" },
+      { "start": 124.0, "end": 145.0, "kr": "[후렴] 여기 와서 경배해 엎드려 절하며, 주 나의 하나님이라 고백해", "en": "Here I am to worship, here I am to bow down, here I am to say You're my God" },
+      { "start": 145.0, "end": 175.0, "kr": "[브릿지] 십자가에 달리신 주의 사랑, 내 죄를 담당하신 그 은혜 다 알 수 없네", "en": "And I'll never know how much it cost to see my sin upon that cross" },
+      { "start": 175.0, "end": 220.0, "kr": "[후렴 절정] 내게 너무나 놀라우신 구주 예수 그리스도를 영원히 경배합니다!", "en": "Altogether wonderful to me! Worshiping Jesus Christ forever!" },
+      { "start": 220.0, "end": 305.0, "kr": "🕊️ 가장 낮아지셔서 우리를 살리신 예수 그리스도의 이름을 높입니다 · 아멘", "en": "Exalting the Precious Name of Jesus Christ Our Lord · Amen" }
+    ]
+  },
+  {
+    "id": "this-is-amazing-grace",
+    "titleKo": "놀라운 주의 은혜 (This Is Amazing Grace)",
+    "titleEn": "This Is Amazing Grace",
+    "artist": "Phil Wickham (필 윅햄) • 십자가와 부활",
+    "category": "global",
+    "videoId": "X0Pr0jP4F8k",
+    "duration": 280,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 15.0, "kr": "🎵 놀라운 주의 은혜 (This Is Amazing Grace) - 찬양 전주", "en": "This Is Amazing Grace - Phil Wickham (Intro)" },
+      { "start": 15.0, "end": 28.0, "kr": "[1절] 어둠을 뚫고 빛을 비추시며 죄의 권세를 깨뜨리시는 분", "en": "Who breaks the power of sin and darkness, whose love is mighty and so much stronger" },
+      { "start": 28.0, "end": 43.0, "kr": "영광의 왕, 만왕의 왕이시라", "en": "The King of Glory, the King above all kings" },
+      { "start": 43.0, "end": 57.0, "kr": "천지를 흔드시는 거룩한 음성, 세상을 구원하시는 놀라운 주", "en": "Who shakes the whole earth with holy thunder, who leaves us breathless in awe and wonder" },
+      { "start": 57.0, "end": 70.0, "kr": "[후렴] 놀라운 주의 은혜, 영원한 주의 사랑", "en": "This is amazing grace, this is unfailing love" },
+      { "start": 70.0, "end": 84.0, "kr": "날 대신하여 십자가 지셨네", "en": "That You would take my place, that You would bear my cross" },
+      { "start": 84.0, "end": 98.0, "kr": "내 영혼 구원하사 자유케 하셨네", "en": "You laid down Your life that I would be set free" },
+      { "start": 98.0, "end": 115.0, "kr": "예수 나의 왕, 행하신 모든 일 찬양하리", "en": "Oh, Jesus, I sing for all that You've done for me" },
+      { "start": 115.0, "end": 130.0, "kr": "[2절] 혼돈 속에 질서를 세우시며, 고아와 과부를 품으시는 주", "en": "Who brings our chaos back into order, who makes the orphan a son and daughter" },
+      { "start": 130.0, "end": 145.0, "kr": "진리와 공의로 열방을 다스리시네", "en": "The King of Glory, the King of all the earth" },
+      { "start": 145.0, "end": 175.0, "kr": "[후렴] 놀라운 주의 은혜, 영원한 주의 사랑, 날 대신하여 십자가 지셨네!", "en": "This is amazing grace, this is unfailing love, You took my place!" },
+      { "start": 175.0, "end": 210.0, "kr": "[선포 브릿지] 죽임 당하신 어린양 존귀하도다! 무덤을 이기신 승리의 왕!", "en": "Worthy is the Lamb who was slain! Worthy is the King who conquered the grave!" },
+      { "start": 210.0, "end": 280.0, "kr": "🕊️ 사망 권세 이기시고 구원을 베푸신 예수 그리스도를 영원히 찬양합니다 · 아멘", "en": "All Glory and Honor to Jesus Christ Who Conquered the Grave · Amen" }
+    ]
+  },
+  {
+    "id": "who-am-i",
+    "titleKo": "온 땅의 주인 (Who Am I - 나는 누구이기에)",
+    "titleEn": "Who Am I (Lord of All the Earth)",
+    "artist": "Casting Crowns (캐스팅 크라운스) • 은혜와 정체성",
+    "category": "global",
+    "videoId": "0h5HjLd15pI",
+    "duration": 335,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 20.0, "kr": "🎵 온 땅의 주인 (Who Am I) - 찬양 전주", "en": "Who Am I - Casting Crowns (Intro)" },
+      { "start": 20.0, "end": 35.0, "kr": "[1절] 온 땅의 주인 되신 주님이 내 이름을 아시고 기억하시네", "en": "Who am I, that the Lord of all the earth would care to know my name?" },
+      { "start": 35.0, "end": 50.0, "kr": "내 슬픔과 아픔을 함께 느끼시네", "en": "Would care to feel my hurt?" },
+      { "start": 50.0, "end": 65.0, "kr": "어둠 속 방황하던 내 영혼을 밝은 새벽 별처럼 인도하시네", "en": "Who am I, that the Bright and Morning Star would choose to light the way for my wandering heart?" },
+      { "start": 65.0, "end": 80.0, "kr": "[후렴] 내가 누구이기에 날 사랑하시며", "en": "Not because of who I am, but because of what You've done" },
+      { "start": 80.0, "end": 95.0, "kr": "내 모든 기도를 들으시는가", "en": "Not because of what I've done, but because of who You are" },
+      { "start": 95.0, "end": 110.0, "kr": "나는 아침 안개처럼 피었다 지는 꽃이나", "en": "I am a flower quickly fading, here today and gone tomorrow" },
+      { "start": 110.0, "end": 125.0, "kr": "주님은 부르짖을 때 들으시며 날 붙드시네", "en": "A wave tossed in the ocean, a vapor in the wind, still You hear me when I call" },
+      { "start": 125.0, "end": 140.0, "kr": "날 주의 자녀라 부르시네, 난 주의 것", "en": "You've told me who I am: I am Yours" },
+      { "start": 140.0, "end": 160.0, "kr": "(간주 · 2절 묵상)", "en": "(Interlude)" },
+      { "start": 160.0, "end": 175.0, "kr": "[2절] 내가 누구이기에 내 모든 죄악을 보시면서도 사랑의 눈으로 날 보시는가", "en": "Who am I, that the eyes that see my sin would look on me with love and watch me rise again?" },
+      { "start": 175.0, "end": 190.0, "kr": "실패와 낙심 중에도 주님은 내 이름을 부르시네", "en": "Who am I, that the voice that calmed the sea would call out through the rain and calm the storm in me?" },
+      { "start": 190.0, "end": 210.0, "kr": "[후렴] 내가 누구이기에 날 사랑하시며, 내 모든 기도를 들으시는가", "en": "Not because of who I am, but because of what You've done! Who You are!" },
+      { "start": 210.0, "end": 240.0, "kr": "날 주의 자녀라 부르시네! 난 주의 것!", "en": "You've told me who I am: I am Yours! I am Yours!" },
+      { "start": 240.0, "end": 285.0, "kr": "[선포] 구원의 주, 영원하신 나의 하나님 안에 내가 온전히 거합니다", "en": "Whom shall I fear? Whom shall I fear? 'Cause I am Yours!" },
+      { "start": 285.0, "end": 335.0, "kr": "🕊️ 우리를 보배롭고 존귀하게 여기시는 하나님의 사랑을 영원히 찬양합니다 · 아멘", "en": "Resting Securely as God's Beloved Children Forever · Amen" }
+    ]
+  },
+  {
+    "id": "amazing-grace-chains-gone",
+    "titleKo": "Amazing Grace (My Chains Are Gone - 나 자유 얻었네)",
+    "titleEn": "Amazing Grace (My Chains Are Gone)",
+    "artist": "Chris Tomlin (크리스 탐린) • 대속과 해방",
+    "category": "hymn",
+    "videoId": "Jbe7OruLk8I",
+    "duration": 300,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 15.0, "kr": "🎵 Amazing Grace (My Chains Are Gone) - 찬양 전주", "en": "Amazing Grace (My Chains Are Gone) - Chris Tomlin (Intro)" },
+      { "start": 15.0, "end": 30.0, "kr": "[1절] 나 같은 죄인 살리신 주 은혜 놀라워", "en": "Amazing grace! How sweet the sound that saved a wretch like me!" },
+      { "start": 30.0, "end": 45.0, "kr": "잃었던 생명 찾았고 광명을 얻었네", "en": "I once was lost, but now am found, was blind, but now I see" },
+      { "start": 45.0, "end": 60.0, "kr": "[2절] 큰 죄악에서 건지신 주 은혜 고마워", "en": "'Twas grace that taught my heart to fear, and grace my fears relieved" },
+      { "start": 60.0, "end": 75.0, "kr": "나 처음 믿은 그 시간 귀하고 귀하다", "en": "How precious did that grace appear the hour I first believed!" },
+      { "start": 75.0, "end": 88.0, "kr": "[후렴] 내 모든 사슬 끊기었고 나 자유 얻었네", "en": "My chains are gone, I've been set free!" },
+      { "start": 88.0, "end": 100.0, "kr": "나의 구주 하나님 날 대속하셨네", "en": "My God, my Savior has ransomed me!" },
+      { "start": 100.0, "end": 112.0, "kr": "주의 자비 바다처럼 넘쳐흐르네", "en": "And like a flood His mercy reigns" },
+      { "start": 112.0, "end": 128.0, "kr": "영원한 사랑, 한없는 은혜", "en": "Unending love, amazing grace" },
+      { "start": 128.0, "end": 145.0, "kr": "[3절] 주 말씀 내게 약속하사 소망을 주시네", "en": "The Lord has promised good to me, His word my hope secures" },
+      { "start": 145.0, "end": 160.0, "kr": "주 나의 방패 되시니 영원히 살리라", "en": "He will my shield and portion be as long as life endures" },
+      { "start": 160.0, "end": 175.0, "kr": "[후렴] 내 모든 사슬 끊기었고 나 자유 얻었네!", "en": "My chains are gone, I've been set free!" },
+      { "start": 175.0, "end": 190.0, "kr": "나의 구주 하나님 날 대속하셨네!", "en": "My God, my Savior has ransomed me!" },
+      { "start": 190.0, "end": 205.0, "kr": "주의 자비 바다처럼 넘쳐흐르네, 영원한 사랑 한없는 은혜!", "en": "And like a flood His mercy reigns, unending love, amazing grace!" },
+      { "start": 205.0, "end": 240.0, "kr": "[4절] 이 세상 모든 만물 다 사라질지라도 날 부르신 주 하나님 영원히 나의 것", "en": "The earth shall soon dissolve like snow, the sun forbear to shine; But God, who called me here below, will be forever mine" },
+      { "start": 240.0, "end": 300.0, "kr": "🕊️ 십자가의 보혈로 모든 결박을 푸시고 자유를 주신 주님을 찬양합니다 · 아멘", "en": "Rejoicing in the Eternal Freedom Purchased by the Blood of Christ · Amen" }
+    ]
+  },
+  {
+    "id": "how-great-thou-art",
+    "titleKo": "주 하나님 지으신 모든 세계 (찬송가 79장)",
+    "titleEn": "How Great Thou Art (Hymn 79)",
+    "artist": "새찬송가 79장 • 창조와 구속의 대서사시",
+    "category": "hymn",
+    "videoId": "dFANxD0",
+    "duration": 290,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 15.0, "kr": "🎵 주 하나님 지으신 모든 세계 (찬송가 79장) - 찬양 전주", "en": "How Great Thou Art (Hymn 79) - Intro" },
+      { "start": 15.0, "end": 32.0, "kr": "[1절] 주 하나님 지으신 모든 세계 내 마음속에 그리어 볼 때", "en": "O Lord my God, when I in awesome wonder consider all the worlds Thy hands have made" },
+      { "start": 32.0, "end": 48.0, "kr": "하늘의 별과 뇌성 소리 들으며 주님의 권능 온 세계 보네", "en": "I see the stars, I hear the rolling thunder, Thy power throughout the universe displayed" },
+      { "start": 48.0, "end": 62.0, "kr": "[후렴] 주님의 높고 위대하심을 내 영혼이 찬양하네", "en": "Then sings my soul, my Savior God, to Thee: How great Thou art! How great Thou art!" },
+      { "start": 62.0, "end": 80.0, "kr": "주님의 높고 위대하심을 내 영혼이 찬양하네", "en": "Then sings my soul, my Savior God, to Thee: How great Thou art! How great Thou art!" },
+      { "start": 80.0, "end": 96.0, "kr": "[2절] 숲속이나 거친 들판을 걸을 때 새들의 아름다운 노래 듣네", "en": "When through the woods and forest glades I wander and hear the birds sing sweetly in the trees" },
+      { "start": 96.0, "end": 114.0, "kr": "높은 산 위에서 바라보는 풍경, 시원한 바람 속삭이네", "en": "When I look down from lofty mountain grandeur and hear the brook and feel the gentle breeze" },
+      { "start": 114.0, "end": 130.0, "kr": "[3절] 주 하나님 독생자 아낌없이 우리를 위해 보내주셨네", "en": "And when I think that God, His Son not sparing, sent Him to die, I scarce can take it in" },
+      { "start": 130.0, "end": 148.0, "kr": "십자가에서 내 모든 죄 씻으신 주님의 사랑 측량 못 하네", "en": "That on the cross, my burden gladly bearing, He bled and died to take away my sin" },
+      { "start": 148.0, "end": 170.0, "kr": "[후렴 절정] 주님의 높고 위대하심을 내 영혼이 찬양하네!", "en": "Then sings my soul, my Savior God, to Thee: How great Thou art! How great Thou art!" },
+      { "start": 170.0, "end": 210.0, "kr": "주 다시 오실 그 영광의 날에 기쁨으로 주 앞에 엎드려 경배하리!", "en": "When Christ shall come with shout of acclamation and take me home, what joy shall fill my heart!" },
+      { "start": 210.0, "end": 290.0, "kr": "🕊️ 온 우주 만물을 창조하시고 다스리시는 위대하신 하나님을 찬양합니다 · 아멘", "en": "Declaring the Majesty of God the Creator and Redeemer · Amen" }
+    ]
+  },
+  {
+    "id": "i-must-tell-jesus",
+    "titleKo": "내 모든 시험 무거운 짐을 (찬송가 337장)",
+    "titleEn": "I Must Tell Jesus (Hymn 337)",
+    "artist": "새찬송가 337장 • 기도와 참된 안식",
+    "category": "hymn",
+    "videoId": "070nLd1iK8U",
+    "duration": 260,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 14.0, "kr": "🎵 내 모든 시험 무거운 짐을 (찬송가 337장) - 찬양 전주", "en": "I Must Tell Jesus (Hymn 337) - Intro" },
+      { "start": 14.0, "end": 29.0, "kr": "[1절] 내 모든 시험 무거운 짐을 주 예수 앞에 아뢰이면", "en": "I must tell Jesus all of my trials; I cannot bear these burdens alone" },
+      { "start": 29.0, "end": 44.0, "kr": "근심에 싸인 날 돌아보사 내 근심 모두 맡으시네", "en": "In my distress He kindly will help me; He ever loves and cares for His own" },
+      { "start": 44.0, "end": 58.0, "kr": "[후렴] 무거운 짐을 나 홀로 지고 견디다 못해 쓰러질 때", "en": "I must tell Jesus! I must tell Jesus! I cannot bear my burdens alone" },
+      { "start": 58.0, "end": 74.0, "kr": "주 예수 내게 오사 날 구원하시네", "en": "I must tell Jesus! I must tell Jesus! Jesus can help me, Jesus alone!" },
+      { "start": 74.0, "end": 90.0, "kr": "[2절] 내 모든 괴롬 주님께 고해 슬픔의 눈물 거두시네", "en": "I must tell Jesus all of my troubles; He is a kind, compassionate Friend" },
+      { "start": 90.0, "end": 108.0, "kr": "참 평안 주시는 구주 예수 늘 나와 동행하시도다", "en": "If I but ask Him, He will deliver, make of my troubles quickly an end" },
+      { "start": 108.0, "end": 125.0, "kr": "[3절] 내 영혼 주를 의지하오니 날 도우사 승리케 하소서", "en": "Tempted and tried, I need a great Savior, One who can help my burdens to bear" },
+      { "start": 125.0, "end": 145.0, "kr": "주 예수 나의 산성이시요 영원한 나의 피난처시라", "en": "I must tell Jesus, I must tell Jesus; He all my cares and sorrows will share" },
+      { "start": 145.0, "end": 180.0, "kr": "[후렴 절정] 주 예수 내게 오사 날 구원하시네! 주 예수 오직 한 분뿐일세!", "en": "Jesus can help me, Jesus alone! I must tell Jesus!" },
+      { "start": 180.0, "end": 260.0, "kr": "🕊️ 모든 염려와 짐을 주께 맡기며 참된 평안을 누립니다 · 아멘", "en": "Casting All Our Cares Upon Jesus Who Cares for Us · Amen" }
+    ]
+  },
+  {
+    "id": "tis-so-sweet-to-trust",
+    "titleKo": "구주 예수 의지함이 (찬송가 542장)",
+    "titleEn": "'Tis So Sweet to Trust in Jesus (Hymn 542)",
+    "artist": "새찬송가 542장 • 믿음의 확신",
+    "category": "hymn",
+    "videoId": "F76lZ-GzQrk",
+    "duration": 275,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 14.0, "kr": "🎵 구주 예수 의지함이 (찬송가 542장) - 찬양 전주", "en": "'Tis So Sweet to Trust in Jesus - Intro" },
+      { "start": 14.0, "end": 28.0, "kr": "[1절] 구주 예수 의지함이 심히 기쁜 일일세", "en": "'Tis so sweet to trust in Jesus, just to take Him at His word" },
+      { "start": 28.0, "end": 43.0, "kr": "허락하심 받았으니 의심 아주 없도다", "en": "Just to rest upon His promise, just to know, 'Thus saith the Lord!'" },
+      { "start": 43.0, "end": 57.0, "kr": "[후렴] 예수 예수 믿는 것은 받은 증거 많도다", "en": "Jesus, Jesus, how I trust Him! How I've proved Him o'er and o'er!" },
+      { "start": 57.0, "end": 73.0, "kr": "예수 예수 귀한 예수 믿음 더욱 주소서", "en": "Jesus, Jesus, precious Jesus! O for grace to trust Him more!" },
+      { "start": 73.0, "end": 88.0, "kr": "[2절] 구주 예수 의지함이 심히 복된 일일세", "en": "O how sweet to trust in Jesus, just to trust His cleansing blood" },
+      { "start": 88.0, "end": 104.0, "kr": "예수 보혈 믿는 자는 영생 복을 얻도다", "en": "Just in simple faith to plunge me 'neath the healing, cleansing flood!" },
+      { "start": 104.0, "end": 120.0, "kr": "[3절] 구주 예수 의지하여 죄악 벗어 버리네", "en": "Yes, 'tis sweet to trust in Jesus, just from sin and self to cease" },
+      { "start": 120.0, "end": 138.0, "kr": "예수께로 바로 와서 생명 평안 얻었네", "en": "Just from Jesus simply taking life and rest, and joy and peace" },
+      { "start": 138.0, "end": 165.0, "kr": "[후렴 절정] 예수 예수 귀한 예수, 믿음 더욱 주소서!", "en": "Jesus, Jesus, precious Jesus! O for grace to trust Him more!" },
+      { "start": 165.0, "end": 275.0, "kr": "🕊️ 신실하신 예수 그리스도만을 온전히 신뢰합니다 · 아멘", "en": "Trusting in Jesus Christ, the Author and Perfecter of Faith · Amen" }
+    ]
+  },
+  {
+    "id": "walk-with-jesus",
+    "titleKo": "주와 같이 길 가는 것 (찬송가 430장)",
+    "titleEn": "'Tis So Sweet to Walk With Jesus (Hymn 430)",
+    "artist": "새찬송가 430장 • 성도의 동행",
+    "category": "hymn",
+    "videoId": "X9L1rY2Qo0w",
+    "duration": 250,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 13.0, "kr": "🎵 주와 같이 길 가는 것 (찬송가 430장) - 찬양 전주", "en": "'Tis So Sweet to Walk With Jesus - Intro" },
+      { "start": 13.0, "end": 27.0, "kr": "[1절] 주와 같이 길 가는 것 즐거운 일 아닌가", "en": "'Tis a happy thing to walk along with Jesus day by day" },
+      { "start": 27.0, "end": 42.0, "kr": "우리 주님 걸어가신 발자취를 밟겠네", "en": "Following the blessed footsteps of our Savior on the way" },
+      { "start": 42.0, "end": 56.0, "kr": "[후렴] 한 걸음 한 걸음 주 예수와 함께", "en": "Step by step, day by day, walking with our Savior" },
+      { "start": 56.0, "end": 72.0, "kr": "날마다 날마다 우리는 걷겠네", "en": "Every day, hand in hand, we will walk along with Him" },
+      { "start": 72.0, "end": 86.0, "kr": "[2절] 어린아이 같은 우리 미련하고 약하나", "en": "Weak and foolish though we be, like children needing tender care" },
+      { "start": 86.0, "end": 102.0, "kr": "주의 손에 이끌리어 생명 길로 가겠네", "en": "By His loving hand we're led along the path of life so fair" },
+      { "start": 102.0, "end": 118.0, "kr": "[3절] 꽃이 피는 들판이나 험한 골짜기라도", "en": "Through the blooming pleasant meadows or along the rugged trail" },
+      { "start": 118.0, "end": 135.0, "kr": "주가 인도하는 대로 주와 같이 가겠네", "en": "Where He leads we gladly follow, where His guidance cannot fail" },
+      { "start": 135.0, "end": 160.0, "kr": "[후렴 절정] 한 걸음 한 걸음 주 예수와 함께 날마다 걷겠네!", "en": "Step by step, day by day, walking along with Jesus!" },
+      { "start": 160.0, "end": 250.0, "kr": "🕊️ 주님 손잡고 날마다 언약의 여정을 걷는 성도가 되길 기도합니다 · 아멘", "en": "Walking Daily with Jesus on the Covenant Journey · Amen" }
+    ]
+  },
+  {
+    "id": "peace-wonderful-peace",
+    "titleKo": "내 영혼의 그윽히 깊은 데서 (찬송가 412장)",
+    "titleEn": "Far Away in the Depths of My Soul (Hymn 412)",
+    "artist": "새찬송가 412장 • 하늘의 평화",
+    "category": "hymn",
+    "videoId": "h1e3k6p9q2o",
+    "duration": 285,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 16.0, "kr": "🎵 내 영혼의 그윽히 깊은 데서 (찬송가 412장) - 찬양 전주", "en": "Far Away in the Depths of My Soul - Intro" },
+      { "start": 16.0, "end": 32.0, "kr": "[1절] 내 영혼의 그윽히 깊은 데서 맑은 가락이 울려나네", "en": "Far away in the depths of my spirit tonight rolls a melody sweeter than psalm" },
+      { "start": 32.0, "end": 49.0, "kr": "하늘 곡조가 언제나 흘러나와 내 영혼을 고이 싸네", "en": "In celestial-like strains it unceasingly falls o'er my soul like an infinite calm" },
+      { "start": 49.0, "end": 64.0, "kr": "[후렴] 평화 평화로다 하늘 위에서 내려오네", "en": "Peace! Peace! Wonderful peace, coming down from the Father above!" },
+      { "start": 64.0, "end": 82.0, "kr": "그 사랑의 물결이 영원토록 내 영혼을 덮으소서", "en": "Sweep over my spirit forever, I pray, in fathomless billows of love!" },
+      { "start": 82.0, "end": 98.0, "kr": "[2절] 내 맘속에 솟아난 이 평화는 깊은 안식을 주도다", "en": "What a treasure I have in this wonderful peace, buried deep in the heart of my soul" },
+      { "start": 98.0, "end": 116.0, "kr": "어떤 시련과 풍파도 흔들지 못해, 주 예수의 참 평화라", "en": "So secure that no power can mine it away, while the years of eternity roll!" },
+      { "start": 116.0, "end": 133.0, "kr": "[3절] 이 땅 위의 평화는 헛되도다 오직 주님만 바라보네", "en": "I am resting tonight in this wonderful peace, resting sweetly in Jesus' control" },
+      { "start": 133.0, "end": 152.0, "kr": "영원토록 변함없는 참된 평강 주님만이 베푸시네", "en": "For I'm kept from all danger by night and by day, and His glory is flooding my soul!" },
+      { "start": 152.0, "end": 185.0, "kr": "[후렴 절정] 평화 평화로다! 하늘 위에서 내려오네!", "en": "Peace! Peace! Wonderful peace, coming down from the Father above!" },
+      { "start": 185.0, "end": 285.0, "kr": "🕊️ 세상이 줄 수 없는 하나님의 참된 평강이 우리 영혼을 채우시길 기도합니다 · 아멘", "en": "May the Peace of God That Surpasses All Understanding Guard Your Hearts · Amen" }
+    ]
+  },
+  {
+    "id": "mercy-is-falling",
+    "titleKo": "주의 자비가 내려와 (Mercy Is Falling)",
+    "titleEn": "Mercy Is Falling (Like a Sweet Spring Rain)",
+    "artist": "David Ruis (데이빗 루이스) • 기쁨과 춤추는 찬양",
+    "category": "global",
+    "videoId": "R0x7z9L7k1c",
+    "duration": 240,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 14.0, "kr": "🎵 주의 자비가 내려와 (Mercy Is Falling) - 찬양 전주", "en": "Mercy Is Falling - David Ruis (Intro)" },
+      { "start": 14.0, "end": 28.0, "kr": "[1절] 주의 자비가 내려와 내려와, 주의 자비가 봄비같이 내려와", "en": "Mercy is falling, is falling, is falling; Mercy it falls like the sweet spring rain" },
+      { "start": 28.0, "end": 44.0, "kr": "주의 자비가 내려와 나를 덮네", "en": "Mercy is falling, is falling all over me" },
+      { "start": 44.0, "end": 58.0, "kr": "[후렴] 헤이호 주의 자비하심으로", "en": "Hey-oh, I receive Your mercy!" },
+      { "start": 58.0, "end": 72.0, "kr": "헤이호 영원히 기뻐하리", "en": "Hey-oh, I receive Your grace!" },
+      { "start": 72.0, "end": 86.0, "kr": "헤이호 주 사랑 인하여 나 영원히 춤추리라", "en": "Hey-oh, I will dance forevermore!" },
+      { "start": 86.0, "end": 102.0, "kr": "[1절 반복] 주의 자비가 내려와 내려와, 주의 자비가 봄비같이 내려와", "en": "Mercy is falling, is falling; Mercy it falls like the sweet spring rain" },
+      { "start": 102.0, "end": 120.0, "kr": "주의 자비가 내려와 나를 덮네", "en": "Mercy is falling, is falling all over me" },
+      { "start": 120.0, "end": 150.0, "kr": "[후렴 절정] 헤이호 주의 자비하심으로! 영원히 기뻐 뛰놀며 춤추리라!", "en": "Hey-oh, I receive Your mercy! I will dance forevermore!" },
+      { "start": 150.0, "end": 240.0, "kr": "🕊️ 날마다 새롭게 부어주시는 주의 자비와 기쁨을 찬양합니다 · 아멘", "en": "Rejoicing in the Mercies of God New Every Morning · Amen" }
+    ]
+  },
+  {
+    "id": "do-not-fear",
+    "titleKo": "아무것도 두려워 말라 (주 나의 하나님이)",
+    "titleEn": "Do Not Fear (The Lord My God Protects Me)",
+    "artist": "예수전도단 (YWAM) • 영적 담대함과 평안",
+    "category": "confession",
+    "videoId": "c3Uf9t1Z7d0",
+    "duration": 310,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 18.0, "kr": "🎵 아무것도 두려워 말라 - 찬양 전주", "en": "Do Not Fear - YWAM (Intro)" },
+      { "start": 18.0, "end": 33.0, "kr": "[1절] 아무것도 두려워 말라 주 나의 하나님이 지켜주시네", "en": "Do not be afraid of anything, the Lord my God will watch over you" },
+      { "start": 33.0, "end": 50.0, "kr": "놀라지 말라 겁내지 말라 주님 나를 붙드시네", "en": "Do not be dismayed, do not fear, the Lord will uphold you" },
+      { "start": 50.0, "end": 65.0, "kr": "[후렴] 너는 가만히 있어 주가 하나님 됨 알지어다", "en": "Be still and know that He is God Almighty" },
+      { "start": 65.0, "end": 80.0, "kr": "열방과 세계 가운데 주가 높임을 받으리라", "en": "He will be exalted among the nations, exalted in all the earth" },
+      { "start": 80.0, "end": 96.0, "kr": "주는 나의 피난처시요 요새시니", "en": "The Lord is my refuge and my fortress" },
+      { "start": 96.0, "end": 115.0, "kr": "내가 의뢰하는 하나님이라", "en": "My God in whom I put my whole trust" },
+      { "start": 115.0, "end": 135.0, "kr": "(간주 · 묵상)", "en": "(Interlude)" },
+      { "start": 135.0, "end": 150.0, "kr": "[1절 반복] 아무것도 두려워 말라 주 나의 하나님이 지켜주시네", "en": "Do not be afraid, the Lord my God will protect you" },
+      { "start": 150.0, "end": 168.0, "kr": "놀라지 말라 겁내지 말라 주님 나를 붙드시네", "en": "Do not be dismayed, the Lord will hold you fast" },
+      { "start": 168.0, "end": 185.0, "kr": "[선포] 너는 가만히 있어 주가 하나님 됨 알지어다!", "en": "Be still and know that He is God!" },
+      { "start": 185.0, "end": 220.0, "kr": "열방과 세계 가운데 주가 영광을 받으시리라!", "en": "He will be exalted in all the nations and the earth!" },
+      { "start": 220.0, "end": 310.0, "kr": "🕊️ 어떤 위기 속에서도 굳건한 반석 되시는 하나님을 의지합니다 · 아멘", "en": "Resting Safely in the Mighty Fortress of Our God · Amen" }
+    ]
+  },
+  {
+    "id": "every-move-i-make",
+    "titleKo": "내 모든 삶의 행동 주 안에 (Every Move I Make)",
+    "titleEn": "Every Move I Make",
+    "artist": "David Ruis / 다윗의장막 • 활력과 찬양",
+    "category": "global",
+    "videoId": "vy06wD8p_iA",
+    "duration": 260,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 15.0, "kr": "🎵 내 모든 삶의 행동 주 안에 (Every Move I Make) - 찬양 전주", "en": "Every Move I Make - David Ruis (Intro)" },
+      { "start": 15.0, "end": 28.0, "kr": "[1절] 내 모든 삶의 행동 주 안에 주 안에 있네", "en": "Every move I make I make in You, You make me move, Jesus" },
+      { "start": 28.0, "end": 42.0, "kr": "나의 모든 호흡 주 안에 있네", "en": "Every breath I take I breathe in You" },
+      { "start": 42.0, "end": 56.0, "kr": "내 모든 발걸음 주 안에 주 안에 있네", "en": "Every step I take I take in You, You are my way, Jesus" },
+      { "start": 56.0, "end": 72.0, "kr": "나의 모든 생명 주께 있네", "en": "Every breath I take I breathe in You" },
+      { "start": 72.0, "end": 86.0, "kr": "[후렴] 자비와 은혜의 물결 어디서나 주 얼굴 보네", "en": "Waves of mercy, waves of grace; Everywhere I look, I see Your face" },
+      { "start": 86.0, "end": 102.0, "kr": "주의 사랑 날 사로잡네, 오 주님 크신 사랑", "en": "Your love has captured me; Oh my God, this love, how can it be?" },
+      { "start": 102.0, "end": 118.0, "kr": "[1절 반복] 내 모든 삶의 행동 주 안에 주 안에 있네", "en": "Every move I make I make in You, You make me move, Jesus" },
+      { "start": 118.0, "end": 136.0, "kr": "나의 모든 호흡 주 안에 있네!", "en": "Every breath I take I breathe in You!" },
+      { "start": 136.0, "end": 170.0, "kr": "[후렴 절정] 주의 사랑 날 사로잡네! 오 주님 크신 사랑!", "en": "Your love has captured me! Oh my God, this love, how can it be?" },
+      { "start": 170.0, "end": 260.0, "kr": "🕊️ 우리의 모든 숨결과 발걸음이 오직 그리스도 안에 있음을 고백합니다 · 아멘", "en": "In Him We Live and Move and Have Our Being · Amen" }
+    ]
   }
 ];
 
@@ -564,7 +1072,7 @@ function populateSongSelector(selectedId) {
   select.innerHTML = '';
 
   const presetGroup = document.createElement('optgroup');
-  presetGroup.label = "⭐ 공식 찬양 보관함 (10곡 라이브러리)";
+  presetGroup.label = "⭐ 공식 찬양 보관함 (30곡 라이브러리)";
   PRESET_PRAISE_SONGS.forEach(song => {
     const opt = document.createElement('option');
     opt.value = song.id;
@@ -669,7 +1177,7 @@ window.closeZoomGuideModal = closeZoomGuideModal;
 function updateSourceToggleBtn(song) {
   const btn = document.getElementById('btnToggleMediaSource');
   if (btn) {
-    if (song && song.videoId && song.audioUrl) {
+    if (song && song.videoId && (song.audioUrl || song.videoUrl)) {
       btn.style.display = 'inline-flex';
       if (worshipStudioState.mediaMode === 'youtube') {
         btn.innerHTML = '🎵 수록 음원 & 자막 모드';
@@ -795,6 +1303,19 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
       video.preload = "auto";
       video.currentTime = 0;
       video.load();
+      video.onerror = () => {
+        console.warn('Local video load failed or buffered out, switching fallback:', song.videoUrl);
+        if (song.videoId) {
+          showStudioToast('💡 끊김 없는 고화질 스트림(YouTube)으로 자동 전환합니다.');
+          worshipStudioState.mediaMode = 'youtube';
+          updateSourceToggleBtn(song);
+          mountYouTubePlayer(song.videoId, autoPlay);
+        } else if (song.audioUrl) {
+          showStudioToast('💡 음원 모드로 전환합니다.');
+          worshipStudioState.mediaMode = 'safe-audio';
+          selectWorshipSong(song.id, 'safe-audio', autoPlay);
+        }
+      };
       setupMediaTimeUpdate(video);
       
       if (autoPlay) {
@@ -824,6 +1345,14 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
       audio.style.display = 'block';
       audio.src = song.audioUrl;
       audio.load();
+      audio.onerror = () => {
+        console.warn('Audio load failed:', song.audioUrl);
+        if (song.videoId) {
+          worshipStudioState.mediaMode = 'youtube';
+          updateSourceToggleBtn(song);
+          mountYouTubePlayer(song.videoId, autoPlay);
+        }
+      };
       setupMediaTimeUpdate(audio);
       if (autoPlay) {
         audio.play().catch(() => {});

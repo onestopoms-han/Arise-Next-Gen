@@ -1574,8 +1574,8 @@ const defaultTestimonies = [
 const defaultRoutineContent = {
   step1: {
     songTitle: "나 같은 죄인 살리신 (Amazing Grace)",
-    link: "https://www.youtube.com/watch?v=gLpoLRsIPko",
-    content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다.\n• 지정 찬양: V-WORSHIP · 나 같은 죄인 살리신 + 놀라우신 은혜 (Amazing Grace)\n• 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace to you)"
+    link: "https://www.youtube.com/watch?v=4-IlkTVvqKk",
+    content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다.\n• 지정 찬양: 피아워십(F.I.A) · 나 같은 죄인 살리신 (찬송가 305장 / Amazing Grace 완곡)\n• 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace to you)"
   },
   step2: {
     scripture: "창세기 1:27-28 (Genesis 1:27-28)",
@@ -1601,7 +1601,7 @@ const defaultMeetingSettings = {
 };
 
 // Always sync newly added nations & routine content & meeting settings
-const DATA_VERSION = 'v14_october_2026_genesis_word';
+const DATA_VERSION = 'v15_october_2026_praise_30songs';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -2516,13 +2516,54 @@ window.renderWorshipLounge = renderWorshipLounge;
 
 
 // ==========================================
-// 7. Settings Modal Handling
+// 7. Settings Modal Handling & Zoom Auto-Parser
 // ==========================================
+function extractZoomDetails(input) {
+  if (!input) return { url: '', id: '', pw: '' };
+  const str = input.trim();
+
+  // 1. URL 추출 (https://...zoom.us/... 또는 http://...)
+  let url = '';
+  const urlMatch = str.match(/https?:\/\/[^\s"'<>]+/i);
+  if (urlMatch) {
+    url = urlMatch[0];
+  } else if (/^[a-zA-Z0-9.-]*zoom\.us\/[^\s]+/i.test(str)) {
+    url = 'https://' + str.replace(/^\/+/, '');
+  } else if (/^https?:\/\//i.test(str)) {
+    url = str;
+  }
+
+  // 2. 회의 ID 추출 (예: 회의 ID: 888 1234 5678 또는 Meeting ID: 888 1234 5678)
+  let id = '';
+  const idMatch = str.match(/(?:회의\s*ID|Meeting\s*ID)[:：\s]+([0-9\s-]{9,15})/i);
+  if (idMatch) {
+    id = idMatch[1].trim();
+  }
+
+  // 3. 암호 추출 (예: 암호: 7777 또는 Passcode: 7777 / 비밀번호: 7777)
+  let pw = '';
+  const pwMatch = str.match(/(?:암호|비밀번호|Passcode|Password|PW)[:：\s]+([a-zA-Z0-9!@#$%^&*]+)/i);
+  if (pwMatch) {
+    pw = pwMatch[1].trim();
+  }
+
+  return { url, id, pw };
+}
+
 function handleSettingsSubmit(e) {
   e.preventDefault();
   const dateVal = document.getElementById('settingsDateTime').value;
-  const zoomVal = document.getElementById('settingsZoomUrl').value.trim();
-  const idVal = document.getElementById('settingsMeetingId').value.trim();
+  const rawZoom = document.getElementById('settingsZoomUrl').value.trim();
+  let idVal = document.getElementById('settingsMeetingId').value.trim();
+
+  // 줌 링크 / 초대장 자동 정제 및 분리
+  const extracted = extractZoomDetails(rawZoom);
+  const zoomVal = extracted.url || rawZoom;
+
+  // 만약 회의 ID/암호가 비어있고 줌 초대장에서 ID나 PW가 감지되었다면 자동 세팅
+  if (!idVal && (extracted.id || extracted.pw)) {
+    idVal = [extracted.id ? `ID: ${extracted.id}` : '', extracted.pw ? `PW: ${extracted.pw}` : ''].filter(Boolean).join(' / ');
+  }
 
   // 호주 퀸즈랜드(AEST / UTC+10) 기준 오프셋을 붙여 저장
   if (dateVal) {
@@ -2623,7 +2664,11 @@ function parseRoutineFromRows(rows) {
     else if (key.includes('모임일시') || key.includes('일시') || key.includes('meetingdate')) {
       parsed.meetingSettings.meetingDate = val;
     } else if (key.includes('줌링크') || key.includes('zoomurl') || key.includes('회의링크')) {
-      parsed.meetingSettings.zoomUrl = val;
+      const extracted = extractZoomDetails(val);
+      parsed.meetingSettings.zoomUrl = extracted.url || val;
+      if (!parsed.meetingSettings.meetingId && (extracted.id || extracted.pw)) {
+        parsed.meetingSettings.meetingId = [extracted.id ? `ID: ${extracted.id}` : '', extracted.pw ? `PW: ${extracted.pw}` : ''].filter(Boolean).join(' / ');
+      }
     } else if (key.includes('줌id') || key.includes('회의id') || key.includes('meetingid') || key.includes('비밀번호')) {
       parsed.meetingSettings.meetingId = val;
     }
@@ -2796,8 +2841,8 @@ function copySheetTemplateTsv() {
   const tsv = [
     "구분 항목\t입력 내용 (3명의 담당자가 작성하는 칸)",
     "1단계_찬양제목\t나 같은 죄인 살리신 (Amazing Grace)",
-    "1단계_유튜브링크\thttps://www.youtube.com/watch?v=gLpoLRsIPko",
-    "1단계_찬양안내\t전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양 (V-WORSHIP).",
+    "1단계_유튜브링크\thttps://www.youtube.com/watch?v=4-IlkTVvqKk",
+    "1단계_찬양안내\t전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양 (피아워십 F.I.A 완곡).",
     "2단계_성경본문\t창세기 1:27-28 (Genesis 1:27-28)",
     "2단계_말씀제목\t다스리고 정복하라 (Rule & Subdue)",
     "2단계_말씀요약\t27. 하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n28. 하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라\n\n📌 5분 메시지 요약: 복음으로 세상을 살리고 다스리는 언약의 후대",
@@ -3379,4 +3424,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Load latest official routine from serverless API / routine.json
   loadGlobalRoutine();
+
+  // 줌 링크 입력 시 초대장 전체 붙여넣기 자동 감지 및 스마트 분리
+  const zoomInputEl = document.getElementById('settingsZoomUrl');
+  if (zoomInputEl) {
+    const handleZoomAutoDetect = () => {
+      const val = zoomInputEl.value;
+      if (val && (val.includes('\n') || val.length > 70 || val.includes('회의 ID') || val.includes('Meeting ID') || val.includes('초대합니다'))) {
+        const details = extractZoomDetails(val);
+        if (details.url) {
+          zoomInputEl.value = details.url;
+          const idInputEl = document.getElementById('settingsMeetingId');
+          if (idInputEl && (!idInputEl.value.trim() || idInputEl.value.includes('888 1234 5678')) && (details.id || details.pw)) {
+            idInputEl.value = [details.id ? `ID: ${details.id}` : '', details.pw ? `PW: ${details.pw}` : ''].filter(Boolean).join(' / ');
+          }
+          const helperMsg = document.getElementById('zoomInputHelperMsg');
+          if (helperMsg) {
+            helperMsg.style.display = 'block';
+            helperMsg.textContent = '✨ 줌 초대장에서 회의 링크와 ID/암호를 자동으로 깔끔하게 분리했습니다!';
+            setTimeout(() => { helperMsg.style.display = 'none'; }, 6000);
+          }
+        }
+      }
+    };
+    zoomInputEl.addEventListener('input', handleZoomAutoDetect);
+    zoomInputEl.addEventListener('paste', () => setTimeout(handleZoomAutoDetect, 50));
+  }
 });
