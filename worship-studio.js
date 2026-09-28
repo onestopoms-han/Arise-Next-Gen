@@ -878,13 +878,13 @@ const PRESET_PRAISE_SONGS = [
     "id": "jesus-we-enthrone-you",
     "titleKo": "예수 우리 왕이여 (Jesus, We Enthrone You)",
     "titleEn": "Jesus, We Enthrone You",
-    "artist": "마커스워십 (Markers Worship) / Paul Kyle • 임재와 통치",
+    "artist": "제이어스 (J-US) / Paul Kyle • 임재와 찬양",
     "category": "confession",
-    "videoId": "eX-KRtn8Dnc",
+    "videoId": "GurGV7PfM2s",
     "duration": 340,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      { "start": 0.0, "end": 18.0, "kr": "🎵 예수 우리 왕이여 (Jesus, We Enthrone You) - 마커스워십 전주", "en": "Jesus We Enthrone You - Markers Worship (Intro)" },
+      { "start": 0.0, "end": 18.0, "kr": "🎵 예수 우리 왕이여 (Jesus, We Enthrone You) - 제이어스 전주", "en": "Jesus We Enthrone You - J-US Worship (Intro)" },
       { "start": 18.0, "end": 35.0, "kr": "[1절] 예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, we proclaim You are King" },
       { "start": 35.0, "end": 56.0, "kr": "보좌로 임하사 찬양을 받으소서", "en": "Standing here in the midst of us, we raise You up with our praise" },
       { "start": 56.0, "end": 74.0, "kr": "[후렴] 사모함으로 주님께 예배드리니", "en": "And as we worship build a throne, and as we worship build a throne" },
@@ -900,9 +900,9 @@ const PRESET_PRAISE_SONGS = [
     "id": "lord-i-lift-your-name-on-high",
     "titleKo": "주의 이름 높이며 (Lord, I Lift Your Name on High)",
     "titleEn": "Lord, I Lift Your Name on High",
-    "artist": "Rick Founds / 마커스워십 • 승리와 찬양",
+    "artist": "제이어스 (J-US) / Rick Founds • 승리와 찬양",
     "category": "global",
-    "videoId": "F553ZlS2P4s",
+    "videoId": "Q377AqjOiI8",
     "duration": 290,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -943,9 +943,9 @@ const PRESET_PRAISE_SONGS = [
     "id": "as-the-deer",
     "titleKo": "목마른 사슴 (As the Deer)",
     "titleEn": "As the Deer",
-    "artist": "Martin Nystrom / Maranatha! Music • 영혼의 갈망과 경배",
+    "artist": "어노인팅 (Anointing) / Martin Nystrom • 영혼의 갈망과 경배",
     "category": "global",
-    "videoId": "5yJ4c-o0k9s",
+    "videoId": "ele4YXY84lY",
     "duration": 280,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -967,7 +967,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Shout to the Lord",
     "artist": "Hillsong Worship / Darlene Zschech • 온 열방의 찬양",
     "category": "global",
-    "videoId": "W0S4l170W8Y",
+    "videoId": "5_aIauL2xKA",
     "duration": 320,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -1072,25 +1072,25 @@ const PRESET_PRAISE_SONGS = [
     ]
   },
   {
-    "id": "grace-of-god-shin",
-    "titleKo": "하나님의 은혜 (나를 지으신 이가 하나님)",
-    "titleEn": "The Grace of God (By the Grace of God)",
-    "artist": "피아워십 (F.I.A Worship) / 조은아 작사, 신상우 작곡 • 평생의 고백",
+    "id": "wilderness-hiswill",
+    "titleKo": "광야를 지나며 (왜 나를 깊은 어둠속에)",
+    "titleEn": "Passing Through the Wilderness",
+    "artist": "히즈윌 (HisWill) / 장진숙 • 연단과 참된 믿음",
     "category": "confession",
-    "videoId": "kYJj055z58g",
-    "duration": 360,
+    "videoId": "qaIqilD7QTI",
+    "duration": 330,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      { "start": 0.0, "end": 20.0, "kr": "🎵 하나님의 은혜 (나를 지으신 이가 하나님) - 피아워십 전주", "en": "The Grace of God - F.I.A Worship (Intro)" },
-      { "start": 20.0, "end": 37.0, "kr": "[1절] 나를 지으신 이가 하나님, 나를 부르신 이가 하나님", "en": "The One who created me is God; The One who called me is God" },
-      { "start": 37.0, "end": 56.0, "kr": "나를 보내신 이도 하나님, 나의 달려갈 길 다 가도록", "en": "The One who sent me is also God, that I may finish my race with joy" },
-      { "start": 56.0, "end": 74.0, "kr": "나의 마지막 호흡 다하도록, 나로 그 십자가 품게 하시니", "en": "Until my very last breath on earth, He enables me to embrace the cross" },
-      { "start": 74.0, "end": 92.0, "kr": "[후렴] 한량없는 은혜 갚을 길 없는 은혜, 내 삶을 에워싸는 하나님의 은혜", "en": "Boundless grace, grace I can never repay; The grace of God surrounding my entire life" },
-      { "start": 92.0, "end": 112.0, "kr": "나 주저함 없이 그 땅을 밟음도, 나를 붙드시는 하나님의 은혜", "en": "That I step onto that land without hesitation, is by the grace of God that holds me fast" },
-      { "start": 112.0, "end": 132.0, "kr": "[2절] 나의 나 된 것은 다 하나님 은혜라", "en": "All that I am today is only by the grace of God" },
-      { "start": 132.0, "end": 154.0, "kr": "[후렴 반복] 한량없는 은혜 갚을 길 없는 은혜, 내 삶을 에워싸는 하나님의 은혜", "en": "Boundless grace, grace I can never repay; The grace of God surrounding my life" },
-      { "start": 154.0, "end": 190.0, "kr": "나 주저함 없이 그 길을 걸음도, 나를 붙드시는 오직 하나님의 은혜라!", "en": "That I walk this path without fear, is solely by the grace of God that sustains me!" },
-      { "start": 190.0, "end": 360.0, "kr": "🕊️ 나의 과거, 현재, 그리고 미래의 모든 발걸음이 오직 하나님의 은혜임을 고백합니다 · 아멘", "en": "By the Grace of God I Am What I Am · Amen" }
+      { "start": 0.0, "end": 20.0, "kr": "🎵 광야를 지나며 - 히즈윌 (HisWill) 전주", "en": "Passing Through the Wilderness - HisWill (Intro)" },
+      { "start": 20.0, "end": 37.0, "kr": "[1절] 왜 나를 깊은 어둠속에 홀로 두시는지, 어두운 밤은 왜 그리 길었는지", "en": "Why You left me alone in deep darkness, why the night was so long" },
+      { "start": 37.0, "end": 56.0, "kr": "나를 고독하게 나를 낮추시며, 세상 어디도 기댈 곳이 없게 하셨네", "en": "Making me solitary and humble, leaving me nowhere in this world to lean" },
+      { "start": 56.0, "end": 74.0, "kr": "[후렴] 광야 광야에 서 있네, 주님만 내 도움이 되시고", "en": "I stand in the wilderness, where the Lord alone is my help" },
+      { "start": 74.0, "end": 92.0, "kr": "주님만 내 빛이 되시는 광야, 주님만 내 친구 되시는 광야에 서 있네", "en": "In the wilderness where the Lord alone is my light and my friend" },
+      { "start": 92.0, "end": 110.0, "kr": "[2절] 주님 손 놓고는 단 하루도 살 수 없는 곳, 광야 광야에 서 있네", "en": "A place where I cannot live a single day without holding Your hand" },
+      { "start": 110.0, "end": 132.0, "kr": "내 자아가 산산이 깨어지고, 오직 주님만 내 삶의 주인 되시는 곳", "en": "Where my self is completely shattered, and the Lord alone becomes master of my life" },
+      { "start": 132.0, "end": 155.0, "kr": "[후렴 반복] 광야 광야에 서 있네, 주님만 내 도움이 되시고", "en": "Standing in the wilderness, where only the Lord is my refuge and strength" },
+      { "start": 155.0, "end": 190.0, "kr": "주님만 내 빛이 되시는 광야, 오직 주님만을 예배하네!", "en": "In the wilderness where the Lord is my light, I worship You alone!" },
+      { "start": 190.0, "end": 330.0, "kr": "🕊️ 광야의 시간을 통해 참된 예배자로 세우시는 하나님의 신실하심을 찬양합니다 · 아멘", "en": "Praising God Who Refines Us Into True Worshipers Through the Wilderness · Amen" }
     ]
   }
 ];
@@ -1287,18 +1287,23 @@ function mountYouTubePlayer(videoId, autoPlay = false) {
 
   if (window.YT && window.YT.Player && targetDiv) {
     try {
+      const playerVars = {
+        autoplay: autoPlay ? 1 : 0,
+        rel: 0,
+        modestbranding: 1,
+        playsinline: 1,
+        enablejsapi: 1
+      };
+      const safeOrigin = (window.location.origin && window.location.origin !== 'null' && !window.location.origin.startsWith('file:')) ? window.location.origin : undefined;
+      if (safeOrigin) {
+        playerVars.origin = safeOrigin;
+      }
+
       ytStudioPlayer = new YT.Player('studioYouTubePlayer', {
         width: '100%',
         height: '100%',
         videoId: videoId,
-        playerVars: {
-          autoplay: autoPlay ? 1 : 0,
-          rel: 0,
-          modestbranding: 1,
-          playsinline: 1,
-          enablejsapi: 1,
-          origin: window.location.origin
-        },
+        playerVars: playerVars,
         events: {
           onReady: (event) => {
             if (autoPlay) {
@@ -1314,6 +1319,10 @@ function mountYouTubePlayer(videoId, autoPlay = false) {
             } else if (event.data === 2 || event.data === 0) {
               stopYtProgressTracker();
             }
+          },
+          onError: (event) => {
+            console.warn('YouTube Player API error code:', event.data, 'falling back to direct iframe');
+            mountFallbackIframe(videoId, autoPlay);
           }
         }
       });
@@ -1334,7 +1343,7 @@ function mountFallbackIframe(videoId, autoPlay = false) {
       class="studio-video" 
       src="https://www.youtube.com/embed/${videoId}?autoplay=${autoPlay ? 1 : 0}&enablejsapi=1&rel=0" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin" 
+      referrerpolicy="no-referrer-when-downgrade" 
       allowfullscreen>
     </iframe>
   `;
@@ -1533,6 +1542,10 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
 
   if (requestedMode) {
     worshipStudioState.mediaMode = requestedMode;
+  } else if (!song.videoUrl && !song.audioUrl && song.videoId) {
+    worshipStudioState.mediaMode = 'youtube';
+  } else if (worshipStudioState.mediaMode === 'safe-audio' && !song.audioUrl && song.videoId) {
+    worshipStudioState.mediaMode = 'youtube';
   } else if (!worshipStudioState.mediaMode) {
     worshipStudioState.mediaMode = 'local';
   }

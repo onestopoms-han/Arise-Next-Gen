@@ -2458,10 +2458,10 @@ function renderWorshipLounge() {
     } else if (song.videoId) {
       previewHtml = `
         <iframe 
-          src="https://www.youtube-nocookie.com/embed/${song.videoId}?enablejsapi=1" 
+          src="https://www.youtube.com/embed/${song.videoId}?enablejsapi=1" 
           title="${escapeHtml(song.titleKo)}" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" 
+          referrerpolicy="no-referrer-when-downgrade" 
           allowfullscreen 
           loading="lazy">
         </iframe>
