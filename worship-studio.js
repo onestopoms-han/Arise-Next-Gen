@@ -3,7 +3,7 @@
  * 한/영 찬양 자막 영상 재생, 줌(Zoom) 화면공유 최적화, 가사 싱크 및 커스텀 찬양 제작 도구
  */
 
-// 1. Preset Worship Songs Data (30곡 대표 라이브러리 - 전곡 풀타임 싱크 완비)
+// 1. Preset Worship Songs Data (40곡 대표 라이브러리 - 전곡 풀타임 싱크 완비)
 const PRESET_PRAISE_SONGS = [
   {
     "id": "amazing-grace",
@@ -873,6 +873,225 @@ const PRESET_PRAISE_SONGS = [
       { "start": 136.0, "end": 170.0, "kr": "[후렴 절정] 주의 사랑 날 사로잡네! 오 주님 크신 사랑!", "en": "Your love has captured me! Oh my God, this love, how can it be?" },
       { "start": 170.0, "end": 260.0, "kr": "🕊️ 우리의 모든 숨결과 발걸음이 오직 그리스도 안에 있음을 고백합니다 · 아멘", "en": "In Him We Live and Move and Have Our Being · Amen" }
     ]
+  },
+  {
+    "id": "jesus-we-enthrone-you",
+    "titleKo": "예수 우리 왕이여 (Jesus, We Enthrone You)",
+    "titleEn": "Jesus, We Enthrone You",
+    "artist": "마커스워십 (Markers Worship) / Paul Kyle • 임재와 통치",
+    "category": "confession",
+    "videoId": "eX-KRtn8Dnc",
+    "duration": 340,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 18.0, "kr": "🎵 예수 우리 왕이여 (Jesus, We Enthrone You) - 마커스워십 전주", "en": "Jesus We Enthrone You - Markers Worship (Intro)" },
+      { "start": 18.0, "end": 35.0, "kr": "[1절] 예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, we proclaim You are King" },
+      { "start": 35.0, "end": 56.0, "kr": "보좌로 임하사 찬양을 받으소서", "en": "Standing here in the midst of us, we raise You up with our praise" },
+      { "start": 56.0, "end": 74.0, "kr": "[후렴] 사모함으로 주님께 예배드리니", "en": "And as we worship build a throne, and as we worship build a throne" },
+      { "start": 74.0, "end": 100.0, "kr": "주 예수여 임하사 통치하소서", "en": "Come Lord Jesus and take Your place, come and rule over us" },
+      { "start": 100.0, "end": 125.0, "kr": "[1절 반복] 예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, we proclaim You are King" },
+      { "start": 125.0, "end": 148.0, "kr": "보좌로 임하사 찬양을 받으소서", "en": "Standing here in the midst of us, we raise You up with our praise" },
+      { "start": 148.0, "end": 172.0, "kr": "[후렴 반복] 사모함으로 주님께 예배드리니", "en": "And as we worship build a throne, and as we worship build a throne" },
+      { "start": 172.0, "end": 210.0, "kr": "주 예수여 임하사 영원히 통치하소서!", "en": "Come Lord Jesus, take Your place and reign forevermore!" },
+      { "start": 210.0, "end": 340.0, "kr": "🕊️ 만왕의 왕이신 예수 그리스도께서 우리 모임과 삶을 다스리십니다 · 아멘", "en": "King of Kings, Jesus Christ Reigns Over All · Amen" }
+    ]
+  },
+  {
+    "id": "lord-i-lift-your-name-on-high",
+    "titleKo": "주의 이름 높이며 (Lord, I Lift Your Name on High)",
+    "titleEn": "Lord, I Lift Your Name on High",
+    "artist": "Rick Founds / 마커스워십 • 승리와 찬양",
+    "category": "global",
+    "videoId": "F553ZlS2P4s",
+    "duration": 290,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 14.0, "kr": "🎵 주의 이름 높이며 - 찬양 전주", "en": "Lord I Lift Your Name on High - Rick Founds (Intro)" },
+      { "start": 14.0, "end": 28.0, "kr": "[1절] 주의 이름 높이며 주를 찬양하기 원하네", "en": "Lord, I lift Your name on high; Lord, I love to sing Your praises" },
+      { "start": 28.0, "end": 44.0, "kr": "나를 구원하신 주 기뻐 노래하네", "en": "I'm so glad You're in my life; I'm so glad You came to save us" },
+      { "start": 44.0, "end": 58.0, "kr": "[후렴] 하늘 영광 버리고 이 땅 위에 십자가를 지시고 죄 사했네", "en": "You came from heaven to earth to show the way, From the earth to the cross my debt to pay" },
+      { "start": 58.0, "end": 74.0, "kr": "무덤에서 일어나 하늘로 올리셨네, 주의 이름 높이리!", "en": "From the cross to the grave, from the grave to the sky; Lord, I lift Your name on high!" },
+      { "start": 74.0, "end": 90.0, "kr": "[1절 반복] 주의 이름 높이며 주를 찬양하기 원하네", "en": "Lord, I lift Your name on high; Lord, I love to sing Your praises" },
+      { "start": 90.0, "end": 106.0, "kr": "나를 구원하신 주 기뻐 노래하네", "en": "I'm so glad You're in my life; I'm so glad You came to save us" },
+      { "start": 106.0, "end": 128.0, "kr": "[후렴] 하늘 영광 버리고 이 땅 위에 십자가를 지시고 죄 사했네", "en": "You came from heaven to earth to show the way, From the earth to the cross my debt to pay" },
+      { "start": 128.0, "end": 150.0, "kr": "무덤에서 일어나 하늘로 올리셨네, 주의 이름 높이리!", "en": "From the cross to the grave, from the grave to the sky; Lord, I lift Your name on high!" },
+      { "start": 150.0, "end": 290.0, "kr": "🕊️ 사망 권세 이기시고 부활 승천하신 우리 주님을 높여 찬양합니다 · 아멘", "en": "Exalting the Risen Savior and King Above All · Amen" }
+    ]
+  },
+  {
+    "id": "still-hillsong",
+    "titleKo": "주 품에 품으소서 (Still)",
+    "titleEn": "Still",
+    "artist": "Hillsong Worship / Reuben Morgan • 깊은 안식과 평안",
+    "category": "global",
+    "videoId": "lAdwX8HypJM",
+    "duration": 340,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 22.0, "kr": "🎵 주 품에 품으소서 (Still) - Hillsong Worship 전주", "en": "Still - Hillsong Worship (Intro)" },
+      { "start": 22.0, "end": 44.0, "kr": "[1절] 주 품에 품으소서 능력의 팔로 덮으소서", "en": "Hide me now under Your wings; Cover me within Your mighty hand" },
+      { "start": 44.0, "end": 56.0, "kr": "[후렴] 거친 파도 날 향해 와도 주와 함께 날아오르리", "en": "When the oceans rise and thunders roar, I will soar with You above the storm" },
+      { "start": 56.0, "end": 74.0, "kr": "폭풍 가운데 나의 영혼 잠잠하게 주를 보리라", "en": "Father You are King over the flood; I will be still, know You are God" },
+      { "start": 74.0, "end": 96.0, "kr": "[2절] 주님 안에 나 거하리 주 능력 나 잠잠히 믿네", "en": "Find rest my soul in Christ alone; Know His power in quietness and trust" },
+      { "start": 96.0, "end": 118.0, "kr": "[후렴 반복] 거친 파도 날 향해 와도 주와 함께 날아오르리", "en": "When the oceans rise and thunders roar, I will soar with You above the storm" },
+      { "start": 118.0, "end": 142.0, "kr": "폭풍 가운데 나의 영혼 잠잠하게 주를 보리라", "en": "Father You are King over the flood; I will be still, know You are God" },
+      { "start": 142.0, "end": 180.0, "kr": "[선포] 잠잠하게 주를 보리라, 주가 하나님 되심을 알지어다", "en": "I will be still, know You are God; Be still and know that He is God" },
+      { "start": 180.0, "end": 340.0, "kr": "🕊️ 모든 거친 파도 위에서 우리를 품으시는 하나님의 완전한 평안을 누립니다 · 아멘", "en": "Resting in the Sovereign Peace of God Over Every Storm · Amen" }
+    ]
+  },
+  {
+    "id": "as-the-deer",
+    "titleKo": "목마른 사슴 (As the Deer)",
+    "titleEn": "As the Deer",
+    "artist": "Martin Nystrom / Maranatha! Music • 영혼의 갈망과 경배",
+    "category": "global",
+    "videoId": "5yJ4c-o0k9s",
+    "duration": 280,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 16.0, "kr": "🎵 목마른 사슴 (As the Deer) - 찬양 전주", "en": "As the Deer - Martin Nystrom (Intro)" },
+      { "start": 16.0, "end": 34.0, "kr": "[1절] 목마른 사슴 시냇물을 찾아 헤매이듯이", "en": "As the deer panteth for the water, so my soul longeth after Thee" },
+      { "start": 34.0, "end": 52.0, "kr": "내 영혼 주를 찾기에 갈급하나이다", "en": "You alone are my heart's desire, and I long to worship Thee" },
+      { "start": 52.0, "end": 70.0, "kr": "[후렴] 주님만이 나의 힘 나의 방패 나의 참 소망", "en": "You alone are my strength, my shield; To You alone may my spirit yield" },
+      { "start": 70.0, "end": 90.0, "kr": "나의 몸 정성 다 바쳐서 주님 경배합니다", "en": "You alone are my heart's desire, and I long to worship Thee" },
+      { "start": 90.0, "end": 108.0, "kr": "[2절] 금보다 귀한 나의 주님 내게 만족 주시네", "en": "You're my friend and You are my brother, even though You are a King" },
+      { "start": 108.0, "end": 128.0, "kr": "당신만이 나의 기쁨 참된 평화입니다", "en": "I love You more than any other, so much more than anything" },
+      { "start": 128.0, "end": 150.0, "kr": "[후렴 반복] 주님만이 나의 힘 나의 방패 나의 참 소망", "en": "You alone are my strength, my shield; To You alone may my spirit yield" },
+      { "start": 150.0, "end": 180.0, "kr": "나의 모든 정성 다해 오직 주를 경배합니다", "en": "You alone are my heart's desire, and I long to worship Thee" },
+      { "start": 180.0, "end": 280.0, "kr": "🕊️ 시냇물을 찾는 사슴처럼 주님만을 갈망하는 예배자가 되길 소망합니다 · 아멘", "en": "Seeking and Longing After God Alone Forever · Amen" }
+    ]
+  },
+  {
+    "id": "shout-to-the-lord",
+    "titleKo": "내 구주 예수님 (Shout to the Lord)",
+    "titleEn": "Shout to the Lord",
+    "artist": "Hillsong Worship / Darlene Zschech • 온 열방의 찬양",
+    "category": "global",
+    "videoId": "W0S4l170W8Y",
+    "duration": 320,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 20.0, "kr": "🎵 내 구주 예수님 (Shout to the Lord) - 찬양 전주", "en": "Shout to the Lord - Hillsong Worship (Intro)" },
+      { "start": 20.0, "end": 35.0, "kr": "[1절] 내 구주 예수님 주 같은 분 없네", "en": "My Jesus, my Savior, Lord there is none like You" },
+      { "start": 35.0, "end": 50.0, "kr": "내 평생에 찬양하리라 놀라운 주의 사랑을", "en": "All of my days I want to praise the wonders of Your mighty love" },
+      { "start": 50.0, "end": 68.0, "kr": "나의 위로자 내 피난처 나의 모든 힘과 호흡", "en": "My comfort, my shelter, tower of refuge and strength" },
+      { "start": 68.0, "end": 85.0, "kr": "[후렴] 온 땅이여 주님을 찬양하라 능력과 권세의 주를 노래해", "en": "Shout to the Lord, all the earth, let us sing! Power and majesty, praise to the King!" },
+      { "start": 85.0, "end": 102.0, "kr": "산들이 떨고 바다 솟구쳐도 주의 이름을 부를 때", "en": "Mountains bow down and the seas will roar at the sound of Your name" },
+      { "start": 102.0, "end": 120.0, "kr": "주 행하신 일 찬양하며 주를 영원히 사랑하리", "en": "I sing for joy at the work of Your hands, forever I'll love You, forever I'll stand" },
+      { "start": 120.0, "end": 140.0, "kr": "변함없는 주의 약속 내게 주셨네!", "en": "Nothing compares to the promise I have in You!" },
+      { "start": 140.0, "end": 180.0, "kr": "[후렴 환호] 온 땅이여 큰 소리로 주를 찬양하라!", "en": "Shout to the Lord, all the earth, let us sing!" },
+      { "start": 180.0, "end": 320.0, "kr": "🕊️ 천지와 온 열방을 다스리시는 존귀하신 왕 예수님을 영원히 찬양합니다 · 아멘", "en": "Glory and Honor to the Lord of All the Earth · Amen" }
+    ]
+  },
+  {
+    "id": "god-is-so-good",
+    "titleKo": "좋으신 하나님 (God Is So Good)",
+    "titleEn": "God Is So Good",
+    "artist": "피아워십 (F.I.A Worship) / Traditional • 감사와 송축",
+    "category": "hymn",
+    "videoId": "_wG0E2D_7BQ",
+    "duration": 290,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 15.0, "kr": "🎵 좋으신 하나님 (God Is So Good) - 피아워십 전주", "en": "God Is So Good - F.I.A Worship (Intro)" },
+      { "start": 15.0, "end": 32.0, "kr": "[1절] 좋으신 하나님 좋으신 하나님", "en": "God is so good, God is so good" },
+      { "start": 32.0, "end": 50.0, "kr": "참 좋으신 나의 하나님", "en": "God is so good, He's so good to me" },
+      { "start": 50.0, "end": 68.0, "kr": "[2절] 기도를 들으사 응답해 주시는", "en": "He answers prayer, He answers prayer" },
+      { "start": 68.0, "end": 86.0, "kr": "참 좋으신 나의 하나님", "en": "He answers prayer, He's so good to me" },
+      { "start": 86.0, "end": 105.0, "kr": "[3절] 내 모든 죄악을 다 사해 주셨네", "en": "He forgives my sin, He cleanses my soul" },
+      { "start": 105.0, "end": 125.0, "kr": "참 좋으신 나의 하나님", "en": "He sets me free, He's so good to me" },
+      { "start": 125.0, "end": 145.0, "kr": "[4절] 영원히 찬양해 사랑의 하나님", "en": "I'll praise His name, I'll praise His name" },
+      { "start": 145.0, "end": 170.0, "kr": "참 좋으신 나의 하나님!", "en": "Forever praise Him, He's so good to me!" },
+      { "start": 170.0, "end": 290.0, "kr": "🕊️ 우리 삶의 모든 순간 선하고 인자하심으로 채우시는 하나님을 송축합니다 · 아멘", "en": "The Lord Is Good, His Steadfast Love Endures Forever · Amen" }
+    ]
+  },
+  {
+    "id": "id-rather-have-jesus",
+    "titleKo": "주 예수보다 더 귀한 것은 없네 (찬송가 94장)",
+    "titleEn": "I'd Rather Have Jesus (Hymn 94)",
+    "artist": "피아워십 (F.I.A Worship) / George Beverly Shea • 믿음의 결단",
+    "category": "hymn",
+    "videoId": "p7mQTjhssm4",
+    "duration": 310,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 18.0, "kr": "🎵 주 예수보다 더 귀한 것은 없네 (찬송가 94장) - 피아워십 전주", "en": "I'd Rather Have Jesus - F.I.A Worship (Intro)" },
+      { "start": 18.0, "end": 38.0, "kr": "[1절] 주 예수보다 더 귀한 것은 없네, 이 세상 부귀와 바꿀 수 없네", "en": "I'd rather have Jesus than silver or gold; I'd rather be His than have riches untold" },
+      { "start": 38.0, "end": 58.0, "kr": "영 죽을 내 대신 돌아가신 그 놀라운 사랑 잊지 못해", "en": "I'd rather have Jesus than houses or lands; I'd rather be led by His nail-pierced hand" },
+      { "start": 58.0, "end": 78.0, "kr": "[후렴] 세상 부귀 온갖 영화 모두 버리고 세상 자랑 다 버렸네", "en": "Than to be the king of a vast domain or be held in sin's dread sway" },
+      { "start": 78.0, "end": 102.0, "kr": "주 예수보다 더 귀한 것은 없네, 예수 밖에는 없네", "en": "I'd rather have Jesus than anything this world affords today" },
+      { "start": 102.0, "end": 122.0, "kr": "[2절] 주 예수보다 더 귀한 것은 없네, 이 세상 명예와 바꿀 수 없네", "en": "I'd rather have Jesus than world-wide fame; I'd rather be true to His holy name" },
+      { "start": 122.0, "end": 142.0, "kr": "유혹과 핍박이 몰려와도 주 섬기는 내 맘 변치 않네", "en": "Than to have the worldwide applause of men, than to be the ruler of anywhere" },
+      { "start": 142.0, "end": 165.0, "kr": "[후렴 반복] 세상 부귀 온갖 영화 모두 버리고 세상 자랑 다 버렸네", "en": "Than to be the king of a vast domain or be held in sin's dread sway" },
+      { "start": 165.0, "end": 195.0, "kr": "주 예수보다 더 귀한 것은 없네, 오직 예수 밖에는 없네!", "en": "I'd rather have Jesus than anything this world affords today!" },
+      { "start": 195.0, "end": 310.0, "kr": "🕊️ 세상의 그 어떤 보화보다 가장 귀하신 우리 주 예수 그리스도만을 사랑합니다 · 아멘", "en": "Nothing Compares to the Precious Worth of Knowing Christ Jesus · Amen" }
+    ]
+  },
+  {
+    "id": "since-christ-my-soul",
+    "titleKo": "내 영혼이 은총 입어 (찬송가 438장)",
+    "titleEn": "Since Christ My Soul Was Happy Made (Hymn 438)",
+    "artist": "피아워십 (F.I.A Worship) / C.F. Butler • 천국의 기쁨",
+    "category": "hymn",
+    "videoId": "s_12sB7ciuM",
+    "duration": 280,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 16.0, "kr": "🎵 내 영혼이 은총 입어 (찬송가 438장) - 피아워십 전주", "en": "Since Christ My Soul Was Happy Made - F.I.A Worship (Intro)" },
+      { "start": 16.0, "end": 32.0, "kr": "[1절] 내 영혼이 은총 입어 중한 죄짐 벗고 보니", "en": "Since Christ my soul was happy made, by free and sovereign grace" },
+      { "start": 32.0, "end": 48.0, "kr": "슬픔 많은 이 세상도 천국으로 화하도다", "en": "Things of this world have passed away, and heaven fills the place" },
+      { "start": 48.0, "end": 64.0, "kr": "[후렴] 할렐루야 찬양하세 내 모든 죄 사함받고", "en": "O Hallelujah! Yes, 'tis heaven, my sins are washed away!" },
+      { "start": 64.0, "end": 82.0, "kr": "주 예수와 동행하니 그 어디나 하늘나라", "en": "Walking with Jesus day by day, wherever He is, 'tis heaven!" },
+      { "start": 82.0, "end": 98.0, "kr": "[2절] 높은 산이 거친 들이 초막이나 궁궐이나", "en": "High on the mountain, deep in the field, in humble tent or palace grand" },
+      { "start": 98.0, "end": 115.0, "kr": "내 주 예수 모신 곳이 그 어디나 하늘나라", "en": "Wherever Jesus dwells with me, that place is heaven to me" },
+      { "start": 115.0, "end": 132.0, "kr": "[후렴 반복] 할렐루야 찬양하세 내 모든 죄 사함받고", "en": "O Hallelujah! Yes, 'tis heaven, my sins are all forgiven!" },
+      { "start": 132.0, "end": 155.0, "kr": "주 예수와 동행하니 그 어디나 영원한 하늘나라!", "en": "Walking with Jesus day by day, anywhere is heaven on earth!" },
+      { "start": 155.0, "end": 280.0, "kr": "🕊️ 주 예수님과 동행하는 오늘 하루, 우리 심령이 천국이 되기를 축복합니다 · 아멘", "en": "Walking Daily with Jesus in the Fullness of Heaven · Amen" }
+    ]
+  },
+  {
+    "id": "look-at-jesus-face",
+    "titleKo": "괴로울 때 주님의 얼굴 보라",
+    "titleEn": "Look to Jesus in Times of Trouble",
+    "artist": "피아워십 (F.I.A Worship) / 이태웅 • 위로와 치유",
+    "category": "confession",
+    "videoId": "DJsv6Jn4X1A",
+    "duration": 330,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 18.0, "kr": "🎵 괴로울 때 주님의 얼굴 보라 - 피아워십 전주", "en": "Look to Jesus in Times of Trouble - F.I.A Worship (Intro)" },
+      { "start": 18.0, "end": 36.0, "kr": "[1절] 괴로울 때 주님의 얼굴 보라, 평화의 주님 바라보아라", "en": "When you are in distress, look upon the face of Jesus; Behold the Prince of Peace" },
+      { "start": 36.0, "end": 56.0, "kr": "세상에서 시달린 친구들아, 위로의 주님 바라보아라", "en": "Weary and burdened friends of this world, behold the Lord of Comfort" },
+      { "start": 56.0, "end": 74.0, "kr": "[후렴] 눈을 들어 주를 보라 네 모든 염려 주께 맡겨라", "en": "Lift up your eyes and look to the Lord, cast all your anxieties upon Him" },
+      { "start": 74.0, "end": 96.0, "kr": "슬플 때에 주님의 얼굴 보라, 사랑의 주님 안식 주리라", "en": "In your sorrow look to the face of Jesus, the Lord of Love will give you sweet rest" },
+      { "start": 96.0, "end": 115.0, "kr": "[2절] 힘이 없고 네 마음 연약할 때 능력의 주님 바라보아라", "en": "When you are weak and without strength, behold the Lord of All Power" },
+      { "start": 115.0, "end": 135.0, "kr": "주의 이름 부르는 모든 자는 힘 주시고 늘 지켜주시리", "en": "Everyone who calls upon the name of the Lord, He gives power and will keep forever" },
+      { "start": 135.0, "end": 156.0, "kr": "[후렴 반복] 눈을 들어 주를 보라 네 모든 염려 주께 맡겨라", "en": "Lift up your eyes and look to the Lord, cast all your cares upon Him" },
+      { "start": 156.0, "end": 190.0, "kr": "슬플 때에 주님의 얼굴 보라, 사랑의 주님 참 안식 주시리라!", "en": "Look to the face of Jesus, the Lord of Love will grant you eternal rest!" },
+      { "start": 190.0, "end": 330.0, "kr": "🕊️ 어떤 환난과 슬픔 속에서도 주님의 평화와 안식이 우리 심령을 지키십니다 · 아멘", "en": "Casting All Our Cares Upon the Loving Arms of Jesus · Amen" }
+    ]
+  },
+  {
+    "id": "grace-of-god-shin",
+    "titleKo": "하나님의 은혜 (나를 지으신 이가 하나님)",
+    "titleEn": "The Grace of God (By the Grace of God)",
+    "artist": "피아워십 (F.I.A Worship) / 조은아 작사, 신상우 작곡 • 평생의 고백",
+    "category": "confession",
+    "videoId": "kYJj055z58g",
+    "duration": 360,
+    "bgImage": "assets/worship_bg.jpg",
+    "lines": [
+      { "start": 0.0, "end": 20.0, "kr": "🎵 하나님의 은혜 (나를 지으신 이가 하나님) - 피아워십 전주", "en": "The Grace of God - F.I.A Worship (Intro)" },
+      { "start": 20.0, "end": 37.0, "kr": "[1절] 나를 지으신 이가 하나님, 나를 부르신 이가 하나님", "en": "The One who created me is God; The One who called me is God" },
+      { "start": 37.0, "end": 56.0, "kr": "나를 보내신 이도 하나님, 나의 달려갈 길 다 가도록", "en": "The One who sent me is also God, that I may finish my race with joy" },
+      { "start": 56.0, "end": 74.0, "kr": "나의 마지막 호흡 다하도록, 나로 그 십자가 품게 하시니", "en": "Until my very last breath on earth, He enables me to embrace the cross" },
+      { "start": 74.0, "end": 92.0, "kr": "[후렴] 한량없는 은혜 갚을 길 없는 은혜, 내 삶을 에워싸는 하나님의 은혜", "en": "Boundless grace, grace I can never repay; The grace of God surrounding my entire life" },
+      { "start": 92.0, "end": 112.0, "kr": "나 주저함 없이 그 땅을 밟음도, 나를 붙드시는 하나님의 은혜", "en": "That I step onto that land without hesitation, is by the grace of God that holds me fast" },
+      { "start": 112.0, "end": 132.0, "kr": "[2절] 나의 나 된 것은 다 하나님 은혜라", "en": "All that I am today is only by the grace of God" },
+      { "start": 132.0, "end": 154.0, "kr": "[후렴 반복] 한량없는 은혜 갚을 길 없는 은혜, 내 삶을 에워싸는 하나님의 은혜", "en": "Boundless grace, grace I can never repay; The grace of God surrounding my life" },
+      { "start": 154.0, "end": 190.0, "kr": "나 주저함 없이 그 길을 걸음도, 나를 붙드시는 오직 하나님의 은혜라!", "en": "That I walk this path without fear, is solely by the grace of God that sustains me!" },
+      { "start": 190.0, "end": 360.0, "kr": "🕊️ 나의 과거, 현재, 그리고 미래의 모든 발걸음이 오직 하나님의 은혜임을 고백합니다 · 아멘", "en": "By the Grace of God I Am What I Am · Amen" }
+    ]
   }
 ];
 
@@ -1168,7 +1387,7 @@ function populateSongSelector(selectedId) {
   select.innerHTML = '';
 
   const presetGroup = document.createElement('optgroup');
-  presetGroup.label = "⭐ 공식 찬양 보관함 (30곡 라이브러리)";
+  presetGroup.label = "⭐ 공식 찬양 보관함 (40곡 라이브러리)";
   PRESET_PRAISE_SONGS.forEach(song => {
     const opt = document.createElement('option');
     opt.value = song.id;
