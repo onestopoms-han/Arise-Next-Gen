@@ -70,6 +70,9 @@
             </select>
           </div>
           <div class="studio-player-actions">
+            <button type="button" class="btn btn-sm btn-studio-playpause" id="btnToolbarPlayPause" onclick="toggleStudioPlayPause()" title="찬양 재생 / 일시정지 (단축키: Space)" style="background: linear-gradient(135deg, #10b981, #059669); color: #fff; font-weight: 800; border: none; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4); cursor: pointer;">
+              <span id="toolbarPlayPauseIcon">▶️</span> <span id="toolbarPlayPauseText">찬양 재생 (Space)</span>
+            </button>
             <button type="button" class="btn btn-sm btn-assign-meeting" onclick="setCurrentMeetingSong()" title="현재 선택된 찬양을 이번 30분 기도모임의 지정 찬양으로 즉시 설정">
               📌 이번 모임 찬양으로 지정
             </button>
@@ -123,6 +126,9 @@
             <div class="sub-ctrl-nav">
               <button type="button" class="btn-sub-nav btn-sub-prev" onclick="prevSubtitleLine()" title="이전 소절 가사 (단축키: ← 또는 PageUp)">
                 <span>◀</span> <span>이전</span>
+              </button>
+              <button type="button" class="btn-sub-nav btn-sub-playpause" id="btnStudioPlayPause" onclick="toggleStudioPlayPause()" title="찬양 재생 / 일시정지 (단축키: Space)" style="background: linear-gradient(135deg, #10b981, #059669); color: #fff; font-weight: 800; min-width: 105px; display: inline-flex; align-items: center; justify-content: center; gap: 0.35rem; padding: 0.4rem 0.9rem; border-radius: 9999px; border: none; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4); cursor: pointer;">
+                <span id="studioPlayPauseIcon">▶️</span> <span id="studioPlayPauseText">찬양 재생</span>
               </button>
               <div class="sub-line-indicator" id="subLineIndicator" title="현재 소절 / 전체 소절 수">
                 소절 <b id="subCurLineNum">1</b> / <span id="subTotalLinesNum">10</span>

@@ -1162,9 +1162,13 @@ function stopAllMediaExcept(exceptEl = null) {
     }
   });
 
-  // 3. 모든 YouTube iframe에 pauseVideo postMessage 전송
+  // 3. 외부 YouTube iframe들에 pauseVideo postMessage 전송 (스튜디오 플레이어 제외)
   document.querySelectorAll('iframe').forEach(ifr => {
-    if (ifr !== exceptEl) {
+    const isStudioIfr = ifr.id === 'studioYouTubePlayer' || (ifr.closest && ifr.closest('#studioYouTubePlayerWrapper') !== null);
+    if (exceptEl === 'studioYouTube' && isStudioIfr) {
+      return; // 스튜디오 iframe은 일시정지 대상에서 안전하게 제외
+    }
+    if (ifr !== exceptEl && !isStudioIfr) {
       try {
         ifr.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
       } catch(e) {}
@@ -1194,6 +1198,7 @@ function cleanupStudioYouTubePlayer() {
     ytWrapper.innerHTML = '<div id="studioYouTubePlayer"></div>';
   }
   ytStudioPlayer = null;
+  updatePlayPauseBtnState(false);
 }
 window.cleanupStudioYouTubePlayer = cleanupStudioYouTubePlayer;
 
@@ -1210,9 +1215,10 @@ if (!window._ytGlobalMessageCoordinatorBound) {
         document.querySelectorAll('video, audio').forEach(el => {
           try { if (!el.paused) el.pause(); } catch(e) {}
         });
-        // 재생을 시작한 출처 외 다른 모든 iframe 정지
+        // 재생을 시작한 출처 외 다른 모든 외부 iframe 정지 (스튜디오 플레이어는 자기 자신 정지 방지)
         document.querySelectorAll('iframe').forEach(ifr => {
-          if (ifr.contentWindow !== event.source) {
+          const isStudioIfr = ifr.id === 'studioYouTubePlayer' || (ifr.closest && ifr.closest('#studioYouTubePlayerWrapper') !== null);
+          if (!isStudioIfr && ifr.contentWindow !== event.source) {
             try {
               ifr.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
             } catch(e) {}
@@ -1229,16 +1235,17 @@ function openWorshipStudio(targetSongId = 'amazing-grace', autoPlay = false) {
   // 모달 열 때 메인 화면/라운지 카드 등 재생 중이던 모든 미디어 즉시 정지
   stopAllMediaExcept(null);
 
-  loadCustomSongs();
-  populateSongSelector(targetSongId);
-  selectWorshipSong(targetSongId, null, autoPlay);
-  switchStudioTab('player');
-  
+  // 1. 모달을 먼저 표시하여 내부 비디오 및 iframe 컨테이너가 정상 렌더링 크기를 갖도록 보장
   const modal = document.getElementById('worshipStudioModal');
   if (modal) {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
+
+  loadCustomSongs();
+  populateSongSelector(targetSongId);
+  selectWorshipSong(targetSongId, null, autoPlay);
+  switchStudioTab('player');
 }
 
 let ytStudioPlayer = null;
@@ -1263,19 +1270,22 @@ function mountYouTubePlayer(videoId, autoPlay = false) {
   const wrapper = document.getElementById('studioYouTubePlayerWrapper');
   if (wrapper) wrapper.style.display = 'block';
 
-  // 외부 다른 모든 미디어 일시정지
+  // 외부 다른 모든 미디어 일시정지 (스튜디오 YouTube는 제외)
   stopAllMediaExcept('studioYouTube');
 
   if (ytStudioPlayer && typeof ytStudioPlayer.loadVideoById === 'function') {
     try {
       if (autoPlay) {
         ytStudioPlayer.loadVideoById({ videoId: videoId, startSeconds: 0 });
+        updatePlayPauseBtnState(true);
       } else if (typeof ytStudioPlayer.cueVideoById === 'function') {
         ytStudioPlayer.cueVideoById({ videoId: videoId, startSeconds: 0 });
+        updatePlayPauseBtnState(false);
       }
       return;
     } catch (e) {
       console.warn('loadVideoById failed, re-creating player:', e);
+      ytStudioPlayer = null;
     }
   }
 
@@ -1310,14 +1320,17 @@ function mountYouTubePlayer(videoId, autoPlay = false) {
               try { event.target.playVideo(); } catch(e) {}
             }
             startYtProgressTracker();
+            updatePlayPauseBtnState(autoPlay);
           },
           onStateChange: (event) => {
             // YT.PlayerState.PLAYING = 1, PAUSED = 2, ENDED = 0
             if (event.data === 1) {
               startYtProgressTracker();
               stopAllMediaExcept('studioYouTube');
+              updatePlayPauseBtnState(true);
             } else if (event.data === 2 || event.data === 0) {
               stopYtProgressTracker();
+              updatePlayPauseBtnState(false);
             }
           },
           onError: (event) => {
@@ -1347,7 +1360,117 @@ function mountFallbackIframe(videoId, autoPlay = false) {
       allowfullscreen>
     </iframe>
   `;
+  startYtProgressTracker();
+  updatePlayPauseBtnState(autoPlay);
 }
+
+// Universal Studio Play / Pause Controller (찬양 재생 / 일시정지 통합 제어)
+function toggleStudioPlayPause() {
+  const song = worshipStudioState.currentSong;
+  const video = document.getElementById('studioVideoPlayer');
+  const audio = document.getElementById('studioAudioPlayer');
+
+  // 1. Zoom Safe Audio Mode
+  if (worshipStudioState.mediaMode === 'safe-audio' && audio && audio.src) {
+    if (audio.paused) {
+      stopAllMediaExcept(audio);
+      audio.play().then(() => updatePlayPauseBtnState(true)).catch(e => console.log('Audio play error:', e));
+    } else {
+      audio.pause();
+      updatePlayPauseBtnState(false);
+    }
+    return;
+  }
+
+  // 2. High-Definition MP4 Video Mode
+  if (video && video.style.display !== 'none' && video.src) {
+    if (video.paused) {
+      stopAllMediaExcept(video);
+      video.play().then(() => updatePlayPauseBtnState(true)).catch(e => console.log('Video play error:', e));
+    } else {
+      video.pause();
+      updatePlayPauseBtnState(false);
+    }
+    return;
+  }
+
+  // 3. YouTube Mode (or songs 11-40 without local mp4)
+  if (worshipStudioState.mediaMode === 'youtube' || (song && song.videoId)) {
+    if (ytStudioPlayer && typeof ytStudioPlayer.getPlayerState === 'function') {
+      try {
+        const state = ytStudioPlayer.getPlayerState();
+        if (state === 1) { // playing -> pause
+          ytStudioPlayer.pauseVideo();
+          updatePlayPauseBtnState(false);
+        } else { // paused / unstarted -> play
+          stopAllMediaExcept('studioYouTube');
+          ytStudioPlayer.playVideo();
+          updatePlayPauseBtnState(true);
+        }
+        return;
+      } catch (err) {
+        console.warn('ytStudioPlayer control failed, trying fallback postMessage:', err);
+      }
+    }
+
+    // Direct postMessage to studio iframe if ytStudioPlayer not available
+    const ifr = document.getElementById('studioYouTubePlayer');
+    if (ifr && ifr.tagName === 'IFRAME' && ifr.contentWindow) {
+      const isCurrentlyPlaying = (worshipStudioState.isYtPlaying === true);
+      const cmd = isCurrentlyPlaying ? 'pauseVideo' : 'playVideo';
+      if (!isCurrentlyPlaying) stopAllMediaExcept('studioYouTube');
+      ifr.contentWindow.postMessage(`{"event":"command","func":"${cmd}","args":""}`, '*');
+      worshipStudioState.isYtPlaying = !isCurrentlyPlaying;
+      updatePlayPauseBtnState(!isCurrentlyPlaying);
+      if (!isCurrentlyPlaying) startYtProgressTracker();
+      else stopYtProgressTracker();
+    }
+  }
+}
+window.toggleStudioPlayPause = toggleStudioPlayPause;
+
+// Update UI Play/Pause button labels and icons across studio
+function updatePlayPauseBtnState(isPlaying) {
+  worshipStudioState.isPlaying = isPlaying;
+  if (worshipStudioState.mediaMode === 'youtube') {
+    worshipStudioState.isYtPlaying = isPlaying;
+  }
+
+  // 1. On-stage controller button
+  const stageBtn = document.getElementById('btnStudioPlayPause');
+  const stageIcon = document.getElementById('studioPlayPauseIcon');
+  const stageText = document.getElementById('studioPlayPauseText');
+  if (stageBtn) {
+    if (isPlaying) {
+      stageBtn.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
+      stageBtn.style.boxShadow = '0 4px 14px rgba(245, 158, 11, 0.4)';
+      if (stageIcon) stageIcon.textContent = '⏸️';
+      if (stageText) stageText.textContent = '일시정지';
+    } else {
+      stageBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+      stageBtn.style.boxShadow = '0 4px 14px rgba(16, 185, 129, 0.4)';
+      if (stageIcon) stageIcon.textContent = '▶️';
+      if (stageText) stageText.textContent = '찬양 재생';
+    }
+  }
+
+  // 2. Toolbar button
+  const toolbarBtn = document.getElementById('btnToolbarPlayPause');
+  const tbIcon = document.getElementById('toolbarPlayPauseIcon');
+  const tbText = document.getElementById('toolbarPlayPauseText');
+  if (toolbarBtn) {
+    if (isPlaying) {
+      toolbarBtn.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
+      if (tbIcon) tbIcon.textContent = '⏸️';
+      if (tbText) tbText.textContent = '일시정지 (Space)';
+    } else {
+      toolbarBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+      if (tbIcon) tbIcon.textContent = '▶️';
+      if (tbText) tbText.textContent = '찬양 재생 (Space)';
+    }
+  }
+}
+window.updatePlayPauseBtnState = updatePlayPauseBtnState;
 
 function startYtProgressTracker() {
   stopYtProgressTracker();
@@ -1733,6 +1856,10 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
 function setupMediaTimeUpdate(mediaEl) {
   mediaEl.onplay = () => {
     stopAllMediaExcept(mediaEl);
+    updatePlayPauseBtnState(true);
+  };
+  mediaEl.onpause = () => {
+    updatePlayPauseBtnState(false);
   };
   mediaEl.ontimeupdate = () => {
     const curTime = mediaEl.currentTime;
@@ -2224,16 +2351,7 @@ function setupStudioKeyboardShortcuts() {
     // 6. Space: Play / Pause Music
     if (e.code === 'Space') {
       e.preventDefault();
-      if (worshipStudioState.mediaMode === 'youtube' && song && song.videoId && ytStudioPlayer && typeof ytStudioPlayer.getPlayerState === 'function') {
-        try {
-          const st = ytStudioPlayer.getPlayerState();
-          if (st === 1) ytStudioPlayer.pauseVideo();
-          else ytStudioPlayer.playVideo();
-        } catch(err) {}
-      } else if (media) {
-        if (media.paused) media.play();
-        else media.pause();
-      }
+      toggleStudioPlayPause();
     }
   });
 }
