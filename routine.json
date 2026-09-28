@@ -1,4 +1,9 @@
 {
+  "meetingSettings": {
+    "meetingDate": "2026-10-04T20:00:00+10:00",
+    "zoomUrl": "https://zoom.us/j/88812345678",
+    "meetingId": "Zoom ID: 888 1234 5678 | Passcode: 7777"
+  },
   "step1": {
     "songTitle": "나 같은 죄인 살리신 (Amazing Grace)",
     "link": "https://www.youtube.com/watch?v=4-IlkTVvqKk",

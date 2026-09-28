@@ -89,7 +89,7 @@ const translations = {
     lbl_next_meeting_date: "다음 모임 일시 (🇦🇺 호주 퀸즈랜드 시각 기준 / AEST)",
     lbl_zoom_link: "Zoom / Google Meet 회의 링크 URL",
     lbl_meeting_id: "회의 ID & 암호 안내 (Meeting ID & Passcode)",
-    btn_save_settings: "설정 저장",
+    btn_save_settings: "💾 전 세계 성도들에게 즉시 반영 및 저장",
     amen_btn_label: "아멘 🙏",
     toast_prayer_added: "기도제목이 성공적으로 등록되었습니다. 함께 기도합니다! 🙏",
     toast_testimony_added: "은혜로운 간증이 등록되었습니다! 할렐루야 ✨",
@@ -262,7 +262,7 @@ const translations = {
     lbl_next_meeting_date: "Next Meeting Date & Time (🇦🇺 Queensland Base / AEST)",
     lbl_zoom_link: "Zoom / Google Meet URL",
     lbl_meeting_id: "Meeting ID & Passcode Info",
-    btn_save_settings: "Save Settings",
+    btn_save_settings: "💾 Save & Sync Globally",
     amen_btn_label: "Amen 🙏",
     toast_prayer_added: "Your prayer has been posted. We pray together with you! 🙏",
     toast_testimony_added: "Your testimony has been registered. Glory to God! ✨",
@@ -1601,7 +1601,7 @@ const defaultMeetingSettings = {
 };
 
 // Always sync newly added nations & routine content & meeting settings
-const DATA_VERSION = 'v15_october_2026_praise_30songs';
+const DATA_VERSION = 'v16_october_2026_dday_sync';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -2567,8 +2567,18 @@ function extractZoomDetails(input) {
   return { url, id, pw };
 }
 
-function handleSettingsSubmit(e) {
+async function handleSettingsSubmit(e) {
   e.preventDefault();
+
+  const pinInput = document.getElementById('settingsAdminPin');
+  const pin = pinInput ? pinInput.value.trim() : '';
+
+  if (!pin) {
+    showToast("3인 관리자 비밀번호를 입력해 주세요! 🔑", "⚠️");
+    if (pinInput) pinInput.focus();
+    return;
+  }
+
   const dateVal = document.getElementById('settingsDateTime').value;
   const rawZoom = document.getElementById('settingsZoomUrl').value.trim();
   let idVal = document.getElementById('settingsMeetingId').value.trim();
@@ -2582,16 +2592,74 @@ function handleSettingsSubmit(e) {
     idVal = [extracted.id ? `ID: ${extracted.id}` : '', extracted.pw ? `PW: ${extracted.pw}` : ''].filter(Boolean).join(' / ');
   }
 
+  let newMeetingDate = meetingSettings.meetingDate;
   // 호주 퀸즈랜드(AEST / UTC+10) 기준 오프셋을 붙여 저장
   if (dateVal) {
-    meetingSettings.meetingDate = (dateVal.includes('+') || dateVal.includes('Z'))
+    newMeetingDate = (dateVal.includes('+') || dateVal.includes('Z'))
       ? dateVal
       : `${dateVal}:00+10:00`;
   }
-  if (zoomVal) meetingSettings.zoomUrl = zoomVal;
-  if (idVal) meetingSettings.meetingId = idVal;
 
-  localStorage.setItem('prayer_hub_meeting_settings', JSON.stringify(meetingSettings));
+  const newMeetingSettings = {
+    meetingDate: newMeetingDate,
+    zoomUrl: zoomVal || meetingSettings.zoomUrl,
+    meetingId: idVal || meetingSettings.meetingId
+  };
+
+  const submitBtn = document.getElementById('btnSettingsSubmit');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = '⏳ 전 세계 저장 중...';
+  }
+
+  try {
+    const res = await fetch('/api/routine', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin, meetingSettings: newMeetingSettings })
+    });
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok) {
+      if (res.status === 401) {
+        showToast("⚠️ 관리자 비밀번호가 일치하지 않습니다. 4자리 암호를 다시 확인해 주세요.", "❌");
+        if (pinInput) {
+          pinInput.focus();
+          pinInput.select();
+        }
+        return;
+      }
+      throw new Error(data.error || `서버 오류 (${res.status})`);
+    }
+
+    // Success! Update local state and display
+    meetingSettings = data.meetingSettings || newMeetingSettings;
+    localStorage.setItem('prayer_hub_meeting_settings', JSON.stringify(meetingSettings));
+    updateMeetingDisplay();
+    startCountdown();
+    closeModal('settingsModal');
+    showToast("기도모임 일정 및 링크가 전 세계 성도들에게 즉시 반영되었습니다! ✨", "🎉");
+
+  } catch (err) {
+    console.warn("Settings serverless API fallback to local mode:", err.message);
+
+    if (pin === '7777') {
+      meetingSettings = newMeetingSettings;
+      localStorage.setItem('prayer_hub_meeting_settings', JSON.stringify(meetingSettings));
+      updateMeetingDisplay();
+      startCountdown();
+      closeModal('settingsModal');
+      showToast("기도모임 일정이 저장되었습니다! ✨", "⚙️");
+    } else {
+      showToast("저장 실패: 올바른 4자리 관리자 암호를 입력해 주세요. ⚠️", "❌");
+    }
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = '💾 전 세계 성도들에게 즉시 반영 및 저장';
+    }
+  }
 
   // 구글 스프레드시트 설정 저장 및 동기화 처리
   const sheetInputEl = document.getElementById('settingsGoogleSheetId');
@@ -2608,11 +2676,6 @@ function handleSettingsSubmit(e) {
       updateSheetSyncUI();
     }
   }
-
-  updateMeetingDisplay();
-  startCountdown();
-  closeModal('settingsModal');
-  showToast(translations[currentLang].toast_settings_saved, "⚙️");
 }
 
 // ==========================================
@@ -3189,6 +3252,9 @@ function openModal(id) {
 
     // Populate settings inputs if opening settings
     if (id === 'settingsModal') {
+      const pinInput = document.getElementById('settingsAdminPin');
+      if (pinInput) pinInput.value = '';
+
       const dtInput = document.getElementById('settingsDateTime');
       const zoomInput = document.getElementById('settingsZoomUrl');
       const idInput = document.getElementById('settingsMeetingId');
@@ -3397,33 +3463,48 @@ document.addEventListener('keydown', (e) => {
 // 8.8. Global Routine Sync Loader
 // ==========================================
 async function loadGlobalRoutine() {
+  let loadedData = null;
+
   try {
     const res = await fetch('/api/routine');
     if (res.ok) {
-      const remoteData = await res.json();
-      if (remoteData && remoteData.step1) {
-        routineContent = remoteData;
-        localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
-        renderRoutineDisplay();
-        return;
-      }
+      loadedData = await res.json();
     }
   } catch (err) {
     // API not reachable, try static routine.json
   }
 
-  try {
-    const staticRes = await fetch('/routine.json');
-    if (staticRes.ok) {
-      const staticData = await staticRes.json();
-      if (staticData && staticData.step1) {
-        routineContent = staticData;
-        localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
-        renderRoutineDisplay();
+  if (!loadedData) {
+    try {
+      const staticRes = await fetch('/routine.json');
+      if (staticRes.ok) {
+        loadedData = await staticRes.json();
       }
+    } catch (err) {
+      console.warn("Could not load remote routine.json:", err.message);
     }
-  } catch (err) {
-    console.warn("Could not load remote routine.json:", err.message);
+  }
+
+  if (loadedData) {
+    // 1. Sync 30-min prayer routine steps
+    if (loadedData.step1) {
+      routineContent = {
+        step1: loadedData.step1,
+        step2: loadedData.step2,
+        step3: loadedData.step3,
+        step4: loadedData.step4
+      };
+      localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
+      renderRoutineDisplay();
+    }
+
+    // 2. Sync Meeting Settings (Date/Time & Zoom Link)
+    if (loadedData.meetingSettings && loadedData.meetingSettings.meetingDate) {
+      meetingSettings = Object.assign({}, defaultMeetingSettings, loadedData.meetingSettings);
+      localStorage.setItem('prayer_hub_meeting_settings', JSON.stringify(meetingSettings));
+      updateMeetingDisplay();
+      startCountdown();
+    }
   }
 }
 

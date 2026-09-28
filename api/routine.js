@@ -63,12 +63,12 @@ export default async function handler(req, res) {
   }
 
   // ============================================================
-  // POST: 3인 관리자 비밀번호 검증 후 GitHub에 자동 커밋 저장
+  // POST: 3인 관리자 비밀번호 검증 후 GitHub에 자동 커밋 저장 (루틴 및 모임일정)
   // ============================================================
   if (req.method === 'POST') {
     try {
       const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
-      const { pin, routine } = body || {};
+      const { pin, routine, meetingSettings } = body || {};
 
       // 1. 관리자 4자리 PIN 비밀번호 검증
       if (!pin || String(pin).trim() !== String(ADMIN_PIN).trim()) {
@@ -77,21 +77,19 @@ export default async function handler(req, res) {
         });
       }
 
-      // 2. 루틴 데이터 유효성 검사
-      if (!routine || !routine.step1 || !routine.step2 || !routine.step3 || !routine.step4) {
+      // 2. 루틴 데이터 또는 모임 설정 유효성 검사
+      if ((!routine || !routine.step1) && (!meetingSettings || !meetingSettings.meetingDate)) {
         return res.status(400).json({
-          error: '유효한 4단계 루틴 데이터가 전달되지 않았습니다.'
+          error: '유효한 루틴 데이터 또는 모임 설정 데이터가 전달되지 않았습니다.'
         });
       }
-
-      // 갱신 시각 기록
-      routine.updatedAt = new Date().toISOString();
 
       // 3. GitHub Contents API로 커밋/푸시
       const ghUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_FILE_PATH}`;
       
-      // 기존 파일의 SHA 조회 (업데이트 시 필수)
+      // 기존 파일의 내용 및 SHA 조회
       let currentSha = null;
+      let existingData = {};
       try {
         const getRes = await fetch(ghUrl, {
           headers: {
@@ -103,14 +101,42 @@ export default async function handler(req, res) {
         if (getRes.ok) {
           const getJson = await getRes.json();
           currentSha = getJson.sha;
+          if (getJson.content) {
+            const raw = Buffer.from(getJson.content, 'base64').toString('utf-8');
+            existingData = JSON.parse(raw);
+          }
         }
       } catch (e) {
-        console.warn('Could not fetch existing SHA:', e.message);
+        console.warn('Could not fetch existing SHA/content:', e.message);
       }
 
-      const updatedContentBase64 = Buffer.from(JSON.stringify(routine, null, 2), 'utf-8').toString('base64');
+      // Fallback: 번들된 routine.json 로드
+      if (!existingData.step1) {
+        try {
+          const localPath = path.join(process.cwd(), 'routine.json');
+          if (fs.existsSync(localPath)) {
+            existingData = JSON.parse(fs.readFileSync(localPath, 'utf-8'));
+          }
+        } catch (e) {}
+      }
+
+      // 데이터 병합 (루틴 또는 모임일정 선택적 갱신 지원)
+      const mergedData = { ...existingData };
+      if (routine && routine.step1) {
+        mergedData.step1 = routine.step1;
+        mergedData.step2 = routine.step2;
+        mergedData.step3 = routine.step3;
+        mergedData.step4 = routine.step4;
+      }
+      if (meetingSettings && meetingSettings.meetingDate) {
+        mergedData.meetingSettings = meetingSettings;
+      }
+      mergedData.updatedAt = new Date().toISOString();
+
+      const updatedContentBase64 = Buffer.from(JSON.stringify(mergedData, null, 2), 'utf-8').toString('base64');
+      const actionDesc = meetingSettings ? '모임 일정 및 링크' : '30분 기도모임 순서';
       const putPayload = {
-        message: `feat: 30분 기도모임 순서 업데이트 (관리자 웹 수정)`,
+        message: `feat: ${actionDesc} 업데이트 (3인 관리자 수정)`,
         content: updatedContentBase64,
         branch: 'main'
       };
@@ -135,10 +161,17 @@ export default async function handler(req, res) {
         throw new Error(`GitHub 커밋 저장 실패 (${putRes.status})`);
       }
 
+      // 로컬 파일 동기화
+      try {
+        const localFilePath = path.join(process.cwd(), 'routine.json');
+        fs.writeFileSync(localFilePath, JSON.stringify(mergedData, null, 2), 'utf-8');
+      } catch (e) {}
+
       return res.status(200).json({
         success: true,
-        message: '30분 기도모임 루틴 내용이 성공적으로 저장되어 전 세계 성도들에게 반영되었습니다! ✨',
-        routine: routine
+        message: '3인 관리자 설정이 성공적으로 저장되어 전 세계 성도들에게 즉시 반영되었습니다! ✨',
+        routine: mergedData,
+        meetingSettings: mergedData.meetingSettings
       });
 
     } catch (err) {

@@ -803,6 +803,21 @@
           모임을 인도하시는 호주 퀸즈랜드(AEST / UTC+10) 현지 시각 기준으로 모임 일시를 입력하시면, 참여하는 각국 성도들의 현지 시각 및 한국 시각으로 자동 변환되어 안내됩니다.
         </p>
 
+        <!-- 3-Admin Authentication PIN Box -->
+        <div class="routine-admin-auth-box" style="margin-bottom: 1.25rem;">
+          <div class="auth-header">
+            <span class="auth-icon">🔑</span>
+            <div>
+              <div class="auth-title">3인 관리자(리더) 전용 인증</div>
+              <div class="auth-sub">호주/한국 지정 3인 리더만 모임 일시와 줌 링크를 변경할 수 있습니다. 4자리 암호를 입력해 주세요.</div>
+            </div>
+          </div>
+          <div class="pin-input-group">
+            <label for="settingsAdminPin">관리자 암호 (PIN)</label>
+            <input type="password" id="settingsAdminPin" class="pin-input" placeholder="••••" maxlength="8" autocomplete="off" required>
+          </div>
+        </div>
+
         <div class="form-group">
           <label class="form-label" data-i18n="lbl_next_meeting_date">다음 모임 일시 (🇦🇺 호주 퀸즈랜드 시각 기준 / AEST)</label>
           <input type="datetime-local" class="form-input" id="settingsDateTime" required>
@@ -871,7 +886,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-ghost" onclick="closeModal('settingsModal')" data-i18n="btn_cancel">취소</button>
-          <button type="submit" class="btn btn-primary" data-i18n="btn_save_settings">설정 저장</button>
+          <button type="submit" class="btn btn-primary" id="btnSettingsSubmit" data-i18n="btn_save_settings">💾 전 세계 성도들에게 즉시 반영 및 저장</button>
         </div>
       </form>
     </div>
