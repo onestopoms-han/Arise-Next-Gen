@@ -402,7 +402,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "I Hope, Desire, and Pray",
     "artist": "민호기 (찬미워십) / 마커스워십 • 신앙의 고백",
     "category": "confession",
-    "videoId": "O1aL1g8S5Bw",
+    "videoId": "eoDsJr7LF-0",
     "duration": 325,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -460,7 +460,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "This is the Grace of the Lord (By His Grace)",
     "artist": "마커스워십 (소진영 인도) • 긍휼과 위로",
     "category": "confession",
-    "videoId": "kY31W-9q56Q",
+    "videoId": "7kuBu5Qa3PA",
     "duration": 345,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -562,7 +562,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "The Heart of Worship",
     "artist": "Matt Redman (매트 레드맨) • 참된 예배",
     "category": "global",
-    "videoId": "k0u461C0hsc",
+    "videoId": "OD4tB1o6YLw",
     "duration": 320,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -588,7 +588,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Here I Am to Worship (Light of the World)",
     "artist": "Tim Hughes (팀 휴즈) / 마커스워십 • 경배",
     "category": "global",
-    "videoId": "kYJjT7N-8Qo",
+    "videoId": "qhq0kDw0E8c",
     "duration": 305,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -613,7 +613,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "This Is Amazing Grace",
     "artist": "Phil Wickham (필 윅햄) • 십자가와 부활",
     "category": "global",
-    "videoId": "X0Pr0jP4F8k",
+    "videoId": "XFRjr_x-yxU",
     "duration": 280,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -638,7 +638,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Who Am I (Lord of All the Earth)",
     "artist": "Casting Crowns (캐스팅 크라운스) • 은혜와 정체성",
     "category": "global",
-    "videoId": "0h5HjLd15pI",
+    "videoId": "3rT8Re1EIQc",
     "duration": 335,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -694,7 +694,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "How Great Thou Art (Hymn 79)",
     "artist": "새찬송가 79장 • 창조와 구속의 대서사시",
     "category": "hymn",
-    "videoId": "dFANxD0",
+    "videoId": "gJr-CCrbUQo",
     "duration": 290,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -718,7 +718,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "I Must Tell Jesus (Hymn 337)",
     "artist": "새찬송가 337장 • 기도와 참된 안식",
     "category": "hymn",
-    "videoId": "070nLd1iK8U",
+    "videoId": "ofvi0_-DdWE",
     "duration": 260,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -741,7 +741,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "'Tis So Sweet to Trust in Jesus (Hymn 542)",
     "artist": "새찬송가 542장 • 믿음의 확신",
     "category": "hymn",
-    "videoId": "F76lZ-GzQrk",
+    "videoId": "n5bcJV8eaY4",
     "duration": 275,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -764,7 +764,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "'Tis So Sweet to Walk With Jesus (Hymn 430)",
     "artist": "새찬송가 430장 • 성도의 동행",
     "category": "hymn",
-    "videoId": "X9L1rY2Qo0w",
+    "videoId": "b9gNwbv5iB4",
     "duration": 250,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -787,7 +787,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Far Away in the Depths of My Soul (Hymn 412)",
     "artist": "새찬송가 412장 • 하늘의 평화",
     "category": "hymn",
-    "videoId": "h1e3k6p9q2o",
+    "videoId": "0nejFAFa_4s",
     "duration": 285,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -810,7 +810,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Mercy Is Falling (Like a Sweet Spring Rain)",
     "artist": "David Ruis (데이빗 루이스) • 기쁨과 춤추는 찬양",
     "category": "global",
-    "videoId": "R0x7z9L7k1c",
+    "videoId": "VE3wiHJfQ44",
     "duration": 240,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -832,7 +832,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Do Not Fear (The Lord My God Protects Me)",
     "artist": "예수전도단 (YWAM) • 영적 담대함과 평안",
     "category": "confession",
-    "videoId": "c3Uf9t1Z7d0",
+    "videoId": "7pCCsQ8mlQM",
     "duration": 310,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -857,7 +857,7 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "Every Move I Make",
     "artist": "David Ruis / 다윗의장막 • 활력과 찬양",
     "category": "global",
-    "videoId": "vy06wD8p_iA",
+    "videoId": "6RUSp_XVmRs",
     "duration": 260,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
