@@ -2315,12 +2315,20 @@ function filterWorshipLounge(category) {
   else if (category === 'global' && btnGlobal) btnGlobal.classList.add('active');
   else if (category === 'confession' && btnConfession) btnConfession.classList.add('active');
 
+  if (typeof window.stopAllMediaExcept === 'function') {
+    window.stopAllMediaExcept(null);
+  }
+
   renderWorshipLounge();
 }
 window.filterWorshipLounge = filterWorshipLounge;
 
 // Render weekly or filtered worship songs
 function renderWorshipLounge() {
+  if (typeof window.stopAllMediaExcept === 'function') {
+    window.stopAllMediaExcept(null);
+  }
+
   const grid = document.getElementById('worshipGrid');
   const badgeText = document.getElementById('worshipWeekText');
   if (!grid) return;
@@ -2441,7 +2449,7 @@ function renderWorshipLounge() {
     } else if (song.audioUrl) {
       previewHtml = `
         <div class="worship-card-audio-preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.75)), url('${song.bgImage || 'assets/worship_bg.jpg'}'); background-size: cover; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem;">
-          <button type="button" class="btn btn-primary btn-sm" onclick="openWorshipStudio('${song.id}')" style="box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4); font-weight: 700; display: flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1rem; border-radius: 9999px; margin-bottom: 0.6rem;">
+          <button type="button" class="btn btn-primary btn-sm" onclick="openWorshipStudio('${song.id}', true)" style="box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4); font-weight: 700; display: flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1rem; border-radius: 9999px; margin-bottom: 0.6rem;">
             <span>▶️</span> <span>한/영 자막 영상 재생</span>
           </button>
           <audio controls preload="none" style="width: 90%; height: 32px; opacity: 0.9;" src="${song.audioUrl}"></audio>
@@ -2453,7 +2461,7 @@ function renderWorshipLounge() {
           src="https://www.youtube-nocookie.com/embed/${song.videoId}?enablejsapi=1" 
           title="${escapeHtml(song.titleKo)}" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin"
+          referrerpolicy="strict-origin-when-cross-origin" 
           allowfullscreen 
           loading="lazy">
         </iframe>
@@ -2490,7 +2498,7 @@ function renderWorshipLounge() {
 
           <div class="worship-card-actions">
             <div class="worship-card-btns">
-              <button type="button" class="btn btn-primary btn-sm" onclick="openWorshipStudio('${song.id}')" title="한/영 자막 플레이어 및 줌 화면 공유">
+              <button type="button" class="btn btn-primary btn-sm" onclick="openWorshipStudio('${song.id}', true)" title="한/영 자막 플레이어 및 줌 화면 공유">
                 ${watchStudioBtnLabel}
               </button>
               <button type="button" class="btn btn-outline btn-sm btn-assign-meeting" onclick="setCurrentMeetingSong('${song.id}')" title="이 찬양을 30분 기도모임의 1단계 찬양으로 설정합니다">
@@ -2511,6 +2519,15 @@ function renderWorshipLounge() {
       </div>
     `;
   }).join('');
+
+  // 라운지 카드 미리보기 미디어 단일 재생 코디네이터: 하나가 재생되면 다른 모든 미디어 일시정지
+  grid.querySelectorAll('video, audio').forEach(mediaEl => {
+    mediaEl.addEventListener('play', () => {
+      if (typeof window.stopAllMediaExcept === 'function') {
+        window.stopAllMediaExcept(mediaEl);
+      }
+    });
+  });
 }
 window.renderWorshipLounge = renderWorshipLounge;
 

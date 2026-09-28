@@ -924,8 +924,92 @@ function loadCustomSongs() {
   worshipStudioState.allSongs = [...PRESET_PRAISE_SONGS, ...customList];
 }
 
+// ========================================================
+// 🛑 UNIVERSAL SINGLE-PLAY MEDIA COORDINATOR
+// (사이트 전체에서 오직 1개의 찬양/미디어만 재생되도록 철저히 통제)
+// ========================================================
+function stopAllMediaExcept(exceptEl = null) {
+  // 1. 모든 HTML5 비디오 일시정지
+  document.querySelectorAll('video').forEach(vid => {
+    if (vid !== exceptEl && !vid.paused) {
+      try { vid.pause(); } catch(e) {}
+    }
+  });
+
+  // 2. 모든 HTML5 오디오 일시정지
+  document.querySelectorAll('audio').forEach(aud => {
+    if (aud !== exceptEl && !aud.paused) {
+      try { aud.pause(); } catch(e) {}
+    }
+  });
+
+  // 3. 모든 YouTube iframe에 pauseVideo postMessage 전송
+  document.querySelectorAll('iframe').forEach(ifr => {
+    if (ifr !== exceptEl) {
+      try {
+        ifr.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      } catch(e) {}
+    }
+  });
+
+  // 4. 스튜디오 YouTube API 플레이어가 실행 중이고 대상이 아니면 일시정지
+  if (exceptEl !== 'studioYouTube' && ytStudioPlayer && typeof ytStudioPlayer.pauseVideo === 'function') {
+    try { ytStudioPlayer.pauseVideo(); } catch(e) {}
+  }
+}
+window.stopAllMediaExcept = stopAllMediaExcept;
+
+// 스튜디오 YouTube 플레이어 & iframe 잔여 음원 완벽 소멸 (배경 재생/중복 완벽 방지)
+function cleanupStudioYouTubePlayer() {
+  stopYtProgressTracker();
+  if (ytStudioPlayer && typeof ytStudioPlayer.pauseVideo === 'function') {
+    try { ytStudioPlayer.pauseVideo(); } catch(e) {}
+  }
+  const ytWrapper = document.getElementById('studioYouTubePlayerWrapper');
+  if (ytWrapper) {
+    ytWrapper.style.display = 'none';
+    const iframes = ytWrapper.querySelectorAll('iframe');
+    iframes.forEach(f => {
+      try { f.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*'); } catch(e) {}
+    });
+    ytWrapper.innerHTML = '<div id="studioYouTubePlayer"></div>';
+  }
+  ytStudioPlayer = null;
+}
+window.cleanupStudioYouTubePlayer = cleanupStudioYouTubePlayer;
+
+// YouTube iframe 상태 변경 감지: 어떤 iframe에서든 재생 시작되면 다른 모든 미디어 일시정지
+if (!window._ytGlobalMessageCoordinatorBound) {
+  window.addEventListener('message', (event) => {
+    try {
+      const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+      if (!data) return;
+      const isPlaying = (data.event === 'onStateChange' && data.info === 1) || 
+                        (data.event === 'infoDelivery' && data.info && data.info.playerState === 1);
+      if (isPlaying) {
+        // 모든 HTML5 미디어 즉시 정지
+        document.querySelectorAll('video, audio').forEach(el => {
+          try { if (!el.paused) el.pause(); } catch(e) {}
+        });
+        // 재생을 시작한 출처 외 다른 모든 iframe 정지
+        document.querySelectorAll('iframe').forEach(ifr => {
+          if (ifr.contentWindow !== event.source) {
+            try {
+              ifr.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            } catch(e) {}
+          }
+        });
+      }
+    } catch(e) {}
+  });
+  window._ytGlobalMessageCoordinatorBound = true;
+}
+
 // Open / Close Studio Modal
 function openWorshipStudio(targetSongId = 'amazing-grace', autoPlay = false) {
+  // 모달 열 때 메인 화면/라운지 카드 등 재생 중이던 모든 미디어 즉시 정지
+  stopAllMediaExcept(null);
+
   loadCustomSongs();
   populateSongSelector(targetSongId);
   selectWorshipSong(targetSongId, null, autoPlay);
@@ -951,8 +1035,17 @@ window.onYouTubeIframeAPIReady = function() {
 };
 
 function mountYouTubePlayer(videoId, autoPlay = false) {
+  // 스튜디오 내 기존 video/audio 정지
+  const video = document.getElementById('studioVideoPlayer');
+  if (video) { try { video.pause(); video.currentTime = 0; } catch(e) {} video.style.display = 'none'; }
+  const audio = document.getElementById('studioAudioPlayer');
+  if (audio) { try { audio.pause(); audio.currentTime = 0; } catch(e) {} audio.style.display = 'none'; }
+
   const wrapper = document.getElementById('studioYouTubePlayerWrapper');
   if (wrapper) wrapper.style.display = 'block';
+
+  // 외부 다른 모든 미디어 일시정지
+  stopAllMediaExcept('studioYouTube');
 
   if (ytStudioPlayer && typeof ytStudioPlayer.loadVideoById === 'function') {
     try {
@@ -968,7 +1061,7 @@ function mountYouTubePlayer(videoId, autoPlay = false) {
   }
 
   let targetDiv = document.getElementById('studioYouTubePlayer');
-  if (!targetDiv && wrapper) {
+  if ((!targetDiv || targetDiv.tagName === 'IFRAME') && wrapper) {
     wrapper.innerHTML = '<div id="studioYouTubePlayer"></div>';
     targetDiv = document.getElementById('studioYouTubePlayer');
   }
@@ -998,6 +1091,7 @@ function mountYouTubePlayer(videoId, autoPlay = false) {
             // YT.PlayerState.PLAYING = 1, PAUSED = 2, ENDED = 0
             if (event.data === 1) {
               startYtProgressTracker();
+              stopAllMediaExcept('studioYouTube');
             } else if (event.data === 2 || event.data === 0) {
               stopYtProgressTracker();
             }
@@ -1054,15 +1148,17 @@ function closeWorshipStudio() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
   }
-  // Pause playback
+  // 모달 닫을 때 스튜디오 및 외부 모든 미디어 100% 완전 정지
   const video = document.getElementById('studioVideoPlayer');
-  if (video) video.pause();
-  const audio = document.getElementById('studioAudioPlayer');
-  if (audio) audio.pause();
-  stopYtProgressTracker();
-  if (ytStudioPlayer && typeof ytStudioPlayer.pauseVideo === 'function') {
-    try { ytStudioPlayer.pauseVideo(); } catch(e) {}
+  if (video) {
+    try { video.pause(); video.currentTime = 0; } catch(e) {}
   }
+  const audio = document.getElementById('studioAudioPlayer');
+  if (audio) {
+    try { audio.pause(); audio.currentTime = 0; } catch(e) {}
+  }
+  cleanupStudioYouTubePlayer();
+  stopAllMediaExcept(null);
 }
 
 // Populate Song Dropdown
@@ -1222,7 +1318,33 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
     worshipStudioState.mediaMode = 'local';
   }
 
+  // 1. 메인 화면 및 라운지 카드 등 기존 재생 중이던 모든 미디어 100% 즉시 정지
+  stopAllMediaExcept(null);
+
+  // 2. 스튜디오 내부 기존 영상 및 음원 완전 정지 및 숨김
+  const video = document.getElementById('studioVideoPlayer');
+  if (video) {
+    try { video.pause(); video.currentTime = 0; } catch(e) {}
+    video.style.display = 'none';
+  }
+  const audio = document.getElementById('studioAudioPlayer');
+  if (audio) {
+    try { audio.pause(); audio.currentTime = 0; } catch(e) {}
+    audio.style.display = 'none';
+  }
+
+  const ytWrapper = document.getElementById('studioYouTubePlayerWrapper');
+  const mediaWrapper = document.getElementById('studioVideoWrapper');
+
   stopYtProgressTracker();
+
+  // YouTube 모드가 아닐 경우 기존 iframe을 완전 제거하여 백그라운드 좀비 소리 재생 방지
+  const willUseYouTube = (worshipStudioState.mediaMode === 'youtube' && song.videoId) || 
+                         (!song.videoUrl && !song.audioUrl && song.videoId);
+
+  if (!willUseYouTube) {
+    cleanupStudioYouTubePlayer();
+  }
 
   // Update Display
   const titleDisplay = document.getElementById('studioActiveSongTitle');
@@ -1235,22 +1357,13 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
   }
   displayOverlaySubtitle(null);
 
-  // Update Media Elements
-  const video = document.getElementById('studioVideoPlayer');
-  const audio = document.getElementById('studioAudioPlayer');
-  const ytWrapper = document.getElementById('studioYouTubePlayerWrapper');
-  const mediaWrapper = document.getElementById('studioVideoWrapper');
-
   updateSourceToggleBtn(song);
 
   // 1. Zoom Safe Mode (Ultra-lightweight MP3 + High-contrast live subtitles, 0% stuttering)
   if (worshipStudioState.mediaMode === 'safe-audio' && song.audioUrl) {
-    if (ytWrapper) ytWrapper.style.display = 'none';
-    if (ytStudioPlayer && typeof ytStudioPlayer.pauseVideo === 'function') {
-      try { ytStudioPlayer.pauseVideo(); } catch(e) {}
-    }
+    cleanupStudioYouTubePlayer();
     if (video) {
-      video.pause();
+      try { video.pause(); video.currentTime = 0; } catch(e) {}
       video.style.display = 'none';
     }
     if (mediaWrapper) {
@@ -1275,20 +1388,17 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
     }
   } else if (worshipStudioState.mediaMode === 'youtube' && song.videoId) {
     // 2. User opted for YouTube mode
-    if (video) { video.pause(); video.style.display = 'none'; }
-    if (audio) { audio.pause(); audio.style.display = 'none'; }
+    if (video) { try { video.pause(); video.currentTime = 0; } catch(e) {} video.style.display = 'none'; }
+    if (audio) { try { audio.pause(); audio.currentTime = 0; } catch(e) {} audio.style.display = 'none'; }
     if (mediaWrapper) {
       mediaWrapper.style.backgroundImage = 'none';
     }
     mountYouTubePlayer(song.videoId, autoPlay);
   } else if (song.videoUrl) {
-    // 3. High-Definition 1080p MP4 Video (All 10 Songs)
-    if (ytWrapper) ytWrapper.style.display = 'none';
-    if (ytStudioPlayer && typeof ytStudioPlayer.pauseVideo === 'function') {
-      try { ytStudioPlayer.pauseVideo(); } catch(e) {}
-    }
+    // 3. High-Definition 1080p MP4 Video
+    cleanupStudioYouTubePlayer();
     if (audio) {
-      audio.pause();
+      try { audio.pause(); audio.currentTime = 0; } catch(e) {}
       audio.style.display = 'none';
     }
     if (mediaWrapper) mediaWrapper.style.backgroundImage = 'none';
@@ -1331,11 +1441,11 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
     }
   } else if (song.audioUrl) {
     // 4. Local High-Quality Audio with Worship Background Visual & Subtitles
-    if (ytWrapper) ytWrapper.style.display = 'none';
-    if (ytStudioPlayer && typeof ytStudioPlayer.pauseVideo === 'function') {
-      try { ytStudioPlayer.pauseVideo(); } catch(e) {}
+    cleanupStudioYouTubePlayer();
+    if (video) {
+      try { video.pause(); video.currentTime = 0; } catch(e) {}
+      video.style.display = 'none';
     }
-    if (video) video.style.display = 'none';
     if (mediaWrapper) {
       mediaWrapper.style.backgroundImage = `linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.65)), url("${song.bgImage || 'assets/worship_bg.jpg'}")`;
       mediaWrapper.style.backgroundSize = 'cover';
@@ -1362,14 +1472,14 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
     }
   } else if (song.videoId) {
     // Fallback: YouTube Video
-    if (video) { video.pause(); video.style.display = 'none'; }
-    if (audio) { audio.pause(); audio.style.display = 'none'; }
+    if (video) { try { video.pause(); video.currentTime = 0; } catch(e) {} video.style.display = 'none'; }
+    if (audio) { try { audio.pause(); audio.currentTime = 0; } catch(e) {} audio.style.display = 'none'; }
     if (mediaWrapper) mediaWrapper.style.backgroundImage = 'none';
     mountYouTubePlayer(song.videoId, autoPlay);
   } else {
-    if (ytWrapper) ytWrapper.style.display = 'none';
-    if (video) video.style.display = 'none';
-    if (audio) audio.style.display = 'none';
+    cleanupStudioYouTubePlayer();
+    if (video) { try { video.pause(); video.currentTime = 0; } catch(e) {} video.style.display = 'none'; }
+    if (audio) { try { audio.pause(); audio.currentTime = 0; } catch(e) {} audio.style.display = 'none'; }
   }
 
   // Render Lyric Stream Table
@@ -1389,6 +1499,9 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
 
 // Media Timeupdate & Buffer Stall Handler for real-time Subtitle Sync
 function setupMediaTimeUpdate(mediaEl) {
+  mediaEl.onplay = () => {
+    stopAllMediaExcept(mediaEl);
+  };
   mediaEl.ontimeupdate = () => {
     const curTime = mediaEl.currentTime;
     updateActiveSubtitleLine(curTime);
@@ -1688,6 +1801,7 @@ window.onLyricRowClick = onLyricRowClick;
 // 📌 ONE-CLICK: Set as Current Meeting Song for Step 1
 // ========================================================
 function setCurrentMeetingSong(songId) {
+  stopAllMediaExcept(null);
   if (!worshipStudioState.allSongs || worshipStudioState.allSongs.length === 0) {
     loadCustomSongs();
   }
