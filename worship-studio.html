@@ -289,6 +289,9 @@
             <button type="button" class="btn btn-outline" id="btnResetPresetLyrics" onclick="resetCurrentSongToDefaultLyrics()" style="display: none; border-color: #f87171; color: #f87171;" title="수정된 가사를 지우고 원래 기본 자막으로 되돌립니다">
               🔄 기본 자막으로 초기화
             </button>
+            <button type="button" class="btn btn-outline" id="btnRestoreBackupLyrics" onclick="restoreBackupLyrics()" style="display: none; border-color: #38bdf8; color: #38bdf8;" title="초기화되기 전의 수정 자막을 다시 복구합니다">
+              ↩️ 이전 수정본 복구
+            </button>
             <button type="button" class="btn btn-ghost" onclick="switchStudioTab('player')">
               플레이어로 돌아가기
             </button>
@@ -406,6 +409,6 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="worship-studio.js?v=20260929_jesus_sync_fix"></script>
+  <script src="worship-studio.js?v=20260929_restore_backup_safe"></script>
 </body>
 </html>

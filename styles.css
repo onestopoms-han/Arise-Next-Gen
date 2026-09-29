@@ -3548,3 +3548,13 @@ body {
   box-shadow: 0 0 12px rgba(16, 185, 129, 0.5) !important;
 }
 
+#btnResetPresetLyrics:hover {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #fca5a5 !important;
+}
+
+#btnRestoreBackupLyrics:hover {
+  background: rgba(56, 189, 248, 0.15) !important;
+  color: #7dd3fc !important;
+}
+

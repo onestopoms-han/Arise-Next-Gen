@@ -2362,8 +2362,15 @@ function renderCreatorLineEditor(lines) {
 }
 
 function deleteCreatorLine(idx) {
-  const row = document.querySelector(`.creator-line-row[data-idx="${idx}"]`);
-  if (row) row.remove();
+  const row = document.querySelector(`.creator-line-row[data-idx="${idx}"]`) || document.getElementById(`creatorLineRow_${idx}`);
+  if (!row) return;
+  const kr = row.querySelector('.kr-input')?.value.trim() || '';
+  if (kr) {
+    if (!confirm(`소절 #${idx + 1} ("${kr}") 자막을 삭제하시겠습니까?`)) {
+      return;
+    }
+  }
+  row.remove();
   updateSyncTargetDisplay();
 }
 
@@ -2397,7 +2404,7 @@ function addCreatorLine() {
     <div class="lyric-inputs">
       <input type="text" class="lyric-in en-input" placeholder="New English Lyric">
     </div>
-    <button type="button" class="btn-del-line" onclick="this.parentElement.remove()" title="이 소절 삭제">✕</button>
+    <button type="button" class="btn-del-line" onclick="deleteCreatorLine(${count})" title="이 소절 삭제">✕</button>
   `;
   container.appendChild(newRow);
   updateSyncTargetDisplay();
@@ -2418,6 +2425,7 @@ function loadCurrentSongIntoEditor() {
   const lyricsKrText = document.getElementById('newSongLyricsKr');
   const lyricsEnText = document.getElementById('newSongLyricsEn');
   const resetBtn = document.getElementById('btnResetPresetLyrics');
+  const restoreBtn = document.getElementById('btnRestoreBackupLyrics');
   const saveBtn = document.getElementById('btnSaveCreatorSong');
 
   if (titleKrInput) titleKrInput.value = song.titleKo;
@@ -2437,8 +2445,18 @@ function loadCurrentSongIntoEditor() {
     if (overrides[song.id]) hasOverride = true;
   } catch (e) {}
 
+  let hasBackup = false;
+  try {
+    if (localStorage.getItem(`arise_preset_lyrics_backup_${song.id}`)) {
+      hasBackup = true;
+    }
+  } catch (e) {}
+
   if (resetBtn) {
     resetBtn.style.display = (isPreset && hasOverride) ? 'inline-flex' : 'none';
+  }
+  if (restoreBtn) {
+    restoreBtn.style.display = (isPreset && hasBackup) ? 'inline-flex' : 'none';
   }
   if (saveBtn) {
     saveBtn.textContent = isPreset ? '💾 수정된 자막 저장 및 즉시 적용' : '💾 찬양 저장 및 즉시 재생';
@@ -2454,20 +2472,80 @@ function resetCurrentSongToDefaultLyrics() {
   const editingId = worshipStudioState.editingSongId || worshipStudioState.currentSong?.id;
   if (!editingId) return;
 
+  const currentSong = worshipStudioState.currentSong;
+  const songTitle = currentSong ? currentSong.titleKo : '현재 찬양';
+
+  // 1. 실수 방지를 위한 안전 확인창 (더블 체크 안내)
+  const confirmMsg = 
+    `⚠️ [주의] 정말 '${songTitle}'의 자막을 기본값으로 초기화하시겠습니까?\n\n` +
+    `• 그동안 시간 들여 정성껏 수정하신 모든 가사와 싱크 시간 데이터가 삭제되고 원래 기본값으로 되돌아갑니다.\n` +
+    `• 실수로 초기화하더라도 언제든 [↩️ 이전 수정본 복구] 버튼으로 다시 되돌릴 수 있도록 안전 백업본이 자동 보관됩니다.\n\n` +
+    `정말 초기화를 진행하시겠습니까? (취소하려면 [취소]를 누르세요)`;
+
+  if (!confirm(confirmMsg)) {
+    return;
+  }
+
+  // 2. 소중한 수정본 유실 방지를 위한 자동 안전 백업
   try {
     const overrides = JSON.parse(localStorage.getItem('arise_preset_lyrics_overrides') || '{}');
     if (overrides[editingId]) {
+      localStorage.setItem(`arise_preset_lyrics_backup_${editingId}`, JSON.stringify({
+        data: overrides[editingId],
+        backedUpAt: new Date().toISOString()
+      }));
       delete overrides[editingId];
       localStorage.setItem('arise_preset_lyrics_overrides', JSON.stringify(overrides));
     }
-  } catch (e) {}
+  } catch (e) {
+    console.error("Backup failed:", e);
+  }
 
   loadCustomSongs();
   selectWorshipSong(editingId, null, false);
   loadCurrentSongIntoEditor();
-  showStudioToast("🔄 원래 기본 찬양 자막으로 복원되었습니다.");
+  showStudioToast("🔄 원래 기본 찬양 자막으로 복원되었습니다. (필요 시 [↩️ 이전 수정본 복구] 버튼으로 되돌릴 수 있습니다)");
 }
 window.resetCurrentSongToDefaultLyrics = resetCurrentSongToDefaultLyrics;
+
+function restoreBackupLyrics() {
+  const editingId = worshipStudioState.editingSongId || worshipStudioState.currentSong?.id;
+  if (!editingId) return;
+
+  try {
+    const raw = localStorage.getItem(`arise_preset_lyrics_backup_${editingId}`);
+    if (!raw) {
+      alert("복구할 수 있는 이전 수정 백업 데이터가 없습니다.");
+      return;
+    }
+    const backupObj = JSON.parse(raw);
+    const backupData = backupObj.data || backupObj;
+    const currentSong = worshipStudioState.currentSong;
+    const songTitle = currentSong ? currentSong.titleKo : '현재 찬양';
+    const timeStr = backupObj.backedUpAt ? new Date(backupObj.backedUpAt).toLocaleTimeString() : '최근';
+
+    const confirmRestore = confirm(
+      `↩️ '${songTitle}'의 이전 수정본을 복구하시겠습니까?\n\n` +
+      `• 백업 시각: ${timeStr}\n` +
+      `• 복구 소절 수: ${backupData.lines?.length || 0}개 소절\n\n` +
+      `[확인]을 누르시면 이전에 직접 수정하셨던 가사와 싱크 시간이 즉시 복원됩니다.`
+    );
+    if (!confirmRestore) return;
+
+    let overrides = JSON.parse(localStorage.getItem('arise_preset_lyrics_overrides') || '{}');
+    overrides[editingId] = backupData;
+    localStorage.setItem('arise_preset_lyrics_overrides', JSON.stringify(overrides));
+
+    loadCustomSongs();
+    selectWorshipSong(editingId, null, false);
+    loadCurrentSongIntoEditor();
+    showStudioToast(`✨ '${songTitle}' 이전 수정 자막이 성공적으로 복구되었습니다!`);
+  } catch (e) {
+    console.error("Failed to restore backup:", e);
+    alert("백업 데이터를 복구하는 중 오류가 발생했습니다.");
+  }
+}
+window.restoreBackupLyrics = restoreBackupLyrics;
 
 // Save Custom Praise Song or Preset Subtitle Overrides
 function saveCustomPraiseSong() {
