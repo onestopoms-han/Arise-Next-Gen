@@ -1459,19 +1459,45 @@ function switchStudioTab(tab) {
   if (tab === 'player') {
     playerTab?.classList.add('active');
     creatorTab?.classList.remove('active');
-    if (playerSec) playerSec.style.display = 'block';
+    if (playerSec) {
+      playerSec.style.display = 'block';
+      playerSec.style.position = '';
+      playerSec.style.left = '';
+      playerSec.style.top = '';
+      playerSec.style.opacity = '';
+      playerSec.style.pointerEvents = '';
+      playerSec.style.height = '';
+      playerSec.style.overflow = '';
+    }
     if (creatorSec) creatorSec.style.display = 'none';
     if (syncAudio) {
       try { syncAudio.pause(); } catch(e) {}
     }
+    pauseSyncAudio();
   } else {
     creatorTab?.classList.add('active');
     playerTab?.classList.remove('active');
-    if (playerSec) playerSec.style.display = 'none';
+    if (playerSec) {
+      // Keep playerSec in DOM offscreen so YouTube player audio continues without being killed by display:none
+      playerSec.style.display = 'block';
+      playerSec.style.position = 'absolute';
+      playerSec.style.left = '-9999px';
+      playerSec.style.top = '-9999px';
+      playerSec.style.opacity = '0';
+      playerSec.style.pointerEvents = 'none';
+      playerSec.style.height = '1px';
+      playerSec.style.overflow = 'hidden';
+    }
     if (creatorSec) creatorSec.style.display = 'block';
+    
     stopAllMediaExcept(null);
-    if (worshipStudioState.currentSong) {
-      setupCreatorSyncAudio(worshipStudioState.currentSong);
+
+    // Auto load current song into editor if empty or song changed
+    const curSong = worshipStudioState.currentSong;
+    if (!worshipStudioState.editingSongId || (curSong && worshipStudioState.editingSongId !== curSong.id)) {
+      loadCurrentSongIntoEditor();
+    } else if (curSong) {
+      setupCreatorSyncAudio(curSong);
     }
   }
 }
@@ -1717,21 +1743,70 @@ function autoSplitLyrics() {
 // ⚡ LIVE TAP SYNC & SUBTITLE TIMING ENGINE
 // ========================================================
 worshipStudioState.syncTargetIndex = 0;
+worshipStudioState.previewingRowIdx = -1;
+worshipStudioState.syncAudioMode = 'local'; // 'local' | 'youtube'
 
 function setupCreatorSyncAudio(song) {
   const audio = document.getElementById('creatorSyncAudio');
-  if (!audio || !song) return;
+  if (!audio) return;
+  if (!song) song = worshipStudioState.currentSong || PRESET_PRAISE_SONGS[0];
 
-  const audioSrc = song.audioUrl || song.videoUrl || '';
-  if (audioSrc && !audio.src.endsWith(audioSrc)) {
-    audio.src = audioSrc;
-    audio.load();
+  let audioSrc = song.audioUrl || song.videoUrl || '';
+  if (!audioSrc && song.id === 'amazing-grace') {
+    audioSrc = 'assets/amazing_grace.mp3';
+  }
+
+  const badge = document.getElementById('syncAudioSourceBadge');
+
+  if (audioSrc) {
+    worshipStudioState.syncAudioMode = 'local';
+    if (badge) {
+      badge.innerHTML = `🎵 수록 음원 연동 <span style="opacity: 0.8; font-weight: normal;">(${song.titleKo || '찬양'})</span>`;
+      badge.style.color = '#38bdf8';
+      badge.style.background = 'rgba(56, 189, 248, 0.15)';
+    }
+
+    audio.muted = false;
+    audio.volume = 1.0;
+
+    const curSrc = audio.getAttribute('src') || '';
+    if (!curSrc || (!audio.src.includes(audioSrc) && !audio.src.endsWith(audioSrc))) {
+      audio.src = audioSrc;
+      audio.load();
+    }
+
+    audio.onerror = (e) => {
+      console.warn('creatorSyncAudio load error:', e, 'trying fallback paths');
+      if (audio.src.includes('assets/')) {
+        const rootPath = audioSrc.replace('assets/', '');
+        audio.src = rootPath;
+        audio.load();
+      } else if (song.videoId) {
+        worshipStudioState.syncAudioMode = 'youtube';
+        if (badge) {
+          badge.innerHTML = `📺 YouTube 공식 영상 음원 연동 <span style="opacity: 0.8; font-weight: normal;">(${song.titleKo || '찬양'})</span>`;
+          badge.style.color = '#f59e0b';
+          badge.style.background = 'rgba(245, 158, 11, 0.15)';
+        }
+        showStudioToast('💡 오디오 파일 대신 YouTube 공식 영상 음원으로 자동 전환되었습니다.');
+      }
+    };
+  } else if (song.videoId) {
+    worshipStudioState.syncAudioMode = 'youtube';
+    if (badge) {
+      badge.innerHTML = `📺 YouTube 공식 영상 음원 연동 <span style="opacity: 0.8; font-weight: normal;">(${song.titleKo || '찬양'})</span>`;
+      badge.style.color = '#f59e0b';
+      badge.style.background = 'rgba(245, 158, 11, 0.15)';
+    }
   }
 
   worshipStudioState.syncTargetIndex = 0;
+  worshipStudioState.previewingRowIdx = -1;
   updateSyncTargetDisplay();
+  updateRowListenButtons(-1, false);
 
   audio.ontimeupdate = () => {
+    if (worshipStudioState.syncAudioMode === 'youtube') return;
     const cur = audio.currentTime;
     const dur = audio.duration || song.duration || 180;
     const curEl = document.getElementById('syncCurTime');
@@ -1750,9 +1825,12 @@ function setupCreatorSyncAudio(song) {
   };
   audio.onpause = () => {
     updateSyncPlayBtnState(false);
+    updateRowListenButtons(-1, false);
   };
   audio.onended = () => {
     updateSyncPlayBtnState(false);
+    updateRowListenButtons(-1, false);
+    worshipStudioState.previewingRowIdx = -1;
   };
 }
 
@@ -1767,33 +1845,253 @@ function updateSyncPlayBtnState(isPlaying) {
   }
 }
 
-function toggleSyncAudioPlayPause() {
+function updateRowListenButtons(activeIdx, isPlaying) {
+  const rows = document.querySelectorAll('.creator-line-row');
+  rows.forEach((r, idx) => {
+    const btn = r.querySelector('.btn-row-listen');
+    if (!btn) return;
+    if (idx === activeIdx && isPlaying) {
+      btn.innerHTML = '⏹ 멈춤';
+      btn.classList.add('playing');
+      btn.title = '재생 멈추기 (클릭 시 일시정지)';
+    } else {
+      btn.innerHTML = '▶ 듣기';
+      btn.classList.remove('playing');
+      btn.title = '이 소절부터 음악 재생';
+    }
+  });
+}
+
+function isSyncAudioPlaying() {
   const audio = document.getElementById('creatorSyncAudio');
+  if (worshipStudioState.syncAudioMode === 'youtube') {
+    if (ytStudioPlayer && typeof ytStudioPlayer.getPlayerState === 'function') {
+      return ytStudioPlayer.getPlayerState() === 1;
+    }
+    return worshipStudioState.isYtPlaying === true;
+  }
+  return audio && !audio.paused && !audio.ended && audio.currentTime > 0;
+}
+
+function pauseSyncAudio() {
+  const audio = document.getElementById('creatorSyncAudio');
+  if (audio && !audio.paused) {
+    try { audio.pause(); } catch(e) {}
+  }
+  if (ytStudioPlayer && typeof ytStudioPlayer.pauseVideo === 'function') {
+    try { ytStudioPlayer.pauseVideo(); } catch(e) {}
+  }
+  const ifr = document.getElementById('studioYouTubePlayer');
+  if (ifr && ifr.tagName === 'IFRAME' && ifr.contentWindow) {
+    try { ifr.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*'); } catch(e) {}
+  }
+  worshipStudioState.previewingRowIdx = -1;
+  updateSyncPlayBtnState(false);
+  updateRowListenButtons(-1, false);
+}
+
+function playSyncAudioAt(targetSec, targetIdx = -1) {
+  const audio = document.getElementById('creatorSyncAudio');
+  const song = worshipStudioState.currentSong;
   if (!audio) return;
-  if (audio.paused) {
+
+  targetSec = Math.max(0, Math.round(targetSec * 10) / 10);
+  worshipStudioState.previewingRowIdx = targetIdx;
+
+  let localSrc = song?.audioUrl || song?.videoUrl || '';
+  if (!localSrc && song?.id === 'amazing-grace') {
+    localSrc = 'assets/amazing_grace.mp3';
+  }
+
+  // 1. Local HTML5 Audio Playback
+  if (localSrc && worshipStudioState.syncAudioMode !== 'youtube') {
     stopAllMediaExcept(audio);
-    audio.play().catch(e => console.log('Sync audio play error:', e));
+    audio.muted = false;
+    audio.volume = 1.0;
+
+    const curSrc = audio.getAttribute('src') || '';
+    if (!curSrc || (!audio.src.includes(localSrc) && !audio.src.endsWith(localSrc))) {
+      audio.src = localSrc;
+      audio.load();
+    }
+
+    const doPlay = () => {
+      try {
+        if (audio.readyState >= 1) {
+          audio.currentTime = targetSec;
+        }
+      } catch (err) {
+        console.warn('currentTime seek error:', err);
+      }
+
+      const p = audio.play();
+      if (p !== undefined) {
+        p.then(() => {
+          try { audio.currentTime = targetSec; } catch (e) {}
+          updateSyncPlayBtnState(true);
+          if (targetIdx >= 0) {
+            worshipStudioState.syncTargetIndex = targetIdx;
+            updateSyncTargetDisplay();
+            updateRowListenButtons(targetIdx, true);
+            showStudioToast(`🔊 [#${targetIdx + 1}] 소절 (${formatTime(targetSec)}) 재생 중...`);
+          }
+        }).catch(err => {
+          console.warn('Local audio play failed, trying YouTube fallback:', err);
+          if (song && song.videoId) {
+            worshipStudioState.syncAudioMode = 'youtube';
+            playYouTubeSyncAudio(song.videoId, targetSec, targetIdx);
+          } else {
+            showStudioToast('⚠️ 음원을 재생할 수 없습니다. 화면을 한 번 클릭한 뒤 다시 눌러주세요.');
+          }
+        });
+      }
+    };
+
+    if (audio.readyState >= 1) {
+      doPlay();
+    } else {
+      showStudioToast('⏳ 음원 로딩 중... 잠시만 기다려주세요.');
+      const onReady = () => {
+        audio.removeEventListener('loadedmetadata', onReady);
+        audio.removeEventListener('canplay', onReady);
+        doPlay();
+      };
+      audio.addEventListener('loadedmetadata', onReady, { once: true });
+      audio.addEventListener('canplay', onReady, { once: true });
+      setTimeout(() => {
+        if (audio.paused && worshipStudioState.previewingRowIdx === targetIdx) {
+          doPlay();
+        }
+      }, 500);
+    }
+    return;
+  }
+
+  // 2. YouTube Audio Playback (for YouTube-only songs or when local audio is absent)
+  if (song && song.videoId) {
+    worshipStudioState.syncAudioMode = 'youtube';
+    playYouTubeSyncAudio(song.videoId, targetSec, targetIdx);
+    return;
+  }
+
+  showStudioToast('⚠️ 재생할 수 있는 음원 또는 영상이 없습니다.');
+}
+
+function playYouTubeSyncAudio(videoId, targetSec, targetIdx = -1) {
+  stopAllMediaExcept('studioYouTube');
+  targetSec = Math.max(0, targetSec);
+
+  const doYtPlay = () => {
+    if (ytStudioPlayer && typeof ytStudioPlayer.seekTo === 'function') {
+      try {
+        ytStudioPlayer.seekTo(targetSec, true);
+        ytStudioPlayer.playVideo();
+        updateSyncPlayBtnState(true);
+        if (targetIdx >= 0) {
+          worshipStudioState.syncTargetIndex = targetIdx;
+          updateSyncTargetDisplay();
+          updateRowListenButtons(targetIdx, true);
+          showStudioToast(`📺 [#${targetIdx + 1}] YouTube 찬양 (${formatTime(targetSec)}) 듣기 재생 중...`);
+        }
+        startYtSyncProgressTracker();
+        return true;
+      } catch (e) {
+        console.warn('ytStudioPlayer control error:', e);
+      }
+    }
+    return false;
+  };
+
+  if (!doYtPlay()) {
+    mountYouTubePlayer(videoId, true);
+    setTimeout(() => {
+      doYtPlay();
+    }, 1200);
+  }
+}
+
+function startYtSyncProgressTracker() {
+  if (worshipStudioState.ytSyncStudioTimer) clearInterval(worshipStudioState.ytSyncStudioTimer);
+  worshipStudioState.ytSyncStudioTimer = setInterval(() => {
+    if (worshipStudioState.activeTab !== 'creator') return;
+    let cur = 0;
+    if (ytStudioPlayer && typeof ytStudioPlayer.getCurrentTime === 'function') {
+      cur = ytStudioPlayer.getCurrentTime() || 0;
+    }
+    const song = worshipStudioState.currentSong;
+    const dur = (ytStudioPlayer && typeof ytStudioPlayer.getDuration === 'function' && ytStudioPlayer.getDuration()) || song?.duration || 180;
+    
+    const curEl = document.getElementById('syncCurTime');
+    const totEl = document.getElementById('syncTotalTime');
+    const seekEl = document.getElementById('syncSeekBar');
+    if (curEl) curEl.textContent = formatTime(cur) + '.' + Math.floor((cur % 1) * 10);
+    if (totEl) totEl.textContent = formatTime(dur);
+    if (seekEl && dur > 0) {
+      seekEl.value = (cur / dur) * 100;
+    }
+  }, 100);
+}
+
+function toggleSyncAudioPlayPause() {
+  if (isSyncAudioPlaying()) {
+    pauseSyncAudio();
+    showStudioToast('⏸️ 음악이 일시정지되었습니다.');
   } else {
-    audio.pause();
+    const audio = document.getElementById('creatorSyncAudio');
+    const isYt = (worshipStudioState.syncAudioMode === 'youtube');
+    let curTime = 0;
+    if (isYt && ytStudioPlayer && typeof ytStudioPlayer.getCurrentTime === 'function') {
+      curTime = ytStudioPlayer.getCurrentTime() || 0;
+    } else if (audio) {
+      curTime = audio.currentTime || 0;
+    }
+    playSyncAudioAt(curTime, worshipStudioState.syncTargetIndex);
   }
 }
 window.toggleSyncAudioPlayPause = toggleSyncAudioPlayPause;
 
 function seekSyncAudio(deltaSec, isAbsolute = false) {
   const audio = document.getElementById('creatorSyncAudio');
-  if (!audio) return;
-  if (isAbsolute) {
-    audio.currentTime = deltaSec;
-  } else {
-    audio.currentTime = Math.max(0, Math.min(audio.duration || 9999, audio.currentTime + deltaSec));
+  const isYt = (worshipStudioState.syncAudioMode === 'youtube');
+  const song = worshipStudioState.currentSong;
+
+  let targetTime = 0;
+  if (isYt && ytStudioPlayer && typeof ytStudioPlayer.getCurrentTime === 'function') {
+    const cur = ytStudioPlayer.getCurrentTime() || 0;
+    const dur = ytStudioPlayer.getDuration() || song?.duration || 180;
+    targetTime = isAbsolute ? deltaSec : Math.max(0, Math.min(dur, cur + deltaSec));
+    try { ytStudioPlayer.seekTo(targetTime, true); } catch(e) {}
+  } else if (audio) {
+    const dur = audio.duration || song?.duration || 180;
+    targetTime = isAbsolute ? deltaSec : Math.max(0, Math.min(dur, audio.currentTime + deltaSec));
+    try {
+      if (audio.readyState >= 1) {
+        audio.currentTime = targetTime;
+      }
+    } catch (e) {}
+  }
+
+  const curEl = document.getElementById('syncCurTime');
+  if (curEl) curEl.textContent = formatTime(targetTime) + '.' + Math.floor((targetTime % 1) * 10);
+  
+  if (isAbsolute && deltaSec === 0) {
+    showStudioToast('⏮️ 처음부터 재생 준비');
+  } else if (!isAbsolute) {
+    showStudioToast(`⏩ ${deltaSec > 0 ? '+' : ''}${deltaSec}초 이동`);
   }
 }
 window.seekSyncAudio = seekSyncAudio;
 
 function onSyncSeekChange(percent) {
   const audio = document.getElementById('creatorSyncAudio');
-  if (!audio || !audio.duration) return;
-  audio.currentTime = (percent / 100) * audio.duration;
+  const isYt = (worshipStudioState.syncAudioMode === 'youtube');
+  const song = worshipStudioState.currentSong;
+  const dur = (isYt && ytStudioPlayer && typeof ytStudioPlayer.getDuration === 'function' && ytStudioPlayer.getDuration()) 
+              || (audio && audio.duration) 
+              || song?.duration 
+              || 180;
+  const target = (percent / 100) * dur;
+  seekSyncAudio(target, true);
 }
 window.onSyncSeekChange = onSyncSeekChange;
 
@@ -1826,7 +2124,14 @@ function updateSyncTargetDisplay() {
 // Record current audio time as the start of the targeted line
 function recordCurrentLineSync() {
   const audio = document.getElementById('creatorSyncAudio');
-  const curTime = audio ? Math.round(audio.currentTime * 10) / 10 : 0;
+  const isYt = (worshipStudioState.syncAudioMode === 'youtube');
+  let curTime = 0;
+  if (isYt && ytStudioPlayer && typeof ytStudioPlayer.getCurrentTime === 'function') {
+    curTime = ytStudioPlayer.getCurrentTime() || 0;
+  } else if (audio) {
+    curTime = audio.currentTime || 0;
+  }
+  curTime = Math.round(curTime * 10) / 10;
   const rows = document.querySelectorAll('.creator-line-row');
   const idx = worshipStudioState.syncTargetIndex;
 
@@ -1876,15 +2181,16 @@ function previewLineAudio(idx) {
   if (!row) return;
 
   const st = parseFloat(row.querySelector('.start-time')?.value) || 0;
-  const audio = document.getElementById('creatorSyncAudio');
-  if (!audio) return;
 
-  seekSyncAudio(st, true);
-  audio.play().then(() => {
-    updateSyncPlayBtnState(true);
-    worshipStudioState.syncTargetIndex = idx;
-    updateSyncTargetDisplay();
-  }).catch(e => console.log('Preview error:', e));
+  // Toggle behavior: If this exact row is currently playing, clicking it pauses!
+  if (worshipStudioState.previewingRowIdx === idx && isSyncAudioPlaying()) {
+    pauseSyncAudio();
+    showStudioToast(`⏸️ [#${idx + 1}] 소절 듣기 일시정지`);
+    return;
+  }
+
+  // Otherwise, start playing from this line's start time!
+  playSyncAudioAt(st, idx);
 }
 window.previewLineAudio = previewLineAudio;
 
@@ -1995,7 +2301,7 @@ function renderCreatorLineEditor(lines) {
           <span class="unit">초</span>
         </div>
         <div class="row-actions-group">
-          <button type="button" class="btn-row-action btn-row-listen" onclick="previewLineAudio(${idx})" title="이 소절부터 음악 재생">▶ 듣기</button>
+          <button type="button" class="btn-row-action btn-row-listen" id="btnPreviewLine_${idx}" onclick="previewLineAudio(${idx})" title="이 소절부터 음악 재생">▶ 듣기</button>
           <button type="button" class="btn-row-action" onclick="stampRowCurrentTime(${idx})" title="현재 재생시간으로 설정">⏱️ 찍기</button>
           <button type="button" class="btn-row-action" onclick="nudgeRowTime(${idx}, -0.5)" title="0.5초 당기기">-0.5s</button>
           <button type="button" class="btn-row-action" onclick="nudgeRowTime(${idx}, 0.5)" title="0.5초 늦추기">+0.5s</button>
@@ -2038,7 +2344,7 @@ function addCreatorLine() {
         <span class="unit">초</span>
       </div>
       <div class="row-actions-group">
-        <button type="button" class="btn-row-action btn-row-listen" onclick="previewLineAudio(${count})" title="이 소절부터 음악 재생">▶ 듣기</button>
+        <button type="button" class="btn-row-action btn-row-listen" id="btnPreviewLine_${count}" onclick="previewLineAudio(${count})" title="이 소절부터 음악 재생">▶ 듣기</button>
         <button type="button" class="btn-row-action" onclick="stampRowCurrentTime(${count})" title="현재 재생시간으로 설정">⏱️ 찍기</button>
         <button type="button" class="btn-row-action" onclick="nudgeRowTime(${count}, -0.5)" title="0.5초 당기기">-0.5s</button>
         <button type="button" class="btn-row-action" onclick="nudgeRowTime(${count}, 0.5)" title="0.5초 늦추기">+0.5s</button>

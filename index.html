@@ -1444,9 +1444,12 @@
           <!-- Live Tap Sync Studio Panel -->
           <div class="live-sync-panel" id="liveSyncPanel">
             <div class="live-sync-header">
-              <div class="sync-title-group">
+              <div class="sync-title-group" style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
                 <span class="sync-badge">⚡ LIVE TAP SYNC</span>
                 <h4>음악 들으며 실시간 원클릭 싱크 맞추기</h4>
+                <div class="sync-audio-badge" id="syncAudioSourceBadge" style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.78rem; padding: 0.2rem 0.55rem; border-radius: 9999px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; font-weight: 600;">
+                  🎵 수록 음원 연동
+                </div>
               </div>
               <span class="sync-tip">찬양을 재생하고 각 소절이 흘러나올 때 <b>[Space]</b> 또는 아래 녹색 버튼을 누르면 그 순간의 재생시간이 시작 시각으로 자동 기록됩니다!</span>
             </div>
@@ -1633,7 +1636,7 @@
 
   <!-- Main JavaScript Files -->
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="worship-studio.js?v=20260921_1"></script>
+  <script src="worship-studio.js?v=20260929_listen_fix"></script>
   <script src="app.js?v=20260921_1"></script>
 </body>
 </html>
