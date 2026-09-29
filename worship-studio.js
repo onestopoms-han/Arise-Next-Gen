@@ -22,9 +22,9 @@ const PRESET_PRAISE_SONGS = [
       { "start": 57.0, "end": 77.0, "kr": "주 예수여 임하사 통치하소서", "en": "Come Lord Jesus and take Your place, come and rule over us" },
       { "start": 77.0, "end": 92.0, "kr": "[간주 및 2부] 예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, we proclaim You are King" },
       { "start": 92.0, "end": 107.0, "kr": "보좌로 임하사 찬양을 받으소서", "en": "Standing here in the midst of us, we raise You up with our praise" },
-      { "start": 107.0, "end": 122.0, "kr": "[후렴] 사모함으로 주님께 예배드리니", "en": "And as we worship build a throne, and as we worship build a throne" },
-      { "start": 122.0, "end": 145.0, "kr": "주 예수여 임하사 영원히 통치하소서", "en": "Come Lord Jesus and take Your place, come and rule over us" },
-      { "start": 145.0, "end": 164.0, "kr": "🕊️ 만왕의 왕이신 예수 그리스도께서 우리 모임과 삶을 다스리십니다 · 아멘", "en": "King of Kings, Jesus Christ Reigns Over All · Amen" }
+      { "start": 107.0, "end": 112.0, "kr": "[후렴] 사모함으로 주님께 예배드리니", "en": "And as we worship build a throne, and as we worship build a throne" },
+      { "start": 112.0, "end": 136.0, "kr": "주 예수여 임하사 영원히 통치하소서", "en": "Come Lord Jesus and take Your place, come and rule over us" },
+      { "start": 136.0, "end": 164.0, "kr": "🕊️ 만왕의 왕이신 예수 그리스도께서 우리 모임과 삶을 다스리십니다 · 아멘", "en": "King of Kings, Jesus Christ Reigns Over All · Amen" }
     ]
   },
   {
@@ -340,15 +340,39 @@ function loadCustomSongs() {
   }
 
   const presets = PRESET_PRAISE_SONGS.map(p => {
-    if (overrides[p.id]) {
-      return {
-        ...p,
-        lines: overrides[p.id].lines || p.lines,
-        duration: overrides[p.id].duration || p.duration,
-        hasCustomSubtitles: true
-      };
+    let pLines = p.lines;
+    let pDur = p.duration;
+    let hasCustom = false;
+
+    if (overrides[p.id] && overrides[p.id].lines && overrides[p.id].lines.length > 0) {
+      pLines = overrides[p.id].lines;
+      pDur = overrides[p.id].duration || p.duration;
+      hasCustom = true;
     }
-    return { ...p };
+
+    // Contiguous time cleanup: ensure line[i].end matches line[i+1].start perfectly
+    if (pLines && pLines.length > 0) {
+      for (let i = 0; i < pLines.length - 1; i++) {
+        if (pLines[i + 1].start > pLines[i].start) {
+          // If end overlaps past next start, or if there is a gap, align end to next start
+          if (pLines[i].end > pLines[i + 1].start || (pLines[i + 1].start - pLines[i].end <= 3)) {
+            pLines[i].end = pLines[i + 1].start;
+          }
+        }
+      }
+      // Ensure the very last line extends to the end of the song
+      const lastLine = pLines[pLines.length - 1];
+      if (lastLine && pDur) {
+        lastLine.end = Math.max(lastLine.end || 0, pDur);
+      }
+    }
+
+    return {
+      ...p,
+      lines: pLines,
+      duration: pDur,
+      hasCustomSubtitles: hasCustom
+    };
   });
 
   worshipStudioState.allSongs = [...presets, ...customList];
@@ -1261,12 +1285,22 @@ function updateActiveSubtitleLine(currentTime) {
   }
 
   const song = worshipStudioState.currentSong;
-  if (!song || !song.lines) return;
+  if (!song || !song.lines || song.lines.length === 0) return;
 
+  // Resilient reverse-order search: Find the latest line whose start time has arrived!
+  // This guarantees that if a line starts at 1m52s (112s) or 2m16s (136s), it transitions IMMEDIATELY,
+  // without being blocked or suppressed by previous lines' end times.
   let activeIndex = -1;
-  for (let i = 0; i < song.lines.length; i++) {
-    if (currentTime >= song.lines[i].start && currentTime < song.lines[i].end) {
-      activeIndex = i;
+  for (let i = song.lines.length - 1; i >= 0; i--) {
+    const curLine = song.lines[i];
+    if (currentTime >= curLine.start) {
+      const isLast = (i === song.lines.length - 1);
+      const nextStart = isLast ? (song.duration || 9999) : song.lines[i + 1].start;
+      const lineEnd = Math.max(curLine.end || 0, nextStart);
+
+      if (currentTime < lineEnd) {
+        activeIndex = i;
+      }
       break;
     }
   }
@@ -2143,8 +2177,12 @@ function recordCurrentLineSync() {
   const curRow = rows[idx];
   const startInput = curRow.querySelector('.start-time');
   const endInput = curRow.querySelector('.end-time');
+  const song = worshipStudioState.currentSong;
   if (startInput) startInput.value = curTime;
-  if (endInput) endInput.value = Math.round((curTime + 15) * 10) / 10;
+  
+  const isLast = (idx === rows.length - 1);
+  const defEnd = isLast ? Math.max(curTime + 20, Math.round((song?.duration || curTime + 30) * 10) / 10) : Math.round((curTime + 15) * 10) / 10;
+  if (endInput) endInput.value = defEnd;
 
   // Set previous line end time
   if (idx > 0) {
@@ -2259,7 +2297,10 @@ function stageQuickSyncCurrentLine() {
     if (curIdx > 0) {
       song.lines[curIdx - 1].end = curTime;
     }
-    song.lines[curIdx].end = Math.max(curTime + 5, song.lines[curIdx].end || curTime + 15);
+    const isLast = (curIdx === song.lines.length - 1);
+    song.lines[curIdx].end = isLast 
+      ? Math.max(curTime + 20, song.duration || curTime + 30)
+      : Math.max(curTime + 5, song.lines[curIdx].end || curTime + 15);
 
     // Save override to localStorage
     const overrides = JSON.parse(localStorage.getItem('arise_preset_lyrics_overrides') || '{}');
@@ -2455,6 +2496,23 @@ function saveCustomPraiseSong() {
     }
   });
 
+  // Sort lines chronologically by start time
+  lines.sort((a, b) => a.start - b.start);
+
+  // Normalize contiguous boundaries: every line ends when the next line begins
+  for (let i = 0; i < lines.length - 1; i++) {
+    if (lines[i + 1].start > lines[i].start) {
+      lines[i].end = lines[i + 1].start;
+    }
+  }
+
+  const inputDur = parseFloat(document.getElementById('newSongDuration')?.value) || 0;
+  const songDur = worshipStudioState.currentSong?.duration || 164;
+  const targetDur = Math.max(inputDur, songDur, lines.length > 0 ? (lines[lines.length - 1].start + 25) : 180);
+  if (lines.length > 0) {
+    lines[lines.length - 1].end = targetDur;
+  }
+
   const editingId = worshipStudioState.editingSongId;
   const isPreset = editingId && PRESET_PRAISE_SONGS.some(p => p.id === editingId);
 
@@ -2467,7 +2525,7 @@ function saveCustomPraiseSong() {
 
     overrides[editingId] = {
       lines: lines,
-      duration: lines[lines.length - 1].end || 180,
+      duration: targetDur,
       titleKo: titleKr,
       titleEn: titleEn,
       updatedAt: new Date().toISOString()
@@ -2476,8 +2534,11 @@ function saveCustomPraiseSong() {
 
     loadCustomSongs();
     selectWorshipSong(editingId, null, false);
+    // Switch to auto sync mode so subtitles follow the newly synced timestamps!
+    worshipStudioState.subtitleMode = 'auto';
+    updateSubtitleControlBar();
     switchStudioTab('player');
-    showStudioToast(`✨ '${titleKr}' 자막이 성공적으로 수정되어 즉시 적용되었습니다!`);
+    showStudioToast(`✨ '${titleKr}' 자막이 성공적으로 수정되어 [자동 싱크 모드]로 즉시 적용되었습니다!`);
     worshipStudioState.editingSongId = null;
     return;
   }
