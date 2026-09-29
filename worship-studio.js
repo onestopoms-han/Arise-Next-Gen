@@ -110,9 +110,23 @@ const PRESET_PRAISE_SONGS = [
     "srtUrl": "assets/amazing_grace.srt",
     "lrcUrl": "assets/amazing_grace.lrc",
     "videoId": "4-IlkTVvqKk",
-    "duration": 278,
+    "duration": 170,
+    "localDuration": 170,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
+      { "start": 0.5, "end": 5.0, "kr": "🎵 나 같은 죄인 살리신 (찬송가 305장) - 전주", "en": "Amazing Grace (Hymn 305) - Intro" },
+      { "start": 5.0, "end": 25.0, "kr": "[1절] 나 같은 죄인 살리신 주 은혜 놀라워", "en": "Amazing grace! how sweet the sound That saved a wretch like me!" },
+      { "start": 25.0, "end": 45.0, "kr": "잃었던 생명 찾았고 광명을 얻었네", "en": "I once was lost, but now am found, Was blind, but now I see." },
+      { "start": 45.0, "end": 65.0, "kr": "[2절] 큰 죄악에서 건지신 주 은혜 고마워", "en": "'Twas grace that taught my heart to fear, And grace my fears relieved;" },
+      { "start": 65.0, "end": 85.0, "kr": "나 처음 믿은 그 시간 귀하고 귀하다", "en": "How precious did that grace appear The hour I first believed!" },
+      { "start": 85.0, "end": 105.0, "kr": "[3절] 이제껏 내가 산 것도 주님의 은혜라", "en": "Through many dangers, toils and snares, I have already come;" },
+      { "start": 105.0, "end": 125.0, "kr": "또 나를 장차 본향에 인도해 주시리", "en": "'Tis grace hath brought me safe thus far, And grace will lead me home." },
+      { "start": 125.0, "end": 145.0, "kr": "[4절] 거기서 우리 영원히 주님의 은혜로", "en": "When we've been there ten thousand years, Bright shining as the sun," },
+      { "start": 145.0, "end": 165.0, "kr": "해처럼 밝게 살면서 주 찬양 하리라", "en": "We've no less days to sing God's praise Than when we'd first begun." },
+      { "start": 165.0, "end": 170.0, "kr": "🕊️ 주님의 은혜에 감사드립니다 · 아멘", "en": "Giving Thanks to God's Abundant Grace · Amen" }
+    ],
+    "ytDuration": 278,
+    "ytLines": [
       { "start": 0.5, "end": 14.0, "kr": "🎵 나 같은 죄인 살리신 (찬송가 305장) - 피아노 전주", "en": "Amazing Grace, How Sweet The Sound (Intro)" },
       { "start": 14.0, "end": 42.0, "kr": "[1절] 나 같은 죄인 살리신 주 은혜 놀라워", "en": "Amazing grace! how sweet the sound That saved a wretch like me!" },
       { "start": 42.0, "end": 72.0, "kr": "잃었던 생명 찾았고 광명을 얻었네", "en": "I once was lost, but now am found, Was blind, but now I see." },
@@ -315,7 +329,29 @@ function loadCustomSongs() {
       console.error('Failed to parse custom songs:', e);
     }
   }
-  worshipStudioState.allSongs = [...PRESET_PRAISE_SONGS, ...customList];
+
+  // 기존 공식 찬양에 대해 사용자가 수정한 맞춤 자막 오버라이드 적용
+  let overrides = {};
+  try {
+    const savedOverrides = localStorage.getItem('arise_preset_lyrics_overrides');
+    if (savedOverrides) overrides = JSON.parse(savedOverrides);
+  } catch (e) {
+    console.error('Failed to parse preset lyric overrides:', e);
+  }
+
+  const presets = PRESET_PRAISE_SONGS.map(p => {
+    if (overrides[p.id]) {
+      return {
+        ...p,
+        lines: overrides[p.id].lines || p.lines,
+        duration: overrides[p.id].duration || p.duration,
+        hasCustomSubtitles: true
+      };
+    }
+    return { ...p };
+  });
+
+  worshipStudioState.allSongs = [...presets, ...customList];
 }
 
 // ========================================================
@@ -848,6 +884,16 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
     worshipStudioState.mediaMode = 'local';
   }
 
+  // 유튜브 모드 및 로컬/세이프 모드 간 자막 싱크와 재생 길이 자동 최적화
+  if (worshipStudioState.mediaMode === 'youtube' && song.ytLines) {
+    if (!song._localLines) song._localLines = song.lines;
+    song.lines = song.ytLines;
+    song.duration = song.ytDuration || 278;
+  } else if (worshipStudioState.mediaMode !== 'youtube' && song._localLines) {
+    song.lines = song._localLines;
+    song.duration = song.localDuration || 170;
+  }
+
   // 1. 메인 화면 및 라운지 카드 등 기존 재생 중이던 모든 미디어 100% 즉시 정지
   stopAllMediaExcept(null);
 
@@ -1245,8 +1291,8 @@ function displayOverlaySubtitle(lineObj) {
   }
 
   const song = worshipStudioState.currentSong;
-  // Only suppress HTML overlay if we are playing local video of Amazing Grace which has burned-in subs AND we are in auto mode
-  if (worshipStudioState.subtitleMode === 'auto' && worshipStudioState.mediaMode === 'local' && song && song.id === 'amazing-grace' && song.videoUrl) {
+  // Only suppress HTML overlay if we are playing local video of Amazing Grace which has burned-in subs AND we are in auto mode AND has no custom edits
+  if (worshipStudioState.subtitleMode === 'auto' && worshipStudioState.mediaMode === 'local' && song && song.id === 'amazing-grace' && song.videoUrl && !song.hasCustomSubtitles) {
     overlay.innerHTML = '';
     overlay.classList.remove('visible');
     return;
@@ -1408,17 +1454,25 @@ function switchStudioTab(tab) {
   const creatorTab = document.getElementById('studioTabCreator');
   const playerSec = document.getElementById('studioSectionPlayer');
   const creatorSec = document.getElementById('studioSectionCreator');
+  const syncAudio = document.getElementById('creatorSyncAudio');
 
   if (tab === 'player') {
     playerTab?.classList.add('active');
     creatorTab?.classList.remove('active');
     if (playerSec) playerSec.style.display = 'block';
     if (creatorSec) creatorSec.style.display = 'none';
+    if (syncAudio) {
+      try { syncAudio.pause(); } catch(e) {}
+    }
   } else {
     creatorTab?.classList.add('active');
     playerTab?.classList.remove('active');
     if (playerSec) playerSec.style.display = 'none';
     if (creatorSec) creatorSec.style.display = 'block';
+    stopAllMediaExcept(null);
+    if (worshipStudioState.currentSong) {
+      setupCreatorSyncAudio(worshipStudioState.currentSong);
+    }
   }
 }
 
@@ -1523,10 +1577,26 @@ function setupStudioKeyboardShortcuts() {
       return;
     }
 
-    // 6. Space: Play / Pause Music
+    // 6. Live Tap Sync: [T] key
+    if (e.code === 'KeyT') {
+      e.preventDefault();
+      if (worshipStudioState.activeTab === 'creator') {
+        recordCurrentLineSync();
+      } else {
+        stageQuickSyncCurrentLine();
+      }
+      return;
+    }
+
+    // 7. Space: Play / Pause Music (or Tap Sync if in Creator tab)
     if (e.code === 'Space') {
       e.preventDefault();
-      toggleStudioPlayPause();
+      if (worshipStudioState.activeTab === 'creator') {
+        recordCurrentLineSync();
+      } else {
+        toggleStudioPlayPause();
+      }
+      return;
     }
   });
 }
@@ -1643,31 +1713,311 @@ function autoSplitLyrics() {
   showStudioToast(`✨ 총 ${maxLines}개 소절이 자동으로 시간 분할되었습니다!`);
 }
 
+// ========================================================
+// ⚡ LIVE TAP SYNC & SUBTITLE TIMING ENGINE
+// ========================================================
+worshipStudioState.syncTargetIndex = 0;
+
+function setupCreatorSyncAudio(song) {
+  const audio = document.getElementById('creatorSyncAudio');
+  if (!audio || !song) return;
+
+  const audioSrc = song.audioUrl || song.videoUrl || '';
+  if (audioSrc && !audio.src.endsWith(audioSrc)) {
+    audio.src = audioSrc;
+    audio.load();
+  }
+
+  worshipStudioState.syncTargetIndex = 0;
+  updateSyncTargetDisplay();
+
+  audio.ontimeupdate = () => {
+    const cur = audio.currentTime;
+    const dur = audio.duration || song.duration || 180;
+    const curEl = document.getElementById('syncCurTime');
+    const totEl = document.getElementById('syncTotalTime');
+    const seekEl = document.getElementById('syncSeekBar');
+
+    if (curEl) curEl.textContent = formatTime(cur) + '.' + Math.floor((cur % 1) * 10);
+    if (totEl) totEl.textContent = formatTime(dur);
+    if (seekEl && dur > 0) {
+      seekEl.value = (cur / dur) * 100;
+    }
+  };
+
+  audio.onplay = () => {
+    updateSyncPlayBtnState(true);
+  };
+  audio.onpause = () => {
+    updateSyncPlayBtnState(false);
+  };
+  audio.onended = () => {
+    updateSyncPlayBtnState(false);
+  };
+}
+
+function updateSyncPlayBtnState(isPlaying) {
+  const icon = document.getElementById('syncPlayPauseIcon');
+  const text = document.getElementById('syncPlayPauseText');
+  const btn = document.getElementById('btnSyncPlayPause');
+  if (icon) icon.textContent = isPlaying ? '⏸️' : '▶️';
+  if (text) text.textContent = isPlaying ? '일시정지' : '음악 재생';
+  if (btn) {
+    btn.style.background = isPlaying ? 'linear-gradient(135deg, #f59e0b, #d97706)' : '';
+  }
+}
+
+function toggleSyncAudioPlayPause() {
+  const audio = document.getElementById('creatorSyncAudio');
+  if (!audio) return;
+  if (audio.paused) {
+    stopAllMediaExcept(audio);
+    audio.play().catch(e => console.log('Sync audio play error:', e));
+  } else {
+    audio.pause();
+  }
+}
+window.toggleSyncAudioPlayPause = toggleSyncAudioPlayPause;
+
+function seekSyncAudio(deltaSec, isAbsolute = false) {
+  const audio = document.getElementById('creatorSyncAudio');
+  if (!audio) return;
+  if (isAbsolute) {
+    audio.currentTime = deltaSec;
+  } else {
+    audio.currentTime = Math.max(0, Math.min(audio.duration || 9999, audio.currentTime + deltaSec));
+  }
+}
+window.seekSyncAudio = seekSyncAudio;
+
+function onSyncSeekChange(percent) {
+  const audio = document.getElementById('creatorSyncAudio');
+  if (!audio || !audio.duration) return;
+  audio.currentTime = (percent / 100) * audio.duration;
+}
+window.onSyncSeekChange = onSyncSeekChange;
+
+function updateSyncTargetDisplay() {
+  const rows = document.querySelectorAll('.creator-line-row');
+  rows.forEach((r, idx) => {
+    if (idx === worshipStudioState.syncTargetIndex) {
+      r.classList.add('active-sync-target');
+      r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      r.classList.remove('active-sync-target');
+    }
+  });
+
+  const targetTitle = document.getElementById('syncTargetTitle');
+  if (!targetTitle) return;
+
+  if (worshipStudioState.syncTargetIndex >= rows.length) {
+    targetTitle.textContent = '🎉 모든 소절 싱크 완료! 하단 [자막 저장]을 눌러주세요.';
+    targetTitle.style.color = '#34d399';
+  } else {
+    const activeRow = rows[worshipStudioState.syncTargetIndex];
+    const krVal = activeRow ? activeRow.querySelector('.kr-input')?.value : '';
+    const enVal = activeRow ? activeRow.querySelector('.en-input')?.value : '';
+    targetTitle.textContent = `#${worshipStudioState.syncTargetIndex + 1} ${krVal || enVal || '소절'}`;
+    targetTitle.style.color = '#f8fafc';
+  }
+}
+
+// Record current audio time as the start of the targeted line
+function recordCurrentLineSync() {
+  const audio = document.getElementById('creatorSyncAudio');
+  const curTime = audio ? Math.round(audio.currentTime * 10) / 10 : 0;
+  const rows = document.querySelectorAll('.creator-line-row');
+  const idx = worshipStudioState.syncTargetIndex;
+
+  if (idx >= rows.length) {
+    showStudioToast('🎉 모든 소절 싱크가 입력되었습니다! [자막 저장]을 눌러 적용하세요.');
+    return;
+  }
+
+  const curRow = rows[idx];
+  const startInput = curRow.querySelector('.start-time');
+  const endInput = curRow.querySelector('.end-time');
+  if (startInput) startInput.value = curTime;
+  if (endInput) endInput.value = Math.round((curTime + 15) * 10) / 10;
+
+  // Set previous line end time
+  if (idx > 0) {
+    const prevRow = rows[idx - 1];
+    const prevEndInput = prevRow.querySelector('.end-time');
+    if (prevEndInput) prevEndInput.value = curTime;
+  }
+
+  showStudioToast(`⏱️ [소절 #${idx + 1}] 시작: ${formatTime(curTime)} 확정!`);
+
+  worshipStudioState.syncTargetIndex = idx + 1;
+  updateSyncTargetDisplay();
+}
+window.recordCurrentLineSync = recordCurrentLineSync;
+
+function rewindSyncToPrevLine() {
+  if (worshipStudioState.syncTargetIndex > 0) {
+    worshipStudioState.syncTargetIndex--;
+    updateSyncTargetDisplay();
+    const rows = document.querySelectorAll('.creator-line-row');
+    const row = rows[worshipStudioState.syncTargetIndex];
+    if (row) {
+      const st = parseFloat(row.querySelector('.start-time')?.value) || 0;
+      seekSyncAudio(Math.max(0, st - 2), true);
+    }
+    showStudioToast(`↩️ [#${worshipStudioState.syncTargetIndex + 1}] 소절로 돌아갔습니다.`);
+  }
+}
+window.rewindSyncToPrevLine = rewindSyncToPrevLine;
+
+function previewLineAudio(idx) {
+  const rows = document.querySelectorAll('.creator-line-row');
+  const row = rows[idx];
+  if (!row) return;
+
+  const st = parseFloat(row.querySelector('.start-time')?.value) || 0;
+  const audio = document.getElementById('creatorSyncAudio');
+  if (!audio) return;
+
+  seekSyncAudio(st, true);
+  audio.play().then(() => {
+    updateSyncPlayBtnState(true);
+    worshipStudioState.syncTargetIndex = idx;
+    updateSyncTargetDisplay();
+  }).catch(e => console.log('Preview error:', e));
+}
+window.previewLineAudio = previewLineAudio;
+
+function stampRowCurrentTime(idx) {
+  const audio = document.getElementById('creatorSyncAudio');
+  if (!audio) return;
+  const curTime = Math.round(audio.currentTime * 10) / 10;
+  const rows = document.querySelectorAll('.creator-line-row');
+  const row = rows[idx];
+  if (!row) return;
+
+  const startInput = row.querySelector('.start-time');
+  if (startInput) startInput.value = curTime;
+
+  if (idx > 0) {
+    const prevRow = rows[idx - 1];
+    const prevEnd = prevRow.querySelector('.end-time');
+    if (prevEnd && parseFloat(prevEnd.value) > curTime) {
+      prevEnd.value = curTime;
+    }
+  }
+  showStudioToast(`⏱️ [#${idx + 1}] 시작 시간을 ${formatTime(curTime)}로 설정했습니다.`);
+}
+window.stampRowCurrentTime = stampRowCurrentTime;
+
+function nudgeRowTime(idx, delta) {
+  const rows = document.querySelectorAll('.creator-line-row');
+  const row = rows[idx];
+  if (!row) return;
+  const startInput = row.querySelector('.start-time');
+  const endInput = row.querySelector('.end-time');
+  if (startInput) {
+    const newVal = Math.max(0, Math.round((parseFloat(startInput.value || 0) + delta) * 10) / 10);
+    startInput.value = newVal;
+    if (endInput) {
+      endInput.value = Math.max(newVal + 1, Math.round((parseFloat(endInput.value || 0) + delta) * 10) / 10);
+    }
+    showStudioToast(`[#${idx + 1}] 시작: ${newVal}초 (${delta > 0 ? '+' : ''}${delta}s)`);
+  }
+}
+window.nudgeRowTime = nudgeRowTime;
+
+// Stage Quick Sync during live playback on Tab 1
+function stageQuickSyncCurrentLine() {
+  const song = worshipStudioState.currentSong;
+  if (!song || !song.lines || song.lines.length === 0) return;
+
+  const video = document.getElementById('studioVideoPlayer');
+  const audio = document.getElementById('studioAudioPlayer');
+  let curTime = 0;
+  if (worshipStudioState.mediaMode === 'youtube' && ytStudioPlayer && typeof ytStudioPlayer.getCurrentTime === 'function') {
+    curTime = ytStudioPlayer.getCurrentTime() || 0;
+  } else if (video && video.style.display !== 'none' && !video.paused) {
+    curTime = video.currentTime || 0;
+  } else if (audio && audio.style.display !== 'none' && !audio.paused) {
+    curTime = audio.currentTime || 0;
+  } else {
+    curTime = (video && video.currentTime) || (audio && audio.currentTime) || 0;
+  }
+
+  curTime = Math.round(curTime * 10) / 10;
+  const curIdx = Math.max(0, worshipStudioState.currentLineIndex);
+
+  if (curIdx < song.lines.length) {
+    song.lines[curIdx].start = curTime;
+    if (curIdx > 0) {
+      song.lines[curIdx - 1].end = curTime;
+    }
+    song.lines[curIdx].end = Math.max(curTime + 5, song.lines[curIdx].end || curTime + 15);
+
+    // Save override to localStorage
+    const overrides = JSON.parse(localStorage.getItem('arise_preset_lyrics_overrides') || '{}');
+    overrides[song.id] = {
+      lines: song.lines,
+      duration: song.duration,
+      titleKo: song.titleKo,
+      titleEn: song.titleEn,
+      updatedAt: new Date().toISOString()
+    };
+    localStorage.setItem('arise_preset_lyrics_overrides', JSON.stringify(overrides));
+
+    renderLyricStream(song);
+    highlightLyricStreamRow(curIdx);
+    showStudioToast(`⏱️ [소절 #${curIdx + 1}] 시작: ${formatTime(curTime)} 확정 & 자동 저장!`);
+
+    // Advance to next line for the user
+    if (curIdx < song.lines.length - 1) {
+      worshipStudioState.currentLineIndex = curIdx + 1;
+      displayOverlaySubtitle(song.lines[curIdx + 1]);
+      updateSubtitleControlBar();
+    }
+  }
+}
+window.stageQuickSyncCurrentLine = stageQuickSyncCurrentLine;
+
 function renderCreatorLineEditor(lines) {
   const container = document.getElementById('creatorLinesContainer');
   if (!container) return;
 
   container.innerHTML = lines.map((line, idx) => `
-    <div class="creator-line-row" data-idx="${idx}">
+    <div class="creator-line-row" data-idx="${idx}" id="creatorLineRow_${idx}">
       <span class="line-num">#${idx + 1}</span>
-      <div class="time-inputs">
-        <input type="number" class="time-in start-time" value="${line.start}" step="1" title="시작 시간(초)">
-        <span>~</span>
-        <input type="number" class="time-in end-time" value="${line.end}" step="1" title="종료 시간(초)">
-        <span class="unit">초</span>
+      <div class="time-inputs" style="display: flex; flex-direction: column; gap: 0.25rem;">
+        <div style="display: flex; align-items: center; gap: 0.25rem;">
+          <input type="number" class="time-in start-time" value="${line.start}" step="0.5" title="시작 시간(초)">
+          <span>~</span>
+          <input type="number" class="time-in end-time" value="${line.end}" step="0.5" title="종료 시간(초)">
+          <span class="unit">초</span>
+        </div>
+        <div class="row-actions-group">
+          <button type="button" class="btn-row-action btn-row-listen" onclick="previewLineAudio(${idx})" title="이 소절부터 음악 재생">▶ 듣기</button>
+          <button type="button" class="btn-row-action" onclick="stampRowCurrentTime(${idx})" title="현재 재생시간으로 설정">⏱️ 찍기</button>
+          <button type="button" class="btn-row-action" onclick="nudgeRowTime(${idx}, -0.5)" title="0.5초 당기기">-0.5s</button>
+          <button type="button" class="btn-row-action" onclick="nudgeRowTime(${idx}, 0.5)" title="0.5초 늦추기">+0.5s</button>
+        </div>
       </div>
       <div class="lyric-inputs">
-        <input type="text" class="lyric-in kr-input" value="${escapeHtml(line.kr)}" placeholder="한글 가사">
+        <input type="text" class="lyric-in kr-input" value="${escapeHtml(line.kr)}" placeholder="한글 가사 (수정 가능)">
+      </div>
+      <div class="lyric-inputs">
         <input type="text" class="lyric-in en-input" value="${escapeHtml(line.en)}" placeholder="영어 가사 (English)">
       </div>
-      <button type="button" class="btn-del-line" onclick="deleteCreatorLine(${idx})">✕</button>
+      <button type="button" class="btn-del-line" onclick="deleteCreatorLine(${idx})" title="이 소절 삭제">✕</button>
     </div>
   `).join('');
+
+  updateSyncTargetDisplay();
 }
 
 function deleteCreatorLine(idx) {
   const row = document.querySelector(`.creator-line-row[data-idx="${idx}"]`);
   if (row) row.remove();
+  updateSyncTargetDisplay();
 }
 
 function addCreatorLine() {
@@ -1676,25 +2026,103 @@ function addCreatorLine() {
   const count = container.querySelectorAll('.creator-line-row').length;
   const newRow = document.createElement('div');
   newRow.className = 'creator-line-row';
+  newRow.id = `creatorLineRow_${count}`;
   newRow.dataset.idx = count;
   newRow.innerHTML = `
     <span class="line-num">#${count + 1}</span>
-    <div class="time-inputs">
-      <input type="number" class="time-in start-time" value="${count * 15}" step="1">
-      <span>~</span>
-      <input type="number" class="time-in end-time" value="${(count + 1) * 15}" step="1">
-      <span class="unit">초</span>
+    <div class="time-inputs" style="display: flex; flex-direction: column; gap: 0.25rem;">
+      <div style="display: flex; align-items: center; gap: 0.25rem;">
+        <input type="number" class="time-in start-time" value="${count * 15}" step="0.5">
+        <span>~</span>
+        <input type="number" class="time-in end-time" value="${(count + 1) * 15}" step="0.5">
+        <span class="unit">초</span>
+      </div>
+      <div class="row-actions-group">
+        <button type="button" class="btn-row-action btn-row-listen" onclick="previewLineAudio(${count})" title="이 소절부터 음악 재생">▶ 듣기</button>
+        <button type="button" class="btn-row-action" onclick="stampRowCurrentTime(${count})" title="현재 재생시간으로 설정">⏱️ 찍기</button>
+        <button type="button" class="btn-row-action" onclick="nudgeRowTime(${count}, -0.5)" title="0.5초 당기기">-0.5s</button>
+        <button type="button" class="btn-row-action" onclick="nudgeRowTime(${count}, 0.5)" title="0.5초 늦추기">+0.5s</button>
+      </div>
     </div>
     <div class="lyric-inputs">
       <input type="text" class="lyric-in kr-input" placeholder="새 한글 가사">
+    </div>
+    <div class="lyric-inputs">
       <input type="text" class="lyric-in en-input" placeholder="New English Lyric">
     </div>
-    <button type="button" class="btn-del-line" onclick="this.parentElement.remove()">✕</button>
+    <button type="button" class="btn-del-line" onclick="this.parentElement.remove()" title="이 소절 삭제">✕</button>
   `;
   container.appendChild(newRow);
+  updateSyncTargetDisplay();
 }
 
-// Save Custom Praise Song
+// ========================================================
+// Subtitle Editing & Custom Praise Song Storage
+// ========================================================
+function loadCurrentSongIntoEditor() {
+  const song = worshipStudioState.currentSong;
+  if (!song) return;
+
+  worshipStudioState.editingSongId = song.id;
+
+  const titleKrInput = document.getElementById('newSongTitleKr');
+  const titleEnInput = document.getElementById('newSongTitleEn');
+  const durationInput = document.getElementById('newSongDuration');
+  const lyricsKrText = document.getElementById('newSongLyricsKr');
+  const lyricsEnText = document.getElementById('newSongLyricsEn');
+  const resetBtn = document.getElementById('btnResetPresetLyrics');
+  const saveBtn = document.getElementById('btnSaveCreatorSong');
+
+  if (titleKrInput) titleKrInput.value = song.titleKo;
+  if (titleEnInput) titleEnInput.value = song.titleEn;
+  if (durationInput) durationInput.value = song.duration || 180;
+
+  if (song.lines && song.lines.length > 0) {
+    if (lyricsKrText) lyricsKrText.value = song.lines.map(l => l.kr).join('\n');
+    if (lyricsEnText) lyricsEnText.value = song.lines.map(l => l.en).join('\n');
+    renderCreatorLineEditor(song.lines);
+  }
+
+  const isPreset = PRESET_PRAISE_SONGS.some(p => p.id === song.id);
+  let hasOverride = false;
+  try {
+    const overrides = JSON.parse(localStorage.getItem('arise_preset_lyrics_overrides') || '{}');
+    if (overrides[song.id]) hasOverride = true;
+  } catch (e) {}
+
+  if (resetBtn) {
+    resetBtn.style.display = (isPreset && hasOverride) ? 'inline-flex' : 'none';
+  }
+  if (saveBtn) {
+    saveBtn.textContent = isPreset ? '💾 수정된 자막 저장 및 즉시 적용' : '💾 찬양 저장 및 즉시 재생';
+  }
+
+  setupCreatorSyncAudio(song);
+  switchStudioTab('creator');
+  showStudioToast(`⚡ '${song.titleKo}' 실시간 싱크 스튜디오가 준비되었습니다.`);
+}
+window.loadCurrentSongIntoEditor = loadCurrentSongIntoEditor;
+
+function resetCurrentSongToDefaultLyrics() {
+  const editingId = worshipStudioState.editingSongId || worshipStudioState.currentSong?.id;
+  if (!editingId) return;
+
+  try {
+    const overrides = JSON.parse(localStorage.getItem('arise_preset_lyrics_overrides') || '{}');
+    if (overrides[editingId]) {
+      delete overrides[editingId];
+      localStorage.setItem('arise_preset_lyrics_overrides', JSON.stringify(overrides));
+    }
+  } catch (e) {}
+
+  loadCustomSongs();
+  selectWorshipSong(editingId, null, false);
+  loadCurrentSongIntoEditor();
+  showStudioToast("🔄 원래 기본 찬양 자막으로 복원되었습니다.");
+}
+window.resetCurrentSongToDefaultLyrics = resetCurrentSongToDefaultLyrics;
+
+// Save Custom Praise Song or Preset Subtitle Overrides
 function saveCustomPraiseSong() {
   const titleKr = document.getElementById('newSongTitleKr').value.trim();
   const titleEn = document.getElementById('newSongTitleEn').value.trim() || titleKr;
@@ -1721,7 +2149,35 @@ function saveCustomPraiseSong() {
     }
   });
 
-  const songId = `custom_${Date.now()}`;
+  const editingId = worshipStudioState.editingSongId;
+  const isPreset = editingId && PRESET_PRAISE_SONGS.some(p => p.id === editingId);
+
+  if (isPreset) {
+    // 1. 공식 찬양(기존 찬양)의 자막 수정 오버라이드 저장
+    let overrides = {};
+    try {
+      overrides = JSON.parse(localStorage.getItem('arise_preset_lyrics_overrides') || '{}');
+    } catch (e) {}
+
+    overrides[editingId] = {
+      lines: lines,
+      duration: lines[lines.length - 1].end || 180,
+      titleKo: titleKr,
+      titleEn: titleEn,
+      updatedAt: new Date().toISOString()
+    };
+    localStorage.setItem('arise_preset_lyrics_overrides', JSON.stringify(overrides));
+
+    loadCustomSongs();
+    selectWorshipSong(editingId, null, false);
+    switchStudioTab('player');
+    showStudioToast(`✨ '${titleKr}' 자막이 성공적으로 수정되어 즉시 적용되었습니다!`);
+    worshipStudioState.editingSongId = null;
+    return;
+  }
+
+  // 2. 신규 찬양 또는 기존 커스텀 찬양 저장
+  const songId = (editingId && editingId.startsWith('custom_')) ? editingId : `custom_${Date.now()}`;
   const newSong = {
     id: songId,
     titleKo: titleKr,
@@ -1735,15 +2191,22 @@ function saveCustomPraiseSong() {
 
   const saved = localStorage.getItem('arise_custom_praise_songs');
   let list = saved ? JSON.parse(saved) : [];
-  list.unshift(newSong);
+  const existingIdx = list.findIndex(s => s.id === songId);
+  if (existingIdx >= 0) {
+    list[existingIdx] = newSong;
+  } else {
+    list.unshift(newSong);
+  }
   localStorage.setItem('arise_custom_praise_songs', JSON.stringify(list));
 
   loadCustomSongs();
   populateSongSelector(songId);
   selectWorshipSong(songId);
   switchStudioTab('player');
-  showStudioToast(`🎉 새 찬양 '${titleKr}'이 등록되었습니다! 줌 플레이어에서 바로 확인하실 수 있습니다.`);
+  showStudioToast(`🎉 찬양 '${titleKr}'이 저장되었습니다! 줌 플레이어에서 바로 확인하실 수 있습니다.`);
+  worshipStudioState.editingSongId = null;
 }
+window.saveCustomPraiseSong = saveCustomPraiseSong;
 
 // Utilities
 function formatTime(seconds) {

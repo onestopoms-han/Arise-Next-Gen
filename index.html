@@ -1301,6 +1301,9 @@
             <button type="button" class="btn btn-sm btn-outline" id="btnToggleZoomSafeMode" onclick="toggleZoomSafeMode()" title="무거운 1080p 영상 대신 초경량 고음질 오디오+자막으로 전환하여 줌 끊김을 방지합니다">
               🛡️ 줌 끊김방지 모드
             </button>
+            <button type="button" class="btn btn-sm btn-outline" id="btnEditCurrentSubtitles" onclick="loadCurrentSongIntoEditor()" style="border-color: #38bdf8; color: #38bdf8; font-weight: 700;" title="음악을 들으며 실시간으로 영문/한글 가사 싱크를 콕콕 찍어서 맞추는 스튜디오를 엽니다">
+              ⚡ 실시간 싱크 맞추기
+            </button>
             <button type="button" class="btn btn-sm btn-ghost" id="btnToggleMediaSource" onclick="toggleMediaSource()" style="display:none;" title="수록 음원과 YouTube 공식 영상 간 재생 모드 전환">
               📺 YouTube 영상
             </button>
@@ -1359,6 +1362,9 @@
             </div>
 
             <div class="sub-ctrl-actions">
+              <button type="button" class="btn-sub-action" id="btnStageQuickSync" onclick="stageQuickSyncCurrentLine()" style="background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.5); color: #34d399; font-weight: 800;" title="현재 재생시간을 이 소절의 시작 시간으로 즉시 확정하고 다음으로 이동 (단축키: T)">
+                <span>⏱️</span> <span>이 소절 싱크 찍기 (T)</span>
+              </button>
               <button type="button" class="btn-sub-action" id="btnToggleHideSub" onclick="toggleHideSubtitle()" title="전주/간주/기도 중 자막 숨기기/보이기 (단축키: C)">
                 <span id="hideSubIcon">👁️</span> <span id="hideSubText">자막 숨김</span>
               </button>
@@ -1368,7 +1374,7 @@
             </div>
 
             <div class="sub-ctrl-hint">
-              <span>💡 <b>화면 클릭</b> 또는 <b>[→] 방향키</b>로 다음 가사</span>
+              <span>⌨️ <b>단축키</b>: <b>[T]</b> 현재 소절 싱크 찍기 &nbsp;|&nbsp; <b>[Space]</b> 재생/정지 &nbsp;|&nbsp; <b>[→ / ←]</b> 가사 넘김 &nbsp;|&nbsp; <b>[M]</b> 수동/자동 전환 &nbsp;|&nbsp; <b>[C]</b> 자막 숨김 &nbsp;|&nbsp; <b>[F]</b> 줌 전체화면</span>
             </div>
           </div>
 
@@ -1435,12 +1441,64 @@
             </button>
           </div>
 
+          <!-- Live Tap Sync Studio Panel -->
+          <div class="live-sync-panel" id="liveSyncPanel">
+            <div class="live-sync-header">
+              <div class="sync-title-group">
+                <span class="sync-badge">⚡ LIVE TAP SYNC</span>
+                <h4>음악 들으며 실시간 원클릭 싱크 맞추기</h4>
+              </div>
+              <span class="sync-tip">찬양을 재생하고 각 소절이 흘러나올 때 <b>[Space]</b> 또는 아래 녹색 버튼을 누르면 그 순간의 재생시간이 시작 시각으로 자동 기록됩니다!</span>
+            </div>
+
+            <div class="live-sync-player-bar">
+              <audio id="creatorSyncAudio" preload="auto" style="display:none;"></audio>
+              <div class="sync-audio-controls">
+                <button type="button" class="btn btn-sm btn-primary" id="btnSyncPlayPause" onclick="toggleSyncAudioPlayPause()">
+                  <span id="syncPlayPauseIcon">▶️</span> <span id="syncPlayPauseText">음악 재생</span>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline" onclick="seekSyncAudio(-3)" title="3초 뒤로 감기">
+                  ⏪ -3초
+                </button>
+                <button type="button" class="btn btn-sm btn-outline" onclick="seekSyncAudio(3)" title="3초 앞으로 감기">
+                  ⏩ +3초
+                </button>
+                <button type="button" class="btn btn-sm btn-ghost" onclick="seekSyncAudio(0, true)" title="처음부터 다시 듣기">
+                  ⏮️ 처음부터
+                </button>
+                <div class="sync-time-display" id="syncTimeDisplay">
+                  <span id="syncCurTime">00:00.0</span> / <span id="syncTotalTime">02:50.0</span>
+                </div>
+                <input type="range" class="sync-seek-bar" id="syncSeekBar" min="0" max="100" value="0" step="0.1" oninput="onSyncSeekChange(this.value)">
+              </div>
+
+              <!-- Big Tap Sync Action Box -->
+              <div class="sync-tap-action-box">
+                <div class="sync-target-info">
+                  <span class="target-label">🎯 다음 싱크 찍을 소절:</span>
+                  <b class="target-title" id="syncTargetTitle">#1 소절 대기 중...</b>
+                </div>
+                <div class="sync-tap-buttons">
+                  <button type="button" class="btn-live-tap" id="btnLiveTap" onclick="recordCurrentLineSync()" title="현재 재생 시각을 이 소절의 시작 시간으로 확정하고 다음 소절로 이동 (단축키: Space 또는 T)">
+                    <span class="tap-icon">⏱️</span>
+                    <span class="tap-text">지금 이 소절 시작 찍기!</span>
+                    <span class="tap-key">[Space / T]</span>
+                  </button>
+                  <button type="button" class="btn-prev-tap" onclick="rewindSyncToPrevLine()" title="이전 소절로 돌아가서 다시 찍기">
+                    ↩️ 이전 소절 다시 찍기
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Dynamic Line-by-Line Time Editor -->
           <div class="creator-lines-wrapper">
-            <div class="creator-lines-header">
+            <div class="creator-lines-header" style="display: grid; grid-template-columns: 35px 180px 1fr 1fr 35px; gap: 0.6rem; padding: 0.5rem 0.75rem;">
               <span>#</span>
-              <span>시작~종료 시간(초)</span>
-              <span>한글 가사 / 영문 가사</span>
+              <span>시작~종료 시간 / 미세조정</span>
+              <span>한글 가사 (직접 수정)</span>
+              <span>영어 가사 (English)</span>
               <span>삭제</span>
             </div>
             <div id="creatorLinesContainer">
@@ -1448,9 +1506,15 @@
             </div>
           </div>
 
-          <div class="creator-footer-actions">
-            <button type="button" class="btn btn-primary btn-lg" onclick="saveCustomPraiseSong()">
-              💾 내 찬양 목록에 저장 및 즉시 재생
+          <div class="creator-footer-actions" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary btn-lg" id="btnSaveCreatorSong" onclick="saveCustomPraiseSong()">
+              💾 자막 저장 및 즉시 적용
+            </button>
+            <button type="button" class="btn btn-outline" id="btnResetPresetLyrics" onclick="resetCurrentSongToDefaultLyrics()" style="display: none; border-color: #f87171; color: #f87171;" title="수정된 가사를 지우고 원래 기본 자막으로 되돌립니다">
+              🔄 기본 자막으로 초기화
+            </button>
+            <button type="button" class="btn btn-ghost" onclick="switchStudioTab('player')">
+              플레이어로 돌아가기
             </button>
           </div>
         </div>
