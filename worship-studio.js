@@ -7,24 +7,41 @@
 const PRESET_PRAISE_SONGS = [
   {
     "id": "jesus-we-enthrone-you",
-    "titleKo": "예수 우리 왕이여 (새찬송가 38장 / 성가대 4부 합창 원곡)",
-    "titleEn": "Jesus, We Enthrone You (Hymn 38 / Traditional Choir)",
-    "artist": "방주의 은혜 (새찬송가 38장) • 편곡 없는 정통 4부 성가 합창 완곡",
+    "titleKo": "예수 우리 왕이여 (Jesus, We Enthrone You)",
+    "titleEn": "Jesus, We Enthrone You",
+    "artist": "박철순 (예배소스 1집) / Paul Kyle • 순수 어쿠스틱 피아노 원곡",
     "category": "confession",
-    "videoId": "_jmFVMuI20I",
-    "duration": 162,
+    "videoId": "tNqId-sj7C4",
+    "duration": 254,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      { "start": 0.0, "end": 17.5, "kr": "🎵 새찬송가 38장 예수 우리 왕이여 - 정통 찬송가 전주", "en": "Jesus, We Enthrone You (Hymn 38) - Intro" },
-      { "start": 17.5, "end": 33.0, "kr": "[1절] 예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, We proclaim You are King" },
-      { "start": 33.0, "end": 49.0, "kr": "우리가 왕께 드리는 영광을(찬양을) 받아 주소서", "en": "Standing here in the midst of all, We raise You with our praise" },
-      { "start": 49.0, "end": 64.5, "kr": "우리는 주님의 백성 주님은 우리 왕이라", "en": "And as we worship build a throne, and as we worship build a throne" },
-      { "start": 64.5, "end": 81.0, "kr": "왕이신 예수님 오셔서 좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place, come and rule over us" },
-      { "start": 81.0, "end": 96.0, "kr": "🎵 (간주) 예수 우리 주시여 이곳에 오셔서", "en": "Jesus, You are our Lord (Interlude)" },
-      { "start": 96.0, "end": 111.0, "kr": "[2절] 예수 우리 주시여 이곳에 오셔서", "en": "Jesus, You are our Lord, Come into our midst" },
-      { "start": 111.0, "end": 126.0, "kr": "우리가 주께 드리는 찬양을 받아 주소서", "en": "Receive the heartfelt praises we offer to You, Lord" },
-      { "start": 126.0, "end": 141.0, "kr": "우리는 주님의 종들 주님은 우리 주시라", "en": "We are the servants of the Lord, You alone are our Master and God" },
-      { "start": 141.0, "end": 162.0, "kr": "주 되신 예수님 오셔서 이 찬양을 받아 주소서 · 아멘", "en": "Come, Lord Jesus, our Master, and accept our praise · Amen" }
+      { "start": 0.0, "end": 17.0, "kr": "🎵 예수 우리 왕이여 (Jesus, We Enthrone You) - 피아노 전주", "en": "Jesus, We Enthrone You - Piano Intro" },
+      { "start": 17.0, "end": 21.0, "kr": "예수 우리 왕이여", "en": "Jesus, we enthrone You" },
+      { "start": 21.0, "end": 25.5, "kr": "이곳에 오셔서", "en": "We proclaim You are King" },
+      { "start": 25.5, "end": 30.5, "kr": "보좌로 주여 임하사", "en": "Standing here, in the midst of all" },
+      { "start": 30.5, "end": 36.0, "kr": "찬양을 받아 주소서", "en": "We raise You with our praise" },
+      { "start": 36.0, "end": 45.0, "kr": "주님을 찬양하오니", "en": "And as we worship fill the throne" },
+      { "start": 45.0, "end": 54.0, "kr": "주님을 경배하오니", "en": "And as we worship fill the throne" },
+      { "start": 54.0, "end": 63.0, "kr": "왕이신 예수여 오셔서", "en": "And as we worship fill the throne" },
+      { "start": 63.0, "end": 77.0, "kr": "좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place" },
+      { "start": 77.0, "end": 85.0, "kr": "🎵 (간주) 예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You (Interlude)" },
+      { "start": 85.0, "end": 89.5, "kr": "예수 우리 왕이여", "en": "Jesus, we enthrone You" },
+      { "start": 89.5, "end": 94.0, "kr": "이곳에 오셔서", "en": "We proclaim You are King" },
+      { "start": 94.0, "end": 99.5, "kr": "보좌로 주여 임하사", "en": "Standing here, in the midst of all" },
+      { "start": 99.5, "end": 105.0, "kr": "찬양을 받아 주소서", "en": "We raise You with our praise" },
+      { "start": 105.0, "end": 114.0, "kr": "주님을 찬양하오니", "en": "And as we worship fill the throne" },
+      { "start": 114.0, "end": 123.0, "kr": "주님을 경배하오니", "en": "And as we worship fill the throne" },
+      { "start": 123.0, "end": 133.0, "kr": "왕이신 예수여 오셔서", "en": "And as we worship fill the throne" },
+      { "start": 133.0, "end": 147.0, "kr": "좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place" },
+      { "start": 147.0, "end": 156.0, "kr": "[후렴 고조] 주님을 찬양하오니", "en": "And as we worship fill the throne" },
+      { "start": 156.0, "end": 166.0, "kr": "주님을 경배하오니", "en": "And as we worship fill the throne" },
+      { "start": 166.0, "end": 176.0, "kr": "왕이신 예수여 오셔서", "en": "And as we worship fill the throne" },
+      { "start": 176.0, "end": 190.0, "kr": "좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place" },
+      { "start": 190.0, "end": 200.0, "kr": "[후렴 반복] 주님을 찬양하오니", "en": "And as we worship fill the throne" },
+      { "start": 200.0, "end": 210.0, "kr": "주님을 경배하오니", "en": "And as we worship fill the throne" },
+      { "start": 210.0, "end": 220.0, "kr": "왕이신 예수여 오셔서", "en": "And as we worship fill the throne" },
+      { "start": 220.0, "end": 235.0, "kr": "좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place" },
+      { "start": 235.0, "end": 254.0, "kr": "🕊️ 왕이신 예수여 오셔서 영원히 다스리소서 · 아멘", "en": "Come Lord Jesus, take Your place and rule over us forever · Amen" }
     ]
   },
   {
@@ -321,7 +338,7 @@ function loadCustomSongs() {
   }
 
   // 정통 찬송가 공식 업데이트 시 브라우저 내 구버전 오버라이드 자동 정격 동기화
-  const CURRENT_LIBRARY_VER = '20260930_v5_pure_choir_hymn38';
+  const CURRENT_LIBRARY_VER = '20260930_v6_original_worship_source';
   const savedVer = localStorage.getItem('arise_praise_library_ver');
   if (savedVer !== CURRENT_LIBRARY_VER) {
     try {
