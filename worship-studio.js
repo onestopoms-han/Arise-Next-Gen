@@ -7,24 +7,24 @@
 const PRESET_PRAISE_SONGS = [
   {
     "id": "jesus-we-enthrone-you",
-    "titleKo": "예수 우리 왕이여 (새찬송가 38장)",
-    "titleEn": "Jesus, We Enthrone You (Hymn 38)",
-    "artist": "비컴퍼니 (새찬송가 38장) • 정통 찬송가 완곡",
+    "titleKo": "예수 우리 왕이여 (새찬송가 38장 / 성가대 4부 합창 원곡)",
+    "titleEn": "Jesus, We Enthrone You (Hymn 38 / Traditional Choir)",
+    "artist": "방주의 은혜 (새찬송가 38장) • 편곡 없는 정통 4부 성가 합창 완곡",
     "category": "confession",
-    "videoId": "LJm-6aBdh-A",
-    "duration": 164,
+    "videoId": "_jmFVMuI20I",
+    "duration": 162,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      { "start": 0.0, "end": 22.3, "kr": "🎵 예수 우리 왕이여 (새찬송가 38장) - 비컴퍼니 전주", "en": "Jesus We Enthrone You - Hymn 38 (Intro)" },
-      { "start": 22.3, "end": 35.0, "kr": "예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, We proclaim You are King" },
-      { "start": 35.0, "end": 50.0, "kr": "우리가 왕께 드리니 찬양을 받아주소서", "en": "Standing here in the midst of all, We raise You with our praise" },
-      { "start": 50.0, "end": 65.0, "kr": "우리는 주님의 백성 주님은 우리 왕이라", "en": "And as we worship build a throne, and as we worship build a throne" },
-      { "start": 65.0, "end": 78.0, "kr": "왕이신 예수님 오셔서 좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place, come and rule over us" },
-      { "start": 78.0, "end": 92.0, "kr": "🎵 (간주) 예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, We proclaim You are King (Interlude)" },
-      { "start": 92.0, "end": 107.0, "kr": "예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, We proclaim You are King" },
-      { "start": 107.0, "end": 118.0, "kr": "우리가 왕께 드리니 찬양을 받아주소서", "en": "Standing here in the midst of all, We raise You with our praise" },
-      { "start": 118.0, "end": 136.0, "kr": "우리는 주님의 백성 주님은 우리 왕이라", "en": "And as we worship build a throne, and as we worship build a throne" },
-      { "start": 136.0, "end": 164.0, "kr": "왕이신 예수님 오셔서 좌정하사 다스리소서 · 아멘", "en": "Come Lord Jesus and take Your place, come and rule over us · Amen" }
+      { "start": 0.0, "end": 17.5, "kr": "🎵 새찬송가 38장 예수 우리 왕이여 - 정통 찬송가 전주", "en": "Jesus, We Enthrone You (Hymn 38) - Intro" },
+      { "start": 17.5, "end": 33.0, "kr": "[1절] 예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, We proclaim You are King" },
+      { "start": 33.0, "end": 49.0, "kr": "우리가 왕께 드리는 영광을(찬양을) 받아 주소서", "en": "Standing here in the midst of all, We raise You with our praise" },
+      { "start": 49.0, "end": 64.5, "kr": "우리는 주님의 백성 주님은 우리 왕이라", "en": "And as we worship build a throne, and as we worship build a throne" },
+      { "start": 64.5, "end": 81.0, "kr": "왕이신 예수님 오셔서 좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place, come and rule over us" },
+      { "start": 81.0, "end": 96.0, "kr": "🎵 (간주) 예수 우리 주시여 이곳에 오셔서", "en": "Jesus, You are our Lord (Interlude)" },
+      { "start": 96.0, "end": 111.0, "kr": "[2절] 예수 우리 주시여 이곳에 오셔서", "en": "Jesus, You are our Lord, Come into our midst" },
+      { "start": 111.0, "end": 126.0, "kr": "우리가 주께 드리는 찬양을 받아 주소서", "en": "Receive the heartfelt praises we offer to You, Lord" },
+      { "start": 126.0, "end": 141.0, "kr": "우리는 주님의 종들 주님은 우리 주시라", "en": "We are the servants of the Lord, You alone are our Master and God" },
+      { "start": 141.0, "end": 162.0, "kr": "주 되신 예수님 오셔서 이 찬양을 받아 주소서 · 아멘", "en": "Come, Lord Jesus, our Master, and accept our praise · Amen" }
     ]
   },
   {
@@ -321,7 +321,7 @@ function loadCustomSongs() {
   }
 
   // 정통 찬송가 공식 업데이트 시 브라우저 내 구버전 오버라이드 자동 정격 동기화
-  const CURRENT_LIBRARY_VER = '20260930_v4_authentic';
+  const CURRENT_LIBRARY_VER = '20260930_v5_pure_choir_hymn38';
   const savedVer = localStorage.getItem('arise_praise_library_ver');
   if (savedVer !== CURRENT_LIBRARY_VER) {
     try {
