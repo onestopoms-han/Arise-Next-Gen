@@ -7,24 +7,24 @@
 const PRESET_PRAISE_SONGS = [
   {
     "id": "jesus-we-enthrone-you",
-    "titleKo": "예수 우리 왕이여 (Jesus, We Enthrone You)",
-    "titleEn": "Jesus, We Enthrone You",
-    "artist": "비컴퍼니 (새찬송가 38장) / Paul Kyle • 정규 앨범 원곡",
+    "titleKo": "예수 우리 왕이여 (새찬송가 38장)",
+    "titleEn": "Jesus, We Enthrone You (Hymn 38)",
+    "artist": "비컴퍼니 (새찬송가 38장) • 정통 찬송가 완곡",
     "category": "confession",
     "videoId": "LJm-6aBdh-A",
-    "duration": 161,
+    "duration": 164,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
       { "start": 0.0, "end": 22.3, "kr": "🎵 예수 우리 왕이여 (새찬송가 38장) - 비컴퍼니 전주", "en": "Jesus We Enthrone You - Hymn 38 (Intro)" },
       { "start": 22.3, "end": 35.0, "kr": "예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, We proclaim You are King" },
-      { "start": 35.0, "end": 50.0, "kr": "우리가왕께드리니 영광을 받아주소서", "en": "Standing here, in the midst of all, We raise You with our praise" },
-      { "start": 50.0, "end": 65.0, "kr": "우리는 주님에백성 주님은 우리왕이라", "en": "And as we worship build a throne, and as we worship build a throne" },
-      { "start": 65.0, "end": 78.0, "kr": "왕이신예수님오셔서 좌정하사다스리소서", "en": "Come Lord Jesus and take Your place, come and rule over us" },
-      { "start": 78.0, "end": 92.0, "kr": "[간주 및 2부] 예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, we proclaim You are King" },
-      { "start": 92.0, "end": 107.0, "kr": "예수우리주시여 이곳에오셔서", "en": "Standing here in the midst of us, we raise You up with our praise" },
-      { "start": 107.0, "end": 112.0, "kr": "우리가 주께드리니찬양을받아주소서", "en": "And as we worship build a throne, and as we worship build a throne" },
-      { "start": 112.0, "end": 136.0, "kr": "우리는주님에종들 주님은 우리주시라", "en": "Come Lord Jesus and take Your place, come and rule over us" },
-      { "start": 136.0, "end": 161.0, "kr": "주되신 예수님오셔서 이찬양을 받아주소서 아멘", "en": "King of Kings, Jesus Christ Reigns Over All · Amen" }
+      { "start": 35.0, "end": 50.0, "kr": "우리가 왕께 드리니 찬양을 받아주소서", "en": "Standing here in the midst of all, We raise You with our praise" },
+      { "start": 50.0, "end": 65.0, "kr": "우리는 주님의 백성 주님은 우리 왕이라", "en": "And as we worship build a throne, and as we worship build a throne" },
+      { "start": 65.0, "end": 78.0, "kr": "왕이신 예수님 오셔서 좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place, come and rule over us" },
+      { "start": 78.0, "end": 92.0, "kr": "🎵 (간주) 예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, We proclaim You are King (Interlude)" },
+      { "start": 92.0, "end": 107.0, "kr": "예수 우리 왕이여 이곳에 오셔서", "en": "Jesus, we enthrone You, We proclaim You are King" },
+      { "start": 107.0, "end": 118.0, "kr": "우리가 왕께 드리니 찬양을 받아주소서", "en": "Standing here in the midst of all, We raise You with our praise" },
+      { "start": 118.0, "end": 136.0, "kr": "우리는 주님의 백성 주님은 우리 왕이라", "en": "And as we worship build a throne, and as we worship build a throne" },
+      { "start": 136.0, "end": 164.0, "kr": "왕이신 예수님 오셔서 좌정하사 다스리소서 · 아멘", "en": "Come Lord Jesus and take Your place, come and rule over us · Amen" }
     ]
   },
   {
@@ -109,42 +109,24 @@ const PRESET_PRAISE_SONGS = [
   },
   {
     "id": "amazing-grace",
-    "titleKo": "나 같은 죄인 살리신 (찬송가 305장)",
+    "titleKo": "나 같은 죄인 살리신 (새찬송가 305장)",
     "titleEn": "Amazing Grace, How Sweet the Sound (Hymn 305)",
-    "artist": "피아워십 (F.I.A WORSHIP) • 찬송가 305장 정규 피아노 완곡",
+    "artist": "비컴퍼니 (새찬송가 305장) • 정통 4절 보컬 찬양 완곡",
     "category": "hymn",
-    "videoUrl": "assets/amazing_grace_bilingual.mp4",
-    "audioUrl": "assets/amazing_grace.mp3",
-    "srtUrl": "assets/amazing_grace.srt",
-    "lrcUrl": "assets/amazing_grace.lrc",
-    "videoId": "4-IlkTVvqKk",
-    "duration": 170,
-    "localDuration": 170,
+    "videoId": "SfUoRQy-LH4",
+    "duration": 204,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      { "start": 0.0, "end": 5.0, "kr": "🎵 나 같은 죄인 살리신 (찬송가 305장) - 전주", "en": "Amazing Grace (Hymn 305) - Intro" },
-      { "start": 5.0, "end": 25.0, "kr": "[1절] 나 같은 죄인 살리신 주 은혜 놀라워", "en": "Amazing grace! how sweet the sound That saved a wretch like me!" },
-      { "start": 25.0, "end": 45.0, "kr": "잃었던 생명 찾았고 광명을 얻었네", "en": "I once was lost, but now am found, Was blind, but now I see." },
-      { "start": 45.0, "end": 65.0, "kr": "[2절] 큰 죄악에서 건지신 주 은혜 고마워", "en": "'Twas grace that taught my heart to fear, And grace my fears relieved;" },
-      { "start": 65.0, "end": 85.0, "kr": "나 처음 믿은 그 시간 귀하고 귀하다", "en": "How precious did that grace appear The hour I first believed!" },
-      { "start": 85.0, "end": 105.0, "kr": "[3절] 이제껏 내가 산 것도 주님의 은혜라", "en": "Through many dangers, toils and snares, I have already come;" },
-      { "start": 105.0, "end": 125.0, "kr": "또 나를 장차 본향에 인도해 주시리", "en": "'Tis grace hath brought me safe thus far, And grace will lead me home." },
-      { "start": 125.0, "end": 145.0, "kr": "[4절] 거기서 우리 영원히 주님의 은혜로", "en": "When we've been there ten thousand years, Bright shining as the sun," },
-      { "start": 145.0, "end": 165.0, "kr": "해처럼 밝게 살면서 주 찬양 하리라", "en": "We've no less days to sing God's praise Than when we'd first begun." },
-      { "start": 165.0, "end": 170.0, "kr": "🕊️ 주님의 은혜에 감사드립니다 · 아멘", "en": "Giving Thanks to God's Abundant Grace · Amen" }
-    ],
-    "ytDuration": 278,
-    "ytLines": [
-      { "start": 0.0, "end": 14.0, "kr": "🎵 나 같은 죄인 살리신 (찬송가 305장) - 피아노 전주", "en": "Amazing Grace, How Sweet The Sound (Intro)" },
-      { "start": 14.0, "end": 42.0, "kr": "[1절] 나 같은 죄인 살리신 주 은혜 놀라워", "en": "Amazing grace! how sweet the sound That saved a wretch like me!" },
-      { "start": 42.0, "end": 72.0, "kr": "잃었던 생명 찾았고 광명을 얻었네", "en": "I once was lost, but now am found, Was blind, but now I see." },
-      { "start": 72.0, "end": 102.0, "kr": "[2절] 큰 죄악에서 건지신 주 은혜 고마워", "en": "'Twas grace that taught my heart to fear, And grace my fears relieved;" },
-      { "start": 102.0, "end": 133.0, "kr": "나 처음 믿은 그 시간 귀하고 귀하다", "en": "How precious did that grace appear The hour I first believed!" },
-      { "start": 133.0, "end": 164.0, "kr": "[3절] 이제껏 내가 산 것도 주님의 은혜라", "en": "Through many dangers, toils and snares, I have already come;" },
-      { "start": 164.0, "end": 196.0, "kr": "또 나를 장차 본향에 인도해 주시리", "en": "'Tis grace hath brought me safe thus far, And grace will lead me home." },
-      { "start": 196.0, "end": 228.0, "kr": "[4절] 거기서 우리 영원히 주님의 은혜로", "en": "When we've been there ten thousand years, Bright shining as the sun," },
-      { "start": 228.0, "end": 260.0, "kr": "해처럼 밝게 살면서 주 찬양 하리라", "en": "We've no less days to sing God's praise Than when we'd first begun." },
-      { "start": 260.0, "end": 278.0, "kr": "🕊️ 주 예수 그리스도의 크신 은혜에 감사드립니다 · 아멘", "en": "Giving Thanks to God's Abundant Grace Forever · Amen" }
+      { "start": 0.0, "end": 15.0, "kr": "🎵 나 같은 죄인 살리신 (새찬송가 305장) - 비컴퍼니 전주", "en": "Amazing Grace (Hymn 305) - Intro" },
+      { "start": 15.0, "end": 36.5, "kr": "[1절] 나 같은 죄인 살리신 주 은혜 놀라워", "en": "Amazing grace! how sweet the sound That saved a wretch like me!" },
+      { "start": 36.5, "end": 58.0, "kr": "잃었던 생명 찾았고 광명을 얻었네", "en": "I once was lost, but now am found, Was blind, but now I see." },
+      { "start": 58.0, "end": 79.5, "kr": "[2절] 큰 죄악에서 건지신 주 은혜 고마워", "en": "'Twas grace that taught my heart to fear, And grace my fears relieved;" },
+      { "start": 79.5, "end": 101.0, "kr": "나 처음 믿은 그 시간 귀하고 귀하다", "en": "How precious did that grace appear The hour I first believed!" },
+      { "start": 101.0, "end": 122.5, "kr": "[3절] 이제껏 내가 산 것도 주님의 은혜라", "en": "Through many dangers, toils and snares, I have already come;" },
+      { "start": 122.5, "end": 144.0, "kr": "또 나를 장차 본향에 인도해 주시리", "en": "'Tis grace hath brought me safe thus far, And grace will lead me home." },
+      { "start": 144.0, "end": 166.5, "kr": "[4절] 거기서 우리 영원히 주님의 은혜로", "en": "When we've been there ten thousand years, Bright shining as the sun," },
+      { "start": 166.5, "end": 190.0, "kr": "해처럼 밝게 살면서 주 찬양 하리라", "en": "We've no less days to sing God's praise Than when we'd first begun." },
+      { "start": 190.0, "end": 204.0, "kr": "🕊️ 나 같은 죄인 살리신 주님의 크신 은혜를 영원히 찬양합니다 · 아멘", "en": "Praising God's Boundless Grace Forever and Ever · Amen" }
     ]
   },
   {
@@ -336,6 +318,22 @@ function loadCustomSongs() {
     } catch (e) {
       console.error('Failed to parse custom songs:', e);
     }
+  }
+
+  // 정통 찬송가 공식 업데이트 시 브라우저 내 구버전 오버라이드 자동 정격 동기화
+  const CURRENT_LIBRARY_VER = '20260930_v4_authentic';
+  const savedVer = localStorage.getItem('arise_praise_library_ver');
+  if (savedVer !== CURRENT_LIBRARY_VER) {
+    try {
+      const savedOverrides = localStorage.getItem('arise_preset_lyrics_overrides');
+      if (savedOverrides) {
+        let overridesObj = JSON.parse(savedOverrides);
+        delete overridesObj['amazing-grace'];
+        delete overridesObj['jesus-we-enthrone-you'];
+        localStorage.setItem('arise_preset_lyrics_overrides', JSON.stringify(overridesObj));
+      }
+    } catch(e) {}
+    localStorage.setItem('arise_praise_library_ver', CURRENT_LIBRARY_VER);
   }
 
   // 기존 공식 찬양에 대해 사용자가 수정한 맞춤 자막 오버라이드 적용
