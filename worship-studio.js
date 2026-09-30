@@ -1383,9 +1383,19 @@ function highlightLyricStreamRow(idx) {
   document.querySelectorAll('.lyric-row').forEach(row => row.classList.remove('active-row'));
   if (idx >= 0) {
     const row = document.getElementById(`lyricRow_${idx}`);
+    const listEl = document.getElementById('studioLyricStreamList');
     if (row) {
       row.classList.add('active-row');
-      row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      // Scroll ONLY the inner lyrics stream list, NEVER the page or modal
+      if (listEl) {
+        const listRect = listEl.getBoundingClientRect();
+        const rowRect = row.getBoundingClientRect();
+        if (rowRect.top < listRect.top) {
+          listEl.scrollTop -= (listRect.top - rowRect.top);
+        } else if (rowRect.bottom > listRect.bottom) {
+          listEl.scrollTop += (rowRect.bottom - listRect.bottom);
+        }
+      }
     }
   }
 }
@@ -2139,10 +2149,19 @@ window.onSyncSeekChange = onSyncSeekChange;
 
 function updateSyncTargetDisplay() {
   const rows = document.querySelectorAll('.creator-line-row');
+  const container = document.getElementById('creatorLinesList') || document.querySelector('.creator-lines-wrapper');
   rows.forEach((r, idx) => {
     if (idx === worshipStudioState.syncTargetIndex) {
       r.classList.add('active-sync-target');
-      r.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (container) {
+        const cRect = container.getBoundingClientRect();
+        const rRect = r.getBoundingClientRect();
+        if (rRect.top < cRect.top) {
+          container.scrollTop -= (cRect.top - rRect.top);
+        } else if (rRect.bottom > cRect.bottom) {
+          container.scrollTop += (rRect.bottom - cRect.bottom);
+        }
+      }
     } else {
       r.classList.remove('active-sync-target');
     }
