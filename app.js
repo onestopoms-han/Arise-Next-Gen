@@ -1580,7 +1580,7 @@ const defaultRoutineContent = {
   step2: {
     scripture: "창세기 1:27-28 (Genesis 1:27-28)",
     title: "원래 축복 (Original Blessing)",
-    content: "📖 성경 본문 (창세기 1:27-28 / Genesis 1:27-28):\n27. 하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n(So God created mankind in his own image, in the image of God he created them; male and female he created them.)\n28. 하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라\n(God blessed them and said to them, “Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.”)\n\n📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message):\n• 다음 세대를 살릴 복음의 신실한 제자 세우기 (Raising up faithful disciples of the Gospel to save the next generation)\n1. 다스리고 정복하라 - 모든 것이 다 되어야 만족 -하나님의 형상 (Rule and subdue — finding satisfaction only when everything is accomplished - the image of God)\n2. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13) (Witnesses: Old Testament — David [Psalm 23:1-], New Testament — Paul [Philippians 4:13])\n3. 원래 인간의 회복 (Restoration of the original human state)\n• 한국어 & 영어 2개 국어 핵심 자막 슬라이드 제공"
+    content: "📖 성경 본문 (창세기 1:27-28 / Genesis 1:27-28):\n27. 하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n(So God created mankind in his own image, in the image of God he created them; male and female he created them.)\n28. 하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라\n(God blessed them and said to them, “Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.”)\n\n📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message):\n1. 다스리고 정복하라 -하나님의 형상 (Rule and subdue -the image of God)\n2. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13) (Witnesses: Old Testament — David [Psalm 23:1-], New Testament — Paul [Philippians 4:13])\n3. 원래 인간의 회복 (Restoration of the original human state)"
   },
   step3: {
     title: "함께 기도합시다 (Let Us Pray Together)",
@@ -1601,7 +1601,7 @@ const defaultMeetingSettings = {
 };
 
 // Always sync newly added nations & routine content & meeting settings
-const DATA_VERSION = 'v17_october_2026_praise_and_routine_sync';
+const DATA_VERSION = 'v18_exact_word_routine_sync';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -3538,8 +3538,6 @@ function getWordPresentationData() {
       { verse: "v.27", text: "So God created mankind in his own image, in the image of God he created them; male and female he created them." },
       { verse: "v.28", text: "God blessed them and said to them, \"Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.\"" }
     ],
-    messageGoalKo: "다음 세대를 살릴 복음의 신실한 제자 세우기",
-    messageGoalEn: "Raising up faithful disciples of the Gospel to save the next generation",
     points: [
       {
         num: 1,
@@ -3718,11 +3716,7 @@ function renderPptSlide(index) {
         <div class="ppt-slide-step-badge">STEP 2 : 5-MINUTE GOSPEL MESSAGE SUMMARY</div>
         <h2 class="ppt-slide-main-title">📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)</h2>
       </div>
-      <div class="ppt-message-goal-banner">
-        <span class="ppt-goal-tag">핵심 방향</span>
-        <span class="ppt-goal-text">🌱 ${escapeHtml(data.messageGoalKo)} <span style="font-size: 0.9em; font-weight: 500; color: #cbd5e1; font-style: italic;">(${escapeHtml(data.messageGoalEn)})</span></span>
-      </div>
-      <div class="ppt-points-grid">
+      <div class="ppt-points-grid" style="flex: 1; margin-top: 1rem;">
         ${data.points.map(pt => `
           <div class="ppt-point-card">
             <div class="ppt-point-top">
@@ -3799,21 +3793,13 @@ function openWordPdfModal() {
     </div>
 
     <div class="pdf-section-heading">2. 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)</div>
-    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 0.9rem 1.2rem; margin-bottom: 1.2rem;">
-      <div style="font-weight: 800; color: #166534; font-size: 0.95rem; margin-bottom: 0.2rem;">
-        🌱 ${escapeHtml(data.messageGoalKo)}
-      </div>
-      <div style="font-size: 0.85rem; color: #15803d; font-style: italic;">
-        ${escapeHtml(data.messageGoalEn)}
-      </div>
-    </div>
-    <div style="margin-bottom: 1.4rem;">
+    <div style="margin-bottom: 1.5rem;">
       ${data.points.map(pt => `
-        <div class="pdf-point-item" style="margin-bottom: 1rem; padding: 0.9rem 1.2rem; background: #f8fafc; border-left: 4px solid #0284c7; border-radius: 6px;">
-          <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 0.25rem;">
+        <div class="pdf-point-item" style="margin-bottom: 1rem; padding: 1.1rem 1.3rem; background: #f8fafc; border-left: 4px solid #0284c7; border-radius: 8px;">
+          <div style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
             ${pt.num}. ${escapeHtml(pt.titleKo)}
           </div>
-          <div style="color: #64748b; font-size: 0.88rem; font-style: italic;">
+          <div style="color: #64748b; font-size: 0.92rem; font-style: italic;">
             ${escapeHtml(pt.titleEn)}
           </div>
         </div>
@@ -3916,37 +3902,28 @@ function downloadWordPptx() {
   const s3 = pptx.addSlide();
   s3.background = { color: '0F172A' };
   s3.addText("📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)", {
-    x: 0.8, y: 0.6, w: 11.5, h: 0.6,
+    x: 0.8, y: 0.8, w: 11.5, h: 0.6,
     fontSize: 22, color: 'FFFFFF', bold: true
-  });
-  // Goal banner
-  s3.addShape(pptx.ShapeType.roundRect, {
-    x: 0.8, y: 1.3, w: 11.6, h: 0.8,
-    fill: { color: '0369A1' }, line: { color: '38BDF8', width: 1 }
-  });
-  s3.addText(`핵심 방향: ${data.messageGoalKo} (${data.messageGoalEn})`, {
-    x: 1.1, y: 1.3, w: 11.0, h: 0.8,
-    fontSize: 13, color: 'FFFFFF', bold: true, align: 'center'
   });
 
   // 3 Points cards
   data.points.forEach((pt, idx) => {
     const xPos = 0.8 + (idx * 3.9);
     s3.addShape(pptx.ShapeType.roundRect, {
-      x: xPos, y: 2.4, w: 3.7, h: 4.2,
+      x: xPos, y: 1.8, w: 3.7, h: 4.8,
       fill: { color: '1E293B' }, line: { color: '38BDF8', width: 1.5 }
     });
     s3.addText(`0${pt.num}`, {
-      x: xPos + 0.3, y: 2.7, w: 3.1, h: 0.5,
-      fontSize: 20, color: '38BDF8', bold: true
+      x: xPos + 0.3, y: 2.2, w: 3.1, h: 0.5,
+      fontSize: 22, color: '38BDF8', bold: true
     });
     s3.addText(pt.titleKo, {
-      x: xPos + 0.3, y: 3.3, w: 3.1, h: 1.6,
-      fontSize: 16, color: 'FFFFFF', bold: true, lineSpacing: 24
+      x: xPos + 0.3, y: 2.9, w: 3.1, h: 1.8,
+      fontSize: 17, color: 'FFFFFF', bold: true, lineSpacing: 25
     });
     s3.addText(pt.titleEn, {
-      x: xPos + 0.3, y: 5.0, w: 3.1, h: 1.4,
-      fontSize: 12, color: '94A3B8', italic: true, lineSpacing: 18
+      x: xPos + 0.3, y: 4.9, w: 3.1, h: 1.5,
+      fontSize: 13, color: '94A3B8', italic: true, lineSpacing: 19
     });
   });
 
