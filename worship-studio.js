@@ -338,7 +338,7 @@ function loadCustomSongs() {
   }
 
   // 정통 찬송가 공식 업데이트 시 브라우저 내 구버전 오버라이드 자동 정격 동기화
-  const CURRENT_LIBRARY_VER = '20260930_v6_original_worship_source';
+  const CURRENT_LIBRARY_VER = '20260930_v7_yt_sync_clean';
   const savedVer = localStorage.getItem('arise_praise_library_ver');
   if (savedVer !== CURRENT_LIBRARY_VER) {
     try {
@@ -1818,10 +1818,6 @@ function setupCreatorSyncAudio(song) {
   if (!song) song = worshipStudioState.currentSong || PRESET_PRAISE_SONGS[0];
 
   let audioSrc = song.audioUrl || song.videoUrl || '';
-  if (!audioSrc && song.id === 'amazing-grace') {
-    audioSrc = 'assets/amazing_grace.mp3';
-  }
-
   const badge = document.getElementById('syncAudioSourceBadge');
 
   if (audioSrc) {
@@ -1859,10 +1855,16 @@ function setupCreatorSyncAudio(song) {
     };
   } else if (song.videoId) {
     worshipStudioState.syncAudioMode = 'youtube';
+    if (audio) {
+      try { audio.pause(); audio.src = ''; } catch(e) {}
+    }
     if (badge) {
       badge.innerHTML = `📺 YouTube 공식 영상 음원 연동 <span style="opacity: 0.8; font-weight: normal;">(${song.titleKo || '찬양'})</span>`;
       badge.style.color = '#f59e0b';
       badge.style.background = 'rgba(245, 158, 11, 0.15)';
+    }
+    if (!ytStudioPlayer) {
+      mountYouTubePlayer(song.videoId, false);
     }
   }
 
@@ -1965,9 +1967,6 @@ function playSyncAudioAt(targetSec, targetIdx = -1) {
   worshipStudioState.previewingRowIdx = targetIdx;
 
   let localSrc = song?.audioUrl || song?.videoUrl || '';
-  if (!localSrc && song?.id === 'amazing-grace') {
-    localSrc = 'assets/amazing_grace.mp3';
-  }
 
   // 1. Local HTML5 Audio Playback
   if (localSrc && worshipStudioState.syncAudioMode !== 'youtube') {
@@ -2050,8 +2049,18 @@ function playYouTubeSyncAudio(videoId, targetSec, targetIdx = -1) {
   const doYtPlay = () => {
     if (ytStudioPlayer && typeof ytStudioPlayer.seekTo === 'function') {
       try {
-        ytStudioPlayer.seekTo(targetSec, true);
-        ytStudioPlayer.playVideo();
+        const curUrl = (typeof ytStudioPlayer.getVideoUrl === 'function') ? (ytStudioPlayer.getVideoUrl() || '') : '';
+        if (videoId && !curUrl.includes(videoId)) {
+          if (typeof ytStudioPlayer.loadVideoById === 'function') {
+            ytStudioPlayer.loadVideoById({ videoId: videoId, startSeconds: targetSec });
+          } else {
+            mountYouTubePlayer(videoId, true);
+            return false;
+          }
+        } else {
+          ytStudioPlayer.seekTo(targetSec, true);
+          ytStudioPlayer.playVideo();
+        }
         updateSyncPlayBtnState(true);
         if (targetIdx >= 0) {
           worshipStudioState.syncTargetIndex = targetIdx;
