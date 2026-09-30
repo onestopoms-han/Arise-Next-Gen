@@ -4197,10 +4197,11 @@ body {
   body * {
     visibility: hidden !important;
   }
-  #wordPdfModal, #wordPdfModal * {
+  #wordPdfModal.active, #wordPdfModal.active *,
+  #noticePdfModal.active, #noticePdfModal.active * {
     visibility: visible !important;
   }
-  #wordPdfModal {
+  #wordPdfModal.active, #noticePdfModal.active {
     position: absolute !important;
     left: 0 !important;
     top: 0 !important;
@@ -4243,6 +4244,194 @@ body {
   }
 }
 
+/* ========================================================
+   Step 4 Notice & Field Testimony PPT Slide Specific Layouts
+   ======================================================== */
+.ppt-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 920px;
+  margin-top: 1.5rem;
+}
+
+.ppt-role-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 12px;
+  padding: 0.9rem 0.75rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.ppt-role-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  margin-bottom: 0.4rem;
+}
+
+.ppt-role-title {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-bottom: 0.2rem;
+}
+
+.ppt-role-name {
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* Slide 2: Field Testimony Card */
+.ppt-testimony-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 16px;
+  padding: 2.4rem 2.8rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.ppt-testimony-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1.2rem;
+  align-self: flex-start;
+}
+
+.ppt-testimony-heading {
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.35;
+  margin: 0 0 0.8rem 0;
+}
+
+.ppt-testimony-sub {
+  font-size: 1.15rem;
+  color: #94a3b8;
+  font-style: italic;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+}
+
+.ppt-testimony-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  padding-top: 1.5rem;
+}
+
+.ppt-testimony-point-item {
+  font-size: 1.1rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Slide 3: 2 Announcement Cards & Closing Banner */
+.ppt-notices-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  flex: 1;
+  margin-bottom: 1.2rem;
+}
+
+.ppt-notice-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 16px;
+  padding: 2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.ppt-notice-card:hover {
+  transform: translateY(-3px);
+  border-color: #38bdf8;
+}
+
+.ppt-notice-num {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.ppt-notice-title-ko {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.4;
+}
+
+.ppt-notice-title-en {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.45;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.8rem;
+}
+
+.ppt-notice-point {
+  font-size: 0.98rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.ppt-closing-bar {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.2), rgba(16, 185, 129, 0.2));
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 12px;
+  padding: 0.9rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.ppt-closing-text {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #f0fdf4;
+}
+
+.ppt-closing-amen {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #fbbf24;
+}
+
 /* Responsive adjustments for mobile/tablet */
 @media (max-width: 900px) {
   .word-ppt-slide-inner {
@@ -4257,7 +4446,7 @@ body {
   .ppt-scripture-grid {
     grid-template-columns: 1fr;
   }
-  .ppt-points-grid {
+  .ppt-points-grid, .ppt-notices-grid, .ppt-roles-grid {
     grid-template-columns: 1fr;
   }
   .ppt-prayer-text-ko {

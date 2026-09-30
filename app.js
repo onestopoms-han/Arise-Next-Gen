@@ -38,8 +38,8 @@ const translations = {
     routine_step2_desc: "성경 본문 중심의 핵심 복음 메시지 나눔 (영어-한국어 자막 슬라이드 제공).",
     routine_step3_title: "3대 집중 중보기도 (15분)",
     routine_step3_desc: "① 나 자신을 위한 기도 ② 모든 민족을 위한 기도 ③ 후대를 위한 기도. 각자의 모국어로 함께 기도합시다!",
-    routine_step4_title: "현장 간증 & 마무리 축복 (5분)",
-    routine_step4_desc: "다민족 제자의 짧은 현장 응답 간증을 듣고, 서로를 향한 축도와 주기도문으로 마칩니다.",
+    routine_step4_title: "현장 간증 & 광고 (5분)",
+    routine_step4_desc: "다민족 제자의 현장 응답 간증 및 모든 민족과 후대를 위한 주요 광고 안내로 마칩니다.",
     core_prayer_heading: "📌 이달의 3대 핵심 기도제목 (This Month's Focus)",
     focus_1_title: "열방의 후대들에게 구원의 빛이 비추어지도록",
     focus_1_desc: "세속화와 영적 혼란 속에 있는 각 나라의 청소년, 청년들이 복음 안에서 참된 정체성을 발견하게 하옵소서.",
@@ -211,8 +211,8 @@ const translations = {
     routine_step2_desc: "Core Gospel message rooted in scripture (with Korean-English bilingual slides provided).",
     routine_step3_title: "3 Core Intercessory Prayers (15m)",
     routine_step3_desc: "① Prayer for Myself ② Prayer for All Nations ③ Prayer for Next Generation. Cry out in your own tongue!",
-    routine_step4_title: "Field Testimony & Blessing (5m)",
-    routine_step4_desc: "Hear a quick testimony from a multi-ethnic disciple, followed by mutual blessings and benediction.",
+    routine_step4_title: "Field Testimony & Announcement (5m)",
+    routine_step4_desc: "Hear field responses from multi-ethnic disciples and key announcements for all nations.",
     core_prayer_heading: "📌 This Month's 3 Core Prayer Topics",
     focus_1_title: "That the Light of Christ May Shine on the Next-Gen",
     focus_1_desc: "May youth and young adults trapped in secularism and confusion find their true identity in the Gospel.",
@@ -3070,10 +3070,10 @@ function renderRoutineDisplay() {
     const detailClosingContent = document.getElementById('detailClosingContent');
 
     if (routineSub4) {
-      routineSub4.textContent = data.step4?.speaker || '다민족 제자 간증 & 축도';
+      routineSub4.textContent = data.step4?.speaker || '간증 나눔 & 주요 광고 안내';
     }
     if (detailClosingTitle) {
-      detailClosingTitle.textContent = data.step4?.speaker || '1분 간증 및 축복 기도';
+      detailClosingTitle.textContent = data.step4?.speaker || '클로징 기도: 죠지 (George) & 모임 나눔';
     }
     if (detailClosingContent) {
       detailClosingContent.innerHTML = escapeHtml(data.step4?.content || '').replace(/\n/g, '<br>');
@@ -3936,6 +3936,483 @@ function downloadWordPptx() {
   });
 }
 window.downloadWordPptx = downloadWordPptx;
+
+// ==========================================
+// 11. Step 4 Notice & Field Testimony Presenter (PPT Slides, PDF Handout, PPTX Export)
+// ==========================================
+let currentNoticePptSlideIndex = 0;
+const TOTAL_NOTICE_PPT_SLIDES = 3;
+let noticePptKeyboardHandlerAttached = false;
+
+function getNoticePresentationData() {
+  const data = (typeof routineContent !== 'undefined' && routineContent.step4)
+    ? routineContent.step4
+    : defaultRoutineContent.step4;
+
+  return {
+    meetingTitle: "2026 어라이즈 넥스트젠 30분 기도모임",
+    stepTitle: "4단계: 현장 간증 & 광고 (5분)",
+    meetingTime: "매월 첫 주일 호주 AEST 8:00 PM (한국 19:00)",
+    serviceRoles: [
+      { role: "진행 (Host)", name: "한옥주 (Christine HAN)", tag: "진행" },
+      { role: "통역 (Interpreter)", name: "아이리스 (Iris)", tag: "통역" },
+      { role: "오프닝 기도", name: "김은덕 목사 (Pastor Eun-Duk Kim)", tag: "오프닝" },
+      { role: "클로징 기도", name: "죠지 (George)", tag: "클로징" }
+    ],
+    testimony: {
+      titleKo: "다민족 제자의 5분 현장 응답 및 은혜 간증 나눔",
+      titleEn: "5-Minute Field Response & Grace Testimony by Multi-Ethnic Disciples",
+      points: [
+        "하나님이 열방과 현장에서 행하신 복음의 실제적인 역사와 전도 응답 나눔",
+        "모든 민족과 후대 앞에 살아계신 그리스도의 증인으로 굳게 서는 시간"
+      ]
+    },
+    announcements: [
+      {
+        num: 1,
+        titleKo: "개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간",
+        titleEn: "Dedicated personal, couples, and family prayer times for all nations and the next generation",
+        desc: "언약의 백성이 매일 삶의 현장에서 지속적으로 누리는 24시 기도 플랫폼"
+      },
+      {
+        num: 2,
+        titleKo: "충성된 사람과 함께 모든 민족과 후대를 위한 기도모임",
+        titleEn: "Gathering prayer meetings together with faithful disciples for all nations and posterity",
+        desc: "지역과 현장 곳곳에서 제자들과 함께 확산해 나가는 언약의 기도 연합"
+      }
+    ],
+    closingPrayer: {
+      titleKo: "주기도문으로 은혜의 30분 기도모임 폐회",
+      titleEn: "Closing of the 30-Minute Prayer Gathering with the Lord's Prayer",
+      amenText: "살아계신 예수 그리스도의 이름으로 기도하옵나이다 · 아멘! (Amen!)"
+    }
+  };
+}
+
+function openNoticePresentationModal() {
+  const modal = document.getElementById('noticePptModal');
+  if (!modal) return;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  currentNoticePptSlideIndex = 0;
+  renderNoticePptSlide(currentNoticePptSlideIndex);
+
+  if (!noticePptKeyboardHandlerAttached) {
+    window.addEventListener('keydown', handleNoticePptKeydown);
+    noticePptKeyboardHandlerAttached = true;
+  }
+}
+window.openNoticePresentationModal = openNoticePresentationModal;
+
+function closeNoticePresentationModal() {
+  const modal = document.getElementById('noticePptModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+
+  if (document.fullscreenElement) {
+    document.exitFullscreen().catch(() => {});
+  }
+  const fsIcon = document.getElementById('noticePptFullscreenIcon');
+  if (fsIcon) fsIcon.textContent = '🖥️';
+}
+window.closeNoticePresentationModal = closeNoticePresentationModal;
+
+function handleNoticePptKeydown(e) {
+  const modal = document.getElementById('noticePptModal');
+  if (!modal || !modal.classList.contains('active')) return;
+
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key === 'Enter') {
+    e.preventDefault();
+    navigateNoticeSlide(1);
+  } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') {
+    e.preventDefault();
+    navigateNoticeSlide(-1);
+  } else if (e.key === 'Escape') {
+    closeNoticePresentationModal();
+  } else if (e.key === 'f' || e.key === 'F') {
+    e.preventDefault();
+    toggleNoticeFullscreen();
+  }
+}
+
+function renderNoticePptDots() {
+  const container = document.getElementById('noticePptDotsContainer');
+  if (!container) return;
+  let html = '';
+  for (let i = 0; i < TOTAL_NOTICE_PPT_SLIDES; i++) {
+    html += `<div class="ppt-dot ${i === currentNoticePptSlideIndex ? 'active' : ''}" onclick="jumpToNoticeSlide(${i})" title="슬라이드 ${i + 1}"></div>`;
+  }
+  container.innerHTML = html;
+}
+
+function jumpToNoticeSlide(idx) {
+  if (idx < 0 || idx >= TOTAL_NOTICE_PPT_SLIDES) return;
+  currentNoticePptSlideIndex = idx;
+  renderNoticePptSlide(currentNoticePptSlideIndex);
+}
+window.jumpToNoticeSlide = jumpToNoticeSlide;
+
+function navigateNoticeSlide(delta) {
+  const target = currentNoticePptSlideIndex + delta;
+  if (target >= 0 && target < TOTAL_NOTICE_PPT_SLIDES) {
+    currentNoticePptSlideIndex = target;
+    renderNoticePptSlide(currentNoticePptSlideIndex);
+  }
+}
+window.navigateNoticeSlide = navigateNoticeSlide;
+
+function renderNoticePptSlide(index) {
+  const slideContent = document.getElementById('noticePptSlideContent');
+  const counter = document.getElementById('noticePptSlideCounter');
+  const btnPrev = document.getElementById('btnNoticePptPrev');
+  const btnNext = document.getElementById('btnNoticePptNext');
+  const headerTitle = document.getElementById('noticePptHeaderTitle');
+
+  if (counter) counter.textContent = `${index + 1} / ${TOTAL_NOTICE_PPT_SLIDES}`;
+  if (btnPrev) btnPrev.disabled = (index === 0);
+  if (btnNext) btnNext.disabled = (index === TOTAL_NOTICE_PPT_SLIDES - 1);
+
+  renderNoticePptDots();
+
+  const data = getNoticePresentationData();
+  if (headerTitle) {
+    headerTitle.textContent = data.stepTitle;
+  }
+
+  if (!slideContent) return;
+
+  if (index === 0) {
+    // Slide 1: Cover Slide
+    slideContent.innerHTML = `
+      <div class="ppt-cover-layout">
+        <div class="ppt-cover-badge">🕊️ ${escapeHtml(data.meetingTitle)} · 4단계</div>
+        <h1 class="ppt-cover-title">현장 간증 & 광고</h1>
+        <div class="ppt-cover-scripture" style="font-size: 1.5rem; color: #38bdf8;">Field Testimony & Key Announcements</div>
+        <div class="ppt-roles-grid">
+          ${data.serviceRoles.map(r => `
+            <div class="ppt-role-card">
+              <span class="ppt-role-tag">${escapeHtml(r.tag)}</span>
+              <div class="ppt-role-title">${escapeHtml(r.role)}</div>
+              <div class="ppt-role-name">${escapeHtml(r.name)}</div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="ppt-cover-footer" style="margin-top: 1.8rem;">
+          <span>⏰ ${escapeHtml(data.meetingTime)}</span>
+          <span>•</span>
+          <span>🌍 전 세계 다민족 언약의 후대 연합 기도회</span>
+          <span>•</span>
+          <span style="color: #38bdf8;">▶ 방향키(→)나 스페이스바로 다음 슬라이드</span>
+        </div>
+      </div>
+    `;
+  } else if (index === 1) {
+    // Slide 2: Field Testimony
+    slideContent.innerHTML = `
+      <div class="ppt-slide-header">
+        <div class="ppt-slide-step-badge">STEP 4 : FIELD TESTIMONY</div>
+        <h2 class="ppt-slide-main-title">🌱 다민족 제자의 5분 현장 응답 및 은혜 간증 나눔</h2>
+      </div>
+      <div class="ppt-testimony-card">
+        <span class="ppt-testimony-tag">🌍 열방과 현장의 복음 증인 (Witnesses of the Nations)</span>
+        <h3 class="ppt-testimony-heading">${escapeHtml(data.testimony.titleKo)}</h3>
+        <div class="ppt-testimony-sub">${escapeHtml(data.testimony.titleEn)}</div>
+        <div class="ppt-testimony-points">
+          ${data.testimony.points.map(pt => `
+            <div class="ppt-testimony-point-item">
+              <span style="color: #34d399; font-size: 1.25rem;">✔</span>
+              <span>${escapeHtml(pt)}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  } else if (index === 2) {
+    // Slide 3: Announcements & Closing
+    slideContent.innerHTML = `
+      <div class="ppt-slide-header">
+        <div class="ppt-slide-step-badge">STEP 4 : ANNOUNCEMENTS & CLOSING</div>
+        <h2 class="ppt-slide-main-title">📢 주요 광고 안내 및 주기도문 폐회 (Announcements)</h2>
+      </div>
+      <div class="ppt-notices-grid">
+        ${data.announcements.map(item => `
+          <div class="ppt-notice-card">
+            <span class="ppt-notice-num">NOTICE 0${item.num}</span>
+            <h3 class="ppt-notice-title-ko">${escapeHtml(item.titleKo)}</h3>
+            <div class="ppt-notice-title-en">${escapeHtml(item.titleEn)}</div>
+            <div class="ppt-notice-point">💡 ${escapeHtml(item.desc)}</div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="ppt-closing-bar">
+        <span class="ppt-closing-text">🕊️ ${escapeHtml(data.closingPrayer.titleKo)} (${escapeHtml(data.closingPrayer.titleEn)})</span>
+        <span class="ppt-closing-amen">아멘! (Amen!)</span>
+      </div>
+    `;
+  }
+}
+
+function toggleNoticeFullscreen() {
+  const container = document.getElementById('noticePptContainer');
+  const fsIcon = document.getElementById('noticePptFullscreenIcon');
+  if (!document.fullscreenElement) {
+    if (container && container.requestFullscreen) {
+      container.requestFullscreen().catch(() => {});
+    } else if (container && container.webkitRequestFullscreen) {
+      container.webkitRequestFullscreen();
+    }
+    if (fsIcon) fsIcon.textContent = '🗗';
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen().catch(() => {});
+    }
+    if (fsIcon) fsIcon.textContent = '🖥️';
+  }
+}
+window.toggleNoticeFullscreen = toggleNoticeFullscreen;
+
+function openNoticePdfModal() {
+  const modal = document.getElementById('noticePdfModal');
+  const printArea = document.getElementById('noticePdfPrintArea');
+  if (!modal || !printArea) return;
+
+  const data = getNoticePresentationData();
+
+  printArea.innerHTML = `
+    <div class="pdf-header-row">
+      <div>
+        <div style="font-size: 0.82rem; font-weight: 800; color: #0284c7; text-transform: uppercase; margin-bottom: 0.2rem;">
+          ${escapeHtml(data.meetingTitle)}
+        </div>
+        <h1 class="pdf-title-main">4단계: 현장 간증 & 광고 안내 (5분)</h1>
+        <div class="pdf-scripture-line">📢 Field Testimony & Announcements</div>
+      </div>
+      <div style="text-align: right;">
+        <span class="pdf-badge-meta">4단계 순서 중 4단계</span>
+        <div style="font-size: 0.76rem; color: #64748b; margin-top: 0.35rem;">
+          ${escapeHtml(data.meetingTime)}
+        </div>
+      </div>
+    </div>
+
+    <div class="pdf-section-heading">1. 기도모임 섬김이 안내 (Service Roles)</div>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.7rem; margin-bottom: 1.3rem;">
+      ${data.serviceRoles.map(r => `
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem 1rem;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: #0284c7; background: #e0f2fe; padding: 0.15rem 0.5rem; border-radius: 9999px;">${escapeHtml(r.tag)}</span>
+          <div style="font-size: 0.85rem; color: #64748b; margin-top: 0.3rem;">${escapeHtml(r.role)}</div>
+          <div style="font-size: 1.0rem; font-weight: 800; color: #0f172a;">${escapeHtml(r.name)}</div>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="pdf-section-heading">2. 다민족 제자의 5분 현장 응답 간증 (Field Testimony)</div>
+    <div style="background: #f0fdf4; border-left: 4px solid #16a34a; border-radius: 8px; padding: 1.1rem 1.3rem; margin-bottom: 1.4rem;">
+      <div style="font-size: 1.05rem; font-weight: 800; color: #166534; margin-bottom: 0.25rem;">
+        🌱 ${escapeHtml(data.testimony.titleKo)}
+      </div>
+      <div style="font-size: 0.88rem; color: #15803d; font-style: italic; margin-bottom: 0.8rem;">
+        ${escapeHtml(data.testimony.titleEn)}
+      </div>
+      <div style="font-size: 0.92rem; color: #1e293b; line-height: 1.6;">
+        • ${data.testimony.points.join('<br>• ')}
+      </div>
+    </div>
+
+    <div class="pdf-section-heading">3. 주요 광고 안내 (Key Announcements)</div>
+    <div style="margin-bottom: 1.4rem;">
+      ${data.announcements.map(item => `
+        <div style="margin-bottom: 0.9rem; padding: 1.0rem 1.25rem; background: #f8fafc; border-left: 4px solid #0284c7; border-radius: 8px;">
+          <div style="font-size: 1.08rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
+            [광고 0${item.num}] ${escapeHtml(item.titleKo)}
+          </div>
+          <div style="color: #64748b; font-size: 0.9rem; font-style: italic; margin-bottom: 0.4rem;">
+            ${escapeHtml(item.titleEn)}
+          </div>
+          <div style="font-size: 0.88rem; color: #334155;">
+            💡 ${escapeHtml(item.desc)}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="pdf-section-heading">4. 주기도문 폐회 (Closing)</div>
+    <div style="background: #fefce8; border: 1px solid #fde047; border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1.5rem; text-align: center;">
+      <div style="font-size: 1.05rem; font-weight: 800; color: #854d0e; margin-bottom: 0.3rem;">
+        🕊️ ${escapeHtml(data.closingPrayer.titleKo)}
+      </div>
+      <div style="font-size: 0.9rem; color: #a16207; font-style: italic; margin-bottom: 0.5rem;">
+        ${escapeHtml(data.closingPrayer.titleEn)}
+      </div>
+      <div style="font-size: 0.95rem; font-weight: 700; color: #b45309;">
+        ${escapeHtml(data.closingPrayer.amenText)}
+      </div>
+    </div>
+
+    <div class="pdf-footer-seal">
+      <span>어라이즈 넥스트젠 글로벌 기도 연합 · Arise Next Gen Global Prayer Hub</span>
+      <span>모든 민족과 후대를 살리는 언약 공동체 · Amen</span>
+    </div>
+  `;
+
+  modal.classList.add('active');
+}
+window.openNoticePdfModal = openNoticePdfModal;
+
+function printNoticePdfDocument() {
+  window.print();
+}
+window.printNoticePdfDocument = printNoticePdfDocument;
+
+// PowerPoint (.pptx) Generator for Step 4 Notice
+function downloadNoticePptx() {
+  if (typeof PptxGenJS === 'undefined') {
+    alert("PowerPoint 생성 모듈(pptxgen.bundle.js)을 불러오는 중입니다. 잠시 후 다시 클릭해 주세요.");
+    return;
+  }
+
+  const data = getNoticePresentationData();
+  const pptx = new PptxGenJS();
+
+  pptx.layout = 'LAYOUT_16x9';
+  pptx.author = 'Arise Next Gen Global Prayer Hub';
+  pptx.company = 'Arise Next Gen';
+  pptx.subject = '4단계: 현장 간증 & 광고 (5분)';
+  pptx.title = '2026 어라이즈 넥스트젠 현장 간증 및 광고';
+
+  // Slide 1: Cover
+  const s1 = pptx.addSlide();
+  s1.background = { color: '0A0F1D' };
+  s1.addText(`🕊️ ${data.meetingTitle} · 4단계`, {
+    x: 0.8, y: 0.8, w: 11.5, h: 0.5,
+    fontSize: 14, color: '38BDF8', bold: true, align: 'center'
+  });
+  s1.addText("현장 간증 & 광고", {
+    x: 0.8, y: 1.5, w: 11.5, h: 1.2,
+    fontSize: 40, color: 'FFFFFF', bold: true, align: 'center'
+  });
+  s1.addText("Field Testimony & Key Announcements", {
+    x: 0.8, y: 2.8, w: 11.5, h: 0.6,
+    fontSize: 18, color: '38BDF8', italic: true, align: 'center'
+  });
+
+  // Roles cards
+  data.serviceRoles.forEach((r, idx) => {
+    const xPos = 0.8 + (idx * 2.9);
+    s1.addShape(pptx.ShapeType.roundRect, {
+      x: xPos, y: 3.7, w: 2.7, h: 1.8,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 1 }
+    });
+    s1.addText(`[${r.tag}]`, {
+      x: xPos + 0.2, y: 3.9, w: 2.3, h: 0.35,
+      fontSize: 11, color: '38BDF8', bold: true, align: 'center'
+    });
+    s1.addText(r.role, {
+      x: xPos + 0.2, y: 4.3, w: 2.3, h: 0.4,
+      fontSize: 11, color: '94A3B8', align: 'center'
+    });
+    s1.addText(r.name, {
+      x: xPos + 0.2, y: 4.75, w: 2.3, h: 0.55,
+      fontSize: 13, color: 'FFFFFF', bold: true, align: 'center'
+    });
+  });
+
+  s1.addText(`⏰ ${data.meetingTime} · 🌍 전 세계 다민족 언약의 후대 연합 기도회`, {
+    x: 0.8, y: 6.2, w: 11.5, h: 0.5,
+    fontSize: 12, color: '94A3B8', align: 'center'
+  });
+
+  // Slide 2: Field Testimony
+  const s2 = pptx.addSlide();
+  s2.background = { color: '0F172A' };
+  s2.addText("STEP 4 : FIELD TESTIMONY", {
+    x: 0.8, y: 0.5, w: 11.5, h: 0.4,
+    fontSize: 13, color: '34D399', bold: true
+  });
+  s2.addText("🌱 다민족 제자의 5분 현장 응답 및 은혜 간증 나눔", {
+    x: 0.8, y: 0.9, w: 11.5, h: 0.7,
+    fontSize: 22, color: 'FFFFFF', bold: true
+  });
+  // Testimony Card
+  s2.addShape(pptx.ShapeType.roundRect, {
+    x: 0.8, y: 1.8, w: 11.5, h: 4.8,
+    fill: { color: '1E293B' }, line: { color: '34D399', width: 1.5 }
+  });
+  s2.addText("🌍 열방과 현장의 복음 증인 (Witnesses of the Nations)", {
+    x: 1.2, y: 2.2, w: 10.7, h: 0.4,
+    fontSize: 14, color: '34D399', bold: true
+  });
+  s2.addText(data.testimony.titleKo, {
+    x: 1.2, y: 2.7, w: 10.7, h: 0.8,
+    fontSize: 24, color: 'FFFFFF', bold: true
+  });
+  s2.addText(data.testimony.titleEn, {
+    x: 1.2, y: 3.5, w: 10.7, h: 0.5,
+    fontSize: 14, color: '94A3B8', italic: true
+  });
+  s2.addText(`• ${data.testimony.points[0]}\n\n• ${data.testimony.points[1]}`, {
+    x: 1.2, y: 4.4, w: 10.7, h: 1.8,
+    fontSize: 15, color: 'E2E8F0', lineSpacing: 26
+  });
+
+  // Slide 3: Announcements & Closing
+  const s3 = pptx.addSlide();
+  s3.background = { color: '0F172A' };
+  s3.addText("STEP 4 : ANNOUNCEMENTS & CLOSING", {
+    x: 0.8, y: 0.5, w: 11.5, h: 0.4,
+    fontSize: 13, color: '38BDF8', bold: true
+  });
+  s3.addText("📢 주요 광고 안내 및 주기도문 폐회", {
+    x: 0.8, y: 0.9, w: 11.5, h: 0.7,
+    fontSize: 22, color: 'FFFFFF', bold: true
+  });
+
+  // 2 Announcement Cards
+  data.announcements.forEach((item, idx) => {
+    const xPos = 0.8 + (idx * 5.9);
+    s3.addShape(pptx.ShapeType.roundRect, {
+      x: xPos, y: 1.8, w: 5.6, h: 3.8,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 1.5 }
+    });
+    s3.addText(`NOTICE 0${item.num}`, {
+      x: xPos + 0.4, y: 2.1, w: 4.8, h: 0.4,
+      fontSize: 12, color: '38BDF8', bold: true
+    });
+    s3.addText(item.titleKo, {
+      x: xPos + 0.4, y: 2.6, w: 4.8, h: 1.2,
+      fontSize: 16, color: 'FFFFFF', bold: true, lineSpacing: 24
+    });
+    s3.addText(item.titleEn, {
+      x: xPos + 0.4, y: 3.8, w: 4.8, h: 0.8,
+      fontSize: 11, color: '94A3B8', italic: true, lineSpacing: 16
+    });
+    s3.addText(`💡 ${item.desc}`, {
+      x: xPos + 0.4, y: 4.7, w: 4.8, h: 0.6,
+      fontSize: 11.5, color: 'CBD5E1'
+    });
+  });
+
+  // Closing banner
+  s3.addShape(pptx.ShapeType.roundRect, {
+    x: 0.8, y: 5.9, w: 11.5, h: 0.8,
+    fill: { color: '0369A1' }, line: { color: '38BDF8', width: 1 }
+  });
+  s3.addText(`🕊️ ${data.closingPrayer.titleKo} (${data.closingPrayer.titleEn}) · 아멘!`, {
+    x: 1.0, y: 5.9, w: 11.1, h: 0.8,
+    fontSize: 14, color: 'FFFFFF', bold: true, align: 'center'
+  });
+
+  const fileName = `2026_현장간증및광고_어라이즈넥스트젠.pptx`;
+  pptx.writeFile({ fileName: fileName }).then(() => {
+    alert("🎉 PowerPoint (.pptx) 슬라이드 파일이 성공적으로 다운로드되었습니다!");
+  }).catch(err => {
+    console.error("PPTX Generation Error:", err);
+    alert("PPTX 파일 생성 중 오류가 발생했습니다: " + err.message);
+  });
+}
+window.downloadNoticePptx = downloadNoticePptx;
 
 // ==========================================
 // 9. App Initialization
