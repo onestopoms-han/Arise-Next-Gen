@@ -122,7 +122,7 @@ const PRESET_PRAISE_SONGS = [
     "localDuration": 170,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      { "start": 0.5, "end": 5.0, "kr": "🎵 나 같은 죄인 살리신 (찬송가 305장) - 전주", "en": "Amazing Grace (Hymn 305) - Intro" },
+      { "start": 0.0, "end": 5.0, "kr": "🎵 나 같은 죄인 살리신 (찬송가 305장) - 전주", "en": "Amazing Grace (Hymn 305) - Intro" },
       { "start": 5.0, "end": 25.0, "kr": "[1절] 나 같은 죄인 살리신 주 은혜 놀라워", "en": "Amazing grace! how sweet the sound That saved a wretch like me!" },
       { "start": 25.0, "end": 45.0, "kr": "잃었던 생명 찾았고 광명을 얻었네", "en": "I once was lost, but now am found, Was blind, but now I see." },
       { "start": 45.0, "end": 65.0, "kr": "[2절] 큰 죄악에서 건지신 주 은혜 고마워", "en": "'Twas grace that taught my heart to fear, And grace my fears relieved;" },
@@ -135,7 +135,7 @@ const PRESET_PRAISE_SONGS = [
     ],
     "ytDuration": 278,
     "ytLines": [
-      { "start": 0.5, "end": 14.0, "kr": "🎵 나 같은 죄인 살리신 (찬송가 305장) - 피아노 전주", "en": "Amazing Grace, How Sweet The Sound (Intro)" },
+      { "start": 0.0, "end": 14.0, "kr": "🎵 나 같은 죄인 살리신 (찬송가 305장) - 피아노 전주", "en": "Amazing Grace, How Sweet The Sound (Intro)" },
       { "start": 14.0, "end": 42.0, "kr": "[1절] 나 같은 죄인 살리신 주 은혜 놀라워", "en": "Amazing grace! how sweet the sound That saved a wretch like me!" },
       { "start": 42.0, "end": 72.0, "kr": "잃었던 생명 찾았고 광명을 얻었네", "en": "I once was lost, but now am found, Was blind, but now I see." },
       { "start": 72.0, "end": 102.0, "kr": "[2절] 큰 죄악에서 건지신 주 은혜 고마워", "en": "'Twas grace that taught my heart to fear, And grace my fears relieved;" },
@@ -298,7 +298,7 @@ let worshipStudioState = {
   allSongs: [],
   activeTab: 'player', // 'player' | 'creator'
   mediaMode: 'local', // 'local' (고음질 수록 음원/영상 & 100% 실시간 자막) | 'youtube' (공식 영상)
-  subtitleMode: 'manual', // 'manual' (클릭 및 키보드 수동 넘김 - 권장) | 'auto' (시간 기반 자동 싱크)
+  subtitleMode: 'auto', // 'auto' (시간 기반 자동 실시간 싱크 - 기본값) | 'manual' (수동 클릭 넘김)
   isSubtitleHidden: false, // 전주/간주 중 자막 일시 숨김
   currentLineIndex: 0,
   isFullscreen: false,
@@ -645,10 +645,12 @@ function toggleStudioPlayPause() {
         if (state === 1) { // playing -> pause
           ytStudioPlayer.pauseVideo();
           updatePlayPauseBtnState(false);
+          stopYtProgressTracker();
         } else { // paused / unstarted -> play
           stopAllMediaExcept('studioYouTube');
           ytStudioPlayer.playVideo();
           updatePlayPauseBtnState(true);
+          startYtProgressTracker();
         }
         return;
       } catch (err) {
@@ -1093,10 +1095,10 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
   // Render Lyric Stream Table
   renderLyricStream(song);
 
-  // Initialize Subtitle for selected mode
+  // Initialize Subtitle for selected mode (항상 첫 소절/전주를 기본 송출하여 빈 화면 방지)
   worshipStudioState.isSubtitleHidden = false;
-  if (worshipStudioState.subtitleMode === 'manual' && song.lines && song.lines.length > 0) {
-    worshipStudioState.currentLineIndex = 0;
+  worshipStudioState.currentLineIndex = 0;
+  if (song.lines && song.lines.length > 0) {
     displayOverlaySubtitle(song.lines[0]);
     highlightLyricStreamRow(0);
   } else {
@@ -1313,6 +1315,11 @@ function updateActiveSubtitleLine(currentTime) {
     }
   }
 
+  // If in early intro or before line 0 end, default to line 0 so subtitle is always visible
+  if (activeIndex < 0 && song.lines && song.lines.length > 0 && currentTime < (song.lines[0].end || 5.0)) {
+    activeIndex = 0;
+  }
+
   if (activeIndex !== worshipStudioState.currentLineIndex) {
     worshipStudioState.currentLineIndex = activeIndex;
     displayOverlaySubtitle(activeIndex >= 0 ? song.lines[activeIndex] : null);
@@ -1332,17 +1339,9 @@ function displayOverlaySubtitle(lineObj) {
     return;
   }
 
-  const song = worshipStudioState.currentSong;
-  // Only suppress HTML overlay if we are playing local video of Amazing Grace which has burned-in subs AND we are in auto mode AND has no custom edits
-  if (worshipStudioState.subtitleMode === 'auto' && worshipStudioState.mediaMode === 'local' && song && song.id === 'amazing-grace' && song.videoUrl && !song.hasCustomSubtitles) {
-    overlay.innerHTML = '';
-    overlay.classList.remove('visible');
-    return;
-  }
-
   overlay.innerHTML = `
     <div class="sub-line-kr">${escapeHtml(lineObj.kr)}</div>
-    <div class="sub-line-en">${escapeHtml(lineObj.en)}</div>
+    <div class="sub-line-en">${escapeHtml(lineObj.en || '')}</div>
   `;
   overlay.classList.add('visible');
 }

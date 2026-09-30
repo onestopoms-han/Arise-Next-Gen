@@ -2798,6 +2798,19 @@ body {
   word-break: keep-all;
 }
 
+@media (max-width: 768px) {
+  .studio-live-subtitle {
+    padding: 0.5rem 0.8rem 0.6rem;
+  }
+  .sub-line-kr {
+    font-size: 1.05rem;
+    margin-bottom: 0.15rem;
+  }
+  .sub-line-en {
+    font-size: 0.85rem;
+  }
+}
+
 /* Fullscreen Zoom Screen Sharing View */
 .studio-stage-area:fullscreen,
 .studio-stage-area.zoom-fullscreen {
