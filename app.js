@@ -3512,7 +3512,7 @@ async function loadGlobalRoutine() {
 // 10. Word Message Presenter (PPT Slides, PDF Handout, PPTX Export)
 // ==========================================
 let currentPptSlideIndex = 0;
-const TOTAL_PPT_SLIDES = 4;
+const TOTAL_PPT_SLIDES = 3;
 let pptKeyboardHandlerAttached = false;
 
 function getWordPresentationData() {
@@ -3521,14 +3521,14 @@ function getWordPresentationData() {
     : defaultRoutineContent.step2;
 
   const scripture = data.scripture || "창세기 1:27-28 (Genesis 1:27-28)";
-  const title = data.title || "다스리고 정복하라 (Rule & Subdue)";
+  const title = data.title || "원래 축복 (Original Blessing)";
 
   return {
     meetingTitle: "2026 어라이즈 넥스트젠 30분 기도모임",
     meetingSub: "4단계 순서 중 2단계: 후대 복음 말씀 (5분)",
     title: title,
     scripture: scripture,
-    theme: "언약의 후대에게 심어야 할 5분 핵심 복음 메시지",
+    theme: "언약의 후대에게 전달할 5분 복음 말씀",
     meetingTime: "매월 첫 주일 호주 AEST 8:00 PM (한국 19:00)",
     scriptureKorean: [
       { verse: "27절", text: "하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고" },
@@ -3538,35 +3538,25 @@ function getWordPresentationData() {
       { verse: "v.27", text: "So God created mankind in his own image, in the image of God he created them; male and female he created them." },
       { verse: "v.28", text: "God blessed them and said to them, \"Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.\"" }
     ],
-    keywords: ["하나님의 형상 (Image of God)", "복을 주시며 (God Blessed)", "땅을 정복하라 (Subdue It)", "다스리라 (Rule Over)"],
+    messageGoalKo: "다음 세대를 살릴 복음의 신실한 제자 세우기",
+    messageGoalEn: "Raising up faithful disciples of the Gospel to save the next generation",
     points: [
       {
         num: 1,
-        icon: "👑",
-        titleKo: "원래의 축복 — 하나님의 형상",
-        titleEn: "The Original Blessing — The Image of God (Imago Dei)",
-        descKo: "사람은 하나님과 함께할 때 참된 안식과 생명을 누립니다. 세상 성공이나 미디어보다 '하나님의 자녀'라는 영적 신분이 가장 존귀합니다.",
-        descEn: "True peace and life are found only in God. Our identity as God's child is supreme above all worldly success."
+        titleKo: "다스리고 정복하라 -하나님의 형상",
+        titleEn: "Rule and subdue -the image of God"
       },
       {
         num: 2,
-        icon: "🛡️",
-        titleKo: "다스리고 정복하라 — 영적 권세",
-        titleEn: "Rule & Subdue — Spiritual Authority in Christ",
-        descKo: "세상의 헛된 문화와 흑암에 끌려가는 자가 아니라, 복음의 능력으로 시대를 살리고 영적 질서를 회복하는 언약의 사람입니다.",
-        descEn: "We are not swayed by worldly darkness, but empowered by the Gospel to overcome confusion and rule over worldly culture."
+        titleKo: "증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13)",
+        titleEn: "Witnesses: Old Testament — David [Psalm 23:1-], New Testament — Paul [Philippians 4:13]"
       },
       {
         num: 3,
-        icon: "🌍",
-        titleKo: "모든 민족을 살릴 언약의 후대",
-        titleEn: "A Covenant Generation for All Nations",
-        descKo: "후대의 학업, 재능, 달란트는 단순한 생계가 아니라 237개 나라와 모든 민족을 그리스도께로 인도하기 위한 하나님의 언약적 여정입니다.",
-        descEn: "Our studies and talents are not just for a living, but covenant vessels to heal, save, and lead all nations to Christ."
+        titleKo: "원래 인간의 회복",
+        titleEn: "Restoration of the original human state"
       }
-    ],
-    prayerKo: "사랑의 하나님, 우리 후대들이 세상의 혼돈과 미디어의 유혹 속에서도 하나님의 형상을 굳게 붙잡게 하옵소서. 세상에 끌려다니지 않고 복음의 능력으로 시대를 살리며 다스리고 정복하는 언약의 주역으로 서게 하옵소서. 우리 후대의 학업과 삶을 통해 모든 민족이 주께로 돌아오게 하옵소서. 살아계신 예수 그리스도의 이름으로 기도하옵나이다. 아멘!",
-    prayerEn: "Heavenly Father, may our next generation hold firmly to the image of God amidst worldly chaos. Let them not conform to secular culture, but rise as covenant leaders who heal, govern, and subdue their generation through the Gospel. May all nations be blessed and drawn to Christ through their lives. In Jesus' name, Amen!"
+    ]
   };
 }
 
@@ -3688,16 +3678,16 @@ function renderPptSlide(index) {
         <div class="ppt-slide-step-badge">STEP 2 : SCRIPTURE READING</div>
         <h2 class="ppt-slide-main-title">📖 본문 성경 말씀 낭독 — ${escapeHtml(data.scripture)}</h2>
       </div>
-      <div class="ppt-scripture-grid">
+      <div class="ppt-scripture-grid" style="flex: 1;">
         <div class="ppt-scripture-box">
           <div class="ppt-box-header">
             <span class="ppt-box-lang">🇰🇷 한국어 성경 (개역개정)</span>
             <span class="ppt-box-label">창세기 1:27-28</span>
           </div>
           ${data.scriptureKorean.map(v => `
-            <div class="ppt-verse-row">
+            <div class="ppt-verse-row" style="margin-bottom: 1.2rem;">
               <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
-              <span>${v.text.replace(/하나님의 형상/g, '<span class="ppt-highlight-word">하나님의 형상</span>')
+              <span style="line-height: 1.7; font-size: 1.15rem;">${v.text.replace(/하나님의 형상/g, '<span class="ppt-highlight-word">하나님의 형상</span>')
                            .replace(/복을 주시며/g, '<span class="ppt-highlight-word">복을 주시며</span>')
                            .replace(/땅을 정복하라/g, '<span class="ppt-highlight-word">땅을 정복하라</span>')
                            .replace(/다스리라/g, '<span class="ppt-highlight-word">다스리라</span>')}</span>
@@ -3710,9 +3700,9 @@ function renderPptSlide(index) {
             <span class="ppt-box-label">Genesis 1:27-28</span>
           </div>
           ${data.scriptureEnglish.map(v => `
-            <div class="ppt-verse-row">
+            <div class="ppt-verse-row" style="margin-bottom: 1.2rem;">
               <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
-              <span>${v.text.replace(/in his own image/g, '<span class="ppt-highlight-word">in his own image</span>')
+              <span style="line-height: 1.65; font-size: 1.05rem;">${v.text.replace(/in his own image/g, '<span class="ppt-highlight-word">in his own image</span>')
                            .replace(/God blessed them/g, '<span class="ppt-highlight-word">God blessed them</span>')
                            .replace(/subdue it/g, '<span class="ppt-highlight-word">subdue it</span>')
                            .replace(/rule over/g, '<span class="ppt-highlight-word">rule over</span>')}</span>
@@ -3720,49 +3710,28 @@ function renderPptSlide(index) {
           `).join('')}
         </div>
       </div>
-      <div class="ppt-keywords-bar">
-        ${data.keywords.map(kw => `<span class="ppt-keyword-chip">✨ ${escapeHtml(kw)}</span>`).join('')}
-      </div>
     `;
   } else if (index === 2) {
-    // Slide 3: 3 Key Points
+    // Slide 3: 5-Minute Gospel Message Summary
     slideContent.innerHTML = `
       <div class="ppt-slide-header">
-        <div class="ppt-slide-step-badge">STEP 2 : 5-MINUTE GOSPEL MESSAGE</div>
-        <h2 class="ppt-slide-main-title">💡 후대에게 심어야 할 3가지 복음 언약 (3 Gospel Covenants)</h2>
+        <div class="ppt-slide-step-badge">STEP 2 : 5-MINUTE GOSPEL MESSAGE SUMMARY</div>
+        <h2 class="ppt-slide-main-title">📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)</h2>
+      </div>
+      <div class="ppt-message-goal-banner">
+        <span class="ppt-goal-tag">핵심 방향</span>
+        <span class="ppt-goal-text">🌱 ${escapeHtml(data.messageGoalKo)} <span style="font-size: 0.9em; font-weight: 500; color: #cbd5e1; font-style: italic;">(${escapeHtml(data.messageGoalEn)})</span></span>
       </div>
       <div class="ppt-points-grid">
         ${data.points.map(pt => `
           <div class="ppt-point-card">
             <div class="ppt-point-top">
-              <span class="ppt-point-icon">${pt.icon}</span>
-              <span class="ppt-point-num">POINT ${pt.num}</span>
+              <span class="ppt-point-num">0${pt.num}</span>
             </div>
             <h3 class="ppt-point-title-ko">${escapeHtml(pt.titleKo)}</h3>
             <div class="ppt-point-title-en">${escapeHtml(pt.titleEn)}</div>
-            <div class="ppt-point-body-ko">${escapeHtml(pt.descKo)}</div>
-            <div class="ppt-point-body-en">${escapeHtml(pt.descEn)}</div>
           </div>
         `).join('')}
-      </div>
-    `;
-  } else if (index === 3) {
-    // Slide 4: Closing Covenant Prayer
-    slideContent.innerHTML = `
-      <div class="ppt-slide-header">
-        <div class="ppt-slide-step-badge">STEP 2 : COVENANT PRAYER</div>
-        <h2 class="ppt-slide-main-title">🙏 후대를 위한 마침 언약 기도 (Closing Covenant Prayer)</h2>
-      </div>
-      <div class="ppt-prayer-card">
-        <div class="ppt-prayer-text-ko">
-          "${escapeHtml(data.prayerKo)}"
-        </div>
-        <div class="ppt-prayer-text-en">
-          "${escapeHtml(data.prayerEn)}"
-        </div>
-        <div class="ppt-prayer-amen">
-          살아계신 예수 그리스도의 이름으로 기도하옵나이다 · 아멘! (Amen!)
-        </div>
       </div>
     `;
   }
@@ -3800,8 +3769,8 @@ function openWordPdfModal() {
         <div style="font-size: 0.82rem; font-weight: 800; color: #0284c7; text-transform: uppercase; margin-bottom: 0.2rem;">
           ${escapeHtml(data.meetingTitle)}
         </div>
-        <h1 class="pdf-title-main">후대 복음 말씀 요약 (5분 메시지)</h1>
-        <div class="pdf-scripture-line">📖 본문: ${escapeHtml(data.scripture)} — [${escapeHtml(data.title)}]</div>
+        <h1 class="pdf-title-main">2단계: 후대 복음 말씀 — ${escapeHtml(data.title)}</h1>
+        <div class="pdf-scripture-line">📖 본문: ${escapeHtml(data.scripture)}</div>
       </div>
       <div style="text-align: right;">
         <span class="pdf-badge-meta">4단계 순서 중 2단계</span>
@@ -3829,27 +3798,26 @@ function openWordPdfModal() {
       </p>
     </div>
 
-    <div class="pdf-section-heading">2. 후대에게 심어야 할 3가지 복음 언약 (3 Key Points)</div>
-    <div style="margin-bottom: 1.2rem;">
+    <div class="pdf-section-heading">2. 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)</div>
+    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 0.9rem 1.2rem; margin-bottom: 1.2rem;">
+      <div style="font-weight: 800; color: #166534; font-size: 0.95rem; margin-bottom: 0.2rem;">
+        🌱 ${escapeHtml(data.messageGoalKo)}
+      </div>
+      <div style="font-size: 0.85rem; color: #15803d; font-style: italic;">
+        ${escapeHtml(data.messageGoalEn)}
+      </div>
+    </div>
+    <div style="margin-bottom: 1.4rem;">
       ${data.points.map(pt => `
-        <div class="pdf-point-item">
-          <div class="pdf-point-title">${pt.icon} [포인트 ${pt.num}] ${escapeHtml(pt.titleKo)} <span style="font-size: 0.85rem; font-weight: 500; color: #64748b;">(${escapeHtml(pt.titleEn)})</span></div>
-          <p class="pdf-point-desc">
-            • <b>핵심 메시지</b>: ${escapeHtml(pt.descKo)}<br>
-            • <span style="color: #64748b; font-size: 0.86rem; font-style: italic;">${escapeHtml(pt.descEn)}</span>
-          </p>
+        <div class="pdf-point-item" style="margin-bottom: 1rem; padding: 0.9rem 1.2rem; background: #f8fafc; border-left: 4px solid #0284c7; border-radius: 6px;">
+          <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 0.25rem;">
+            ${pt.num}. ${escapeHtml(pt.titleKo)}
+          </div>
+          <div style="color: #64748b; font-size: 0.88rem; font-style: italic;">
+            ${escapeHtml(pt.titleEn)}
+          </div>
         </div>
       `).join('')}
-    </div>
-
-    <div class="pdf-section-heading">3. 후대를 위한 마침 언약 기도문 (Covenant Prayer)</div>
-    <div class="pdf-prayer-box">
-      <div style="font-size: 0.96rem; line-height: 1.7; color: #854d0e; font-weight: 600; margin-bottom: 0.6rem;">
-        "${escapeHtml(data.prayerKo)}"
-      </div>
-      <div style="font-size: 0.86rem; line-height: 1.6; color: #a16207; font-style: italic; border-top: 1px dashed #fde047; padding-top: 0.5rem;">
-        "${escapeHtml(data.prayerEn)}"
-      </div>
     </div>
 
     <div class="pdf-footer-seal">
@@ -3919,7 +3887,7 @@ function downloadWordPptx() {
   });
   // Korean Box
   s2.addShape(pptx.ShapeType.roundRect, {
-    x: 0.8, y: 1.4, w: 5.6, h: 4.6,
+    x: 0.8, y: 1.4, w: 5.6, h: 5.2,
     fill: { color: '1E293B' }, line: { color: '334155', width: 1.5 }
   });
   s2.addText("🇰🇷 한국어 성경 (개역개정)", {
@@ -3927,12 +3895,12 @@ function downloadWordPptx() {
     fontSize: 14, color: '38BDF8', bold: true
   });
   s2.addText("27절  하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n\n28절  하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라", {
-    x: 1.1, y: 2.2, w: 5.0, h: 3.5,
-    fontSize: 13, color: 'F1F5F9', lineSpacing: 22
+    x: 1.1, y: 2.2, w: 5.0, h: 4.0,
+    fontSize: 13.5, color: 'F1F5F9', lineSpacing: 24
   });
   // English Box
   s2.addShape(pptx.ShapeType.roundRect, {
-    x: 6.8, y: 1.4, w: 5.6, h: 4.6,
+    x: 6.8, y: 1.4, w: 5.6, h: 5.2,
     fill: { color: '1E293B' }, line: { color: '334155', width: 1.5 }
   });
   s2.addText("🇺🇸 English Bible (NIV)", {
@@ -3940,71 +3908,46 @@ function downloadWordPptx() {
     fontSize: 14, color: '38BDF8', bold: true
   });
   s2.addText("v.27  So God created mankind in his own image, in the image of God he created them; male and female he created them.\n\nv.28  God blessed them and said to them, \"Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.\"", {
-    x: 7.1, y: 2.2, w: 5.0, h: 3.5,
-    fontSize: 12, color: 'CBD5E1', italic: true, lineSpacing: 20
-  });
-  s2.addText("키워드: 하나님의 형상 (Image of God) · 복을 주시며 · 땅을 정복하라 · 다스리라 (Rule Over)", {
-    x: 0.8, y: 6.3, w: 11.5, h: 0.4,
-    fontSize: 12, color: '34D399', bold: true
+    x: 7.1, y: 2.2, w: 5.0, h: 4.0,
+    fontSize: 12.5, color: 'CBD5E1', italic: true, lineSpacing: 22
   });
 
-  // Slide 3: 3 Key Points
+  // Slide 3: 5-Minute Gospel Message Summary
   const s3 = pptx.addSlide();
   s3.background = { color: '0F172A' };
-  s3.addText("💡 후대에게 심어야 할 3가지 복음 언약 (3 Gospel Covenants)", {
+  s3.addText("📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)", {
     x: 0.8, y: 0.6, w: 11.5, h: 0.6,
     fontSize: 22, color: 'FFFFFF', bold: true
   });
+  // Goal banner
+  s3.addShape(pptx.ShapeType.roundRect, {
+    x: 0.8, y: 1.3, w: 11.6, h: 0.8,
+    fill: { color: '0369A1' }, line: { color: '38BDF8', width: 1 }
+  });
+  s3.addText(`핵심 방향: ${data.messageGoalKo} (${data.messageGoalEn})`, {
+    x: 1.1, y: 1.3, w: 11.0, h: 0.8,
+    fontSize: 13, color: 'FFFFFF', bold: true, align: 'center'
+  });
+
+  // 3 Points cards
   data.points.forEach((pt, idx) => {
     const xPos = 0.8 + (idx * 3.9);
     s3.addShape(pptx.ShapeType.roundRect, {
-      x: xPos, y: 1.5, w: 3.7, h: 4.8,
-      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 1.2 }
+      x: xPos, y: 2.4, w: 3.7, h: 4.2,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 1.5 }
     });
-    s3.addText(`POINT 0${pt.num}`, {
-      x: xPos + 0.3, y: 1.8, w: 3.1, h: 0.3,
-      fontSize: 11, color: '38BDF8', bold: true
+    s3.addText(`0${pt.num}`, {
+      x: xPos + 0.3, y: 2.7, w: 3.1, h: 0.5,
+      fontSize: 20, color: '38BDF8', bold: true
     });
     s3.addText(pt.titleKo, {
-      x: xPos + 0.3, y: 2.2, w: 3.1, h: 0.7,
-      fontSize: 15, color: 'FFFFFF', bold: true
+      x: xPos + 0.3, y: 3.3, w: 3.1, h: 1.6,
+      fontSize: 16, color: 'FFFFFF', bold: true, lineSpacing: 24
     });
     s3.addText(pt.titleEn, {
-      x: xPos + 0.3, y: 2.9, w: 3.1, h: 0.5,
-      fontSize: 10, color: '94A3B8', italic: true
+      x: xPos + 0.3, y: 5.0, w: 3.1, h: 1.4,
+      fontSize: 12, color: '94A3B8', italic: true, lineSpacing: 18
     });
-    s3.addText(pt.descKo, {
-      x: xPos + 0.3, y: 3.5, w: 3.1, h: 1.6,
-      fontSize: 11.5, color: 'E2E8F0', lineSpacing: 18
-    });
-    s3.addText(pt.descEn, {
-      x: xPos + 0.3, y: 5.1, w: 3.1, h: 1.0,
-      fontSize: 9.5, color: '94A3B8', italic: true
-    });
-  });
-
-  // Slide 4: Prayer
-  const s4 = pptx.addSlide();
-  s4.background = { color: '0F172A' };
-  s4.addText("🙏 후대를 위한 마침 언약 기도 (Covenant Prayer)", {
-    x: 0.8, y: 0.6, w: 11.5, h: 0.6,
-    fontSize: 22, color: 'FFFFFF', bold: true
-  });
-  s4.addShape(pptx.ShapeType.roundRect, {
-    x: 0.8, y: 1.5, w: 11.6, h: 4.8,
-    fill: { color: '1E293B' }, line: { color: 'F59E0B', width: 2 }
-  });
-  s4.addText(`"${data.prayerKo}"`, {
-    x: 1.3, y: 2.0, w: 10.6, h: 1.8,
-    fontSize: 18, color: 'FFFFFF', bold: true, lineSpacing: 30
-  });
-  s4.addText(`"${data.prayerEn}"`, {
-    x: 1.3, y: 3.9, w: 10.6, h: 1.4,
-    fontSize: 13, color: 'CBD5E1', italic: true, lineSpacing: 22
-  });
-  s4.addText("살아계신 예수 그리스도의 이름으로 기도하옵나이다 · 아멘! (Amen!)", {
-    x: 1.3, y: 5.4, w: 10.6, h: 0.6,
-    fontSize: 16, color: 'FBBF24', bold: true, align: 'right'
   });
 
   const fileName = `2026_후대복음말씀_창세기1장27-28절_어라이즈넥스트젠.pptx`;
