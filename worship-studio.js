@@ -333,16 +333,18 @@ function loadCustomSongs() {
     }
   }
 
-  // 정통 찬송가 공식 업데이트 시 브라우저 내 구버전 오버라이드 자동 정격 동기화
-  const CURRENT_LIBRARY_VER = '20260930_v7_yt_sync_clean';
+  // 전 세계 어디서나 최신 정밀 싱크 자막 적용을 위한 공식 라이브러리 자동 정격 동기화
+  const CURRENT_LIBRARY_VER = '20261001_v9_global_praise_sync';
   const savedVer = localStorage.getItem('arise_praise_library_ver');
   if (savedVer !== CURRENT_LIBRARY_VER) {
     try {
       const savedOverrides = localStorage.getItem('arise_preset_lyrics_overrides');
       if (savedOverrides) {
         let overridesObj = JSON.parse(savedOverrides);
-        delete overridesObj['amazing-grace'];
-        delete overridesObj['jesus-we-enthrone-you'];
+        // 공식 보관함의 프리셋 곡들에 대해 구버전 오버라이드를 완전 초기화하여 전 세계 동기화
+        PRESET_PRAISE_SONGS.forEach(p => {
+          delete overridesObj[p.id];
+        });
         localStorage.setItem('arise_preset_lyrics_overrides', JSON.stringify(overridesObj));
       }
     } catch(e) {}
@@ -456,12 +458,33 @@ function cleanupStudioYouTubePlayer() {
 }
 window.cleanupStudioYouTubePlayer = cleanupStudioYouTubePlayer;
 
-// YouTube iframe 상태 변경 감지: 어떤 iframe에서든 재생 시작되면 다른 모든 미디어 일시정지
+// YouTube iframe 상태 변경 감지: 어떤 iframe에서든 재생 시작되면 다른 모든 미디어 일시정지 및 스튜디오 실시간 싱크 연동
 if (!window._ytGlobalMessageCoordinatorBound) {
   window.addEventListener('message', (event) => {
     try {
       const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
       if (!data) return;
+
+      // 스튜디오 YouTube 플레이어의 실시간 시간 및 재생 상태 즉시 연동
+      const studioIfr = document.getElementById('studioYouTubePlayer');
+      const isFromStudio = studioIfr && (studioIfr.contentWindow === event.source || studioIfr === event.source);
+      if (isFromStudio && data.info) {
+        if (typeof data.info.currentTime === 'number' && !isNaN(data.info.currentTime)) {
+          updateActiveSubtitleLine(data.info.currentTime);
+          if (typeof ytTrackerBaseSec !== 'undefined') ytTrackerBaseSec = data.info.currentTime;
+          if (typeof ytTrackerStartTime !== 'undefined') ytTrackerStartTime = Date.now();
+        }
+        if (data.event === 'onStateChange') {
+          if (data.info === 1) { // playing
+            updatePlayPauseBtnState(true);
+            startYtProgressTracker();
+          } else if (data.info === 2 || data.info === 0) { // paused / ended
+            updatePlayPauseBtnState(false);
+            stopYtProgressTracker();
+          }
+        }
+      }
+
       const isPlaying = (data.event === 'onStateChange' && data.info === 1) || 
                         (data.event === 'infoDelivery' && data.info && data.info.playerState === 1);
       if (isPlaying) {
@@ -728,16 +751,34 @@ function updatePlayPauseBtnState(isPlaying) {
 }
 window.updatePlayPauseBtnState = updatePlayPauseBtnState;
 
-function startYtProgressTracker() {
+let ytTrackerStartTime = null;
+let ytTrackerBaseSec = 0;
+
+function startYtProgressTracker(baseSeconds = null) {
   stopYtProgressTracker();
+  if (baseSeconds !== null && !isNaN(baseSeconds)) {
+    ytTrackerBaseSec = baseSeconds;
+  }
+  ytTrackerStartTime = Date.now();
+
   ytProgressInterval = setInterval(() => {
+    let cur = null;
     if (ytStudioPlayer && typeof ytStudioPlayer.getCurrentTime === 'function') {
       try {
-        const cur = ytStudioPlayer.getCurrentTime();
-        if (typeof cur === 'number' && !isNaN(cur)) {
-          updateActiveSubtitleLine(cur);
+        const t = ytStudioPlayer.getCurrentTime();
+        if (typeof t === 'number' && !isNaN(t) && t >= 0) {
+          cur = t;
+          ytTrackerBaseSec = cur;
+          ytTrackerStartTime = Date.now();
         }
       } catch (e) {}
+    }
+    // 글로벌 안정성: YouTube API 시간 응답이 지연되거나 제한적인 브라우저에서도 경과 시간을 보정하여 자막 자동 싱크 지속
+    if (cur === null && (worshipStudioState.isYtPlaying || worshipStudioState.isPlaying) && ytTrackerStartTime) {
+      cur = ytTrackerBaseSec + (Date.now() - ytTrackerStartTime) / 1000;
+    }
+    if (cur !== null && typeof cur === 'number' && !isNaN(cur)) {
+      updateActiveSubtitleLine(cur);
     }
   }, 200);
 }
@@ -747,6 +788,7 @@ function stopYtProgressTracker() {
     clearInterval(ytProgressInterval);
     ytProgressInterval = null;
   }
+  ytTrackerStartTime = null;
 }
 
 function closeWorshipStudio() {
@@ -918,6 +960,7 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
   const song = worshipStudioState.allSongs.find(s => s.id === songId) || PRESET_PRAISE_SONGS[0];
   worshipStudioState.currentSong = song;
   worshipStudioState.currentLineIndex = -1;
+  worshipStudioState.subtitleMode = 'auto'; // 전 세계 모든 사용자 기본: 자동 시간 정밀 싱크 모드 활성화
 
   if (requestedMode) {
     worshipStudioState.mediaMode = requestedMode;
@@ -1412,12 +1455,21 @@ function highlightLyricStreamRow(idx) {
 
 function jumpToLyricTime(seconds) {
   const song = worshipStudioState.currentSong;
-  if (worshipStudioState.mediaMode === 'youtube' && song && song.videoId && ytStudioPlayer && typeof ytStudioPlayer.seekTo === 'function') {
-    try {
-      ytStudioPlayer.seekTo(seconds, true);
-      ytStudioPlayer.playVideo();
-      startYtProgressTracker();
-    } catch(e) {}
+  if (worshipStudioState.mediaMode === 'youtube' && song && song.videoId) {
+    if (ytStudioPlayer && typeof ytStudioPlayer.seekTo === 'function') {
+      try {
+        ytStudioPlayer.seekTo(seconds, true);
+        ytStudioPlayer.playVideo();
+      } catch(e) {}
+    }
+    const ifr = document.getElementById('studioYouTubePlayer');
+    if (ifr && ifr.tagName === 'IFRAME' && ifr.contentWindow) {
+      try {
+        ifr.contentWindow.postMessage(`{"event":"command","func":"seekTo","args":[${seconds}, true]}`, '*');
+        ifr.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      } catch(e) {}
+    }
+    startYtProgressTracker(seconds);
   } else {
     const video = document.getElementById('studioVideoPlayer');
     const audio = document.getElementById('studioAudioPlayer');
