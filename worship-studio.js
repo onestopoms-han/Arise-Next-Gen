@@ -9,35 +9,40 @@ const PRESET_PRAISE_SONGS = [
     "id": "jesus-we-enthrone-you",
     "titleKo": "예수 우리 왕이여 (Jesus, We Enthrone You)",
     "titleEn": "Jesus, We Enthrone You",
-    "artist": "임성재 목사 (가스펠 은혜곡) / Paul Kyle • 감미롭고 은혜로운 경배 찬양 (보컬)",
+    "artist": "To. Ministry (투 미니스트리) / Paul Kyle • 정통 어쿠스틱 경배 찬양 (보컬)",
     "category": "confession",
-    "videoId": "2Z39oJh4EI8",
-    "duration": 176,
+    "videoId": "d6tDhj87iBM",
+    "duration": 257,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      { "start": 0.0, "end": 9.5, "kr": "🎵 예수 우리 왕이여 (Jesus, We Enthrone You) - 전주", "en": "Jesus, We Enthrone You - Intro" },
-      { "start": 9.5, "end": 15.0, "kr": "예수 우리 왕이여", "en": "Jesus, we enthrone You" },
-      { "start": 15.0, "end": 21.0, "kr": "이곳에 오셔서", "en": "We proclaim You are King" },
-      { "start": 21.0, "end": 27.5, "kr": "보좌로 주여 임하사", "en": "Standing here, in the midst of all" },
-      { "start": 27.5, "end": 35.0, "kr": "찬양을 받아 주소서", "en": "We raise You with our praise" },
-      { "start": 35.0, "end": 42.0, "kr": "주님을 찬양하오니", "en": "And as we worship fill the throne" },
-      { "start": 42.0, "end": 49.0, "kr": "주님을 경배하오니", "en": "And as we worship fill the throne" },
-      { "start": 49.0, "end": 55.5, "kr": "왕이신 예수여 오셔서", "en": "And as we worship fill the throne" },
-      { "start": 55.5, "end": 67.5, "kr": "좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place" },
-      { "start": 67.5, "end": 74.0, "kr": "예수 우리 왕이여", "en": "Jesus, we enthrone You" },
-      { "start": 74.0, "end": 80.5, "kr": "이곳에 오셔서", "en": "We proclaim You are King" },
-      { "start": 80.5, "end": 88.0, "kr": "보좌로 주여 임하사", "en": "Standing here, in the midst of all" },
-      { "start": 88.0, "end": 95.0, "kr": "찬양을 받아 주소서", "en": "We raise You with our praise" },
-      { "start": 95.0, "end": 102.0, "kr": "주님을 찬양하오니", "en": "And as we worship fill the throne" },
-      { "start": 102.0, "end": 112.5, "kr": "주님을 경배하오니", "en": "And as we worship fill the throne" },
-      { "start": 112.5, "end": 119.0, "kr": "왕이신 예수여 오셔서", "en": "And as we worship fill the throne" },
-      { "start": 119.0, "end": 129.5, "kr": "좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place" },
-      { "start": 129.5, "end": 137.5, "kr": "[후렴] 주님을 찬양하오니", "en": "And as we worship fill the throne" },
-      { "start": 137.5, "end": 144.5, "kr": "주님을 경배하오니", "en": "And as we worship fill the throne" },
-      { "start": 144.5, "end": 152.0, "kr": "왕이신 예수여 오셔서", "en": "And as we worship fill the throne" },
-      { "start": 152.0, "end": 159.5, "kr": "좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place" },
-      { "start": 159.5, "end": 170.0, "kr": "좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place" },
-      { "start": 170.0, "end": 176.0, "kr": "🕊️ 왕이신 예수여 오셔서 영원히 다스리소서 · 아멘", "en": "Come Lord Jesus, take Your place and rule over us forever · Amen" }
+      { "start": 0.0, "end": 15.5, "kr": "🎵 예수 우리 왕이여 (Jesus, We Enthrone You) - 전주", "en": "Jesus, We Enthrone You - Intro" },
+      { "start": 15.5, "end": 23.5, "kr": "예수 우리 왕이여", "en": "Jesus, we enthrone You" },
+      { "start": 23.5, "end": 31.0, "kr": "이곳에 오소서", "en": "We proclaim You are King" },
+      { "start": 31.0, "end": 38.5, "kr": "보좌로 주여 임하사", "en": "Standing here, in the midst of all" },
+      { "start": 38.5, "end": 48.0, "kr": "찬양을 받아 주소서", "en": "We raise You with our praise" },
+      { "start": 48.0, "end": 57.5, "kr": "주님을 찬양하오니", "en": "And as we worship fill the throne" },
+      { "start": 57.5, "end": 67.0, "kr": "주님을 경배하오니", "en": "And as we worship fill the throne" },
+      { "start": 67.0, "end": 76.5, "kr": "왕이신 예수여 오셔서", "en": "And as we worship fill the throne" },
+      { "start": 76.5, "end": 88.5, "kr": "좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place" },
+      { "start": 88.5, "end": 96.5, "kr": "[2절] 예수 우리 왕이여", "en": "Jesus, we enthrone You" },
+      { "start": 96.5, "end": 104.0, "kr": "이곳에 오소서", "en": "We proclaim You are King" },
+      { "start": 104.0, "end": 111.5, "kr": "보좌로 주여 임하사", "en": "Standing here, in the midst of all" },
+      { "start": 111.5, "end": 121.0, "kr": "찬양을 받아 주소서", "en": "We raise You with our praise" },
+      { "start": 121.0, "end": 130.0, "kr": "[후렴] 주님을 찬양하오니", "en": "And as we worship fill the throne" },
+      { "start": 130.0, "end": 139.5, "kr": "주님을 경배하오니", "en": "And as we worship fill the throne" },
+      { "start": 139.5, "end": 146.5, "kr": "왕이신 예수여 오셔서", "en": "And as we worship fill the throne" },
+      { "start": 146.5, "end": 154.0, "kr": "[3절] 예수 우리 왕이여", "en": "Jesus, we enthrone You" },
+      { "start": 154.0, "end": 162.0, "kr": "이곳에 오소서", "en": "We proclaim You are King" },
+      { "start": 162.0, "end": 170.0, "kr": "보좌로 주여 임하사", "en": "Standing here, in the midst of all" },
+      { "start": 170.0, "end": 178.5, "kr": "찬양을 받아 주소서", "en": "We raise You with our praise" },
+      { "start": 178.5, "end": 188.0, "kr": "[후렴 절정] 주님을 찬양하오니", "en": "And as we worship fill the throne" },
+      { "start": 188.0, "end": 197.0, "kr": "주님을 경배하오니", "en": "And as we worship fill the throne" },
+      { "start": 197.0, "end": 206.5, "kr": "왕이신 예수여 오셔서", "en": "And as we worship fill the throne" },
+      { "start": 206.5, "end": 216.0, "kr": "좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place" },
+      { "start": 216.0, "end": 225.5, "kr": "[선포] 왕이신 예수여 오셔서", "en": "And as we worship fill the throne" },
+      { "start": 225.5, "end": 235.0, "kr": "좌정하사 다스리소서", "en": "Come Lord Jesus and take Your place" },
+      { "start": 235.0, "end": 244.5, "kr": "왕이신 예수여 오셔서", "en": "And as we worship fill the throne" },
+      { "start": 244.5, "end": 257.0, "kr": "좌정하사 다스리소서 · 아멘", "en": "Come Lord Jesus, take Your place and reign forever · Amen" }
     ]
   },
   {
@@ -346,7 +351,7 @@ function loadCustomSongs() {
   }
 
   // 전 세계 어디서나 최신 정밀 싱크 자막 적용을 위한 공식 라이브러리 자동 정격 동기화
-  const CURRENT_LIBRARY_VER = '20261001_v10_hope_desire_pray_en';
+  const CURRENT_LIBRARY_VER = '20261001_v11_jesus_enthrone_modern';
   const savedVer = localStorage.getItem('arise_praise_library_ver');
   if (savedVer !== CURRENT_LIBRARY_VER) {
     try {
