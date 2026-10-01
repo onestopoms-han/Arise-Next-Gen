@@ -185,26 +185,38 @@ const PRESET_PRAISE_SONGS = [
     "artist": "민호기 목사 (찬미워십) • 오리지널 정규 앨범 공식 원곡 M/V",
     "category": "confession",
     "videoId": "eoDsJr7LF-0",
-    "duration": 325,
+    "duration": 445,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      { "start": 0.0, "end": 18.0, "kr": "🎵 원하고 바라고 기도합니다 - 찬양 전주", "en": "I Hope, Desire, and Pray (Intro)" },
-      { "start": 18.0, "end": 32.5, "kr": "[1절] 이 세상을 살아가는 동안에 나의 힘을 의지할 수 없으니", "en": "While living in this world, I cannot lean on my own strength" },
-      { "start": 32.5, "end": 48.0, "kr": "기도하고 낙심하지 말 것은 주께서 참 소망이 되심이라", "en": "I pray and will not despair, for the Lord is my true living hope" },
-      { "start": 48.0, "end": 62.0, "kr": "[후렴] 주의 길을 걸어가는 동안에 세상의 것 의지할 수 없으니", "en": "While walking on the way of the Lord, I cannot trust worldly things" },
-      { "start": 62.0, "end": 78.0, "kr": "감사하고 낙심하지 말 것은 주께서 참 기쁨이 되심이라", "en": "I give thanks and will not despair, for the Lord is my true joy" },
-      { "start": 78.0, "end": 92.0, "kr": "[선포] 하나님의 꿈이 나의 비전이 되고", "en": "May the dream of God become my vision" },
-      { "start": 92.0, "end": 105.0, "kr": "예수님의 성품이 나의 인격이 되고", "en": "May the character of Jesus become my personality" },
-      { "start": 105.0, "end": 119.0, "kr": "성령님의 권능이 나의 능력이 되길", "en": "May the power of the Holy Spirit become my strength" },
-      { "start": 119.0, "end": 136.0, "kr": "원하고 바라고 기도합니다", "en": "I earnestly hope, desire, and pray" },
-      { "start": 136.0, "end": 160.0, "kr": "(간주 · 묵상과 기도)", "en": "(Interlude)" },
-      { "start": 160.0, "end": 175.0, "kr": "[1절 반복] 이 세상을 살아가는 동안에 나의 힘을 의지할 수 없으니", "en": "While living in this world, I cannot lean on my own strength" },
-      { "start": 175.0, "end": 190.0, "kr": "기도하고 낙심하지 말 것은 주께서 참 소망이 되심이라", "en": "I pray and will not despair, for the Lord is my true living hope" },
-      { "start": 190.0, "end": 204.0, "kr": "[선포 절정] 하나님의 꿈이 나의 비전이 되고!", "en": "May the dream of God become my vision!" },
-      { "start": 204.0, "end": 218.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
-      { "start": 218.0, "end": 232.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
-      { "start": 232.0, "end": 260.0, "kr": "원하고 바라고 기도합니다!", "en": "I earnestly hope, desire, and pray!" },
-      { "start": 260.0, "end": 325.0, "kr": "🕊️ 하나님의 온전하신 뜻이 우리의 모든 삶에 이루어지길 기도합니다 · 아멘", "en": "May God's Perfect Will Be Accomplished in Our Lives · Amen" }
+      { "start": 0.0, "end": 18.0, "kr": "🎵 원하고 바라고 기도합니다 - 찬양 전주", "en": "I Hope, Desire, and Pray - Praise Intro" },
+      { "start": 18.0, "end": 32.5, "kr": "[1절] 이 세상을 살아가는 동안에 나의 힘을 의지할 수 없으니", "en": "While living in this world, I cannot lean upon my own strength" },
+      { "start": 32.5, "end": 48.0, "kr": "기도하고 낙심하지 말 것은 주께서 참 소망이 되심이라", "en": "I will pray and not lose heart, for the Lord is my living hope" },
+      { "start": 48.0, "end": 62.0, "kr": "하나님의 꿈이 나의 비전이 되고", "en": "May the dream of God become my vision" },
+      { "start": 62.0, "end": 78.0, "kr": "예수님의 성품이 나의 인격이 되고", "en": "May the character of Jesus become my personality" },
+      { "start": 78.0, "end": 92.0, "kr": "성령님의 권능이 나의 능력이 되길", "en": "May the power of the Holy Spirit become my strength" },
+      { "start": 92.0, "end": 105.0, "kr": "원하고 바라고 기도합니다", "en": "This I hope, I desire, and I pray" },
+      { "start": 105.0, "end": 119.0, "kr": "이 세상을 살아가는 동안에 나의 힘을 의지할 수 없으니", "en": "While living in this world, I cannot lean upon my own strength" },
+      { "start": 119.0, "end": 136.0, "kr": "기도하고 낙심하지 말 것은 주께서 참 소망이 되심이라", "en": "I will pray and not lose heart, for the Lord is my living hope" },
+      { "start": 136.0, "end": 160.0, "kr": "주의 길을 걸어가는 동안에 세상의 것 의지할 수 없으니", "en": "While walking on the way of the Lord, I cannot trust worldly things" },
+      { "start": 160.0, "end": 175.0, "kr": "감사하고 낙심하지 말 것은 주께서 참 기쁨이 되심이라", "en": "I will give thanks and not lose heart, for the Lord is my true joy" },
+      { "start": 175.0, "end": 190.0, "kr": "하나님의 꿈이 나의 비전이 되고!", "en": "May the dream of God become my vision!" },
+      { "start": 190.0, "end": 204.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
+      { "start": 204.0, "end": 218.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
+      { "start": 218.0, "end": 232.0, "kr": "원하고 바라고 기도합니다!", "en": "This I hope, I desire, and I pray!" },
+      { "start": 232.0, "end": 255.0, "kr": "간주중~하나님의 꿈이 나의 비전이 되고!", "en": "(Interlude) May the dream of God become my vision!" },
+      { "start": 255.0, "end": 260.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
+      { "start": 260.0, "end": 270.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
+      { "start": 270.0, "end": 285.0, "kr": "원하고 바라고 기도합니다!", "en": "This I hope, I desire, and I pray!" },
+      { "start": 285.0, "end": 300.0, "kr": "하나님의 꿈이 나의 비전이 되고!", "en": "May the dream of God become my vision!" },
+      { "start": 300.0, "end": 315.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
+      { "start": 315.0, "end": 330.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
+      { "start": 330.0, "end": 345.0, "kr": "원하고 바라고 기도합니다!", "en": "This I hope, I desire, and I pray!" },
+      { "start": 345.0, "end": 360.0, "kr": "하나님의 꿈이 나의 비전이 되고!", "en": "May the dream of God become my vision!" },
+      { "start": 360.0, "end": 375.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
+      { "start": 375.0, "end": 390.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
+      { "start": 390.0, "end": 405.0, "kr": "원하고 바라고 기도합니다!", "en": "This I earnestly hope, desire, and pray!" },
+      { "start": 405.0, "end": 420.0, "kr": "원하고 바라고 기도합니다!", "en": "This I earnestly hope, desire, and pray!" },
+      { "start": 420.0, "end": 445.0, "kr": "원하고 바라고 기도합니다! · 아멘", "en": "This I earnestly hope, desire, and pray · Amen!" }
     ]
   },
   {
@@ -334,7 +346,7 @@ function loadCustomSongs() {
   }
 
   // 전 세계 어디서나 최신 정밀 싱크 자막 적용을 위한 공식 라이브러리 자동 정격 동기화
-  const CURRENT_LIBRARY_VER = '20261001_v9_global_praise_sync';
+  const CURRENT_LIBRARY_VER = '20261001_v10_hope_desire_pray_en';
   const savedVer = localStorage.getItem('arise_praise_library_ver');
   if (savedVer !== CURRENT_LIBRARY_VER) {
     try {
