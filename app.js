@@ -1601,8 +1601,8 @@ const defaultMeetingSettings = {
   meetingId: "Zoom ID: 888 1234 5678 | Passcode: 7777"
 };
 
-// Always sync newly added nations & routine content & meeting settings
-const DATA_VERSION = 'v19_jesus_we_enthrone_you_routine_sync';
+// Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
+const DATA_VERSION = 'v20261002_v32_mobile_jesus_sync';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -1616,6 +1616,11 @@ let prayers = JSON.parse(localStorage.getItem('prayer_hub_prayers')) || defaultP
 let testimonies = (JSON.parse(localStorage.getItem('prayer_hub_testimonies')) || defaultTestimonies)
   .filter(t => t && t.id !== 4 && !t.title?.includes('찬양을 통한 청소년 회복'));
 let routineContent = JSON.parse(localStorage.getItem('prayer_hub_routine_content')) || defaultRoutineContent;
+// Ensure designated song title is always cleanly displayed
+if (routineContent && routineContent.step1 && (!routineContent.step1.songTitle || routineContent.step1.songTitle.includes('애수') || routineContent.step1.songId === 'jesus-we-enthrone-you')) {
+  routineContent.step1.songId = 'jesus-we-enthrone-you';
+  routineContent.step1.songTitle = '예수 우리 왕이여 (Jesus, We Enthrone You)';
+}
 let meetingSettings = JSON.parse(localStorage.getItem('prayer_hub_meeting_settings')) || defaultMeetingSettings;
 let currentFilter = 'all';
 
@@ -3519,6 +3524,10 @@ async function loadGlobalRoutine() {
         step3: loadedData.step3,
         step4: loadedData.step4
       };
+      if (routineContent.step1 && (routineContent.step1.songId === 'jesus-we-enthrone-you' || (routineContent.step1.songTitle && routineContent.step1.songTitle.includes('애수')))) {
+        routineContent.step1.songId = 'jesus-we-enthrone-you';
+        routineContent.step1.songTitle = '예수 우리 왕이여 (Jesus, We Enthrone You)';
+      }
       localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
       renderRoutineDisplay();
     }

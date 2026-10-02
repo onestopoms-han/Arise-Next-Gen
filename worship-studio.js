@@ -336,7 +336,7 @@ function initWorshipStudio() {
   const select = document.getElementById('studioSongSelect');
   if (select) {
     const urlParams = new URLSearchParams(window.location.search);
-    const targetSongId = urlParams.get('song') || 'amazing-grace';
+    const targetSongId = urlParams.get('song') || 'jesus-we-enthrone-you';
     populateSongSelector(targetSongId);
     selectWorshipSong(targetSongId, null, false);
   }
@@ -353,8 +353,8 @@ function loadCustomSongs() {
     }
   }
 
-  // 전 세계 어디서나 최신 정밀 싱크 자막 적용을 위한 공식 라이브러리 자동 정격 동기화
-  const CURRENT_LIBRARY_VER = '20261002_v15_jesus_meeting_praise_fix';
+  // 전 세계 모바일 및 모든 접속 기기 최신 한/영 자막 강제 동기화 (구버전 캐시 무효화)
+  const CURRENT_LIBRARY_VER = '20261002_v32_mobile_jesus_sync';
   const savedVer = localStorage.getItem('arise_praise_library_ver');
   if (savedVer !== CURRENT_LIBRARY_VER) {
     try {
@@ -375,7 +375,14 @@ function loadCustomSongs() {
   let overrides = {};
   try {
     const savedOverrides = localStorage.getItem('arise_preset_lyrics_overrides');
-    if (savedOverrides) overrides = JSON.parse(savedOverrides);
+    if (savedOverrides) {
+      overrides = JSON.parse(savedOverrides);
+      // 영문 자막이 포함된 예수 우리 왕이여는 항상 공식 최신 라이브러리 가사 우선 유지
+      if (overrides['jesus-we-enthrone-you']) {
+        delete overrides['jesus-we-enthrone-you'];
+        localStorage.setItem('arise_preset_lyrics_overrides', JSON.stringify(overrides));
+      }
+    }
   } catch (e) {
     console.error('Failed to parse preset lyric overrides:', e);
   }
@@ -528,7 +535,7 @@ if (!window._ytGlobalMessageCoordinatorBound) {
 }
 
 // Open / Close Studio Modal
-function openWorshipStudio(targetSongId = 'amazing-grace', autoPlay = false) {
+function openWorshipStudio(targetSongId = 'jesus-we-enthrone-you', autoPlay = false) {
   // 모달 열 때 메인 화면/라운지 카드 등 재생 중이던 모든 미디어 즉시 정지
   stopAllMediaExcept(null);
 
