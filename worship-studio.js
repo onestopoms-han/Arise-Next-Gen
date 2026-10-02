@@ -354,7 +354,7 @@ function loadCustomSongs() {
   }
 
   // 전 세계 어디서나 최신 정밀 싱크 자막 적용을 위한 공식 라이브러리 자동 정격 동기화
-  const CURRENT_LIBRARY_VER = '20261002_v14_jesus_enthrone_perfect_sync';
+  const CURRENT_LIBRARY_VER = '20261002_v15_jesus_meeting_praise_fix';
   const savedVer = localStorage.getItem('arise_praise_library_ver');
   if (savedVer !== CURRENT_LIBRARY_VER) {
     try {
@@ -1525,13 +1525,15 @@ function setCurrentMeetingSong(songId) {
 
   // 1. Update global routineContent in app.js
   if (typeof routineContent !== 'undefined') {
-    routineContent.step1.songTitle = `${song.titleKo} (${song.titleEn})`;
+    routineContent.step1 = routineContent.step1 || {};
+    routineContent.step1.songId = song.id;
+    routineContent.step1.songTitle = song.titleKo;
     if (song.videoId) {
       routineContent.step1.link = `https://www.youtube.com/watch?v=${song.videoId}`;
     } else if (song.videoUrl) {
       routineContent.step1.link = song.videoUrl;
     }
-    routineContent.step1.content = `전 세계 성도들이 함께 고백하는 대표 찬양으로 마음의 문을 열고 주님의 임재를 구합니다.\n• 지정 찬양: ${song.titleKo}\n• 한/영 2개 국어 자막 슬라이드 제공`;
+    routineContent.step1.content = `전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다.\n• 지정 찬양: ${song.titleKo}\n• 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace to you)`;
     localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
   }
 
@@ -1542,9 +1544,9 @@ function setCurrentMeetingSong(songId) {
   const detailSongLinkArea = document.getElementById('detailSongLinkArea');
   const btnPlayMeetingSongStudio = document.getElementById('btnPlayMeetingSongStudio');
 
-  if (routineSub1) routineSub1.textContent = `${song.titleKo} (${song.titleEn})`;
-  if (detailSongTitle) detailSongTitle.textContent = `${song.titleKo} (${song.titleEn})`;
-  if (btnPlayMeetingSongStudio) btnPlayMeetingSongStudio.innerHTML = `▶️ ${song.titleKo} (자막 플레이어)`;
+  if (routineSub1) routineSub1.textContent = song.titleKo;
+  if (detailSongTitle) detailSongTitle.textContent = song.titleKo;
+  if (btnPlayMeetingSongStudio) btnPlayMeetingSongStudio.innerHTML = `▶️ ${song.titleKo} (한/영 자막)`;
   if (detailSongContent && typeof routineContent !== 'undefined') {
     detailSongContent.innerHTML = routineContent.step1.content.replace(/\n/g, '<br>');
   }
@@ -1552,8 +1554,8 @@ function setCurrentMeetingSong(songId) {
     const linkUrl = song.videoUrl || (song.videoId ? `https://www.youtube.com/watch?v=${song.videoId}` : (song.audioUrl || ''));
     if (linkUrl) {
       detailSongLinkArea.innerHTML = `
-        <a href="${linkUrl}" target="_blank" rel="noopener noreferrer" class="btn-routine-link">
-          <span>🔗 찬양 바로가기 (${song.titleKo})</span>
+        <a href="${linkUrl}" target="_blank" rel="noopener noreferrer" class="detail-yt-btn">
+          ▶ 유튜브 찬양 영상 함께 듣기 (Watch on YouTube)
         </a>
       `;
     }
@@ -1568,16 +1570,55 @@ function setCurrentMeetingSong(songId) {
 }
 
 function openCurrentMeetingPraiseStudio() {
-  let targetId = 'amazing-grace';
-  if (typeof routineContent !== 'undefined' && routineContent.step1?.songTitle) {
-    const title = routineContent.step1.songTitle;
-    const pool = (worshipStudioState.allSongs && worshipStudioState.allSongs.length > 0) ? worshipStudioState.allSongs : PRESET_PRAISE_SONGS;
-    const matched = pool.find(s => 
-      title.includes(s.titleKo) || (s.titleEn && title.includes(s.titleEn))
-    );
-    if (matched) targetId = matched.id;
+  const pool = (worshipStudioState.allSongs && worshipStudioState.allSongs.length > 0) ? worshipStudioState.allSongs : PRESET_PRAISE_SONGS;
+  let targetId = 'jesus-we-enthrone-you';
+
+  if (typeof routineContent !== 'undefined' && routineContent.step1) {
+    const s1 = routineContent.step1;
+    // 1. Direct songId match
+    if (s1.songId) {
+      const byId = pool.find(s => s.id === s1.songId);
+      if (byId) {
+        openWorshipStudio(byId.id, true);
+        return;
+      }
+    }
+    // 2. Video ID in link match
+    if (s1.link) {
+      const byVideo = pool.find(s => s.videoId && s1.link.includes(s.videoId));
+      if (byVideo) {
+        openWorshipStudio(byVideo.id, true);
+        return;
+      }
+    }
+    // 3. Robust normalized title fuzzy search
+    if (s1.songTitle) {
+      const norm = str => (str || '').toLowerCase().replace(/[^a-z0-9가-힣]/g, '');
+      const clean = norm(s1.songTitle);
+      
+      // Known keywords check
+      if (clean.includes('예수우리왕') || clean.includes('애수우리왕') || clean.includes('우리왕이여') || clean.includes('enthrone')) {
+        openWorshipStudio('jesus-we-enthrone-you', true);
+        return;
+      }
+      if (clean.includes('나같은죄인') || clean.includes('amazinggrace') || clean.includes('305')) {
+        openWorshipStudio('amazing-grace', true);
+        return;
+      }
+      
+      const matched = pool.find(s => {
+        const cKo = norm(s.titleKo);
+        const cEn = norm(s.titleEn);
+        return (cKo && (clean.includes(cKo) || cKo.includes(clean))) ||
+               (cEn && (clean.includes(cEn) || cEn.includes(clean)));
+      });
+      if (matched) {
+        openWorshipStudio(matched.id, true);
+        return;
+      }
+    }
   }
-  openWorshipStudio(targetId);
+  openWorshipStudio(targetId, true);
 }
 window.openCurrentMeetingPraiseStudio = openCurrentMeetingPraiseStudio;
 

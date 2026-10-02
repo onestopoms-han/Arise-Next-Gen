@@ -1573,9 +1573,10 @@ const defaultTestimonies = [
 // Routine 4-Step Actual Program Content Seed Data (2026.10 기준)
 const defaultRoutineContent = {
   step1: {
-    songTitle: "나 같은 죄인 살리신 (Amazing Grace)",
-    link: "https://www.youtube.com/watch?v=4-IlkTVvqKk",
-    content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다.\n• 지정 찬양: 피아워십(F.I.A) · 나 같은 죄인 살리신 (찬송가 305장 / Amazing Grace 완곡)\n• 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace to you)"
+    songId: "jesus-we-enthrone-you",
+    songTitle: "예수 우리 왕이여 (Jesus, We Enthrone You)",
+    link: "https://www.youtube.com/watch?v=d6tDhj87iBM",
+    content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다.\n• 지정 찬양: 예수 우리 왕이여 (Jesus, We Enthrone You)\n• 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace to you)"
   },
   step2: {
     scripture: "창세기 1:27-28 (Genesis 1:27-28)",
@@ -1601,7 +1602,7 @@ const defaultMeetingSettings = {
 };
 
 // Always sync newly added nations & routine content & meeting settings
-const DATA_VERSION = 'v18_exact_word_routine_sync';
+const DATA_VERSION = 'v19_jesus_we_enthrone_you_routine_sync';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -2383,10 +2384,17 @@ function renderWorshipLounge() {
         pool[(startIndex + 1) % total],
         pool[(startIndex + 2) % total]
       ];
-      // Highlight amazing-grace in weekly if available
-      if (!displaySongs.some(s => s.id === 'amazing-grace')) {
-        const ag = pool.find(s => s.id === 'amazing-grace');
-        if (ag) displaySongs[0] = ag;
+      // Highlight current meeting song in weekly if available, fallback to jesus-we-enthrone-you
+      const targetMeetingSongId = (typeof routineContent !== 'undefined' && routineContent.step1?.songId) 
+        ? routineContent.step1.songId 
+        : 'jesus-we-enthrone-you';
+      const meetingPraise = pool.find(s => s.id === targetMeetingSongId) || pool.find(s => s.id === 'jesus-we-enthrone-you');
+      if (meetingPraise) {
+        if (!displaySongs.some(s => s.id === meetingPraise.id)) {
+          displaySongs[0] = meetingPraise;
+        } else if (displaySongs[0].id !== meetingPraise.id) {
+          displaySongs = [meetingPraise, ...displaySongs.filter(s => s.id !== meetingPraise.id)];
+        }
       }
     }
   } else if (currentWorshipFilter === 'all') {
@@ -2408,13 +2416,30 @@ function renderWorshipLounge() {
     }));
   }
 
-  // Current meeting praise title check
+  // Current meeting praise title and id check
   const currentMeetingSongTitle = (typeof routineContent !== 'undefined' && routineContent.step1?.songTitle) || '';
+  const currentMeetingSongId = (typeof routineContent !== 'undefined' && routineContent.step1?.songId) || '';
+  const normStr = str => (str || '').toLowerCase().replace(/[^a-z0-9가-힣]/g, '');
+  const cleanMeetingTitle = normStr(currentMeetingSongTitle);
 
   grid.innerHTML = displaySongs.map((song, idx) => {
-    const isCurrentMeeting = currentMeetingSongTitle && 
-      (currentMeetingSongTitle.includes(song.titleKo) || 
-       (song.titleEn && currentMeetingSongTitle.includes(song.titleEn)));
+    let isCurrentMeeting = false;
+    if (currentMeetingSongId && song.id === currentMeetingSongId) {
+      isCurrentMeeting = true;
+    } else if (cleanMeetingTitle) {
+      if (song.id === 'jesus-we-enthrone-you' && (cleanMeetingTitle.includes('예수우리왕') || cleanMeetingTitle.includes('애수우리왕') || cleanMeetingTitle.includes('enthrone'))) {
+        isCurrentMeeting = true;
+      } else if (song.id === 'amazing-grace' && (cleanMeetingTitle.includes('나같은죄인') || cleanMeetingTitle.includes('amazinggrace') || cleanMeetingTitle.includes('305'))) {
+        isCurrentMeeting = true;
+      } else {
+        const cKo = normStr(song.titleKo);
+        const cEn = normStr(song.titleEn);
+        if ((cKo && (cleanMeetingTitle.includes(cKo) || cKo.includes(cleanMeetingTitle))) ||
+            (cEn && (cleanMeetingTitle.includes(cEn) || cEn.includes(cleanMeetingTitle)))) {
+          isCurrentMeeting = true;
+        }
+      }
+    }
 
     let catLabel = isKorean ? '찬양' : 'Worship';
     if (song.category === 'hymn') catLabel = isKorean ? '✝️ 클래식 찬송가' : '✝️ Classic Hymn';
