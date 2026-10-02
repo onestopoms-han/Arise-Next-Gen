@@ -1597,12 +1597,12 @@ const defaultRoutineContent = {
 const defaultMeetingSettings = {
   // 2026년 10월 4일 (일) 호주 퀸즈랜드 8:00 PM (AEST, UTC+10) = 한국 19:00 KST (UTC+9)
   meetingDate: "2026-10-04T20:00:00+10:00",
-  zoomUrl: "https://zoom.us/j/88812345678",
-  meetingId: "Zoom ID: 888 1234 5678 | Passcode: 7777"
+  zoomUrl: "https://us05web.zoom.us/j/88386973041?pwd=WnMibQbSXIGzxk7D8R9vaPf8gkqzaO.1",
+  meetingId: "ID: 883 8697 3041 / PW: 5gZkTM"
 };
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261002_v32_mobile_jesus_sync';
+const DATA_VERSION = 'v20261003_v33_as_the_deer_and_hope_sync';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));

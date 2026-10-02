@@ -114,18 +114,21 @@ const PRESET_PRAISE_SONGS = [
     "duration": 244,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
-      { "start": 0.0, "end": 15.0, "kr": "🎵 목마른 사슴 (As the Deer) - 호산나싱어즈 전주", "en": "As the Deer - Hosanna Singers (Intro)" },
-      { "start": 15.0, "end": 32.0, "kr": "[1절] 목마른 사슴 시냇물을 찾아 헤매이듯이", "en": "As the deer panteth for the water, so my soul longeth after Thee" },
-      { "start": 32.0, "end": 50.0, "kr": "내 영혼 주를 찾기에 갈급하나이다", "en": "You alone are my heart's desire, and I long to worship Thee" },
-      { "start": 50.0, "end": 68.0, "kr": "[후렴] 주님만이 나의 힘 나의 방패 나의 참 소망", "en": "You alone are my strength, my shield; To You alone may my spirit yield" },
-      { "start": 68.0, "end": 88.0, "kr": "나의 몸 정성 다 바쳐서 주님 경배합니다", "en": "You alone are my heart's desire, and I long to worship Thee" },
-      { "start": 88.0, "end": 105.0, "kr": "[2절] 금보다 귀한 나의 주님 내게 만족 주시네", "en": "You're my friend and You are my brother, even though You are a King" },
-      { "start": 105.0, "end": 124.0, "kr": "당신만이 나의 기쁨 참된 평화입니다", "en": "I love You more than any other, so much more than anything" },
-      { "start": 124.0, "end": 142.0, "kr": "[후렴 반복] 주님만이 나의 힘 나의 방패 나의 참 소망", "en": "You alone are my strength, my shield; To You alone may my spirit yield" },
-      { "start": 142.0, "end": 164.0, "kr": "나의 몸 정성 다 바쳐서 주님 경배합니다", "en": "You alone are my heart's desire, and I long to worship Thee" },
-      { "start": 164.0, "end": 184.0, "kr": "[후렴 고조] 주님만이 나의 힘 나의 방패 나의 참 소망", "en": "You alone are my strength, my shield; To You alone may my spirit yield" },
-      { "start": 184.0, "end": 210.0, "kr": "나의 모든 정성 다해 오직 주를 경배합니다!", "en": "You alone are my heart's desire, and I long to worship Thee!" },
-      { "start": 210.0, "end": 244.0, "kr": "🕊️ 시냇물을 찾는 사슴처럼 주님만을 갈망하는 예배자가 되길 소망합니다 · 아멘", "en": "Seeking and Longing After God Alone Forever · Amen" }
+      { "start": 0.0, "end": 14.5, "kr": "🎵 목마른 사슴 (As the Deer) - 호산나싱어즈 전주", "en": "As the Deer - Hosanna Singers (Intro)" },
+      { "start": 14.5, "end": 26.5, "kr": "[1절] 목마른 사슴 시냇물을 찾아 헤매이듯이", "en": "As the deer panteth for the water, so my soul longeth after Thee" },
+      { "start": 26.5, "end": 39.0, "kr": "내 영혼 주를 찾기에 갈급하나이다", "en": "You alone are my heart's desire, and I long to worship Thee" },
+      { "start": 39.0, "end": 54.0, "kr": "주님만이 나의 힘 나의 방패 나의 참 소망", "en": "You alone are my strength, my shield; To You alone may my spirit yield" },
+      { "start": 54.0, "end": 68.0, "kr": "나의 몸 정성 다 바쳐서 주님 경배합니다", "en": "You alone are my heart's desire, and I long to worship Thee" },
+      { "start": 68.0, "end": 81.0, "kr": "금보다 귀한 나의 주님 내게 만족 주신분", "en": "I want You more than gold or silver, only You can satisfy" },
+      { "start": 81.0, "end": 94.0, "kr": "당신만이 나의 기쁨 또한 나의참보배", "en": "You alone are the real joy-giver and the apple of my eye" },
+      { "start": 94.0, "end": 109.0, "kr": "주님만이 나의 힘 나의 방패 나의 참 소망", "en": "You alone are my strength, my shield; To You alone may my spirit yield" },
+      { "start": 109.0, "end": 123.0, "kr": "나의 몸 정성 다 바쳐서 주님 경배합니다", "en": "You alone are my heart's desire, and I long to worship Thee" },
+      { "start": 123.0, "end": 149.0, "kr": "간주~ 목마른 사슴 시냇물을 찾아 헤매이듯이", "en": "(Interlude) As the deer panteth for the water, so my soul longeth after Thee" },
+      { "start": 149.0, "end": 162.0, "kr": "내 영혼 주를 찾기에 갈급하나이다", "en": "You alone are my heart's desire, and I long to worship Thee" },
+      { "start": 162.0, "end": 178.0, "kr": "주님만이 나의 힘 나의 방패 나의 참 소망", "en": "You alone are my strength, my shield; To You alone may my spirit yield" },
+      { "start": 178.0, "end": 190.0, "kr": "나의 몸 정성 다 바쳐서 주님 경배합니다", "en": "You alone are my heart's desire, and I long to worship Thee" },
+      { "start": 190.0, "end": 206.0, "kr": "주님만이 나의 힘 나의 방패 나의 참 소망", "en": "You alone are my strength, my shield; To You alone may my spirit yield" },
+      { "start": 206.0, "end": 244.0, "kr": "나의 몸 정성 다 바쳐서 주님 경배합니다", "en": "You alone are my heart's desire, and I long to worship Thee · Amen" }
     ]
   },
   {
@@ -197,34 +200,34 @@ const PRESET_PRAISE_SONGS = [
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
       { "start": 0.0, "end": 18.0, "kr": "🎵 원하고 바라고 기도합니다 - 찬양 전주", "en": "I Hope, Desire, and Pray - Praise Intro" },
-      { "start": 18.0, "end": 32.5, "kr": "[1절] 이 세상을 살아가는 동안에 나의 힘을 의지할 수 없으니", "en": "While living in this world, I cannot lean upon my own strength" },
-      { "start": 32.5, "end": 48.0, "kr": "기도하고 낙심하지 말 것은 주께서 참 소망이 되심이라", "en": "I will pray and not lose heart, for the Lord is my living hope" },
-      { "start": 48.0, "end": 62.0, "kr": "하나님의 꿈이 나의 비전이 되고", "en": "May the dream of God become my vision" },
-      { "start": 62.0, "end": 78.0, "kr": "예수님의 성품이 나의 인격이 되고", "en": "May the character of Jesus become my personality" },
-      { "start": 78.0, "end": 92.0, "kr": "성령님의 권능이 나의 능력이 되길", "en": "May the power of the Holy Spirit become my strength" },
-      { "start": 92.0, "end": 105.0, "kr": "원하고 바라고 기도합니다", "en": "This I hope, I desire, and I pray" },
-      { "start": 105.0, "end": 119.0, "kr": "이 세상을 살아가는 동안에 나의 힘을 의지할 수 없으니", "en": "While living in this world, I cannot lean upon my own strength" },
-      { "start": 119.0, "end": 136.0, "kr": "기도하고 낙심하지 말 것은 주께서 참 소망이 되심이라", "en": "I will pray and not lose heart, for the Lord is my living hope" },
-      { "start": 136.0, "end": 160.0, "kr": "주의 길을 걸어가는 동안에 세상의 것 의지할 수 없으니", "en": "While walking on the way of the Lord, I cannot trust worldly things" },
-      { "start": 160.0, "end": 175.0, "kr": "감사하고 낙심하지 말 것은 주께서 참 기쁨이 되심이라", "en": "I will give thanks and not lose heart, for the Lord is my true joy" },
-      { "start": 175.0, "end": 190.0, "kr": "하나님의 꿈이 나의 비전이 되고!", "en": "May the dream of God become my vision!" },
-      { "start": 190.0, "end": 204.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
-      { "start": 204.0, "end": 218.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
-      { "start": 218.0, "end": 232.0, "kr": "원하고 바라고 기도합니다!", "en": "This I hope, I desire, and I pray!" },
-      { "start": 232.0, "end": 255.0, "kr": "간주중~하나님의 꿈이 나의 비전이 되고!", "en": "(Interlude) May the dream of God become my vision!" },
-      { "start": 255.0, "end": 260.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
-      { "start": 260.0, "end": 270.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
-      { "start": 270.0, "end": 285.0, "kr": "원하고 바라고 기도합니다!", "en": "This I hope, I desire, and I pray!" },
-      { "start": 285.0, "end": 300.0, "kr": "하나님의 꿈이 나의 비전이 되고!", "en": "May the dream of God become my vision!" },
-      { "start": 300.0, "end": 315.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
-      { "start": 315.0, "end": 330.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
-      { "start": 330.0, "end": 345.0, "kr": "원하고 바라고 기도합니다!", "en": "This I hope, I desire, and I pray!" },
-      { "start": 345.0, "end": 360.0, "kr": "하나님의 꿈이 나의 비전이 되고!", "en": "May the dream of God become my vision!" },
-      { "start": 360.0, "end": 375.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
-      { "start": 375.0, "end": 390.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
-      { "start": 390.0, "end": 405.0, "kr": "원하고 바라고 기도합니다!", "en": "This I earnestly hope, desire, and pray!" },
-      { "start": 405.0, "end": 420.0, "kr": "원하고 바라고 기도합니다!", "en": "This I earnestly hope, desire, and pray!" },
-      { "start": 420.0, "end": 445.0, "kr": "원하고 바라고 기도합니다! · 아멘", "en": "This I earnestly hope, desire, and pray · Amen!" }
+      { "start": 18.0, "end": 30.0, "kr": "[1절] 이 세상을 살아가는 동안에 나의 힘을 의지할 수 없으니", "en": "While living in this world, I cannot lean upon my own strength" },
+      { "start": 30.0, "end": 43.0, "kr": "기도하고 낙심하지 말 것은 주께서 참 소망이 되심이라", "en": "I will pray and not lose heart, for the Lord is my living hope" },
+      { "start": 43.0, "end": 51.0, "kr": "하나님의 꿈이 나의 비전이 되고", "en": "May the dream of God become my vision" },
+      { "start": 51.0, "end": 58.0, "kr": "예수님의 성품이 나의 인격이 되고", "en": "May the character of Jesus become my personality" },
+      { "start": 58.0, "end": 66.0, "kr": "성령님의 권능이 나의 능력이 되길", "en": "May the power of the Holy Spirit become my strength" },
+      { "start": 66.0, "end": 73.0, "kr": "원하고 바라고 기도합니다", "en": "This I hope, I desire, and I pray" },
+      { "start": 73.0, "end": 91.0, "kr": "이 세상을 살아가는 동안에 나의 힘을 의지할 수 없으니", "en": "While living in this world, I cannot lean upon my own strength" },
+      { "start": 91.0, "end": 106.0, "kr": "기도하고 낙심하지 말 것은 주께서 참 소망이 되심이라", "en": "I will pray and not lose heart, for the Lord is my living hope" },
+      { "start": 106.0, "end": 120.0, "kr": "주의 길을 걸어가는 동안에 세상의 것 의지할 수 없으니", "en": "While walking on the way of the Lord, I cannot trust worldly things" },
+      { "start": 120.0, "end": 135.0, "kr": "감사하고 낙심하지 말 것은 주께서 참 기쁨이 되심이라", "en": "I will give thanks and not lose heart, for the Lord is my true joy" },
+      { "start": 135.0, "end": 142.0, "kr": "하나님의 꿈이 나의 비전이 되고!", "en": "May the dream of God become my vision!" },
+      { "start": 142.0, "end": 149.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
+      { "start": 149.0, "end": 157.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
+      { "start": 157.0, "end": 164.0, "kr": "원하고 바라고 기도합니다!", "en": "This I hope, I desire, and I pray!" },
+      { "start": 164.0, "end": 197.0, "kr": "간주중~하나님의 꿈이 나의 비전이 되고!", "en": "(Interlude) May the dream of God become my vision!" },
+      { "start": 197.0, "end": 207.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
+      { "start": 207.0, "end": 214.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
+      { "start": 214.0, "end": 221.0, "kr": "원하고 바라고 기도합니다!", "en": "This I hope, I desire, and I pray!" },
+      { "start": 221.0, "end": 229.0, "kr": "하나님의 꿈이 나의 비전이 되고!", "en": "May the dream of God become my vision!" },
+      { "start": 229.0, "end": 236.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
+      { "start": 236.0, "end": 244.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
+      { "start": 244.0, "end": 251.0, "kr": "원하고 바라고 기도합니다!", "en": "This I hope, I desire, and I pray!" },
+      { "start": 251.0, "end": 258.0, "kr": "하나님의 꿈이 나의 비전이 되고!", "en": "May the dream of God become my vision!" },
+      { "start": 258.0, "end": 265.0, "kr": "예수님의 성품이 나의 인격이 되고!", "en": "May the character of Jesus become my personality!" },
+      { "start": 265.0, "end": 273.0, "kr": "성령님의 권능이 나의 능력이 되길!", "en": "May the power of the Holy Spirit become my strength!" },
+      { "start": 273.0, "end": 280.0, "kr": "원하고 바라고 기도합니다!", "en": "This I earnestly hope, desire, and pray!" },
+      { "start": 280.0, "end": 288.0, "kr": "원하고 바라고 기도합니다!", "en": "This I earnestly hope, desire, and pray!" },
+      { "start": 288.0, "end": 445.0, "kr": "원하고 바라고 기도합니다! · 아멘", "en": "This I earnestly hope, desire, and pray · Amen!" }
     ]
   },
   {
@@ -354,7 +357,7 @@ function loadCustomSongs() {
   }
 
   // 전 세계 모바일 및 모든 접속 기기 최신 한/영 자막 강제 동기화 (구버전 캐시 무효화)
-  const CURRENT_LIBRARY_VER = '20261002_v32_mobile_jesus_sync';
+  const CURRENT_LIBRARY_VER = '20261003_v33_as_the_deer_and_hope_sync';
   const savedVer = localStorage.getItem('arise_praise_library_ver');
   if (savedVer !== CURRENT_LIBRARY_VER) {
     try {
@@ -377,9 +380,16 @@ function loadCustomSongs() {
     const savedOverrides = localStorage.getItem('arise_preset_lyrics_overrides');
     if (savedOverrides) {
       overrides = JSON.parse(savedOverrides);
-      // 영문 자막이 포함된 예수 우리 왕이여는 항상 공식 최신 라이브러리 가사 우선 유지
-      if (overrides['jesus-we-enthrone-you']) {
-        delete overrides['jesus-we-enthrone-you'];
+      // 영문 자막이 포함된 공식 찬양들은 최신 공식 라이브러리 가사 우선 유지 (로컬 캐시로 인한 영문 자막 누락 방지)
+      const officialGlobalIds = ['jesus-we-enthrone-you', 'as-the-deer', 'hope-desire-pray'];
+      let changed = false;
+      officialGlobalIds.forEach(id => {
+        if (overrides[id]) {
+          delete overrides[id];
+          changed = true;
+        }
+      });
+      if (changed) {
         localStorage.setItem('arise_preset_lyrics_overrides', JSON.stringify(overrides));
       }
     }
