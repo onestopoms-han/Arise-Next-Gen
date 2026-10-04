@@ -1596,7 +1596,7 @@ const defaultRoutineContent = {
     content: "🕊️ [1. 나를 위한 기도 / Prayer for Myself]\n“내가 제일 중요하다” | “I must begin with myself.”\n• 나의 복음이 되기를 (May the Gospel become real and evident in my life.)\n• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를 (May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture.)\n• Up & Down 되지 않는 항상이 되기를 - 성경 속 다니엘처럼 (May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.)\n\n🌍 [2. 모든 민족을 위한 기도 / Prayer for All Nations]\n• 모든 민족이 그리스도 앞에 무릎 꿇도록 (May all nations bow before Christ.)\n• 이곳에 모인 나라들과 세계 모든 나라를 위하여 (For the nations represented here and for every nation of the world.)\n• 전쟁 속에서 고통받는 나라들과 사람들을 위하여 (For countries and people suffering in the midst of war.)\n\n🌱 [3. 후대를 위한 기도 / Prayer for the Next Generation]\n• 후대가 복음을 알도록 (May the next generation know the Gospel.)\n• 복음이 정말 좋은 것임을 알도록 (May they discover that the Gospel is truly good news.)\n• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록 (May they know that whatever happens in life, they are secure when they are in Christ.)\n• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록 (May they see their studies and every part of life as preparation to serve and save all nations.)\n\n🔥 나 자신을 위하여 · 모든 민족을 위하여 · 후대를 위하여 각자의 모국어로 함께 기도합시다!"
   },
   step4: {
-    speaker: "클로징 기도: 죠지 (George) & 모임 나눔 (Closing Prayer & Sharing)",
+    speaker: "오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim) / 클로징 기도: 죠지 (Closing Prayer — George)",
     content: "• 오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim)\n• 진행: 한옥주 | 통역: 아이리스 (Host: Christine HAN | Interpreter: Iris)\n• 클로징 기도: 죠지 (Closing Prayer — George)\n• 다민족 제자의 5분 현장 응답 및 은혜 간증 나눔 (5-Minute Field Response & Grace Testimony by Multi-Ethnic Disciples)\n• 광고 안내: 개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임 (Announcements: Dedicated personal & family prayer times, and prayer meetings with faithful disciples for all nations and the next generation)\n• 주기도문으로 은혜의 30분 기도모임 폐회 (Closing of the 30-Minute Prayer Gathering with the Lord's Prayer)"
   }
 };
@@ -1610,7 +1610,7 @@ const defaultMeetingSettings = {
 };
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261004_v35_step4_content_bilingual_sync';
+const DATA_VERSION = 'v20261004_v36_step4_prayer_speakers_sync';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -2966,7 +2966,7 @@ function copySheetTemplateTsv() {
     "2단계_말씀요약\t27. 하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n28. 하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라\n\n📌 5분 메시지 요약: 복음으로 세상을 살리고 다스리는 언약의 후대",
     "3단계_기도제목\t함께 기도합시다 (Let Us Pray Together)",
     "3단계_기도내용\t🕊️ [1. 나를 위한 기도]\n“내가 제일 중요하다”\n• 나의 복음이 되기를\n• 성경에 나타난 능력의 그리스도를 누리기를\n• Up & Down 되지 않는 항상이 되기를\n\n🌍 [2. 모든 민족을 위한 기도]\n• 모든 민족이 그리스도 앞에 무릎 꿇도록\n• 모인 나라들과 세계 모든 나라를 위하여\n• 전쟁 속 고통받는 사람들을 위하여\n\n🌱 [3. 후대를 위한 기도]\n• 후대가 복음을 알고 복음이 참된 축복임을 알도록\n• 학업과 삶이 열방을 살리는 준비가 되도록",
-    "4단계_담당자\t클로징 기도: 죠지 (George) & 모임 나눔",
+    "4단계_담당자\t오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim) / 클로징 기도: 죠지 (Closing Prayer — George)",
     "4단계_마무리내용\t• 오픈닝 기도: 김은덕 목사\n• 진행: 한옥주 | 통역: 아이리스\n• 클로징 기도: 죠지\n• 광고: 개인/부부/가족 및 충성된 자와 함께하는 기도모임\n• 주기도문 폐회",
     "모임일시\t2026-10-04T20:00:00+10:00",
     "줌링크\thttps://zoom.us/j/88812345678",
@@ -3108,10 +3108,10 @@ function renderRoutineDisplay() {
     const detailClosingContent = document.getElementById('detailClosingContent');
 
     if (routineSub4) {
-      routineSub4.textContent = data.step4?.speaker || '간증 나눔 & 주요 광고 안내';
+      routineSub4.textContent = data.step4?.speaker || '오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim) / 클로징 기도: 죠지 (Closing Prayer — George)';
     }
     if (detailClosingTitle) {
-      detailClosingTitle.textContent = data.step4?.speaker || '클로징 기도: 죠지 (George) & 모임 나눔';
+      detailClosingTitle.textContent = data.step4?.speaker || '오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim) / 클로징 기도: 죠지 (Closing Prayer — George)';
     }
     if (detailClosingContent) {
       detailClosingContent.innerHTML = escapeHtml(data.step4?.content || '').replace(/\n/g, '<br>');
