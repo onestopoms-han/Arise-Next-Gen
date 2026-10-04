@@ -38,7 +38,8 @@ const translations = {
     routine_step2_desc: "성경 본문 중심의 핵심 복음 메시지 나눔 (영어-한국어 자막 슬라이드 제공).",
     routine_step3_title: "3대 집중 중보기도 (15분)",
     routine_step3_desc: "① 나 자신을 위한 기도 ② 모든 민족을 위한 기도 ③ 후대를 위한 기도. 각자의 모국어로 함께 기도합시다!",
-    routine_step4_title: "현장 간증 & 광고 (5분)",
+    routine_step4_title: "순서 & 광고",
+    routine_step4_title_en: "Order & Announcements",
     routine_step4_desc: "다민족 제자의 현장 응답 간증 및 모든 민족과 후대를 위한 주요 광고 안내로 마칩니다.",
     core_prayer_heading: "📌 이달의 3대 핵심 기도제목 (This Month's Focus)",
     focus_1_title: "열방의 후대들에게 구원의 빛이 비추어지도록",
@@ -211,7 +212,8 @@ const translations = {
     routine_step2_desc: "Core Gospel message rooted in scripture (with Korean-English bilingual slides provided).",
     routine_step3_title: "3 Core Intercessory Prayers (15m)",
     routine_step3_desc: "① Prayer for Myself ② Prayer for All Nations ③ Prayer for Next Generation. Cry out in your own tongue!",
-    routine_step4_title: "Field Testimony & Announcement (5m)",
+    routine_step4_title: "Order & Announcements",
+    routine_step4_title_en: "Order & Announcements",
     routine_step4_desc: "Hear field responses from multi-ethnic disciples and key announcements for all nations.",
     core_prayer_heading: "📌 This Month's 3 Core Prayer Topics",
     focus_1_title: "That the Light of Christ May Shine on the Next-Gen",
@@ -384,7 +386,8 @@ const translations = {
     routine_step2_desc: "ข้อความสั้น 7 นาทีจากพระคัมภีร์หลัก (พร้อมสไลด์ประกอบสองภาษา)",
     routine_step3_title: "3 หัวข้ออธิษฐานวิงวอนอย่างจดจ่อ",
     routine_step3_desc: "① ความรอดของคนรุ่นหลัง ② พันธกิจในแต่ละประเทศ ③ ผู้ประกาศข่าวประเสริฐ ส่งเสียงร้องในภาษาของตนเอง!",
-    routine_step4_title: "คำพยาน 1 นาทีและคำอธิษฐานอวยพร",
+    routine_step4_title: "ลำดับพิธีและการประกาศ",
+    routine_step4_title_en: "Order & Announcements",
     routine_step4_desc: "ฟังคำพยานสั้นๆ เกี่ยวกับพระราชกิจของพระเจ้า จากนั้นอธิษฐานอวยพรและจบด้วยคำอธิษฐานขององค์พระผู้เป็นเจ้า",
     core_prayer_heading: "📌 3 หัวข้ออธิษฐานหลักประจำเดือนนี้",
     focus_1_title: "ขอให้ความสว่างของพระคริสต์ส่องไปยังคนรุ่นหลัง",
@@ -535,7 +538,8 @@ const translations = {
     routine_step2_desc: "رسالة أساسية موجزة لمدة 7 دقائق مبنية على آيات الكتاب المقدس (مع شرائح بلغتين).",
     routine_step3_title: "3 صلوات شفاعية مركزة",
     routine_step3_desc: "① خلاص الجيل القادم ② حقول الإرسالية الوطنية ③ المبشرون بالإنجيل. اصرخوا بلغاتكم الأصلية!",
-    routine_step4_title: "شهادة لمدة دقيقة وصلاة البركة",
+    routine_step4_title: "الترتيب والإعلانات",
+    routine_step4_title_en: "Order & Announcements",
     routine_step4_desc: "الاستماع إلى شهادة سريعة عن عمل الله في الميدان، تليها البركات المتبادلة والصلاة الربانية.",
     core_prayer_heading: "📌 مواضيع الصلاة الثلاثة الرئيسية لهذا الشهر",
     focus_1_title: "أن يشرق نور المسيح على الجيل القادم",
@@ -686,7 +690,8 @@ const translations = {
     routine_step2_desc: "Un message fondamental concis de 7 minutes enraciné dans les Écritures (avec diapositives bilingues).",
     routine_step3_title: "3 Prières d'Intercession Ciblées",
     routine_step3_desc: "① Salut de la Prochaine Génération ② Champs de Mission Nationaux ③ Évangélisateurs. Priez dans votre propre langue maternelle !",
-    routine_step4_title: "Témoignage d'1 Min & Bénédiction",
+    routine_step4_title: "Ordre et Annonces",
+    routine_step4_title_en: "Order & Announcements",
     routine_step4_desc: "Écouter un court témoignage de l'action de Dieu sur le terrain, suivi de bénédictions mutuelles et du Notre Père.",
     core_prayer_heading: "📌 3 Sujets Principaux de Prière pour ce Mois",
     focus_1_title: "Que la Lumière du Christ Brille sur la Prochaine Génération",
@@ -837,7 +842,8 @@ const translations = {
     routine_step2_desc: "以1-2节核心经文为中心的7分钟核心信息（提供双语字幕幻灯片）。",
     routine_step3_title: "三大集中中保祷告",
     routine_step3_desc: "① 全球后代福音化 ② 各国宣教现场 ③ 传道者与教会。用各自的母语呼求！",
-    routine_step4_title: "1分钟见证与祝祷",
+    routine_step4_title: "程序与公祷",
+    routine_step4_title_en: "Order & Announcements",
     routine_step4_desc: "聆听现场宣教的小见证，随后互致祝福并以主祷文结束。",
     core_prayer_heading: "📌 本月三大核心祷告题目",
     focus_1_title: "愿基督的救恩之光照耀万国后代",
@@ -988,7 +994,8 @@ const translations = {
     routine_step2_desc: "Pesan inti 7 menit yang berakar pada ayat firman Tuhan (dengan slide dwibahasa).",
     routine_step3_title: "3 Pokok Doa Syafaat Terfokus",
     routine_step3_desc: "① Keselamatan Generasi Penerus ② Ladang Misi Nasional ③ Para Penginjil. Berserulah dalam bahasa ibu masing-masing!",
-    routine_step4_title: "Kesaksian 1 Menit & Doa Berkat",
+    routine_step4_title: "Susunan Acara & Pengumuman",
+    routine_step4_title_en: "Order & Announcements",
     routine_step4_desc: "Mendengarkan kesaksian singkat karya Tuhan di ladang misi, diakhiri dengan doa berkat dan Doa Bapa Kami.",
     core_prayer_heading: "📌 3 Pokok Doa Utama Bulan Ini",
     focus_1_title: "Biarlah Terang Kristus Bersinar atas Generasi Penerus",
@@ -1139,7 +1146,8 @@ const translations = {
     routine_step2_desc: "အဓိကကျမ်းချက်များအပေါ် အခြေခံထားသော ၇ မိနစ် တိုတောင်းသော သတင်းစကား။",
     routine_step3_title: "အဓိက ကြားဝင်ဆုတောင်းချက် ၃ ခု",
     routine_step3_desc: "① မျိုးဆက်သစ် ဧဝံဂေလိတရားရရှိရေး ② နိုင်ငံအသီးသီးမှ သာသနာ့လုပ်ငန်း ③ ဧဝံဂေလိဆရာများ။ မိခင်ဘာသာစကားဖြင့် အော်ဟစ်ဆုတောင်းပါ!",
-    routine_step4_title: "၁ မိနစ် သက်သေခံချက်နှင့် ကောင်းချီးဆုတောင်းခြင်း",
+    routine_step4_title: "အစီအစဉ်နှင့် ကြေညာချက်များ",
+    routine_step4_title_en: "Order & Announcements",
     routine_step4_desc: "ဘုရားသခင်၏ အမှုတော်သက်သေခံချက်ကို နားထောင်ပြီး ကောင်းချီးပေးခြင်း၊ သခင်ဘုရားသင်ပေးသော ဆုတောင်းချက်ဖြင့် ပြီးဆုံးခြင်း။",
     core_prayer_heading: "📌 ဤလအတွက် အဓိက ဆုတောင်းချက် ၃ ချက်",
     focus_1_title: "ခရစ်တော်၏ ကယ်တင်ခြင်းအလင်းသည် မျိုးဆက်သစ်များအပေါ် ထွန်းလင်းပါစေ",
@@ -1588,21 +1596,21 @@ const defaultRoutineContent = {
     content: "🕊️ [1. 나를 위한 기도 / Prayer for Myself]\n“내가 제일 중요하다” | “I must begin with myself.”\n• 나의 복음이 되기를 (May the Gospel become real and evident in my life.)\n• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를 (May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture.)\n• Up & Down 되지 않는 항상이 되기를 - 성경 속 다니엘처럼 (May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.)\n\n🌍 [2. 모든 민족을 위한 기도 / Prayer for All Nations]\n• 모든 민족이 그리스도 앞에 무릎 꿇도록 (May all nations bow before Christ.)\n• 이곳에 모인 나라들과 세계 모든 나라를 위하여 (For the nations represented here and for every nation of the world.)\n• 전쟁 속에서 고통받는 나라들과 사람들을 위하여 (For countries and people suffering in the midst of war.)\n\n🌱 [3. 후대를 위한 기도 / Prayer for the Next Generation]\n• 후대가 복음을 알도록 (May the next generation know the Gospel.)\n• 복음이 정말 좋은 것임을 알도록 (May they discover that the Gospel is truly good news.)\n• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록 (May they know that whatever happens in life, they are secure when they are in Christ.)\n• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록 (May they see their studies and every part of life as preparation to serve and save all nations.)\n\n🔥 나 자신을 위하여 · 모든 민족을 위하여 · 후대를 위하여 각자의 모국어로 함께 기도합시다!"
   },
   step4: {
-    speaker: "클로징 기도: 죠지 (George) & 모임 나눔",
-    content: "• 오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim)\n• 진행: 한옥주 | 통역: 아이리스 (Host: Christine HAN | Interpreter: Iris)\n• 클로징 기도: 죠지 (Closing Prayer — George)\n• 다민족 제자의 5분 현장 응답 및 은혜 간증 나눔\n• 광고 안내: 개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임\n• 주기도문으로 은혜의 30분 기도모임 폐회"
+    speaker: "클로징 기도: 죠지 (George) & 모임 나눔 (Closing Prayer & Sharing)",
+    content: "• 오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim)\n• 진행: 한옥주 | 통역: 아이리스 (Host: Christine HAN | Interpreter: Iris)\n• 클로징 기도: 죠지 (Closing Prayer — George)\n• 다민족 제자의 5분 현장 응답 및 은혜 간증 나눔 (5-Minute Field Response & Grace Testimony by Multi-Ethnic Disciples)\n• 광고 안내: 개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임 (Announcements: Dedicated personal & family prayer times, and prayer meetings with faithful disciples for all nations and the next generation)\n• 주기도문으로 은혜의 30분 기도모임 폐회 (Closing of the 30-Minute Prayer Gathering with the Lord's Prayer)"
   }
 };
 
-// Meeting Settings Seed Data (호주 퀸즈랜드 8:00 PM AEST 기준)
+// Meeting Settings Seed Data (호주 퀸즈랜드 7:30 PM AEST 기준)
 const defaultMeetingSettings = {
-  // 2026년 10월 4일 (일) 호주 퀸즈랜드 8:00 PM (AEST, UTC+10) = 한국 19:00 KST (UTC+9)
-  meetingDate: "2026-10-04T20:00:00+10:00",
-  zoomUrl: "https://us05web.zoom.us/j/88386973041?pwd=WnMibQbSXIGzxk7D8R9vaPf8gkqzaO.1",
+  // 2026년 10월 4일 (일) 호주 퀸즈랜드 7:30 PM (AEST, UTC+10) = 한국 18:30 KST (UTC+9)
+  meetingDate: "2026-10-04T19:30:00+10:00",
+  zoomUrl: "https://us06web.zoom.us/j/88386973041?pwd=WnMibQbSXIGzxk7D8R9vaPf8gkqzaO.1",
   meetingId: "ID: 883 8697 3041 / PW: 5gZkTM"
 };
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261003_v33_as_the_deer_and_hope_sync';
+const DATA_VERSION = 'v20261004_v35_step4_content_bilingual_sync';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -3985,7 +3993,7 @@ function getNoticePresentationData() {
 
   return {
     meetingTitle: "2026 어라이즈 넥스트젠 30분 기도모임",
-    stepTitle: "4단계: 현장 간증 & 광고 (5분)",
+    stepTitle: "4단계: 순서 & 광고 (Order & Announcements)",
     meetingTime: "매월 첫 주일 호주 AEST 8:00 PM (한국 19:00)",
     serviceRoles: [
       { role: "진행 (Host)", name: "한옥주 (Christine HAN)", tag: "진행" },
@@ -4122,8 +4130,8 @@ function renderNoticePptSlide(index) {
     slideContent.innerHTML = `
       <div class="ppt-cover-layout">
         <div class="ppt-cover-badge">🕊️ ${escapeHtml(data.meetingTitle)} · 4단계</div>
-        <h1 class="ppt-cover-title">현장 간증 & 광고</h1>
-        <div class="ppt-cover-scripture" style="font-size: 1.5rem; color: #38bdf8;">Field Testimony & Key Announcements</div>
+        <h1 class="ppt-cover-title">순서 & 광고</h1>
+        <div class="ppt-cover-scripture" style="font-size: 1.5rem; color: #38bdf8;">Order & Announcements</div>
         <div class="ppt-roles-grid">
           ${data.serviceRoles.map(r => `
             <div class="ppt-role-card">
@@ -4220,8 +4228,8 @@ function openNoticePdfModal() {
         <div style="font-size: 0.82rem; font-weight: 800; color: #0284c7; text-transform: uppercase; margin-bottom: 0.2rem;">
           ${escapeHtml(data.meetingTitle)}
         </div>
-        <h1 class="pdf-title-main">4단계: 현장 간증 & 광고 안내 (5분)</h1>
-        <div class="pdf-scripture-line">📢 Field Testimony & Announcements</div>
+        <h1 class="pdf-title-main">4단계: 순서 & 광고 안내</h1>
+        <div class="pdf-scripture-line">📢 Order & Announcements</div>
       </div>
       <div style="text-align: right;">
         <span class="pdf-badge-meta">4단계 순서 중 4단계</span>
@@ -4313,8 +4321,8 @@ function downloadNoticePptx() {
   pptx.layout = 'LAYOUT_16x9';
   pptx.author = 'Arise Next Gen Global Prayer Hub';
   pptx.company = 'Arise Next Gen';
-  pptx.subject = '4단계: 현장 간증 & 광고 (5분)';
-  pptx.title = '2026 어라이즈 넥스트젠 현장 간증 및 광고';
+  pptx.subject = '4단계: 순서 & 광고 (Order & Announcements)';
+  pptx.title = '2026 어라이즈 넥스트젠 순서 및 광고';
 
   // Slide 1: Cover
   const s1 = pptx.addSlide();
@@ -4323,11 +4331,11 @@ function downloadNoticePptx() {
     x: 0.8, y: 0.8, w: 11.5, h: 0.5,
     fontSize: 14, color: '38BDF8', bold: true, align: 'center'
   });
-  s1.addText("현장 간증 & 광고", {
+  s1.addText("순서 & 광고", {
     x: 0.8, y: 1.5, w: 11.5, h: 1.2,
     fontSize: 40, color: 'FFFFFF', bold: true, align: 'center'
   });
-  s1.addText("Field Testimony & Key Announcements", {
+  s1.addText("Order & Announcements", {
     x: 0.8, y: 2.8, w: 11.5, h: 0.6,
     fontSize: 18, color: '38BDF8', italic: true, align: 'center'
   });

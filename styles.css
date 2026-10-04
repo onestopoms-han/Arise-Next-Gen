@@ -798,6 +798,16 @@ body {
   line-height: 1.35;
 }
 
+.step-title-en {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.02em;
+  margin-top: 0.15rem;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
 .step-desc {
   font-size: 0.86rem;
   color: var(--text-secondary);
