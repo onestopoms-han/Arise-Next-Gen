@@ -37,6 +37,7 @@
       <nav class="nav-menu" id="navMenu">
         <a href="#countdown" class="nav-link" data-i18n="nav_meeting">기도모임 안내</a>
         <a href="#routine" class="nav-link" data-i18n="nav_routine">30분 루틴</a>
+        <a href="#kids-zone" class="nav-link nav-link-kids" data-i18n="nav_kids_zone">🌈 키즈 복음관</a>
         <a href="#prayer-guide" class="nav-link" data-i18n="nav_prayer_guide">공동 기도문</a>
         <a href="#prayer-wall" class="nav-link" data-i18n="nav_prayer_wall">기도 정원</a>
         <a href="#testimonies" class="nav-link" data-i18n="nav_testimonies">은혜의 간증</a>
@@ -567,6 +568,145 @@
             <span class="together-pill"><strong data-i18n="pill_myself">나 자신을 위하여</strong> • <span data-i18n="pill_myself_sub">For myself</span></span>
             <span class="together-pill"><strong data-i18n="pill_nations">모든 민족을 위하여</strong> • <span data-i18n="pill_nations_sub">For all nations</span></span>
             <span class="together-pill"><strong data-i18n="pill_nextgen">후대를 위하여</strong> • <span data-i18n="pill_nextgen_sub">For the next generation</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kids Gospel Zone (키즈 복음관: 인터랙티브 전자 동화책 & 찬양 애니메이션) -->
+  <section class="kids-zone-section" id="kids-zone">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="section-header-kids text-center">
+        <div class="kids-badge">
+          <span class="kids-badge-icon">🌈</span>
+          <span data-i18n="kids_badge">NEXT-GEN KIDS GOSPEL · 열방 어린이 복음 동화관</span>
+        </div>
+        <h2 class="section-title kids-section-title" data-i18n="kids_title">
+          말씀과 그림으로 만나는 <span class="gradient-text-kids">어린이 복음 동화</span>
+        </h2>
+        <p class="section-desc kids-section-desc" data-i18n="kids_subtitle">
+          아이들의 눈높이에 맞춘 따뜻한 일러스트와 한/영 이야기로 만나는 하나님의 원래 축복과 언약의 여정
+        </p>
+      </div>
+
+      <!-- Kids Storybook Hub Card -->
+      <div class="kids-hub-card">
+        <!-- Top Toolbar: Mode Switcher & Tools -->
+        <div class="kids-toolbar">
+          <div class="kids-book-tabs">
+            <button type="button" class="kids-tab-btn active" id="tabBookStorybook" onclick="switchKidsViewerMode('storybook')">
+              📖 인터랙티브 동화책 (Storybook)
+            </button>
+            <button type="button" class="kids-tab-btn" id="tabBookVideo" onclick="switchKidsViewerMode('video')">
+              🎬 찬양 애니메이션 영상 (Video)
+            </button>
+          </div>
+
+          <div class="kids-tool-actions">
+            <!-- Language Mode Selector -->
+            <div class="kids-lang-toggle" id="kidsLangToggle">
+              <button type="button" class="kids-lang-btn active" onclick="setKidsStoryLang('bilingual')" id="btnKidsLangBilingual">🌐 한·영 함께</button>
+              <button type="button" class="kids-lang-btn" onclick="setKidsStoryLang('ko')" id="btnKidsLangKo">🇰🇷 한글</button>
+              <button type="button" class="kids-lang-btn" onclick="setKidsStoryLang('en')" id="btnKidsLangEn">🇺🇸 English</button>
+            </div>
+
+            <!-- Sound / Read Aloud Buttons -->
+            <button type="button" class="btn btn-sm btn-kids-action" id="btnKidsTts" onclick="toggleKidsSpeech()" title="선생님 목소리로 읽어주기 (Read Aloud)">
+              🔊 소리내어 읽기
+            </button>
+            <button type="button" class="btn btn-sm btn-kids-action" id="btnKidsBgm" onclick="toggleKidsBgm()" title="잔잔한 배경음악 켜기/끄기">
+              🎵 배경음악
+            </button>
+            <!-- Fullscreen / Presentation Zoom mode -->
+            <button type="button" class="btn btn-sm btn-kids-action" onclick="openKidsFullscreen()" title="주일학교 및 Zoom 발표용 전체화면">
+              📺 발표/전체화면
+            </button>
+            <!-- PPTX Download -->
+            <button type="button" class="btn btn-sm btn-kids-outline" onclick="downloadKidsStorybookPptx()" title="주일학교 공과용 PPTX 다운로드">
+              📊 PPTX 다운로드
+            </button>
+          </div>
+        </div>
+
+        <!-- 1. Interactive Storybook Stage Mode -->
+        <div class="kids-stage-wrapper" id="kidsStorybookMode">
+          <div class="kids-stage-layout">
+            <!-- Visual Illustration Area -->
+            <div class="kids-stage" id="kidsStage">
+              <!-- Left Arrow -->
+              <button type="button" class="kids-nav-arrow kids-arrow-prev" onclick="prevKidsSlide()" aria-label="이전 페이지">
+                <span>❮</span>
+              </button>
+
+              <!-- Main Visual Frame -->
+              <div class="kids-slide-frame" id="kidsSlideFrame">
+                <img src="assets/kids_gospel_1.jpg" alt="키즈 복음 동화 삽화" id="kidsSlideImg" class="kids-slide-img">
+                <div class="kids-slide-badge" id="kidsSlideBadge">
+                  Page 1 / 5
+                </div>
+                <button type="button" class="kids-autoplay-btn" id="btnKidsAutoPlay" onclick="toggleKidsAutoPlay()" title="자동 책 넘김 (6.5초마다 다음 장)">
+                  ▶️ 자동 넘김
+                </button>
+              </div>
+
+              <!-- Right Arrow -->
+              <button type="button" class="kids-nav-arrow kids-arrow-next" onclick="nextKidsSlide()" aria-label="다음 페이지">
+                <span>❯</span>
+              </button>
+            </div>
+
+            <!-- Storybook Text & Captions Card -->
+            <div class="kids-story-card mode-bilingual" id="kidsStoryCard">
+              <div class="kids-story-header">
+                <span class="kids-chapter-tag" id="kidsChapterTag">제 1장 · 아름다운 에덴</span>
+                <span class="kids-scripture-ref" id="kidsScriptureRef">📖 창세기 1:27-28 (Genesis 1:27-28)</span>
+              </div>
+              <h3 class="kids-story-title" id="kidsStoryTitleKo">하나님이 만드신 가장 아름다운 세상</h3>
+              <p class="kids-story-title-en" id="kidsStoryTitleEn">The Most Beautiful World Created by God</p>
+              
+              <div class="kids-text-body">
+                <p class="kids-text-ko" id="kidsTextKo">
+                  하나님께서 푸른 하늘과 바다, 예쁜 꽃과 나무, 그리고 귀여운 동물들을 만드셨어요. 그리고 하나님의 형상대로 우리 아이들을 가장 사랑스럽고 존귀하게 만드셨답니다.
+                </p>
+                <p class="kids-text-en" id="kidsTextEn">
+                  God created the clear blue sky and ocean, lovely blooming flowers, and wonderful animals. And in His own divine image, God lovingly created us to be dearly treasured!
+                </p>
+              </div>
+
+              <!-- Bottom Progress and Thumbnails -->
+              <div class="kids-pagination">
+                <div class="kids-dots" id="kidsDotsContainer">
+                  <!-- Dots rendered dynamically -->
+                </div>
+                <div class="kids-page-controls">
+                  <button type="button" class="btn btn-sm btn-kids-nav" onclick="prevKidsSlide()" id="btnPrevPage">
+                    ◀ 이전 장
+                  </button>
+                  <span class="kids-page-counter" id="kidsPageCounter">1 / 5</span>
+                  <button type="button" class="btn btn-sm btn-kids-nav btn-kids-next" onclick="nextKidsSlide()" id="btnNextPage">
+                    다음 장 ▶
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Animation Video Mode (Toggled via tab) -->
+        <div class="kids-video-mode" id="kidsVideoMode" style="display: none;">
+          <div class="kids-video-container">
+            <video id="kidsVideoPlayer" controls preload="metadata" poster="assets/kids_gospel_1.jpg" style="width: 100%; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+              <source src="assets/kids_gospel_animation.mp4" type="video/mp4">
+              브라우저가 비디오 재생을 지원하지 않습니다.
+            </video>
+          </div>
+          <div class="kids-video-desc">
+            <p>🎵 <strong>BGM 찬양:</strong> 하나님의 은혜 (Only By Grace) · 5단계 풀스토리 영상 (1280x720 HD)</p>
+            <a href="assets/kids_gospel_animation.mp4" download="어린이_복음동화_원래축복.mp4" class="btn btn-sm btn-outline" style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.5rem; border-color: #38bdf8; color: #38bdf8;">
+              📥 720p HD 애니메이션 비디오 다운로드
+            </a>
           </div>
         </div>
       </div>
@@ -1835,6 +1975,48 @@
     </div>
   </div>
 
+  <!-- Kids Storybook Fullscreen Presentation Modal (Zoom / TV) -->
+  <div class="modal-overlay kids-presentation-modal" id="kidsFullscreenModal">
+    <div class="kids-fullscreen-content">
+      <div class="kids-modal-header">
+        <div class="kids-modal-title-group">
+          <span class="kids-modal-badge" id="kidsModalBadge">1 / 5</span>
+          <span class="kids-modal-chap" id="kidsModalChap">제 1장 · 아름다운 에덴</span>
+          <span class="kids-modal-script" id="kidsModalScript">📖 창세기 1:27-28</span>
+        </div>
+        <div class="kids-modal-actions">
+          <button type="button" class="btn btn-sm btn-kids-action" id="btnModalTts" onclick="toggleKidsSpeech()">🔊 소리내어 읽기</button>
+          <button type="button" class="btn btn-sm btn-kids-action" id="btnModalBgm" onclick="toggleKidsBgm()">🎵 배경음악</button>
+          <button type="button" class="btn btn-sm btn-kids-action" id="btnModalAutoPlay" onclick="toggleKidsAutoPlay()">▶️ 자동 넘김</button>
+          <button type="button" class="modal-close" onclick="closeKidsFullscreen()">&times;</button>
+        </div>
+      </div>
+
+      <div class="kids-modal-body">
+        <div class="kids-modal-stage">
+          <button type="button" class="kids-modal-arrow kids-arrow-left" onclick="prevKidsSlide()">❮</button>
+          <div class="kids-modal-frame" id="kidsModalFrame">
+            <img src="assets/kids_gospel_1.jpg" alt="키즈 복음 동화 대화면" id="kidsModalImg" class="kids-modal-img">
+          </div>
+          <button type="button" class="kids-modal-arrow kids-arrow-right" onclick="nextKidsSlide()">❯</button>
+        </div>
+
+        <div class="kids-modal-story-card mode-bilingual" id="kidsModalStoryCard">
+          <h3 class="kids-modal-title-ko" id="kidsModalTitleKo">하나님이 만드신 가장 아름다운 세상</h3>
+          <p class="kids-modal-title-en" id="kidsModalTitleEn">The Most Beautiful World Created by God</p>
+          <div class="kids-modal-text-body">
+            <p class="kids-modal-text-ko" id="kidsModalTextKo">
+              하나님께서 푸른 하늘과 바다, 예쁜 꽃과 나무, 그리고 귀여운 동물들을 만드셨어요. 그리고 하나님의 형상대로 우리 아이들을 가장 사랑스럽고 존귀하게 만드셨답니다.
+            </p>
+            <p class="kids-modal-text-en" id="kidsModalTextEn">
+              God created the clear blue sky and ocean, lovely blooming flowers, and wonderful animals. And in His own divine image, God lovingly created us to be dearly treasured!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast Notification element -->
   <div class="toast-container" id="toastContainer"></div>
 
@@ -1842,6 +2024,7 @@
   <script src="pptxgen.bundle.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
   <script src="worship-studio.js?v=20261003_v33_as_the_deer_and_hope_sync"></script>
+  <script src="kids-gospel.js?v=20261007_v1"></script>
   <script src="app.js?v=20261003_v33_as_the_deer_and_hope_sync"></script>
 </body>
 </html>
