@@ -58,8 +58,8 @@ const KIDS_STORYBOOK_DATA = {
       img: "assets/kids_gospel_5.jpg",
       titleKo: "열방을 비추는 믿음의 후대 (Arise Next-Gen)",
       titleEn: "Next-Gen of Faith Shining for All Nations",
-      textKo: "\"일어나라 빛을 발하라!\" 우리는 온 세상을 밝히는 복음의 렘넌트예요. 세계 모든 민족과 친구들에게 예수님의 사랑을 전하며, 세상을 살리는 빛으로 씩씩하게 자라나요!",
-      textEn: "\"Arise, shine, for your light has come!\" We are gospel remnants shining Christ's love across the nations. Let us carry Jesus' light to every corner of the world with courage and joy!"
+      textKo: "\"일어나라 빛을 발하라!\" 우리는 온 세상을 밝히는 복음의 후대예요. 세계 모든 민족과 친구들에게 예수님의 사랑을 전하며, 세상을 살리는 빛으로 씩씩하게 자라나요!",
+      textEn: "\"Arise, shine, for your light has come!\" We are the next generation of the gospel, shining Christ's love across the nations. Let us carry Jesus' light to every corner of the world with courage and joy!"
     }
   ]
 };
