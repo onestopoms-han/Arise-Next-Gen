@@ -1,6 +1,6 @@
 /**
- * Arise Next-Gen Kids Gospel Storybook & Interactive Viewer (키즈 복음관)
- * 아이들의 눈높이에 맞춘 따뜻한 일러스트 동화책, 한/영 바이링구얼 내레이션,
+ * Arise Next-Gen Faith Next-Gen Storybook & Interactive Viewer (믿음의 후대관)
+ * 다음 세대 믿음의 후대들을 위한 따뜻한 일러스트 동화책, 한/영 바이링구얼 내레이션,
  * 실시간 TTS 읽어주기, 배경 찬양 음악, 줌 발표 모드 및 PPTX 다운로드
  */
 
@@ -56,8 +56,8 @@ const KIDS_STORYBOOK_DATA = {
       chapterEn: "Chapter 5 · Light for All Nations",
       scripture: "이사야 60:1-3 (Isaiah 60:1), 마태복음 28:19",
       img: "assets/kids_gospel_5.jpg",
-      titleKo: "열방을 비추는 빛의 어린이 (Arise Next-Gen)",
-      titleEn: "Children of Light Shining for All Nations",
+      titleKo: "열방을 비추는 믿음의 후대 (Arise Next-Gen)",
+      titleEn: "Next-Gen of Faith Shining for All Nations",
       textKo: "\"일어나라 빛을 발하라!\" 우리는 온 세상을 밝히는 복음의 렘넌트예요. 세계 모든 민족과 친구들에게 예수님의 사랑을 전하며, 세상을 살리는 빛으로 씩씩하게 자라나요!",
       textEn: "\"Arise, shine, for your light has come!\" We are gospel remnants shining Christ's love across the nations. Let us carry Jesus' light to every corner of the world with courage and joy!"
     }
@@ -476,18 +476,18 @@ function downloadKidsStorybookPptx() {
 
   const pptx = new PptxGenJS();
   pptx.layout = 'LAYOUT_16x9';
-  pptx.author = 'Arise Next-Gen Global Children Gospel';
+  pptx.author = 'Arise Next-Gen Global Faith Hub';
   pptx.company = 'Arise Next-Gen';
-  pptx.title = '어린이 복음 동화 - 원래 축복 (Original Blessing)';
+  pptx.title = '믿음의 후대 복음 동화 - 원래 축복 (Original Blessing)';
 
   // Slide 1: Cover
   const sCover = pptx.addSlide();
   sCover.background = { color: '0A192F' };
-  sCover.addText("🌈 ARISE NEXT-GEN KIDS GOSPEL", {
+  sCover.addText("🌱 ARISE NEXT-GEN OF FAITH", {
     x: 0.8, y: 0.8, w: 11.5, h: 0.5,
     fontSize: 14, color: '38BDF8', bold: true, align: 'center', letterSpacing: 2
   });
-  sCover.addText("말씀과 그림으로 만나는 어린이 복음 동화", {
+  sCover.addText("말씀과 그림으로 만나는 믿음의 후대 복음 동화", {
     x: 0.8, y: 1.4, w: 11.5, h: 0.5,
     fontSize: 16, color: 'F59E0B', bold: true, align: 'center'
   });
@@ -565,12 +565,12 @@ function downloadKidsStorybookPptx() {
   });
 
   // Save PPTX
-  const filename = `어라이즈_키즈복음동화_원래축복_${new Date().toISOString().slice(0,10)}.pptx`;
+  const filename = `어라이즈_믿음의후대_복음동화_원래축복_${new Date().toISOString().slice(0,10)}.pptx`;
   pptx.writeFile({ fileName: filename }).then(() => {
     if (typeof showToast === 'function') {
-      showToast("📥 어린이 복음 동화 PPTX 슬라이드가 성공적으로 생성되었습니다!");
+      showToast("📥 믿음의 후대 복음 동화 PPTX 슬라이드가 성공적으로 생성되었습니다!");
     } else {
-      alert("📥 어린이 복음 동화 PPTX 슬라이드가 다운로드되었습니다.");
+      alert("📥 믿음의 후대 복음 동화 PPTX 슬라이드가 다운로드되었습니다.");
     }
   }).catch(err => {
     console.error("PPTX write error:", err);
