@@ -91,8 +91,9 @@ let kidsStoryState = {
   langMode: 'bilingual', // 'bilingual' | 'ko' | 'en'
   viewerMode: 'storybook', // 'storybook' | 'video'
   isAutoPlay: false,
-  autoPlayTimer: null,
-  isSpeaking: false,
+  isSpeechActive: false, // User enabled read-aloud mode
+  autoPlayTimer: null,   // Timer for silent auto-play (when TTS is off)
+  autoAdvanceTimer: null, // Timer for advancing after speech finishes
   isBgmPlaying: false,
   bgmAudio: null
 };
@@ -178,10 +179,25 @@ function getBestVoice(targetLang) {
   }
 }
 
+// Helper: Clear all active auto-play & advance timers
+function clearAllAutoTimers() {
+  if (kidsStoryState.autoPlayTimer) {
+    clearTimeout(kidsStoryState.autoPlayTimer);
+    clearInterval(kidsStoryState.autoPlayTimer);
+    kidsStoryState.autoPlayTimer = null;
+  }
+  if (kidsStoryState.autoAdvanceTimer) {
+    clearTimeout(kidsStoryState.autoAdvanceTimer);
+    kidsStoryState.autoAdvanceTimer = null;
+  }
+}
+
 // -------------------------------------------------------------
 // Slide Rendering
 // -------------------------------------------------------------
 function renderKidsSlide(index, animate = true) {
+  clearAllAutoTimers();
+
   const slides = KIDS_STORYBOOK_DATA.slides;
   if (index < 0) index = 0;
   if (index >= slides.length) index = slides.length - 1;
@@ -240,9 +256,18 @@ function renderKidsSlide(index, animate = true) {
   // Update Fullscreen Modal if present
   updateKidsFullscreenSlide(slide, index, slides.length);
 
-  // If reading aloud was actively running, continue reading new page
-  if (kidsStoryState.isSpeaking) {
+  // 🌟 Smart Speech & Auto-Play Coordination:
+  if (kidsStoryState.isSpeechActive) {
+    // When read-aloud is ON, read current slide immediately!
+    // Never start a fixed timer while reading; finishSpeaking() will trigger next slide upon completion.
     speakKidsCurrentPage();
+  } else if (kidsStoryState.isAutoPlay) {
+    // When read-aloud is OFF, advance after 8.5 seconds of silent reading.
+    kidsStoryState.autoPlayTimer = setTimeout(() => {
+      if (kidsStoryState.isAutoPlay && !kidsStoryState.isSpeechActive) {
+        nextKidsSlide();
+      }
+    }, 8500);
   }
 }
 
@@ -265,20 +290,24 @@ function renderKidsDots(currentIndex, total) {
 
 // Navigation Functions
 function nextKidsSlide() {
+  clearAllAutoTimers();
   if (kidsStoryState.currentSlideIndex < KIDS_STORYBOOK_DATA.slides.length - 1) {
     renderKidsSlide(kidsStoryState.currentSlideIndex + 1, true);
   } else if (kidsStoryState.isAutoPlay) {
+    // When auto-play is on, loop back to the first slide
     renderKidsSlide(0, true);
   }
 }
 
 function prevKidsSlide() {
+  clearAllAutoTimers();
   if (kidsStoryState.currentSlideIndex > 0) {
     renderKidsSlide(kidsStoryState.currentSlideIndex - 1, true);
   }
 }
 
 function goToKidsSlide(index) {
+  clearAllAutoTimers();
   renderKidsSlide(index, true);
 }
 
@@ -307,7 +336,7 @@ function setKidsStoryLang(mode) {
     modalCard.classList.add(`mode-${mode}`);
   }
 
-  if (kidsStoryState.isSpeaking) {
+  if (kidsStoryState.isSpeechActive) {
     speakKidsCurrentPage();
   }
 }
@@ -335,25 +364,32 @@ function switchKidsViewerMode(mode) {
   }
 }
 
-// Auto-Play Feature (every 7.5 seconds flip page)
+// -------------------------------------------------------------
+// Auto-Play Feature (Intelligently synchronized with Speech)
+// -------------------------------------------------------------
 function toggleKidsAutoPlay() {
   kidsStoryState.isAutoPlay = !kidsStoryState.isAutoPlay;
   const btn = document.getElementById('btnKidsAutoPlay');
   const modalBtn = document.getElementById('btnModalAutoPlay');
 
+  clearAllAutoTimers();
+
   if (kidsStoryState.isAutoPlay) {
     if (btn) btn.innerHTML = '⏸️ 넘김 일시정지';
     if (modalBtn) modalBtn.innerHTML = '⏸️ 넘김 일시정지';
-    kidsStoryState.autoPlayTimer = setInterval(() => {
-      nextKidsSlide();
-    }, 7500);
+
+    // If reading is currently active, DO NOT start a conflicting timer!
+    // speech completion (finishSpeaking) will smoothly trigger next slide.
+    if (!kidsStoryState.isSpeechActive) {
+      kidsStoryState.autoPlayTimer = setTimeout(() => {
+        if (kidsStoryState.isAutoPlay && !kidsStoryState.isSpeechActive) {
+          nextKidsSlide();
+        }
+      }, 8500);
+    }
   } else {
     if (btn) btn.innerHTML = '▶️ 자동 넘김';
     if (modalBtn) modalBtn.innerHTML = '▶️ 자동 넘김';
-    if (kidsStoryState.autoPlayTimer) {
-      clearInterval(kidsStoryState.autoPlayTimer);
-      kidsStoryState.autoPlayTimer = null;
-    }
   }
 }
 
@@ -381,16 +417,17 @@ function toggleKidsSpeech() {
     return;
   }
 
-  if (kidsStoryState.isSpeaking) {
+  if (kidsStoryState.isSpeechActive) {
     stopKidsSpeech();
   } else {
-    kidsStoryState.isSpeaking = true;
+    kidsStoryState.isSpeechActive = true;
     updateTtsButtonUI(true);
     speakKidsCurrentPage();
   }
 }
 
 function stopKidsSpeech() {
+  clearAllAutoTimers();
   if (kidsUtteranceTimer) {
     clearTimeout(kidsUtteranceTimer);
     kidsUtteranceTimer = null;
@@ -404,19 +441,28 @@ function stopKidsSpeech() {
     window.speechSynthesis.cancel();
   }
 
-  kidsStoryState.isSpeaking = false;
+  kidsStoryState.isSpeechActive = false;
   updateTtsButtonUI(false);
 
   // Restore BGM volume if it was lowered
   if (kidsStoryState.bgmAudio && kidsStoryState.isBgmPlaying) {
     kidsStoryState.bgmAudio.volume = 0.18;
   }
+
+  // If auto-play was on and speech was stopped, resume normal 8.5s silent timer
+  if (kidsStoryState.isAutoPlay) {
+    kidsStoryState.autoPlayTimer = setTimeout(() => {
+      if (kidsStoryState.isAutoPlay && !kidsStoryState.isSpeechActive) {
+        nextKidsSlide();
+      }
+    }, 8500);
+  }
 }
 
 function speakKidsCurrentPage() {
   if (!('speechSynthesis' in window)) return;
 
-  // Clear pending timers
+  clearAllAutoTimers();
   if (kidsUtteranceTimer) clearTimeout(kidsUtteranceTimer);
   if (kidsKeepAliveTimer) clearInterval(kidsKeepAliveTimer);
 
@@ -436,7 +482,7 @@ function speakKidsCurrentPage() {
   // Chromium bug fix: Must wait 60ms after cancel() before calling speak()
   kidsUtteranceTimer = setTimeout(() => {
     try {
-      kidsStoryState.isSpeaking = true;
+      kidsStoryState.isSpeechActive = true;
       updateTtsButtonUI(true);
 
       // Duck background music smoothly while speaking
@@ -459,8 +505,6 @@ function speakKidsCurrentPage() {
       }
 
       function finishSpeaking() {
-        kidsStoryState.isSpeaking = false;
-        updateTtsButtonUI(false);
         if (kidsKeepAliveTimer) clearInterval(kidsKeepAliveTimer);
 
         // Restore BGM volume
@@ -468,11 +512,19 @@ function speakKidsCurrentPage() {
           kidsStoryState.bgmAudio.volume = 0.18;
         }
 
-        // Advance to next page if auto-play is enabled
-        if (kidsStoryState.isAutoPlay) {
-          setTimeout(() => {
-            if (kidsStoryState.isAutoPlay) nextKidsSlide();
-          }, 1200);
+        // 🌟 Seamless Synchronization with Auto-Play:
+        // When speech is completely done, give 1.5s to view the illustration, then smoothly advance!
+        if (kidsStoryState.isAutoPlay && kidsStoryState.isSpeechActive) {
+          clearAllAutoTimers();
+          kidsStoryState.autoAdvanceTimer = setTimeout(() => {
+            if (kidsStoryState.isAutoPlay && kidsStoryState.isSpeechActive) {
+              nextKidsSlide(); // Advances slide -> triggers speakKidsCurrentPage() on next slide!
+            }
+          }, 1500);
+        } else if (!kidsStoryState.isAutoPlay) {
+          // If auto-play is OFF, conclude reading for this single slide
+          updateTtsButtonUI(false);
+          kidsStoryState.isSpeechActive = false;
         }
       }
 
@@ -501,10 +553,10 @@ function speakKidsCurrentPage() {
         const uttEn = createUtterance(textEn, 'en-US');
 
         uttKo.onend = () => {
-          if (!kidsStoryState.isSpeaking) return;
+          if (!kidsStoryState.isSpeechActive) return;
           // Gentle 0.5s pause between Korean and English
-          setTimeout(() => {
-            if (!kidsStoryState.isSpeaking) return;
+          kidsStoryState.autoAdvanceTimer = setTimeout(() => {
+            if (!kidsStoryState.isSpeechActive) return;
             window.speechSynthesis.speak(uttEn);
           }, 500);
         };
@@ -528,7 +580,7 @@ function speakKidsCurrentPage() {
 
     } catch (err) {
       console.error("SpeechSynthesis execution error:", err);
-      kidsStoryState.isSpeaking = false;
+      kidsStoryState.isSpeechActive = false;
       updateTtsButtonUI(false);
     }
   }, 60);
