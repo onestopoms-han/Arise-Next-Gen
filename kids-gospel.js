@@ -59,7 +59,7 @@ const KIDS_STORYBOOK_DATA = {
       img: "assets/kids_gospel_promise.jpg",
       titleKo: "뱀의 머리를 깨뜨릴 살 길, 여자의 후손",
       titleEn: "Crushing the Serpent: The Seed of the Woman",
-      textKo: "하나님은 죄를 범한 사람과 뱀에게 공의의 책임을 물으셨어요. 하지만 하나님은 우리가 사탄의 노예로 멸망하도록 내버려 두지 않으셨답니다! 그래서 즉시 놀라운 구원의 살 길을 주셨어요. \"여자의 후손이 와서 뱀의 머리를 완전히 박살 낼 것이다!(창 3:15)\" 사탄의 권세를 꺾으시고 우리를 다시 살리실 구원자 예수 그리스도를 약속해 주신 거예요!",
+      textKo: "하나님은 죄를 범한 사람과 뱀에게 공의의 책임을 물으셨어요. 하지만 하나님은 우리가 사탄의 노예로 멸망하도록 내버려 두지 않으셨답니다! 그래서 즉시 놀라운 구원의 살 길을 주셨어요. \"여자의 후손이 와서 뱀의 머리를 완전히 박살 낼 것이다!(창세기 3장 15절)\" 사탄의 권세를 꺾으시고 우리를 다시 살리실 구원자 예수 그리스도를 약속해 주신 거예요!",
       textEn: "God held humans and the serpent accountable for sin. Yet our loving Father would never abandon us to despair! Immediately, He proclaimed the glorious promise of salvation: \"The offspring of the woman will crush the serpent's head! (Genesis 3:15)\" God promised Jesus Christ, the Victorious King who breaks Satan's grip and restores our eternal life!"
     },
     {
@@ -490,7 +490,18 @@ function speakKidsCurrentPage() {
         kidsStoryState.bgmAudio.volume = 0.05;
       }
 
-      const textKo = `${slide.chapterKo}. ${slide.titleKo}. ${slide.textKo}`;
+      function cleanTextForSpeechKo(text) {
+        if (!text) return '';
+        return text
+          .replace(/창\s*(\d+)[:장]\s*(\d+)절?/g, '창세기 $1장 $2절')
+          .replace(/창세기\s*(\d+):(\d+)/g, '창세기 $1장 $2절')
+          .replace(/(\d+):(\d+)/g, '$1장 $2절') // '3:15' -> '3장 15절' (시간 오인식 영구 방지)
+          .replace(/·/g, ', ')
+          .replace(/[\(\)]/g, ', ');
+      }
+
+      const rawTextKo = `${slide.chapterKo}. ${slide.titleKo}. ${slide.textKo}`;
+      const textKo = cleanTextForSpeechKo(rawTextKo);
       const textEn = `${slide.chapterEn}. ${slide.titleEn}. ${slide.textEn}`;
 
       function createUtterance(text, lang) {
