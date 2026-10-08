@@ -1,65 +1,86 @@
 /**
  * Arise Next-Gen Faith Next-Gen Storybook & Interactive Viewer (믿음의 후대관)
- * 다음 세대 믿음의 후대들을 위한 따뜻한 일러스트 동화책, 한/영 바이링구얼 내레이션,
- * 실시간 TTS 읽어주기, 배경 찬양 음악, 줌 발표 모드 및 PPTX 다운로드
+ * 창세기 1장~3장의 원색 복음 흐름: 원래인간(창 1:31 심히 좋았더라) -> 생명 언약 -> 사탄의 유혹
+ * -> 숨음과 핑계 -> 창 3:15 여자의 후손 -> 창 3:21 가죽옷(피의 언약) -> 원래 축복의 회복
+ * 실시간 고품질 TTS 음성 낭독 (Web Speech API 최적화 보이스 엔진)
  */
 
 const KIDS_STORYBOOK_DATA = {
   id: "original-blessing",
-  titleKo: "하나님의 가장 큰 선물, 원래 축복",
-  titleEn: "God's Greatest Gift: The Original Blessing",
-  subtitleKo: "창세기 1장과 복음의 5단계 여정",
-  subtitleEn: "Genesis 1 & The 5-Step Gospel Journey",
+  titleKo: "하나님의 가장 큰 선물, 원래 인간과 피의 언약",
+  titleEn: "God's Greatest Gift: The Original Human & The Covenant of Blood",
+  subtitleKo: "창세기 1장부터 3장까지 이어지는 구원의 7단계 여정",
+  subtitleEn: "The 7-Step Journey of Salvation from Genesis 1 to 3",
   slides: [
     {
-      chapterKo: "제 1장 · 아름다운 에덴",
-      chapterEn: "Chapter 1 · Beautiful Eden",
-      scripture: "창세기 1:27-28 (Genesis 1:27-28)",
+      chapterKo: "제 1장 · 심히 좋았더라",
+      chapterEn: "Chapter 1 · Exceedingly Good",
+      scripture: "창세기 1:27, 31 (Genesis 1:27, 31)",
       img: "assets/kids_gospel_1.jpg",
-      titleKo: "하나님이 만드신 가장 아름다운 세상",
-      titleEn: "The Most Beautiful World Created by God",
-      textKo: "하나님께서 푸른 하늘과 바다, 예쁜 꽃과 나무, 그리고 귀여운 동물들을 만드셨어요. 그리고 하나님의 형상대로 우리 아이들을 가장 사랑스럽고 존귀하게 만드셨답니다.",
-      textEn: "God created the clear blue sky and ocean, lovely blooming flowers, and wonderful animals. And in His own divine image, God lovingly created us to be dearly treasured!"
+      titleKo: "하나님의 심히 큰 기쁨, 원래 인간",
+      titleEn: "God's Exceeding Joy: The Original Human",
+      textKo: "하나님께서 푸른 하늘과 바다, 예쁜 꽃과 귀여운 동물들을 만드시고는 \"참 보기 좋다!\" 하셨어요. 그리고 하나님의 형상대로 사람을 만드시고는 온 마음으로 기뻐하시며 \"와아! 너무너무 좋아서 내 마음이 꽉 찬다! 심히 좋다!\" 하고 감탄하셨답니다. 사람은 언제나 하나님 품에서 영원히 행복하도록 지어진 최고의 보물이에요!",
+      textEn: "God created the clear skies, oceans, blooming flowers, and lovely animals, saying, \"It is good!\" Then God created humans in His own divine image and rejoiced with deep joy: \"It is exceedingly, wonderfully good!\" We were created as God's treasured masterpiece, designed to be completely joyful and safe in His loving presence!"
     },
     {
-      chapterKo: "제 2장 · 창조의 원리",
-      chapterEn: "Chapter 2 · The Order of Creation",
-      scripture: "창세기 1:28, 시편 23:1 (Psalm 23:1)",
+      chapterKo: "제 2장 · 생명의 사랑 언약",
+      chapterEn: "Chapter 2 · The Covenant of Life",
+      scripture: "창세기 1:28, 창세기 2:16-17",
       img: "assets/kids_gospel_2.jpg",
-      titleKo: "창조의 원리와 원래 축복",
-      titleEn: "The Order of Creation & Original Blessing",
-      textKo: "물고기는 시원한 물속에서, 새는 푸른 하늘을 날 때, 나무는 땅속에 뿌리를 깊이 내릴 때 가장 행복해요. 마찬가지로 사람은 언제나 하나님과 함께할 때 가장 참된 평안과 행복을 누려요.",
-      textEn: "Fish are happiest in the water, birds are happiest soaring in the open sky, and trees flourish with roots deep in fertile soil. Likewise, we are truly joyful, safe, and blessed when we are with God!"
+      titleKo: "사랑의 안전벨트, 생명의 언약",
+      titleEn: "The Covenant of Life & Sacred Promise",
+      textKo: "하나님은 사람에게 모든 것을 다스리고 누리는 엄청난 축복을 주시고, 서로 사랑할 돕는 배필 하와를 선물로 주셨어요. 그리고 단 하나의 사랑의 약속을 주셨지요. \"동산 중앙의 선악을 알게 하는 나무 열매는 절대 먹지 마라, 먹으면 반드시 죽으리라!\" 이 약속은 우리를 구속하는 것이 아니라, 하나님 품 안에 있을 때 가장 안전하다는 생명의 안전벨트였답니다.",
+      textEn: "God blessed humans to care for all creation and gave a loving helper, Eve, to share life together. God also gave one sacred promise: \"You must not eat from the tree of the knowledge of good and evil, for when you eat from it, you will certainly die.\" Like a protective seatbelt, this loving covenant kept us safe, holy, and truly blessed."
     },
     {
-      chapterKo: "제 3장 · 약속의 빛",
-      chapterEn: "Chapter 3 · The Light of Promise",
-      scripture: "창세기 3:15, 로마서 3:23 (Romans 3:23)",
+      chapterKo: "제 3장 · 거짓말쟁이 뱀의 유혹",
+      chapterEn: "Chapter 3 · The Serpent's Deceit",
+      scripture: "창세기 3:1-6 (Genesis 3:1-6)",
+      img: "assets/kids_gospel_fall.jpg",
+      titleKo: "약속을 깨뜨린 거짓말쟁이 뱀",
+      titleEn: "The Serpent's Lie & The Broken Covenant",
+      textKo: "인간이 누리는 큰 행복을 몹시 질투한 옛 뱀(사탄, 마귀)이 찾아왔어요. 뱀은 돕는 배필 하와에게 다가가 달콤하게 속삭였어요. \"결코 죽지 않아! 그걸 먹으면 하나님처럼 대단해질 거야!\" 결국 하나님의 말씀보다 사탄의 거짓말에 속아 선악과를 따먹고, 하나님과의 소중한 언약을 와장창 깨뜨려버렸어요.",
+      textEn: "Jealous of human happiness, the ancient serpent (Satan) approached Eve with a deceitful whisper: \"You will not certainly die! If you eat it, your eyes will open and you will be like God!\" Believing Satan's lie over God's word of love, humans ate the forbidden fruit and broke the sacred covenant with their Creator."
+    },
+    {
+      chapterKo: "제 4장 · 숨음과 핑계",
+      chapterEn: "Chapter 4 · Shame, Hiding & Blame",
+      scripture: "창세기 3:7-13, 로마서 3:23",
       img: "assets/kids_gospel_3.jpg",
-      titleKo: "하나님을 떠난 슬픔과 약속의 빛",
-      titleEn: "Separated from God & The Light of Promise",
-      textKo: "물고기가 물을 떠나면 숨을 쉴 수 없듯이, 사람은 죄와 사탄에 속아 하나님을 떠나면서 슬픔과 두려움이 찾아왔어요. 하지만 하나님은 우리를 버려두지 않으시고, 구원의 빛을 약속해 주셨어요!",
-      textEn: "Just as a fish suffers when taken out of water, humans fell into sorrow and fear when separated from God. But our loving Father never abandoned us; He promised a shining light of salvation and hope!"
+      titleKo: "\"아담아, 네가 어디 있느냐?\"",
+      titleEn: "\"Where Are You?\" – Fear & Broken Fellowship",
+      textKo: "하나님을 떠나자마자 마음속에 평안이 사라지고 부끄러움과 두려움이 찾아왔어요. 아담과 하와는 시들어버릴 나뭇잎으로 몸을 가리고 나무 뒤에 숨었지요. 다 아시는 하나님께서 \"네가 어디 있느냐?\" 부르시며 찾아오셨지만, 아담은 아내에게, 하와는 뱀에게 잘못을 떠넘기며 핑계를 대기 시작했어요. 죄로 인해 사랑의 관계가 다 깨어져버린 거예요.",
+      textEn: "Separated from God, true peace vanished, replaced by sudden shame and fear. Adam and Eve hid behind the trees in fragile fig leaves. When God tenderly called out, \"Where are you?\", Adam blamed his beloved wife, and Eve blamed the serpent. Sin tore apart their sweet relationship with God and one another."
     },
     {
-      chapterKo: "제 4장 · 오직 예수 그리스도",
-      chapterEn: "Chapter 4 · Only Jesus Christ",
-      scripture: "요한복음 14:6, 요한복음 1:12 (John 1:12)",
+      chapterKo: "제 5장 · 여자의 후손",
+      chapterEn: "Chapter 5 · The Seed of the Woman",
+      scripture: "창세기 3:14-15 (Genesis 3:15)",
+      img: "assets/kids_gospel_promise.jpg",
+      titleKo: "뱀의 머리를 깨뜨릴 살 길, 여자의 후손",
+      titleEn: "Crushing the Serpent: The Seed of the Woman",
+      textKo: "하나님은 죄를 범한 사람과 뱀에게 공의의 책임을 물으셨어요. 하지만 하나님은 우리가 사탄의 노예로 멸망하도록 내버려 두지 않으셨답니다! 그래서 즉시 놀라운 구원의 살 길을 주셨어요. \"여자의 후손이 와서 뱀의 머리를 완전히 박살 낼 것이다!(창 3:15)\" 사탄의 권세를 꺾으시고 우리를 다시 살리실 구원자 예수 그리스도를 약속해 주신 거예요!",
+      textEn: "God held humans and the serpent accountable for sin. Yet our loving Father would never abandon us to despair! Immediately, He proclaimed the glorious promise of salvation: \"The offspring of the woman will crush the serpent's head! (Genesis 3:15)\" God promised Jesus Christ, the Victorious King who breaks Satan's grip and restores our eternal life!"
+    },
+    {
+      chapterKo: "제 6장 · 따뜻한 가죽옷 (피의 언약)",
+      chapterEn: "Chapter 6 · Coats of Skin (Blood Covenant)",
+      scripture: "창세기 3:21, 히브리서 9:22",
+      img: "assets/kids_gospel_leather_coat.jpg",
+      titleKo: "피의 언약, 따뜻한 가죽옷을 입히시다",
+      titleEn: "The Covenant of Blood: Clothed in Grace",
+      textKo: "부끄러워 떨고 있는 아담과 하와를 보시며 하나님의 마음은 찢어지듯 아프셨어요. 그래서 쉽게 부서지는 나뭇잎 대신, 하나님이 직접 따뜻한 '가죽옷'을 지어 입혀주셨답니다. 가죽옷을 만들려면 죄 없는 어린양이 대신 피를 흘려야만 했어요. 장차 십자가에서 피 흘려 우리의 모든 죄와 부끄러움을 덮어주실 예수님의 피의 언약이었답니다!",
+      textEn: "Looking at trembling Adam and Eve, God's heart overflowed with tender compassion. Instead of frail leaves, God lovingly fashioned warm coats of skin and clothed them. An innocent lamb had to bleed and sacrifice its life to provide these garments. This was the blood covenant pointing to Jesus, whose sacrifice on the cross covers all our shame and sin!"
+    },
+    {
+      chapterKo: "제 7장 · 원래 축복의 회복",
+      chapterEn: "Chapter 7 · Restored in Christ",
+      scripture: "요한복음 19:30, 요한복음 1:12, 이사야 60:1",
       img: "assets/kids_gospel_4.jpg",
-      titleKo: "우리를 찾아오신 예수 그리스도",
-      titleEn: "Jesus Christ Who Came to Save Us",
-      textKo: "예수님께서 우리를 너무나 사랑하셔서 이 땅에 오셨어요. 십자가에서 우리의 모든 아픔을 끝내시고 부활하셔서 하나님 만나는 참된 길이 되셨어요. 예수님을 마음에 모시면 우리는 영원한 하나님의 자녀예요!",
-      textEn: "Jesus loved us so deeply that He came down to earth. Dying on the cross and rising again in victory, He became the only way to God. When we welcome Jesus into our hearts, we are forever God's precious children!"
-    },
-    {
-      chapterKo: "제 5장 · 열방의 빛 (Arise Next-Gen)",
-      chapterEn: "Chapter 5 · Light for All Nations",
-      scripture: "이사야 60:1-3 (Isaiah 60:1), 마태복음 28:19",
-      img: "assets/kids_gospel_5.jpg",
-      titleKo: "열방을 비추는 믿음의 후대 (Arise Next-Gen)",
-      titleEn: "Next-Gen of Faith Shining for All Nations",
-      textKo: "\"일어나라 빛을 발하라!\" 우리는 온 세상을 밝히는 복음의 후대예요. 세계 모든 민족과 친구들에게 예수님의 사랑을 전하며, 세상을 살리는 빛으로 씩씩하게 자라나요!",
-      textEn: "\"Arise, shine, for your light has come!\" We are the next generation of the gospel, shining Christ's love across the nations. Let us carry Jesus' light to every corner of the world with courage and joy!"
+      titleKo: "원래 축복을 회복한 믿음의 후대",
+      titleEn: "Original Blessing Restored: Next-Gen of Faith",
+      textKo: "예수님께서 십자가에서 \"다 이루었다!\" 선포하시며 뱀의 머리를 깨뜨리시고 하나님 만나는 참된 길이 되셨어요! 이제 예수님을 마음에 모신 우리는 하나님이 \"심히 좋다!\" 감탄하셨던 원래 인간의 참 행복을 완전히 되찾았답니다. 우리는 세상을 살리는 빛, 하나님의 가장 큰 기쁨인 믿음의 후대(Arise Next-Gen)예요!",
+      textEn: "On the cross, Jesus proclaimed, \"It is finished!\", crushing Satan and opening the living way back to God! When we welcome Jesus into our hearts, our original blessing of pure joy and peace is forever restored. We are beloved children of God, rising as faithful Next-Gen to shine Christ's light across all nations!"
     }
   ]
 };
@@ -76,9 +97,15 @@ let kidsStoryState = {
   bgmAudio: null
 };
 
+// TTS Engine State & Voice Cache
+let kidsVoices = [];
+let kidsKeepAliveTimer = null;
+let kidsUtteranceTimer = null;
+
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
   initKidsStorybook();
+  initKidsVoices();
 });
 
 function initKidsStorybook() {
@@ -91,7 +118,69 @@ function initKidsStorybook() {
   setupKidsBgm();
 }
 
-// Render Current Slide
+// -------------------------------------------------------------
+// Voice Cache Initialization (Handles Chrome/Edge Async Loading)
+// -------------------------------------------------------------
+function initKidsVoices() {
+  if (!('speechSynthesis' in window)) return;
+
+  function loadVoices() {
+    kidsVoices = window.speechSynthesis.getVoices() || [];
+  }
+
+  loadVoices();
+  if (window.speechSynthesis.onvoiceschanged !== undefined) {
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  }
+}
+
+// Pick the best natural voice for Korean or English
+function getBestVoice(targetLang) {
+  if (!kidsVoices || kidsVoices.length === 0) {
+    kidsVoices = window.speechSynthesis.getVoices() || [];
+  }
+  if (!kidsVoices || kidsVoices.length === 0) return null;
+
+  if (targetLang.startsWith('ko')) {
+    // 1. Natural / Online voices (Edge/Windows: Heami, SunHi)
+    let v = kidsVoices.find(voice => 
+      voice.lang.includes('KR') && 
+      (voice.name.includes('Natural') || voice.name.includes('Online'))
+    );
+    // 2. Google Korean or Heami / SunHi
+    if (!v) {
+      v = kidsVoices.find(voice => 
+        voice.lang.startsWith('ko') && 
+        (voice.name.includes('Heami') || voice.name.includes('SunHi') || voice.name.includes('혜미') || voice.name.includes('선희') || voice.name.includes('Google'))
+      );
+    }
+    // 3. Any Korean voice
+    if (!v) {
+      v = kidsVoices.find(voice => voice.lang.startsWith('ko') || voice.lang.includes('KR'));
+    }
+    return v || null;
+  } else {
+    // English: Priority to high-quality natural voices (Jenny, Aria, Guy, Google US English, Samantha, Zira)
+    let v = kidsVoices.find(voice => 
+      (voice.lang === 'en-US' || voice.lang === 'en-GB') && 
+      (voice.name.includes('Natural') || voice.name.includes('Online') || voice.name.includes('Jenny') || voice.name.includes('Aria'))
+    );
+    if (!v) {
+      v = kidsVoices.find(voice => 
+        (voice.lang === 'en-US' || voice.lang === 'en-GB') && 
+        (voice.name.includes('Google') || voice.name.includes('Zira') || voice.name.includes('Samantha') || voice.name.includes('David'))
+      );
+    }
+    if (!v) {
+      v = kidsVoices.find(voice => voice.lang.startsWith('en'));
+    }
+    return v || null;
+  }
+}
+
+// -------------------------------------------------------------
+// Slide Rendering
+// -------------------------------------------------------------
 function renderKidsSlide(index, animate = true) {
   const slides = KIDS_STORYBOOK_DATA.slides;
   if (index < 0) index = 0;
@@ -102,7 +191,6 @@ function renderKidsSlide(index, animate = true) {
 
   // Visual Image update
   const imgEl = document.getElementById('kidsSlideImg');
-  const frameEl = document.getElementById('kidsSlideFrame');
   const badgeEl = document.getElementById('kidsSlideBadge');
   const counterEl = document.getElementById('kidsPageCounter');
 
@@ -149,10 +237,10 @@ function renderKidsSlide(index, animate = true) {
   if (btnPrev) btnPrev.disabled = (index === 0);
   if (btnNext) btnNext.disabled = (index === slides.length - 1);
 
-  // If Fullscreen Modal is open, update its elements as well
+  // Update Fullscreen Modal if present
   updateKidsFullscreenSlide(slide, index, slides.length);
 
-  // If reading aloud was actively running, read current page
+  // If reading aloud was actively running, continue reading new page
   if (kidsStoryState.isSpeaking) {
     speakKidsCurrentPage();
   }
@@ -180,7 +268,6 @@ function nextKidsSlide() {
   if (kidsStoryState.currentSlideIndex < KIDS_STORYBOOK_DATA.slides.length - 1) {
     renderKidsSlide(kidsStoryState.currentSlideIndex + 1, true);
   } else if (kidsStoryState.isAutoPlay) {
-    // Loop back to start in autoplay
     renderKidsSlide(0, true);
   }
 }
@@ -220,7 +307,6 @@ function setKidsStoryLang(mode) {
     modalCard.classList.add(`mode-${mode}`);
   }
 
-  // If speech is active, restart with selected language
   if (kidsStoryState.isSpeaking) {
     speakKidsCurrentPage();
   }
@@ -242,7 +328,6 @@ function switchKidsViewerMode(mode) {
 
   const videoPlayer = document.getElementById('kidsVideoPlayer');
   if (mode === 'video' && videoPlayer) {
-    // If BGM is playing, stop it so video audio plays cleanly
     stopKidsBgm();
     stopKidsSpeech();
   } else if (mode === 'storybook' && videoPlayer) {
@@ -250,7 +335,7 @@ function switchKidsViewerMode(mode) {
   }
 }
 
-// Auto-Play Feature (every 6.5 seconds flip page)
+// Auto-Play Feature (every 7.5 seconds flip page)
 function toggleKidsAutoPlay() {
   kidsStoryState.isAutoPlay = !kidsStoryState.isAutoPlay;
   const btn = document.getElementById('btnKidsAutoPlay');
@@ -261,7 +346,7 @@ function toggleKidsAutoPlay() {
     if (modalBtn) modalBtn.innerHTML = '⏸️ 넘김 일시정지';
     kidsStoryState.autoPlayTimer = setInterval(() => {
       nextKidsSlide();
-    }, 6500);
+    }, 7500);
   } else {
     if (btn) btn.innerHTML = '▶️ 자동 넘김';
     if (modalBtn) modalBtn.innerHTML = '▶️ 자동 넘김';
@@ -272,80 +357,190 @@ function toggleKidsAutoPlay() {
   }
 }
 
-// TTS (Text-to-Speech) Read Aloud Feature
-function toggleKidsSpeech() {
-  if (!('speechSynthesis' in window)) {
-    alert("현재 브라우저에서는 음성 낭독(TTS) 기능을 지원하지 않습니다.");
-    return;
-  }
-
+// -------------------------------------------------------------
+// Robust TTS (Text-to-Speech) Read Aloud Feature
+// -------------------------------------------------------------
+function updateTtsButtonUI(isSpeaking) {
   const btn = document.getElementById('btnKidsTts');
   const modalBtn = document.getElementById('btnModalTts');
 
+  const text = isSpeaking ? '⏹️ 낭독 멈추기' : '🔊 소리내어 읽기';
+  if (btn) {
+    btn.innerHTML = text;
+    btn.classList.toggle('tts-active', isSpeaking);
+  }
+  if (modalBtn) {
+    modalBtn.innerHTML = text;
+    modalBtn.classList.toggle('tts-active', isSpeaking);
+  }
+}
+
+function toggleKidsSpeech() {
+  if (!('speechSynthesis' in window)) {
+    alert("현재 브라우저에서는 음성 낭독(TTS) 기능을 지원하지 않습니다. 크롬(Chrome)이나 엣지(Edge) 브라우저를 사용해 주세요.");
+    return;
+  }
+
   if (kidsStoryState.isSpeaking) {
     stopKidsSpeech();
-    if (btn) btn.innerHTML = '🔊 소리내어 읽기';
-    if (modalBtn) modalBtn.innerHTML = '🔊 소리내어 읽기';
   } else {
     kidsStoryState.isSpeaking = true;
-    if (btn) btn.innerHTML = '⏹️ 낭독 멈추기';
-    if (modalBtn) modalBtn.innerHTML = '⏹️ 낭독 멈추기';
+    updateTtsButtonUI(true);
     speakKidsCurrentPage();
   }
 }
 
 function stopKidsSpeech() {
+  if (kidsUtteranceTimer) {
+    clearTimeout(kidsUtteranceTimer);
+    kidsUtteranceTimer = null;
+  }
+  if (kidsKeepAliveTimer) {
+    clearInterval(kidsKeepAliveTimer);
+    kidsKeepAliveTimer = null;
+  }
+
   if ('speechSynthesis' in window) {
     window.speechSynthesis.cancel();
   }
+
   kidsStoryState.isSpeaking = false;
-  const btn = document.getElementById('btnKidsTts');
-  const modalBtn = document.getElementById('btnModalTts');
-  if (btn) btn.innerHTML = '🔊 소리내어 읽기';
-  if (modalBtn) modalBtn.innerHTML = '🔊 소리내어 읽기';
+  updateTtsButtonUI(false);
+
+  // Restore BGM volume if it was lowered
+  if (kidsStoryState.bgmAudio && kidsStoryState.isBgmPlaying) {
+    kidsStoryState.bgmAudio.volume = 0.18;
+  }
 }
 
 function speakKidsCurrentPage() {
   if (!('speechSynthesis' in window)) return;
+
+  // Clear pending timers
+  if (kidsUtteranceTimer) clearTimeout(kidsUtteranceTimer);
+  if (kidsKeepAliveTimer) clearInterval(kidsKeepAliveTimer);
+
+  // Cancel prior speech
   window.speechSynthesis.cancel();
+
+  // If paused by browser bug, resume
+  if (window.speechSynthesis.paused) {
+    window.speechSynthesis.resume();
+  }
 
   const slide = KIDS_STORYBOOK_DATA.slides[kidsStoryState.currentSlideIndex];
   if (!slide) return;
 
-  let textToSpeak = '';
-  let lang = 'ko-KR';
+  const mode = kidsStoryState.langMode; // 'bilingual' | 'ko' | 'en'
 
-  if (kidsStoryState.langMode === 'en') {
-    textToSpeak = `${slide.titleEn}. ${slide.textEn}`;
-    lang = 'en-US';
-  } else {
-    textToSpeak = `${slide.titleKo}. ${slide.textKo}`;
-    lang = 'ko-KR';
-  }
+  // Chromium bug fix: Must wait 60ms after cancel() before calling speak()
+  kidsUtteranceTimer = setTimeout(() => {
+    try {
+      kidsStoryState.isSpeaking = true;
+      updateTtsButtonUI(true);
 
-  const utterance = new SpeechSynthesisUtterance(textToSpeak);
-  utterance.lang = lang;
-  utterance.rate = 0.92; // Slightly gentle, calm speed for kids
-  utterance.pitch = 1.08; // Friendly warm tone
+      // Duck background music smoothly while speaking
+      if (kidsStoryState.bgmAudio && kidsStoryState.isBgmPlaying) {
+        kidsStoryState.bgmAudio.volume = 0.05;
+      }
 
-  utterance.onend = () => {
-    // If autoplay is also on, it naturally flows
-  };
+      const textKo = `${slide.chapterKo}. ${slide.titleKo}. ${slide.textKo}`;
+      const textEn = `${slide.chapterEn}. ${slide.titleEn}. ${slide.textEn}`;
 
-  utterance.onerror = () => {
-    kidsStoryState.isSpeaking = false;
-    const btn = document.getElementById('btnKidsTts');
-    if (btn) btn.innerHTML = '🔊 소리내어 읽기';
-  };
+      function createUtterance(text, lang) {
+        const utt = new SpeechSynthesisUtterance(text);
+        utt.lang = lang;
+        utt.volume = 1.0;
+        utt.rate = lang.startsWith('ko') ? 0.92 : 0.90; // Gentle storytelling pace
+        utt.pitch = 1.05; // Warm, friendly tone
+        const voice = getBestVoice(lang);
+        if (voice) utt.voice = voice;
+        return utt;
+      }
 
-  window.speechSynthesis.speak(utterance);
+      function finishSpeaking() {
+        kidsStoryState.isSpeaking = false;
+        updateTtsButtonUI(false);
+        if (kidsKeepAliveTimer) clearInterval(kidsKeepAliveTimer);
+
+        // Restore BGM volume
+        if (kidsStoryState.bgmAudio && kidsStoryState.isBgmPlaying) {
+          kidsStoryState.bgmAudio.volume = 0.18;
+        }
+
+        // Advance to next page if auto-play is enabled
+        if (kidsStoryState.isAutoPlay) {
+          setTimeout(() => {
+            if (kidsStoryState.isAutoPlay) nextKidsSlide();
+          }, 1200);
+        }
+      }
+
+      function handleTtsError(e) {
+        if (e.error !== 'interrupted' && e.error !== 'canceled') {
+          console.warn("TTS Utterance error:", e.error);
+          finishSpeaking();
+        }
+      }
+
+      if (mode === 'ko') {
+        // Pure Korean
+        const utt = createUtterance(textKo, 'ko-KR');
+        utt.onend = finishSpeaking;
+        utt.onerror = handleTtsError;
+        window.speechSynthesis.speak(utt);
+      } else if (mode === 'en') {
+        // Pure English
+        const utt = createUtterance(textEn, 'en-US');
+        utt.onend = finishSpeaking;
+        utt.onerror = handleTtsError;
+        window.speechSynthesis.speak(utt);
+      } else {
+        // Bilingual: Read Korean first, then English!
+        const uttKo = createUtterance(textKo, 'ko-KR');
+        const uttEn = createUtterance(textEn, 'en-US');
+
+        uttKo.onend = () => {
+          if (!kidsStoryState.isSpeaking) return;
+          // Gentle 0.5s pause between Korean and English
+          setTimeout(() => {
+            if (!kidsStoryState.isSpeaking) return;
+            window.speechSynthesis.speak(uttEn);
+          }, 500);
+        };
+        uttKo.onerror = handleTtsError;
+
+        uttEn.onend = finishSpeaking;
+        uttEn.onerror = handleTtsError;
+
+        window.speechSynthesis.speak(uttKo);
+      }
+
+      // Keepalive loop for Chromium long-speech bug (pauses/resumes every 10s)
+      kidsKeepAliveTimer = setInterval(() => {
+        if (window.speechSynthesis.speaking) {
+          window.speechSynthesis.pause();
+          window.speechSynthesis.resume();
+        } else {
+          clearInterval(kidsKeepAliveTimer);
+        }
+      }, 9500);
+
+    } catch (err) {
+      console.error("SpeechSynthesis execution error:", err);
+      kidsStoryState.isSpeaking = false;
+      updateTtsButtonUI(false);
+    }
+  }, 60);
 }
 
+// -------------------------------------------------------------
 // Background Praise BGM Setup
+// -------------------------------------------------------------
 function setupKidsBgm() {
   kidsStoryState.bgmAudio = new Audio('assets/only_by_grace.mp3');
   kidsStoryState.bgmAudio.loop = true;
-  kidsStoryState.bgmAudio.volume = 0.18; // Soft gentle ambient level
+  kidsStoryState.bgmAudio.volume = 0.18;
 }
 
 function toggleKidsBgm() {
@@ -356,8 +551,6 @@ function toggleKidsBgm() {
 
   if (kidsStoryState.isBgmPlaying) {
     stopKidsBgm();
-    if (btn) btn.innerHTML = '🎵 배경음악';
-    if (modalBtn) modalBtn.innerHTML = '🎵 배경음악';
   } else {
     kidsStoryState.bgmAudio.play().then(() => {
       kidsStoryState.isBgmPlaying = true;
@@ -380,7 +573,9 @@ function stopKidsBgm() {
   if (modalBtn) modalBtn.innerHTML = '🎵 배경음악';
 }
 
+// -------------------------------------------------------------
 // Fullscreen Presentation Mode (Zoom / Sunday School TV)
+// -------------------------------------------------------------
 function openKidsFullscreen() {
   const modal = document.getElementById('kidsFullscreenModal');
   if (!modal) return;
@@ -421,7 +616,6 @@ function updateKidsFullscreenSlide(slide, index, total) {
 // Keyboard arrow navigation
 function setupKidsKeyboardShortcuts() {
   window.addEventListener('keydown', (e) => {
-    // Only handle if kids zone or modal is visible and not typing in an input
     if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
     if (e.key === 'ArrowRight' || e.key === 'PageDown') {
@@ -455,19 +649,20 @@ function setupKidsTouchGestures() {
       const diffX = endX - startX;
       const diffY = endY - startY;
 
-      // Horizontal swipe threshold 45px
       if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
         if (diffX < 0) {
-          nextKidsSlide(); // swipe left = next
+          nextKidsSlide();
         } else {
-          prevKidsSlide(); // swipe right = prev
+          prevKidsSlide();
         }
       }
     }, { passive: true });
   });
 }
 
-// PowerPoint (.pptx) Generator for Sunday School
+// -------------------------------------------------------------
+// PowerPoint (.pptx) Generator for Sunday School (7 Chapters)
+// -------------------------------------------------------------
 function downloadKidsStorybookPptx() {
   if (typeof PptxGenJS === 'undefined') {
     alert("PowerPoint 생성 모듈(pptxgen.bundle.js)을 불러오는 중입니다. 잠시 후 다시 시도해 주세요.");
@@ -478,7 +673,7 @@ function downloadKidsStorybookPptx() {
   pptx.layout = 'LAYOUT_16x9';
   pptx.author = 'Arise Next-Gen Global Faith Hub';
   pptx.company = 'Arise Next-Gen';
-  pptx.title = '믿음의 후대 복음 동화 - 원래 축복 (Original Blessing)';
+  pptx.title = '믿음의 후대 복음 동화 - 원래 인간과 피의 언약';
 
   // Slide 1: Cover
   const sCover = pptx.addSlide();
@@ -491,25 +686,25 @@ function downloadKidsStorybookPptx() {
     x: 0.8, y: 1.4, w: 11.5, h: 0.5,
     fontSize: 16, color: 'F59E0B', bold: true, align: 'center'
   });
-  sCover.addText("하나님의 가장 큰 선물, 원래 축복", {
+  sCover.addText("하나님의 가장 큰 선물, 원래 인간과 피의 언약", {
     x: 0.8, y: 2.2, w: 11.5, h: 1.2,
-    fontSize: 36, color: 'FFFFFF', bold: true, align: 'center'
+    fontSize: 34, color: 'FFFFFF', bold: true, align: 'center'
   });
-  sCover.addText("God's Greatest Gift: The Original Blessing", {
+  sCover.addText("God's Greatest Gift: The Original Human & The Covenant of Blood", {
     x: 0.8, y: 3.5, w: 11.5, h: 0.7,
-    fontSize: 20, color: '93C5FD', italic: true, align: 'center'
+    fontSize: 18, color: '93C5FD', italic: true, align: 'center'
   });
-  sCover.addText("📖 창세기 1:27-28 (Genesis 1:27-28) & 5단계 복음의 여정", {
+  sCover.addText("📖 창세기 1:31 심히 좋았더라 • 창세기 3:15 여자의 후손 • 창세기 3:21 가죽옷", {
     x: 0.8, y: 4.4, w: 11.5, h: 0.6,
-    fontSize: 16, color: '34D399', bold: true, align: 'center'
+    fontSize: 15, color: '34D399', bold: true, align: 'center'
   });
-  sCover.addText("주일학교 공과 / 다민족 Zoom 나눔 / 가정 예배 슬라이드", {
+  sCover.addText("주일학교 공과 / 다민족 Zoom 나눔 / 가정 예배 슬라이드 (7단계 복음 여정)", {
     x: 0.8, y: 6.2, w: 11.5, h: 0.5,
     fontSize: 12, color: '64748B', align: 'center'
   });
 
-  // Slides 2 to 6: 5 Chapters
-  KIDS_STORYBOOK_DATA.slides.forEach((item, idx) => {
+  // Slides 2 to 8: 7 Chapters
+  KIDS_STORYBOOK_DATA.slides.forEach((item) => {
     const s = pptx.addSlide();
     s.background = { color: '0F172A' };
 
@@ -543,34 +738,34 @@ function downloadKidsStorybookPptx() {
     // Title (Korean)
     s.addText(item.titleKo, {
       x: 8.0, y: 1.2, w: 4.3, h: 0.8,
-      fontSize: 20, color: 'FFFFFF', bold: true
+      fontSize: 19, color: 'FFFFFF', bold: true
     });
     // Title (English)
     s.addText(item.titleEn, {
       x: 8.0, y: 2.0, w: 4.3, h: 0.6,
-      fontSize: 14, color: 'F59E0B', italic: true, bold: true
+      fontSize: 13, color: 'F59E0B', italic: true, bold: true
     });
 
     // Story Text (Korean)
     s.addText(item.textKo, {
       x: 8.0, y: 2.7, w: 4.3, h: 1.8,
-      fontSize: 13, color: 'F8FAFC', lineSpacing: 22
+      fontSize: 12, color: 'F8FAFC', lineSpacing: 20
     });
 
     // Story Text (English)
     s.addText(item.textEn, {
       x: 8.0, y: 4.6, w: 4.3, h: 1.6,
-      fontSize: 11, color: '94A3B8', italic: true, lineSpacing: 18
+      fontSize: 10.5, color: '94A3B8', italic: true, lineSpacing: 16
     });
   });
 
   // Save PPTX
-  const filename = `어라이즈_믿음의후대_복음동화_원래축복_${new Date().toISOString().slice(0,10)}.pptx`;
+  const filename = `어라이즈_믿음의후대_복음동화_원래인간과피의언약_${new Date().toISOString().slice(0,10)}.pptx`;
   pptx.writeFile({ fileName: filename }).then(() => {
     if (typeof showToast === 'function') {
-      showToast("📥 믿음의 후대 복음 동화 PPTX 슬라이드가 성공적으로 생성되었습니다!");
+      showToast("📥 믿음의 후대 복음 동화 PPTX(7단계)가 성공적으로 다운로드되었습니다!");
     } else {
-      alert("📥 믿음의 후대 복음 동화 PPTX 슬라이드가 다운로드되었습니다.");
+      alert("📥 믿음의 후대 복음 동화 PPTX(7단계)가 다운로드되었습니다.");
     }
   }).catch(err => {
     console.error("PPTX write error:", err);
@@ -585,7 +780,10 @@ window.setKidsStoryLang = setKidsStoryLang;
 window.switchKidsViewerMode = switchKidsViewerMode;
 window.toggleKidsAutoPlay = toggleKidsAutoPlay;
 window.toggleKidsSpeech = toggleKidsSpeech;
+window.stopKidsSpeech = stopKidsSpeech;
+window.speakKidsCurrentPage = speakKidsCurrentPage;
 window.toggleKidsBgm = toggleKidsBgm;
 window.openKidsFullscreen = openKidsFullscreen;
 window.closeKidsFullscreen = closeKidsFullscreen;
 window.downloadKidsStorybookPptx = downloadKidsStorybookPptx;
+

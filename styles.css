@@ -4669,6 +4669,19 @@ body {
   transform: translateY(-1px);
 }
 
+.btn-kids-action.tts-active {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.35), rgba(245, 158, 11, 0.35)) !important;
+  border-color: #f59e0b !important;
+  color: #fef08a !important;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.5), inset 0 0 8px rgba(239, 68, 68, 0.4);
+  animation: pulse-tts 1.4s infinite alternate ease-in-out;
+}
+
+@keyframes pulse-tts {
+  0% { transform: scale(1); box-shadow: 0 0 12px rgba(245, 158, 11, 0.4); }
+  100% { transform: scale(1.04); box-shadow: 0 0 22px rgba(245, 158, 11, 0.8), 0 0 10px rgba(239, 68, 68, 0.6); }
+}
+
 .btn-kids-outline {
   background: transparent;
   border: 1px solid #f59e0b;
