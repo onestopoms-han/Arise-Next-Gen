@@ -287,10 +287,10 @@ body {
 }
 
 .brand-sub {
-  font-size: 0.7rem;
+  font-size: 0.95rem;
   color: var(--accent-gold);
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
@@ -763,19 +763,19 @@ body {
 }
 
 .step-sub-info {
-  font-size: 0.76rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--accent-gold);
   background: rgba(245, 158, 11, 0.12);
   border: 1px solid rgba(245, 158, 11, 0.25);
-  padding: 0.18rem 0.55rem;
+  padding: 0.22rem 0.65rem;
   border-radius: 6px;
   display: inline-block;
   margin-top: 0.2rem;
 }
 
 .step-time {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--accent-sky);
   letter-spacing: 0.04em;
@@ -799,11 +799,11 @@ body {
 }
 
 .step-title-en {
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: 1.12rem;
+  font-weight: 700;
   color: #94a3b8;
-  letter-spacing: 0.02em;
-  margin-top: 0.15rem;
+  letter-spacing: 0.01em;
+  margin-top: 0.2rem;
   margin-bottom: 0.35rem;
   display: block;
 }
@@ -1086,10 +1086,12 @@ body {
 }
 
 .pillar-title-en {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-weight: 600;
-  font-style: italic;
+  font-size: 1.18rem;
+  color: #38bdf8;
+  font-weight: 700;
+  font-style: normal;
+  display: block;
+  margin-top: 0.2rem;
 }
 
 .pillar-quote-box {
@@ -1098,18 +1100,18 @@ body {
   border-radius: 8px;
   background: rgba(245, 158, 11, 0.1);
   border-left: 3px solid var(--accent-gold);
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: #FDE68A;
   font-weight: 600;
 }
 
 .pillar-quote-en {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.88rem;
   color: #CBD5E1;
-  font-style: italic;
-  font-weight: 400;
-  margin-top: 0.15rem;
+  font-style: normal;
+  font-weight: 600;
+  margin-top: 0.25rem;
 }
 
 .pillar-bullets {
@@ -1143,7 +1145,7 @@ body {
 }
 
 .bullet-kr {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #F1F5F9;
   line-height: 1.45;
@@ -1151,10 +1153,11 @@ body {
 }
 
 .bullet-en {
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   color: #94A3B8;
-  line-height: 1.4;
-  font-style: italic;
+  line-height: 1.45;
+  font-style: normal;
+  font-weight: 600;
 }
 
 /* Page 4 Together Banner */
@@ -1262,10 +1265,10 @@ body {
 }
 
 .slide-sub-title {
-  font-size: 1.05rem;
+  font-size: 1.55rem;
   color: var(--accent-sky);
-  font-weight: 600;
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .slide-quote {
@@ -1274,7 +1277,7 @@ body {
   background: rgba(245, 158, 11, 0.12);
   border-left: 4px solid var(--accent-gold);
   border-radius: 8px;
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   color: #FEF3C7;
   font-weight: 700;
 }
@@ -1303,9 +1306,10 @@ body {
 }
 
 .slide-bullet-en {
-  font-size: 0.88rem;
+  font-size: 1.08rem;
   color: #94A3B8;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 600;
   line-height: 1.45;
 }
 
@@ -1714,27 +1718,66 @@ body {
 }
 
 .worship-title {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.worship-title .worship-title-en {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.worship-title .worship-title-divider {
+  opacity: 0.5;
+  font-size: 1rem;
+}
+
+.worship-title .worship-title-ko {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .worship-meta {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
   margin-bottom: 0.85rem;
 }
 
 .worship-lyrics-snippet {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: #CBD5E1;
-  font-style: italic;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border-left: 3px solid var(--accent-sky);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.worship-lyrics-snippet .snippet-line {
+  margin: 0;
   line-height: 1.5;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 0.75rem;
-  border-radius: 8px;
-  border-left: 2px solid var(--accent-sky);
+}
+
+.worship-lyrics-snippet .snippet-en {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+.worship-lyrics-snippet .snippet-kr {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #f1f5f9;
 }
 
 /* ================= FOOTER ================= */
@@ -2708,13 +2751,14 @@ body {
 }
 
 .studio-stage-title .title-kr {
-  font-size: 1.1rem;
+  font-size: 1.18rem;
   font-weight: 700;
   color: #ffffff;
 }
 
 .studio-stage-title .title-en {
-  font-size: 0.9rem;
+  font-size: 1.18rem;
+  font-weight: 700;
   color: #38bdf8;
 }
 
@@ -2785,10 +2829,10 @@ body {
 
 .sub-line-kr {
   font-size: 1.32rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #ffffff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
   line-height: 1.35;
   text-align: center;
   letter-spacing: -0.01em;
@@ -2797,8 +2841,8 @@ body {
 }
 
 .sub-line-en {
-  font-size: 1.02rem;
-  font-weight: 600;
+  font-size: 1.32rem;
+  font-weight: 700;
   color: #38bdf8;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
   line-height: 1.35;
@@ -2814,10 +2858,10 @@ body {
   }
   .sub-line-kr {
     font-size: 1.05rem;
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.2rem;
   }
   .sub-line-en {
-    font-size: 0.85rem;
+    font-size: 1.05rem;
   }
 }
 
@@ -2864,13 +2908,13 @@ body {
   font-size: 1.75rem;
   font-weight: 800;
   color: #ffffff;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.45rem;
 }
 
 .studio-stage-area:fullscreen .sub-line-en,
 .studio-stage-area.zoom-fullscreen .sub-line-en {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.75rem;
+  font-weight: 800;
   color: #38bdf8;
 }
 
@@ -3102,8 +3146,9 @@ body {
 }
 
 .lyric-en-text {
-  font-size: 0.85rem;
-  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #38bdf8;
 }
 
 .lyric-play-btn {
@@ -3242,6 +3287,7 @@ body {
 
 .lyric-in.en-input {
   color: #38bdf8;
+  font-size: 0.85rem;
 }
 
 .btn-del-line {
@@ -4032,10 +4078,11 @@ body {
 }
 
 .ppt-point-title-en {
-  font-size: 1.05rem;
-  color: #94a3b8;
+  font-size: 1.4rem;
+  color: #38bdf8;
+  font-weight: 700;
   margin: 0;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.5;
   border-top: 1px dashed rgba(255, 255, 255, 0.12);
   padding-top: 0.8rem;
@@ -4417,9 +4464,10 @@ body {
 }
 
 .ppt-notice-title-en {
-  font-size: 1.05rem;
-  color: #94a3b8;
-  font-style: italic;
+  font-size: 1.45rem;
+  color: #38bdf8;
+  font-weight: 700;
+  font-style: normal;
   margin-bottom: 1rem;
   line-height: 1.45;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
@@ -4865,10 +4913,10 @@ body {
 }
 
 .kids-story-title-en {
-  font-size: 1.05rem;
+  font-size: 1.45rem;
   color: #38bdf8;
-  font-weight: 600;
-  font-style: italic;
+  font-weight: 700;
+  font-style: normal;
   margin: 0 0 1.25rem 0;
 }
 
@@ -4888,10 +4936,11 @@ body {
 }
 
 .kids-text-en {
-  font-size: 1.02rem;
-  line-height: 1.65;
-  color: #cbd5e1;
-  font-style: italic;
+  font-size: 1.18rem;
+  line-height: 1.8;
+  color: #e2e8f0;
+  font-style: normal;
+  font-weight: 500;
   margin: 0;
   border-top: 1px dashed rgba(255, 255, 255, 0.1);
   padding-top: 0.85rem;
@@ -5162,10 +5211,10 @@ body {
 }
 
 .kids-modal-title-en {
-  font-size: 1.25rem;
+  font-size: 1.85rem;
   color: #38bdf8;
-  font-weight: 700;
-  font-style: italic;
+  font-weight: 800;
+  font-style: normal;
   margin: 0 0 1.5rem 0;
 }
 
@@ -5178,10 +5227,11 @@ body {
 }
 
 .kids-modal-text-en {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #cbd5e1;
-  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.85;
+  color: #e2e8f0;
+  font-style: normal;
+  font-weight: 500;
   margin: 0;
   border-top: 1px dashed rgba(255, 255, 255, 0.15);
   padding-top: 1.25rem;

@@ -64,15 +64,15 @@ const translations = {
     testimony_title: "은혜의 현장 간증 (Grace Feed)",
     testimony_desc: "다민족 제자들과 현장에서 일어난 감사의 열매와 복음 응답을 나눕니다.",
     btn_post_testimony: "간증 나누기",
-    worship_badge: "한 목소리로 찬양",
-    worship_title: "글로벌 워십 라운지 (Worship Lounge)",
-    worship_desc: "기도모임 때 함께 부르거나 일상 속에서 묵상하기 좋은 전 세계 찬양 모음입니다.",
+    worship_badge: "Global Praise & Worship · 온 열방의 찬양",
+    worship_title: "Global Worship Lounge · 열방 워십 라운지",
+    worship_desc: "전 세계 모든 민족과 다음 세대가 함께 찬양하며 하나님의 임재를 누리는 글로벌 워십 공간입니다. (A global praise hub where all nations and the next generation worship together in one voice.)",
     lyrics_snippet_1: "\"Way maker, Miracle worker, Promise keeper, Light in the darkness, my God, that is who You are.\" (길을 만드시고 기적을 행하시는 주님)",
     lyrics_snippet_2: "\"주의 은혜가 네게 넘쳐나길 원하네. 천 대까지 네 자손에게 복이 있기를.\" (후대를 향한 민수기 6장 제사장적 축복)",
     lyrics_snippet_3: "\"온 땅이여 주를 찬양하라, 위대하신 우리 하나님을 노래하라.\" (만유의 주 예수 그리스도 찬양)",
     footer_desc: "열방의 다음세대와 후대를 위해 복음의 전도자와 세계 성도들이 기도로 하나 되는 곳입니다.",
     footer_schedule_title: "정기 기도모임 안내",
-    footer_schedule_text: "• 일시: 2026년 10월 4일 (일) 20:00 퀸즈랜드 (호주) / 19:00 서울 (KST)<br>• 방식: 온라인 화상회의 (Zoom / Google Meet)<br>• 언어: 한국어 & 영어 (Bilingual Session)",
+    footer_schedule_text: "• 일시: 2026년 11월 1일 (일) 19:50 퀸즈랜드 (호주) / 18:50 서울 (KST)<br>• 방식: 온라인 화상회의 (Zoom / Google Meet)<br>• 언어: 한국어 & 영어 (Bilingual Session)",
     footer_action_title: "빠른 연결",
     global_times_title: "🌍 참여 열방 현지 시각 (Meeting Time by Nation)",
     nations_label: "함께 기도하는 열방 :",
@@ -242,15 +242,15 @@ const translations = {
     testimony_title: "Grace & Field Testimonies",
     testimony_desc: "Heartwarming fruits of faith, gospel answers, and field testimonies with multi-ethnic disciples.",
     btn_post_testimony: "Share Testimony",
-    worship_badge: "Sing With One Voice",
+    worship_badge: "Global Praise & Worship",
     worship_title: "Global Worship Lounge",
-    worship_desc: "Handpicked praise songs to sing during our monthly meeting or for personal daily meditation.",
+    worship_desc: "A global praise hub where all nations and the next generation worship together in one voice.",
     lyrics_snippet_1: "\"Way maker, Miracle worker, Promise keeper, Light in the darkness, my God, that is who You are.\"",
     lyrics_snippet_2: "\"The Lord bless you and keep you, make His face shine upon you and be gracious to you.\" (Numbers 6 Blessing)",
     lyrics_snippet_3: "\"The King of Kings and Lord of Lords, how great is our God, sing with me, how great is our God.\"",
     footer_desc: "A united prayer hub connecting gospel evangelists and international saints for the next generation.",
     footer_schedule_title: "Monthly Meeting Info",
-    footer_schedule_text: "• When: Sun, Oct 4, 2026, 20:00 QLD (Australia) / 19:00 Seoul (KST)<br>• Platform: Online Video Conference (Zoom / Google Meet)<br>• Language: Korean & English (Bilingual Session)",
+    footer_schedule_text: "• When: Sun, Nov 1, 2026, 19:50 QLD (Australia) / 18:50 Seoul (KST)<br>• Platform: Online Video Conference (Zoom / Google Meet)<br>• Language: Korean & English (Bilingual Session)",
     footer_action_title: "Quick Links",
     global_times_title: "🌍 Meeting Time by Participating Nation",
     nations_label: "Participating Nations :",
@@ -1590,9 +1590,9 @@ const defaultTestimonies = [
 const defaultRoutineContent = {
   step1: {
     songId: "jesus-we-enthrone-you",
-    songTitle: "예수 우리 왕이여 (Jesus, We Enthrone You)",
+    songTitle: "Jesus, We Enthrone You (예수 우리 왕이여)",
     link: "https://www.youtube.com/watch?v=d6tDhj87iBM",
-    content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다.\n• 지정 찬양: 예수 우리 왕이여 (Jesus, We Enthrone You)\n• 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace to you)"
+    content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다. (A global anthem sung across all nations.)\n• 지정 찬양 (Official Worship): Jesus, We Enthrone You | 예수 우리 왕이여\n• Global Subtitles: 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace and peace to you in Christ)"
   },
   step2: {
     scripture: "창세기 1:27-28 (Genesis 1:27-28)",
@@ -1611,14 +1611,14 @@ const defaultRoutineContent = {
 
 // Meeting Settings Seed Data (호주 퀸즈랜드 7:30 PM AEST 기준)
 const defaultMeetingSettings = {
-  // 2026년 10월 4일 (일) 호주 퀸즈랜드 7:30 PM (AEST, UTC+10) = 한국 18:30 KST (UTC+9)
-  meetingDate: "2026-10-04T19:30:00+10:00",
-  zoomUrl: "https://us06web.zoom.us/j/88386973041?pwd=WnMibQbSXIGzxk7D8R9vaPf8gkqzaO.1",
+  // 2026년 11월 1일 (일) 호주 퀸즈랜드 7:50 PM (AEST, UTC+10) = 한국 18:50 KST (UTC+9)
+  meetingDate: "2026-11-01T19:50:00+10:00",
+  zoomUrl: "https://us06web.zoom.us/j/88382833525?pwd=yY6ubogs8Hz1nTgrVD4zeHhs3if0UG.1",
   meetingId: "ID: 883 8697 3041 / PW: 5gZkTM"
 };
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261004_v36_step4_prayer_speakers_sync';
+const DATA_VERSION = 'v20261009_v37_global_font_and_worship_equalize';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -1635,7 +1635,7 @@ let routineContent = JSON.parse(localStorage.getItem('prayer_hub_routine_content
 // Ensure designated song title is always cleanly displayed
 if (routineContent && routineContent.step1 && (!routineContent.step1.songTitle || routineContent.step1.songTitle.includes('애수') || routineContent.step1.songId === 'jesus-we-enthrone-you')) {
   routineContent.step1.songId = 'jesus-we-enthrone-you';
-  routineContent.step1.songTitle = '예수 우리 왕이여 (Jesus, We Enthrone You)';
+  routineContent.step1.songTitle = 'Jesus, We Enthrone You (예수 우리 왕이여)';
 }
 let meetingSettings = JSON.parse(localStorage.getItem('prayer_hub_meeting_settings')) || defaultMeetingSettings;
 let currentFilter = 'all';
@@ -2373,23 +2373,23 @@ function renderWorshipLounge() {
   if (badgeText) {
     if (currentWorshipFilter === 'weekly') {
       badgeText.innerHTML = isKorean
-        ? `📅 이번 주 추천 찬양 (${currentYear}년 ${currentMonth}월 ${monthWeek}주차) • 매주 자동 순환`
+        ? `📅 이번 주 추천 찬양 (${currentYear}년 ${currentMonth}월 ${monthWeek}주차) • Weekly Featured Praise`
         : `📅 Weekly Featured Worship (Week ${weekNum}, ${currentYear}) • Auto-Rotates`;
     } else if (currentWorshipFilter === 'all') {
       badgeText.innerHTML = isKorean
-        ? `🎶 전체 찬양 보관함 (${pool.length}곡 라이브러리) • 자유 선곡 & 감상`
+        ? `🎶 전체 찬양 보관함 (${pool.length}곡 라이브러리) • Complete Praise Library`
         : `🎶 Complete Praise Library (${pool.length} Songs) • Browse & Worship`;
     } else if (currentWorshipFilter === 'hymn') {
       badgeText.innerHTML = isKorean
-        ? `✝️ 클래식 찬송가 컬렉션 • 세대를 넘어 전해진 은혜`
+        ? `✝️ 클래식 찬송가 컬렉션 • Classic Hymns Collection`
         : `✝️ Classic Hymns Collection • Timeless Grace`;
     } else if (currentWorshipFilter === 'global') {
       badgeText.innerHTML = isKorean
-        ? `🌍 글로벌 다민족 찬양 • 온 열방이 함께 부르는 찬양`
+        ? `🌍 글로벌 다민족 찬양 • Global Multi-Language Worship`
         : `🌍 Global Multi-Language Worship • Sung Across Nations`;
     } else if (currentWorshipFilter === 'confession') {
       badgeText.innerHTML = isKorean
-        ? `🕊️ 은혜와 믿음의 결단 찬양 • 깊은 묵상과 기도`
+        ? `🕊️ 은혜와 믿음의 결단 찬양 • Grace & Surrender Worship`
         : `🕊️ Grace & Surrender Worship • Deep Reflection`;
     }
   }
@@ -2520,9 +2520,9 @@ function renderWorshipLounge() {
       `;
     }
 
-    const watchStudioBtnLabel = isKorean ? '🎬 한/영 자막 감상' : '🎬 Watch Subtitles';
-    const assignMeetingBtnLabel = isKorean ? '📌 모임 찬양 지정' : '📌 Set as Meeting Song';
-    const meetingSelectedBadge = isKorean ? '📌 이번 모임 찬양' : '📌 Current Meeting Praise';
+    const watchStudioBtnLabel = isKorean ? '🎬 한/영 자막 감상 (Bilingual Subtitles)' : '🎬 Watch Subtitles (한/영 자막)';
+    const assignMeetingBtnLabel = isKorean ? '📌 모임 찬양 지정 (Set as Meeting Praise)' : '📌 Set as Meeting Praise';
+    const meetingSelectedBadge = isKorean ? '📌 이번 모임 찬양 (Current Meeting Praise)' : '📌 Current Meeting Praise';
 
     return `
       <div class="worship-card ${isCurrentMeeting ? 'is-meeting-selected' : ''}" id="worshipCard_${song.id}">
@@ -2534,13 +2534,16 @@ function renderWorshipLounge() {
             <span class="worship-tag">${catLabel}</span>
             ${isCurrentMeeting ? `<span class="badge-meeting-song">${meetingSelectedBadge}</span>` : ''}
           </div>
-          <h4 class="worship-title">${escapeHtml(song.titleKo)}</h4>
-          <p class="worship-meta" style="margin-bottom: 0.35rem; color: #38bdf8; font-weight: 600;">${escapeHtml(song.titleEn)}</p>
-          <p class="worship-meta" style="margin-bottom: 0.7rem;">${escapeHtml(song.artist || '')}</p>
-          <p class="worship-lyrics-snippet">
-            "${escapeHtml(snippetKr)}"<br>
-            <span style="font-size:0.78rem; opacity:0.85; font-style:normal; color:#93c5fd;">${escapeHtml(snippetEn)}</span>
-          </p>
+          <h4 class="worship-title">
+            <span class="worship-title-en">${escapeHtml(song.titleEn)}</span>
+            <span class="worship-title-divider">/</span>
+            <span class="worship-title-ko">${escapeHtml(song.titleKo)}</span>
+          </h4>
+          <p class="worship-meta" style="margin-bottom: 0.7rem; font-size: 0.88rem;">${escapeHtml(song.artist || '')}</p>
+          <div class="worship-lyrics-snippet">
+            <p class="snippet-line snippet-en">"${escapeHtml(snippetEn)}"</p>
+            <p class="snippet-line snippet-kr">${escapeHtml(snippetKr)}</p>
+          </div>
 
           <div class="worship-card-actions">
             <div class="worship-card-btns">
@@ -2552,12 +2555,12 @@ function renderWorshipLounge() {
               </button>
             </div>
             ${song.videoUrl ? `
-              <a href="${song.videoUrl}" download class="btn-routine-link" style="margin-top: 0.3rem; text-align: center; font-size: 0.76rem; padding: 0.35rem; display: block;">
-                📥 1080p MP4 자막 영상 다운로드
+              <a href="${song.videoUrl}" download class="btn-routine-link" style="margin-top: 0.35rem; text-align: center; font-size: 0.85rem; padding: 0.45rem; display: block;">
+                📥 Download 1080p MP4 (한/영 자막 영상)
               </a>
             ` : (song.audioUrl ? `
-              <a href="${song.audioUrl}" download class="btn-routine-link" style="margin-top: 0.3rem; text-align: center; font-size: 0.76rem; padding: 0.35rem; display: block;">
-                📥 고음질 MP3 음원 다운로드
+              <a href="${song.audioUrl}" download class="btn-routine-link" style="margin-top: 0.35rem; text-align: center; font-size: 0.85rem; padding: 0.45rem; display: block;">
+                📥 Download High-Quality MP3 (고음질 음원)
               </a>
             ` : '')}
           </div>
@@ -3057,7 +3060,7 @@ function renderRoutineDisplay() {
     if (routineSub1) routineSub1.textContent = songTitleText;
     if (detailSongTitle) detailSongTitle.textContent = songTitleText;
     if (btnPlayMeetingSongStudio) {
-      btnPlayMeetingSongStudio.innerHTML = `▶️ ${escapeHtml(songTitleText)} (한/영 자막)`;
+      btnPlayMeetingSongStudio.innerHTML = `▶️ Play ${escapeHtml(songTitleText)} (Bilingual Subtitles)`;
     }
     if (detailSongContent) {
       detailSongContent.innerHTML = escapeHtml(data.step1?.content || '').replace(/\n/g, '<br>');
@@ -3068,7 +3071,7 @@ function renderRoutineDisplay() {
       if (activeLink) {
         detailSongLinkArea.innerHTML = `
           <a href="${escapeHtml(activeLink)}" target="_blank" rel="noopener noreferrer" class="detail-yt-btn">
-            ▶ 유튜브 찬양 영상 함께 듣기 (Watch on YouTube)
+            ▶ Watch on YouTube (유튜브 찬양 영상 함께 듣기)
           </a>
         `;
       } else {

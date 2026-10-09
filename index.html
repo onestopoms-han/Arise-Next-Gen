@@ -111,7 +111,7 @@
         <div class="countdown-header">
           <div class="meeting-meta">
             <span class="meeting-status-tag" data-i18n="countdown_tag">다음 모임 D-Day</span>
-            <h3 class="next-meeting-date" id="displayMeetingDate">🇦🇺 10월 4일 (일) 오후 8:00 (호주 퀸즈랜드 기준) / 🇰🇷 19:00 KST</h3>
+            <h3 class="next-meeting-date" id="displayMeetingDate">🇦🇺 11월 1일 (일) 오후 7:50 (호주 퀸즈랜드 기준) / 🇰🇷 18:50 KST</h3>
           </div>
           <div class="world-clock-badge" id="worldClockInfo">
             🌐 🇦🇺 호주 퀸즈랜드 기준 (AEST / UTC+10) | 🇰🇷 한국 (KST) | <span id="localTimeDisplay">현지 시각 변환 중...</span>
@@ -236,7 +236,7 @@
             <div class="step-icon">🎶</div>
             <div>
               <h3 class="step-title" id="routineTitle1" data-i18n="routine_step1_title">찬양 & 다민족 환영 (5분)</h3>
-              <div class="step-sub-info" id="routineSub1">예수 우리 왕이여 (Jesus, We Enthrone You)</div>
+              <div class="step-sub-info" id="routineSub1">Jesus, We Enthrone You (예수 우리 왕이여)</div>
             </div>
           </div>
           <p class="step-desc" id="routineDesc1" data-i18n="routine_step1_desc">
@@ -249,7 +249,7 @@
             </button>
             <div class="routine-detail-box" id="routineDetail1">
               <div class="detail-badge">🎵 이번 모임 지정 찬양</div>
-              <div class="detail-highlight-title" id="detailSongTitle">예수 우리 왕이여 (Jesus, We Enthrone You)</div>
+              <div class="detail-highlight-title" id="detailSongTitle">Jesus, We Enthrone You (예수 우리 왕이여)</div>
               <div class="detail-text-body" id="detailSongContent"></div>
               <div class="detail-link-area" id="detailSongLinkArea"></div>
               <div class="studio-quick-launch-box" style="margin-top: 0.9rem; padding: 0.85rem; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px;">
@@ -399,7 +399,7 @@
               <span class="chevron" id="routineChevron4">▼</span>
             </button>
             <div class="routine-detail-box" id="routineDetail4">
-              <div class="detail-badge">📢 순서 & 광고 <span style="font-weight: 400; opacity: 0.85; font-size: 0.85em;">(Order & Announcements)</span></div>
+              <div class="detail-badge">📢 순서 & 광고 <span style="font-weight: 600; opacity: 0.95; font-size: 1em;">(Order & Announcements)</span></div>
               <div class="detail-highlight-title" id="detailClosingTitle">오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim) / 클로징 기도: 죠지 (Closing Prayer — George)</div>
               <div class="detail-text-body" id="detailClosingContent"></div>
             </div>
@@ -789,33 +789,33 @@
   <section class="worship-section" id="worship">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-badge" data-i18n="worship_badge">한 목소리로 찬양</span>
-        <h2 class="section-title" data-i18n="worship_title">글로벌 워십 라운지 (Worship Lounge)</h2>
+        <span class="section-badge" data-i18n="worship_badge">Global Praise & Worship · 온 열방의 찬양</span>
+        <h2 class="section-title" data-i18n="worship_title">Global Worship Lounge · 열방 워십 라운지</h2>
         <p class="section-desc" data-i18n="worship_desc">
-          기도모임 때 함께 부르거나 일상 속에서 묵상하기 좋은 전 세계 찬양 모음입니다.
+          전 세계 모든 민족과 다음 세대가 함께 찬양하며 하나님의 임재를 누리는 글로벌 워십 공간입니다. (A global praise hub where all nations and the next generation worship together in one voice.)
         </p>
         <div>
           <span class="worship-week-badge" id="worshipWeekBadge">
-            <span>📅</span> <span id="worshipWeekText">이번 주 추천 찬양 • 매주 자동 교체</span>
+            <span>📅</span> <span id="worshipWeekText">이번 주 추천 찬양 • Weekly Featured Praise</span>
           </span>
         </div>
 
         <!-- Worship Lounge Filter Bar (자유 선곡 및 보관함) -->
         <div class="worship-filter-bar">
           <button type="button" class="worship-filter-btn active" id="filterBtnWeekly" onclick="filterWorshipLounge('weekly')">
-            ⭐ 이번 주 추천 (3곡)
+            ⭐ 이번 주 추천 (Weekly Featured)
           </button>
           <button type="button" class="worship-filter-btn" id="filterBtnAll" onclick="filterWorshipLounge('all')">
-            🎶 전체 찬양 보관함 (10곡 전체)
+            🎶 전체 찬양 보관함 (All Library)
           </button>
           <button type="button" class="worship-filter-btn" id="filterBtnHymn" onclick="filterWorshipLounge('hymn')">
-            ✝️ 클래식 찬송가
+            ✝️ 클래식 찬송가 (Classic Hymns)
           </button>
           <button type="button" class="worship-filter-btn" id="filterBtnGlobal" onclick="filterWorshipLounge('global')">
-            🌍 글로벌 다민족 찬양
+            🌍 글로벌 다민족 찬양 (Global Praise)
           </button>
           <button type="button" class="worship-filter-btn" id="filterBtnConfession" onclick="filterWorshipLounge('confession')">
-            🕊️ 은혜와 결단
+            🕊️ 은혜와 결단 (Grace & Faith)
           </button>
         </div>
       </div>
@@ -853,7 +853,7 @@
       <div class="footer-col info-col">
         <h5 class="footer-heading" data-i18n="footer_schedule_title">정기 기도모임 안내</h5>
         <p class="footer-text" data-i18n="footer_schedule_text">
-          • 일시: 2026년 10월 4일 (일) 20:00 퀸즈랜드 (호주) / 19:00 서울 (KST)<br>
+          • 일시: 2026년 11월 1일 (일) 19:50 퀸즈랜드 (호주) / 18:50 서울 (KST)<br>
           • 방식: 온라인 화상회의 (Zoom / Google Meet)<br>
           • 언어: 한국어 & 영어 (Bilingual Session)
         </p>
@@ -1392,21 +1392,21 @@
           </div>
           <div class="slide-title-area text-center" style="text-align: center; margin: 1.5rem 0;">
             <div style="font-size: 2.8rem; margin-bottom: 0.4rem;">🕊️</div>
-            <h2 class="slide-main-title" style="font-size: 2rem;" data-i18n="together_bar_title">함께 기도합시다</h2>
-            <div class="slide-sub-title" style="font-size: 1.25rem;" data-i18n="together_bar_sub">Let Us Pray Together</div>
+            <h2 class="slide-main-title" style="font-size: 1.75rem;" data-i18n="together_bar_title">함께 기도합시다</h2>
+            <div class="slide-sub-title" style="font-size: 1.75rem;" data-i18n="together_bar_sub">Let Us Pray Together</div>
           </div>
           <div class="slide-bullets" style="max-width: 500px; margin: 0 auto 1.5rem;">
             <div class="slide-bullet-item" style="border-left-color: var(--accent-gold);">
-              <div class="slide-bullet-kr" style="font-size: 1.2rem;" data-i18n="pill_myself">나 자신을 위하여</div>
-              <div class="slide-bullet-en" style="font-size: 0.95rem;" data-i18n="pill_myself_sub">For myself</div>
+              <div class="slide-bullet-kr" style="font-size: 1.15rem;" data-i18n="pill_myself">나 자신을 위하여</div>
+              <div class="slide-bullet-en" style="font-size: 1.15rem;" data-i18n="pill_myself_sub">For myself</div>
             </div>
             <div class="slide-bullet-item" style="border-left-color: var(--accent-sky);">
-              <div class="slide-bullet-kr" style="font-size: 1.2rem;" data-i18n="pill_nations">모든 민족을 위하여</div>
-              <div class="slide-bullet-en" style="font-size: 0.95rem;" data-i18n="pill_nations_sub">For all nations</div>
+              <div class="slide-bullet-kr" style="font-size: 1.15rem;" data-i18n="pill_nations">모든 민족을 위하여</div>
+              <div class="slide-bullet-en" style="font-size: 1.15rem;" data-i18n="pill_nations_sub">For all nations</div>
             </div>
             <div class="slide-bullet-item" style="border-left-color: #10B981;">
-              <div class="slide-bullet-kr" style="font-size: 1.2rem;" data-i18n="pill_nextgen">후대를 위하여</div>
-              <div class="slide-bullet-en" style="font-size: 0.95rem;" data-i18n="pill_nextgen_sub">For the next generation</div>
+              <div class="slide-bullet-kr" style="font-size: 1.15rem;" data-i18n="pill_nextgen">후대를 위하여</div>
+              <div class="slide-bullet-en" style="font-size: 1.15rem;" data-i18n="pill_nextgen_sub">For the next generation</div>
             </div>
           </div>
         </div>
@@ -1516,8 +1516,9 @@
         <div class="studio-stage-area" id="studioStageArea">
           <!-- Active Song Title Banner -->
           <div class="studio-stage-title" id="studioActiveSongTitle">
-            <span class="title-kr">나 같은 죄인 살리신</span>
             <span class="title-en">Amazing Grace (Hymn 305)</span>
+            <span class="title-divider" style="opacity: 0.6; margin: 0 0.4rem;">|</span>
+            <span class="title-kr">나 같은 죄인 살리신</span>
           </div>
 
           <!-- Video / Audio Canvas Wrapper -->

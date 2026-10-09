@@ -858,7 +858,7 @@ function populateSongSelector(selectedId) {
   PRESET_PRAISE_SONGS.forEach(song => {
     const opt = document.createElement('option');
     opt.value = song.id;
-    opt.textContent = `${song.titleKo} (${song.titleEn})`;
+    opt.textContent = `${song.titleEn} | ${song.titleKo}`;
     if (song.id === selectedId) opt.selected = true;
     presetGroup.appendChild(opt);
   });
@@ -872,7 +872,7 @@ function populateSongSelector(selectedId) {
     customSongs.forEach(song => {
       const opt = document.createElement('option');
       opt.value = song.id;
-      opt.textContent = `${song.titleKo} (${song.titleEn})`;
+      opt.textContent = `${song.titleEn} | ${song.titleKo}`;
       if (song.id === selectedId) opt.selected = true;
       customGroup.appendChild(opt);
     });
@@ -1050,7 +1050,7 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
   // Update Display
   const titleDisplay = document.getElementById('studioActiveSongTitle');
   if (titleDisplay) {
-    titleDisplay.innerHTML = `<span class="title-kr">${escapeHtml(song.titleKo)}</span> <span class="title-en">${escapeHtml(song.titleEn)}</span>`;
+    titleDisplay.innerHTML = `<span class="title-en">${escapeHtml(song.titleEn)}</span> <span class="title-divider" style="opacity: 0.6; margin: 0 0.4rem;">|</span> <span class="title-kr">${escapeHtml(song.titleKo)}</span>`;
   }
   const songSelectEl = document.getElementById('studioSongSelect');
   if (songSelectEl && songSelectEl.value !== song.id) {
@@ -1431,8 +1431,8 @@ function displayOverlaySubtitle(lineObj) {
   }
 
   overlay.innerHTML = `
-    <div class="sub-line-kr">${escapeHtml(lineObj.kr)}</div>
     <div class="sub-line-en">${escapeHtml(lineObj.en || '')}</div>
+    <div class="sub-line-kr">${escapeHtml(lineObj.kr)}</div>
   `;
   overlay.classList.add('visible');
 }
