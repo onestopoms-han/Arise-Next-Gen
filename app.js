@@ -183,7 +183,46 @@ const translations = {
     slide_badge_4: "슬라이드 4 / 4 • 함께 기도합시다",
     btn_prev_slide: "이전 슬라이드",
     btn_next_slide: "다음 슬라이드",
-    toast_prayer_guide_copied: "공동 기도문이 클립보드에 복사되었습니다! 줌 채팅창에 붙여넣어 공유하세요. 📋"
+    toast_prayer_guide_copied: "공동 기도문이 클립보드에 복사되었습니다! 줌 채팅창에 붙여넣어 공유하세요. 📋",
+    kids_tab_storybook: "📖 인터랙티브 동화책 (Storybook)",
+    kids_tab_video: "🎬 찬양 애니메이션 영상 (Video)",
+    kids_lang_bilingual: "🌐 한·영 함께",
+    kids_btn_read_aloud: "🔊 소리내어 읽기",
+    kids_btn_stop_reading: "⏹️ 낭독 중지",
+    kids_btn_bgm: "🎵 배경음악",
+    kids_btn_fullscreen: "📺 발표/전체화면",
+    kids_btn_pptx: "📊 PPTX 다운로드",
+    kids_btn_autoplay: "▶️ 자동 넘김",
+    kids_btn_pause: "⏸️ 일시 정지",
+    kids_btn_prev_page: "◀ 이전 장",
+    kids_btn_next_page: "다음 장 ▶",
+    kids_btn_video_download: "📥 720p HD 애니메이션 비디오 다운로드",
+    routine_btn_toggle_praise: "이번 모임 찬양 보기",
+    routine_btn_toggle_message: "성경 본문 & 5분 요약 보기",
+    routine_btn_toggle_prayer: "이번 모임 집중 기도제목 보기",
+    routine_btn_toggle_closing: "순서 & 광고 보기",
+    routine_btn_edit_admin: "순서 편집 (3인 관리자)",
+    routine_btn_zoom_guide: "⚡ 줌 찬양 끊김 해결 가이드",
+    routine_btn_worship_library: "🎶 찬양 보관함 (10곡)",
+    routine_btn_word_ppt: "🖥️ 말씀 PPT 발표",
+    routine_btn_word_pdf: "📄 PDF 인쇄",
+    routine_btn_word_pptx_down: "📊 PPTX 다운로드",
+    routine_btn_notice_ppt: "🖥️ 순서 & 광고 발표",
+    routine_btn_notice_pdf: "📄 PDF 인쇄",
+    routine_btn_notice_pptx_down: "📊 PPTX 다운로드",
+    worship_filter_weekly: "⭐ 이번 주 추천 (Weekly Featured)",
+    worship_filter_all: "🎶 전체 찬양 보관함 (All Library)",
+    worship_filter_hymn: "✝️ 클래식 찬송가 (Classic Hymns)",
+    worship_filter_global: "🌍 글로벌 다민족 찬양 (Global Praise)",
+    worship_filter_confession: "🕊️ 은혜와 결단 (Grace & Faith)",
+    worship_btn_watch_subtitles: "🎬 한/영 자막 감상 (Bilingual Subtitles)",
+    worship_btn_assign_meeting: "📌 모임 찬양 지정 (Set as Meeting Praise)",
+    worship_btn_download_mp4: "📥 Download 1080p MP4 (한/영 자막 영상)",
+    worship_btn_download_mp3: "📥 Download High-Quality MP3 (고음질 음원)",
+    btn_close: "닫기",
+    btn_confirm: "확인했습니다 👍",
+    btn_original_view: "원문 보기",
+    btn_translation_view: "번역 보기"
   },
   en: {
     brand_title: "Arise Next-Gen",
@@ -361,7 +400,46 @@ const translations = {
     slide_badge_4: "Slide 4 / 4 • Let Us Pray Together",
     btn_prev_slide: "Previous Slide",
     btn_next_slide: "Next Slide",
-    toast_prayer_guide_copied: "Prayer Guide copied to clipboard! Paste it into your Zoom chat. 📋"
+    toast_prayer_guide_copied: "Prayer Guide copied to clipboard! Paste it into your Zoom chat. 📋",
+    kids_tab_storybook: "📖 Interactive Storybook",
+    kids_tab_video: "🎬 Praise Animation Video",
+    kids_lang_bilingual: "🌐 Bilingual View",
+    kids_btn_read_aloud: "🔊 Read Aloud",
+    kids_btn_stop_reading: "⏹️ Stop Reading",
+    kids_btn_bgm: "🎵 Background Music",
+    kids_btn_fullscreen: "📺 Presentation / Fullscreen",
+    kids_btn_pptx: "📊 Download PPTX",
+    kids_btn_autoplay: "▶️ Auto Turn",
+    kids_btn_pause: "⏸️ Pause",
+    kids_btn_prev_page: "◀ Previous Page",
+    kids_btn_next_page: "Next Page ▶",
+    kids_btn_video_download: "📥 Download 720p HD Animation Video",
+    routine_btn_toggle_praise: "View Meeting Praise",
+    routine_btn_toggle_message: "View Scripture & Summary",
+    routine_btn_toggle_prayer: "View Focused Prayer Topics",
+    routine_btn_toggle_closing: "View Order & Announcements",
+    routine_btn_edit_admin: "Edit Program (Admin)",
+    routine_btn_zoom_guide: "⚡ Zoom Audio Fix Guide",
+    routine_btn_worship_library: "🎶 Praise Library (10 Songs)",
+    routine_btn_word_ppt: "🖥️ Word Message Slides",
+    routine_btn_word_pdf: "📄 PDF Print",
+    routine_btn_word_pptx_down: "📊 Download PPTX",
+    routine_btn_notice_ppt: "🖥️ Order & Notice Slides",
+    routine_btn_notice_pdf: "📄 PDF Print",
+    routine_btn_notice_pptx_down: "📊 Download PPTX",
+    worship_filter_weekly: "⭐ Weekly Featured",
+    worship_filter_all: "🎶 All Praise Library",
+    worship_filter_hymn: "✝️ Classic Hymns",
+    worship_filter_global: "🌍 Global Multi-Ethnic",
+    worship_filter_confession: "🕊️ Grace & Confession",
+    worship_btn_watch_subtitles: "🎬 Watch Bilingual Subtitles",
+    worship_btn_assign_meeting: "📌 Set as Meeting Praise",
+    worship_btn_download_mp4: "📥 Download 1080p MP4 (Video)",
+    worship_btn_download_mp3: "📥 Download High-Quality MP3",
+    btn_close: "Close",
+    btn_confirm: "Got It 👍",
+    btn_original_view: "View Original",
+    btn_translation_view: "View Translation"
   },
   th: {
     brand_title: "Arise Next-Gen",
@@ -513,7 +591,50 @@ const translations = {
     slide_badge_4: "สไลด์ 4 / 4 • มาร่วมอธิษฐานด้วยกัน",
     btn_prev_slide: "สไลด์ก่อนหน้า",
     btn_next_slide: "สไลด์ถัดไป",
-    toast_prayer_guide_copied: "คัดลอกบทอธิษฐานไปยังคลิปบอร์ดแล้ว! วางในแชท Zoom ได้ทันที 📋"
+    toast_prayer_guide_copied: "คัดลอกบทอธิษฐานไปยังคลิปบอร์ดแล้ว! วางในแชท Zoom ได้ทันที 📋",
+    nav_kids_zone: "🌱 โซนคนรุ่นหลังแห่งความเชื่อ",
+    kids_badge: "NEXT-GEN OF FAITH · เครือข่ายคนรุ่นหลังแห่งความเชื่อทั่วโลก",
+    kids_title: "หนังสือนิทานข่าวประเสริฐเพื่อคนรุ่นหลังด้วย <span class=\"gradient-text-kids\">พระวจนะและภาพวาด</span>",
+    kids_subtitle: "การเดินทางแห่งความรอด 7 ขั้นตอนจากปฐมกาลบทที่ 1 ถึง 3: จากความชื่นชมยินดียิ่งของพระเจ้า (ปฐก. 1:31) ถึงพันธสัญญาแห่งชีวิต การล่อลวงของงู เชื้อสายของหญิง (ปฐก. 3:15) และเสื้อคลุมหนัง (ปฐก. 3:21)",
+    kids_tab_storybook: "📖 หนังสือนิทานอินเทอร์แอคทีฟ (Storybook)",
+    kids_tab_video: "🎬 วิดีโอแอนิเมชันสรรเสริญ (Video)",
+    kids_lang_bilingual: "🌐 สองภาษา",
+    kids_btn_read_aloud: "🔊 อ่านออกเสียง",
+    kids_btn_stop_reading: "⏹️ หยุดอ่าน",
+    kids_btn_bgm: "🎵 ดนตรีประกอบ",
+    kids_btn_fullscreen: "📺 นำเสนอ / เต็มหน้าจอ",
+    kids_btn_pptx: "📊 ดาวน์โหลด PPTX",
+    kids_btn_autoplay: "▶️ เปิดหน้าอัตโนมัติ",
+    kids_btn_pause: "⏸️ หยุดชั่วคราว",
+    kids_btn_prev_page: "◀ หน้าก่อนหน้า",
+    kids_btn_next_page: "หน้าถัดไป ▶",
+    kids_btn_video_download: "📥 ดาวน์โหลดวิดีโอแอนิเมชัน 720p HD",
+    routine_btn_toggle_praise: "ดูบทเพลงสรรเสริญ",
+    routine_btn_toggle_message: "ดูพระวจนะและข้อคิด 5 นาที",
+    routine_btn_toggle_prayer: "ดูหัวข้ออธิษฐานมุ่งเน้น",
+    routine_btn_toggle_closing: "ดูลำดับและประกาศ",
+    routine_btn_edit_admin: "แก้ไขลำดับ (ผู้ดูแล)",
+    routine_btn_zoom_guide: "⚡ คู่มือแก้ปัญหาเสียง Zoom",
+    routine_btn_worship_library: "🎶 คลังบทเพลงสรรเสริญ (10 เพลง)",
+    routine_btn_word_ppt: "🖥️ สไลด์พระวจนะ",
+    routine_btn_word_pdf: "📄 พิมพ์ PDF",
+    routine_btn_word_pptx_down: "📊 ดาวน์โหลด PPTX",
+    routine_btn_notice_ppt: "🖥️ สไลด์ประกาศ",
+    routine_btn_notice_pdf: "📄 พิมพ์ PDF",
+    routine_btn_notice_pptx_down: "📊 ดาวน์โหลด PPTX",
+    worship_filter_weekly: "⭐ แนะนำประจำสัปดาห์ (Weekly Featured)",
+    worship_filter_all: "🎶 คลังเพลงทั้งหมด (All Library)",
+    worship_filter_hymn: "✝️ เพลงสวดคลาสสิก (Classic Hymns)",
+    worship_filter_global: "🌍 สรรเสริญนานาชาติ (Global Praise)",
+    worship_filter_confession: "🕊️ พระคุณและความเชื่อ (Grace & Faith)",
+    worship_btn_watch_subtitles: "🎬 รับชมพร้อมคำบรรยายสองภาษา",
+    worship_btn_assign_meeting: "📌 กำหนดเป็นเพลงประจำการประชุม",
+    worship_btn_download_mp4: "📥 ดาวน์โหลด 1080p MP4 (วิดีโอ)",
+    worship_btn_download_mp3: "📥 ดาวน์โหลด MP3 คุณภาพสูง",
+    btn_close: "ปิด",
+    btn_confirm: "เข้าใจแล้ว 👍",
+    btn_original_view: "ดูต้นฉบับ",
+    btn_translation_view: "ดูคำแปล"
   },
   ar: {
     brand_title: "Arise Next-Gen",
@@ -665,7 +786,50 @@ const translations = {
     slide_badge_4: "شريحة 4 / 4 • لِنُصَلِّ معاً",
     btn_prev_slide: "الشريحة السابقة",
     btn_next_slide: "الشريحة التالية",
-    toast_prayer_guide_copied: "تم نسخ دليل الصلاة إلى الحافظة! يمكنك لصقه في دردشة Zoom. 📋"
+    toast_prayer_guide_copied: "تم نسخ دليل الصلاة إلى الحافظة! يمكنك لصقه في دردشة Zoom. 📋",
+    nav_kids_zone: "🌱 ركن جيل الإيمان القادم",
+    kids_badge: "NEXT-GEN OF FAITH · شبكة جيل الإيمان للأمم",
+    kids_title: "قصة إنجيل جيل الإيمان عبر <span class=\"gradient-text-kids\">الكلمة والرسوم</span>",
+    kids_subtitle: "رحلة الخلاص من 7 خطوات من التكوين 1 إلى 3: من فرح الله الفائق (تك 1: 31) إلى عهد الحياة، خداع الحية، نسل المرأة (تك 3: 15) وأقمصة الجلد (تك 3: 21)",
+    kids_tab_storybook: "📖 كتاب القصص التفاعلي (Storybook)",
+    kids_tab_video: "🎬 فيديو الرسوم المتحركة للترنيم (Video)",
+    kids_lang_bilingual: "🌐 ثنائي اللغة",
+    kids_btn_read_aloud: "🔊 قراءة صوتية",
+    kids_btn_stop_reading: "⏹️ إيقاف القراءة",
+    kids_btn_bgm: "🎵 موسيقى خلفية",
+    kids_btn_fullscreen: "📺 وضع العرض / ملء الشاشة",
+    kids_btn_pptx: "📊 تحميل PPTX",
+    kids_btn_autoplay: "▶️ تقليب تلقائي",
+    kids_btn_pause: "⏸️ إيقاف مؤقت",
+    kids_btn_prev_page: "◀ الصفحة السابقة",
+    kids_btn_next_page: "الصفحة التالية ▶",
+    kids_btn_video_download: "📥 تحميل فيديو 720p HD",
+    routine_btn_toggle_praise: "عرض ترنيمة اللقاء",
+    routine_btn_toggle_message: "عرض كلمة الكتاب والملخص",
+    routine_btn_toggle_prayer: "عرض مواضيع الصلاة المركزة",
+    routine_btn_toggle_closing: "عرض الترتيب والإعلانات",
+    routine_btn_edit_admin: "تعديل البرنامج (المشرف)",
+    routine_btn_zoom_guide: "⚡ دليل حل مشكلات صوت Zoom",
+    routine_btn_worship_library: "🎶 مكتبة الترانيم (10 ترانيم)",
+    routine_btn_word_ppt: "🖥️ شرائح الكلمة",
+    routine_btn_word_pdf: "📄 طباعة PDF",
+    routine_btn_word_pptx_down: "📊 تحميل PPTX",
+    routine_btn_notice_ppt: "🖥️ شرائح الإعلانات",
+    routine_btn_notice_pdf: "📄 طباعة PDF",
+    routine_btn_notice_pptx_down: "📊 تحميل PPTX",
+    worship_filter_weekly: "⭐ مختارات الأسبوع (Weekly Featured)",
+    worship_filter_all: "🎶 كامل مكتبة الترانيم (All Library)",
+    worship_filter_hymn: "✝️ ترانيم كلاسيكية (Classic Hymns)",
+    worship_filter_global: "🌍 ترانيم الأمم (Global Praise)",
+    worship_filter_confession: "🕊️ نعمة وإيمان (Grace & Faith)",
+    worship_btn_watch_subtitles: "🎬 مشاهدة بالترجمة الثنائية",
+    worship_btn_assign_meeting: "📌 تعيين كترنيمة اللقاء",
+    worship_btn_download_mp4: "📥 تحميل فيديو 1080p MP4",
+    worship_btn_download_mp3: "📥 تحميل صوت MP3 عالي الدقة",
+    btn_close: "إغلاق",
+    btn_confirm: "فهمت ذلك 👍",
+    btn_original_view: "عرض النص الأصلي",
+    btn_translation_view: "عرض الترجمة"
   },
   fr: {
     brand_title: "Arise Next-Gen",
@@ -817,7 +981,50 @@ const translations = {
     slide_badge_4: "Diapositive 4 / 4 • Prions ensemble",
     btn_prev_slide: "Diapositive précédente",
     btn_next_slide: "Diapositive suivante",
-    toast_prayer_guide_copied: "Le guide de prière a été copié dans le presse-papiers ! Collez-le dans le chat Zoom. 📋"
+    toast_prayer_guide_copied: "Le guide de prière a été copié dans le presse-papiers ! Collez-le dans le chat Zoom. 📋",
+    nav_kids_zone: "🌱 Espace Prochaine Génération",
+    kids_badge: "NEXT-GEN OF FAITH · Réseau Mondial de la Prochaine Génération",
+    kids_title: "L'Évangile de la Foi en <span class=\"gradient-text-kids\">Paroles & Illustrations</span>",
+    kids_subtitle: "Le voyage du salut en 7 étapes de Genèse 1 à 3: de la très grande joie de Dieu (Gen 1:31) à l'alliance de vie, la ruse du serpent, la postérité de la femme (Gen 3:15) et les tuniques de peau (Gen 3:21)",
+    kids_tab_storybook: "📖 Livre d'Histoire Interactif",
+    kids_tab_video: "🎬 Vidéo Animée de Louange",
+    kids_lang_bilingual: "🌐 Bilingue",
+    kids_btn_read_aloud: "🔊 Lecture à Haute Voix",
+    kids_btn_stop_reading: "⏹️ Arrêter la Lecture",
+    kids_btn_bgm: "🎵 Musique de Fond",
+    kids_btn_fullscreen: "📺 Présentation / Plein Écran",
+    kids_btn_pptx: "📊 Télécharger PPTX",
+    kids_btn_autoplay: "▶️ Défilement Automatique",
+    kids_btn_pause: "⏸️ Pause",
+    kids_btn_prev_page: "◀ Page Précédente",
+    kids_btn_next_page: "Page Suivante ▶",
+    kids_btn_video_download: "📥 Télécharger Vidéo Animée 720p HD",
+    routine_btn_toggle_praise: "Voir le Chant de Louange",
+    routine_btn_toggle_message: "Voir la Parole & Résumé 5 Min",
+    routine_btn_toggle_prayer: "Voir les Sujets de Prière Ciblés",
+    routine_btn_toggle_closing: "Voir le Déroulement & Annonces",
+    routine_btn_edit_admin: "Modifier le Programme (Admin)",
+    routine_btn_zoom_guide: "⚡ Guide Audio Zoom",
+    routine_btn_worship_library: "🎶 Bibliothèque de Louange (10 Chants)",
+    routine_btn_word_ppt: "🖥️ Diaporama de la Parole",
+    routine_btn_word_pdf: "📄 Imprimer PDF",
+    routine_btn_word_pptx_down: "📊 Télécharger PPTX",
+    routine_btn_notice_ppt: "🖥️ Diaporama des Annonces",
+    routine_btn_notice_pdf: "📄 Imprimer PDF",
+    routine_btn_notice_pptx_down: "📊 Télécharger PPTX",
+    worship_filter_weekly: "⭐ Sélection de la Semaine",
+    worship_filter_all: "🎶 Tous les Chants",
+    worship_filter_hymn: "✝️ Cantiques Classiques",
+    worship_filter_global: "🌍 Louange Internationale",
+    worship_filter_confession: "🕊️ Grâce & Foi",
+    worship_btn_watch_subtitles: "🎬 Regarder avec Sous-titres",
+    worship_btn_assign_meeting: "📌 Définir comme Chant de Réunion",
+    worship_btn_download_mp4: "📥 Télécharger Vidéo 1080p MP4",
+    worship_btn_download_mp3: "📥 Télécharger MP3 Haute Qualité",
+    btn_close: "Fermer",
+    btn_confirm: "Compris 👍",
+    btn_original_view: "Voir Original",
+    btn_translation_view: "Voir Traduction"
   },
   zh: {
     brand_title: "Arise Next-Gen",
@@ -969,7 +1176,50 @@ const translations = {
     slide_badge_4: "幻灯片 4 / 4 • 让我们同心祷告",
     btn_prev_slide: "上一张幻灯片",
     btn_next_slide: "下一张幻灯片",
-    toast_prayer_guide_copied: "共同祷告文已复制到剪贴板！可直接粘贴至 Zoom 聊天室。📋"
+    toast_prayer_guide_copied: "共同祷告文已复制到剪贴板！可直接粘贴至 Zoom 聊天室。📋",
+    nav_kids_zone: "🌱 信心后代馆",
+    kids_badge: "NEXT-GEN OF FAITH · 万国信心后代网络",
+    kids_title: "图文相伴的 <span class=\"gradient-text-kids\">信心后代福音绘本</span>",
+    kids_subtitle: "从创世记第1章到第3章的救恩7阶段之旅：从神极大的喜乐(创1:31)到生命之约、蛇的诱惑、女人的后裔(创3:15)与皮衣(创3:21)",
+    kids_tab_storybook: "📖 互动故事绘本 (Storybook)",
+    kids_tab_video: "🎬 赞美动画视频 (Video)",
+    kids_lang_bilingual: "🌐 双语模式",
+    kids_btn_read_aloud: "🔊 语音朗读",
+    kids_btn_stop_reading: "⏹️ 停止朗读",
+    kids_btn_bgm: "🎵 背景音乐",
+    kids_btn_fullscreen: "📺 演示 / 全屏模式",
+    kids_btn_pptx: "📊 下载 PPTX",
+    kids_btn_autoplay: "▶️ 自动翻页",
+    kids_btn_pause: "⏸️ 暂停",
+    kids_btn_prev_page: "◀ 上一页",
+    kids_btn_next_page: "下一页 ▶",
+    kids_btn_video_download: "📥 下载 720p HD 动画视频",
+    routine_btn_toggle_praise: "查看聚会赞美诗",
+    routine_btn_toggle_message: "查看经文与5分钟总结",
+    routine_btn_toggle_prayer: "查看集中祷告题目",
+    routine_btn_toggle_closing: "查看流程与报告",
+    routine_btn_edit_admin: "编辑流程 (管理员)",
+    routine_btn_zoom_guide: "⚡ Zoom 音频优化指南",
+    routine_btn_worship_library: "🎶 赞美诗库 (10首)",
+    routine_btn_word_ppt: "🖥️ 讲道 PPT 幻灯片",
+    routine_btn_word_pdf: "📄 打印 PDF",
+    routine_btn_word_pptx_down: "📊 下载 PPTX",
+    routine_btn_notice_ppt: "🖥️ 报告 PPT 幻灯片",
+    routine_btn_notice_pdf: "📄 打印 PDF",
+    routine_btn_notice_pptx_down: "📊 下载 PPTX",
+    worship_filter_weekly: "⭐ 本周推荐 (Weekly Featured)",
+    worship_filter_all: "🎶 全部赞美库 (All Library)",
+    worship_filter_hymn: "✝️ 经典圣诗 (Classic Hymns)",
+    worship_filter_global: "🌍 万国赞美 (Global Praise)",
+    worship_filter_confession: "🕊️ 恩典与降服 (Grace & Faith)",
+    worship_btn_watch_subtitles: "🎬 双语字幕欣赏",
+    worship_btn_assign_meeting: "📌 设为聚会指定赞美",
+    worship_btn_download_mp4: "📥 下载 1080p MP4 视频",
+    worship_btn_download_mp3: "📥 下载高音质 MP3",
+    btn_close: "关闭",
+    btn_confirm: "知道了 👍",
+    btn_original_view: "查看原文",
+    btn_translation_view: "查看译文"
   },
   id: {
     brand_title: "Arise Next-Gen",
@@ -1121,7 +1371,50 @@ const translations = {
     slide_badge_4: "Slide 4 / 4 • Mari Berdoa Bersama",
     btn_prev_slide: "Slide Sebelumnya",
     btn_next_slide: "Slide Berikutnya",
-    toast_prayer_guide_copied: "Panduan doa telah disalin ke papan klip! Tempelkan di obrolan Zoom. 📋"
+    toast_prayer_guide_copied: "Panduan doa telah disalin ke papan klip! Tempelkan di obrolan Zoom. 📋",
+    nav_kids_zone: "🌱 Zona Generasi Iman",
+    kids_badge: "NEXT-GEN OF FAITH · Jaringan Generasi Iman Seluruh Bangsa",
+    kids_title: "Buku Cerita Injil Generasi Iman dalam <span class=\"gradient-text-kids\">Kata & Gambar</span>",
+    kids_subtitle: "Perjalanan keselamatan 7 langkah dari Kejadian 1 hingga 3: dari sukacita luar biasa Allah (Kej 1:31) ke perjanjian hidup, godaan ular, keturunan perempuan (Kej 3:15) dan pakaian kulit (Kej 3:21)",
+    kids_tab_storybook: "📖 Buku Cerita Interaktif",
+    kids_tab_video: "🎬 Video Animasi Pujian",
+    kids_lang_bilingual: "🌐 Dwibahasa",
+    kids_btn_read_aloud: "🔊 Baca Bersuara",
+    kids_btn_stop_reading: "⏹️ Hentikan Membaca",
+    kids_btn_bgm: "🎵 Musik Latar",
+    kids_btn_fullscreen: "📺 Presentasi / Layar Penuh",
+    kids_btn_pptx: "📊 Unduh PPTX",
+    kids_btn_autoplay: "▶️ Balik Otomatis",
+    kids_btn_pause: "⏸️ Jeda",
+    kids_btn_prev_page: "◀ Halaman Sebelumnya",
+    kids_btn_next_page: "Halaman Berikutnya ▶",
+    kids_btn_video_download: "📥 Unduh Video Animasi 720p HD",
+    routine_btn_toggle_praise: "Lihat Pujian Pertemuan",
+    routine_btn_toggle_message: "Lihat Firman & Ringkasan 5 Menit",
+    routine_btn_toggle_prayer: "Lihat Topik Doa Terfokus",
+    routine_btn_toggle_closing: "Lihat Urutan & Pengumuman",
+    routine_btn_edit_admin: "Edit Susunan (Admin)",
+    routine_btn_zoom_guide: "⚡ Panduan Solusi Audio Zoom",
+    routine_btn_worship_library: "🎶 Perpustakaan Pujian (10 Lagu)",
+    routine_btn_word_ppt: "🖥️ Slide Firman PPT",
+    routine_btn_word_pdf: "📄 Cetak PDF",
+    routine_btn_word_pptx_down: "📊 Unduh PPTX",
+    routine_btn_notice_ppt: "🖥️ Slide Pengumuman PPT",
+    routine_btn_notice_pdf: "📄 Cetak PDF",
+    routine_btn_notice_pptx_down: "📊 Unduh PPTX",
+    worship_filter_weekly: "⭐ Pilihan Minggu Ini",
+    worship_filter_all: "🎶 Semua Koleksi Pujian",
+    worship_filter_hymn: "✝️ Kidung Klasik",
+    worship_filter_global: "🌍 Pujian Seluruh Bangsa",
+    worship_filter_confession: "🕊️ Anugerah & Iman",
+    worship_btn_watch_subtitles: "🎬 Tonton dengan Subtitle Dwibahasa",
+    worship_btn_assign_meeting: "📌 Tetapkan sebagai Lagu Pertemuan",
+    worship_btn_download_mp4: "📥 Unduh Video 1080p MP4",
+    worship_btn_download_mp3: "📥 Unduh Audio MP3 Kualitas Tinggi",
+    btn_close: "Tutup",
+    btn_confirm: "Dimengerti 👍",
+    btn_original_view: "Lihat Asli",
+    btn_translation_view: "Lihat Terjemahan"
   },
   my: {
     brand_title: "Arise Next-Gen",
@@ -1273,7 +1566,50 @@ const translations = {
     slide_badge_4: "စလိုက် ၄ / ၄ • အတူတကွ ဆုတောင်းကြပါစို့",
     btn_prev_slide: "ယခင် စလိုက်",
     btn_next_slide: "နောက် စလိုက်",
-    toast_prayer_guide_copied: "ဆုတောင်းချက်လမ်းညွှန်ကို ကလစ်ဘုတ်သို့ ကူးယူပြီးပါပြီ။ Zoom စကားပြောခန်းတွင် ကူးထည့်နိုင်ပါသည်။ 📋"
+    toast_prayer_guide_copied: "ဆုတောင်းချက်လမ်းညွှန်ကို ကလစ်ဘုတ်သို့ ကူးယူပြီးပါပြီ။ Zoom စကားပြောခန်းတွင် ကူးထည့်နိုင်ပါသည်။ 📋",
+    nav_kids_zone: "🌱 ယုံကြည်ခြင်းမျိုးဆက် ဧရိယာ",
+    kids_badge: "NEXT-GEN OF FAITH · လူမျိုးတကာ ယုံကြည်ခြင်းမျိုးဆက် ကွန်ရက်",
+    kids_title: "နှုတ်ကပတ်တော်နှင့် ရုပ်ပုံများဖြင့် <span class=\"gradient-text-kids\">ယုံကြည်ခြင်းမျိုးဆက် ဧဝံဂေလိပုံပြင်</span>",
+    kids_subtitle: "ကမ္ဘာဦးကျမ်း ၁ မှ ၃ ထိ ကယ်တင်ခြင်း ၇ ဆင့်ခရီး- ဘုရားသခင်၏ အလွန်ကြီးမားသော ဝမ်းမြောက်ခြင်း (က ၁:၃၁) မှ အသက်ပဋိညာဉ်၊ မြွေ၏လှည့်ဖြားမှု၊ မိန်းမ၏အမျိုးအနွယ် (က ၃:၁၅) နှင့် သားရေအဝတ် (က ၃:၂၁)",
+    kids_tab_storybook: "📖 အပြန်အလှန် ပုံပြင်စာအုပ် (Storybook)",
+    kids_tab_video: "🎬 ဓမ္မသီချင်း အန်နီမေးရှင်း (Video)",
+    kids_lang_bilingual: "🌐 နှစ်ဘာသာတွဲ",
+    kids_btn_read_aloud: "🔊 အသံထွက်ဖတ်ရန်",
+    kids_btn_stop_reading: "⏹️ ဖတ်ခြင်းရပ်ရန်",
+    kids_btn_bgm: "🎵 နောက်ခံဂီတ",
+    kids_btn_fullscreen: "📺 တင်ပြချက် / မျက်နှာပြင်ပြည့်",
+    kids_btn_pptx: "📊 PPTX ဒေါင်းလုဒ်",
+    kids_btn_autoplay: "▶️ စာမျက်နှာ အလိုအလျောက်လှန်ရန်",
+    kids_btn_pause: "⏸️ ခေတ္တရပ်ရန်",
+    kids_btn_prev_page: "◀ ယခင်စာမျက်နှာ",
+    kids_btn_next_page: "နောက်စာမျက်နှာ ▶",
+    kids_btn_video_download: "📥 720p HD အန်နီမေးရှင်း ဗီဒီယို ဒေါင်းလုဒ်",
+    routine_btn_toggle_praise: "ဆုတောင်းအစည်းအဝေး ဓမ္မသီချင်းကြည့်ရန်",
+    routine_btn_toggle_message: "ကျမ်းချက်နှင့် ၅ မိနစ် အကျဉ်းချုပ်ကြည့်ရန်",
+    routine_btn_toggle_prayer: "အဓိက ဆုတောင်းခေါင်းစဉ်များ ကြည့်ရန်",
+    routine_btn_toggle_closing: "အစီအစဉ်နှင့် ကြေညာချက်များ ကြည့်ရန်",
+    routine_btn_edit_admin: "အစီအစဉ်ပြင်ဆင်ရန် (စီမံခန့်ခွဲသူ)",
+    routine_btn_zoom_guide: "⚡ Zoom အသံဖြေရှင်းနည်း လမ်းညွှန်",
+    routine_btn_worship_library: "🎶 ဓမ္မသီချင်းများ (သီချင်း ၁၀ ပုဒ်)",
+    routine_btn_word_ppt: "🖥️ နှုတ်ကပတ်တော် PPT",
+    routine_btn_word_pdf: "📄 PDF ပရင့်",
+    routine_btn_word_pptx_down: "📊 PPTX ဒေါင်းလုဒ်",
+    routine_btn_notice_ppt: "🖥️ ကြေညာချက် PPT",
+    routine_btn_notice_pdf: "📄 PDF ပရင့်",
+    routine_btn_notice_pptx_down: "📊 PPTX ဒေါင်းလုဒ်",
+    worship_filter_weekly: "⭐ ယခုအပတ် အထူးရွေးချယ်မှု",
+    worship_filter_all: "🎶 ဓမ္မသီချင်းအားလုံး (သီချင်းစုံ)",
+    worship_filter_hymn: "✝️ ရိုးရာဓမ္မသီချင်းများ",
+    worship_filter_global: "🌍 လူမျိုးတကာ ဓမ္မသီချင်း",
+    worship_filter_confession: "🕊️ ကျေးဇူးတော်နှင့် ဆက်ကပ်ခြင်း",
+    worship_btn_watch_subtitles: "🎬 နှစ်ဘာသာ စာတန်းထိုးဖြင့် ကြည့်ရှုရန်",
+    worship_btn_assign_meeting: "📌 အစည်းအဝေး ဓမ္မသီချင်းအဖြစ် သတ်မှတ်ရန်",
+    worship_btn_download_mp4: "📥 1080p MP4 ဗီဒီယို ဒေါင်းလုဒ်",
+    worship_btn_download_mp3: "📥 အသံအရည်အသွေးမြင့် MP3 ဒေါင်းလုဒ်",
+    btn_close: "ပိတ်ရန်",
+    btn_confirm: "နားလည်ပါပြီ 👍",
+    btn_original_view: "မူရင်းကြည့်ရန်",
+    btn_translation_view: "ဘာသာပြန်ကြည့်ရန်"
   }
 };
 
@@ -1618,7 +1954,7 @@ const defaultMeetingSettings = {
 };
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261009_v37_global_font_and_worship_equalize';
+const DATA_VERSION = 'v20261009_v38_multilingual_buttons_and_kids_zone';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -1696,6 +2032,9 @@ function setLanguage(lang) {
   renderRoutineDisplay();
   renderWorshipLounge();
   updateMeetingDisplay();
+  if (typeof updateKidsZoneLanguage === 'function') {
+    updateKidsZoneLanguage(lang);
+  }
 }
 
 // ==========================================
@@ -2496,7 +2835,7 @@ function renderWorshipLounge() {
       previewHtml = `
         <div class="worship-card-audio-preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.75)), url('${song.bgImage || 'assets/worship_bg.jpg'}'); background-size: cover; background-position: center; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem;">
           <button type="button" class="btn btn-primary btn-sm" onclick="openWorshipStudio('${song.id}', true)" style="box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4); font-weight: 700; display: flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1rem; border-radius: 9999px; margin-bottom: 0.6rem;">
-            <span>▶️</span> <span>한/영 자막 영상 재생</span>
+            <span>▶️</span> <span>${(translations[currentLang] && translations[currentLang].worship_btn_watch_subtitles) || '🎬 한/영 자막 감상'}</span>
           </button>
           <audio controls preload="none" style="width: 90%; height: 32px; opacity: 0.9;" src="${song.audioUrl}"></audio>
         </div>
@@ -2520,8 +2859,9 @@ function renderWorshipLounge() {
       `;
     }
 
-    const watchStudioBtnLabel = isKorean ? '🎬 한/영 자막 감상 (Bilingual Subtitles)' : '🎬 Watch Subtitles (한/영 자막)';
-    const assignMeetingBtnLabel = isKorean ? '📌 모임 찬양 지정 (Set as Meeting Praise)' : '📌 Set as Meeting Praise';
+    const t = translations[currentLang] || translations['en'] || {};
+    const watchStudioBtnLabel = t.worship_btn_watch_subtitles || (isKorean ? '🎬 한/영 자막 감상 (Bilingual Subtitles)' : '🎬 Watch Subtitles (한/영 자막)');
+    const assignMeetingBtnLabel = t.worship_btn_assign_meeting || (isKorean ? '📌 모임 찬양 지정 (Set as Meeting Praise)' : '📌 Set as Meeting Praise');
     const meetingSelectedBadge = isKorean ? '📌 이번 모임 찬양 (Current Meeting Praise)' : '📌 Current Meeting Praise';
 
     return `
@@ -2556,11 +2896,11 @@ function renderWorshipLounge() {
             </div>
             ${song.videoUrl ? `
               <a href="${song.videoUrl}" download class="btn-routine-link" style="margin-top: 0.35rem; text-align: center; font-size: 0.85rem; padding: 0.45rem; display: block;">
-                📥 Download 1080p MP4 (한/영 자막 영상)
+                ${t.worship_btn_download_mp4 || '📥 Download 1080p MP4 (한/영 자막 영상)'}
               </a>
             ` : (song.audioUrl ? `
               <a href="${song.audioUrl}" download class="btn-routine-link" style="margin-top: 0.35rem; text-align: center; font-size: 0.85rem; padding: 0.45rem; display: block;">
-                📥 Download High-Quality MP3 (고음질 음원)
+                ${t.worship_btn_download_mp3 || '📥 Download High-Quality MP3 (고음질 음원)'}
               </a>
             ` : '')}
           </div>
@@ -3038,9 +3378,10 @@ function renderRoutineDisplay() {
     if (currentLang !== 'ko') {
       toggleBtn.style.display = 'inline-flex';
       if (toggleBtnText) {
+        const t = translations[currentLang] || translations['en'] || {};
         toggleBtnText.textContent = isOriginal 
-          ? (currentLang === 'ko' ? '번역 보기' : 'View Translation') 
-          : (currentLang === 'ko' ? '원문 보기' : 'View Original');
+          ? (t.btn_translation_view || 'View Translation') 
+          : (t.btn_original_view || 'View Original');
       }
     } else {
       toggleBtn.style.display = 'none';

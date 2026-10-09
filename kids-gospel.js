@@ -117,6 +117,9 @@ function initKidsStorybook() {
   setupKidsKeyboardShortcuts();
   setupKidsTouchGestures();
   setupKidsBgm();
+
+  const lang = (typeof currentLang !== 'undefined' && currentLang) || 'ko';
+  updateKidsZoneLanguage(lang);
 }
 
 // -------------------------------------------------------------
@@ -237,7 +240,12 @@ function renderKidsSlide(index, animate = true) {
   const textKo = document.getElementById('kidsTextKo');
   const textEn = document.getElementById('kidsTextEn');
 
-  if (chapterTag) chapterTag.textContent = slide.chapterKo;
+  const lang = (typeof currentLang !== 'undefined' && currentLang) || 'ko';
+  if (chapterTag) {
+    chapterTag.textContent = (lang === 'ko') 
+      ? slide.chapterKo 
+      : (lang === 'en' ? slide.chapterEn : `${slide.chapterEn} (${slide.chapterKo})`);
+  }
   if (scriptureRef) scriptureRef.textContent = `📖 ${slide.scripture}`;
   if (titleKo) titleKo.textContent = slide.titleKo;
   if (titleEn) titleEn.textContent = slide.titleEn;
@@ -364,20 +372,30 @@ function switchKidsViewerMode(mode) {
   }
 }
 
+function updateAutoPlayButtonUI() {
+  const btn = document.getElementById('btnKidsAutoPlay');
+  const modalBtn = document.getElementById('btnModalAutoPlay');
+  const lang = (typeof currentLang !== 'undefined' && currentLang) || 'ko';
+  const t = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang] : ((typeof translations !== 'undefined' && translations['en']) ? translations['en'] : null);
+
+  const playText = (t && t.kids_btn_autoplay) || '▶️ 자동 넘김';
+  const pauseText = (t && t.kids_btn_pause) || '⏸️ 넘김 일시정지';
+  const text = kidsStoryState.isAutoPlay ? pauseText : playText;
+
+  if (btn) btn.innerHTML = text;
+  if (modalBtn) modalBtn.innerHTML = text;
+}
+
 // -------------------------------------------------------------
 // Auto-Play Feature (Intelligently synchronized with Speech)
 // -------------------------------------------------------------
 function toggleKidsAutoPlay() {
   kidsStoryState.isAutoPlay = !kidsStoryState.isAutoPlay;
-  const btn = document.getElementById('btnKidsAutoPlay');
-  const modalBtn = document.getElementById('btnModalAutoPlay');
+  updateAutoPlayButtonUI();
 
   clearAllAutoTimers();
 
   if (kidsStoryState.isAutoPlay) {
-    if (btn) btn.innerHTML = '⏸️ 넘김 일시정지';
-    if (modalBtn) modalBtn.innerHTML = '⏸️ 넘김 일시정지';
-
     // If reading is currently active, DO NOT start a conflicting timer!
     // speech completion (finishSpeaking) will smoothly trigger next slide.
     if (!kidsStoryState.isSpeechActive) {
@@ -387,9 +405,6 @@ function toggleKidsAutoPlay() {
         }
       }, 8500);
     }
-  } else {
-    if (btn) btn.innerHTML = '▶️ 자동 넘김';
-    if (modalBtn) modalBtn.innerHTML = '▶️ 자동 넘김';
   }
 }
 
@@ -400,7 +415,13 @@ function updateTtsButtonUI(isSpeaking) {
   const btn = document.getElementById('btnKidsTts');
   const modalBtn = document.getElementById('btnModalTts');
 
-  const text = isSpeaking ? '⏹️ 낭독 멈추기' : '🔊 소리내어 읽기';
+  const lang = (typeof currentLang !== 'undefined' && currentLang) || 'ko';
+  const t = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang] : ((typeof translations !== 'undefined' && translations['en']) ? translations['en'] : null);
+
+  const readText = (t && t.kids_btn_read_aloud) || '🔊 소리내어 읽기';
+  const stopText = (t && t.kids_btn_stop_reading) || '⏹️ 낭독 멈추기';
+  const text = isSpeaking ? stopText : readText;
+
   if (btn) {
     btn.innerHTML = text;
     btn.classList.toggle('tts-active', isSpeaking);
@@ -606,19 +627,29 @@ function setupKidsBgm() {
   kidsStoryState.bgmAudio.volume = 0.18;
 }
 
-function toggleKidsBgm() {
-  if (!kidsStoryState.bgmAudio) setupKidsBgm();
-
+function updateKidsBgmButtonUI() {
   const btn = document.getElementById('btnKidsBgm');
   const modalBtn = document.getElementById('btnModalBgm');
+  const lang = (typeof currentLang !== 'undefined' && currentLang) || 'ko';
+  const t = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang] : ((typeof translations !== 'undefined' && translations['en']) ? translations['en'] : null);
+
+  const bgmOnText = (t && t.kids_btn_bgm) || '🎵 배경음악';
+  const bgmOffText = (lang === 'ko') ? '⏸️ 배경음악 끄기' : '⏸️ Stop BGM';
+  const text = kidsStoryState.isBgmPlaying ? bgmOffText : bgmOnText;
+
+  if (btn) btn.innerHTML = text;
+  if (modalBtn) modalBtn.innerHTML = text;
+}
+
+function toggleKidsBgm() {
+  if (!kidsStoryState.bgmAudio) setupKidsBgm();
 
   if (kidsStoryState.isBgmPlaying) {
     stopKidsBgm();
   } else {
     kidsStoryState.bgmAudio.play().then(() => {
       kidsStoryState.isBgmPlaying = true;
-      if (btn) btn.innerHTML = '⏸️ 배경음악 끄기';
-      if (modalBtn) modalBtn.innerHTML = '⏸️ 배경음악 끄기';
+      updateKidsBgmButtonUI();
     }).catch(err => {
       console.warn("Autoplay audio blocked or error:", err);
     });
@@ -630,10 +661,7 @@ function stopKidsBgm() {
     kidsStoryState.bgmAudio.pause();
   }
   kidsStoryState.isBgmPlaying = false;
-  const btn = document.getElementById('btnKidsBgm');
-  const modalBtn = document.getElementById('btnModalBgm');
-  if (btn) btn.innerHTML = '🎵 배경음악';
-  if (modalBtn) modalBtn.innerHTML = '🎵 배경음악';
+  updateKidsBgmButtonUI();
 }
 
 // -------------------------------------------------------------
@@ -666,9 +694,14 @@ function updateKidsFullscreenSlide(slide, index, total) {
   const modalTextKo = document.getElementById('kidsModalTextKo');
   const modalTextEn = document.getElementById('kidsModalTextEn');
 
+  const lang = (typeof currentLang !== 'undefined' && currentLang) || 'ko';
   if (modalImg) modalImg.src = slide.img;
   if (modalBadge) modalBadge.textContent = `${index + 1} / ${total}`;
-  if (modalChap) modalChap.textContent = slide.chapterKo;
+  if (modalChap) {
+    modalChap.textContent = (lang === 'ko')
+      ? slide.chapterKo
+      : (lang === 'en' ? slide.chapterEn : `${slide.chapterEn} (${slide.chapterKo})`);
+  }
   if (modalScript) modalScript.textContent = `📖 ${slide.scripture}`;
   if (modalTitleKo) modalTitleKo.textContent = slide.titleKo;
   if (modalTitleEn) modalTitleEn.textContent = slide.titleEn;
@@ -849,4 +882,45 @@ window.toggleKidsBgm = toggleKidsBgm;
 window.openKidsFullscreen = openKidsFullscreen;
 window.closeKidsFullscreen = closeKidsFullscreen;
 window.downloadKidsStorybookPptx = downloadKidsStorybookPptx;
+
+// -------------------------------------------------------------
+// Multi-Language Updater for Kids Zone (8 Languages)
+// -------------------------------------------------------------
+function updateKidsZoneLanguage(lang) {
+  if (!lang) lang = (typeof currentLang !== 'undefined' && currentLang) || 'ko';
+  const t = (typeof translations !== 'undefined' && translations[lang]) 
+    ? translations[lang] 
+    : ((typeof translations !== 'undefined' && translations['en']) ? translations['en'] : null);
+  if (!t) return;
+
+  const tabStory = document.getElementById('tabBookStorybook');
+  const tabVideo = document.getElementById('tabBookVideo');
+  if (tabStory && t.kids_tab_storybook) tabStory.innerHTML = t.kids_tab_storybook;
+  if (tabVideo && t.kids_tab_video) tabVideo.innerHTML = t.kids_tab_video;
+
+  const btnBi = document.getElementById('btnKidsLangBilingual');
+  if (btnBi && t.kids_lang_bilingual) btnBi.innerHTML = t.kids_lang_bilingual;
+
+  const btnFs = document.querySelector('.kids-tool-actions button[onclick="openKidsFullscreen()"]');
+  if (btnFs && t.kids_btn_fullscreen) btnFs.innerHTML = t.kids_btn_fullscreen;
+
+  const btnPptx = document.querySelector('.kids-tool-actions button[onclick="downloadKidsStorybookPptx()"]');
+  if (btnPptx && t.kids_btn_pptx) btnPptx.innerHTML = t.kids_btn_pptx;
+
+  const btnPrev = document.getElementById('btnPrevPage');
+  const btnNext = document.getElementById('btnNextPage');
+  if (btnPrev && t.kids_btn_prev_page) btnPrev.innerHTML = t.kids_btn_prev_page;
+  if (btnNext && t.kids_btn_next_page) btnNext.innerHTML = t.kids_btn_next_page;
+
+  const vidDown = document.querySelector('.kids-video-desc a[download]');
+  if (vidDown && t.kids_btn_video_download) vidDown.innerHTML = t.kids_btn_video_download;
+
+  updateTtsButtonUI(kidsStoryState.isSpeechActive);
+  updateKidsBgmButtonUI();
+  updateAutoPlayButtonUI();
+
+  renderKidsSlide(kidsStoryState.currentSlideIndex, false);
+}
+window.updateKidsZoneLanguage = updateKidsZoneLanguage;
+
 

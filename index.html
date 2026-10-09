@@ -216,11 +216,11 @@
           </span>
           <span id="routineTranslateBadge" class="translate-badge-live" style="display: none;">🌐 실시간 번역됨</span>
           <button type="button" class="btn btn-outline" id="btnToggleRoutineOriginal" onclick="toggleRoutineOriginal()" style="display: none;">
-            <span>🌐</span> <span id="btnRoutineOriginalText">원문 보기</span>
+            <span>🌐</span> <span id="btnRoutineOriginalText" data-i18n="btn_original_view">원문 보기</span>
           </button>
           <button class="btn btn-primary" id="btnOpenRoutineModal" onclick="openRoutineModal()" title="30분 기도모임 순서 편집 (3인 관리자 전용)">
             <span class="btn-icon">✍️</span>
-            <span>순서 편집 (3인 관리자)</span>
+            <span data-i18n="routine_btn_edit_admin">순서 편집 (3인 관리자)</span>
           </button>
         </div>
       </div>
@@ -244,7 +244,7 @@
           </p>
           <div class="routine-expand-wrapper">
             <button type="button" class="btn-toggle-routine" onclick="toggleRoutineDetail(1)">
-              <span id="routineBtnText1">이번 모임 찬양 보기</span>
+              <span id="routineBtnText1" data-i18n="routine_btn_toggle_praise">이번 모임 찬양 보기</span>
               <span class="chevron" id="routineChevron1">▼</span>
             </button>
             <div class="routine-detail-box" id="routineDetail1">
@@ -256,15 +256,15 @@
                 <div style="font-size: 0.84rem; font-weight: 700; color: #38bdf8; margin-bottom: 0.45rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem;">
                   <span>🎬 찬양 한/영 자막 플레이어 & 줌 화면 공유</span>
                   <button type="button" class="btn btn-xs" onclick="openZoomGuideModal()" style="background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff; font-weight: 700; border: none; padding: 0.25rem 0.65rem; border-radius: 6px; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem;" title="줌 화면 공유 시 소리가 끊길 때 해결 방법">
-                    ⚡ 줌 찬양 끊김 해결 가이드
+                    <span data-i18n="routine_btn_zoom_guide">⚡ 줌 찬양 끊김 해결 가이드</span>
                   </button>
                 </div>
                 <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                   <button type="button" class="btn btn-sm btn-primary" id="btnPlayMeetingSongStudio" onclick="openCurrentMeetingPraiseStudio()">
-                    ▶️ 지정 찬양 한/영 자막 플레이어
+                    <span data-i18n="worship_btn_watch_subtitles">▶️ 지정 찬양 한/영 자막 플레이어</span>
                   </button>
                   <button type="button" class="btn btn-sm btn-outline" onclick="openWorshipStudio()">
-                    🎶 찬양 보관함 (엄선 10곡)
+                    <span data-i18n="routine_btn_worship_library">🎶 찬양 보관함 (엄선 10곡)</span>
                   </button>
                 </div>
               </div>
@@ -292,19 +292,19 @@
           <!-- Word Presenter Quick Launch Group -->
           <div style="display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.85rem;">
             <button type="button" class="btn btn-xs btn-primary" onclick="openWordPresentationModal()" style="background: linear-gradient(135deg, #10b981, #059669); border-color: #10b981; font-weight: 700; padding: 0.35rem 0.75rem; font-size: 0.82rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);" title="줌 화면 공유용 16:9 와이드 PPT 슬라이드 발표 화면을 띄웁니다">
-              📽️ 말씀 PPT 띄우기 (Zoom)
+              <span data-i18n="routine_btn_word_ppt">📽️ 말씀 PPT 띄우기 (Zoom)</span>
             </button>
             <button type="button" class="btn btn-xs btn-outline" onclick="openWordPdfModal()" style="border-color: #38bdf8; color: #38bdf8; font-weight: 600; padding: 0.35rem 0.7rem; font-size: 0.82rem; border-radius: 6px;" title="정리된 말씀을 깔끔한 A4 PDF로 보기 및 인쇄합니다">
-              📄 PDF 보기/인쇄
+              <span data-i18n="routine_btn_word_pdf">📄 PDF 보기/인쇄</span>
             </button>
             <button type="button" class="btn btn-xs btn-outline" onclick="downloadWordPptx()" style="border-color: #f59e0b; color: #fbbf24; font-weight: 600; padding: 0.35rem 0.7rem; font-size: 0.82rem; border-radius: 6px;" title="파워포인트(.pptx) 파일로 다운로드합니다">
-              📊 PPTX 다운로드
+              <span data-i18n="routine_btn_word_pptx_down">📊 PPTX 다운로드</span>
             </button>
           </div>
 
           <div class="routine-expand-wrapper">
             <button type="button" class="btn-toggle-routine" onclick="toggleRoutineDetail(2)">
-              <span id="routineBtnText2">이번 모임 말씀 요약 보기</span>
+              <span id="routineBtnText2" data-i18n="routine_btn_toggle_message">이번 모임 말씀 요약 보기</span>
               <span class="chevron" id="routineChevron2">▼</span>
             </button>
             <div class="routine-detail-box" id="routineDetail2">
@@ -383,19 +383,19 @@
           <!-- Announcement Presenter Quick Launch Group -->
           <div style="display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.85rem;">
             <button type="button" class="btn btn-xs btn-primary" onclick="openNoticePresentationModal()" style="background: linear-gradient(135deg, #0284c7, #2563eb); border-color: #0284c7; font-weight: 700; padding: 0.35rem 0.75rem; font-size: 0.82rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);" title="줌 화면 공유용 16:9 와이드 광고 PPT 슬라이드 발표 화면을 띄웁니다">
-              📽️ 광고 PPT 띄우기 (Zoom)
+              <span data-i18n="routine_btn_notice_ppt">📽️ 광고 PPT 띄우기 (Zoom)</span>
             </button>
             <button type="button" class="btn btn-xs btn-outline" onclick="openNoticePdfModal()" style="border-color: #38bdf8; color: #38bdf8; font-weight: 600; padding: 0.35rem 0.7rem; font-size: 0.82rem; border-radius: 6px;" title="광고 내용을 깔끔한 PDF로 보기 및 인쇄합니다">
-              📄 PDF 보기/인쇄
+              <span data-i18n="routine_btn_notice_pdf">📄 PDF 보기/인쇄</span>
             </button>
             <button type="button" class="btn btn-xs btn-outline" onclick="downloadNoticePptx()" style="border-color: #f59e0b; color: #fbbf24; font-weight: 600; padding: 0.35rem 0.7rem; font-size: 0.82rem; border-radius: 6px;" title="파워포인트(.pptx) 파일로 다운로드합니다">
-              📊 PPTX 다운로드
+              <span data-i18n="routine_btn_notice_pptx_down">📊 PPTX 다운로드</span>
             </button>
           </div>
 
           <div class="routine-expand-wrapper">
             <button type="button" class="btn-toggle-routine" onclick="toggleRoutineDetail(4)">
-              <span id="routineBtnText4">순서 & 광고 보기</span>
+              <span id="routineBtnText4" data-i18n="routine_btn_toggle_closing">순서 & 광고 보기</span>
               <span class="chevron" id="routineChevron4">▼</span>
             </button>
             <div class="routine-detail-box" id="routineDetail4">
@@ -596,10 +596,10 @@
         <!-- Top Toolbar: Mode Switcher & Tools -->
         <div class="kids-toolbar">
           <div class="kids-book-tabs">
-            <button type="button" class="kids-tab-btn active" id="tabBookStorybook" onclick="switchKidsViewerMode('storybook')">
+            <button type="button" class="kids-tab-btn active" id="tabBookStorybook" onclick="switchKidsViewerMode('storybook')" data-i18n="kids_tab_storybook">
               📖 인터랙티브 동화책 (Storybook)
             </button>
-            <button type="button" class="kids-tab-btn" id="tabBookVideo" onclick="switchKidsViewerMode('video')">
+            <button type="button" class="kids-tab-btn" id="tabBookVideo" onclick="switchKidsViewerMode('video')" data-i18n="kids_tab_video">
               🎬 찬양 애니메이션 영상 (Video)
             </button>
           </div>
@@ -607,24 +607,24 @@
           <div class="kids-tool-actions">
             <!-- Language Mode Selector -->
             <div class="kids-lang-toggle" id="kidsLangToggle">
-              <button type="button" class="kids-lang-btn active" onclick="setKidsStoryLang('bilingual')" id="btnKidsLangBilingual">🌐 한·영 함께</button>
-              <button type="button" class="kids-lang-btn" onclick="setKidsStoryLang('ko')" id="btnKidsLangKo">🇰🇷 한글</button>
+              <button type="button" class="kids-lang-btn active" onclick="setKidsStoryLang('bilingual')" id="btnKidsLangBilingual" data-i18n="kids_lang_bilingual">🌐 한·영 함께</button>
+              <button type="button" class="kids-lang-btn" onclick="setKidsStoryLang('ko')" id="btnKidsLangKo">🇰🇷 한국어</button>
               <button type="button" class="kids-lang-btn" onclick="setKidsStoryLang('en')" id="btnKidsLangEn">🇺🇸 English</button>
             </div>
 
             <!-- Sound / Read Aloud Buttons -->
-            <button type="button" class="btn btn-sm btn-kids-action" id="btnKidsTts" onclick="toggleKidsSpeech()" title="선생님 목소리로 읽어주기 (Read Aloud)">
+            <button type="button" class="btn btn-sm btn-kids-action" id="btnKidsTts" onclick="toggleKidsSpeech()" title="선생님 목소리로 읽어주기 (Read Aloud)" data-i18n="kids_btn_read_aloud">
               🔊 소리내어 읽기
             </button>
-            <button type="button" class="btn btn-sm btn-kids-action" id="btnKidsBgm" onclick="toggleKidsBgm()" title="잔잔한 배경음악 켜기/끄기">
+            <button type="button" class="btn btn-sm btn-kids-action" id="btnKidsBgm" onclick="toggleKidsBgm()" title="잔잔한 배경음악 켜기/끄기" data-i18n="kids_btn_bgm">
               🎵 배경음악
             </button>
             <!-- Fullscreen / Presentation Zoom mode -->
-            <button type="button" class="btn btn-sm btn-kids-action" onclick="openKidsFullscreen()" title="주일학교 및 Zoom 발표용 전체화면">
+            <button type="button" class="btn btn-sm btn-kids-action" onclick="openKidsFullscreen()" title="주일학교 및 Zoom 발표용 전체화면" data-i18n="kids_btn_fullscreen">
               📺 발표/전체화면
             </button>
             <!-- PPTX Download -->
-            <button type="button" class="btn btn-sm btn-kids-outline" onclick="downloadKidsStorybookPptx()" title="주일학교 공과용 PPTX 다운로드">
+            <button type="button" class="btn btn-sm btn-kids-outline" onclick="downloadKidsStorybookPptx()" title="주일학교 공과용 PPTX 다운로드" data-i18n="kids_btn_pptx">
               📊 PPTX 다운로드
             </button>
           </div>
@@ -646,7 +646,7 @@
                 <div class="kids-slide-badge" id="kidsSlideBadge">
                   Page 1 / 5
                 </div>
-                <button type="button" class="kids-autoplay-btn" id="btnKidsAutoPlay" onclick="toggleKidsAutoPlay()" title="자동 책 넘김 (6.5초마다 다음 장)">
+                <button type="button" class="kids-autoplay-btn" id="btnKidsAutoPlay" onclick="toggleKidsAutoPlay()" title="자동 책 넘김" data-i18n="kids_btn_autoplay">
                   ▶️ 자동 넘김
                 </button>
               </div>
@@ -681,11 +681,11 @@
                   <!-- Dots rendered dynamically -->
                 </div>
                 <div class="kids-page-controls">
-                  <button type="button" class="btn btn-sm btn-kids-nav" onclick="prevKidsSlide()" id="btnPrevPage">
+                  <button type="button" class="btn btn-sm btn-kids-nav" onclick="prevKidsSlide()" id="btnPrevPage" data-i18n="kids_btn_prev_page">
                     ◀ 이전 장
                   </button>
                   <span class="kids-page-counter" id="kidsPageCounter">1 / 5</span>
-                  <button type="button" class="btn btn-sm btn-kids-nav btn-kids-next" onclick="nextKidsSlide()" id="btnNextPage">
+                  <button type="button" class="btn btn-sm btn-kids-nav btn-kids-next" onclick="nextKidsSlide()" id="btnNextPage" data-i18n="kids_btn_next_page">
                     다음 장 ▶
                   </button>
                 </div>
@@ -704,7 +704,7 @@
           </div>
           <div class="kids-video-desc">
             <p>🎵 <strong>BGM 찬양:</strong> 하나님의 은혜 (Only By Grace) · 5단계 풀스토리 영상 (1280x720 HD)</p>
-            <a href="assets/kids_gospel_animation.mp4" download="믿음의후대_복음동화_원래축복.mp4" class="btn btn-sm btn-outline" style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.5rem; border-color: #38bdf8; color: #38bdf8;">
+            <a href="assets/kids_gospel_animation.mp4" download="믿음의후대_복음동화_원래축복.mp4" class="btn btn-sm btn-outline" style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.5rem; border-color: #38bdf8; color: #38bdf8;" data-i18n="kids_btn_video_download">
               📥 720p HD 애니메이션 비디오 다운로드
             </a>
           </div>
@@ -802,19 +802,19 @@
 
         <!-- Worship Lounge Filter Bar (자유 선곡 및 보관함) -->
         <div class="worship-filter-bar">
-          <button type="button" class="worship-filter-btn active" id="filterBtnWeekly" onclick="filterWorshipLounge('weekly')">
+          <button type="button" class="worship-filter-btn active" id="filterBtnWeekly" onclick="filterWorshipLounge('weekly')" data-i18n="worship_filter_weekly">
             ⭐ 이번 주 추천 (Weekly Featured)
           </button>
-          <button type="button" class="worship-filter-btn" id="filterBtnAll" onclick="filterWorshipLounge('all')">
+          <button type="button" class="worship-filter-btn" id="filterBtnAll" onclick="filterWorshipLounge('all')" data-i18n="worship_filter_all">
             🎶 전체 찬양 보관함 (All Library)
           </button>
-          <button type="button" class="worship-filter-btn" id="filterBtnHymn" onclick="filterWorshipLounge('hymn')">
+          <button type="button" class="worship-filter-btn" id="filterBtnHymn" onclick="filterWorshipLounge('hymn')" data-i18n="worship_filter_hymn">
             ✝️ 클래식 찬송가 (Classic Hymns)
           </button>
-          <button type="button" class="worship-filter-btn" id="filterBtnGlobal" onclick="filterWorshipLounge('global')">
+          <button type="button" class="worship-filter-btn" id="filterBtnGlobal" onclick="filterWorshipLounge('global')" data-i18n="worship_filter_global">
             🌍 글로벌 다민족 찬양 (Global Praise)
           </button>
-          <button type="button" class="worship-filter-btn" id="filterBtnConfession" onclick="filterWorshipLounge('confession')">
+          <button type="button" class="worship-filter-btn" id="filterBtnConfession" onclick="filterWorshipLounge('confession')" data-i18n="worship_filter_confession">
             🕊️ 은혜와 결단 (Grace & Faith)
           </button>
         </div>
@@ -1819,7 +1819,7 @@
 
       <div class="modal-footer" style="padding: 1rem 1.2rem; display: flex; justify-content: flex-end; gap: 0.6rem;">
         <button type="button" class="btn btn-primary" onclick="closeModal('zoomGuideModal')">
-          확인했습니다 👍
+          <span data-i18n="btn_confirm">확인했습니다 👍</span>
         </button>
       </div>
     </div>
@@ -1836,13 +1836,13 @@
         </div>
         <div class="word-ppt-top-controls">
           <button type="button" class="btn-ppt-ctrl" onclick="togglePptFullscreen()" title="전체화면 전환 (단축키: F)">
-            <span id="pptFullscreenIcon">🖥️</span> 전체화면
+            <span id="pptFullscreenIcon">🖥️</span> <span data-i18n="kids_btn_fullscreen">전체화면</span>
           </button>
           <button type="button" class="btn-ppt-ctrl" onclick="openWordPdfModal()" title="정리된 말씀을 PDF로 보기 및 인쇄">
-            📄 PDF 보기
+            <span data-i18n="routine_btn_word_pdf">📄 PDF 보기</span>
           </button>
           <button type="button" class="btn-ppt-ctrl" onclick="downloadWordPptx()" title="PowerPoint 파일 다운로드">
-            📊 PPTX 다운로드
+            <span data-i18n="routine_btn_word_pptx_down">📊 PPTX 다운로드</span>
           </button>
           <button type="button" class="btn-ppt-close" onclick="closeWordPresentationModal()" title="닫기 (단축키: ESC)">&times;</button>
         </div>
@@ -1860,12 +1860,12 @@
       <!-- Bottom Navigation Bar -->
       <div class="word-ppt-bottom-bar">
         <button type="button" class="btn-slide-nav" id="btnPptPrev" onclick="navigatePptSlide(-1)">
-          ◀ 이전 (←)
+          ◀ <span data-i18n="btn_prev_slide">이전 슬라이드</span>
         </button>
         <div class="ppt-dots-container" id="pptDotsContainer"></div>
         <div class="ppt-counter" id="pptSlideCounter">1 / 4</div>
         <button type="button" class="btn-slide-nav" id="btnPptNext" onclick="navigatePptSlide(1)">
-          다음 (▶)
+          <span data-i18n="btn_next_slide">다음 슬라이드</span> ▶
         </button>
       </div>
     </div>
@@ -1912,13 +1912,13 @@
         </div>
         <div class="word-ppt-top-controls">
           <button type="button" class="btn-ppt-ctrl" onclick="toggleNoticeFullscreen()" title="전체화면 전환 (단축키: F)">
-            <span id="noticePptFullscreenIcon">🖥️</span> 전체화면
+            <span id="noticePptFullscreenIcon">🖥️</span> <span data-i18n="kids_btn_fullscreen">전체화면</span>
           </button>
           <button type="button" class="btn-ppt-ctrl" onclick="openNoticePdfModal()" title="정리된 광고를 PDF로 보기 및 인쇄">
-            📄 PDF 보기
+            <span data-i18n="routine_btn_notice_pdf">📄 PDF 보기</span>
           </button>
           <button type="button" class="btn-ppt-ctrl" onclick="downloadNoticePptx()" title="PowerPoint 파일 다운로드">
-            📊 PPTX 다운로드
+            <span data-i18n="routine_btn_notice_pptx_down">📊 PPTX 다운로드</span>
           </button>
           <button type="button" class="btn-ppt-close" onclick="closeNoticePresentationModal()" title="닫기 (단축키: ESC)">&times;</button>
         </div>
@@ -1936,12 +1936,12 @@
       <!-- Bottom Navigation Bar -->
       <div class="word-ppt-bottom-bar">
         <button type="button" class="btn-slide-nav" id="btnNoticePptPrev" onclick="navigateNoticeSlide(-1)">
-          ◀ 이전 (←)
+          ◀ <span data-i18n="btn_prev_slide">이전 슬라이드</span>
         </button>
         <div class="ppt-dots-container" id="noticePptDotsContainer"></div>
         <div class="ppt-counter" id="noticePptSlideCounter">1 / 3</div>
         <button type="button" class="btn-slide-nav" id="btnNoticePptNext" onclick="navigateNoticeSlide(1)">
-          다음 (▶)
+          <span data-i18n="btn_next_slide">다음 슬라이드</span> ▶
         </button>
       </div>
     </div>
@@ -1986,9 +1986,9 @@
           <span class="kids-modal-script" id="kidsModalScript">📖 창세기 1:27-28</span>
         </div>
         <div class="kids-modal-actions">
-          <button type="button" class="btn btn-sm btn-kids-action" id="btnModalTts" onclick="toggleKidsSpeech()">🔊 소리내어 읽기</button>
-          <button type="button" class="btn btn-sm btn-kids-action" id="btnModalBgm" onclick="toggleKidsBgm()">🎵 배경음악</button>
-          <button type="button" class="btn btn-sm btn-kids-action" id="btnModalAutoPlay" onclick="toggleKidsAutoPlay()">▶️ 자동 넘김</button>
+          <button type="button" class="btn btn-sm btn-kids-action" id="btnModalTts" onclick="toggleKidsSpeech()" data-i18n="kids_btn_read_aloud">🔊 소리내어 읽기</button>
+          <button type="button" class="btn btn-sm btn-kids-action" id="btnModalBgm" onclick="toggleKidsBgm()" data-i18n="kids_btn_bgm">🎵 배경음악</button>
+          <button type="button" class="btn btn-sm btn-kids-action" id="btnModalAutoPlay" onclick="toggleKidsAutoPlay()" data-i18n="kids_btn_autoplay">▶️ 자동 넘김</button>
           <button type="button" class="modal-close" onclick="closeKidsFullscreen()">&times;</button>
         </div>
       </div>
@@ -2024,9 +2024,9 @@
   <!-- Main JavaScript Files -->
   <script src="pptxgen.bundle.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="worship-studio.js?v=20261003_v33_as_the_deer_and_hope_sync"></script>
-  <script src="kids-gospel.js?v=20261008_v5"></script>
-  <script src="app.js?v=20261003_v33_as_the_deer_and_hope_sync"></script>
+  <script src="worship-studio.js?v=20261009_v38_multilingual_buttons"></script>
+  <script src="kids-gospel.js?v=20261009_v38_multilingual_kids_zone"></script>
+  <script src="app.js?v=20261009_v38_multilingual_buttons"></script>
 </body>
 </html>
 
