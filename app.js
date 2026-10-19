@@ -210,6 +210,13 @@ const translations = {
     routine_btn_notice_ppt: "🖥️ 순서 & 광고 발표",
     routine_btn_notice_pdf: "📄 PDF 인쇄",
     routine_btn_notice_pptx_down: "📊 PPTX 다운로드",
+    nav_sermons: "📖 말씀 & 줌 영상",
+    sermon_archive_badge: "📖 말씀 & 줌 예배 다시보기",
+    sermon_archive_title: "일자별 말씀 & 줌 예배 동영상",
+    sermon_archive_desc: "과거와 현재의 30분 기도모임 말씀과 줌(Zoom) 예배 녹화 영상을 일자별로 정리하여 모든 성도들이 언제든 찾아보고 묵상할 수 있습니다.",
+    btn_add_new_sermon: "새 말씀 & 줌 영상 올리기",
+    routine_btn_watch_zoom: "🎬 줌 예배 영상 보기",
+    routine_btn_past_sermons: "📚 일자별 말씀 아카이브",
     worship_filter_weekly: "⭐ 이번 주 추천 (Weekly Featured)",
     worship_filter_all: "🎶 전체 찬양 보관함 (All Library)",
     worship_filter_hymn: "✝️ 클래식 찬송가 (Classic Hymns)",
@@ -427,6 +434,13 @@ const translations = {
     routine_btn_notice_ppt: "🖥️ Order & Notice Slides",
     routine_btn_notice_pdf: "📄 PDF Print",
     routine_btn_notice_pptx_down: "📊 Download PPTX",
+    nav_sermons: "📖 Word & Zoom Video",
+    sermon_archive_badge: "📖 Word & Zoom Worship Replay",
+    sermon_archive_title: "Date-by-Date Word & Zoom Worship Videos",
+    sermon_archive_desc: "Past and present 30-minute prayer gathering word messages and Zoom worship recordings, organized by date for all disciples to search and meditate anytime.",
+    btn_add_new_sermon: "Post New Word & Zoom Video",
+    routine_btn_watch_zoom: "🎬 Watch Zoom Worship Video",
+    routine_btn_past_sermons: "📚 Date-Organized Archive",
     worship_filter_weekly: "⭐ Weekly Featured",
     worship_filter_all: "🎶 All Praise Library",
     worship_filter_hymn: "✝️ Classic Hymns",
@@ -1953,13 +1967,118 @@ const defaultMeetingSettings = {
   meetingId: "ID: 883 8697 3041 / PW: 5gZkTM"
 };
 
+// Default Date-Organized Sermons & Zoom Worship Archive (일자별 말씀 및 줌 녹화 영상)
+const defaultSermons = [
+  {
+    id: "sermon-20261101",
+    date: "2026-11-01T19:50:00+10:00",
+    displayDate: "2026년 11월 1일 (일) 19:50 (AEST) / 18:50 (KST)",
+    title: "원래 축복 (Original Blessing)",
+    title_en: "Original Blessing",
+    scripture: "창세기 1:27-28 (Genesis 1:27-28)",
+    speaker: "오프닝 기도: 김은덕 목사 / 진행: 한옥주 / 통역: 아이리스 / 클로징: 죠지",
+    speaker_en: "Opening Prayer: Pastor Eun-Duk Kim / Host: Christine Han / Interpreter: Iris / Closing Prayer: George",
+    summary: "1. 다스리고 정복하라 -하나님의 형상 (Rule and subdue -the image of God)\n2. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13) (Witnesses: Old Testament — David [Psalm 23:1-], New Testament — Paul [Philippians 4:13])\n3. 원래 인간의 회복 (Restoration of the original human state)",
+    praise: "Jesus, We Enthrone You (예수 우리 왕이여)",
+    praiseLink: "https://www.youtube.com/watch?v=d6tDhj87iBM",
+    prayerTopic: "① 나 자신을 위한 기도 (\"내가 제일 중요하다\") ② 모든 민족을 위한 기도 ③ 후대를 위한 기도",
+    announcements: "개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임",
+    video: {
+      hasVideo: true,
+      type: "zoom",
+      url: "https://us06web.zoom.us/rec/share/sample-recording-20261101",
+      passcode: "5gZkTM",
+      duration: "30분",
+      title: "2026.11 줌 기도모임 녹화 영상 (Zoom Cloud Recording)"
+    },
+    isFeatured: true,
+    tags: ["창세기", "원래축복", "후대", "다스리고정복하라"]
+  },
+  {
+    id: "sermon-20261004",
+    date: "2026-10-04T20:00:00+10:00",
+    displayDate: "2026년 10월 4일 (일) 20:00 (AEST) / 19:00 (KST)",
+    title: "다스리고 정복하라 (Rule & Subdue)",
+    title_en: "Rule and Subdue",
+    scripture: "창세기 1:27-28 (Genesis 1:27-28)",
+    speaker: "오프닝 기도: 김은덕 목사 / 진행: 한옥주 / 통역: 아이리스 / 클로징 기도: 죠지",
+    speaker_en: "Opening Prayer: Pastor Eun-Duk Kim / Host: Christine Han / Interpreter: Iris / Closing Prayer: George",
+    summary: "• 다음 세대를 살릴 복음의 신실한 제자 세우기\n1. 다스리고 정복하라 -하나님의 형상 (Rule and subdue -the image of God)\n2. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13)\n3. 원래 인간의 회복 (Restoration of the original human state)",
+    praise: "나 같은 죄인 살리신 (Amazing Grace - 찬송가 305장)",
+    praiseLink: "https://www.youtube.com/watch?v=4-IlkTVvqKk",
+    prayerTopic: "나를 위한 기도 · 모든 민족을 위한 기도 · 후대를 위한 기도",
+    announcements: "개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임",
+    video: {
+      hasVideo: true,
+      type: "mp4",
+      url: "assets/amazing_grace_bilingual.mp4",
+      passcode: "",
+      duration: "30분",
+      title: "2026.10 줌 온라인 기도모임 전체 실황 및 찬양"
+    },
+    isFeatured: false,
+    tags: ["창세기", "은혜", "후대제자", "찬양"]
+  },
+  {
+    id: "sermon-20260906",
+    date: "2026-09-06T20:00:00+10:00",
+    displayDate: "2026년 9월 6일 (일) 20:00 (AEST) / 19:00 (KST)",
+    title: "충성된 사람들에게 부탁하라 (Commit to Faithful People)",
+    title_en: "Commit to Faithful People",
+    scripture: "디모데후서 2:1-2 (2 Timothy 2:1-2)",
+    speaker: "진행: 한옥주 / 통역: 아이리스 / 다민족 제자 나눔",
+    speaker_en: "Host: Christine Han / Interpreter: Iris / Multi-Ethnic Disciples",
+    summary: "1. 은혜 속에서 강하라 (Be strong in the grace that is in Christ Jesus)\n2. 충성된 사람들에게 복음을 부탁하라 (Entrust to reliable people)\n3. 또 다른 사람을 가르칠 신실한 제자 세우기 (Qualified to teach others as well)",
+    praise: "Way Maker (길을 만드시는 분)",
+    praiseLink: "https://www.youtube.com/watch?v=iJCV_2H9xD0",
+    prayerTopic: "1. 복음의 뿌리 2. 열방의 신실한 제자 3. 다음 세대 전도자",
+    announcements: "글로벌 제자 네트워크 활성화 및 모임 참여 안내",
+    video: {
+      hasVideo: true,
+      type: "youtube",
+      url: "https://www.youtube.com/watch?v=iJCV_2H9xD0",
+      passcode: "",
+      duration: "30분",
+      title: "2026.09 글로벌 다음세대 집중 기도모임 실황"
+    },
+    isFeatured: false,
+    tags: ["디모데후서", "충성된사람", "제자", "WayMaker"]
+  },
+  {
+    id: "sermon-20260802",
+    date: "2026-08-02T20:00:00+10:00",
+    displayDate: "2026년 8월 2일 (일) 20:00 (AEST) / 19:00 (KST)",
+    title: "일어나라 빛을 발하라 (Arise, Shine!)",
+    title_en: "Arise, Shine!",
+    scripture: "이사야 60:1-3 (Isaiah 60:1-3)",
+    speaker: "진행: 한옥주 / 다민족 제자단",
+    speaker_en: "Host: Christine Han / Global Disciples",
+    summary: "1. 네 빛이 이르렀고 여호와의 영광이 네 위에 임하였음이니라\n2. 어둠이 땅을 덮고 캄캄함이 만민을 가리우나 오직 여호와께서 임하심\n3. 나라들은 네 빛으로, 왕들은 비치는 네 광명으로 나아오리라",
+    praise: "The Blessing (축복과 평강)",
+    praiseLink: "https://www.youtube.com/watch?v=Zp6aygmvzM4",
+    prayerTopic: "열방 237개국과 다음 세대 영적 플랫폼을 위한 기도",
+    announcements: "어라이즈 넥스트젠 글로벌 기도 네트워크 출범 안내",
+    video: {
+      hasVideo: true,
+      type: "youtube",
+      url: "https://www.youtube.com/watch?v=Zp6aygmvzM4",
+      passcode: "",
+      duration: "30분",
+      title: "2026.08 어라이즈 넥스트젠 개회 예배 및 찬양"
+    },
+    isFeatured: false,
+    tags: ["이사야", "빛을발하라", "열방", "TheBlessing"]
+  }
+];
+
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261009_v38_multilingual_buttons_and_kids_zone';
+const DATA_VERSION = 'v20261019_v39_sermon_archive_and_zoom_videos';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
   localStorage.setItem('prayer_hub_routine_content', JSON.stringify(defaultRoutineContent));
   localStorage.setItem('prayer_hub_meeting_settings', JSON.stringify(defaultMeetingSettings));
+  localStorage.setItem('prayer_hub_sermon_archive', JSON.stringify(defaultSermons));
   localStorage.setItem('prayer_hub_data_ver', DATA_VERSION);
 }
 
@@ -1975,6 +2094,14 @@ if (routineContent && routineContent.step1 && (!routineContent.step1.songTitle |
 }
 let meetingSettings = JSON.parse(localStorage.getItem('prayer_hub_meeting_settings')) || defaultMeetingSettings;
 let currentFilter = 'all';
+
+// Sermon & Zoom Worship Archive State
+let sermons = JSON.parse(localStorage.getItem('prayer_hub_sermon_archive')) || defaultSermons;
+let currentSermonFilter = 'all';
+let currentSermonSearchQuery = '';
+let currentVideoSermon = null;
+let currentDetailSermon = null;
+let currentPresenterSermon = null;
 
 // Google Sheets Integration State (3인 공동 관리)
 const DEFAULT_GOOGLE_SHEET_ID = '';
@@ -3910,29 +4037,42 @@ const TOTAL_PPT_SLIDES = 3;
 let pptKeyboardHandlerAttached = false;
 
 function getWordPresentationData() {
-  const data = (typeof routineContent !== 'undefined' && routineContent.step2) 
+  const custom = currentPresenterSermon;
+  const data = custom || ((typeof routineContent !== 'undefined' && routineContent.step2) 
     ? routineContent.step2 
-    : defaultRoutineContent.step2;
+    : defaultRoutineContent.step2);
 
   const scripture = data.scripture || "창세기 1:27-28 (Genesis 1:27-28)";
   const title = data.title || "원래 축복 (Original Blessing)";
 
-  return {
-    meetingTitle: "2026 어라이즈 넥스트젠 30분 기도모임",
-    meetingSub: "4단계 순서 중 2단계: 후대 복음 말씀 (5분)",
-    title: title,
-    scripture: scripture,
-    theme: "언약의 후대에게 전달할 5분 복음 말씀",
-    meetingTime: "매월 첫 주일 호주 AEST 8:00 PM (한국 19:00)",
-    scriptureKorean: [
-      { verse: "27절", text: "하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고" },
-      { verse: "28절", text: "하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라" }
-    ],
-    scriptureEnglish: [
-      { verse: "v.27", text: "So God created mankind in his own image, in the image of God he created them; male and female he created them." },
-      { verse: "v.28", text: "God blessed them and said to them, \"Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.\"" }
-    ],
-    points: [
+  let points = [];
+  const rawContent = data.content || data.summary || "";
+  if (rawContent) {
+    const rawLines = rawContent.split('\n').map(l => l.trim()).filter(Boolean);
+    rawLines.forEach(line => {
+      if (/^(\d+[\.\)]|[•\-\*])/.test(line)) {
+        const clean = line.replace(/^(\d+[\.\)]|[•\-\*])\s*/, '');
+        // Split Korean / English if contains parenthesis or bracket
+        const parenMatch = clean.match(/^([^(]+)\s*\(([^)]+)\)$/);
+        if (parenMatch) {
+          points.push({
+            num: points.length + 1,
+            titleKo: parenMatch[1].trim(),
+            titleEn: parenMatch[2].trim()
+          });
+        } else {
+          points.push({
+            num: points.length + 1,
+            titleKo: clean,
+            titleEn: ""
+          });
+        }
+      }
+    });
+  }
+
+  if (points.length === 0) {
+    points = [
       {
         num: 1,
         titleKo: "다스리고 정복하라 -하나님의 형상",
@@ -3948,11 +4088,32 @@ function getWordPresentationData() {
         titleKo: "원래 인간의 회복",
         titleEn: "Restoration of the original human state"
       }
-    ]
+    ];
+  }
+
+  const meetingDateStr = custom ? (custom.displayDate || custom.date || "기도모임 말씀") : "매월 첫 주일 호주 AEST 8:00 PM (한국 19:00)";
+
+  return {
+    meetingTitle: custom ? "어라이즈 넥스트젠 30분 기도모임" : "2026 어라이즈 넥스트젠 30분 기도모임",
+    meetingSub: "4단계 순서 중 2단계: 후대 복음 말씀 (5분)",
+    title: title,
+    scripture: scripture,
+    theme: "언약의 후대에게 전달할 5분 복음 말씀",
+    meetingTime: meetingDateStr,
+    scriptureKorean: [
+      { verse: "본문 말씀", text: scripture }
+    ],
+    scriptureEnglish: [
+      { verse: "Scripture", text: scripture }
+    ],
+    points: points
   };
 }
 
-function openWordPresentationModal() {
+function openWordPresentationModal(customSermon) {
+  if (customSermon) {
+    currentPresenterSermon = customSermon;
+  }
   const modal = document.getElementById('wordPptModal');
   if (!modal) return;
   modal.classList.add('active');
@@ -4144,7 +4305,10 @@ function togglePptFullscreen() {
 }
 window.togglePptFullscreen = togglePptFullscreen;
 
-function openWordPdfModal() {
+function openWordPdfModal(customSermon) {
+  if (customSermon) {
+    currentPresenterSermon = customSermon;
+  }
   const modal = document.getElementById('wordPdfModal');
   const printArea = document.getElementById('wordPdfPrintArea');
   if (!modal || !printArea) return;
@@ -4216,7 +4380,10 @@ function printWordPdfDocument() {
 window.printWordPdfDocument = printWordPdfDocument;
 
 // PowerPoint (.pptx) Generator using PptxGenJS
-function downloadWordPptx() {
+function downloadWordPptx(customSermon) {
+  if (customSermon) {
+    currentPresenterSermon = customSermon;
+  }
   if (typeof PptxGenJS === 'undefined') {
     alert("PowerPoint 생성 모듈(pptxgen.bundle.js)을 불러오는 중입니다. 잠시 후 다시 클릭해 주세요.");
     return;
@@ -4809,6 +4976,729 @@ function downloadNoticePptx() {
 window.downloadNoticePptx = downloadNoticePptx;
 
 // ==========================================
+// 11. Date-Organized Sermons & Zoom Worship Archive (일자별 말씀 & 줌 예배 동영상)
+// ==========================================
+
+function initSermonsArchive() {
+  renderSermonsGrid();
+  loadGlobalSermons();
+}
+window.initSermonsArchive = initSermonsArchive;
+
+async function loadGlobalSermons() {
+  try {
+    const res = await fetch('/api/sermons');
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        sermons = data;
+        localStorage.setItem('prayer_hub_sermon_archive', JSON.stringify(sermons));
+        renderSermonsGrid();
+      }
+    } else {
+      // Fallback: try loading static sermons.json
+      const staticRes = await fetch('sermons.json');
+      if (staticRes.ok) {
+        const staticData = await staticRes.json();
+        if (Array.isArray(staticData) && staticData.length > 0) {
+          sermons = staticData;
+          localStorage.setItem('prayer_hub_sermon_archive', JSON.stringify(sermons));
+          renderSermonsGrid();
+        }
+      }
+    }
+  } catch (e) {
+    console.warn("Could not fetch remote sermons.json, using local/cached data:", e.message);
+  }
+}
+
+function filterSermons(filterType) {
+  currentSermonFilter = filterType || 'all';
+
+  const container = document.getElementById('sermonFilterChips');
+  if (container) {
+    const chips = container.querySelectorAll('.sermon-chip');
+    chips.forEach(chip => {
+      if (chip.dataset.filter === filterType) {
+        chip.classList.add('active');
+      } else {
+        chip.classList.remove('active');
+      }
+    });
+  }
+
+  renderSermonsGrid();
+}
+window.filterSermons = filterSermons;
+
+function handleSermonSearch(val) {
+  currentSermonSearchQuery = (val || '').trim().toLowerCase();
+  const clearBtn = document.getElementById('btnSermonSearchClear');
+  if (clearBtn) {
+    if (currentSermonSearchQuery) {
+      clearBtn.classList.add('visible');
+    } else {
+      clearBtn.classList.remove('visible');
+    }
+  }
+  renderSermonsGrid();
+}
+window.handleSermonSearch = handleSermonSearch;
+
+function clearSermonSearch() {
+  const input = document.getElementById('sermonSearchInput');
+  if (input) {
+    input.value = '';
+  }
+  handleSermonSearch('');
+}
+window.clearSermonSearch = clearSermonSearch;
+
+function renderSermonsGrid() {
+  const grid = document.getElementById('sermonsGrid');
+  const countEl = document.getElementById('sermonResultsCount');
+  if (!grid) return;
+
+  let list = [...(sermons || [])];
+
+  // 1. Filter by category chip
+  if (currentSermonFilter === 'video') {
+    list = list.filter(s => s.video && s.video.hasVideo && s.video.url);
+  } else if (currentSermonFilter === 'genesis') {
+    list = list.filter(s => (s.scripture || '').includes('창세기') || (s.scripture || '').toLowerCase().includes('genesis'));
+  } else if (currentSermonFilter === 'timothy') {
+    list = list.filter(s => (s.scripture || '').includes('디모데') || (s.scripture || '').toLowerCase().includes('timothy'));
+  } else if (currentSermonFilter === 'isaiah') {
+    list = list.filter(s => (s.scripture || '').includes('이사야') || (s.scripture || '').toLowerCase().includes('isaiah'));
+  } else if (currentSermonFilter === '2026') {
+    list = list.filter(s => (s.date || s.displayDate || '').includes('2026'));
+  }
+
+  // 2. Filter by search query
+  if (currentSermonSearchQuery) {
+    const q = currentSermonSearchQuery;
+    list = list.filter(s => {
+      const matchTitle = (s.title || '').toLowerCase().includes(q) || (s.title_en || '').toLowerCase().includes(q);
+      const matchScripture = (s.scripture || '').toLowerCase().includes(q);
+      const matchSpeaker = (s.speaker || '').toLowerCase().includes(q);
+      const matchSummary = (s.summary || '').toLowerCase().includes(q);
+      const matchPraise = (s.praise || '').toLowerCase().includes(q);
+      const matchDate = (s.displayDate || s.date || '').toLowerCase().includes(q);
+      const matchTags = Array.isArray(s.tags) && s.tags.some(t => t.toLowerCase().includes(q));
+      return matchTitle || matchScripture || matchSpeaker || matchSummary || matchPraise || matchDate || matchTags;
+    });
+  }
+
+  // 3. Sort by date descending
+  list.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+
+  if (countEl) {
+    countEl.textContent = `총 ${list.length}개의 말씀 & 예배 영상`;
+  }
+
+  if (list.length === 0) {
+    grid.innerHTML = `
+      <div class="sermon-empty-state">
+        <div class="sermon-empty-icon">🔍</div>
+        <h4 style="font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">검색 조건에 맞는 말씀이나 영상이 없습니다</h4>
+        <p style="font-size: 0.88rem; color: #94a3b8; margin-bottom: 1.2rem;">다른 검색어를 입력하시거나 필터를 전체보기로 전환해 보세요.</p>
+        <button type="button" class="btn btn-sm btn-outline" onclick="clearSermonSearch(); filterSermons('all');">
+          전체 보기로 돌아가기
+        </button>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = list.map(item => {
+    const hasVideo = !!(item.video && item.video.hasVideo && item.video.url);
+    const dateFormatted = item.displayDate || (item.date ? item.date.slice(0, 10) : '날짜 미지정');
+    const isFeatured = !!item.isFeatured;
+
+    return `
+      <div class="sermon-card ${isFeatured ? 'is-featured' : ''}" id="card-${escapeHtml(item.id)}">
+        <div>
+          <!-- Top Badges Row -->
+          <div class="sermon-card-top">
+            <span class="sermon-date-pill">
+              <span>📅</span> <span>${escapeHtml(dateFormatted)}</span>
+            </span>
+            <div class="sermon-top-badges">
+              ${isFeatured ? `<span class="sermon-featured-badge">⭐ 이번 모임 말씀</span>` : ''}
+              ${hasVideo ? `<span class="sermon-video-badge pulse" title="줌 예배 녹화 영상 수록">🎬 줌 영상</span>` : ''}
+            </div>
+          </div>
+
+          <!-- Scripture Tag & Title -->
+          <div class="sermon-scripture-tag">
+            <span>📖</span> <span>${escapeHtml(item.scripture || '')}</span>
+          </div>
+          <a class="sermon-title-link" onclick="openSermonDetailModal('${escapeHtml(item.id)}')" title="말씀 전문 및 묵상 내용 보기">
+            ${escapeHtml(item.title || '말씀 제목')}
+          </a>
+
+          <!-- Speaker & Praise -->
+          <div class="sermon-speaker-line">
+            <b>인도:</b> <span>${escapeHtml(item.speaker || '김은덕 목사 / 한옥주 / 죠지')}</span>
+          </div>
+
+          <!-- 3-Point Gospel Summary Box -->
+          <div class="sermon-summary-box">
+            ${escapeHtml(item.summary || '핵심 복음 메시지 요약')}
+          </div>
+
+          <!-- Meta Pills -->
+          <div class="sermon-meta-pills">
+            ${item.praise ? `<span class="sermon-praise-pill">🎵 ${escapeHtml(item.praise)}</span>` : ''}
+            ${item.video?.duration ? `<span class="sermon-praise-pill" style="color: #38bdf8; background: rgba(56, 189, 248, 0.12); border-color: rgba(56, 189, 248, 0.25);">⏱️ ${escapeHtml(item.video.duration)}</span>` : ''}
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="sermon-card-actions">
+          ${hasVideo ? `
+            <button type="button" class="btn btn-sm btn-sermon-watch" onclick="openWorshipVideoModal('${escapeHtml(item.id)}')" title="줌 예배 녹화 동영상 시청">
+              <span>🎬 영상 시청</span>
+            </button>
+          ` : `
+            <button type="button" class="btn btn-sm btn-outline" onclick="openSermonDetailModal('${escapeHtml(item.id)}')" style="flex: 1; border-color: #38bdf8; color: #38bdf8; font-weight: 700;">
+              <span>📖 말씀 보기</span>
+            </button>
+          `}
+          <button type="button" class="btn btn-xs btn-outline" onclick="openSermonDetailModal('${escapeHtml(item.id)}')" title="말씀 전문 및 3대 집중 기도제목 보기">
+            <span>📖 상세</span>
+          </button>
+          <button type="button" class="btn btn-xs btn-outline" onclick="openPptForSermon('${escapeHtml(item.id)}')" style="border-color: #10b981; color: #34d399;" title="16:9 와이드 PPT 슬라이드 발표 화면">
+            <span>📽️ PPT</span>
+          </button>
+          <button type="button" class="btn btn-xs btn-outline" onclick="openPdfForSermon('${escapeHtml(item.id)}')" style="border-color: #38bdf8; color: #38bdf8;" title="A4 인쇄용 PDF 보기">
+            <span>📄 PDF</span>
+          </button>
+          <button type="button" class="btn btn-xs btn-ghost" onclick="openEditSermonModal('${escapeHtml(item.id)}')" style="color: #fbbf24;" title="3인 관리자 말씀 및 영상 수정">
+            <span>✏️</span>
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+window.renderSermonsGrid = renderSermonsGrid;
+
+// ==========================================
+// Video Player Modal Controller (줌 예배 녹화 동영상 뷰어)
+// ==========================================
+
+function openWorshipVideoModal(sermonId) {
+  const sermon = sermons.find(s => s.id === sermonId) || sermons[0];
+  if (!sermon) {
+    showToast("해당 예배 데이터를 찾을 수 없습니다.", "⚠️");
+    return;
+  }
+
+  currentVideoSermon = sermon;
+  const modal = document.getElementById('worshipVideoModal');
+  const titleEl = document.getElementById('videoModalTitle');
+  const dateEl = document.getElementById('videoModalDate');
+  const scriptureEl = document.getElementById('videoScriptureTitle');
+  const sermonTitleEl = document.getElementById('videoSermonTitle');
+  const speakerEl = document.getElementById('videoSpeakerText');
+  const summaryEl = document.getElementById('videoSummaryContent');
+  
+  const iframeEl = document.getElementById('videoIframe');
+  const html5El = document.getElementById('videoHtml5Player');
+  const fallbackEl = document.getElementById('zoomRecordingFallback');
+  const passcodeBox = document.getElementById('zoomPasscodeBox');
+  const passcodeText = document.getElementById('zoomPasscodeText');
+  const launchZoomBtn = document.getElementById('btnLaunchZoomRecording');
+  const zoomTitle = document.getElementById('zoomFallbackTitle');
+
+  if (titleEl) titleEl.textContent = sermon.title ? `🎬 ${sermon.title} — 줌 예배 동영상` : '줌 예배 녹화 동영상';
+  if (dateEl) dateEl.textContent = sermon.displayDate || sermon.date || '30분 기도모임 실황';
+  if (scriptureEl) scriptureEl.textContent = `📖 ${sermon.scripture || ''}`;
+  if (sermonTitleEl) sermonTitleEl.textContent = sermon.title || '';
+  if (speakerEl) speakerEl.textContent = `인도: ${sermon.speaker || '김은덕 목사 / 한옥주 / 죠지'}`;
+  if (summaryEl) summaryEl.textContent = sermon.summary || '';
+
+  const videoData = sermon.video || {};
+  const rawUrl = videoData.url || '';
+  const videoType = videoData.type || 'zoom';
+
+  // Reset video players
+  if (iframeEl) { iframeEl.style.display = 'none'; iframeEl.src = ''; }
+  if (html5El) { html5El.style.display = 'none'; html5El.pause(); html5El.src = ''; }
+  if (fallbackEl) fallbackEl.style.display = 'none';
+
+  // 1. YouTube Video
+  if (rawUrl.includes('youtube.com') || rawUrl.includes('youtu.be') || videoType === 'youtube') {
+    let ytId = '';
+    const match1 = rawUrl.match(/(?:youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/);
+    if (match1 && match1[1] && match1[1].length === 11) {
+      ytId = match1[1];
+    }
+    if (ytId && iframeEl) {
+      iframeEl.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1`;
+      iframeEl.style.display = 'block';
+    } else if (fallbackEl) {
+      fallbackEl.style.display = 'flex';
+      if (launchZoomBtn) launchZoomBtn.href = rawUrl;
+    }
+  } 
+  // 2. Direct MP4 Video
+  else if (rawUrl.endsWith('.mp4') || rawUrl.endsWith('.webm') || videoType === 'mp4' || rawUrl.startsWith('assets/')) {
+    if (html5El) {
+      html5El.src = rawUrl;
+      html5El.style.display = 'block';
+      html5El.play().catch(() => {});
+    }
+  } 
+  // 3. Zoom Cloud Recording / Fallback Launcher
+  else {
+    if (fallbackEl) {
+      fallbackEl.style.display = 'flex';
+      if (zoomTitle) zoomTitle.textContent = sermon.title ? `🎬 ${sermon.title} 줌 예배 녹화` : '줌 클라우드 녹화 예배 영상';
+      if (launchZoomBtn) {
+        launchZoomBtn.href = rawUrl || '#';
+      }
+      if (videoData.passcode && passcodeBox && passcodeText) {
+        passcodeBox.style.display = 'inline-flex';
+        passcodeText.textContent = videoData.passcode;
+      } else if (passcodeBox) {
+        passcodeBox.style.display = 'none';
+      }
+    }
+  }
+
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+window.openWorshipVideoModal = openWorshipVideoModal;
+
+function openCurrentMeetingVideoModal() {
+  const featured = sermons.find(s => s.isFeatured) || sermons[0];
+  if (featured) {
+    openWorshipVideoModal(featured.id);
+  } else {
+    showToast("등록된 예배 영상이 없습니다. 새 영상을 등록해 주세요.", "ℹ️");
+  }
+}
+window.openCurrentMeetingVideoModal = openCurrentMeetingVideoModal;
+
+function closeWorshipVideoModal() {
+  const modal = document.getElementById('worshipVideoModal');
+  const iframeEl = document.getElementById('videoIframe');
+  const html5El = document.getElementById('videoHtml5Player');
+
+  if (iframeEl) iframeEl.src = '';
+  if (html5El) {
+    html5El.pause();
+    html5El.src = '';
+  }
+
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+window.closeWorshipVideoModal = closeWorshipVideoModal;
+
+function copyZoomPasscode() {
+  const passcode = currentVideoSermon?.video?.passcode || '5gZkTM';
+  navigator.clipboard.writeText(passcode).then(() => {
+    showToast(`줌 녹화 암호(${passcode})가 복사되었습니다! 🔑`, "📋");
+  }).catch(() => {
+    prompt("줌 녹화 암호를 복사하세요:", passcode);
+  });
+}
+window.copyZoomPasscode = copyZoomPasscode;
+
+function copyVideoShareLink() {
+  const url = currentVideoSermon?.video?.url || window.location.href;
+  navigator.clipboard.writeText(url).then(() => {
+    showToast("예배 동영상 링크가 복사되었습니다! 🔗", "📋");
+  }).catch(() => {
+    prompt("예배 동영상 링크:", url);
+  });
+}
+window.copyVideoShareLink = copyVideoShareLink;
+
+// ==========================================
+// Sermon Full Detail Modal Controller
+// ==========================================
+
+function openSermonDetailModal(sermonId) {
+  const sermon = sermons.find(s => s.id === sermonId) || sermons[0];
+  if (!sermon) return;
+
+  currentDetailSermon = sermon;
+  const modal = document.getElementById('sermonDetailModal');
+  const dateEl = document.getElementById('sermonDetailHeaderDate');
+  const scriptureEl = document.getElementById('sermonDetailScripture');
+  const praiseEl = document.getElementById('sermonDetailPraise');
+  const mainTitleEl = document.getElementById('sermonDetailMainTitle');
+  const speakerEl = document.getElementById('sermonDetailSpeaker');
+  const summaryBodyEl = document.getElementById('sermonDetailSummaryBody');
+  const prayerBodyEl = document.getElementById('sermonDetailPrayerBody');
+  const announceBodyEl = document.getElementById('sermonDetailAnnounceBody');
+  const btnWatch = document.getElementById('btnDetailWatchVideo');
+
+  if (dateEl) dateEl.textContent = sermon.displayDate || sermon.date || '';
+  if (scriptureEl) scriptureEl.textContent = `📖 ${sermon.scripture || ''}`;
+  if (praiseEl) praiseEl.textContent = sermon.praise ? `🎵 지정 찬양: ${sermon.praise}` : '🎵 찬양';
+  if (mainTitleEl) mainTitleEl.textContent = sermon.title || '';
+  if (speakerEl) speakerEl.textContent = `인도: ${sermon.speaker || '김은덕 목사 / 한옥주 / 죠지'}`;
+  if (summaryBodyEl) summaryBodyEl.textContent = sermon.summary || '';
+  if (prayerBodyEl) prayerBodyEl.textContent = sermon.prayerTopic || '① 나 자신을 위한 기도 ② 모든 민족을 위한 기도 ③ 후대를 위한 기도';
+  if (announceBodyEl) announceBodyEl.textContent = sermon.announcements || '개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임';
+
+  if (btnWatch) {
+    if (sermon.video && sermon.video.hasVideo && sermon.video.url) {
+      btnWatch.style.display = 'inline-flex';
+    } else {
+      btnWatch.style.display = 'none';
+    }
+  }
+
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+window.openSermonDetailModal = openSermonDetailModal;
+
+function openSermonDetailFromVideo() {
+  if (currentVideoSermon) {
+    closeWorshipVideoModal();
+    openSermonDetailModal(currentVideoSermon.id);
+  }
+}
+window.openSermonDetailFromVideo = openSermonDetailFromVideo;
+
+function openPptFromVideo() {
+  if (currentVideoSermon) {
+    closeWorshipVideoModal();
+    openWordPresentationModal(currentVideoSermon);
+  }
+}
+window.openPptFromVideo = openPptFromVideo;
+
+function watchVideoFromDetail() {
+  if (currentDetailSermon) {
+    closeModal('sermonDetailModal');
+    openWorshipVideoModal(currentDetailSermon.id);
+  }
+}
+window.watchVideoFromDetail = watchVideoFromDetail;
+
+function openPptFromDetail() {
+  if (currentDetailSermon) {
+    closeModal('sermonDetailModal');
+    openWordPresentationModal(currentDetailSermon);
+  }
+}
+window.openPptFromDetail = openPptFromDetail;
+
+function printPdfFromDetail() {
+  if (currentDetailSermon) {
+    closeModal('sermonDetailModal');
+    openWordPdfModal(currentDetailSermon);
+  }
+}
+window.printPdfFromDetail = printPdfFromDetail;
+
+function editSermonFromDetail() {
+  if (currentDetailSermon) {
+    closeModal('sermonDetailModal');
+    openEditSermonModal(currentDetailSermon.id);
+  }
+}
+window.editSermonFromDetail = editSermonFromDetail;
+
+function openPptForSermon(sermonId) {
+  const sermon = sermons.find(s => s.id === sermonId);
+  if (sermon) {
+    openWordPresentationModal(sermon);
+  }
+}
+window.openPptForSermon = openPptForSermon;
+
+function openPdfForSermon(sermonId) {
+  const sermon = sermons.find(s => s.id === sermonId);
+  if (sermon) {
+    openWordPdfModal(sermon);
+  }
+}
+window.openPdfForSermon = openPdfForSermon;
+
+function scrollToSermonArchive() {
+  const sec = document.getElementById('sermons');
+  if (sec) {
+    sec.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+window.scrollToSermonArchive = scrollToSermonArchive;
+
+// ==========================================
+// Sermon Form Modal (새 말씀 & 줌 영상 올리기 / 수정)
+// ==========================================
+
+function openNewSermonModal() {
+  const form = document.getElementById('sermonArchiveForm');
+  if (form) form.reset();
+
+  const idField = document.getElementById('editSermonId');
+  if (idField) idField.value = '';
+
+  const modalTitle = document.getElementById('sermonFormModalTitle');
+  if (modalTitle) modalTitle.textContent = '새 말씀 & 줌 예배 동영상 올리기';
+
+  const dateInput = document.getElementById('formSermonDate');
+  if (dateInput) {
+    const now = new Date();
+    dateInput.value = now.toISOString().slice(0, 16);
+  }
+
+  const isFeatured = document.getElementById('formSermonIsFeatured');
+  if (isFeatured) isFeatured.checked = true;
+
+  const pinInput = document.getElementById('sermonAdminPin');
+  if (pinInput) pinInput.value = '';
+
+  openModal('sermonFormModal');
+}
+window.openNewSermonModal = openNewSermonModal;
+
+function openEditSermonModal(sermonId) {
+  const sermon = sermons.find(s => s.id === sermonId);
+  if (!sermon) return;
+
+  const idField = document.getElementById('editSermonId');
+  if (idField) idField.value = sermon.id;
+
+  const modalTitle = document.getElementById('sermonFormModalTitle');
+  if (modalTitle) modalTitle.textContent = `말씀 & 줌 영상 수정: ${sermon.title}`;
+
+  const dateInput = document.getElementById('formSermonDate');
+  if (dateInput && sermon.date) {
+    dateInput.value = sermon.date.slice(0, 16);
+  }
+
+  const isFeatured = document.getElementById('formSermonIsFeatured');
+  if (isFeatured) isFeatured.checked = !!sermon.isFeatured;
+
+  const scriptureInput = document.getElementById('formSermonScripture');
+  if (scriptureInput) scriptureInput.value = sermon.scripture || '';
+
+  const titleInput = document.getElementById('formSermonTitle');
+  if (titleInput) titleInput.value = sermon.title || '';
+
+  const speakerInput = document.getElementById('formSermonSpeaker');
+  if (speakerInput) speakerInput.value = sermon.speaker || '';
+
+  const summaryInput = document.getElementById('formSermonSummary');
+  if (summaryInput) summaryInput.value = sermon.summary || '';
+
+  const videoType = document.getElementById('formSermonVideoType');
+  if (videoType) videoType.value = sermon.video?.type || 'zoom';
+
+  const videoPasscode = document.getElementById('formSermonZoomPasscode');
+  if (videoPasscode) videoPasscode.value = sermon.video?.passcode || '';
+
+  const videoUrl = document.getElementById('formSermonVideoUrl');
+  if (videoUrl) videoUrl.value = sermon.video?.url || '';
+
+  const praiseInput = document.getElementById('formSermonPraise');
+  if (praiseInput) praiseInput.value = sermon.praise || '';
+
+  const praiseLinkInput = document.getElementById('formSermonPraiseLink');
+  if (praiseLinkInput) praiseLinkInput.value = sermon.praiseLink || '';
+
+  const prayerTopic = document.getElementById('formSermonPrayerTopic');
+  if (prayerTopic) prayerTopic.value = sermon.prayerTopic || '';
+
+  const announceInput = document.getElementById('formSermonAnnouncements');
+  if (announceInput) announceInput.value = sermon.announcements || '';
+
+  const pinInput = document.getElementById('sermonAdminPin');
+  if (pinInput) pinInput.value = '';
+
+  openModal('sermonFormModal');
+}
+window.openEditSermonModal = openEditSermonModal;
+
+async function handleSermonFormSubmit(e) {
+  e.preventDefault();
+
+  const pinInput = document.getElementById('sermonAdminPin');
+  const pin = pinInput ? pinInput.value.trim() : '';
+
+  if (!pin) {
+    showToast("3인 관리자 비밀번호를 입력해 주세요! 🔑", "⚠️");
+    if (pinInput) pinInput.focus();
+    return;
+  }
+
+  const existingId = document.getElementById('editSermonId')?.value.trim();
+  const dateVal = document.getElementById('formSermonDate')?.value || new Date().toISOString();
+  const isFeatured = document.getElementById('formSermonIsFeatured')?.checked || false;
+  const scripture = document.getElementById('formSermonScripture')?.value.trim() || '';
+  const title = document.getElementById('formSermonTitle')?.value.trim() || '';
+  const speaker = document.getElementById('formSermonSpeaker')?.value.trim() || '';
+  const summary = document.getElementById('formSermonSummary')?.value.trim() || '';
+  const videoType = document.getElementById('formSermonVideoType')?.value || 'zoom';
+  const zoomPasscode = document.getElementById('formSermonZoomPasscode')?.value.trim() || '';
+  const videoUrl = document.getElementById('formSermonVideoUrl')?.value.trim() || '';
+  const praise = document.getElementById('formSermonPraise')?.value.trim() || '';
+  const praiseLink = document.getElementById('formSermonPraiseLink')?.value.trim() || '';
+  const prayerTopic = document.getElementById('formSermonPrayerTopic')?.value.trim() || '';
+  const announcements = document.getElementById('formSermonAnnouncements')?.value.trim() || '';
+
+  // Format date display
+  let displayDate = dateVal;
+  try {
+    const d = new Date(dateVal);
+    const days = ['일', '월', '화', '수', '목', '금', '토'];
+    const y = d.getFullYear();
+    const m = d.getMonth() + 1;
+    const day = d.getDate();
+    const dayName = days[d.getDay()];
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mm = String(d.getMinutes()).padStart(2, '0');
+    displayDate = `${y}년 ${m}월 ${day}일 (${dayName}) ${hh}:${mm}`;
+  } catch (err) {}
+
+  const targetId = existingId || ('sermon-' + Date.now());
+
+  const sermonPayload = {
+    id: targetId,
+    date: dateVal,
+    displayDate: displayDate,
+    title: title,
+    title_en: title,
+    scripture: scripture,
+    speaker: speaker,
+    speaker_en: speaker,
+    summary: summary,
+    praise: praise,
+    praiseLink: praiseLink,
+    prayerTopic: prayerTopic,
+    announcements: announcements,
+    video: {
+      hasVideo: !!videoUrl,
+      type: videoType,
+      url: videoUrl,
+      passcode: zoomPasscode,
+      duration: "30분",
+      title: `${title} 줌 녹화 영상`
+    },
+    isFeatured: isFeatured,
+    tags: [scripture.split(' ')[0], "후대", "기도모임"].filter(Boolean)
+  };
+
+  const submitBtn = document.getElementById('btnSubmitSermonForm');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = '⏳ 전 세계 저장 중...';
+  }
+
+  try {
+    const res = await fetch('/api/sermons', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        pin,
+        sermon: sermonPayload,
+        setAsCurrentRoutine: isFeatured
+      })
+    });
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok) {
+      if (res.status === 401) {
+        showToast("⚠️ 관리자 비밀번호가 일치하지 않습니다. 4자리 암호를 다시 확인해 주세요.", "❌");
+        if (pinInput) { pinInput.focus(); pinInput.select(); }
+        return;
+      }
+      throw new Error(data.error || `서버 오류 (${res.status})`);
+    }
+
+    if (data.sermons && Array.isArray(data.sermons)) {
+      sermons = data.sermons;
+    } else {
+      updateLocalSermonsList(sermonPayload);
+    }
+
+    applySermonSuccess(sermonPayload, isFeatured);
+
+  } catch (err) {
+    console.warn("Fallback to local storage mode for sermons:", err.message);
+
+    if (pin === '7777') {
+      updateLocalSermonsList(sermonPayload);
+      applySermonSuccess(sermonPayload, isFeatured);
+    } else {
+      showToast("저장 실패: 올바른 4자리 관리자 암호를 입력해 주세요. ⚠️", "❌");
+    }
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = '💾 전 세계 성도들에게 즉시 저장 및 반영';
+    }
+  }
+}
+window.handleSermonFormSubmit = handleSermonFormSubmit;
+
+function updateLocalSermonsList(newSermon) {
+  if (newSermon.isFeatured) {
+    sermons.forEach(s => { s.isFeatured = false; });
+  }
+
+  const idx = sermons.findIndex(s => s.id === newSermon.id);
+  if (idx >= 0) {
+    sermons[idx] = newSermon;
+  } else {
+    sermons.unshift(newSermon);
+  }
+  sermons.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+  localStorage.setItem('prayer_hub_sermon_archive', JSON.stringify(sermons));
+}
+
+function applySermonSuccess(sermonPayload, isFeatured) {
+  localStorage.setItem('prayer_hub_sermon_archive', JSON.stringify(sermons));
+  renderSermonsGrid();
+
+  // If set as current active routine, synchronize routineContent immediately
+  if (isFeatured) {
+    routineContent.step2 = {
+      scripture: sermonPayload.scripture,
+      title: sermonPayload.title,
+      content: sermonPayload.summary
+    };
+    if (sermonPayload.praise) {
+      routineContent.step1 = routineContent.step1 || {};
+      routineContent.step1.songTitle = sermonPayload.praise;
+      if (sermonPayload.praiseLink) routineContent.step1.link = sermonPayload.praiseLink;
+    }
+    if (sermonPayload.prayerTopic) {
+      routineContent.step3 = routineContent.step3 || {};
+      routineContent.step3.content = sermonPayload.prayerTopic;
+    }
+    if (sermonPayload.speaker || sermonPayload.announcements) {
+      routineContent.step4 = routineContent.step4 || {};
+      if (sermonPayload.speaker) routineContent.step4.speaker = sermonPayload.speaker;
+      if (sermonPayload.announcements) routineContent.step4.content = sermonPayload.announcements;
+    }
+    localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
+    renderRoutineDisplay();
+  }
+
+  closeModal('sermonFormModal');
+  showToast("말씀과 줌 예배 동영상이 성공적으로 등록되었습니다! ✨", "🎉");
+}
+
+// ==========================================
 // 9. App Initialization
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -4819,6 +5709,9 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTestimonies();
   renderRoutineDisplay();
   renderWorshipLounge();
+
+  // Initialize Sermon & Zoom Worship Archive
+  initSermonsArchive();
 
   // Load latest official routine from serverless API / routine.json
   loadGlobalRoutine();

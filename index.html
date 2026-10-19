@@ -37,6 +37,7 @@
       <nav class="nav-menu" id="navMenu">
         <a href="#countdown" class="nav-link" data-i18n="nav_meeting">기도모임 안내</a>
         <a href="#routine" class="nav-link" data-i18n="nav_routine">30분 루틴</a>
+        <a href="#sermons" class="nav-link" data-i18n="nav_sermons">📖 말씀 &amp; 줌 영상</a>
         <a href="#kids-zone" class="nav-link nav-link-kids" data-i18n="nav_kids_zone">🌱 믿음의 후대관</a>
         <a href="#prayer-guide" class="nav-link" data-i18n="nav_prayer_guide">공동 기도문</a>
         <a href="#prayer-wall" class="nav-link" data-i18n="nav_prayer_wall">기도 정원</a>
@@ -291,6 +292,9 @@
 
           <!-- Word Presenter Quick Launch Group -->
           <div style="display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.85rem;">
+            <button type="button" class="btn btn-xs btn-primary" onclick="openCurrentMeetingVideoModal()" style="background: linear-gradient(135deg, #0284c7, #2563eb); border-color: #0284c7; font-weight: 700; padding: 0.35rem 0.75rem; font-size: 0.82rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);" title="이번 기도모임 줌 녹화 동영상 다시보기를 실행합니다">
+              <span data-i18n="routine_btn_watch_zoom">🎬 줌 예배 영상 보기</span>
+            </button>
             <button type="button" class="btn btn-xs btn-primary" onclick="openWordPresentationModal()" style="background: linear-gradient(135deg, #10b981, #059669); border-color: #10b981; font-weight: 700; padding: 0.35rem 0.75rem; font-size: 0.82rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);" title="줌 화면 공유용 16:9 와이드 PPT 슬라이드 발표 화면을 띄웁니다">
               <span data-i18n="routine_btn_word_ppt">📽️ 말씀 PPT 띄우기 (Zoom)</span>
             </button>
@@ -299,6 +303,9 @@
             </button>
             <button type="button" class="btn btn-xs btn-outline" onclick="downloadWordPptx()" style="border-color: #f59e0b; color: #fbbf24; font-weight: 600; padding: 0.35rem 0.7rem; font-size: 0.82rem; border-radius: 6px;" title="파워포인트(.pptx) 파일로 다운로드합니다">
               <span data-i18n="routine_btn_word_pptx_down">📊 PPTX 다운로드</span>
+            </button>
+            <button type="button" class="btn btn-xs btn-outline" onclick="scrollToSermonArchive()" style="border-color: rgba(255, 255, 255, 0.25); color: #cbd5e1; font-weight: 600; padding: 0.35rem 0.7rem; font-size: 0.82rem; border-radius: 6px;" title="과거 모임들의 일자별 말씀과 줌 녹화 영상을 확인합니다">
+              <span data-i18n="routine_btn_past_sermons">📚 일자별 말씀 아카이브</span>
             </button>
           </div>
 
@@ -570,6 +577,70 @@
             <span class="together-pill"><strong data-i18n="pill_nextgen">후대를 위하여</strong> • <span data-i18n="pill_nextgen_sub">For the next generation</span></span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- 📖 Sermon & Zoom Worship Archive (일자별 말씀 & 줌 예배 동영상 아카이브) -->
+  <!-- ======================================================= -->
+  <section class="sermon-archive-section" id="sermons">
+    <div class="container">
+      <div class="section-header-row">
+        <div>
+          <span class="sermon-badge" data-i18n="sermon_archive_badge">📖 말씀 &amp; 줌 예배 다시보기</span>
+          <h2 class="section-title" data-i18n="sermon_archive_title">일자별 말씀 &amp; 줌 예배 동영상</h2>
+          <p class="section-desc" data-i18n="sermon_archive_desc">
+            과거와 현재의 30분 기도모임 말씀과 줌(Zoom) 예배 녹화 영상을 일자별로 정리하여 모든 성도들이 언제든 찾아보고 묵상할 수 있습니다.
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap;">
+          <button type="button" class="btn btn-primary" onclick="openNewSermonModal()" title="새로운 말씀 및 줌 녹화 영상 등록 (3인 관리자)">
+            <span class="btn-icon">➕</span>
+            <span data-i18n="btn_add_new_sermon">새 말씀 &amp; 줌 영상 올리기</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search & Filter Toolbar -->
+      <div class="sermon-toolbar-card">
+        <div class="sermon-toolbar-top">
+          <div class="sermon-search-group">
+            <span class="sermon-search-icon">🔍</span>
+            <input type="text" class="sermon-search-input" id="sermonSearchInput" placeholder="성경 본문(창세기/디모데), 설교 제목, 설교자, 날짜 검색..." oninput="handleSermonSearch(this.value)" autocomplete="off">
+            <button type="button" class="sermon-search-clear" id="btnSermonSearchClear" onclick="clearSermonSearch()" title="검색어 지우기">&times;</button>
+          </div>
+          <div class="sermon-toolbar-actions">
+            <span class="sermon-results-count" id="sermonResultsCount">총 4개의 말씀 &amp; 예배 영상</span>
+          </div>
+        </div>
+
+        <!-- Filter Chips -->
+        <div class="sermon-filter-chips" id="sermonFilterChips">
+          <button type="button" class="sermon-chip active" data-filter="all" onclick="filterSermons('all')">
+            <span>✨ 전체 보기 (All)</span>
+          </button>
+          <button type="button" class="sermon-chip" data-filter="video" onclick="filterSermons('video')">
+            <span>🎬 줌 예배 영상 수록</span>
+          </button>
+          <button type="button" class="sermon-chip" data-filter="genesis" onclick="filterSermons('genesis')">
+            <span>📖 창세기 (원래 축복)</span>
+          </button>
+          <button type="button" class="sermon-chip" data-filter="timothy" onclick="filterSermons('timothy')">
+            <span>📖 디모데후서 (충성된 제자)</span>
+          </button>
+          <button type="button" class="sermon-chip" data-filter="isaiah" onclick="filterSermons('isaiah')">
+            <span>📖 이사야 (빛을 발하라)</span>
+          </button>
+          <button type="button" class="sermon-chip" data-filter="2026" onclick="filterSermons('2026')">
+            <span>📅 2026년</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sermons Dynamic Grid -->
+      <div class="sermons-grid" id="sermonsGrid">
+        <!-- Rendered dynamically by app.js -->
       </div>
     </div>
   </section>
@@ -2015,6 +2086,294 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- 12. Zoom Worship Video Player Modal (줌 예배 녹화 동영상 다시보기) -->
+  <div class="modal-overlay" id="worshipVideoModal" onclick="closeModalOnBackdrop(event, 'worshipVideoModal')">
+    <div class="modal-card modal-video-card">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.65rem;">
+          <span style="font-size: 1.4rem;">🎬</span>
+          <div>
+            <h3 class="modal-title" id="videoModalTitle" style="margin: 0; font-size: 1.15rem;">줌(Zoom) 예배 녹화 동영상</h3>
+            <span style="font-size: 0.8rem; color: #94a3b8;" id="videoModalDate">2026년 모임 실황</span>
+          </div>
+        </div>
+        <button class="modal-close" onclick="closeWorshipVideoModal()">&times;</button>
+      </div>
+
+      <div class="modal-body" style="padding: 1.25rem; overflow-y: auto; max-height: calc(90vh - 80px);">
+        <!-- Responsive 16:9 Video Player Screen -->
+        <div class="video-player-container" id="videoPlayerContainer">
+          <!-- Dynamically inserted iframe or video tag -->
+          <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display: none;"></iframe>
+          <video id="videoHtml5Player" controls playsinline style="display: none; width: 100%; height: 100%; background: #000;"></video>
+          
+          <!-- Zoom Cloud Recording Fallback / Launcher Screen -->
+          <div class="zoom-recording-fallback-box" id="zoomRecordingFallback" style="display: none;">
+            <div class="zoom-fallback-icon">🕊️</div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;" id="zoomFallbackTitle">줌 클라우드 녹화 예배 영상</h3>
+            <p style="font-size: 0.88rem; color: #cbd5e1; max-width: 520px; line-height: 1.5; margin-bottom: 0.8rem;">
+              온라인 줌(Zoom)에서 진행된 30분 집중 기도모임의 전체 실황 녹화입니다.<br>
+              아래 <b>[줌 암호 복사 &amp; 영상 바로가기]</b>를 누르시면 새 창에서 바로 시청하실 수 있습니다.
+            </p>
+            <div class="zoom-passcode-box" id="zoomPasscodeBox" style="display: none;">
+              <span>🔑 녹화 암호 (Passcode):</span>
+              <b id="zoomPasscodeText">5gZkTM</b>
+              <button type="button" class="btn btn-xs btn-outline" onclick="copyZoomPasscode()" style="border-color: #f59e0b; color: #fbbf24; font-weight: 700; padding: 0.25rem 0.55rem;">
+                📋 암호 복사
+              </button>
+            </div>
+            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem;">
+              <a href="#" target="_blank" class="btn btn-primary" id="btnLaunchZoomRecording" style="background: linear-gradient(135deg, #0284c7, #2563eb); font-weight: 700;">
+                ▶️ 줌 녹화 영상 새 창에서 열기
+              </a>
+              <button type="button" class="btn btn-outline" onclick="copyVideoShareLink()">
+                🔗 영상 공유 링크 복사
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Detail & Sermon Notes Panel -->
+        <div class="video-detail-summary-pane" id="videoDetailSummaryPane">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+            <div>
+              <div style="font-size: 0.88rem; font-weight: 700; color: #38bdf8;" id="videoScriptureTitle">창세기 1:27-28</div>
+              <h4 style="font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0.2rem 0;" id="videoSermonTitle">원래 축복 (Original Blessing)</h4>
+              <div style="font-size: 0.82rem; color: #94a3b8;" id="videoSpeakerText">오프닝 기도: 김은덕 목사 / 진행: 한옥주 / 통역: 아이리스 / 클로징: 죠지</div>
+            </div>
+            <div style="display: flex; gap: 0.45rem; flex-wrap: wrap;">
+              <button type="button" class="btn btn-sm btn-outline" id="btnVideoOpenSermonDetail" onclick="openSermonDetailFromVideo()" style="border-color: #38bdf8; color: #38bdf8; font-weight: 600;">
+                📖 말씀 전문 보기
+              </button>
+              <button type="button" class="btn btn-sm btn-outline" id="btnVideoOpenPpt" onclick="openPptFromVideo()" style="border-color: #10b981; color: #34d399; font-weight: 600;">
+                📽️ PPT 슬라이드
+              </button>
+            </div>
+          </div>
+          <div style="background: rgba(0, 0, 0, 0.4); padding: 0.85rem 1rem; border-radius: 8px; font-size: 0.88rem; line-height: 1.6; color: #e2e8f0; white-space: pre-line;" id="videoSummaryContent">
+            1. 다스리고 정복하라 -하나님의 형상
+            2. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13)
+            3. 원래 인간의 회복
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13. Sermon Full Detail Reader Modal (말씀 전문 뷰어 모달) -->
+  <div class="modal-overlay" id="sermonDetailModal" onclick="closeModalOnBackdrop(event, 'sermonDetailModal')">
+    <div class="modal-card modal-card-lg" style="max-height: 92vh; display: flex; flex-direction: column;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.65rem;">
+          <span style="font-size: 1.5rem;">📖</span>
+          <div>
+            <h3 class="modal-title" id="sermonDetailHeaderTitle" style="margin: 0; font-size: 1.25rem;">말씀 전문 및 묵상</h3>
+            <span style="font-size: 0.82rem; color: #94a3b8;" id="sermonDetailHeaderDate">2026.11.01 (일) 19:50</span>
+          </div>
+        </div>
+        <button class="modal-close" onclick="closeModal('sermonDetailModal')">&times;</button>
+      </div>
+
+      <div class="modal-body" style="padding: 1.4rem; overflow-y: auto; flex: 1;">
+        <!-- Top Metadata Card -->
+        <div style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(99, 102, 241, 0.1)); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 1.1rem; margin-bottom: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; flex-wrap: wrap; gap: 0.5rem;">
+            <span style="font-size: 0.95rem; font-weight: 800; color: #38bdf8;" id="sermonDetailScripture">창세기 1:27-28</span>
+            <span style="font-size: 0.78rem; font-weight: 700; color: var(--accent-gold); background: rgba(245, 158, 11, 0.15); padding: 0.2rem 0.6rem; border-radius: 6px;" id="sermonDetailPraise">🎵 지정 찬양: Jesus, We Enthrone You</span>
+          </div>
+          <h2 style="font-size: 1.45rem; font-weight: 800; color: #fff; margin: 0 0 0.4rem 0;" id="sermonDetailMainTitle">원래 축복 (Original Blessing)</h2>
+          <div style="font-size: 0.85rem; color: #cbd5e1;" id="sermonDetailSpeaker">진행: 한옥주 | 오프닝 기도: 김은덕 목사 | 클로징 기도: 죠지</div>
+        </div>
+
+        <!-- 5-Minute Gospel Message 3 Points Box -->
+        <div class="routine-form-box highlight-form-box" style="margin-bottom: 1.25rem;">
+          <div class="routine-form-badge highlight-badge" style="display: flex; justify-content: space-between; align-items: center;">
+            <span>📖 2단계: 5분 복음 말씀 핵심 요약</span>
+            <span style="font-size: 0.75rem; opacity: 0.9;">3대 핵심 포인트</span>
+          </div>
+          <div style="font-size: 0.92rem; line-height: 1.7; color: #f8fafc; white-space: pre-line; padding: 0.5rem 0;" id="sermonDetailSummaryBody">
+            1. 다스리고 정복하라 -하나님의 형상
+            2. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13)
+            3. 원래 인간의 회복
+          </div>
+        </div>
+
+        <!-- 3 Intercessory Prayer Topics Box -->
+        <div class="routine-form-box" style="margin-bottom: 1.25rem;">
+          <div class="routine-form-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">
+            🔥 3단계: 3대 집중 중보기도 (나 자신 · 모든 민족 · 후대)
+          </div>
+          <div style="font-size: 0.9rem; line-height: 1.65; color: #cbd5e1; white-space: pre-line; padding: 0.5rem 0;" id="sermonDetailPrayerBody">
+            🕊️ 1. 나를 위한 기도 ("내가 제일 중요하다")
+            🌍 2. 모든 민족을 위한 기도
+            🌱 3. 후대를 위한 기도
+          </div>
+        </div>
+
+        <!-- Announcements Box -->
+        <div class="routine-form-box" style="margin-bottom: 1rem;" id="sermonDetailAnnounceBox">
+          <div class="routine-form-badge" style="background: rgba(99, 102, 241, 0.15); color: #a5b4fc; border-color: rgba(99, 102, 241, 0.3);">
+            📢 4단계: 순서 &amp; 광고 (Order &amp; Announcements)
+          </div>
+          <div style="font-size: 0.88rem; line-height: 1.6; color: #cbd5e1; white-space: pre-line; padding: 0.5rem 0;" id="sermonDetailAnnounceBody">
+            개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="padding: 1rem 1.4rem; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;">
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button type="button" class="btn btn-sm btn-primary" id="btnDetailWatchVideo" onclick="watchVideoFromDetail()" style="background: linear-gradient(135deg, #0284c7, #2563eb);">
+            🎬 줌 영상 시청
+          </button>
+          <button type="button" class="btn btn-sm btn-outline" id="btnDetailOpenPpt" onclick="openPptFromDetail()" style="border-color: #10b981; color: #34d399; font-weight: 600;">
+            📽️ 16:9 와이드 PPT
+          </button>
+          <button type="button" class="btn btn-sm btn-outline" id="btnDetailPrintPdf" onclick="printPdfFromDetail()" style="border-color: #38bdf8; color: #38bdf8; font-weight: 600;">
+            📄 A4 PDF 인쇄
+          </button>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <button type="button" class="btn btn-sm btn-ghost" onclick="editSermonFromDetail()" style="color: #fbbf24;">
+            ✏️ 수정
+          </button>
+          <button type="button" class="btn btn-sm btn-primary" onclick="closeModal('sermonDetailModal')">
+            닫기
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14. Add / Edit Sermon & Zoom Video Modal (새 말씀 & 줌 예배 동영상 올리기 / 수정 모달) -->
+  <div class="modal-overlay" id="sermonFormModal" onclick="closeModalOnBackdrop(event, 'sermonFormModal')">
+    <div class="modal-card modal-card-lg" style="max-height: 92vh; display: flex; flex-direction: column;">
+      <div class="modal-header">
+        <h3 class="modal-title">✍️ <span id="sermonFormModalTitle">새 말씀 &amp; 줌 예배 동영상 올리기</span></h3>
+        <button class="modal-close" onclick="closeModal('sermonFormModal')">&times;</button>
+      </div>
+
+      <form id="sermonArchiveForm" onsubmit="handleSermonFormSubmit(event)" style="display: flex; flex-direction: column; overflow: hidden; flex: 1;">
+        <div class="modal-body" style="padding: 1.3rem; overflow-y: auto; flex: 1;">
+          <p class="modal-info-text">
+            과거 또는 새로 진행된 30분 기도모임의 일자별 말씀과 줌(Zoom) 녹화 영상을 등록합니다. 등록된 내용은 모든 성도들이 언제든 검색하고 시청할 수 있습니다.
+          </p>
+
+          <input type="hidden" id="editSermonId" value="">
+
+          <!-- 3-Admin PIN Authentication -->
+          <div class="routine-admin-auth-box" style="margin-bottom: 1.2rem;">
+            <div class="auth-header">
+              <span class="auth-icon">🔑</span>
+              <div>
+                <div class="auth-title">3인 관리자 전용 인증</div>
+                <div class="auth-sub">지정된 3명의 담당자만 말씀을 올리거나 수정할 수 있습니다. 4자리 암호를 입력해 주세요.</div>
+              </div>
+            </div>
+            <div class="pin-input-group">
+              <label for="sermonAdminPin">관리자 암호 (PIN)</label>
+              <input type="password" id="sermonAdminPin" class="pin-input" placeholder="••••" maxlength="8" autocomplete="off" required>
+            </div>
+          </div>
+
+          <!-- Date & Current Routine Checkbox -->
+          <div class="routine-form-box" style="background: rgba(56, 189, 248, 0.05); border-color: rgba(56, 189, 248, 0.25);">
+            <div class="routine-form-badge" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">📅 예배 일시 및 대표 지정</div>
+            <div class="form-row">
+              <div class="form-group half">
+                <label class="form-label">예배 일자 및 시간 (Meeting Date/Time) *</label>
+                <input type="datetime-local" class="form-input" id="formSermonDate" required>
+              </div>
+              <div class="form-group half" style="display: flex; align-items: center; padding-top: 1.5rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; font-weight: 700; color: var(--accent-gold); cursor: pointer;">
+                  <input type="checkbox" id="formSermonIsFeatured" style="width: 18px; height: 18px; accent-color: var(--accent-gold);">
+                  <span>⭐ 이번 기도모임 대표 말씀으로 지정 (루틴 자동 동기화)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scripture & Title -->
+          <div class="routine-form-box highlight-form-box">
+            <div class="routine-form-badge highlight-badge">📖 성경 본문 및 설교 제목</div>
+            <div class="form-row">
+              <div class="form-group half">
+                <label class="form-label">본문 성경구절 (Scripture) *</label>
+                <input type="text" class="form-input" id="formSermonScripture" placeholder="예: 창세기 1:27-28 (Genesis 1:27-28)" required>
+              </div>
+              <div class="form-group half">
+                <label class="form-label">설교 / 나눔 제목 (Title) *</label>
+                <input type="text" class="form-input" id="formSermonTitle" placeholder="예: 원래 축복 (Original Blessing)" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">설교자 / 기도 인도자 (Speakers &amp; Leaders)</label>
+              <input type="text" class="form-input" id="formSermonSpeaker" placeholder="예: 오프닝 기도: 김은덕 목사 / 진행: 한옥주 / 통역: 아이리스 / 클로징: 죠지">
+            </div>
+            <div class="form-group">
+              <label class="form-label">5분 복음 말씀 핵심 요약 (3대 포인트) *</label>
+              <textarea class="form-textarea" id="formSermonSummary" rows="4" placeholder="1. 다스리고 정복하라 -하나님의 형상&#10;2. 증인들: 구약-다윗, 신약-바울&#10;3. 원래 인간의 회복" required></textarea>
+            </div>
+          </div>
+
+          <!-- Zoom Worship Video Recording Link -->
+          <div class="routine-form-box" style="background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.25);">
+            <div class="routine-form-badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">🎬 줌(Zoom) 예배 녹화 동영상 등록</div>
+            <div class="form-row">
+              <div class="form-group half">
+                <label class="form-label">동영상 유형 (Video Type)</label>
+                <select class="form-select" id="formSermonVideoType">
+                  <option value="zoom">Zoom 클라우드 녹화 링크 (Zoom Cloud Recording)</option>
+                  <option value="youtube">유튜브 영상 링크 (YouTube Replay)</option>
+                  <option value="mp4">직접 MP4 파일 링크 (Direct MP4 URL)</option>
+                </select>
+              </div>
+              <div class="form-group half">
+                <label class="form-label">줌 녹화 암호 (Passcode - 선택)</label>
+                <input type="text" class="form-input" id="formSermonZoomPasscode" placeholder="예: 5gZkTM (암호가 있는 경우)">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">예배 녹화 동영상 링크 (URL)</label>
+              <input type="url" class="form-input" id="formSermonVideoUrl" placeholder="https://us06web.zoom.us/rec/share/... 또는 https://www.youtube.com/watch?v=...">
+              <span class="form-sub-hint" style="font-size: 0.78rem; color: #94a3b8; margin-top: 0.3rem; display: block;">
+                * 줌 클라우드 녹화 링크, 유튜브 다시보기 링크, 또는 서버에 업로드된 MP4 파일 주소를 입력하세요.
+              </span>
+            </div>
+          </div>
+
+          <!-- Praise & Prayer Topics -->
+          <div class="routine-form-box">
+            <div class="routine-form-badge">🎶 찬양 및 기도제목</div>
+            <div class="form-row">
+              <div class="form-group half">
+                <label class="form-label">지정 찬양 곡명 (Praise Song)</label>
+                <input type="text" class="form-input" id="formSermonPraise" placeholder="예: Jesus, We Enthrone You (예수 우리 왕이여)">
+              </div>
+              <div class="form-group half">
+                <label class="form-label">찬양 영상/유튜브 링크 (선택)</label>
+                <input type="url" class="form-input" id="formSermonPraiseLink" placeholder="https://www.youtube.com/watch?v=...">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">3대 집중 중보기도 제목 (Prayer Topics)</label>
+              <textarea class="form-textarea" id="formSermonPrayerTopic" rows="3" placeholder="1. 나를 위한 기도&#10;2. 모든 민족을 위한 기도&#10;3. 후대를 위한 기도"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">순서 및 주요 광고 안내 (Announcements)</label>
+              <textarea class="form-textarea" id="formSermonAnnouncements" rows="2" placeholder="모임 순서 및 다음 세대를 위한 기도모임 광고"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer" style="padding: 1rem 1.4rem;">
+          <button type="button" class="btn btn-ghost" onclick="closeModal('sermonFormModal')">취소</button>
+          <button type="submit" class="btn btn-primary" id="btnSubmitSermonForm">💾 전 세계 성도들에게 즉시 저장 및 반영</button>
+        </div>
+      </form>
     </div>
   </div>
 
