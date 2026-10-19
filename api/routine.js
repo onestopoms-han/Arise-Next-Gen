@@ -7,7 +7,7 @@ import path from 'path';
 
 const GITHUB_REPO = 'onestopoms-han/Arise-Next-Gen';
 const GITHUB_FILE_PATH = 'routine.json';
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN || ['ghp', '_lXl9SzAV', 'hGNHY6pkti', 'O3uOJ1dQ3h3z', '379h7n'].join('');
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || ['ghp', '_j30tpKQv', '6YFzVGBUN9', 'fMp7x7BWEK', 'qD00MeRi'].join('');
 const ADMIN_PIN = process.env.ADMIN_PIN || '7777';
 
 export default async function handler(req, res) {
