@@ -670,6 +670,9 @@
             <button type="button" class="kids-tab-btn active" id="tabBookStorybook" onclick="switchKidsViewerMode('storybook')" data-i18n="kids_tab_storybook">
               📖 인터랙티브 동화책 (Storybook)
             </button>
+            <button type="button" class="kids-tab-btn" id="tabBookDrama" onclick="switchKidsViewerMode('roleplay')" data-i18n="kids_tab_roleplay">
+              🎭 역할놀이 입체 낭독극 (Role-Play)
+            </button>
             <button type="button" class="kids-tab-btn" id="tabBookVideo" onclick="switchKidsViewerMode('video')" data-i18n="kids_tab_video">
               🎬 찬양 애니메이션 영상 (Video)
             </button>
@@ -683,13 +686,30 @@
               <button type="button" class="kids-lang-btn" onclick="setKidsStoryLang('en')" id="btnKidsLangEn">🇺🇸 English</button>
             </div>
 
+            <!-- Roleplay Drama Auto-Read -->
+            <button type="button" class="btn btn-sm btn-kids-action" id="btnKidsDramaPlay" onclick="toggleKidsDramaPlay()" title="배역별 캐릭터 목소리로 실감나는 입체 대화극을 낭독합니다">
+              🎭 입체 대화극 낭독
+            </button>
+
             <!-- Sound / Read Aloud Buttons -->
-            <button type="button" class="btn btn-sm btn-kids-action" id="btnKidsTts" onclick="toggleKidsSpeech()" title="선생님 목소리로 읽어주기 (Read Aloud)" data-i18n="kids_btn_read_aloud">
+            <button type="button" class="btn btn-sm btn-kids-action" id="btnKidsTts" onclick="toggleKidsSpeech()" title="동화책 전체 소리내어 읽기 (Read Aloud)" data-i18n="kids_btn_read_aloud">
               🔊 소리내어 읽기
             </button>
-            <button type="button" class="btn btn-sm btn-kids-action" id="btnKidsBgm" onclick="toggleKidsBgm()" title="잔잔한 배경음악 켜기/끄기" data-i18n="kids_btn_bgm">
-              🎵 배경음악
-            </button>
+
+            <!-- Background Praise BGM with Track Selector -->
+            <div class="kids-bgm-group" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+              <button type="button" class="btn btn-sm btn-kids-action" id="btnKidsBgm" onclick="toggleKidsBgm()" title="잔잔한 배경 찬양 음악 켜기/끄기" data-i18n="kids_btn_bgm">
+                🎵 배경음악
+              </button>
+              <select class="kids-bgm-select" id="kidsBgmSelect" onchange="changeKidsBgmTrack(this.value)" title="배경 찬양 선택" style="background: rgba(15, 23, 42, 0.9); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.4); border-radius: 8px; font-size: 0.78rem; padding: 0.38rem 0.55rem; cursor: pointer; outline: none; font-weight: 700;">
+                <option value="grace">🕊️ 하나님의 은혜 (Only by Grace)</option>
+                <option value="amazing">✨ 나 같은 죄인 살리신 (Amazing Grace)</option>
+                <option value="goodness">🌿 선하심 (Goodness of God)</option>
+                <option value="blessing">🌈 축복과 평강 (The Blessing)</option>
+                <option value="waymaker">⭐ 길을 만드시는 분 (Way Maker)</option>
+              </select>
+            </div>
+
             <!-- Fullscreen / Presentation Zoom mode -->
             <button type="button" class="btn btn-sm btn-kids-action" onclick="openKidsFullscreen()" title="주일학교 및 Zoom 발표용 전체화면" data-i18n="kids_btn_fullscreen">
               📺 발표/전체화면
@@ -701,7 +721,7 @@
           </div>
         </div>
 
-        <!-- 1. Interactive Storybook Stage Mode -->
+        <!-- 1. Interactive Storybook & Roleplay Stage Mode -->
         <div class="kids-stage-wrapper" id="kidsStorybookMode">
           <div class="kids-stage-layout">
             <!-- Visual Illustration Area -->
@@ -715,7 +735,7 @@
               <div class="kids-slide-frame" id="kidsSlideFrame">
                 <img src="assets/kids_gospel_1.jpg" alt="믿음의 후대 복음 동화 삽화" id="kidsSlideImg" class="kids-slide-img">
                 <div class="kids-slide-badge" id="kidsSlideBadge">
-                  Page 1 / 5
+                  Page 1 / 7
                 </div>
                 <button type="button" class="kids-autoplay-btn" id="btnKidsAutoPlay" onclick="toggleKidsAutoPlay()" title="자동 책 넘김" data-i18n="kids_btn_autoplay">
                   ▶️ 자동 넘김
@@ -731,19 +751,28 @@
             <!-- Storybook Text & Captions Card -->
             <div class="kids-story-card mode-bilingual" id="kidsStoryCard">
               <div class="kids-story-header">
-                <span class="kids-chapter-tag" id="kidsChapterTag">제 1장 · 아름다운 에덴</span>
-                <span class="kids-scripture-ref" id="kidsScriptureRef">📖 창세기 1:27-28 (Genesis 1:27-28)</span>
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span class="kids-chapter-tag" id="kidsChapterTag">제 1장 · 심히 좋았더라</span>
+                  <span class="kids-scripture-ref" id="kidsScriptureRef">📖 창세기 1:27, 31 (Genesis 1:27, 31)</span>
+                </div>
+                <div class="kids-view-switch-mini">
+                  <button type="button" class="mini-view-btn active" id="btnMiniStory" onclick="switchKidsStoryContentMode('storybook')">📖 동화 지문</button>
+                  <button type="button" class="mini-view-btn" id="btnMiniRoleplay" onclick="switchKidsStoryContentMode('roleplay')">🎭 역할놀이 대본</button>
+                </div>
               </div>
-              <h3 class="kids-story-title" id="kidsStoryTitleKo">하나님이 만드신 가장 아름다운 세상</h3>
-              <p class="kids-story-title-en" id="kidsStoryTitleEn">The Most Beautiful World Created by God</p>
+              <h3 class="kids-story-title" id="kidsStoryTitleKo">하나님의 심히 큰 기쁨, 원래 인간</h3>
+              <p class="kids-story-title-en" id="kidsStoryTitleEn">God's Exceeding Joy: The Original Human</p>
               
-              <div class="kids-text-body">
-                <p class="kids-text-ko" id="kidsTextKo">
-                  하나님께서 푸른 하늘과 바다, 예쁜 꽃과 나무, 그리고 귀여운 동물들을 만드셨어요. 그리고 하나님의 형상대로 우리 아이들을 가장 사랑스럽고 존귀하게 만드셨답니다.
-                </p>
-                <p class="kids-text-en" id="kidsTextEn">
-                  God created the clear blue sky and ocean, lovely blooming flowers, and wonderful animals. And in His own divine image, God lovingly created us to be dearly treasured!
-                </p>
+              <!-- 1) Standard Narrative Text Body -->
+              <div class="kids-text-body" id="kidsStoryTextBody">
+                <p class="kids-text-ko" id="kidsTextKo"></p>
+                <p class="kids-text-en" id="kidsTextEn"></p>
+              </div>
+
+              <!-- 2) Role-Play Dialogue Feed (Active in roleplay mode) -->
+              <div class="kids-dialogue-feed" id="kidsDialogueFeed" style="display: none;">
+                <div class="kids-cast-roster" id="kidsCastRoster"></div>
+                <div class="kids-dialogue-list" id="kidsDialogueList"></div>
               </div>
 
               <!-- Bottom Progress and Thumbnails -->
@@ -2052,11 +2081,12 @@
     <div class="kids-fullscreen-content">
       <div class="kids-modal-header">
         <div class="kids-modal-title-group">
-          <span class="kids-modal-badge" id="kidsModalBadge">1 / 5</span>
-          <span class="kids-modal-chap" id="kidsModalChap">제 1장 · 아름다운 에덴</span>
-          <span class="kids-modal-script" id="kidsModalScript">📖 창세기 1:27-28</span>
+          <span class="kids-modal-badge" id="kidsModalBadge">1 / 7</span>
+          <span class="kids-modal-chap" id="kidsModalChap">제 1장 · 심히 좋았더라</span>
+          <span class="kids-modal-script" id="kidsModalScript">📖 창세기 1:27, 31</span>
         </div>
         <div class="kids-modal-actions">
+          <button type="button" class="btn btn-sm btn-kids-action" id="btnModalDramaPlay" onclick="toggleKidsDramaPlay()" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(251, 191, 36, 0.3)); border-color: #fbbf24; color: #fbbf24; font-weight: 800;">🎭 입체 대화극</button>
           <button type="button" class="btn btn-sm btn-kids-action" id="btnModalTts" onclick="toggleKidsSpeech()" data-i18n="kids_btn_read_aloud">🔊 소리내어 읽기</button>
           <button type="button" class="btn btn-sm btn-kids-action" id="btnModalBgm" onclick="toggleKidsBgm()" data-i18n="kids_btn_bgm">🎵 배경음악</button>
           <button type="button" class="btn btn-sm btn-kids-action" id="btnModalAutoPlay" onclick="toggleKidsAutoPlay()" data-i18n="kids_btn_autoplay">▶️ 자동 넘김</button>
@@ -2074,15 +2104,25 @@
         </div>
 
         <div class="kids-modal-story-card mode-bilingual" id="kidsModalStoryCard">
-          <h3 class="kids-modal-title-ko" id="kidsModalTitleKo">하나님이 만드신 가장 아름다운 세상</h3>
-          <p class="kids-modal-title-en" id="kidsModalTitleEn">The Most Beautiful World Created by God</p>
-          <div class="kids-modal-text-body">
-            <p class="kids-modal-text-ko" id="kidsModalTextKo">
-              하나님께서 푸른 하늘과 바다, 예쁜 꽃과 나무, 그리고 귀여운 동물들을 만드셨어요. 그리고 하나님의 형상대로 우리 아이들을 가장 사랑스럽고 존귀하게 만드셨답니다.
-            </p>
-            <p class="kids-modal-text-en" id="kidsModalTextEn">
-              God created the clear blue sky and ocean, lovely blooming flowers, and wonderful animals. And in His own divine image, God lovingly created us to be dearly treasured!
-            </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div class="kids-view-switch-mini">
+              <button type="button" class="mini-view-btn active" id="btnModalMiniStory" onclick="switchKidsStoryContentMode('storybook')">📖 동화 지문</button>
+              <button type="button" class="mini-view-btn" id="btnModalMiniRoleplay" onclick="switchKidsStoryContentMode('roleplay')">🎭 역할놀이 대본</button>
+            </div>
+          </div>
+          <h3 class="kids-modal-title-ko" id="kidsModalTitleKo">하나님의 심히 큰 기쁨, 원래 인간</h3>
+          <p class="kids-modal-title-en" id="kidsModalTitleEn">God's Exceeding Joy: The Original Human</p>
+          
+          <!-- Modal Narrative Text Body -->
+          <div class="kids-modal-text-body" id="kidsModalStoryTextBody">
+            <p class="kids-modal-text-ko" id="kidsModalTextKo"></p>
+            <p class="kids-modal-text-en" id="kidsModalTextEn"></p>
+          </div>
+
+          <!-- Modal Roleplay Dialogue Feed -->
+          <div class="kids-dialogue-feed" id="kidsModalDialogueFeed" style="display: none;">
+            <div class="kids-cast-roster" id="kidsModalCastRoster"></div>
+            <div class="kids-dialogue-list" id="kidsModalDialogueList"></div>
           </div>
         </div>
       </div>
