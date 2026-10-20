@@ -25,7 +25,7 @@
   <!-- Header / Navigation -->
   <header class="site-header" id="siteHeader">
     <div class="container header-container">
-      <a href="#" class="brand-logo" id="brandLogo">
+      <a href="#countdown" class="brand-logo" id="brandLogo" data-page="countdown">
         <span class="brand-icon">✨</span>
         <div class="brand-text">
           <span class="brand-title" data-i18n="brand_title">어라이즈 넥스트젠</span>
@@ -35,14 +35,14 @@
 
       <!-- Navigation Links -->
       <nav class="nav-menu" id="navMenu">
-        <a href="#countdown" class="nav-link" data-i18n="nav_meeting">기도모임 안내</a>
-        <a href="#routine" class="nav-link" data-i18n="nav_routine">30분 루틴</a>
-        <a href="#sermons" class="nav-link" data-i18n="nav_sermons">📖 말씀 &amp; 줌 영상</a>
-        <a href="#kids-zone" class="nav-link nav-link-kids" data-i18n="nav_kids_zone">🌱 믿음의 후대관</a>
-        <a href="#prayer-guide" class="nav-link" data-i18n="nav_prayer_guide">공동 기도문</a>
-        <a href="#prayer-wall" class="nav-link" data-i18n="nav_prayer_wall">기도 정원</a>
-        <a href="#testimonies" class="nav-link" data-i18n="nav_testimonies">은혜의 간증</a>
-        <a href="#worship" class="nav-link" data-i18n="nav_worship">찬양 라운지</a>
+        <a href="#countdown" class="nav-link active" data-page="countdown" data-i18n="nav_meeting">기도모임 안내</a>
+        <a href="#routine" class="nav-link" data-page="routine" data-i18n="nav_routine">30분 루틴</a>
+        <a href="#sermons" class="nav-link" data-page="sermons" data-i18n="nav_sermons">📖 말씀 &amp; 줌 영상</a>
+        <a href="#kids-zone" class="nav-link nav-link-kids" data-page="kids-zone" data-i18n="nav_kids_zone">🌱 믿음의 후대관</a>
+        <a href="#prayer-guide" class="nav-link" data-page="prayer-guide" data-i18n="nav_prayer_guide">공동 기도문</a>
+        <a href="#prayer-wall" class="nav-link" data-page="prayer-wall" data-i18n="nav_prayer_wall">기도 정원</a>
+        <a href="#testimonies" class="nav-link" data-page="testimonies" data-i18n="nav_testimonies">은혜의 간증</a>
+        <a href="#worship" class="nav-link" data-page="worship" data-i18n="nav_worship">찬양 라운지</a>
       </nav>
 
       <!-- Action Buttons & Language Switcher -->
@@ -77,8 +77,8 @@
     </div>
   </header>
 
-  <!-- Hero Section with Live Countdown -->
-  <section class="hero-section" id="countdown">
+  <!-- Hero Section with Live Countdown (Home Page) -->
+  <section class="hero-section page-section active" id="countdown">
     <div class="container hero-container">
       <!-- Badge -->
       <div class="hero-badge">
@@ -196,12 +196,106 @@
           <span class="nation-pill" onclick="filterByCountry('Vietnam')" style="cursor: pointer;">🇻🇳 Vietnam (베트남)</span>
         </div>
       </div>
+
+      <!-- Home Portal Quick Navigation Hub (일반 웹사이트처럼 항목별 메뉴 한눈에 보기) -->
+      <div class="home-portal-menu" id="homePortalMenu">
+        <div class="portal-header">
+          <span class="portal-badge" data-i18n="portal_badge">EXPLORE &amp; JOIN</span>
+          <h2 class="portal-title" data-i18n="portal_title">어라이즈 넥스트젠 주요 사역 &amp; 메뉴</h2>
+          <p class="portal-sub" data-i18n="portal_sub">원하시는 항목을 선택하시면 해당 전용 페이지로 바로 전환됩니다.</p>
+        </div>
+        <div class="portal-grid">
+          <!-- 1. 30분 루틴 -->
+          <a href="#routine" class="portal-card" data-page="routine">
+            <div class="portal-card-icon">⏱️</div>
+            <div class="portal-card-body">
+              <h3 class="portal-card-title" data-i18n="nav_routine">30분 집중 루틴</h3>
+              <p class="portal-card-desc" data-i18n="portal_card_routine_desc">찬양, 말씀, 3대 집중 중보기도, 순서 &amp; 광고 등 4단계 모임 순서 및 공식 순서지 실시간 연동</p>
+            </div>
+            <span class="portal-card-arrow">→</span>
+          </a>
+
+          <!-- 2. 말씀 & 줌 영상 -->
+          <a href="#sermons" class="portal-card" data-page="sermons">
+            <div class="portal-card-icon">📖</div>
+            <div class="portal-card-body">
+              <h3 class="portal-card-title" data-i18n="nav_sermons">말씀 &amp; 줌 영상</h3>
+              <p class="portal-card-desc" data-i18n="portal_card_sermons_desc">일자별 30분 기도모임 설교 메시지와 줌(Zoom) 녹화 영상 아카이브 다시보기</p>
+            </div>
+            <span class="portal-card-arrow">→</span>
+          </a>
+
+          <!-- 3. 믿음의 후대관 -->
+          <a href="#kids-zone" class="portal-card portal-card-kids" data-page="kids-zone">
+            <div class="portal-card-icon">🌱</div>
+            <div class="portal-card-body">
+              <div class="portal-card-badge-row">
+                <h3 class="portal-card-title" data-i18n="nav_kids_zone">믿음의 후대관</h3>
+                <span class="portal-pill-badge">Next-Gen</span>
+              </div>
+              <p class="portal-card-desc" data-i18n="portal_card_kids_desc">창세기 구원 복음 전자 동화책(7단계), 애니메이션 찬양, 전도 챈트 및 퀴즈</p>
+            </div>
+            <span class="portal-card-arrow">→</span>
+          </a>
+
+          <!-- 4. 공동 기도문 -->
+          <a href="#prayer-guide" class="portal-card" data-page="prayer-guide">
+            <div class="portal-card-icon">🕊️</div>
+            <div class="portal-card-body">
+              <h3 class="portal-card-title" data-i18n="nav_prayer_guide">공동 기도문</h3>
+              <p class="portal-card-desc" data-i18n="portal_card_guide_desc">성도들과 전도자가 한마음으로 고백하는 3대 공식 기도문 전문 및 슬라이드 발표 모드</p>
+            </div>
+            <span class="portal-card-arrow">→</span>
+          </a>
+
+          <!-- 5. 기도 정원 -->
+          <a href="#prayer-wall" class="portal-card" data-page="prayer-wall">
+            <div class="portal-card-icon">🌸</div>
+            <div class="portal-card-body">
+              <h3 class="portal-card-title" data-i18n="nav_prayer_wall">기도 정원</h3>
+              <p class="portal-card-desc" data-i18n="portal_card_wall_desc">열방 각 나라 성도들이 올린 다음 세대 기도제목을 품고 함께 손잡아 기도하는 24시 네트워크</p>
+            </div>
+            <span class="portal-card-arrow">→</span>
+          </a>
+
+          <!-- 6. 은혜의 간증 -->
+          <a href="#testimonies" class="portal-card" data-page="testimonies">
+            <div class="portal-card-icon">💫</div>
+            <div class="portal-card-body">
+              <h3 class="portal-card-title" data-i18n="nav_testimonies">은혜의 간증</h3>
+              <p class="portal-card-desc" data-i18n="portal_card_testi_desc">하나님의 역사와 응답을 누린 다민족 제자들과 전도자의 생생한 은혜의 고백 나눔</p>
+            </div>
+            <span class="portal-card-arrow">→</span>
+          </a>
+
+          <!-- 7. 찬양 라운지 -->
+          <a href="#worship" class="portal-card" data-page="worship">
+            <div class="portal-card-icon">🎵</div>
+            <div class="portal-card-body">
+              <h3 class="portal-card-title" data-i18n="nav_worship">찬양 라운지</h3>
+              <p class="portal-card-desc" data-i18n="portal_card_worship_desc">전 세계 성도들이 함께 부르는 다국어 찬양 연속 재생 플레이어 및 워십 스튜디오</p>
+            </div>
+            <span class="portal-card-arrow">→</span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 30-Minute Routine Section -->
-  <section class="routine-section" id="routine">
+  <!-- 30-Minute Routine Section (Page 2) -->
+  <section class="routine-section page-section" id="routine">
     <div class="container">
+      <!-- Subpage Header Bar -->
+      <div class="subpage-header-bar">
+        <div class="subpage-breadcrumb">
+          <a href="#countdown" class="breadcrumb-link" data-page="countdown">🏠 <span data-i18n="nav_meeting">기도모임 안내</span></a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current" data-i18n="nav_routine">30분 집중 루틴</span>
+        </div>
+        <button type="button" class="btn-subpage-back" onclick="navigateToPage('countdown')">
+          <span>←</span> <span>메인 홈으로 가기</span>
+        </button>
+      </div>
       <div class="section-header-row">
         <div>
           <span class="section-badge" data-i18n="routine_badge">타이트하고 깊은 은혜</span>
@@ -414,8 +508,40 @@
         </div>
       </div>
 
-      <!-- Official Prayer Guide Section (기도문.pdf 공식 반영) -->
-      <div class="official-prayer-section" id="prayer-guide">
+      <!-- Quick Link to Prayer Guide inside Routine -->
+      <div class="routine-bottom-notice" style="margin-top: 2rem; padding: 1.2rem 1.6rem; background: rgba(245, 158, 11, 0.08); border: 1px dashed rgba(245, 158, 11, 0.35); border-radius: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span style="font-size: 1.5rem;">🕊️</span>
+          <div>
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">어라이즈 넥스트젠 3대 공식 기도문 전문을 확인하세요</strong>
+            <p style="margin: 0; font-size: 0.82rem; color: var(--text-secondary);">나 자신, 모든 민족, 후대를 위한 공식 기도문과 슬라이드 발표 모드를 제공합니다.</p>
+          </div>
+        </div>
+        <a href="#prayer-guide" class="btn btn-sm btn-primary" data-page="prayer-guide">
+          <span>공동 기도문 페이지 바로가기</span> <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- 🕊️ Official Prayer Guide Section (Page 3 - 공동 기도문 전용 페이지) -->
+  <!-- ======================================================= -->
+  <section class="prayer-guide-section page-section" id="prayer-guide">
+    <div class="container">
+      <!-- Subpage Header Bar -->
+      <div class="subpage-header-bar">
+        <div class="subpage-breadcrumb">
+          <a href="#countdown" class="breadcrumb-link" data-page="countdown">🏠 <span data-i18n="nav_meeting">기도모임 안내</span></a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current" data-i18n="nav_prayer_guide">공동 기도문</span>
+        </div>
+        <button type="button" class="btn-subpage-back" onclick="navigateToPage('countdown')">
+          <span>←</span> <span>메인 홈으로 가기</span>
+        </button>
+      </div>
+
+      <div class="official-prayer-section">
         <div class="prayer-guide-top">
           <div class="prayer-guide-title-box">
             <div class="prayer-guide-tag">
@@ -582,10 +708,21 @@
   </section>
 
   <!-- ======================================================= -->
-  <!-- 📖 Sermon & Zoom Worship Archive (일자별 말씀 & 줌 예배 동영상 아카이브) -->
+  <!-- 📖 Sermon & Zoom Worship Archive (Page 4 - 일자별 말씀 & 줌 예배 동영상 아카이브) -->
   <!-- ======================================================= -->
-  <section class="sermon-archive-section" id="sermons">
+  <section class="sermon-archive-section page-section" id="sermons">
     <div class="container">
+      <!-- Subpage Header Bar -->
+      <div class="subpage-header-bar">
+        <div class="subpage-breadcrumb">
+          <a href="#countdown" class="breadcrumb-link" data-page="countdown">🏠 <span data-i18n="nav_meeting">기도모임 안내</span></a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current" data-i18n="nav_sermons">말씀 &amp; 줌 영상</span>
+        </div>
+        <button type="button" class="btn-subpage-back" onclick="navigateToPage('countdown')">
+          <span>←</span> <span>메인 홈으로 가기</span>
+        </button>
+      </div>
       <div class="section-header-row">
         <div>
           <span class="sermon-badge" data-i18n="sermon_archive_badge">📖 말씀 &amp; 줌 예배 다시보기</span>
@@ -645,9 +782,20 @@
     </div>
   </section>
 
-  <!-- Faith Next-Gen Zone (믿음의 후대관: 인터랙티브 전자 동화책 & 찬양 애니메이션) -->
-  <section class="kids-zone-section" id="kids-zone">
+  <!-- Faith Next-Gen Zone (Page 5 - 믿음의 후대관: 인터랙티브 전자 동화책 & 찬양 애니메이션) -->
+  <section class="kids-zone-section page-section" id="kids-zone">
     <div class="container">
+      <!-- Subpage Header Bar -->
+      <div class="subpage-header-bar">
+        <div class="subpage-breadcrumb">
+          <a href="#countdown" class="breadcrumb-link" data-page="countdown">🏠 <span data-i18n="nav_meeting">기도모임 안내</span></a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current" data-i18n="nav_kids_zone">🌱 믿음의 후대관</span>
+        </div>
+        <button type="button" class="btn-subpage-back" onclick="navigateToPage('countdown')">
+          <span>←</span> <span>메인 홈으로 가기</span>
+        </button>
+      </div>
       <!-- Section Header -->
       <div class="section-header-kids text-center">
         <div class="kids-badge">
@@ -813,9 +961,20 @@
     </div>
   </section>
 
-  <!-- Global Prayer Wall Section -->
-  <section class="prayer-wall-section" id="prayer-wall">
+  <!-- Global Prayer Wall Section (Page 6 - 기도 정원 전용 페이지) -->
+  <section class="prayer-wall-section page-section" id="prayer-wall">
     <div class="container">
+      <!-- Subpage Header Bar -->
+      <div class="subpage-header-bar">
+        <div class="subpage-breadcrumb">
+          <a href="#countdown" class="breadcrumb-link" data-page="countdown">🏠 <span data-i18n="nav_meeting">기도모임 안내</span></a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current" data-i18n="nav_prayer_wall">기도 정원</span>
+        </div>
+        <button type="button" class="btn-subpage-back" onclick="navigateToPage('countdown')">
+          <span>←</span> <span>메인 홈으로 가기</span>
+        </button>
+      </div>
       <div class="section-header-row">
         <div>
           <span class="section-badge" data-i18n="prayer_badge">24시간 중보 네트워크</span>
@@ -862,9 +1021,20 @@
     </div>
   </section>
 
-  <!-- Grace & Testimonies Section -->
-  <section class="testimonies-section" id="testimonies">
+  <!-- Grace & Testimonies Section (Page 7 - 은혜의 간증 전용 페이지) -->
+  <section class="testimonies-section page-section" id="testimonies">
     <div class="container">
+      <!-- Subpage Header Bar -->
+      <div class="subpage-header-bar">
+        <div class="subpage-breadcrumb">
+          <a href="#countdown" class="breadcrumb-link" data-page="countdown">🏠 <span data-i18n="nav_meeting">기도모임 안내</span></a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current" data-i18n="nav_testimonies">은혜의 간증</span>
+        </div>
+        <button type="button" class="btn-subpage-back" onclick="navigateToPage('countdown')">
+          <span>←</span> <span>메인 홈으로 가기</span>
+        </button>
+      </div>
       <div class="section-header-row">
         <div>
           <span class="section-badge" data-i18n="testimony_badge">하나님이 하신 일</span>
@@ -885,9 +1055,20 @@
     </div>
   </section>
 
-  <!-- Worship & Praise Lounge Section -->
-  <section class="worship-section" id="worship">
+  <!-- Worship & Praise Lounge Section (Page 8 - 찬양 라운지 전용 페이지) -->
+  <section class="worship-section page-section" id="worship">
     <div class="container">
+      <!-- Subpage Header Bar -->
+      <div class="subpage-header-bar">
+        <div class="subpage-breadcrumb">
+          <a href="#countdown" class="breadcrumb-link" data-page="countdown">🏠 <span data-i18n="nav_meeting">기도모임 안내</span></a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current" data-i18n="nav_worship">찬양 라운지</span>
+        </div>
+        <button type="button" class="btn-subpage-back" onclick="navigateToPage('countdown')">
+          <span>←</span> <span>메인 홈으로 가기</span>
+        </button>
+      </div>
       <div class="section-header text-center">
         <span class="section-badge" data-i18n="worship_badge">Global Praise & Worship · 온 열방의 찬양</span>
         <h2 class="section-title" data-i18n="worship_title">Global Worship Lounge · 열방 워십 라운지</h2>

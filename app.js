@@ -33,6 +33,16 @@ const translations = {
     time_secs: "초 (Secs)",
     btn_join_room: "온라인 기도모임 입장하기 (Zoom)",
     btn_copy_link: "초대 링크 & ID 복사",
+    portal_badge: "EXPLORE & JOIN",
+    portal_title: "어라이즈 넥스트젠 주요 사역 & 메뉴",
+    portal_sub: "원하시는 항목을 선택하시면 해당 전용 페이지로 바로 전환됩니다.",
+    portal_card_routine_desc: "찬양, 말씀, 3대 집중 중보기도, 순서 & 광고 등 4단계 모임 순서 및 공식 순서지 실시간 연동",
+    portal_card_sermons_desc: "일자별 30분 기도모임 설교 메시지와 줌(Zoom) 녹화 영상 아카이브 다시보기",
+    portal_card_kids_desc: "창세기 구원 복음 전자 동화책(7단계), 애니메이션 찬양, 전도 챈트 및 퀴즈",
+    portal_card_guide_desc: "성도들과 전도자가 한마음으로 고백하는 3대 공식 기도문 전문 및 슬라이드 발표 모드",
+    portal_card_wall_desc: "열방 각 나라 성도들이 올린 다음 세대 기도제목을 품고 함께 손잡아 기도하는 24시 네트워크",
+    portal_card_testi_desc: "하나님의 역사와 응답을 누린 다민족 제자들과 전도자의 생생한 은혜의 고백 나눔",
+    portal_card_worship_desc: "전 세계 성도들이 함께 부르는 다국어 찬양 연속 재생 플레이어 및 워십 스튜디오",
     routine_badge: "타이트하고 깊은 은혜",
     routine_title: "30분 집중 기도모임 황금 루틴",
     routine_desc: "시차와 국경을 넘어 짧은 시간 가장 강력하게 성령 안에서 하나 되는 4단계 순서입니다.",
@@ -258,6 +268,16 @@ const translations = {
     time_secs: "Secs",
     btn_join_room: "Join 30-Min Prayer Room (Zoom)",
     btn_copy_link: "Copy Invite Link & ID",
+    portal_badge: "EXPLORE & JOIN",
+    portal_title: "Arise Next-Gen Main Ministry & Menus",
+    portal_sub: "Select any menu to navigate directly to its dedicated page view.",
+    portal_card_routine_desc: "4-step routine: Praise, Word, 3-focus intercession, order & announcements",
+    portal_card_sermons_desc: "Archive of monthly prayer sermons and Zoom worship recording videos by date",
+    portal_card_kids_desc: "7-step Genesis gospel storybook, praise animation, evangelism chants & quizzes",
+    portal_card_guide_desc: "3 official prayer guides confessed in one voice with slide presentation mode",
+    portal_card_wall_desc: "24/7 global intercession network praying for next-generation prayer requests",
+    portal_card_testi_desc: "Living testimonies and fruits of grace from multi-ethnic disciples and evangelists",
+    portal_card_worship_desc: "Continuous streaming worship lounge sung by all nations & worship studio",
     routine_badge: "Tight & Spirit-Filled",
     routine_title: "The 30-Minute Golden Prayer Routine",
     routine_desc: "A powerful 4-step sequence designed to transcend time zones and unite our hearts deeply in the Holy Spirit.",
@@ -2317,9 +2337,13 @@ function filterByCountry(countryKey) {
     chip.classList.toggle('active', chip.getAttribute('data-country') === countryKey);
   });
   renderPrayers();
-  const prayerWall = document.getElementById('prayer-wall');
-  if (prayerWall) {
-    prayerWall.scrollIntoView({ behavior: 'smooth' });
+  if (typeof navigateToPage === 'function') {
+    navigateToPage('prayer-wall');
+  } else {
+    const prayerWall = document.getElementById('prayer-wall');
+    if (prayerWall) {
+      prayerWall.scrollIntoView({ behavior: 'smooth' });
+    }
   }
   if (countryKey !== 'all') {
     showToast(`${countryKey} ${translations[currentLang].prayer_badge}`, "🌍");
@@ -5440,9 +5464,13 @@ function openPdfForSermon(sermonId) {
 window.openPdfForSermon = openPdfForSermon;
 
 function scrollToSermonArchive() {
-  const sec = document.getElementById('sermons');
-  if (sec) {
-    sec.scrollIntoView({ behavior: 'smooth' });
+  if (typeof navigateToPage === 'function') {
+    navigateToPage('sermons');
+  } else {
+    const sec = document.getElementById('sermons');
+    if (sec) {
+      sec.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }
 window.scrollToSermonArchive = scrollToSermonArchive;
@@ -5749,4 +5777,121 @@ document.addEventListener('DOMContentLoaded', () => {
     zoomInputEl.addEventListener('input', handleZoomAutoDetect);
     zoomInputEl.addEventListener('paste', () => setTimeout(handleZoomAutoDetect, 50));
   }
+
+  // Initialize SPA Page View Routing System
+  initPageRouting();
 });
+
+// ==========================================
+// 10. SPA Page Routing System (항목별 단독 페이지 전환 엔진)
+// ==========================================
+const VALID_PAGES = [
+  'countdown',
+  'routine',
+  'prayer-guide',
+  'sermons',
+  'kids-zone',
+  'prayer-wall',
+  'testimonies',
+  'worship'
+];
+
+let currentPageId = 'countdown';
+
+function navigateToPage(pageId, shouldUpdateHash = true) {
+  if (!pageId || !VALID_PAGES.includes(pageId)) {
+    pageId = 'countdown';
+  }
+
+  currentPageId = pageId;
+
+  // 1. 모든 .page-section 가시성 제어
+  const sections = document.querySelectorAll('.page-section');
+  sections.forEach(sec => {
+    if (sec.id === pageId) {
+      sec.classList.add('active');
+    } else {
+      sec.classList.remove('active');
+    }
+  });
+
+  // 2. 상단 네비게이션 링크 active 하이라이트 갱신
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    const linkTarget = link.getAttribute('data-page') || link.getAttribute('href')?.replace('#', '');
+    if (linkTarget === pageId) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+
+  // 3. 모바일 메뉴가 열려있다면 자동 닫기
+  const navMenu = document.getElementById('navMenu');
+  if (navMenu && navMenu.classList.contains('open')) {
+    navMenu.classList.remove('open');
+  }
+
+  // 4. 브라우저 URL Hash 갱신 (뒤로가기 / 앞으로가기 지원)
+  if (shouldUpdateHash) {
+    if (window.location.hash !== '#' + pageId) {
+      history.pushState({ pageId: pageId }, '', '#' + pageId);
+    }
+  }
+
+  // 5. 화면 최상단으로 부드럽게 스크롤
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+window.navigateToPage = navigateToPage;
+
+function initPageRouting() {
+  // 1. 브라우저 뒤로가기 / 앞으로가기 이벤트 감지
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (VALID_PAGES.includes(hash)) {
+      navigateToPage(hash, false);
+    } else {
+      navigateToPage('countdown', false);
+    }
+  });
+
+  window.addEventListener('hashchange', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (VALID_PAGES.includes(hash) && hash !== currentPageId) {
+      navigateToPage(hash, false);
+    }
+  });
+
+  // 2. 전역 클릭 위임 (data-page 또는 #hash 내부 링크 자동 가로채기)
+  document.addEventListener('click', (e) => {
+    const targetLink = e.target.closest('a[data-page], a[href^="#"]');
+    if (!targetLink) return;
+
+    let pageTarget = targetLink.getAttribute('data-page');
+    if (!pageTarget) {
+      const href = targetLink.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const potentialPage = href.substring(1);
+        if (VALID_PAGES.includes(potentialPage)) {
+          pageTarget = potentialPage;
+        }
+      }
+    }
+
+    if (pageTarget && VALID_PAGES.includes(pageTarget)) {
+      e.preventDefault();
+      navigateToPage(pageTarget, true);
+    }
+  });
+
+  // 3. 페이지 최초 로드시 URL Hash 반영
+  const initialHash = window.location.hash.replace('#', '');
+  if (initialHash && VALID_PAGES.includes(initialHash)) {
+    navigateToPage(initialHash, false);
+  } else {
+    navigateToPage('countdown', false);
+  }
+}

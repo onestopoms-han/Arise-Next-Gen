@@ -328,6 +328,17 @@ body {
   width: 100%;
 }
 
+.nav-link.active {
+  color: var(--accent-gold);
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+.nav-link.active::after {
+  width: 100%;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -6062,6 +6073,281 @@ body {
     flex: 1;
     text-align: center;
     justify-content: center;
+  }
+}
+
+/* ========================================================= */
+/* SPA PAGE VIEW ROUTING & SYSTEM ARCHITECTURE               */
+/* ========================================================= */
+
+/* Page View Visibility & Smooth Enter Animation */
+.page-section {
+  display: none;
+}
+
+.page-section.active {
+  display: block;
+  animation: pageSectionFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageSectionFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subpage Header Navigation Bar */
+.subpage-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.85rem 1.35rem;
+  margin-bottom: 2.2rem;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.28);
+}
+
+.subpage-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+}
+
+.breadcrumb-link {
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.breadcrumb-link:hover {
+  color: #FDE68A;
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+.breadcrumb-sep {
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+}
+
+.breadcrumb-current {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.btn-subpage-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.btn-subpage-back:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: var(--accent-gold);
+  transform: translateX(-3px);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.2);
+}
+
+/* Home Portal Quick Navigation Grid (메인 홈 허브) */
+.home-portal-menu {
+  margin-top: 3.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.portal-header {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.portal-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 0.6rem;
+}
+
+.portal-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.portal-sub {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+}
+
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.portal-card {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  background: linear-gradient(135deg, rgba(22, 30, 56, 0.75), rgba(15, 23, 42, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.35rem 1.4rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.portal-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.16), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portal-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 25px rgba(245, 158, 11, 0.2);
+}
+
+.portal-card:hover::before {
+  opacity: 1;
+}
+
+.portal-card-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.portal-card:hover .portal-card-icon {
+  transform: scale(1.1) rotate(4deg);
+}
+
+.portal-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.portal-card-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.portal-pill-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #10B981, #059669);
+  color: #FFF;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+}
+
+.portal-card-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.portal-card:hover .portal-card-title {
+  color: var(--accent-gold);
+}
+
+.portal-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.portal-card-arrow {
+  font-size: 1.25rem;
+  color: var(--accent-gold);
+  opacity: 0.5;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  flex-shrink: 0;
+}
+
+.portal-card:hover .portal-card-arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* Prayer Guide Section standalone padding */
+.prayer-guide-section {
+  padding: 3rem 0;
+}
+
+/* Responsive adjustments for subpage header and portal */
+@media (max-width: 768px) {
+  .subpage-header-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn-subpage-back {
+    justify-content: center;
+  }
+  .portal-grid {
+    grid-template-columns: 1fr;
+  }
+  .portal-title {
+    font-size: 1.5rem;
   }
 }
 
