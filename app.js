@@ -1982,8 +1982,8 @@ const defaultRoutineContent = {
     content: "🕊️ [1. 나를 위한 기도 / Prayer for Myself]\n“내가 제일 중요하다” | “I must begin with myself.”\n• 나의 복음이 되기를 (May the Gospel become real and evident in my life.)\n• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를 (May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture.)\n• Up & Down 되지 않는 항상이 되기를 - 성경 속 다니엘처럼 (May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.)\n\n🌍 [2. 모든 민족을 위한 기도 / Prayer for All Nations]\n• 모든 민족이 그리스도 앞에 무릎 꿇도록 (May all nations bow before Christ.)\n• 이곳에 모인 나라들과 세계 모든 나라를 위하여 (For the nations represented here and for every nation of the world.)\n• 전쟁 속에서 고통받는 나라들과 사람들을 위하여 (For countries and people suffering in the midst of war.)\n\n🌱 [3. 후대를 위한 기도 / Prayer for the Next Generation]\n• 후대가 복음을 알도록 (May the next generation know the Gospel.)\n• 복음이 정말 좋은 것임을 알도록 (May they discover that the Gospel is truly good news.)\n• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록 (May they know that whatever happens in life, they are secure when they are in Christ.)\n• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록 (May they see their studies and every part of life as preparation to serve and save all nations.)\n\n🔥 나 자신을 위하여 · 모든 민족을 위하여 · 후대를 위하여 각자의 모국어로 함께 기도합시다!"
   },
   step4: {
-    speaker: "오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim) / 클로징 기도: 죠지 (Closing Prayer — George)",
-    content: "• 오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim)\n• 진행: 한옥주 | 통역: 아이리스 (Host: Christine HAN | Interpreter: Iris)\n• 클로징 기도: 죠지 (Closing Prayer — George)\n• 다민족 제자의 5분 현장 응답 및 은혜 간증 나눔 (5-Minute Field Response & Grace Testimony by Multi-Ethnic Disciples)\n• 광고 안내: 개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임 (Announcements: Dedicated personal & family prayer times, and prayer meetings with faithful disciples for all nations and the next generation)\n• 주기도문으로 은혜의 30분 기도모임 폐회 (Closing of the 30-Minute Prayer Gathering with the Lord's Prayer)"
+    speaker: "진행: 한옥주 (Host: Christine HAN) / 통역: 아이리스 (Interpreter: Iris)",
+    content: "• 진행: 한옥주 | 통역: 아이리스 (Host: Christine HAN | Interpreter: Iris)\n• 다민족 제자의 5분 현장 응답 및 은혜 간증 나눔 (5-Minute Field Response & Grace Testimony by Multi-Ethnic Disciples)\n• 광고 안내: 개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임 (Announcements: Dedicated personal & family prayer times, and prayer meetings with faithful disciples for all nations and the next generation)\n• 주기도문으로 은혜의 30분 기도모임 폐회 (Closing of the 30-Minute Prayer Gathering with the Lord's Prayer)"
   }
 };
 
@@ -2004,8 +2004,8 @@ const defaultSermons = [
     title: "원래 축복 (Original Blessing)",
     title_en: "Original Blessing",
     scripture: "창세기 1:27-28 (Genesis 1:27-28)",
-    speaker: "오프닝 기도: 김은덕 목사 / 진행: 한옥주 / 통역: 아이리스 / 클로징: 죠지",
-    speaker_en: "Opening Prayer: Pastor Eun-Duk Kim / Host: Christine Han / Interpreter: Iris / Closing Prayer: George",
+    speaker: "진행: 한옥주 / 통역: 아이리스",
+    speaker_en: "Host: Christine Han / Interpreter: Iris",
     summary: "1. 다스리고 정복하라 -하나님의 형상 (Rule and subdue -the image of God)\n2. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13) (Witnesses: Old Testament — David [Psalm 23:1-], New Testament — Paul [Philippians 4:13])\n3. 원래 인간의 회복 (Restoration of the original human state)",
     praise: "Jesus, We Enthrone You (예수 우리 왕이여)",
     praiseLink: "https://www.youtube.com/watch?v=d6tDhj87iBM",
@@ -2029,8 +2029,8 @@ const defaultSermons = [
     title: "다스리고 정복하라 (Rule & Subdue)",
     title_en: "Rule and Subdue",
     scripture: "창세기 1:27-28 (Genesis 1:27-28)",
-    speaker: "오프닝 기도: 김은덕 목사 / 진행: 한옥주 / 통역: 아이리스 / 클로징 기도: 죠지",
-    speaker_en: "Opening Prayer: Pastor Eun-Duk Kim / Host: Christine Han / Interpreter: Iris / Closing Prayer: George",
+    speaker: "진행: 한옥주 / 통역: 아이리스",
+    speaker_en: "Host: Christine Han / Interpreter: Iris",
     summary: "• 다음 세대를 살릴 복음의 신실한 제자 세우기\n1. 다스리고 정복하라 -하나님의 형상 (Rule and subdue -the image of God)\n2. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13)\n3. 원래 인간의 회복 (Restoration of the original human state)",
     praise: "나 같은 죄인 살리신 (Amazing Grace - 찬송가 305장)",
     praiseLink: "https://www.youtube.com/watch?v=4-IlkTVvqKk",
@@ -3476,8 +3476,8 @@ function copySheetTemplateTsv() {
     "2단계_말씀요약\t27. 하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n28. 하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라\n\n📌 5분 메시지 요약: 복음으로 세상을 살리고 다스리는 언약의 후대",
     "3단계_기도제목\t함께 기도합시다 (Let Us Pray Together)",
     "3단계_기도내용\t🕊️ [1. 나를 위한 기도]\n“내가 제일 중요하다”\n• 나의 복음이 되기를\n• 성경에 나타난 능력의 그리스도를 누리기를\n• Up & Down 되지 않는 항상이 되기를\n\n🌍 [2. 모든 민족을 위한 기도]\n• 모든 민족이 그리스도 앞에 무릎 꿇도록\n• 모인 나라들과 세계 모든 나라를 위하여\n• 전쟁 속 고통받는 사람들을 위하여\n\n🌱 [3. 후대를 위한 기도]\n• 후대가 복음을 알고 복음이 참된 축복임을 알도록\n• 학업과 삶이 열방을 살리는 준비가 되도록",
-    "4단계_담당자\t오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim) / 클로징 기도: 죠지 (Closing Prayer — George)",
-    "4단계_마무리내용\t• 오픈닝 기도: 김은덕 목사\n• 진행: 한옥주 | 통역: 아이리스\n• 클로징 기도: 죠지\n• 광고: 개인/부부/가족 및 충성된 자와 함께하는 기도모임\n• 주기도문 폐회",
+    "4단계_담당자\t진행: 한옥주 (Host: Christine HAN) / 통역: 아이리스 (Interpreter: Iris)",
+    "4단계_마무리내용\t• 진행: 한옥주 | 통역: 아이리스\n• 광고: 개인/부부/가족 및 충성된 자와 함께하는 기도모임\n• 주기도문 폐회",
     "모임일시\t2026-10-04T20:00:00+10:00",
     "줌링크\thttps://zoom.us/j/88812345678",
     "줌ID_비번\tZoom ID: 888 1234 5678 | Passcode: 7777"
@@ -3619,10 +3619,10 @@ function renderRoutineDisplay() {
     const detailClosingContent = document.getElementById('detailClosingContent');
 
     if (routineSub4) {
-      routineSub4.textContent = data.step4?.speaker || '오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim) / 클로징 기도: 죠지 (Closing Prayer — George)';
+      routineSub4.textContent = data.step4?.speaker || '진행: 한옥주 (Host: Christine HAN) / 통역: 아이리스 (Interpreter: Iris)';
     }
     if (detailClosingTitle) {
-      detailClosingTitle.textContent = data.step4?.speaker || '오픈닝 기도: 김은덕 목사 (Opening Prayer — Pastor Eun-Duk Kim) / 클로징 기도: 죠지 (Closing Prayer — George)';
+      detailClosingTitle.textContent = data.step4?.speaker || '진행: 한옥주 (Host: Christine HAN) / 통역: 아이리스 (Interpreter: Iris)';
     }
     if (detailClosingContent) {
       detailClosingContent.innerHTML = escapeHtml(data.step4?.content || '').replace(/\n/g, '<br>');
@@ -4657,9 +4657,7 @@ function getNoticePresentationData() {
     meetingTime: "매월 첫 주일 호주 AEST 8:00 PM (한국 19:00)",
     serviceRoles: [
       { role: "진행 (Host)", name: "한옥주 (Christine HAN)", tag: "진행" },
-      { role: "통역 (Interpreter)", name: "아이리스 (Iris)", tag: "통역" },
-      { role: "오프닝 기도", name: "김은덕 목사 (Pastor Eun-Duk Kim)", tag: "오프닝" },
-      { role: "클로징 기도", name: "죠지 (George)", tag: "클로징" }
+      { role: "통역 (Interpreter)", name: "아이리스 (Iris)", tag: "통역" }
     ],
     testimony: {
       titleKo: "다민족 제자의 5분 현장 응답 및 은혜 간증 나눔",
@@ -4885,27 +4883,27 @@ function openNoticePdfModal() {
   printArea.innerHTML = `
     <div class="pdf-header-row">
       <div>
-        <div style="font-size: 0.82rem; font-weight: 800; color: #0284c7; text-transform: uppercase; margin-bottom: 0.2rem;">
+        <div style="font-size: 0.85rem; font-weight: 800; color: #0284c7; text-transform: uppercase; margin-bottom: 0.2rem;">
           ${escapeHtml(data.meetingTitle)}
         </div>
         <h1 class="pdf-title-main">4단계: 순서 & 광고 안내</h1>
-        <div class="pdf-scripture-line">📢 Order & Announcements</div>
+        <div class="pdf-scripture-line" style="font-size: 1.15rem; font-weight: 800; color: #0284c7;">📢 Order & Announcements</div>
       </div>
       <div style="text-align: right;">
         <span class="pdf-badge-meta">4단계 순서 중 4단계</span>
-        <div style="font-size: 0.76rem; color: #64748b; margin-top: 0.35rem;">
+        <div style="font-size: 0.82rem; color: #64748b; margin-top: 0.35rem;">
           ${escapeHtml(data.meetingTime)}
         </div>
       </div>
     </div>
 
     <div class="pdf-section-heading">1. 기도모임 섬김이 안내 (Service Roles)</div>
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.7rem; margin-bottom: 1.3rem;">
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.9rem; margin-bottom: 1.3rem;">
       ${data.serviceRoles.map(r => `
-        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem 1rem;">
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.85rem 1.1rem;">
           <span style="font-size: 0.75rem; font-weight: 700; color: #0284c7; background: #e0f2fe; padding: 0.15rem 0.5rem; border-radius: 9999px;">${escapeHtml(r.tag)}</span>
-          <div style="font-size: 0.85rem; color: #64748b; margin-top: 0.3rem;">${escapeHtml(r.role)}</div>
-          <div style="font-size: 1.0rem; font-weight: 800; color: #0f172a;">${escapeHtml(r.name)}</div>
+          <div style="font-size: 0.9rem; font-weight: 700; color: #64748b; margin-top: 0.35rem;">${escapeHtml(r.role)}</div>
+          <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-top: 0.2rem;">${escapeHtml(r.name)}</div>
         </div>
       `).join('')}
     </div>
@@ -4915,10 +4913,10 @@ function openNoticePdfModal() {
       <div style="font-size: 1.05rem; font-weight: 800; color: #166534; margin-bottom: 0.25rem;">
         🌱 ${escapeHtml(data.testimony.titleKo)}
       </div>
-      <div style="font-size: 0.88rem; color: #15803d; font-style: italic; margin-bottom: 0.8rem;">
+      <div style="font-size: 1.05rem; font-weight: 800; color: #15803d; font-style: normal; margin-bottom: 0.8rem;">
         ${escapeHtml(data.testimony.titleEn)}
       </div>
-      <div style="font-size: 0.92rem; color: #1e293b; line-height: 1.6;">
+      <div style="font-size: 0.95rem; color: #1e293b; line-height: 1.6;">
         • ${data.testimony.points.join('<br>• ')}
       </div>
     </div>
@@ -4927,13 +4925,13 @@ function openNoticePdfModal() {
     <div style="margin-bottom: 1.4rem;">
       ${data.announcements.map(item => `
         <div style="margin-bottom: 0.9rem; padding: 1.0rem 1.25rem; background: #f8fafc; border-left: 4px solid #0284c7; border-radius: 8px;">
-          <div style="font-size: 1.08rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
+          <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
             [광고 0${item.num}] ${escapeHtml(item.titleKo)}
           </div>
-          <div style="color: #64748b; font-size: 0.9rem; font-style: italic; margin-bottom: 0.4rem;">
+          <div style="color: #475569; font-size: 1.05rem; font-weight: 800; font-style: normal; margin-bottom: 0.4rem;">
             ${escapeHtml(item.titleEn)}
           </div>
-          <div style="font-size: 0.88rem; color: #334155;">
+          <div style="font-size: 0.92rem; color: #334155;">
             💡 ${escapeHtml(item.desc)}
           </div>
         </div>
@@ -4945,7 +4943,7 @@ function openNoticePdfModal() {
       <div style="font-size: 1.05rem; font-weight: 800; color: #854d0e; margin-bottom: 0.3rem;">
         🕊️ ${escapeHtml(data.closingPrayer.titleKo)}
       </div>
-      <div style="font-size: 0.9rem; color: #a16207; font-style: italic; margin-bottom: 0.5rem;">
+      <div style="font-size: 1.05rem; font-weight: 800; color: #854d0e; font-style: normal; margin-bottom: 0.5rem;">
         ${escapeHtml(data.closingPrayer.titleEn)}
       </div>
       <div style="font-size: 0.95rem; font-weight: 700; color: #b45309;">
@@ -4997,27 +4995,30 @@ function downloadNoticePptx() {
   });
   s1.addText("Order & Announcements", {
     x: 0.8, y: 2.8, w: 11.5, h: 0.6,
-    fontSize: 18, color: '38BDF8', italic: true, align: 'center'
+    fontSize: 22, color: '38BDF8', bold: true, align: 'center'
   });
 
-  // Roles cards
+  // Roles cards (2 cards centered: 진행, 통역)
+  const cardW = 5.2;
+  const gap = 0.8;
+  const startX = (13.33 - (2 * cardW + gap)) / 2;
   data.serviceRoles.forEach((r, idx) => {
-    const xPos = 0.8 + (idx * 2.9);
+    const xPos = startX + (idx * (cardW + gap));
     s1.addShape(pptx.ShapeType.roundRect, {
-      x: xPos, y: 3.7, w: 2.7, h: 1.8,
-      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 1 }
+      x: xPos, y: 3.7, w: cardW, h: 1.9,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 1.5 }
     });
     s1.addText(`[${r.tag}]`, {
-      x: xPos + 0.2, y: 3.9, w: 2.3, h: 0.35,
-      fontSize: 11, color: '38BDF8', bold: true, align: 'center'
+      x: xPos + 0.3, y: 3.95, w: cardW - 0.6, h: 0.35,
+      fontSize: 12, color: '38BDF8', bold: true, align: 'center'
     });
     s1.addText(r.role, {
-      x: xPos + 0.2, y: 4.3, w: 2.3, h: 0.4,
-      fontSize: 11, color: '94A3B8', align: 'center'
+      x: xPos + 0.3, y: 4.35, w: cardW - 0.6, h: 0.45,
+      fontSize: 14, color: '94A3B8', bold: true, align: 'center'
     });
     s1.addText(r.name, {
-      x: xPos + 0.2, y: 4.75, w: 2.3, h: 0.55,
-      fontSize: 13, color: 'FFFFFF', bold: true, align: 'center'
+      x: xPos + 0.3, y: 4.85, w: cardW - 0.6, h: 0.6,
+      fontSize: 16, color: 'FFFFFF', bold: true, align: 'center'
     });
   });
 
@@ -5048,11 +5049,11 @@ function downloadNoticePptx() {
   });
   s2.addText(data.testimony.titleKo, {
     x: 1.2, y: 2.7, w: 10.7, h: 0.8,
-    fontSize: 24, color: 'FFFFFF', bold: true
+    fontSize: 22, color: 'FFFFFF', bold: true
   });
   s2.addText(data.testimony.titleEn, {
-    x: 1.2, y: 3.5, w: 10.7, h: 0.5,
-    fontSize: 14, color: '94A3B8', italic: true
+    x: 1.2, y: 3.5, w: 10.7, h: 0.6,
+    fontSize: 18, color: '93C5FD', bold: true
   });
   s2.addText(`• ${data.testimony.points[0]}\n\n• ${data.testimony.points[1]}`, {
     x: 1.2, y: 4.4, w: 10.7, h: 1.8,
@@ -5088,11 +5089,11 @@ function downloadNoticePptx() {
     });
     s3.addText(item.titleEn, {
       x: xPos + 0.4, y: 3.8, w: 4.8, h: 0.8,
-      fontSize: 11, color: '94A3B8', italic: true, lineSpacing: 16
+      fontSize: 15, color: '93C5FD', bold: true, lineSpacing: 20
     });
     s3.addText(`💡 ${item.desc}`, {
       x: xPos + 0.4, y: 4.7, w: 4.8, h: 0.6,
-      fontSize: 11.5, color: 'CBD5E1'
+      fontSize: 12, color: 'CBD5E1'
     });
   });
 
@@ -5280,7 +5281,7 @@ function renderSermonsGrid() {
 
           <!-- Speaker & Praise -->
           <div class="sermon-speaker-line">
-            <b>인도:</b> <span>${escapeHtml(item.speaker || '김은덕 목사 / 한옥주 / 죠지')}</span>
+            <b>인도:</b> <span>${escapeHtml(item.speaker || '진행: 한옥주 / 통역: 아이리스')}</span>
           </div>
 
           <!-- 3-Point Gospel Summary Box -->
@@ -5357,7 +5358,7 @@ function openWorshipVideoModal(sermonId) {
   if (dateEl) dateEl.textContent = sermon.displayDate || sermon.date || '30분 기도모임 실황';
   if (scriptureEl) scriptureEl.textContent = `📖 ${sermon.scripture || ''}`;
   if (sermonTitleEl) sermonTitleEl.textContent = sermon.title || '';
-  if (speakerEl) speakerEl.textContent = `인도: ${sermon.speaker || '김은덕 목사 / 한옥주 / 죠지'}`;
+  if (speakerEl) speakerEl.textContent = `인도: ${sermon.speaker || '진행: 한옥주 / 통역: 아이리스'}`;
   if (summaryEl) summaryEl.textContent = sermon.summary || '';
 
   const videoData = sermon.video || {};
@@ -5488,7 +5489,7 @@ function openSermonDetailModal(sermonId) {
   if (scriptureEl) scriptureEl.textContent = `📖 ${sermon.scripture || ''}`;
   if (praiseEl) praiseEl.textContent = sermon.praise ? `🎵 지정 찬양: ${sermon.praise}` : '🎵 찬양';
   if (mainTitleEl) mainTitleEl.textContent = sermon.title || '';
-  if (speakerEl) speakerEl.textContent = `인도: ${sermon.speaker || '김은덕 목사 / 한옥주 / 죠지'}`;
+  if (speakerEl) speakerEl.textContent = `인도: ${sermon.speaker || '진행: 한옥주 / 통역: 아이리스'}`;
   if (summaryBodyEl) summaryBodyEl.textContent = sermon.summary || '';
   if (prayerBodyEl) prayerBodyEl.textContent = sermon.prayerTopic || '① 나 자신을 위한 기도 ② 모든 민족을 위한 기도 ③ 후대를 위한 기도';
   if (announceBodyEl) announceBodyEl.textContent = sermon.announcements || '개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임';
