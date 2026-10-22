@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css?v=20261022_step4_roles">
+  <link rel="stylesheet" href="styles.css?v=20261022_routine_pdf_upload">
 </head>
 <body data-lang="ko">
   <!-- Background Glow Orbs -->
@@ -404,6 +404,9 @@
             <button type="button" class="btn btn-xs btn-outline" onclick="openWordPdfModal()" style="border-color: #38bdf8; color: #38bdf8; font-weight: 600; padding: 0.35rem 0.7rem; font-size: 0.82rem; border-radius: 6px;" title="정리된 말씀을 깔끔한 A4 PDF로 보기 및 인쇄합니다">
               <span data-i18n="routine_btn_word_pdf">📄 PDF 보기/인쇄</span>
             </button>
+            <a href="후대복음말씀.pdf" download="후대복음말씀_원래인간과_원죄.pdf" target="_blank" class="btn btn-xs btn-outline" style="border-color: #ec4899; color: #f472b6; font-weight: 700; padding: 0.35rem 0.7rem; font-size: 0.82rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.3rem;" title="업로드된 후대 복음 말씀 6페이지 원본 PDF 파일 다운로드">
+              <span>📥 PDF 파일 다운로드</span>
+            </a>
             <button type="button" class="btn btn-xs btn-outline" onclick="downloadWordPptx()" style="border-color: #f59e0b; color: #fbbf24; font-weight: 600; padding: 0.35rem 0.7rem; font-size: 0.82rem; border-radius: 6px;" title="파워포인트(.pptx) 파일로 다운로드합니다">
               <span data-i18n="routine_btn_word_pptx_down">📊 PPTX 다운로드</span>
             </button>
@@ -419,7 +422,7 @@
             </button>
             <div class="routine-detail-box" id="routineDetail2">
               <div class="detail-badge">📖 이번 모임 말씀 본문</div>
-              <div class="detail-highlight-title" id="detailMessageTitle">[창세기 1:27-28] 원래 축복 (Original Blessing)</div>
+              <div class="detail-highlight-title" id="detailMessageTitle">[창세기 1:27-28, 3:1-14] 원래인간 &amp; 원죄 (Original Blessing &amp; Original Sin)</div>
               <div class="detail-text-body" id="detailMessageContent"></div>
 
               <div class="word-presenter-quick-box">
@@ -434,6 +437,9 @@
                   <button type="button" class="btn btn-sm btn-outline" onclick="openWordPdfModal()" style="border-color: #38bdf8; color: #38bdf8; font-weight: 600;">
                     📄 PDF 문서 보기 &amp; 인쇄
                   </button>
+                  <a href="후대복음말씀.pdf" download="후대복음말씀_원래인간과_원죄.pdf" target="_blank" class="btn btn-sm btn-outline" style="border-color: #ec4899; color: #f472b6; font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem;" title="후대 복음 말씀 6페이지 원본 PDF 파일 다운로드">
+                    📥 PDF 원본 파일 다운로드
+                  </a>
                   <button type="button" class="btn btn-sm btn-outline" onclick="downloadWordPptx()" style="border-color: #f59e0b; color: #fbbf24; font-weight: 600;">
                     📊 PPT 파일 다운로드 (.pptx)
                   </button>
@@ -2163,18 +2169,21 @@
 
   <!-- 9. Word Message Printable PDF Handout Modal (후대 복음 말씀 PDF / 인쇄 핸드아웃) -->
   <div class="modal-overlay" id="wordPdfModal">
-    <div class="modal-card word-pdf-modal-card" style="max-width: 860px; width: 95%; max-height: 92vh; display: flex; flex-direction: column;">
-      <div class="modal-header" style="flex-shrink: 0;">
+    <div class="modal-card word-pdf-modal-card" style="max-width: 920px; width: 95%; max-height: 94vh; display: flex; flex-direction: column;">
+      <div class="modal-header" style="flex-shrink: 0; padding: 1rem 1.4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
         <div style="display: flex; align-items: center; gap: 0.6rem;">
           <span style="font-size: 1.5rem;">📄</span>
           <div>
-            <h3 class="modal-title" style="margin: 0; font-size: 1.2rem;">후대 복음 말씀 요약 (PDF / 인쇄)</h3>
-            <span style="font-size: 0.8rem; color: #94a3b8;">4단계 순서 중 2단계 · 성도 배포 및 Zoom 나눔용 A4 규격</span>
+            <h3 class="modal-title" style="margin: 0; font-size: 1.2rem;">후대 복음 말씀 (PDF / 인쇄)</h3>
+            <span style="font-size: 0.8rem; color: #94a3b8;">원래인간(Original Blessing) &amp; 원죄(Original Sin) · 6페이지 완본 수록</span>
           </div>
         </div>
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+          <a href="후대복음말씀.pdf" download="후대복음말씀_원래인간과_원죄.pdf" target="_blank" class="btn btn-sm btn-outline" style="border-color: #ec4899; color: #f472b6; font-weight: 700; padding: 0.4rem 0.85rem; border-radius: 6px; display: inline-flex; align-items: center; gap: 0.35rem;" title="업로드된 6페이지 원본 PDF 파일 다운로드">
+            <span>📥 PDF 파일 다운로드</span>
+          </a>
           <button type="button" class="btn btn-primary btn-sm" onclick="printWordPdfDocument()" style="background: linear-gradient(135deg, #0284c7, #2563eb); border: none; font-weight: 700; padding: 0.4rem 0.85rem; border-radius: 6px;">
-            🖨️ PDF로 저장 / 인쇄하기
+            🖨️ 인쇄하기
           </button>
           <button type="button" class="btn btn-outline btn-sm" onclick="downloadWordPptx()" style="border-color: #f59e0b; color: #fbbf24; font-weight: 600; padding: 0.4rem 0.85rem; border-radius: 6px;">
             📊 PPTX 다운로드
@@ -2182,9 +2191,22 @@
           <button class="modal-close" onclick="closeModal('wordPdfModal')">&times;</button>
         </div>
       </div>
-      <div class="modal-body word-pdf-modal-body" style="overflow-y: auto; padding: 1.5rem; background: #0f172a; flex: 1;">
+      <!-- Tab Bar: PDF 원본 문서 뷰어 / 웹 A4 인쇄 뷰 -->
+      <div style="display: flex; background: rgba(15, 23, 42, 0.95); border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding: 0.5rem 1.4rem; gap: 0.6rem;">
+        <button type="button" class="btn btn-xs btn-primary" id="btnWordPdfTabEmbed" onclick="switchWordPdfTab('embed')" style="font-weight: 700;">
+          📄 PDF 원본 뷰어 (6페이지)
+        </button>
+        <button type="button" class="btn btn-xs btn-ghost" id="btnWordPdfTabHtml" onclick="switchWordPdfTab('html')" style="color: #cbd5e1; font-weight: 600;">
+          📑 웹 A4 정리문 (형광펜 &amp; 인쇄)
+        </button>
+      </div>
+      <div class="modal-body word-pdf-modal-body" style="overflow-y: auto; padding: 1.2rem; background: #0f172a; flex: 1;">
+        <!-- Embedded PDF Viewer Pane -->
+        <div id="wordPdfEmbedPane" style="width: 100%; height: 75vh;">
+          <iframe id="wordPdfIframe" src="후대복음말씀.pdf" style="width: 100%; height: 100%; border: none; border-radius: 8px; background: #fff;" title="후대 복음 말씀 원본 PDF"></iframe>
+        </div>
         <!-- Clean Printable A4 Document Paper -->
-        <div id="wordPdfPrintArea" class="word-pdf-a4-sheet">
+        <div id="wordPdfPrintArea" class="word-pdf-a4-sheet" style="display: none;">
           <!-- Dynamic Content rendered by JS -->
         </div>
       </div>

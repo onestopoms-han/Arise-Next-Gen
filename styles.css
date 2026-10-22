@@ -4343,6 +4343,16 @@ body {
   line-height: 1.6;
 }
 
+.pdf-highlight {
+  background-color: #fef08a;
+  color: #0f172a;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-weight: 700;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 .pdf-header-row {
   display: flex;
   justify-content: space-between;
