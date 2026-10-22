@@ -1975,7 +1975,7 @@ const defaultRoutineContent = {
   step2: {
     scripture: "창세기 1:27-28 (Genesis 1:27-28)",
     title: "원래 축복 (Original Blessing)",
-    content: "📖 성경 본문 (창세기 1:27-28 / Genesis 1:27-28):\n27. 하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n(So God created mankind in his own image, in the image of God he created them; male and female he created them.)\n28. 하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라\n(God blessed them and said to them, “Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.”)\n\n📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message):\n1. 다스리고 정복하라 -하나님의 형상 (Rule and subdue -the image of God)\n2. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13) (Witnesses: Old Testament — David [Psalm 23:1-], New Testament — Paul [Philippians 4:13])\n3. 원래 인간의 회복 (Restoration of the original human state)"
+    content: "📖 본문: 창세기 1:27-28 (Genesis 1:27-28)\n매월 첫 주일 호주 AEST 8:00 PM (한국 19:00)\n\n1. 본문 성경 말씀 (Scripture Reading)\n🇰🇷 창세기 1:27-28 (개역개정)\n27절 하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n28절 하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라\n\n🇺🇸 Genesis 1:27-28 (NIV)\nv.27 So God created mankind in his own image, in the image of God he created them; male and female he created them.\nv.28 God blessed them and said to them, \"Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.\"\n\n2. 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)\n1. 하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n(So God created mankind in his own image, in the image of God he created them; male and female he created them.)\n2. 하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라\n(God blessed them and said to them, \"Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.\")\n3. 다스리고 정복하라 -하나님의 형상 (Rule and subdue -the image of God)\n4. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13) (Witnesses: Old Testament — David [Psalm 23:1-], New Testament — Paul [Philippians 4:13])\n5. 원래 인간의 회복 (Restoration of the original human state)\n\n어라이즈 넥스트젠 글로벌 기도 연합 · Arise Next Gen Global Prayer Hub\n모든 민족과 후대를 살리는 언약 공동체 ·"
   },
   step3: {
     title: "함께 기도합시다 (Let Us Pray Together)",
@@ -4077,53 +4077,100 @@ function getWordPresentationData() {
   const scripture = data.scripture || "창세기 1:27-28 (Genesis 1:27-28)";
   const title = data.title || "원래 축복 (Original Blessing)";
 
+  const defaultPoints = [
+    {
+      num: 1,
+      titleKo: "하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고",
+      titleEn: "So God created mankind in his own image, in the image of God he created them; male and female he created them."
+    },
+    {
+      num: 2,
+      titleKo: "하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라",
+      titleEn: "God blessed them and said to them, \"Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.\""
+    },
+    {
+      num: 3,
+      titleKo: "다스리고 정복하라 -하나님의 형상",
+      titleEn: "Rule and subdue -the image of God"
+    },
+    {
+      num: 4,
+      titleKo: "증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13)",
+      titleEn: "Witnesses: Old Testament — David [Psalm 23:1-], New Testament — Paul [Philippians 4:13]"
+    },
+    {
+      num: 5,
+      titleKo: "원래 인간의 회복",
+      titleEn: "Restoration of the original human state"
+    }
+  ];
+
   let points = [];
   const rawContent = data.content || data.summary || "";
   if (rawContent) {
     const rawLines = rawContent.split('\n').map(l => l.trim()).filter(Boolean);
+    let currentPoint = null;
     rawLines.forEach(line => {
-      if (/^(\d+[\.\)]|[•\-\*])/.test(line)) {
-        const clean = line.replace(/^(\d+[\.\)]|[•\-\*])\s*/, '');
-        // Split Korean / English if contains parenthesis or bracket
-        const parenMatch = clean.match(/^([^(]+)\s*\(([^)]+)\)$/);
+      const numMatch = line.match(/^(\d+)[\.\)]\s*(.*)/);
+      if (numMatch) {
+        if (currentPoint) points.push(currentPoint);
+        const itemNum = parseInt(numMatch[1], 10);
+        const rest = numMatch[2].trim();
+        const parenMatch = rest.match(/^([^(]+)\s*\(([^)]+)\)$/);
         if (parenMatch) {
-          points.push({
-            num: points.length + 1,
+          currentPoint = {
+            num: itemNum,
             titleKo: parenMatch[1].trim(),
             titleEn: parenMatch[2].trim()
-          });
+          };
         } else {
-          points.push({
-            num: points.length + 1,
-            titleKo: clean,
+          currentPoint = {
+            num: itemNum,
+            titleKo: rest,
             titleEn: ""
-          });
+          };
         }
+      } else if (currentPoint && !currentPoint.titleEn && /^[A-Za-z"'(]/.test(line)) {
+        const cleanEn = line.replace(/^\(|\)$/g, '').trim();
+        currentPoint.titleEn = cleanEn;
       }
     });
+    if (currentPoint) points.push(currentPoint);
   }
 
-  if (points.length === 0) {
-    points = [
-      {
-        num: 1,
-        titleKo: "다스리고 정복하라 -하나님의 형상",
-        titleEn: "Rule and subdue -the image of God"
-      },
-      {
-        num: 2,
-        titleKo: "증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13)",
-        titleEn: "Witnesses: Old Testament — David [Psalm 23:1-], New Testament — Paul [Philippians 4:13]"
-      },
-      {
-        num: 3,
-        titleKo: "원래 인간의 회복",
-        titleEn: "Restoration of the original human state"
-      }
-    ];
+  if (points.length < 5 && scripture.includes("1:27")) {
+    points = defaultPoints;
+  } else if (points.length === 0) {
+    points = defaultPoints;
   }
 
   const meetingDateStr = custom ? (custom.displayDate || custom.date || "기도모임 말씀") : "매월 첫 주일 호주 AEST 8:00 PM (한국 19:00)";
+
+  const scriptureKorean = (data.scriptureKorean && data.scriptureKorean.length > 0)
+    ? data.scriptureKorean
+    : [
+        {
+          verse: "27절",
+          text: "하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고"
+        },
+        {
+          verse: "28절",
+          text: "하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라"
+        }
+      ];
+
+  const scriptureEnglish = (data.scriptureEnglish && data.scriptureEnglish.length > 0)
+    ? data.scriptureEnglish
+    : [
+        {
+          verse: "v.27",
+          text: "So God created mankind in his own image, in the image of God he created them; male and female he created them."
+        },
+        {
+          verse: "v.28",
+          text: "God blessed them and said to them, \"Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.\""
+        }
+      ];
 
   return {
     meetingTitle: custom ? "어라이즈 넥스트젠 30분 기도모임" : "2026 어라이즈 넥스트젠 30분 기도모임",
@@ -4132,12 +4179,8 @@ function getWordPresentationData() {
     scripture: scripture,
     theme: "언약의 후대에게 전달할 5분 복음 말씀",
     meetingTime: meetingDateStr,
-    scriptureKorean: [
-      { verse: "본문 말씀", text: scripture }
-    ],
-    scriptureEnglish: [
-      { verse: "Scripture", text: scripture }
-    ],
+    scriptureKorean: scriptureKorean,
+    scriptureEnglish: scriptureEnglish,
     points: points
   };
 }
@@ -4272,7 +4315,7 @@ function renderPptSlide(index) {
           ${data.scriptureKorean.map(v => `
             <div class="ppt-verse-row" style="margin-bottom: 1.2rem;">
               <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
-              <span style="line-height: 1.7; font-size: 1.15rem;">${v.text.replace(/하나님의 형상/g, '<span class="ppt-highlight-word">하나님의 형상</span>')
+              <span style="line-height: 1.7; font-size: 1.15rem; font-weight: 700;">${v.text.replace(/하나님의 형상/g, '<span class="ppt-highlight-word">하나님의 형상</span>')
                            .replace(/복을 주시며/g, '<span class="ppt-highlight-word">복을 주시며</span>')
                            .replace(/땅을 정복하라/g, '<span class="ppt-highlight-word">땅을 정복하라</span>')
                            .replace(/다스리라/g, '<span class="ppt-highlight-word">다스리라</span>')}</span>
@@ -4287,7 +4330,7 @@ function renderPptSlide(index) {
           ${data.scriptureEnglish.map(v => `
             <div class="ppt-verse-row" style="margin-bottom: 1.2rem;">
               <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
-              <span style="line-height: 1.65; font-size: 1.05rem;">${v.text.replace(/in his own image/g, '<span class="ppt-highlight-word">in his own image</span>')
+              <span style="line-height: 1.7; font-size: 1.15rem; font-weight: 700;">${v.text.replace(/in his own image/g, '<span class="ppt-highlight-word">in his own image</span>')
                            .replace(/God blessed them/g, '<span class="ppt-highlight-word">God blessed them</span>')
                            .replace(/subdue it/g, '<span class="ppt-highlight-word">subdue it</span>')
                            .replace(/rule over/g, '<span class="ppt-highlight-word">rule over</span>')}</span>
@@ -4310,7 +4353,7 @@ function renderPptSlide(index) {
               <span class="ppt-point-num">0${pt.num}</span>
             </div>
             <h3 class="ppt-point-title-ko">${escapeHtml(pt.titleKo)}</h3>
-            <div class="ppt-point-title-en">${escapeHtml(pt.titleEn)}</div>
+            ${pt.titleEn ? `<div class="ppt-point-title-en">${escapeHtml(pt.titleEn)}</div>` : ''}
           </div>
         `).join('')}
       </div>
@@ -4350,7 +4393,7 @@ function openWordPdfModal(customSermon) {
   printArea.innerHTML = `
     <div class="pdf-header-row">
       <div>
-        <div style="font-size: 0.82rem; font-weight: 800; color: #0284c7; text-transform: uppercase; margin-bottom: 0.2rem;">
+        <div style="font-size: 0.85rem; font-weight: 800; color: #0284c7; text-transform: uppercase; margin-bottom: 0.2rem;">
           ${escapeHtml(data.meetingTitle)}
         </div>
         <h1 class="pdf-title-main">2단계: 후대 복음 말씀 — ${escapeHtml(data.title)}</h1>
@@ -4358,7 +4401,7 @@ function openWordPdfModal(customSermon) {
       </div>
       <div style="text-align: right;">
         <span class="pdf-badge-meta">4단계 순서 중 2단계</span>
-        <div style="font-size: 0.76rem; color: #64748b; margin-top: 0.35rem;">
+        <div style="font-size: 0.8rem; font-weight: 700; color: #475569; margin-top: 0.35rem;">
           ${escapeHtml(data.meetingTime)}
         </div>
       </div>
@@ -4366,17 +4409,17 @@ function openWordPdfModal(customSermon) {
 
     <div class="pdf-section-heading">1. 본문 성경 말씀 (Scripture Reading)</div>
     <div class="pdf-scripture-card">
-      <div style="margin-bottom: 0.6rem; font-weight: 700; color: #0f172a;">
+      <div style="margin-bottom: 0.6rem; font-weight: 800; font-size: 1.1rem; color: #0f172a;">
         🇰🇷 창세기 1:27-28 (개역개정)
       </div>
-      <p style="margin: 0 0 0.8rem 0; line-height: 1.65; color: #1e293b;">
+      <p style="margin: 0 0 1.2rem 0; line-height: 1.7; color: #0f172a; font-size: 1.05rem; font-weight: 700;">
         <b>27절</b> 하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고<br>
         <b>28절</b> 하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라
       </p>
-      <div style="margin-bottom: 0.4rem; font-weight: 700; color: #475569; font-size: 0.9rem;">
+      <div style="margin-bottom: 0.6rem; font-weight: 800; font-size: 1.1rem; color: #0284c7;">
         🇺🇸 Genesis 1:27-28 (NIV)
       </div>
-      <p style="margin: 0; line-height: 1.55; color: #475569; font-size: 0.9rem; font-style: italic;">
+      <p style="margin: 0; line-height: 1.7; color: #0284c7; font-size: 1.05rem; font-weight: 700;">
         <b>v.27</b> So God created mankind in his own image, in the image of God he created them; male and female he created them.<br>
         <b>v.28</b> God blessed them and said to them, "Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground."
       </p>
@@ -4385,20 +4428,22 @@ function openWordPdfModal(customSermon) {
     <div class="pdf-section-heading">2. 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)</div>
     <div style="margin-bottom: 1.5rem;">
       ${data.points.map(pt => `
-        <div class="pdf-point-item" style="margin-bottom: 1rem; padding: 1.1rem 1.3rem; background: #f8fafc; border-left: 4px solid #0284c7; border-radius: 8px;">
-          <div style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
+        <div class="pdf-point-item" style="margin-bottom: 1.1rem; padding: 1.15rem 1.4rem; background: #f8fafc; border-left: 5px solid #0284c7; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+          <div style="font-size: 1.12rem; font-weight: 800; color: #0f172a; margin-bottom: 0.45rem; line-height: 1.55;">
             ${pt.num}. ${escapeHtml(pt.titleKo)}
           </div>
-          <div style="color: #64748b; font-size: 0.92rem; font-style: italic;">
-            ${escapeHtml(pt.titleEn)}
-          </div>
+          ${pt.titleEn ? `
+            <div style="font-size: 1.12rem; font-weight: 800; color: #0284c7; line-height: 1.55;">
+              ${escapeHtml(pt.titleEn)}
+            </div>
+          ` : ''}
         </div>
       `).join('')}
     </div>
 
-    <div class="pdf-footer-seal">
+    <div class="pdf-footer-seal" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #cbd5e1; padding-top: 1rem; margin-top: 2rem; font-size: 0.85rem; font-weight: 700; color: #475569;">
       <span>어라이즈 넥스트젠 글로벌 기도 연합 · Arise Next Gen Global Prayer Hub</span>
-      <span>모든 민족과 후대를 살리는 언약 공동체 · Amen</span>
+      <span>모든 민족과 후대를 살리는 언약 공동체 ·</span>
     </div>
   `;
 
@@ -4434,11 +4479,11 @@ function downloadWordPptx(customSermon) {
   s1.background = { color: '0F172A' };
   s1.addText(data.meetingTitle.toUpperCase(), {
     x: 0.8, y: 0.8, w: 11.5, h: 0.5,
-    fontSize: 14, color: '38BDF8', bold: true, align: 'center'
+    fontSize: 15, color: '38BDF8', bold: true, align: 'center'
   });
   s1.addText("2단계: 후대 복음 말씀 (5분)", {
     x: 0.8, y: 1.4, w: 11.5, h: 0.5,
-    fontSize: 16, color: '94A3B8', align: 'center'
+    fontSize: 16, color: '94A3B8', bold: true, align: 'center'
   });
   s1.addText(data.title, {
     x: 0.8, y: 2.2, w: 11.5, h: 1.4,
@@ -4450,11 +4495,11 @@ function downloadWordPptx(customSermon) {
   });
   s1.addText(data.theme, {
     x: 0.8, y: 4.8, w: 11.5, h: 0.6,
-    fontSize: 15, color: 'CBD5E1', align: 'center'
+    fontSize: 16, color: 'CBD5E1', bold: true, align: 'center'
   });
   s1.addText("매월 첫 주일 8:00 PM AEST | 전 세계 다민족 언약의 후대 연합 기도회", {
     x: 0.8, y: 6.2, w: 11.5, h: 0.5,
-    fontSize: 11, color: '64748B', align: 'center'
+    fontSize: 12, color: '94A3B8', bold: true, align: 'center'
   });
 
   // Slide 2: Scripture
@@ -4467,58 +4512,122 @@ function downloadWordPptx(customSermon) {
   // Korean Box
   s2.addShape(pptx.ShapeType.roundRect, {
     x: 0.8, y: 1.4, w: 5.6, h: 5.2,
-    fill: { color: '1E293B' }, line: { color: '334155', width: 1.5 }
+    fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
   });
   s2.addText("🇰🇷 한국어 성경 (개역개정)", {
     x: 1.1, y: 1.6, w: 5.0, h: 0.4,
-    fontSize: 14, color: '38BDF8', bold: true
+    fontSize: 15, color: '38BDF8', bold: true
   });
   s2.addText("27절  하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n\n28절  하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라", {
-    x: 1.1, y: 2.2, w: 5.0, h: 4.0,
-    fontSize: 13.5, color: 'F1F5F9', lineSpacing: 24
+    x: 1.1, y: 2.2, w: 5.0, h: 4.2,
+    fontSize: 13.5, color: 'FFFFFF', bold: true, lineSpacing: 22
   });
-  // English Box
+  // English Box (Identical font size & bold weight as Korean)
   s2.addShape(pptx.ShapeType.roundRect, {
     x: 6.8, y: 1.4, w: 5.6, h: 5.2,
-    fill: { color: '1E293B' }, line: { color: '334155', width: 1.5 }
+    fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
   });
   s2.addText("🇺🇸 English Bible (NIV)", {
     x: 7.1, y: 1.6, w: 5.0, h: 0.4,
-    fontSize: 14, color: '38BDF8', bold: true
+    fontSize: 15, color: '38BDF8', bold: true
   });
   s2.addText("v.27  So God created mankind in his own image, in the image of God he created them; male and female he created them.\n\nv.28  God blessed them and said to them, \"Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.\"", {
-    x: 7.1, y: 2.2, w: 5.0, h: 4.0,
-    fontSize: 12.5, color: 'CBD5E1', italic: true, lineSpacing: 22
+    x: 7.1, y: 2.2, w: 5.0, h: 4.2,
+    fontSize: 13.5, color: 'FFFFFF', bold: true, lineSpacing: 22
   });
 
-  // Slide 3: 5-Minute Gospel Message Summary
-  const s3 = pptx.addSlide();
-  s3.background = { color: '0F172A' };
-  s3.addText("📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)", {
-    x: 0.8, y: 0.8, w: 11.5, h: 0.6,
-    fontSize: 22, color: 'FFFFFF', bold: true
-  });
+  // Slide 3 & 4: 5-Minute Gospel Message Summary
+  if (data.points.length <= 3) {
+    const s3 = pptx.addSlide();
+    s3.background = { color: '0F172A' };
+    s3.addText("📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)", {
+      x: 0.8, y: 0.8, w: 11.5, h: 0.6,
+      fontSize: 22, color: 'FFFFFF', bold: true
+    });
 
-  // 3 Points cards
-  data.points.forEach((pt, idx) => {
-    const xPos = 0.8 + (idx * 3.9);
-    s3.addShape(pptx.ShapeType.roundRect, {
-      x: xPos, y: 1.8, w: 3.7, h: 4.8,
-      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 1.5 }
+    data.points.forEach((pt, idx) => {
+      const xPos = 0.8 + (idx * 3.9);
+      s3.addShape(pptx.ShapeType.roundRect, {
+        x: xPos, y: 1.8, w: 3.7, h: 4.8,
+        fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+      });
+      s3.addText(`0${pt.num}`, {
+        x: xPos + 0.3, y: 2.1, w: 3.1, h: 0.5,
+        fontSize: 20, color: '38BDF8', bold: true
+      });
+      s3.addText(pt.titleKo, {
+        x: xPos + 0.3, y: 2.7, w: 3.1, h: 1.9,
+        fontSize: 14, color: 'FFFFFF', bold: true, lineSpacing: 22
+      });
+      if (pt.titleEn) {
+        s3.addText(pt.titleEn, {
+          x: xPos + 0.3, y: 4.7, w: 3.1, h: 1.8,
+          fontSize: 14, color: '38BDF8', bold: true, lineSpacing: 22
+        });
+      }
     });
-    s3.addText(`0${pt.num}`, {
-      x: xPos + 0.3, y: 2.2, w: 3.1, h: 0.5,
-      fontSize: 22, color: '38BDF8', bold: true
+  } else {
+    // Split 5 points into 2 clean slides for maximum readability & identical font size
+    // Part 1: Points 1 & 2
+    const s3 = pptx.addSlide();
+    s3.background = { color: '0F172A' };
+    s3.addText("📌 5분 복음 메시지 요약 (1/2) — 말씀 언약", {
+      x: 0.8, y: 0.8, w: 11.5, h: 0.6,
+      fontSize: 22, color: 'FFFFFF', bold: true
     });
-    s3.addText(pt.titleKo, {
-      x: xPos + 0.3, y: 2.9, w: 3.1, h: 1.8,
-      fontSize: 17, color: 'FFFFFF', bold: true, lineSpacing: 25
+    const firstTwo = data.points.slice(0, 2);
+    firstTwo.forEach((pt, idx) => {
+      const xPos = 0.8 + (idx * 5.9);
+      s3.addShape(pptx.ShapeType.roundRect, {
+        x: xPos, y: 1.8, w: 5.6, h: 4.9,
+        fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+      });
+      s3.addText(`0${pt.num}`, {
+        x: xPos + 0.3, y: 2.0, w: 5.0, h: 0.45,
+        fontSize: 20, color: '38BDF8', bold: true
+      });
+      s3.addText(pt.titleKo, {
+        x: xPos + 0.3, y: 2.55, w: 5.0, h: 2.0,
+        fontSize: 13.5, color: 'FFFFFF', bold: true, lineSpacing: 22
+      });
+      if (pt.titleEn) {
+        s3.addText(pt.titleEn, {
+          x: xPos + 0.3, y: 4.55, w: 5.0, h: 2.0,
+          fontSize: 13.5, color: '38BDF8', bold: true, lineSpacing: 22
+        });
+      }
     });
-    s3.addText(pt.titleEn, {
-      x: xPos + 0.3, y: 4.9, w: 3.1, h: 1.5,
-      fontSize: 13, color: '94A3B8', italic: true, lineSpacing: 19
+
+    // Part 2: Points 3, 4, 5
+    const s4 = pptx.addSlide();
+    s4.background = { color: '0F172A' };
+    s4.addText("📌 5분 복음 메시지 요약 (2/2) — 다스림과 회복", {
+      x: 0.8, y: 0.8, w: 11.5, h: 0.6,
+      fontSize: 22, color: 'FFFFFF', bold: true
     });
-  });
+    const lastThree = data.points.slice(2);
+    lastThree.forEach((pt, idx) => {
+      const xPos = 0.8 + (idx * 3.9);
+      s4.addShape(pptx.ShapeType.roundRect, {
+        x: xPos, y: 1.8, w: 3.7, h: 4.9,
+        fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+      });
+      s4.addText(`0${pt.num}`, {
+        x: xPos + 0.3, y: 2.0, w: 3.1, h: 0.45,
+        fontSize: 20, color: '38BDF8', bold: true
+      });
+      s4.addText(pt.titleKo, {
+        x: xPos + 0.3, y: 2.6, w: 3.1, h: 1.9,
+        fontSize: 14, color: 'FFFFFF', bold: true, lineSpacing: 22
+      });
+      if (pt.titleEn) {
+        s4.addText(pt.titleEn, {
+          x: xPos + 0.3, y: 4.6, w: 3.1, h: 1.9,
+          fontSize: 14, color: '38BDF8', bold: true, lineSpacing: 22
+        });
+      }
+    });
+  }
 
   const fileName = `2026_후대복음말씀_창세기1장27-28절_어라이즈넥스트젠.pptx`;
   pptx.writeFile({ fileName: fileName }).then(() => {
