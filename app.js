@@ -2002,12 +2002,13 @@ const defaultSermons = [
     id: "sermon-20261101",
     date: "2026-11-01T19:50:00+10:00",
     displayDate: "2026년 11월 1일 (일) 19:50 (AEST) / 18:50 (KST)",
-    title: "원래 축복 (Original Blessing)",
-    title_en: "Original Blessing",
-    scripture: "창세기 1:27-28 (Genesis 1:27-28)",
+    title: "원래인간 & 원죄 (Original Blessing & Original Sin)",
+    title_en: "Original Blessing & Original Sin",
+    scripture: "창세기 1:27-28, 3:1-14 (Genesis 1:27-28, 3:1-14)",
     speaker: "진행: 한옥주 / 통역: 아이리스",
     speaker_en: "Host: Christine Han / Interpreter: Iris",
-    summary: "1. 다스리고 정복하라 -하나님의 형상 (Rule and subdue -the image of God)\n2. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13) (Witnesses: Old Testament — David [Psalm 23:1-], New Testament — Paul [Philippians 4:13])\n3. 원래 인간의 회복 (Restoration of the original human state)",
+    pdfUrl: "후대복음말씀.pdf",
+    summary: "[제1부 원래인간] 1. 하나님의 형상(다스림) 2. 회복된 증인(다윗, 바울) 3. 후대 형상 회복\n[제2부 원죄] 1. 근본문제(하나님 떠남, 죄, 사탄) 2. 찾아온 문제(하나님과 같이 되어, 눈밝아짐, 수치심, 숨음, 두려움, 원망, 핑계) 3. 인간의 현주소(절대절망/전적타락 — 우울, 공황, 중독 해결의 유일한 길 복음)\n📄 6페이지 원본 PDF 파일: 후대복음말씀.pdf",
     praise: "나 같은 죄인 살리신 (Amazing Grace)",
     praiseLink: "https://www.youtube.com/watch?v=4-IlkTVvqKk",
     prayerTopic: "① 나 자신을 위한 기도 (\"내가 제일 중요하다\") ② 모든 민족을 위한 기도 ③ 후대를 위한 기도",
@@ -2022,86 +2023,11 @@ const defaultSermons = [
     },
     isFeatured: true,
     tags: ["창세기", "원래축복", "후대", "다스리고정복하라"]
-  },
-  {
-    id: "sermon-20261004",
-    date: "2026-10-04T20:00:00+10:00",
-    displayDate: "2026년 10월 4일 (일) 20:00 (AEST) / 19:00 (KST)",
-    title: "다스리고 정복하라 (Rule & Subdue)",
-    title_en: "Rule and Subdue",
-    scripture: "창세기 1:27-28 (Genesis 1:27-28)",
-    speaker: "진행: 한옥주 / 통역: 아이리스",
-    speaker_en: "Host: Christine Han / Interpreter: Iris",
-    summary: "• 다음 세대를 살릴 복음의 신실한 제자 세우기\n1. 다스리고 정복하라 -하나님의 형상 (Rule and subdue -the image of God)\n2. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13)\n3. 원래 인간의 회복 (Restoration of the original human state)",
-    praise: "나 같은 죄인 살리신 (Amazing Grace - 찬송가 305장)",
-    praiseLink: "https://www.youtube.com/watch?v=4-IlkTVvqKk",
-    prayerTopic: "나를 위한 기도 · 모든 민족을 위한 기도 · 후대를 위한 기도",
-    announcements: "개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임",
-    video: {
-      hasVideo: true,
-      type: "mp4",
-      url: "assets/amazing_grace_bilingual.mp4",
-      passcode: "",
-      duration: "30분",
-      title: "2026.10 줌 온라인 기도모임 전체 실황 및 찬양"
-    },
-    isFeatured: false,
-    tags: ["창세기", "은혜", "후대제자", "찬양"]
-  },
-  {
-    id: "sermon-20260906",
-    date: "2026-09-06T20:00:00+10:00",
-    displayDate: "2026년 9월 6일 (일) 20:00 (AEST) / 19:00 (KST)",
-    title: "충성된 사람들에게 부탁하라 (Commit to Faithful People)",
-    title_en: "Commit to Faithful People",
-    scripture: "디모데후서 2:1-2 (2 Timothy 2:1-2)",
-    speaker: "진행: 한옥주 / 통역: 아이리스 / 다민족 제자 나눔",
-    speaker_en: "Host: Christine Han / Interpreter: Iris / Multi-Ethnic Disciples",
-    summary: "1. 은혜 속에서 강하라 (Be strong in the grace that is in Christ Jesus)\n2. 충성된 사람들에게 복음을 부탁하라 (Entrust to reliable people)\n3. 또 다른 사람을 가르칠 신실한 제자 세우기 (Qualified to teach others as well)",
-    praise: "Way Maker (길을 만드시는 분)",
-    praiseLink: "https://www.youtube.com/watch?v=iJCV_2H9xD0",
-    prayerTopic: "1. 복음의 뿌리 2. 열방의 신실한 제자 3. 다음 세대 전도자",
-    announcements: "글로벌 제자 네트워크 활성화 및 모임 참여 안내",
-    video: {
-      hasVideo: true,
-      type: "youtube",
-      url: "https://www.youtube.com/watch?v=iJCV_2H9xD0",
-      passcode: "",
-      duration: "30분",
-      title: "2026.09 글로벌 다음세대 집중 기도모임 실황"
-    },
-    isFeatured: false,
-    tags: ["디모데후서", "충성된사람", "제자", "WayMaker"]
-  },
-  {
-    id: "sermon-20260802",
-    date: "2026-08-02T20:00:00+10:00",
-    displayDate: "2026년 8월 2일 (일) 20:00 (AEST) / 19:00 (KST)",
-    title: "일어나라 빛을 발하라 (Arise, Shine!)",
-    title_en: "Arise, Shine!",
-    scripture: "이사야 60:1-3 (Isaiah 60:1-3)",
-    speaker: "진행: 한옥주 / 다민족 제자단",
-    speaker_en: "Host: Christine Han / Global Disciples",
-    summary: "1. 네 빛이 이르렀고 여호와의 영광이 네 위에 임하였음이니라\n2. 어둠이 땅을 덮고 캄캄함이 만민을 가리우나 오직 여호와께서 임하심\n3. 나라들은 네 빛으로, 왕들은 비치는 네 광명으로 나아오리라",
-    praise: "The Blessing (축복과 평강)",
-    praiseLink: "https://www.youtube.com/watch?v=Zp6aygmvzM4",
-    prayerTopic: "열방 237개국과 다음 세대 영적 플랫폼을 위한 기도",
-    announcements: "어라이즈 넥스트젠 글로벌 기도 네트워크 출범 안내",
-    video: {
-      hasVideo: true,
-      type: "youtube",
-      url: "https://www.youtube.com/watch?v=Zp6aygmvzM4",
-      passcode: "",
-      duration: "30분",
-      title: "2026.08 어라이즈 넥스트젠 개회 예배 및 찬양"
-    },
-    isFeatured: false,
-    tags: ["이사야", "빛을발하라", "열방", "TheBlessing"]
   }
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261022_v40_amazing_grace';
+const DATA_VERSION = 'v20261022_v41_clean_sermons_archive';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -2125,7 +2051,8 @@ let meetingSettings = JSON.parse(localStorage.getItem('prayer_hub_meeting_settin
 let currentFilter = 'all';
 
 // Sermon & Zoom Worship Archive State
-let sermons = JSON.parse(localStorage.getItem('prayer_hub_sermon_archive')) || defaultSermons;
+let sermons = (JSON.parse(localStorage.getItem('prayer_hub_sermon_archive')) || defaultSermons)
+  .filter(s => s && s.id !== 'sermon-20261004' && s.id !== 'sermon-20260906' && s.id !== 'sermon-20260802');
 let currentSermonFilter = 'all';
 let currentSermonSearchQuery = '';
 let currentVideoSermon = null;
