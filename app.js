@@ -1967,10 +1967,10 @@ const defaultTestimonies = [
 // Routine 4-Step Actual Program Content Seed Data (2026.10 기준)
 const defaultRoutineContent = {
   step1: {
-    songId: "jesus-we-enthrone-you",
-    songTitle: "Jesus, We Enthrone You (예수 우리 왕이여)",
-    link: "https://www.youtube.com/watch?v=d6tDhj87iBM",
-    content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다. (A global anthem sung across all nations.)\n• 지정 찬양 (Official Worship): Jesus, We Enthrone You | 예수 우리 왕이여\n• Global Subtitles: 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace and peace to you in Christ)"
+    songId: "amazing-grace",
+    songTitle: "나 같은 죄인 살리신 (Amazing Grace)",
+    link: "https://www.youtube.com/watch?v=4-IlkTVvqKk",
+    content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다. (A global anthem sung across all nations.)\n• 지정 찬양 (Official Worship): 나 같은 죄인 살리신 | Amazing Grace (새찬송가 305장)\n• Global Subtitles: 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace and peace to you in Christ)"
   },
   step2: {
     scripture: "창세기 1:27-28, 3:1-14 (Genesis 1:27-28, 3:1-14)",
@@ -2008,8 +2008,8 @@ const defaultSermons = [
     speaker: "진행: 한옥주 / 통역: 아이리스",
     speaker_en: "Host: Christine Han / Interpreter: Iris",
     summary: "1. 다스리고 정복하라 -하나님의 형상 (Rule and subdue -the image of God)\n2. 증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13) (Witnesses: Old Testament — David [Psalm 23:1-], New Testament — Paul [Philippians 4:13])\n3. 원래 인간의 회복 (Restoration of the original human state)",
-    praise: "Jesus, We Enthrone You (예수 우리 왕이여)",
-    praiseLink: "https://www.youtube.com/watch?v=d6tDhj87iBM",
+    praise: "나 같은 죄인 살리신 (Amazing Grace)",
+    praiseLink: "https://www.youtube.com/watch?v=4-IlkTVvqKk",
     prayerTopic: "① 나 자신을 위한 기도 (\"내가 제일 중요하다\") ② 모든 민족을 위한 기도 ③ 후대를 위한 기도",
     announcements: "개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임",
     video: {
@@ -2101,7 +2101,7 @@ const defaultSermons = [
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261019_v39_sermon_archive_and_zoom_videos';
+const DATA_VERSION = 'v20261022_v40_amazing_grace';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -2117,9 +2117,9 @@ let testimonies = (JSON.parse(localStorage.getItem('prayer_hub_testimonies')) ||
   .filter(t => t && t.id !== 4 && !t.title?.includes('찬양을 통한 청소년 회복'));
 let routineContent = JSON.parse(localStorage.getItem('prayer_hub_routine_content')) || defaultRoutineContent;
 // Ensure designated song title is always cleanly displayed
-if (routineContent && routineContent.step1 && (!routineContent.step1.songTitle || routineContent.step1.songTitle.includes('애수') || routineContent.step1.songId === 'jesus-we-enthrone-you')) {
-  routineContent.step1.songId = 'jesus-we-enthrone-you';
-  routineContent.step1.songTitle = 'Jesus, We Enthrone You (예수 우리 왕이여)';
+if (routineContent && routineContent.step1 && (!routineContent.step1.songTitle || routineContent.step1.songTitle.includes('애수'))) {
+  routineContent.step1.songId = 'amazing-grace';
+  routineContent.step1.songTitle = '나 같은 죄인 살리신 (Amazing Grace)';
 }
 let meetingSettings = JSON.parse(localStorage.getItem('prayer_hub_meeting_settings')) || defaultMeetingSettings;
 let currentFilter = 'all';
@@ -2904,11 +2904,11 @@ function renderWorshipLounge() {
         pool[(startIndex + 1) % total],
         pool[(startIndex + 2) % total]
       ];
-      // Highlight current meeting song in weekly if available, fallback to jesus-we-enthrone-you
+      // Highlight current meeting song in weekly if available, fallback to amazing-grace
       const targetMeetingSongId = (typeof routineContent !== 'undefined' && routineContent.step1?.songId) 
         ? routineContent.step1.songId 
-        : 'jesus-we-enthrone-you';
-      const meetingPraise = pool.find(s => s.id === targetMeetingSongId) || pool.find(s => s.id === 'jesus-we-enthrone-you');
+        : 'amazing-grace';
+      const meetingPraise = pool.find(s => s.id === targetMeetingSongId) || pool.find(s => s.id === 'amazing-grace');
       if (meetingPraise) {
         if (!displaySongs.some(s => s.id === meetingPraise.id)) {
           displaySongs[0] = meetingPraise;
@@ -4044,9 +4044,9 @@ async function loadGlobalRoutine() {
         step3: loadedData.step3,
         step4: loadedData.step4
       };
-      if (routineContent.step1 && (routineContent.step1.songId === 'jesus-we-enthrone-you' || (routineContent.step1.songTitle && routineContent.step1.songTitle.includes('애수')))) {
+      if (routineContent.step1 && routineContent.step1.songTitle && routineContent.step1.songTitle.includes('애수')) {
         routineContent.step1.songId = 'jesus-we-enthrone-you';
-        routineContent.step1.songTitle = '예수 우리 왕이여 (Jesus, We Enthrone You)';
+        routineContent.step1.songTitle = 'Jesus, We Enthrone You (예수 우리 왕이여)';
       }
       localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
       renderRoutineDisplay();

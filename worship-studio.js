@@ -339,7 +339,7 @@ function initWorshipStudio() {
   const select = document.getElementById('studioSongSelect');
   if (select) {
     const urlParams = new URLSearchParams(window.location.search);
-    const targetSongId = urlParams.get('song') || 'jesus-we-enthrone-you';
+    const targetSongId = urlParams.get('song') || 'amazing-grace';
     populateSongSelector(targetSongId);
     selectWorshipSong(targetSongId, null, false);
   }
@@ -381,7 +381,7 @@ function loadCustomSongs() {
     if (savedOverrides) {
       overrides = JSON.parse(savedOverrides);
       // 영문 자막이 포함된 공식 찬양들은 최신 공식 라이브러리 가사 우선 유지 (로컬 캐시로 인한 영문 자막 누락 방지)
-      const officialGlobalIds = ['jesus-we-enthrone-you', 'as-the-deer', 'hope-desire-pray'];
+      const officialGlobalIds = ['amazing-grace', 'jesus-we-enthrone-you', 'as-the-deer', 'hope-desire-pray'];
       let changed = false;
       officialGlobalIds.forEach(id => {
         if (overrides[id]) {
@@ -545,7 +545,7 @@ if (!window._ytGlobalMessageCoordinatorBound) {
 }
 
 // Open / Close Studio Modal
-function openWorshipStudio(targetSongId = 'jesus-we-enthrone-you', autoPlay = false) {
+function openWorshipStudio(targetSongId = 'amazing-grace', autoPlay = false) {
   // 모달 열 때 메인 화면/라운지 카드 등 재생 중이던 모든 미디어 즉시 정지
   stopAllMediaExcept(null);
 
@@ -1588,7 +1588,7 @@ function setCurrentMeetingSong(songId) {
 
 function openCurrentMeetingPraiseStudio() {
   const pool = (worshipStudioState.allSongs && worshipStudioState.allSongs.length > 0) ? worshipStudioState.allSongs : PRESET_PRAISE_SONGS;
-  let targetId = 'jesus-we-enthrone-you';
+  let targetId = 'amazing-grace';
 
   if (typeof routineContent !== 'undefined' && routineContent.step1) {
     const s1 = routineContent.step1;
