@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css?v=20261003_v33_as_the_deer_and_hope_sync">
+  <link rel="stylesheet" href="styles.css?v=20261022_hero_split_layout">
 </head>
 <body data-lang="ko">
   <!-- Background Glow Orbs -->
@@ -80,99 +80,108 @@
   <!-- Hero Section with Live Countdown (Home Page) -->
   <section class="hero-section page-section active" id="countdown">
     <div class="container hero-container">
-      <!-- Badge -->
-      <div class="hero-badge">
-        <span class="pulse-dot"></span>
-        <span data-i18n="hero_badge">월 1회 30분 | 전 세계가 함께하는 다음 세대 중보기도</span>
-      </div>
-
-      <!-- Main Title -->
-      <h1 class="hero-title" data-i18n="hero_title">
-        일어나 빛을 발하라!<br>
-        <span class="gradient-text">열방의 후대를 기도로 품다</span>
-      </h1>
-
-      <p class="hero-subtitle" data-i18n="hero_subtitle">
-        복음으로 만난 다민족 제자들과 전도자가 한자리에 모여<br>
-        하나님의 모든 관심인 모든 족속 복음화와<br>
-        다음 세대에 이 복음을 전달하기 위해 간절히 기도하는 플랫폼입니다.
-      </p>
-
-      <!-- Scripture Banner -->
-      <div class="scripture-card">
-        <div class="scripture-quote-icon">“</div>
-        <p class="scripture-text" data-i18n="hero_scripture_text">
-          "또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라 그들이 또 다른 사람들을 가르칠 수 있으리라"
-        </p>
-        <span class="scripture-ref" data-i18n="hero_scripture_ref">디모데후서 2:2 (2 Timothy 2:2)</span>
-      </div>
-
-      <!-- Countdown Card Box -->
-      <div class="countdown-card">
-        <div class="countdown-header">
-          <div class="meeting-meta">
-            <span class="meeting-status-tag" data-i18n="countdown_tag">다음 모임 D-Day</span>
-            <h3 class="next-meeting-date" id="displayMeetingDate">🇦🇺 11월 1일 (일) 오후 7:50 (호주 퀸즈랜드 기준) / 🇰🇷 18:50 KST</h3>
+      <!-- Hero 2-Column Split: Left (Vision & Scripture) / Right (Countdown & Timezones) -->
+      <div class="hero-split-layout">
+        <!-- LEFT COLUMN: Vision, Title, Description, Scripture -->
+        <div class="hero-left-col">
+          <!-- Badge -->
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span data-i18n="hero_badge">월 1회 30분 | 전 세계가 함께하는 다음 세대 중보기도</span>
           </div>
-          <div class="world-clock-badge" id="worldClockInfo">
-            🌐 🇦🇺 호주 퀸즈랜드 기준 (AEST / UTC+10) | 🇰🇷 한국 (KST) | <span id="localTimeDisplay">현지 시각 변환 중...</span>
+
+          <!-- Main Title -->
+          <h1 class="hero-title" data-i18n="hero_title">
+            일어나 빛을 발하라!<br>
+            <span class="gradient-text">열방의 후대를 기도로 품다</span>
+          </h1>
+
+          <p class="hero-subtitle" data-i18n="hero_subtitle">
+            복음으로 만난 다민족 제자들과 전도자가 한자리에 모여<br>
+            하나님의 모든 관심인 모든 족속 복음화와<br>
+            다음 세대에 이 복음을 전달하기 위해 간절히 기도하는 플랫폼입니다.
+          </p>
+
+          <!-- Scripture Card -->
+          <div class="scripture-card">
+            <div class="scripture-quote-icon">“</div>
+            <p class="scripture-text" data-i18n="hero_scripture_text">
+              "또 네가 많은 증인 앞에서 내게 들은 바를 충성된 사람들에게 부탁하라 그들이 또 다른 사람들을 가르칠 수 있으리라"
+            </p>
+            <span class="scripture-ref" data-i18n="hero_scripture_ref">디모데후서 2:2 (2 Timothy 2:2)</span>
           </div>
         </div>
 
-        <!-- Countdown Digits Grid -->
-        <div class="countdown-grid">
-          <div class="time-block">
-            <div class="time-val" id="countDays">00</div>
-            <div class="time-label" data-i18n="time_days">일 (Days)</div>
-          </div>
-          <div class="time-sep">:</div>
-          <div class="time-block">
-            <div class="time-val" id="countHours">00</div>
-            <div class="time-label" data-i18n="time_hours">시간 (Hours)</div>
-          </div>
-          <div class="time-sep">:</div>
-          <div class="time-block">
-            <div class="time-val" id="countMinutes">00</div>
-            <div class="time-label" data-i18n="time_mins">분 (Mins)</div>
-          </div>
-          <div class="time-sep">:</div>
-          <div class="time-block">
-            <div class="time-val highlight" id="countSeconds">00</div>
-            <div class="time-label" data-i18n="time_secs">초 (Secs)</div>
-          </div>
-        </div>
+        <!-- RIGHT COLUMN: D-Day, Live Countdown, Zoom CTA, World Clocks -->
+        <div class="hero-right-col">
+          <!-- Countdown Card Box -->
+          <div class="countdown-card">
+            <div class="countdown-header">
+              <div class="meeting-meta">
+                <span class="meeting-status-tag" data-i18n="countdown_tag">다음 모임 D-Day</span>
+                <h3 class="next-meeting-date" id="displayMeetingDate">🇦🇺 11월 1일 (일) 오후 07:50 (호주 퀸즈랜드 기준) / 🇰🇷 한국 오후 06:50 (KST)</h3>
+              </div>
+              <div class="world-clock-badge" id="worldClockInfo">
+                🌐 🇦🇺 호주 퀸즈랜드 기준 (AEST / UTC+10) | 🇰🇷 한국 (KST) | <span id="localTimeDisplay">현지 시각 변환 중...</span>
+              </div>
+            </div>
 
-        <!-- Join Actions -->
-        <div class="countdown-actions">
-          <button class="btn btn-primary btn-glow" id="btnJoinMeeting" onclick="joinMeetingRoom()">
-            <span class="btn-icon">🕊️</span>
-            <span data-i18n="btn_join_room">온라인 기도모임 입장하기 (Zoom)</span>
-          </button>
-          <button class="btn btn-outline" id="btnCopyMeetingLink" onclick="copyMeetingLink()">
-            <span class="btn-icon">📋</span>
-            <span data-i18n="btn_copy_link">초대 링크 & ID 복사</span>
-          </button>
-        </div>
+            <!-- Countdown Digits Grid -->
+            <div class="countdown-grid">
+              <div class="time-block">
+                <div class="time-val" id="countDays">00</div>
+                <div class="time-label" data-i18n="time_days">일 (Days)</div>
+              </div>
+              <div class="time-sep">:</div>
+              <div class="time-block">
+                <div class="time-val" id="countHours">00</div>
+                <div class="time-label" data-i18n="time_hours">시간 (Hours)</div>
+              </div>
+              <div class="time-sep">:</div>
+              <div class="time-block">
+                <div class="time-val" id="countMinutes">00</div>
+                <div class="time-label" data-i18n="time_mins">분 (Mins)</div>
+              </div>
+              <div class="time-sep">:</div>
+              <div class="time-block">
+                <div class="time-val highlight" id="countSeconds">00</div>
+                <div class="time-label" data-i18n="time_secs">초 (Secs)</div>
+              </div>
+            </div>
 
-        <!-- Global Timezones Bar for our nations -->
-        <div class="global-times-bar" id="globalTimesBar">
-          <div class="global-times-title" data-i18n="global_times_title">🌍 참여 열방 현지 시각 (Meeting Time by Nation)</div>
-          <div class="timezone-chips">
-            <span class="tz-chip highlight-chip">🇦🇺 <strong>호주(퀸즈랜드)</strong> 20:00</span>
-            <span class="tz-chip">🇰🇷 <strong>한국(서울)</strong> 19:00</span>
-            <span class="tz-chip">🇺🇸 <strong>미국(뉴욕)</strong> 06:00</span>
-            <span class="tz-chip">🇺🇸 <strong>미국(보스턴)</strong> 06:00</span>
-            <span class="tz-chip">🇺🇸 <strong>미국(플로리다)</strong> 06:00</span>
-            <span class="tz-chip">🇬🇭 <strong>가나</strong> 10:00</span>
-            <span class="tz-chip">🇳🇬 <strong>나이지리아</strong> 11:00</span>
-            <span class="tz-chip">🇫🇷 <strong>프랑스</strong> 12:00</span>
-            <span class="tz-chip">🇪🇬 <strong>이집트</strong> 13:00</span>
-            <span class="tz-chip">🇲🇲 <strong>미얀마</strong> 16:30</span>
-            <span class="tz-chip">🇹🇭 <strong>태국</strong> 17:00</span>
-            <span class="tz-chip">🇮🇩 <strong>인도네시아</strong> 17:00</span>
-            <span class="tz-chip">🇨🇳 <strong>중국</strong> 18:00</span>
-            <span class="tz-chip">🇵🇭 <strong>필리핀</strong> 18:00</span>
-            <span class="tz-chip">🇻🇳 <strong>베트남</strong> 17:00</span>
+            <!-- Join Actions -->
+            <div class="countdown-actions">
+              <button class="btn btn-primary btn-glow" id="btnJoinMeeting" onclick="joinMeetingRoom()">
+                <span class="btn-icon">🕊️</span>
+                <span data-i18n="btn_join_room">온라인 기도모임 입장하기 (Zoom)</span>
+              </button>
+              <button class="btn btn-outline" id="btnCopyMeetingLink" onclick="copyMeetingLink()">
+                <span class="btn-icon">📋</span>
+                <span data-i18n="btn_copy_link">초대 링크 &amp; ID 복사</span>
+              </button>
+            </div>
+
+            <!-- Global Timezones Bar for our nations -->
+            <div class="global-times-bar" id="globalTimesBar">
+              <div class="global-times-title" data-i18n="global_times_title">🌍 참여 열방 현지 시각 (Meeting Time by Nation)</div>
+              <div class="timezone-chips">
+                <span class="tz-chip highlight-chip">🇦🇺 <strong>호주(퀸즈랜드)</strong> 20:00</span>
+                <span class="tz-chip">🇰🇷 <strong>한국(서울)</strong> 19:00</span>
+                <span class="tz-chip">🇺🇸 <strong>미국(뉴욕)</strong> 06:00</span>
+                <span class="tz-chip">🇺🇸 <strong>미국(보스턴)</strong> 06:00</span>
+                <span class="tz-chip">🇺🇸 <strong>미국(플로리다)</strong> 06:00</span>
+                <span class="tz-chip">🇬🇭 <strong>가나</strong> 10:00</span>
+                <span class="tz-chip">🇳🇬 <strong>나이지리아</strong> 11:00</span>
+                <span class="tz-chip">🇫🇷 <strong>프랑스</strong> 12:00</span>
+                <span class="tz-chip">🇪🇬 <strong>이집트</strong> 13:00</span>
+                <span class="tz-chip">🇲🇲 <strong>미얀마</strong> 16:30</span>
+                <span class="tz-chip">🇹🇭 <strong>태국</strong> 17:00</span>
+                <span class="tz-chip">🇮🇩 <strong>인도네시아</strong> 17:00</span>
+                <span class="tz-chip">🇨🇳 <strong>중국</strong> 18:00</span>
+                <span class="tz-chip">🇵🇭 <strong>필리핀</strong> 18:00</span>
+                <span class="tz-chip">🇻🇳 <strong>베트남</strong> 17:00</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
