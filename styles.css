@@ -398,13 +398,13 @@ body {
 
 [dir="rtl"] .scripture-card {
   border-left: 1px solid rgba(245, 158, 11, 0.25);
-  border-right: 4px solid var(--accent-gold);
+  border-right: 3px solid var(--accent-gold);
   text-align: right;
 }
 
 [dir="rtl"] .scripture-quote-icon {
   left: auto;
-  right: 18px;
+  right: 14px;
 }
 
 [dir="rtl"] .hero-badge {
@@ -477,7 +477,7 @@ body {
   align-items: stretch;
 }
 
-/* LEFT COLUMN */
+/* LEFT COLUMN (2/3 Scale) */
 .hero-left-col {
   display: flex;
   flex-direction: column;
@@ -489,20 +489,20 @@ body {
   display: inline-flex;
   align-items: center;
   align-self: flex-start;
-  gap: 0.6rem;
-  padding: 0.45rem 1.15rem;
+  gap: 0.45rem;
+  padding: 0.32rem 0.85rem;
   border-radius: 999px;
   background: rgba(99, 102, 241, 0.12);
   border: 1px solid rgba(99, 102, 241, 0.35);
   color: #A5B4FC;
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.85rem;
 }
 
 .pulse-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #10B981;
   box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
@@ -511,73 +511,74 @@ body {
 
 @keyframes pulseGreen {
   0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
   100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
 
 .hero-title {
-  font-size: clamp(2.2rem, 3.2vw, 3.2rem);
-  line-height: 1.22;
+  font-size: clamp(1.48rem, 2.1vw, 2.15rem);
+  line-height: 1.25;
   font-weight: 800;
   letter-spacing: -0.025em;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
   text-align: left;
 }
 
 .hero-subtitle {
-  font-size: 1.05rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
-  line-height: 1.72;
-  margin: 0 0 1.6rem 0;
+  line-height: 1.6;
+  margin: 0 0 1.05rem 0;
   text-align: left;
   max-width: 100%;
 }
 
-/* Scripture Card (Left side sacred anchor) */
+/* Scripture Card (Left side sacred anchor - 2/3 Scale) */
 .scripture-card {
   max-width: 100%;
   margin: 0;
   background: linear-gradient(135deg, rgba(22, 30, 56, 0.75) 0%, rgba(30, 41, 75, 0.45) 100%);
   border: 1px solid rgba(245, 158, 11, 0.25);
-  border-left: 4px solid var(--accent-gold);
-  border-radius: 16px;
-  padding: 1.35rem 1.6rem 1.35rem 1.8rem;
+  border-left: 3px solid var(--accent-gold);
+  border-radius: 12px;
+  padding: 0.9rem 1.15rem 0.9rem 1.25rem;
   position: relative;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 10px 28px -8px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.45);
   text-align: left;
 }
 
 .scripture-quote-icon {
   position: absolute;
-  top: -12px;
-  left: 18px;
-  font-size: 2.6rem;
+  top: -9px;
+  left: 14px;
+  font-size: 1.75rem;
   color: var(--accent-gold);
   line-height: 1;
   opacity: 0.7;
 }
 
 .scripture-text {
-  font-size: 1.02rem;
-  font-style: italic;
+  font-size: 0.82rem;
+  font-style: normal;
+  font-weight: 500;
   color: #F1F5F9;
-  line-height: 1.62;
-  margin-bottom: 0.6rem;
-  padding-top: 0.4rem;
+  line-height: 1.55;
+  margin-bottom: 0.45rem;
+  padding-top: 0.25rem;
 }
 
 .scripture-ref {
   display: inline-block;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--accent-gold);
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   background: rgba(245, 158, 11, 0.12);
   border: 1px solid rgba(245, 158, 11, 0.28);
-  padding: 0.2rem 0.65rem;
-  border-radius: 6px;
+  padding: 0.16rem 0.55rem;
+  border-radius: 5px;
 }
 
 /* RIGHT COLUMN: Countdown Box */
@@ -2211,10 +2212,10 @@ body {
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 1.45rem;
   }
   .hero-subtitle {
-    font-size: 0.98rem;
+    font-size: 0.82rem;
   }
   .countdown-card {
     padding: 1.4rem 1.1rem;
