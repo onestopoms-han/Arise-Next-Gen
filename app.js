@@ -4187,17 +4187,13 @@ function getWordPresentationData() {
       points: [
         {
           num: 1,
-          titleKo: "하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)
-지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도 다스려지지 않는다.",
-          titleEn: "The Image of God—A human being who resemble God's character/ nature (one who exercises dominion over all things).
-In our current state, we fail to exercise dominion—whether over our nation, people, society, family, marital relationships, children, or even ourselves."
+          titleKo: `하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)\n지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도 다스려지지 않는다.`,
+          titleEn: `The Image of God—A human being who resemble God's character/ nature (one who exercises dominion over all things).\nIn our current state, we fail to exercise dominion—whether over our nation, people, society, family, marital relationships, children, or even ourselves.`
         },
         {
           num: 2,
-          titleKo: "하나님의 형상이 회복된 증인들
-구약-다윗 (시 23 부족함이 없다) 신약-바울 (빌 4:16 능력주시는 자 안에서 다 된다) 이 의미는 예수 믿는다해서 암도 안 걸리고 죽지도 않는 다는 말이 아니다, 모든 문제가 문제되어지지않고 다스려 진다는 말이다.",
-          titleEn: "Witnesses in whom the Image of God has been restored.
-In the Old Testament, there is David (Psalm 23: \"I lack nothing\"); in the New Testament, there is Paul (Philippians 4:13: \"I can do all things through Him who gives me strength\"). This does not mean that believing in Jesus guarantees immunity from cancer or death; rather, it means that no problem remains a \"problem\"—instead, all things come under one's dominion."
+          titleKo: `하나님의 형상이 회복된 증인들\n구약-다윗 (시 23 부족함이 없다) 신약-바울 (빌 4:16 능력주시는 자 안에서 다 된다) 이 의미는 예수 믿는다해서 암도 안 걸리고 죽지도 않는 다는 말이 아니다, 모든 문제가 문제되어지지않고 다스려 진다는 말이다.`,
+          titleEn: `Witnesses in whom the Image of God has been restored.\nIn the Old Testament, there is David (Psalm 23: \"I lack nothing\"); in the New Testament, there is Paul (Philippians 4:13: \"I can do all things through Him who gives me strength\"). This does not mean that believing in Jesus guarantees immunity from cancer or death; rather, it means that no problem remains a \"problem\"—instead, all things come under one's dominion.`
         },
         {
           num: 3,
@@ -4248,36 +4244,18 @@ In the Old Testament, there is David (Psalm 23: \"I lack nothing\"); in the New 
     points: [
       {
         num: 1,
-        titleKo: "모든 인간의 근본문제
-1) 하나님 떠남
-2) 죄-하나님 떠나 있는게 죄, 죄를 지을수 밖에 없는 상태
-3) 사탄-마귀의 종, 운명팔자에서 빠져 나올수 없게 됨",
-        titleEn: "The fundamental problem of all humanity
-1) Separation from God
-2) Sin—Being apart from God is sin; a state in which one cannot help but commit sins.
-3) Satan—Becoming a slave to the devil, trapped in a destiny or fate from which one cannot escape."
+        titleKo: `모든 인간의 근본문제\n1) 하나님 떠남\n2) 죄-하나님 떠나 있는게 죄, 죄를 지을수 밖에 없는 상태\n3) 사탄-마귀의 종, 운명팔자에서 빠져 나올수 없게 됨`,
+        titleEn: `The fundamental problem of all humanity\n1) Separation from God\n2) Sin—Being apart from God is sin; a state in which one cannot help but commit sins.\n3) Satan—Becoming a slave to the devil, trapped in a destiny or fate from which one cannot escape.`
       },
       {
         num: 2,
-        titleKo: "그래서 찾아온 문제
-• 하나님과 같이 되어-자기가 신이 되고 싶은 뉴에이지 사상
-• 선악을-판단, 정죄 / 눈이 밝아져-영안 닫힘, 육안 열림
-• 벗은 줄을 알고-수치심 / 무화과 잎 치마-포장,율법,윤리
-• 낯을 피하여-어리석음 / 숨은지라-죄의식 / 두려워하여-염려
-• 하나님이 주셔서-원망 / 꾀므로-핑계",
-        titleEn: "The problems that ensued
-• \"To become like God\"—The desire to be one's own god (New Age ideology)
-• \"Knowledge of good and evil\"—judging and condemning
-• \"Eyes opened\"—spiritual eyes closed, fleshly eyes opened
-• \"Realized they were naked\"—shame / \"Sewed fig leaves\"—covering up through legalism, ethics
-• \"Hid\"—foolishness, guilt / \"Were afraid\"—anxiety / Blaming & making excuses"
+        titleKo: `그래서 찾아온 문제\n• 하나님과 같이 되어-자기가 신이 되고 싶은 뉴에이지 사상\n• 선악을-판단, 정죄 / 눈이 밝아져-영안 닫힘, 육안 열림\n• 벗은 줄을 알고-수치심 / 무화과 잎 치마-포장,율법,윤리\n• 낯을 피하여-어리석음 / 숨은지라-죄의식 / 두려워하여-염려\n• 하나님이 주셔서-원망 / 꾀므로-핑계`,
+        titleEn: `The problems that ensued\n• "To become like God"—The desire to be one's own god (New Age ideology)\n• "Knowledge of good and evil"—judging and condemning\n• "Eyes opened"—spiritual eyes closed, fleshly eyes opened\n• "Realized they were naked"—shame / "Sewed fig leaves"—covering up through legalism, ethics\n• "Hid"—foolishness, guilt / "Were afraid"—anxiety / Blaming & making excuses`
       },
       {
         num: 3,
-        titleKo: "인간의 현주소-절대절망 (칼빈-전적타락)
-우울증, 불안, 초조, 근심, 염려, 무기력감, 공황장애, 대인기피증, 자살, 중독, 인간관계 깨짐 등 놀랄 일이 아니라 후대와 모든 민족에게 당연히 올 수밖에 없는 문제입니다.",
-        titleEn: "The current state of humanity—Absolute despair (Total depravity)
-Depression, anxiety, powerlessness, insomnia, panic disorders, suicide, addiction, broken human relationships—it is inevitable that this issue will confront future generations and all nations."
+        titleKo: `인간의 현주소-절대절망 (칼빈-전적타락)\n우울증, 불안, 초조, 근심, 염려, 무기력감, 공황장애, 대인기피증, 자살, 중독, 인간관계 깨짐 등 놀랄 일이 아니라 후대와 모든 민족에게 당연히 올 수밖에 없는 문제입니다.`,
+        titleEn: `The current state of humanity—Absolute despair (Total depravity)\nDepression, anxiety, powerlessness, insomnia, panic disorders, suicide, addiction, broken human relationships—it is inevitable that this issue will confront future generations and all nations.`
       }
     ]
   };
