@@ -2094,7 +2094,88 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261024_v47_november_sin_user_file';
+const DATA_VERSION = 'v20261024_v48_final_sync';
+// Force ensure 11월 이번달 말씀 and 10월 지난달 말씀 are 100% strictly synced
+(function forceSyncGospelData() {
+  try {
+    // 1. Force update routineContent.step2 to 11월 1일 원죄 (창세기 3:1-14)
+    if (typeof routineContent !== 'undefined' && routineContent) {
+      routineContent.step2 = {
+        scripture: "창세기 3:1-14 (Genesis 3:1-14)",
+        title: "원죄 (Original Sin) — 창세기 3장 문제",
+        title_en: "Original Sin — Genesis Chapter 3",
+        pdfUrl: "후대복음말씀_원죄.pdf",
+        content: `📖 본문: 창세기 3:1-14 (Genesis 3:1-14)
+매월 첫 주일 호주 AEST 7:50 PM (한국 18:50)
+
+[원죄 (Original Sin) — 창세기 3장 문제]
+1. 모든 인간의 근본문제 (The fundamental problem of all humanity)
+1) 하나님 떠남 (Separation from God)
+2) 죄-하나님 떠나 있는게 죄, 죄를 지을수 밖에 없는 상태 (Sin)
+3) 사탄- 마귀의 종, 운명팔자에서 빠져 나올수 없게 됨 (Satan)
+
+2. 그래서 찾아온 문제 (The problems that ensued)
+• 하나님과 같이 되어: 자기가 신이 되고 싶은 뉴에이지 사상
+• 선악을: 판단, 정죄 | 눈이 밝아져: 영안 닫히고 육신의 눈 열림
+• 벗은 줄을 알고: 수치심 | 무화과나무 잎을 엮어 치마: 포장, 율법, 윤리, 도덕
+• 낯을 피하여: 어리석음 | 숨은지라: 죄의식 | 두려워하여: 염려, 두려움 | 원망과 핑계
+
+3. 인간의 현주소-절대절망 (The current state of humanity—Absolute despair)
+모든게 다 안되는 상태 (칼빈-전적타락). 우울증, 불안, 초조, 근심, 염려, 무기력감, 공황장애, 알콜/마약 중독, 인간관계 깨짐 등 우리 후대와 모든 민족에게 당연히 올 수밖에 없는 문제입니다.
+
+📄 이번 달 5페이지 공식 원본 PDF: 후대복음말씀_원죄.pdf`
+      };
+      localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
+    }
+
+    // 2. Force update sermons array in localStorage
+    let storedSermons = JSON.parse(localStorage.getItem('prayer_hub_sermon_archive')) || [];
+    let sNov = storedSermons.find(s => s.id === 'sermon-20261101');
+    if (!sNov) {
+      sNov = { id: 'sermon-20261101' };
+      storedSermons.unshift(sNov);
+    }
+    sNov.date = "2026-11-01T19:50:00+10:00";
+    sNov.displayDate = "2026년 11월 1일 (일) 19:50 (AEST) / 18:50 (KST)";
+    sNov.title = "원죄 (Original Sin) — 창세기 3장 문제";
+    sNov.title_en = "Original Sin — The Genesis 3 Problem";
+    sNov.scripture = "창세기 3:1-14 (Genesis 3:1-14)";
+    sNov.speaker = "진행: 한옥주 / 통역: 아이리스";
+    sNov.pdfUrl = "후대복음말씀_원죄.pdf";
+    sNov.isFeatured = true;
+    sNov.summary = `1. 모든 인간의 근본문제: 1) 하나님 떠남 2) 죄 3) 사탄
+2. 그래서 찾아온 문제: 하나님과 같이 되어(뉴에이지), 선악 판단/정죄, 영안 닫힘, 수치심, 무화과 잎 치마, 두려움, 원망, 핑계
+3. 인간의 현주소-절대절망: 모든게 다 안되는 상태 (칼빈-전적타락). 후대와 모든 민족에게 필연적으로 오는 문제.
+📄 이번 달 5페이지 원본 PDF: 후대복음말씀_원죄.pdf`;
+
+    let sOct = storedSermons.find(s => s.id === 'sermon-20261004');
+    if (!sOct) {
+      sOct = { id: 'sermon-20261004' };
+      storedSermons.push(sOct);
+    }
+    sOct.date = "2026-10-04T19:50:00+10:00";
+    sOct.displayDate = "2026년 10월 4일 (일) 19:50 (AEST) / 18:50 (KST)";
+    sOct.title = "원래인간 (Original Blessing)";
+    sOct.title_en = "Original Blessing";
+    sOct.scripture = "창세기 1:27-28 (Genesis 1:27-28)";
+    sOct.speaker = "진행: 한옥주 / 통역: 아이리스";
+    sOct.pdfUrl = "Original_Blessing.pdf";
+    sOct.isFeatured = false;
+    sOct.summary = `1. 하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)
+지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도 다스려지지 않는다.
+2. 하나님의 형상이 회복된 증인들: 구약-다윗 (시 23 부족함이 없다), 신약-바울 (빌 4:16)
+3. 후대- 이 하나님 형상이 회복되도록 도와야한다
+📄 10월 4일 1페이지 원본 PDF: Original Blessing.pdf`;
+
+    localStorage.setItem('prayer_hub_sermon_archive', JSON.stringify(storedSermons));
+    if (typeof sermons !== 'undefined') {
+      sermons = storedSermons;
+    }
+  } catch (e) {
+    console.warn("forceSyncGospelData error:", e);
+  }
+})();
+
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
