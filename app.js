@@ -1973,10 +1973,37 @@ const defaultRoutineContent = {
     content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다. (A global anthem sung across all nations.)\n• 지정 찬양 (Official Worship): 나 같은 죄인 살리신 | Amazing Grace (새찬송가 305장)\n• Global Subtitles: 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace and peace to you in Christ)"
   },
   step2: {
-    scripture: "창세기 1:27-28, 3:1-14 (Genesis 1:27-28, 3:1-14)",
-    title: "원래인간 & 원죄 (Original Blessing & Original Sin)",
-    pdfUrl: "후대복음말씀.pdf",
-    content: "📖 본문: 창세기 1:27-28, 3:1-14 (Genesis 1:27-28, 3:1-14)\n매월 첫 주일 호주 AEST 8:00 PM (한국 19:00)\n\n[제 1부: 원래인간 (Original Blessing) — 창세기 1:27-28]\n1. 하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)\n지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도 다스려지지 않는다.\n(1. The Image of God—A human being who resemble God's character/ nature [one who exercises dominion over all things]. In our current state, we fail to exercise dominion—whether over our nation, people, society, family, marital relationships, children, or even ourselves.)\n\n2. 하나님의 형상이 회복된 증인들\n구약-다윗 (시 23 부족함이 없다), 신약-바울 (빌 4:16 능력주시는 자 안에서 다 된다)\n이 의미는 예수 믿는다해서 암도 안 걸리고 죽지도 않는 다는 말이 아니다, 모든 문제가 문제되어지지않고 다스려 진다는 말이다.\n(2. Witnesses in whom the Image of God has been restored: Old Testament David [Psalm 23], New Testament Paul [Philippians 4:13].)\n\n3. 후대- 이 하나님 형상이 회복되도록 도와야한다\n(3. The Next Generation – We must help them restore this image of God.)\n\n[제 2부: 원죄 (Original Sin) — 창세기 3:1-14]\n1. 모든 인간의 근본문제\n1) 하나님 떠남 (Separation from God)\n2) 죄-하나님 떠나 있는게 죄, 죄를 지을수 밖에 없는 상태 (Sin)\n3) 사탄- 마귀의 종, 운명팔자에서 빠져 나올수 없게 됨 (Satan)\n\n2. 그래서 찾아온 문제\n• 하나님과 같이 되어: 자기가 신이 되고 싶은 뉴에이지 사상 - 하나님 없이 인간 스스로 신이 될 수 있다는 사상\n• 선악을: 판단, 정죄\n• 눈이 밝아져: 영적 눈 닫히고 육신의 눈 열림\n• 벗은 줄을 알고: 수치심\n• 무화과나무 잎을 엮어 치마: 포장, 율법, 윤리, 도덕, 착함, 진실함\n• 낯을 피하여: 어리석음\n• 숨은지라: 죄의식\n• 두려워하여: 걱정, 염려, 두려움\n• 하나님이 주셔서: 원망\n• 꾀므로: 핑계\n\n3. 인간의 현주소-절대절망-모든게 다 안되는 상태 (칼빈-전적타락)\n우울증, 불안, 초조, 근심, 염려, 무기력감, 노이로제, 불면증, 공황장애, 대인기피증, 자해, 자살, 알콜중독, 마약, 폭력, 인간관계 깨짐, 불평등, 전쟁 등등등\n놀랄일이 아니라 이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다.\n\n📄 후대 복음 말씀 6페이지 원본 PDF 파일: 후대복음말씀.pdf (새 창 열기 및 다운로드 가능)\n어라이즈 넥스트젠 글로벌 기도 연합 · Arise Next Gen Global Prayer Hub\n모든 민족과 후대를 살리는 언약 공동체 · Amen"
+    scripture: "창세기 3:1-14 (Genesis 3:1-14)",
+    title: "원죄 (Original Sin) — 창세기 3장 문제",
+    title_en: "Original Sin — Genesis Chapter 3",
+    pdfUrl: "후대복음말씀_원죄.pdf",
+    content: `📖 본문: 창세기 3:1-14 (Genesis 3:1-14)
+매월 첫 주일 호주 AEST 7:50 PM (한국 18:50)
+
+[원죄 (Original Sin) — 창세기 3장 문제]
+1. 모든 인간의 근본문제 (The fundamental problem of all humanity)
+1) 하나님 떠남 (Separation from God)
+2) 죄-하나님 떠나 있는게 죄, 죄를 지을수 밖에 없는 상태 (Sin—Being apart from God is sin; a state in which one cannot help but commit sins.)
+3) 사탄- 마귀의 종, 운명팔자에서 빠져 나올수 없게 됨 (Satan—Becoming a slave to the devil, trapped in a destiny or fate from which one cannot escape.)
+
+2. 그래서 찾아온 문제 (The problems that ensued)
+• 하나님과 같이 되어: 자기가 신이 되고 싶은 뉴에이지 사상 ("To become like God"—The desire to be one's own god)
+• 선악을: 판단, 정죄 ("Knowledge of good and evil"—judging and condemning)
+• 눈이 밝아져: 영적 눈 닫히고 육신의 눈 열림 ("Their eyes were opened"—spiritual eyes closed, physical eyes opened)
+• 벗은 줄을 알고: 수치심 ("Realized they were naked"—shame)
+• 무화과나무 잎을 엮어 치마: 포장, 율법, 윤리, 도덕 ("Sewed fig leaves together"—covering up through legalism, ethics, morality)
+• 낯을 피하여: 어리석음 ("Hid from His presence"—foolishness)
+• 숨은지라: 죄의식 ("Hid themselves"—a sense of guilt)
+• 두려워하여: 걱정, 염려, 두려움 ("Were afraid"—worry, anxiety, and fear)
+• 하나님이 주셔서: 원망 ("The woman You put here"—resentment/blaming others)
+• 꾀므로: 핑계 ("The Serpent Deceived me"—making excuses)
+
+3. 인간의 현주소-절대절망 (The current state of humanity—Absolute despair)
+모든게 다 안되는 상태 (칼빈-전적타락 / Total depravity). 우울증, 불안, 초조, 근심, 염려, 무기력감, 공황장애, 알콜/마약 중독, 깨어진 인간관계 등 우리 후대와 모든 민족에게 당연히 올 수밖에 없는 문제입니다.
+
+📄 공식 원본 PDF 파일: 후대복음말씀_원죄.pdf (새 창 열기 및 다운로드 가능)
+어라이즈 넥스트젠 글로벌 기도 연합 · Arise Next Gen Global Prayer Hub
+모든 민족과 후대를 살리는 언약 공동체 · Amen`
   },
   step3: {
     title: "함께 기도합시다 (Let Us Pray Together)",
@@ -2002,32 +2029,71 @@ const defaultSermons = [
     id: "sermon-20261101",
     date: "2026-11-01T19:50:00+10:00",
     displayDate: "2026년 11월 1일 (일) 19:50 (AEST) / 18:50 (KST)",
-    title: "원래인간 & 원죄 (Original Blessing & Original Sin)",
-    title_en: "Original Blessing & Original Sin",
-    scripture: "창세기 1:27-28, 3:1-14 (Genesis 1:27-28, 3:1-14)",
+    title: "원죄 (Original Sin) — 창세기 3장 문제",
+    title_en: "Original Sin — Genesis Chapter 3",
+    scripture: "창세기 3:1-14 (Genesis 3:1-14)",
     speaker: "진행: 한옥주 / 통역: 아이리스",
     speaker_en: "Host: Christine Han / Interpreter: Iris",
-    pdfUrl: "후대복음말씀.pdf",
-    summary: "[제1부 원래인간] 1. 하나님의 형상(다스림) 2. 회복된 증인(다윗, 바울) 3. 후대 형상 회복\n[제2부 원죄] 1. 근본문제(하나님 떠남, 죄, 사탄) 2. 찾아온 문제(하나님과 같이 되어, 눈밝아짐, 수치심, 숨음, 두려움, 원망, 핑계) 3. 인간의 현주소(절대절망/전적타락 — 우울, 공황, 중독 해결의 유일한 길 복음)\n📄 6페이지 원본 PDF 파일: 후대복음말씀.pdf",
+    pdfUrl: "후대복음말씀_원죄.pdf",
+    summary: `1. 모든 인간의 근본문제: 1) 하나님 떠남 2) 죄 3) 사탄
+2. 그래서 찾아온 문제: 하나님과 같이 되어(뉴에이지), 선악 판단/정죄, 영안 닫힘, 수치심, 무화과 잎 치마(포장, 율법, 윤리), 두려움, 원망, 핑계
+3. 인간의 현주소-절대절망: 모든게 다 안되는 상태 (칼빈-전적타락). 우울증, 불안, 무기력, 중독, 인간관계 깨짐 등 후대와 모든 민족에 당연히 올 수밖에 없는 문제.
+📄 공식 원본 PDF 파일: 후대복음말씀_원죄.pdf`,
     praise: "나 같은 죄인 살리신 (Amazing Grace)",
     praiseLink: "https://www.youtube.com/watch?v=4-IlkTVvqKk",
-    prayerTopic: "① 나 자신을 위한 기도 (\"내가 제일 중요하다\") ② 모든 민족을 위한 기도 ③ 후대를 위한 기도",
+    prayerTopic: "① 나 자신을 위한 기도 ("내가 제일 중요하다") ② 모든 민족을 위한 기도 ③ 후대를 위한 기도",
     announcements: "개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임",
     video: {
       hasVideo: true,
-      type: "zoom",
-      url: "https://us06web.zoom.us/rec/share/sample-recording-20261101",
+      type: "mp4",
+      url: "assets/amazing_grace_bilingual.mp4",
       passcode: "5gZkTM",
       duration: "30분",
-      title: "2026.11 줌 기도모임 녹화 영상 (Zoom Cloud Recording)"
+      title: "2026.11 줌 온라인 기도모임 전체 실황 및 찬양"
     },
     isFeatured: true,
-    tags: ["창세기", "원래축복", "후대", "다스리고정복하라"]
+    tags: ["창세기3장", "원죄", "근본문제", "후대", "절대절망", "그리스도"]
+  },
+  {
+    id: "sermon-20261004",
+    date: "2026-10-04T19:50:00+10:00",
+    displayDate: "2026년 10월 4일 (일) 19:50 (AEST) / 18:50 (KST)",
+    title: "원래인간 (Original Blessing)",
+    title_en: "Original Blessing",
+    scripture: "창세기 1:27-28 (Genesis 1:27-28)",
+    speaker: "진행: 한옥주 / 통역: 아이리스",
+    speaker_en: "Host: Christine Han / Interpreter: Iris",
+    pdfUrl: "후대복음말씀_원래인간.pdf",
+    summary: `1. 하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)
+지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도 다스려지지 않는다.
+2. 하나님의 형상이 회복된 증인들
+구약-다윗 (시 23 부족함이 없다) 신약-바울 (빌 4:16 능력주시는 자 안에서 다 된다) 이 의미는 예수 믿는다해서 암도 안 걸리고 죽지도 않는 다는 말이 아니다, 모든 문제가 문제되어지지않고 다스려 진다는 말이다.
+3. 후대- 이 하나님 형상이 회복되도록 도와야한다
+
+[Original Blessing]
+1. The Image of God—A human being who resemble God's character/ nature (one who exercises dominion over all things).
+2. Witnesses in whom the Image of God has been restored.
+3. The Next Generation – We must help them restore this image of God.
+📄 공식 원본 PDF 파일: 후대복음말씀_원래인간.pdf`,
+    praise: "나 같은 죄인 살리신 (Amazing Grace)",
+    praiseLink: "https://www.youtube.com/watch?v=4-IlkTVvqKk",
+    prayerTopic: "① 나 자신을 위한 기도 ("내가 제일 중요하다") ② 모든 민족을 위한 기도 ③ 후대를 위한 기도",
+    announcements: "개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임",
+    video: {
+      hasVideo: true,
+      type: "mp4",
+      url: "assets/amazing_grace_bilingual.mp4",
+      passcode: "5gZkTM",
+      duration: "30분",
+      title: "2026.10 줌 온라인 기도모임 전체 실황 및 찬양"
+    },
+    isFeatured: false,
+    tags: ["창세기", "원래인간", "원래축복", "후대", "다스리고정복하라"]
   }
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261022_v41_clean_sermons_archive';
+const DATA_VERSION = 'v20261024_v43_november_sin_and_october_archive';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -2051,8 +2117,7 @@ let meetingSettings = JSON.parse(localStorage.getItem('prayer_hub_meeting_settin
 let currentFilter = 'all';
 
 // Sermon & Zoom Worship Archive State
-let sermons = (JSON.parse(localStorage.getItem('prayer_hub_sermon_archive')) || defaultSermons)
-  .filter(s => s && s.id !== 'sermon-20261004' && s.id !== 'sermon-20260906' && s.id !== 'sermon-20260802');
+let sermons = JSON.parse(localStorage.getItem('prayer_hub_sermon_archive')) || defaultSermons;
 let currentSermonFilter = 'all';
 let currentSermonSearchQuery = '';
 let currentVideoSermon = null;
@@ -4002,81 +4067,25 @@ function getWordPresentationData() {
     ? routineContent.step2 
     : defaultRoutineContent.step2);
 
-  const scripture = data.scripture || "창세기 1:27-28 (Genesis 1:27-28)";
-  const title = data.title || "원래 축복 (Original Blessing)";
+  const rawTitle = data.title || "";
+  const rawScripture = data.scripture || "";
+  const rawPdf = data.pdfUrl || "";
 
-  const defaultPoints = [
-    {
-      num: 1,
-      titleKo: "하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고",
-      titleEn: "So God created mankind in his own image, in the image of God he created them; male and female he created them."
-    },
-    {
-      num: 2,
-      titleKo: "하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라",
-      titleEn: "God blessed them and said to them, \"Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.\""
-    },
-    {
-      num: 3,
-      titleKo: "다스리고 정복하라 -하나님의 형상",
-      titleEn: "Rule and subdue -the image of God"
-    },
-    {
-      num: 4,
-      titleKo: "증인들: 구약-다윗 (시 23:1-), 신약-바울 (빌 4:13)",
-      titleEn: "Witnesses: Old Testament — David [Psalm 23:1-], New Testament — Paul [Philippians 4:13]"
-    },
-    {
-      num: 5,
-      titleKo: "원래 인간의 회복",
-      titleEn: "Restoration of the original human state"
-    }
-  ];
+  const isOriginalBlessing = rawTitle.includes("원래인간") || 
+                             rawTitle.includes("Original Blessing") || 
+                             rawScripture.includes("1:27") || 
+                             rawPdf.includes("원래인간");
 
-  let points = [];
-  const rawContent = data.content || data.summary || "";
-  if (rawContent) {
-    const rawLines = rawContent.split('\n').map(l => l.trim()).filter(Boolean);
-    let currentPoint = null;
-    rawLines.forEach(line => {
-      const numMatch = line.match(/^(\d+)[\.\)]\s*(.*)/);
-      if (numMatch) {
-        if (currentPoint) points.push(currentPoint);
-        const itemNum = parseInt(numMatch[1], 10);
-        const rest = numMatch[2].trim();
-        const parenMatch = rest.match(/^([^(]+)\s*\(([^)]+)\)$/);
-        if (parenMatch) {
-          currentPoint = {
-            num: itemNum,
-            titleKo: parenMatch[1].trim(),
-            titleEn: parenMatch[2].trim()
-          };
-        } else {
-          currentPoint = {
-            num: itemNum,
-            titleKo: rest,
-            titleEn: ""
-          };
-        }
-      } else if (currentPoint && !currentPoint.titleEn && /^[A-Za-z"'(]/.test(line)) {
-        const cleanEn = line.replace(/^\(|\)$/g, '').trim();
-        currentPoint.titleEn = cleanEn;
-      }
-    });
-    if (currentPoint) points.push(currentPoint);
-  }
-
-  if (points.length < 5 && scripture.includes("1:27")) {
-    points = defaultPoints;
-  } else if (points.length === 0) {
-    points = defaultPoints;
-  }
-
-  const meetingDateStr = custom ? (custom.displayDate || custom.date || "기도모임 말씀") : "매월 첫 주일 호주 AEST 8:00 PM (한국 19:00)";
-
-  const scriptureKorean = (data.scriptureKorean && data.scriptureKorean.length > 0)
-    ? data.scriptureKorean
-    : [
+  if (isOriginalBlessing) {
+    return {
+      meetingTitle: custom ? "어라이즈 넥스트젠 30분 기도모임" : "2026 어라이즈 넥스트젠 30분 기도모임",
+      meetingSub: "4단계 순서 중 2단계: 후대 복음 말씀 (5분)",
+      title: "원래인간 (Original Blessing)",
+      scripture: "창세기 1:27-28 (Genesis 1:27-28)",
+      theme: "하나님의 형상 회복과 언약의 후대 살리기",
+      pdfUrl: "후대복음말씀_원래인간.pdf",
+      meetingTime: custom ? (custom.displayDate || custom.date || "2026년 10월 4일 (일) 19:50") : "매월 첫 주일 호주 AEST 7:50 PM (한국 18:50)",
+      scriptureKorean: [
         {
           verse: "27절",
           text: "하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고"
@@ -4085,11 +4094,8 @@ function getWordPresentationData() {
           verse: "28절",
           text: "하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라"
         }
-      ];
-
-  const scriptureEnglish = (data.scriptureEnglish && data.scriptureEnglish.length > 0)
-    ? data.scriptureEnglish
-    : [
+      ],
+      scriptureEnglish: [
         {
           verse: "v.27",
           text: "So God created mankind in his own image, in the image of God he created them; male and female he created them."
@@ -4098,18 +4104,81 @@ function getWordPresentationData() {
           verse: "v.28",
           text: "God blessed them and said to them, \"Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.\""
         }
-      ];
+      ],
+      points: [
+        {
+          num: 1,
+          titleKo: "하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)\n지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도 다스려지지 않는다.",
+          titleEn: "The Image of God—A human being who resemble God's character/ nature (one who exercises dominion over all things).\nIn our current state, we fail to exercise dominion—whether over our nation, people, society, family, marital relationships, children, or even ourselves."
+        },
+        {
+          num: 2,
+          titleKo: "하나님의 형상이 회복된 증인들\n구약-다윗 (시 23 부족함이 없다) 신약-바울 (빌 4:16 능력주시는 자 안에서 다 된다) 이 의미는 예수 믿는다해서 암도 안 걸리고 죽지도 않는 다는 말이 아니다, 모든 문제가 문제되어지지않고 다스려 진다는 말이다.",
+          titleEn: "Witnesses in whom the Image of God has been restored.\nIn the Old Testament, there is David (Psalm 23: \"I lack nothing\"); in the New Testament, there is Paul (Philippians 4:13: \"I can do all things through Him who gives me strength\"). This does not mean that believing in Jesus guarantees immunity from cancer or death; rather, it means that no problem remains a \"problem\"—instead, all things come under one's dominion."
+        },
+        {
+          num: 3,
+          titleKo: "후대- 이 하나님 형상이 회복되도록 도와야한다",
+          titleEn: "The Next Generation – We must help them restore this image of God."
+        }
+      ]
+    };
+  }
 
+  // Default: 원죄 (Original Sin) — 창세기 3장 문제
   return {
     meetingTitle: custom ? "어라이즈 넥스트젠 30분 기도모임" : "2026 어라이즈 넥스트젠 30분 기도모임",
     meetingSub: "4단계 순서 중 2단계: 후대 복음 말씀 (5분)",
-    title: title,
-    scripture: scripture,
-    theme: "언약의 후대에게 전달할 5분 복음 말씀",
-    meetingTime: meetingDateStr,
-    scriptureKorean: scriptureKorean,
-    scriptureEnglish: scriptureEnglish,
-    points: points
+    title: "원죄 (Original Sin) — 창세기 3장 문제",
+    scripture: "창세기 3:1-14 (Genesis 3:1-14)",
+    theme: "인간의 근본문제, 찾아온 문제, 절대절망과 오직 그리스도의 필요성",
+    pdfUrl: "후대복음말씀_원죄.pdf",
+    meetingTime: custom ? (custom.displayDate || custom.date || "2026년 11월 1일 (일) 19:50") : "매월 첫 주일 호주 AEST 7:50 PM (한국 18:50)",
+    scriptureKorean: [
+      {
+        verse: "4-5절",
+        text: "뱀이 여자에게 이르되 너희가 결코 죽지 아니하리라 너희가 그것을 먹는 날에는 너희 눈이 밝아져 하나님과 같이 되어 선악을 알 줄 하나님이 아심이니라"
+      },
+      {
+        verse: "6-7절",
+        text: "여자가 그 열매를 따먹고 자기와 함께 있는 남편에게도 주매 그도 먹은지라 이에 그들의 눈이 밝아져 자기들이 벗은 줄을 알고 무화과나무 잎을 엮어 치마로 삼았더라"
+      },
+      {
+        verse: "9-10절",
+        text: "여호와 하나님이 아담을 부르시며 그에게 이르시되 네가 어디 있느냐 이르되 내가 동산에서 하나님의 소리를 듣고 내가 벗었으므로 두려워하여 숨었나이다"
+      }
+    ],
+    scriptureEnglish: [
+      {
+        verse: "v.4-5",
+        text: "The serpent said to the woman, \"You will not certainly die. For God knows that when you eat from it your eyes will be opened, and you will be like God, knowing good and evil.\""
+      },
+      {
+        verse: "v.6-7",
+        text: "She took some and ate it. She also gave some to her husband, who was with her, and he ate it. Then the eyes of both of them were opened, and they realized they were naked; so they sewed fig leaves together and made coverings."
+      },
+      {
+        verse: "v.9-10",
+        text: "But the Lord God called to the man, \"Where are you?\" He answered, \"I heard you in the garden, and I was afraid because I was naked; so I hid.\""
+      }
+    ],
+    points: [
+      {
+        num: 1,
+        titleKo: "모든 인간의 근본문제\n1) 하나님 떠남\n2) 죄-하나님 떠나 있는게 죄, 죄를 지을수 밖에 없는 상태\n3) 사탄-마귀의 종, 운명팔자에서 빠져 나올수 없게 됨",
+        titleEn: "The fundamental problem of all humanity\n1) Separation from God\n2) Sin—Being apart from God is sin; a state in which one cannot help but commit sins.\n3) Satan—Becoming a slave to the devil, trapped in a destiny or fate from which one cannot escape."
+      },
+      {
+        num: 2,
+        titleKo: "그래서 찾아온 문제\n• 하나님과 같이 되어-자기가 신이 되고 싶은 뉴에이지 사상\n• 선악을-판단, 정죄 / 눈이 밝아져-영안 닫힘, 육안 열림\n• 벗은 줄을 알고-수치심 / 무화과 잎 치마-포장,율법,윤리\n• 낯을 피하여-어리석음 / 숨은지라-죄의식 / 두려워하여-염려\n• 하나님이 주셔서-원망 / 꾀므로-핑계",
+        titleEn: "The problems that ensued\n• \"To become like God\"—The desire to be one's own god (New Age ideology)\n• \"Knowledge of good and evil\"—judging and condemning\n• \"Eyes opened\"—spiritual eyes closed, fleshly eyes opened\n• \"Realized they were naked\"—shame / \"Sewed fig leaves\"—covering up through legalism, ethics\n• \"Hid\"—foolishness, guilt / \"Were afraid\"—anxiety / Blaming & making excuses"
+      },
+      {
+        num: 3,
+        titleKo: "인간의 현주소-절대절망 (칼빈-전적타락)\n우울증, 불안, 초조, 근심, 염려, 무기력감, 공황장애, 대인기피증, 자살, 중독, 인간관계 깨짐 등 놀랄 일이 아니라 후대와 모든 민족에게 당연히 올 수밖에 없는 문제입니다.",
+        titleEn: "The current state of humanity—Absolute despair (Total depravity)\nDepression, anxiety, powerlessness, insomnia, panic disorders, suicide, addiction, broken human relationships—it is inevitable that this issue will confront future generations and all nations."
+      }
+    ]
   };
 }
 
@@ -4139,7 +4208,9 @@ function closeWordPresentationModal() {
   document.body.style.overflow = '';
 
   if (document.fullscreenElement) {
-    document.exitFullscreen().catch(() => {});
+    if (document.exitFullscreen) {
+      document.exitFullscreen().catch(() => {});
+    }
   }
   const fsIcon = document.getElementById('pptFullscreenIcon');
   if (fsIcon) fsIcon.textContent = '🖥️';
@@ -4234,34 +4305,34 @@ function renderPptSlide(index) {
         <div class="ppt-slide-step-badge">STEP 2 : SCRIPTURE READING</div>
         <h2 class="ppt-slide-main-title">📖 본문 성경 말씀 낭독 — ${escapeHtml(data.scripture)}</h2>
       </div>
-      <div class="ppt-scripture-grid" style="flex: 1;">
-        <div class="ppt-scripture-box">
+      <div class="ppt-scripture-grid" style="flex: 1; gap: 1.2rem;">
+        <div class="ppt-scripture-box" style="padding: 1.2rem 1.4rem;">
           <div class="ppt-box-header">
             <span class="ppt-box-lang">🇰🇷 한국어 성경 (개역개정)</span>
-            <span class="ppt-box-label">창세기 1:27-28</span>
+            <span class="ppt-box-label">${escapeHtml(data.scripture.split(' ')[0] + ' ' + (data.scripture.split(' ')[1] || ''))}</span>
           </div>
           ${data.scriptureKorean.map(v => `
-            <div class="ppt-verse-row" style="margin-bottom: 1.2rem;">
+            <div class="ppt-verse-row" style="margin-bottom: 0.9rem;">
               <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
-              <span style="line-height: 1.7; font-size: 1.15rem; font-weight: 700;">${v.text.replace(/하나님의 형상/g, '<span class="ppt-highlight-word">하나님의 형상</span>')
-                           .replace(/복을 주시며/g, '<span class="ppt-highlight-word">복을 주시며</span>')
-                           .replace(/땅을 정복하라/g, '<span class="ppt-highlight-word">땅을 정복하라</span>')
-                           .replace(/다스리라/g, '<span class="ppt-highlight-word">다스리라</span>')}</span>
+              <span style="line-height: 1.65; font-size: 1.08rem; font-weight: 700;">${
+                v.text.replace(/하나님과 같이 되어|선악을 알 줄|눈이 밝아져|무화과나무 잎을 엮어 치마|두려워하여/g, '<span class="ppt-highlight-word">$&</span>')
+                      .replace(/하나님의 형상|복을 주시며|땅을 정복하라|다스리라/g, '<span class="ppt-highlight-word">$&</span>')
+              }</span>
             </div>
           `).join('')}
         </div>
-        <div class="ppt-scripture-box">
+        <div class="ppt-scripture-box" style="padding: 1.2rem 1.4rem;">
           <div class="ppt-box-header">
             <span class="ppt-box-lang">🇺🇸 English Bible (NIV)</span>
-            <span class="ppt-box-label">Genesis 1:27-28</span>
+            <span class="ppt-box-label">${escapeHtml(data.scripture.split('(')[1] ? data.scripture.split('(')[1].replace(')', '') : 'Scripture')}</span>
           </div>
           ${data.scriptureEnglish.map(v => `
-            <div class="ppt-verse-row" style="margin-bottom: 1.2rem;">
+            <div class="ppt-verse-row" style="margin-bottom: 0.9rem;">
               <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
-              <span style="line-height: 1.7; font-size: 1.15rem; font-weight: 700;">${v.text.replace(/in his own image/g, '<span class="ppt-highlight-word">in his own image</span>')
-                           .replace(/God blessed them/g, '<span class="ppt-highlight-word">God blessed them</span>')
-                           .replace(/subdue it/g, '<span class="ppt-highlight-word">subdue it</span>')
-                           .replace(/rule over/g, '<span class="ppt-highlight-word">rule over</span>')}</span>
+              <span style="line-height: 1.65; font-size: 1.08rem; font-weight: 700; font-style: normal;">${
+                v.text.replace(/you will be like God|knowing good and evil|eyes.*opened|sewed fig leaves|afraid/gi, '<span class="ppt-highlight-word">$&</span>')
+                      .replace(/in his own image|God blessed them|subdue it|rule over/gi, '<span class="ppt-highlight-word">$&</span>')
+              }</span>
             </div>
           `).join('')}
         </div>
@@ -4274,14 +4345,14 @@ function renderPptSlide(index) {
         <div class="ppt-slide-step-badge">STEP 2 : 5-MINUTE GOSPEL MESSAGE SUMMARY</div>
         <h2 class="ppt-slide-main-title">📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)</h2>
       </div>
-      <div class="ppt-points-grid" style="flex: 1; margin-top: 1rem;">
+      <div class="ppt-points-grid" style="flex: 1; margin-top: 0.8rem; gap: 1rem;">
         ${data.points.map(pt => `
-          <div class="ppt-point-card">
+          <div class="ppt-point-card" style="padding: 1.2rem;">
             <div class="ppt-point-top">
               <span class="ppt-point-num">0${pt.num}</span>
             </div>
-            <h3 class="ppt-point-title-ko">${escapeHtml(pt.titleKo)}</h3>
-            ${pt.titleEn ? `<div class="ppt-point-title-en">${escapeHtml(pt.titleEn)}</div>` : ''}
+            <h3 class="ppt-point-title-ko" style="font-size: 1.02rem; line-height: 1.55; margin-bottom: 0.6rem;">${escapeHtml(pt.titleKo)}</h3>
+            ${pt.titleEn ? `<div class="ppt-point-title-en" style="font-size: 1.02rem; font-weight: 700; font-style: normal; line-height: 1.55;">${escapeHtml(pt.titleEn)}</div>` : ''}
           </div>
         `).join('')}
       </div>
@@ -4309,38 +4380,326 @@ function togglePptFullscreen() {
 window.togglePptFullscreen = togglePptFullscreen;
 
 function switchWordPdfTab(tabName) {
-  const embedPane = document.getElementById('wordPdfEmbedPane');
-  const printArea = document.getElementById('wordPdfPrintArea');
-  const btnEmbed = document.getElementById('btnWordPdfTabEmbed');
-  const btnHtml = document.getElementById('btnWordPdfTabHtml');
+  const tabEmbed = document.getElementById('btnWordPdfTabEmbed');
+  const tabHtml = document.getElementById('btnWordPdfTabHtml');
+  const paneEmbed = document.getElementById('wordPdfEmbedPane');
+  const paneHtml = document.getElementById('wordPdfPrintArea');
 
   if (tabName === 'embed') {
-    if (embedPane) embedPane.style.display = 'block';
-    if (printArea) printArea.style.display = 'none';
-    if (btnEmbed) {
-      btnEmbed.className = 'btn btn-xs btn-primary';
-      btnEmbed.style.fontWeight = '700';
+    if (tabEmbed) {
+      tabEmbed.classList.add('btn-primary');
+      tabEmbed.classList.remove('btn-ghost');
+      tabEmbed.style.color = '#fff';
     }
-    if (btnHtml) {
-      btnHtml.className = 'btn btn-xs btn-ghost';
-      btnHtml.style.color = '#cbd5e1';
-      btnHtml.style.fontWeight = '600';
+    if (tabHtml) {
+      tabHtml.classList.remove('btn-primary');
+      tabHtml.classList.add('btn-ghost');
+      tabHtml.style.color = '#cbd5e1';
     }
+    if (paneEmbed) paneEmbed.style.display = 'flex';
+    if (paneHtml) paneHtml.style.display = 'none';
   } else {
-    if (embedPane) embedPane.style.display = 'none';
-    if (printArea) printArea.style.display = 'block';
-    if (btnEmbed) {
-      btnEmbed.className = 'btn btn-xs btn-ghost';
-      btnEmbed.style.color = '#cbd5e1';
-      btnEmbed.style.fontWeight = '600';
+    if (tabEmbed) {
+      tabEmbed.classList.remove('btn-primary');
+      tabEmbed.classList.add('btn-ghost');
+      tabEmbed.style.color = '#cbd5e1';
     }
-    if (btnHtml) {
-      btnHtml.className = 'btn btn-xs btn-primary';
-      btnHtml.style.fontWeight = '700';
+    if (tabHtml) {
+      tabHtml.classList.add('btn-primary');
+      tabHtml.classList.remove('btn-ghost');
+      tabHtml.style.color = '#fff';
     }
+    if (paneEmbed) paneEmbed.style.display = 'none';
+    if (paneHtml) paneHtml.style.display = 'block';
   }
 }
 window.switchWordPdfTab = switchWordPdfTab;
+
+// 10월 4일 원래인간 완본 HTML (A4 1장 규격)
+function getOriginalBlessingHtml() {
+  return `
+    <div class="no-print" style="margin-bottom: 1.4rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.8rem; flex-wrap: wrap; gap: 0.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="background: #e0f2fe; color: #0369a1; font-weight: 800; font-size: 0.82rem; padding: 0.25rem 0.65rem; border-radius: 9999px;">
+          📄 공식 원본 규격 A4 (10월 4일 말씀)
+        </span>
+        <span style="font-size: 0.88rem; color: #475569; font-weight: 700;">
+          원래인간 (Original Blessing) · 본문 (창 1:27-28)
+        </span>
+      </div>
+      <div style="font-size: 0.82rem; color: #64748b; font-weight: 600;">
+        🖨️ 인쇄 시 규격 A4 1장에 맞춰 깔끔하게 출력됩니다
+      </div>
+    </div>
+
+    <div class="word-doc-sheet" style="color: #111827; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.75;">
+      <!-- Korean Section -->
+      <div style="margin-bottom: 3.2rem;">
+        <h1 style="font-size: 1.35rem; font-weight: 800; color: #111827; margin: 0 0 1rem 0; letter-spacing: -0.01em;">
+          원래인간 (Original Blessing)
+        </h1>
+        <div style="font-size: 1.08rem; font-weight: 700; color: #111827; margin-bottom: 1.8rem;">
+          본문 (창 1:27-28)
+        </div>
+
+        <div style="margin-bottom: 1.6rem;">
+          <div style="font-size: 1.05rem; font-weight: 700; color: #111827; margin-bottom: 0.45rem;">
+            1. 하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)
+          </div>
+          <div style="font-size: 1.02rem; font-weight: 400; color: #1f2937; line-height: 1.75; padding-left: 1.2rem;">
+            지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도<br>
+            다스려지지 않는다.
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.6rem;">
+          <div style="font-size: 1.05rem; font-weight: 700; color: #111827; margin-bottom: 0.45rem;">
+            2. 하나님의 형상이 회복된 증인들
+          </div>
+          <div style="font-size: 1.02rem; font-weight: 400; color: #1f2937; line-height: 1.75; padding-left: 1.2rem;">
+            구약-다윗 (시 23 부족함이 없다) 신약-바울 (빌 4:16 능력주시는 자 안에서 다<br>
+            된다) 이 의미는 예수 믿는다해서 암도 안 걸리고 죽지도 않는 다는 말이 아니다,<br>
+            모든 문제가 문제되어지지않고 다스려 진다는 말이다.
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size: 1.05rem; font-weight: 700; color: #111827;">
+            3. 후대- 이 하나님 형상이 회복되도록 도와야한다
+          </div>
+        </div>
+      </div>
+
+      <!-- English Section (Identical 1:1 Font Size & Bold Weight strictly adhering to GEMINI.md) -->
+      <div>
+        <h1 style="font-size: 1.35rem; font-weight: 800; color: #111827; margin: 0 0 1rem 0; letter-spacing: -0.01em; font-style: normal;">
+          Original Blessing
+        </h1>
+        <div style="font-size: 1.08rem; font-weight: 700; color: #111827; margin-bottom: 1.8rem; font-style: normal;">
+          Scripture (Genesis 1:27-28)
+        </div>
+
+        <div style="margin-bottom: 1.6rem;">
+          <div style="font-size: 1.05rem; font-weight: 700; color: #111827; margin-bottom: 0.45rem; font-style: normal;">
+            1. The Image of God—A human being who resemble God’s character/ nature (one who exercises dominion over all things).
+          </div>
+          <div style="font-size: 1.02rem; font-weight: 400; color: #1f2937; line-height: 1.75; padding-left: 1.2rem; font-style: normal;">
+            In our current state, we fail to exercise dominion—whether over our nation, people, society, family, marital relationships, children, or even ourselves.
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.6rem;">
+          <div style="font-size: 1.05rem; font-weight: 700; color: #111827; margin-bottom: 0.45rem; font-style: normal;">
+            2. Witnesses in whom the Image of God has been restored.
+          </div>
+          <div style="font-size: 1.02rem; font-weight: 400; color: #1f2937; line-height: 1.75; padding-left: 1.2rem; font-style: normal;">
+            In the Old Testament, there is David (Psalm 23: "I lack nothing"); in the New Testament, there is Paul (Philippians 4:13: "I can do all things through Him who gives me strength"). This does not mean that believing in Jesus guarantees immunity from cancer or death; rather, it means that no problem remains a "problem"—instead, all things come under one’s dominion.
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size: 1.05rem; font-weight: 700; color: #111827; font-style: normal;">
+            3. The Next Generation – We must help them restore this image of God.
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// 11월 1일 원죄 (창세기 3장 문제) 완본 HTML (A4 5장 규격, 원본 노란색 형광펜 하이라이트 완벽 반영)
+function getOriginalSinHtml() {
+  return `
+    <div class="no-print" style="margin-bottom: 1.4rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.8rem; flex-wrap: wrap; gap: 0.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="background: #fef08a; color: #854d0e; font-weight: 800; font-size: 0.82rem; padding: 0.25rem 0.65rem; border-radius: 9999px;">
+          📄 공식 원본 규격 A4 (11월 1일 예배 말씀 · 5페이지 완본)
+        </span>
+        <span style="font-size: 0.88rem; color: #475569; font-weight: 700;">
+          원죄 (Original Sin) — 창세기 3장 문제 · 본문 (창 3:1-14)
+        </span>
+      </div>
+      <div style="font-size: 0.82rem; color: #64748b; font-weight: 600;">
+        🖨️ 인쇄 시 원본 규격 A4 5장으로 분할되어 깔끔하게 출력됩니다
+      </div>
+    </div>
+
+    <!-- Page 1 (Korean Scripture Genesis 3:1-14) -->
+    <div class="word-doc-sheet" style="color: #111827; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.8; margin-bottom: 2rem; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.6rem; margin-bottom: 1.5rem;">
+        <h1 style="font-size: 1.35rem; font-weight: 800; color: #111827; margin: 0; letter-spacing: -0.01em;">
+          원죄 (Original Sin)
+        </h1>
+        <span style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">Page 1 / 5</span>
+      </div>
+      <div style="font-size: 1.08rem; font-weight: 700; color: #111827; margin-bottom: 1.5rem;">
+        본문 (창 3:1-14)
+      </div>
+
+      <div style="font-size: 1.02rem; color: #1f2937; line-height: 1.85;">
+        <p style="margin-bottom: 0.8rem;"><strong>1</strong> 그런데 뱀은 여호와 하나님이 지으신 들짐승 중에 가장 간교하니라 뱀이 여자에게 물어 이르되 하나님이 참으로 너희에게 동산 모든 나무의 열매를 먹지 말라 하시더냐</p>
+        <p style="margin-bottom: 0.8rem;"><strong>2</strong> 여자가 뱀에게 말하되 동산 나무의 열매를 우리가 먹을 수 있으나</p>
+        <p style="margin-bottom: 0.8rem;"><strong>3</strong> 동산 중앙에 있는 나무의 열매는 하나님의 말씀에 너희는 먹지도 말고 만지지도 말라 너희가 죽을까 하노라 하셨느니라</p>
+        <p style="margin-bottom: 0.8rem;"><strong>4</strong> 뱀이 여자에게 이르되 너희가 결코 죽지 아니하리라</p>
+        <p style="margin-bottom: 0.8rem;"><strong>5</strong> 너희가 그것을 먹는 날에는 너희 눈이 밝아져 <mark class="pdf-highlight">하나님과 같이 되어 선악을 알 줄</mark> 하나님이 아심이니라</p>
+        <p style="margin-bottom: 0.8rem;"><strong>6</strong> 여자가 그 나무를 본즉 먹음직도 하고 보암직도 하고 지혜롭게 할 만큼 탐스럽기도 한 나무인지라 여자가 그 열매를 따먹고 자기와 함께 있는 남편에게도 주매 그도 먹은지라</p>
+        <p style="margin-bottom: 0.8rem;"><strong>7</strong> 이에 그들의 <mark class="pdf-highlight">눈이 밝아져 자기들이 벗은 줄을 알고 무화과나무 잎을 엮어 치마로</mark> 삼았더라</p>
+        <p style="margin-bottom: 0.8rem;"><strong>8</strong> 그들이 그 날 바람이 불 때 동산에 거니시는 여호와 하나님의 소리를 듣고 아담과 그의 아내가 여호와 하나님의 <mark class="pdf-highlight">낯을 피하여</mark> 동산 나무 사이에 <mark class="pdf-highlight">숨은지라</mark></p>
+        <p style="margin-bottom: 0.8rem;"><strong>9</strong> 여호와 하나님이 아담을 부르시며 그에게 이르시되 네가 어디 있느냐</p>
+        <p style="margin-bottom: 0.8rem;"><strong>10</strong> 이르되 내가 동산에서 하나님의 소리를 듣고 내가 벗었으므로 <mark class="pdf-highlight">두려워하여</mark> 숨었나이다</p>
+        <p style="margin-bottom: 0.8rem;"><strong>11</strong> 이르시되 누가 너의 벗었음을 네게 알렸느냐 내가 네게 먹지 말라 명한 그 나무 열매를 네가 먹었느냐</p>
+        <p style="margin-bottom: 0.8rem;"><strong>12</strong> 아담이 이르되 <mark class="pdf-highlight">하나님이 주셔서 나와 함께 있게 하신 여자</mark> 그가 그 나무 열매를 내게 주므로 내가 먹었나이다</p>
+        <p style="margin-bottom: 0.8rem;"><strong>13</strong> 여호와 하나님이 여자에게 이르시되 네가 어찌하여 이렇게 하였느냐 여자가 이르되 뱀이 나를 <mark class="pdf-highlight">꾀므로</mark> 내가 먹었나이다</p>
+        <p style="margin-bottom: 0.8rem;"><strong>14</strong> 여호와 하나님이 뱀에게 이르시되 네가 이렇게 하였으니 네가 모든 가축과 들의 모든 짐승보다 더욱 저주를 받아 배로 다니고 살아 있는 동안 흙을 먹을지니라</p>
+      </div>
+    </div>
+
+    <!-- Page 2 (Korean Message: 1. 근본문제, 2. 찾아온 문제, 3. 인간의 현주소) -->
+    <div class="word-doc-sheet" style="color: #111827; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.8; margin-bottom: 2rem; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.6rem; margin-bottom: 1.5rem;">
+        <span style="font-size: 0.95rem; font-weight: 700; color: #475569;">원죄 (Original Sin) — 메시지 요약</span>
+        <span style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">Page 2 / 5</span>
+      </div>
+
+      <div style="margin-bottom: 1.8rem;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.8rem;">
+          1. 모든 인간의 근본문제
+        </div>
+        <div style="font-size: 1.02rem; color: #1f2937; padding-left: 0.8rem; line-height: 1.8;">
+          <p style="margin-bottom: 0.4rem;"><strong>1) 하나님 떠남</strong></p>
+          <p style="margin-bottom: 0.4rem;"><strong>2) 죄</strong>-하나님 떠나 있는게 죄, 죄를 지을수 밖에 없는 상태</p>
+          <p style="margin-bottom: 0.4rem;"><strong>3) 사탄</strong>- 마귀위 종, 운명팔자에서 빠져 나올수 없게 됨</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.8rem;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.8rem;">
+          2. 그래서 찾아온 문제
+        </div>
+        <div style="font-size: 1.02rem; color: #1f2937; padding-left: 0.8rem; line-height: 1.85;">
+          <p style="margin-bottom: 0.45rem;"><mark class="pdf-highlight">하나님과 같이 되어</mark>-자기가 신이 되고 싶은-뉴에이지 사상 -하나님 없이 인간 스스로 신이 될수 있다는 사상</p>
+          <p style="margin-bottom: 0.45rem;"><mark class="pdf-highlight">선악을</mark>-판단, 정죄</p>
+          <p style="margin-bottom: 0.45rem;"><mark class="pdf-highlight">눈이 밝아져</mark>-영적 눈 닫히고 육신의 눈 열림</p>
+          <p style="margin-bottom: 0.45rem;"><mark class="pdf-highlight">벗은 줄을 알고</mark>-수치심</p>
+          <p style="margin-bottom: 0.45rem;"><mark class="pdf-highlight">무화과나무 잎을 엮어 치마</mark>-포장,율법,윤리,도덕,착함, 진실함</p>
+          <p style="margin-bottom: 0.45rem;"><mark class="pdf-highlight">낯을 피하여</mark>-어리석음</p>
+          <p style="margin-bottom: 0.45rem;"><mark class="pdf-highlight">숨은지라</mark>-죄의식</p>
+          <p style="margin-bottom: 0.45rem;"><mark class="pdf-highlight">두려워하여</mark>-걱정,염려,두려움</p>
+          <p style="margin-bottom: 0.45rem;"><mark class="pdf-highlight">하나님이 주셔서</mark>-원망</p>
+          <p style="margin-bottom: 0.45rem;"><mark class="pdf-highlight">꾀므로</mark>-핑계</p>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.8rem;">
+          3. 인간의 현주소-절대절망-모든게 다 안되는 상태 (칼빈-전적타락)
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 3 (Korean Conclusion & English Scripture Genesis 3:1-9) -->
+    <div class="word-doc-sheet" style="color: #111827; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.8; margin-bottom: 2rem; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.6rem; margin-bottom: 1.5rem;">
+        <span style="font-size: 0.95rem; font-weight: 700; color: #475569;">결론 및 English Scripture (Genesis 3:1-9)</span>
+        <span style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">Page 3 / 5</span>
+      </div>
+
+      <div style="margin-bottom: 2.2rem; font-size: 1.02rem; color: #1f2937; line-height: 1.85;">
+        <p style="margin-bottom: 0.6rem;">우울증, 불안, 초조, 근심, 염려, 무기력감, 노이로제, 불면증, 공항장애, 대인기피증,<br>
+        자해, 자살, 알콜중독, 마약, 폭력, 인간관계 깨짐, 불평등, 전쟁 등등등</p>
+        <p style="font-weight: 700; color: #b91c1c;">놀랄일이 아니라 이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다.</p>
+      </div>
+
+      <!-- English Section begins with 1:1 font size & bold weight as per GEMINI.md -->
+      <div style="border-top: 2px dashed #cbd5e1; padding-top: 1.5rem;">
+        <h1 style="font-size: 1.35rem; font-weight: 800; color: #111827; margin: 0 0 1rem 0; letter-spacing: -0.01em; font-style: normal;">
+          Original Sin
+        </h1>
+        <div style="font-size: 1.08rem; font-weight: 700; color: #111827; margin-bottom: 1.5rem; font-style: normal;">
+          Scripture (Genesis 3:1-14)
+        </div>
+
+        <div style="font-size: 1.02rem; color: #1f2937; line-height: 1.85; font-style: normal;">
+          <p style="margin-bottom: 0.8rem;"><strong>1</strong> Now the serpent was more crafty than any of the wild animals the Lord God had made. He said to the woman, “Did God really say, ‘You must not eat from any tree in the garden’?”</p>
+          <p style="margin-bottom: 0.8rem;"><strong>2</strong> The woman said to the serpent, “We may eat fruit from the trees in the garden,</p>
+          <p style="margin-bottom: 0.8rem;"><strong>3</strong> but God did say, ‘You must not eat fruit from the tree that is in the middle of the garden, and you must not touch it, or you will die.’”</p>
+          <p style="margin-bottom: 0.8rem;"><strong>4</strong> The serpent said to the woman, “You will not certainly die.</p>
+          <p style="margin-bottom: 0.8rem;"><strong>5</strong> For God knows that when you eat from it your eyes will be opened, and <mark class="pdf-highlight">you will be like God, knowing good and evil.</mark>”</p>
+          <p style="margin-bottom: 0.8rem;"><strong>6</strong> When the woman saw that the fruit of the tree was good for food and pleasing to the eye, and also desirable for gaining wisdom, she took some and ate it. She also gave some to her husband, who was with her, and he ate it.</p>
+          <p style="margin-bottom: 0.8rem;"><strong>7</strong> Then <mark class="pdf-highlight">the eyes of both of them were opened, and they realized they were naked; so they sewed fig leaves together and made coverings for themselves.</mark></p>
+          <p style="margin-bottom: 0.8rem;"><strong>8</strong> Then the man and his wife heard the sound of the Lord God as he was walking in the garden in the cool of the day, and they <mark class="pdf-highlight">hid</mark> from the Lord God among the trees of the garden.</p>
+          <p style="margin-bottom: 0.8rem;"><strong>9</strong> But the Lord God called to the man, “Where are you?”</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 4 (English Scripture Genesis 3:10-14 & English Points 1, 2) -->
+    <div class="word-doc-sheet" style="color: #111827; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.8; margin-bottom: 2rem; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.6rem; margin-bottom: 1.5rem;">
+        <span style="font-size: 0.95rem; font-weight: 700; color: #475569; font-style: normal;">English Scripture (Genesis 3:10-14) &amp; Message</span>
+        <span style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">Page 4 / 5</span>
+      </div>
+
+      <div style="font-size: 1.02rem; color: #1f2937; line-height: 1.85; font-style: normal; margin-bottom: 2rem;">
+        <p style="margin-bottom: 0.8rem;"><strong>10</strong> He answered, “I heard you in the garden, and <mark class="pdf-highlight">I was afraid</mark> because I was naked; so I hid.”</p>
+        <p style="margin-bottom: 0.8rem;"><strong>11</strong> And he said, “Who told you that you were naked? Have you eaten from the tree that I commanded you not to eat from?”</p>
+        <p style="margin-bottom: 0.8rem;"><strong>12</strong> Adam... He replied, "<mark class="pdf-highlight">The woman You put here</mark> with me—she gave me some fruit from the tree, and I ate it."</p>
+        <p style="margin-bottom: 0.8rem;"><strong>13</strong> The Lord God said to the woman, "What is this you have done?" The woman said, "<mark class="pdf-highlight">The serpent deceived me</mark>, and I ate."</p>
+        <p style="margin-bottom: 0.8rem;"><strong>14</strong> The Lord God said to the serpent, "Because you have done this, cursed are you above all livestock and all wild animals! You will crawl on your belly and you will eat dust all the days of your life."</p>
+      </div>
+
+      <div style="margin-bottom: 1.8rem; font-style: normal;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.8rem; font-style: normal;">
+          1. The fundamental problem of all humanity
+        </div>
+        <div style="font-size: 1.02rem; color: #1f2937; padding-left: 0.8rem; line-height: 1.8; font-style: normal;">
+          <p style="margin-bottom: 0.4rem;"><strong>1) Separation from God</strong></p>
+          <p style="margin-bottom: 0.4rem;"><strong>2) Sin</strong>—Being apart from God is sin; a state in which one cannot help but commit sins.</p>
+          <p style="margin-bottom: 0.4rem;"><strong>3) Satan</strong>—Becoming a slave to the devil, trapped in a destiny or fate from which one cannot escape.</p>
+        </div>
+      </div>
+
+      <div style="font-style: normal;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.8rem; font-style: normal;">
+          2. The problems that ensued
+        </div>
+        <div style="font-size: 1.02rem; color: #1f2937; padding-left: 0.8rem; line-height: 1.85; font-style: normal;">
+          <p style="margin-bottom: 0.45rem;">"<mark class="pdf-highlight">To become like God</mark>"—The desire to be one's own god (New Age ideology)—The belief that humans can become gods on their own, without God.</p>
+          <p style="margin-bottom: 0.45rem;">"<mark class="pdf-highlight">Knowledge of good and evil</mark>"—judging and condemning.</p>
+          <p style="margin-bottom: 0.45rem;">"<mark class="pdf-highlight">Their eyes were opened</mark>"—spiritual eyes closed, while physical (fleshly) eyes opened.</p>
+          <p style="margin-bottom: 0.45rem;">"<mark class="pdf-highlight">Realized they were naked</mark>"—shame</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 5 (English Point 2 cont., Point 3 & Conclusion) -->
+    <div class="word-doc-sheet" style="color: #111827; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.8; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.6rem; margin-bottom: 1.5rem;">
+        <span style="font-size: 0.95rem; font-weight: 700; color: #475569; font-style: normal;">English Message (Point 2 cont., Point 3 Conclusion)</span>
+        <span style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">Page 5 / 5</span>
+      </div>
+
+      <div style="margin-bottom: 2rem; font-size: 1.02rem; color: #1f2937; padding-left: 0.8rem; line-height: 1.85; font-style: normal;">
+        <p style="margin-bottom: 0.45rem;">"<mark class="pdf-highlight">Sewed fig leaves together to make coverings</mark>"—covering up through legalism, ethics, morality, "goodness," or sincerity.</p>
+        <p style="margin-bottom: 0.45rem;">"<mark class="pdf-highlight">Hid from His presence</mark>"—foolishness.</p>
+        <p style="margin-bottom: 0.45rem;">"<mark class="pdf-highlight">Hid themselves</mark>"—a sense of guilt.</p>
+        <p style="margin-bottom: 0.45rem;">"<mark class="pdf-highlight">Were afraid</mark>"—worry, anxiety, and fear.</p>
+        <p style="margin-bottom: 0.45rem;">"<mark class="pdf-highlight">The woman You put here</mark>"—resentment/blaming others.</p>
+        <p style="margin-bottom: 0.45rem;">"<mark class="pdf-highlight">The Serpent Deceived me</mark>"—making excuses.</p>
+      </div>
+
+      <div style="margin-bottom: 1.8rem; font-style: normal;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.8rem; font-style: normal;">
+          3. The current state of humanity—Absolute despair—A condition where nothing works (Calvin’s concept of "Total depravity").
+        </div>
+        <div style="font-size: 1.02rem; color: #1f2937; padding-left: 0.8rem; line-height: 1.85; font-style: normal;">
+          <p style="margin-bottom: 0.8rem;">Depression, anxiety, restlessness, worry, powerlessness, apprehension, neurosis, insomnia, panic disorders, social phobia, self-harm, suicide, alcoholism, drug abuse, violence, broken human relationships, inequality, and war, and so on.</p>
+          <p style="font-weight: 700; color: #b91c1c; font-style: normal;">This should come as no surprise; it is inevitable that this issue will eventually confront future generations and all nations.</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
 
 function openWordPdfModal(customSermon) {
   if (customSermon) {
@@ -4351,240 +4710,42 @@ function openWordPdfModal(customSermon) {
   const iframe = document.getElementById('wordPdfIframe');
   if (!modal || !printArea) return;
 
-  if (iframe) {
-    iframe.src = '후대복음말씀.pdf?v=20261022';
+  const data = getWordPresentationData();
+  const isOriginalBlessing = data.title.includes("원래인간") || data.scripture.includes("1:27");
+  const activePdfUrl = isOriginalBlessing ? "후대복음말씀_원래인간.pdf" : "후대복음말씀_원죄.pdf";
+
+  // Sync subtitle & links
+  const subtitle = document.getElementById('wordPdfSubtitle');
+  if (subtitle) {
+    subtitle.textContent = isOriginalBlessing 
+      ? "원래인간 (Original Blessing) · 본문 (창 1:27-28) · 10월 4일 말씀" 
+      : "원죄 (Original Sin) — 창세기 3장 문제 · 본문 (창 3:1-14) · 11월 1일 말씀";
   }
+  const directLink = document.getElementById('wordPdfDirectLink');
+  if (directLink) {
+    directLink.setAttribute('href', activePdfUrl);
+  }
+
+  // Sync iframe PDF
+  if (iframe) {
+    iframe.src = activePdfUrl + '?v=' + Date.now();
+  }
+
+  // Sync download buttons in modal header/body
+  const downloadBtns = modal.querySelectorAll('a[download]');
+  downloadBtns.forEach(btn => {
+    btn.setAttribute('href', activePdfUrl);
+    btn.setAttribute('download', activePdfUrl);
+  });
 
   switchWordPdfTab('embed');
 
-  printArea.innerHTML = `
-    <div class="pdf-header-row">
-      <div>
-        <div style="font-size: 0.85rem; font-weight: 800; color: #0284c7; text-transform: uppercase; margin-bottom: 0.2rem;">
-          2026 어라이즈 넥스트젠 30분 기도모임 · 2단계 후대 복음 말씀
-        </div>
-        <h1 class="pdf-title-main" style="font-size: 1.85rem; font-weight: 900; color: #0f172a; margin: 0.2rem 0;">
-          원래인간(Original Blessing) &amp; 원죄(Original Sin)
-        </h1>
-        <div class="pdf-scripture-line" style="font-size: 1.12rem; font-weight: 800; color: #0284c7;">
-          📖 본문: 창세기 1:27-28, 창세기 3:1-14 (Genesis 1:27-28, 3:1-14)
-        </div>
-      </div>
-      <div style="text-align: right;">
-        <span class="pdf-badge-meta">4단계 순서 중 2단계</span>
-        <div style="font-size: 0.82rem; font-weight: 700; color: #475569; margin-top: 0.35rem;">
-          매월 첫 주일 호주 AEST 8:00 PM (한국 19:00)
-        </div>
-      </div>
-    </div>
-
-    <!-- Direct PDF File Banner -->
-    <div style="background: #fdf2f8; border: 1px solid #f472b6; border-radius: 8px; padding: 0.75rem 1.1rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;">
-      <div style="display: flex; align-items: center; gap: 0.6rem;">
-        <span style="font-size: 1.3rem;">📄</span>
-        <div>
-          <strong style="color: #9d174d; font-size: 0.95rem;">공식 원본 PDF 파일: 후대복음말씀.pdf (총 6페이지 완본)</strong>
-          <div style="font-size: 0.8rem; color: #be185d;">성도 배포, 다민족 현장 나눔 및 Zoom 줌 화면 공유용</div>
-        </div>
-      </div>
-      <a href="후대복음말씀.pdf" download="후대복음말씀_원래인간과_원죄.pdf" target="_blank" class="btn btn-xs btn-primary" style="background: #db2777; border-color: #db2777; font-weight: 700; padding: 0.35rem 0.85rem; border-radius: 6px;">
-        📥 원본 PDF 파일 다운로드
-      </a>
-    </div>
-
-    <!-- PART 1: 원래인간 (Original Blessing) -->
-    <div style="border-bottom: 2px dashed #cbd5e1; padding-bottom: 1.5rem; margin-bottom: 1.8rem;">
-      <div style="background: #eff6ff; border-left: 5px solid #0284c7; padding: 0.6rem 1rem; border-radius: 4px; margin-bottom: 1rem;">
-        <h2 style="font-size: 1.35rem; font-weight: 900; color: #0369a1; margin: 0;">
-          [제 1부] 원래인간 (Original Blessing)
-        </h2>
-        <div style="font-size: 0.92rem; font-weight: 700; color: #0284c7; margin-top: 0.2rem;">
-          본문: 창세기 1:27-28 (Genesis 1:27-28)
-        </div>
-      </div>
-
-      <!-- Korean 3 Points -->
-      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.1rem 1.3rem; margin-bottom: 1.2rem;">
-        <div style="margin-bottom: 0.8rem;">
-          <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 0.25rem;">
-            1. 하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)
-          </div>
-          <div style="font-size: 0.96rem; color: #334155; line-height: 1.65;">
-            지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도 다스려지지 않는다.
-          </div>
-        </div>
-        <div style="margin-bottom: 0.8rem;">
-          <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 0.25rem;">
-            2. 하나님의 형상이 회복된 증인들
-          </div>
-          <div style="font-size: 0.96rem; color: #334155; line-height: 1.65;">
-            구약-다윗 (시 23 부족함이 없다) 신약-바울 (빌 4:16 능력주시는 자 안에서 다 된다) 이 의미는 예수 믿는다해서 암도 안 걸리고 죽지도 않는 다는 말이 아니다, 모든 문제가 문제되어지지않고 다스려 진다는 말이다.
-          </div>
-        </div>
-        <div>
-          <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">
-            3. 후대- 이 하나님 형상이 회복되도록 도와야한다
-          </div>
-        </div>
-      </div>
-
-      <!-- English 3 Points (1:1 font size & bold) -->
-      <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.1rem 1.3rem;">
-        <div style="font-size: 1.15rem; font-weight: 800; color: #166534; margin-bottom: 0.6rem;">
-          Original Blessing (Genesis 1:27-28)
-        </div>
-        <div style="margin-bottom: 0.8rem;">
-          <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 0.25rem;">
-            1. The Image of God—A human being who resemble God's character/ nature (one who exercises dominion over all things).
-          </div>
-          <div style="font-size: 0.96rem; font-weight: 700; color: #1e293b; line-height: 1.65;">
-            In our current state, we fail to exercise dominion—whether over our nation, people, society, family, marital relationships, children, or even ourselves.
-          </div>
-        </div>
-        <div style="margin-bottom: 0.8rem;">
-          <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 0.25rem;">
-            2. Witnesses in whom the Image of God has been restored.
-          </div>
-          <div style="font-size: 0.96rem; font-weight: 700; color: #1e293b; line-height: 1.65;">
-            In the Old Testament, there is David (Psalm 23: "I lack nothing"); in the New Testament, there is Paul (Philippians 4:13: "I can do all things through Him who gives me strength"). This does not mean that believing in Jesus guarantees immunity from cancer or death; rather, it means that no problem remains a "problem"—instead, all things come under one's dominion.
-          </div>
-        </div>
-        <div>
-          <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">
-            3. The Next Generation – We must help them restore this image of God.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PART 2: 원죄 (Original Sin) -->
-    <div>
-      <div style="background: #fef2f2; border-left: 5px solid #dc2626; padding: 0.6rem 1rem; border-radius: 4px; margin-bottom: 1rem;">
-        <h2 style="font-size: 1.35rem; font-weight: 900; color: #991b1b; margin: 0;">
-          [제 2부] 원죄 (Original Sin)
-        </h2>
-        <div style="font-size: 0.92rem; font-weight: 700; color: #dc2626; margin-top: 0.2rem;">
-          본문: 창세기 3:1-14 (Genesis 3:1-14)
-        </div>
-      </div>
-
-      <!-- Scripture Reading Korean (창세기 3:1-14 개역개정 with highlights) -->
-      <div class="pdf-section-heading">1. 본문 성경 말씀 (개역개정 창세기 3:1-14)</div>
-      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.2rem; margin-bottom: 1.3rem; line-height: 1.85; font-size: 0.98rem; color: #0f172a;">
-        <p style="margin: 0 0 0.5rem 0;"><b>1</b> 그런데 뱀은 여호와 하나님이 지으신 들짐승 중에 가장 간교하니라 뱀이 여자에게 물어 이르되 하나님이 참으로 너희에게 동산 모든 나무의 열매를 먹지 말라 하시더냐</p>
-        <p style="margin: 0 0 0.5rem 0;"><b>2</b> 여자가 뱀에게 말하되 동산 나무의 열매를 우리가 먹을 수 있으나</p>
-        <p style="margin: 0 0 0.5rem 0;"><b>3</b> 동산 중앙에 있는 나무의 열매는 하나님의 말씀에 너희는 먹지도 말고 만지지도 말라 너희가 죽을까 하노라 하셨느니라</p>
-        <p style="margin: 0 0 0.5rem 0;"><b>4</b> 뱀이 여자에게 이르되 너희가 결코 죽지 아니하리라</p>
-        <p style="margin: 0 0 0.5rem 0;"><b>5</b> 너희가 그것을 먹는 날에는 너희 눈이 밝아져 <mark class="pdf-highlight">하나님과 같이 되어</mark> <mark class="pdf-highlight">선악을 알 줄</mark> 하나님이 아심이니라</p>
-        <p style="margin: 0 0 0.5rem 0;"><b>6</b> 여자가 그 나무를 본즉 먹음직도 하고 보암직도 하고 지혜롭게 할 만큼 탐스럽기도 한 나무인지라 여자가 그 열매를 따먹고 자기와 함께 있는 남편에게도 주매 그도 먹은지라</p>
-        <p style="margin: 0 0 0.5rem 0;"><b>7</b> 이에 그들의 <mark class="pdf-highlight">눈이 밝아져</mark> 자기들이 <mark class="pdf-highlight">벗은 줄을 알고</mark> <mark class="pdf-highlight">무화과나무 잎을 엮어 치마</mark>로 삼았더라</p>
-        <p style="margin: 0 0 0.5rem 0;"><b>8</b> 그들이 그 날 바람이 불 때 동산에 거니시는 여호와 하나님의 소리를 듣고 아담과 그의 아내가 여호와 하나님의 <mark class="pdf-highlight">낯을 피하여</mark> 동산 나무 사이에 <mark class="pdf-highlight">숨은지라</mark></p>
-        <p style="margin: 0 0 0.5rem 0;"><b>9</b> 여호와 하나님이 아담을 부르시며 그에게 이르시되 네가 어디 있느냐</p>
-        <p style="margin: 0 0 0.5rem 0;"><b>10</b> 이르되 내가 동산에서 하나님의 소리를 듣고 내가 벗었으므로 <mark class="pdf-highlight">두려워하여</mark> 숨었나이다</p>
-        <p style="margin: 0 0 0.5rem 0;"><b>11</b> 이르시되 누가 너의 벗었음을 네게 알렸느냐 내가 네게 먹지 말라 명한 그 나무 열매를 네가 먹었느냐</p>
-        <p style="margin: 0 0 0.5rem 0;"><b>12</b> 아담이 이르되 <mark class="pdf-highlight">하나님이 주셔서</mark> 나와 함께 있게 하신 여자 그가 그 나무 열매를 내게 주므로 내가 먹었나이다</p>
-        <p style="margin: 0 0 0.5rem 0;"><b>13</b> 여호와 하나님이 여자에게 이르시되 네가 어찌하여 이렇게 하였느냐 여자가 이르되 뱀이 나를 <mark class="pdf-highlight">꾀므로</mark> 내가 먹었나이다</p>
-        <p style="margin: 0;"><b>14</b> 여호와 하나님이 뱀에게 이르시되 네가 이렇게 하였으니 네가 모든 가축과 들의 모든 짐승보다 더욱 저주를 받아 배로 다니고 살아 있는 동안 흙을 먹을지니라</p>
-      </div>
-
-      <!-- Analysis and 3 Points Korean -->
-      <div class="pdf-section-heading">2. 원죄의 본질과 문제 분석 (Analysis)</div>
-      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.2rem; margin-bottom: 1.3rem;">
-        <div style="margin-bottom: 1rem;">
-          <h3 style="font-size: 1.08rem; font-weight: 800; color: #0f172a; margin: 0 0 0.4rem 0;">1. 모든 인간의 근본문제</h3>
-          <div style="font-size: 0.95rem; line-height: 1.7; color: #334155; padding-left: 0.5rem;">
-            1) 하나님 떠남<br>
-            2) 죄-하나님 떠나 있는게 죄, 죄를 지을수 밖에 없는 상태<br>
-            3) 사탄- 마귀의 종, 운명팔자에서 빠져 나올수 없게 됨
-          </div>
-        </div>
-
-        <div style="margin-bottom: 1rem;">
-          <h3 style="font-size: 1.08rem; font-weight: 800; color: #0f172a; margin: 0 0 0.4rem 0;">2. 그래서 찾아온 문제</h3>
-          <div style="font-size: 0.95rem; line-height: 1.8; color: #334155; padding-left: 0.5rem;">
-            • <mark class="pdf-highlight">하나님과 같이 되어</mark> - 자기가 신이 되고 싶은 - 뉴에이지 사상 - 하나님 없이 인간 스스로 신이 될 수 있다는 사상<br>
-            • <mark class="pdf-highlight">선악을</mark> - 판단, 정죄<br>
-            • <mark class="pdf-highlight">눈이 밝아져</mark> - 영적 눈 닫히고 육신의 눈 열림<br>
-            • <mark class="pdf-highlight">벗은 줄을 알고</mark> - 수치심<br>
-            • <mark class="pdf-highlight">무화과나무 잎을 엮어 치마</mark> - 포장, 율법, 윤리, 도덕, 착함, 진실함<br>
-            • <mark class="pdf-highlight">낯을 피하여</mark> - 어리석음<br>
-            • <mark class="pdf-highlight">숨은지라</mark> - 죄의식<br>
-            • <mark class="pdf-highlight">두려워하여</mark> - 걱정, 염려, 두려움<br>
-            • <mark class="pdf-highlight">하나님이 주셔서</mark> - 원망<br>
-            • <mark class="pdf-highlight">꾀므로</mark> - 핑계
-          </div>
-        </div>
-
-        <div>
-          <h3 style="font-size: 1.08rem; font-weight: 800; color: #b91c1c; margin: 0 0 0.4rem 0;">
-            3. 인간의 현주소 - 절대절망 - 모든게 다 안되는 상태 (칼빈-전적타락)
-          </h3>
-          <div style="font-size: 0.95rem; line-height: 1.7; color: #334155; padding-left: 0.5rem;">
-            우울증, 불안, 초조, 근심, 염려, 무기력감, 노이로제, 불면증, 공황장애, 대인기피증, 자해, 자살, 알콜중독, 마약, 폭력, 인간관계 깨짐, 불평등, 전쟁 등등등<br>
-            <strong style="color: #0f172a;">놀랄일이 아니라 이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다.</strong>
-          </div>
-        </div>
-      </div>
-
-      <!-- English NIV Scripture Genesis 3:1-14 & 3 Points -->
-      <div class="pdf-section-heading">3. Original Sin (English NIV Scripture &amp; 3 Points)</div>
-      <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1.2rem; line-height: 1.85; font-size: 0.96rem; color: #1e293b; margin-bottom: 1.5rem;">
-        <div style="font-size: 1.15rem; font-weight: 800; color: #166534; margin-bottom: 0.6rem;">
-          Scripture (Genesis 3:1-14 NIV)
-        </div>
-        <p style="margin: 0 0 0.4rem 0;"><b>1</b> Now the serpent was more crafty than any of the wild animals the Lord God had made. He said to the woman, "Did God really say, 'You must not eat from any tree in the garden'?"</p>
-        <p style="margin: 0 0 0.4rem 0;"><b>2</b> The woman said to the serpent, "We may eat fruit from the trees in the garden,</p>
-        <p style="margin: 0 0 0.4rem 0;"><b>3</b> but God did say, 'You must not eat fruit from the tree that is in the middle of the garden, and you must not touch it, or you will die.'"</p>
-        <p style="margin: 0 0 0.4rem 0;"><b>4</b> The serpent said to the woman, "You will not certainly die.</p>
-        <p style="margin: 0 0 0.4rem 0;"><b>5</b> For God knows that when you eat from it your eyes will be opened, and <mark class="pdf-highlight">you will be like God, knowing good and evil</mark>."</p>
-        <p style="margin: 0 0 0.4rem 0;"><b>6</b> When the woman saw that the fruit of the tree was good for food and pleasing to the eye, and also desirable for gaining wisdom, she took some and ate it. She also gave some to her husband, who was with her, and he ate it.</p>
-        <p style="margin: 0 0 0.4rem 0;"><b>7</b> Then <mark class="pdf-highlight">the eyes of both of them were opened, and they realized they were naked; so they sewed fig leaves together and made coverings for themselves</mark>.</p>
-        <p style="margin: 0 0 0.4rem 0;"><b>8</b> Then the man and his wife heard the sound of the Lord God as he was walking in the garden in the cool of the day, and they <mark class="pdf-highlight">hid</mark> from the Lord God among the trees of the garden.</p>
-        <p style="margin: 0 0 0.4rem 0;"><b>9</b> But the Lord God called to the man, "Where are you?"</p>
-        <p style="margin: 0 0 0.4rem 0;"><b>10</b> He answered, "I heard you in the garden, and <mark class="pdf-highlight">I was afraid</mark> because I was naked; so I hid."</p>
-        <p style="margin: 0 0 0.4rem 0;"><b>11</b> And he said, "Who told you that you were naked? Have you eaten from the tree that I commanded you not to eat from?"</p>
-        <p style="margin: 0 0 0.4rem 0;"><b>12</b> Adam... He replied, "<mark class="pdf-highlight">The woman You put here</mark> with me—she gave me some fruit from the tree, and I ate it."</p>
-        <p style="margin: 0 0 0.4rem 0;"><b>13</b> The Lord God said to the woman, "What is this you have done?" The woman said, "<mark class="pdf-highlight">The serpent deceived me</mark>, and I ate."</p>
-        <p style="margin: 0 0 1rem 0;"><b>14</b> The Lord God said to the serpent, "Because you have done this, cursed are you above all livestock and all wild animals! You will crawl on your belly and you will eat dust all the days of your life."</p>
-
-        <div style="margin-top: 1rem; border-top: 1px dashed #86efac; padding-top: 0.8rem;">
-          <h4 style="font-size: 1.05rem; font-weight: 800; color: #166534; margin: 0 0 0.35rem 0;">1. The fundamental problem of all humanity</h4>
-          <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.7; margin-bottom: 0.8rem;">
-            1) Separation from God<br>
-            2) Sin—Being apart from God is sin; a state in which one cannot help but commit sins.<br>
-            3) Satan—Becoming a slave to the devil, trapped in a destiny or fate from which one cannot escape.
-          </div>
-
-          <h4 style="font-size: 1.05rem; font-weight: 800; color: #166534; margin: 0 0 0.35rem 0;">2. The problems that ensued</h4>
-          <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.7; margin-bottom: 0.8rem;">
-            • <mark class="pdf-highlight">"To become like God"</mark>—The desire to be one's own god (New Age ideology)—The belief that humans can become gods on their own, without God.<br>
-            • <mark class="pdf-highlight">"Knowledge of good and evil"</mark>—judging and condemning.<br>
-            • <mark class="pdf-highlight">"Their eyes were opened"</mark>—spiritual eyes closed, while physical (fleshly) eyes opened.<br>
-            • <mark class="pdf-highlight">"Realized they were naked"</mark>—shame<br>
-            • <mark class="pdf-highlight">"Sewed fig leaves together to make coverings"</mark>—covering up through legalism, ethics, morality, "goodness," or sincerity.<br>
-            • <mark class="pdf-highlight">"Hid from His presence"</mark>—foolishness.<br>
-            • <mark class="pdf-highlight">"Hid themselves"</mark>—a sense of guilt.<br>
-            • <mark class="pdf-highlight">"Were afraid"</mark>—worry, anxiety, and fear.<br>
-            • <mark class="pdf-highlight">"The woman You put here"</mark>—resentment/blaming others.<br>
-            • <mark class="pdf-highlight">"The Serpent Deceived me"</mark>—making excuses.
-          </div>
-
-          <h4 style="font-size: 1.05rem; font-weight: 800; color: #991b1b; margin: 0 0 0.35rem 0;">
-            3. The current state of humanity—Absolute despair—A condition where nothing works (Calvin's concept of "Total depravity")
-          </h4>
-          <div style="font-size: 0.95rem; font-weight: 700; color: #1e293b; line-height: 1.7;">
-            Depression, anxiety, restlessness, worry, powerlessness, apprehension, neurosis, insomnia, panic disorders, social phobia, self-harm, suicide, alcoholism, drug abuse, violence, broken human relationships, inequality, and war, and so on.<br>
-            <strong>This should come as no surprise; it is inevitable that this issue will eventually confront future generations and all nations.</strong>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="pdf-footer-seal" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #cbd5e1; padding-top: 1rem; margin-top: 2rem; font-size: 0.85rem; font-weight: 700; color: #475569;">
-      <span>어라이즈 넥스트젠 글로벌 기도 연합 · Arise Next Gen Global Prayer Hub</span>
-      <span>모든 민족과 후대를 살리는 언약 공동체 · Amen</span>
-    </div>
-  `;
+  // Render HTML Sheet view according to current sermon
+  if (isOriginalBlessing) {
+    printArea.innerHTML = getOriginalBlessingHtml();
+  } else {
+    printArea.innerHTML = getOriginalSinHtml();
+  }
 
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
@@ -4630,7 +4791,7 @@ function downloadWordPptx(customSermon) {
   });
   s1.addText(data.title, {
     x: 0.8, y: 2.2, w: 11.5, h: 1.4,
-    fontSize: 38, color: 'FFFFFF', bold: true, align: 'center'
+    fontSize: 34, color: 'FFFFFF', bold: true, align: 'center'
   });
   s1.addText(`📖 ${data.scripture}`, {
     x: 0.8, y: 3.8, w: 11.5, h: 0.8,
@@ -4661,11 +4822,13 @@ function downloadWordPptx(customSermon) {
     x: 1.1, y: 1.6, w: 5.0, h: 0.4,
     fontSize: 15, color: '38BDF8', bold: true
   });
-  s2.addText("27절  하나님이 자기 형상 곧 하나님의 형상대로 사람을 창조하시되 남자와 여자를 창조하시고\n\n28절  하나님이 그들에게 복을 주시며 하나님이 그들에게 이르시되 생육하고 번성하여 땅에 충만하라, 땅을 정복하라, 바다의 물고기와 하늘의 새와 땅에 움직이는 모든 생물을 다스리라 하시니라", {
-    x: 1.1, y: 2.2, w: 5.0, h: 4.2,
-    fontSize: 13.5, color: 'FFFFFF', bold: true, lineSpacing: 22
+  const koText = data.scriptureKorean.map(v => `${v.verse} ${v.text}`).join('\n\n');
+  s2.addText(koText, {
+    x: 1.1, y: 2.1, w: 5.0, h: 4.3,
+    fontSize: 12.5, color: 'FFFFFF', bold: true, lineSpacing: 20
   });
-  // English Box (Identical font size & bold weight as Korean)
+
+  // English Box (Identical 1:1 font size & bold weight as Korean)
   s2.addShape(pptx.ShapeType.roundRect, {
     x: 6.8, y: 1.4, w: 5.6, h: 5.2,
     fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
@@ -4674,111 +4837,48 @@ function downloadWordPptx(customSermon) {
     x: 7.1, y: 1.6, w: 5.0, h: 0.4,
     fontSize: 15, color: '38BDF8', bold: true
   });
-  s2.addText("v.27  So God created mankind in his own image, in the image of God he created them; male and female he created them.\n\nv.28  God blessed them and said to them, \"Be fruitful and increase in number; fill the earth and subdue it. Rule over the fish in the sea and the birds in the sky and over every living creature that moves on the ground.\"", {
-    x: 7.1, y: 2.2, w: 5.0, h: 4.2,
-    fontSize: 13.5, color: 'FFFFFF', bold: true, lineSpacing: 22
+  const enText = data.scriptureEnglish.map(v => `${v.verse} ${v.text}`).join('\n\n');
+  s2.addText(enText, {
+    x: 7.1, y: 2.1, w: 5.0, h: 4.3,
+    fontSize: 12.5, color: 'FFFFFF', bold: true, lineSpacing: 20
   });
 
-  // Slide 3 & 4: 5-Minute Gospel Message Summary
-  if (data.points.length <= 3) {
-    const s3 = pptx.addSlide();
-    s3.background = { color: '0F172A' };
-    s3.addText("📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)", {
-      x: 0.8, y: 0.8, w: 11.5, h: 0.6,
-      fontSize: 22, color: 'FFFFFF', bold: true
-    });
-
-    data.points.forEach((pt, idx) => {
-      const xPos = 0.8 + (idx * 3.9);
-      s3.addShape(pptx.ShapeType.roundRect, {
-        x: xPos, y: 1.8, w: 3.7, h: 4.8,
-        fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
-      });
-      s3.addText(`0${pt.num}`, {
-        x: xPos + 0.3, y: 2.1, w: 3.1, h: 0.5,
-        fontSize: 20, color: '38BDF8', bold: true
-      });
-      s3.addText(pt.titleKo, {
-        x: xPos + 0.3, y: 2.7, w: 3.1, h: 1.9,
-        fontSize: 14, color: 'FFFFFF', bold: true, lineSpacing: 22
-      });
-      if (pt.titleEn) {
-        s3.addText(pt.titleEn, {
-          x: xPos + 0.3, y: 4.7, w: 3.1, h: 1.8,
-          fontSize: 14, color: '38BDF8', bold: true, lineSpacing: 22
-        });
-      }
-    });
-  } else {
-    // Split 5 points into 2 clean slides for maximum readability & identical font size
-    // Part 1: Points 1 & 2
-    const s3 = pptx.addSlide();
-    s3.background = { color: '0F172A' };
-    s3.addText("📌 5분 복음 메시지 요약 (1/2) — 말씀 언약", {
-      x: 0.8, y: 0.8, w: 11.5, h: 0.6,
-      fontSize: 22, color: 'FFFFFF', bold: true
-    });
-    const firstTwo = data.points.slice(0, 2);
-    firstTwo.forEach((pt, idx) => {
-      const xPos = 0.8 + (idx * 5.9);
-      s3.addShape(pptx.ShapeType.roundRect, {
-        x: xPos, y: 1.8, w: 5.6, h: 4.9,
-        fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
-      });
-      s3.addText(`0${pt.num}`, {
-        x: xPos + 0.3, y: 2.0, w: 5.0, h: 0.45,
-        fontSize: 20, color: '38BDF8', bold: true
-      });
-      s3.addText(pt.titleKo, {
-        x: xPos + 0.3, y: 2.55, w: 5.0, h: 2.0,
-        fontSize: 13.5, color: 'FFFFFF', bold: true, lineSpacing: 22
-      });
-      if (pt.titleEn) {
-        s3.addText(pt.titleEn, {
-          x: xPos + 0.3, y: 4.55, w: 5.0, h: 2.0,
-          fontSize: 13.5, color: '38BDF8', bold: true, lineSpacing: 22
-        });
-      }
-    });
-
-    // Part 2: Points 3, 4, 5
-    const s4 = pptx.addSlide();
-    s4.background = { color: '0F172A' };
-    s4.addText("📌 5분 복음 메시지 요약 (2/2) — 다스림과 회복", {
-      x: 0.8, y: 0.8, w: 11.5, h: 0.6,
-      fontSize: 22, color: 'FFFFFF', bold: true
-    });
-    const lastThree = data.points.slice(2);
-    lastThree.forEach((pt, idx) => {
-      const xPos = 0.8 + (idx * 3.9);
-      s4.addShape(pptx.ShapeType.roundRect, {
-        x: xPos, y: 1.8, w: 3.7, h: 4.9,
-        fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
-      });
-      s4.addText(`0${pt.num}`, {
-        x: xPos + 0.3, y: 2.0, w: 3.1, h: 0.45,
-        fontSize: 20, color: '38BDF8', bold: true
-      });
-      s4.addText(pt.titleKo, {
-        x: xPos + 0.3, y: 2.6, w: 3.1, h: 1.9,
-        fontSize: 14, color: 'FFFFFF', bold: true, lineSpacing: 22
-      });
-      if (pt.titleEn) {
-        s4.addText(pt.titleEn, {
-          x: xPos + 0.3, y: 4.6, w: 3.1, h: 1.9,
-          fontSize: 14, color: '38BDF8', bold: true, lineSpacing: 22
-        });
-      }
-    });
-  }
-
-  const fileName = `2026_후대복음말씀_창세기1장27-28절_어라이즈넥스트젠.pptx`;
-  pptx.writeFile({ fileName: fileName }).then(() => {
-    alert("🎉 PowerPoint (.pptx) 슬라이드 파일이 성공적으로 다운로드되었습니다!");
-  }).catch(err => {
-    console.error("PPTX Generation Error:", err);
-    alert("PPTX 파일 생성 중 오류가 발생했습니다: " + err.message);
+  // Slide 3: 5-Minute Gospel Message Summary
+  const s3 = pptx.addSlide();
+  s3.background = { color: '0F172A' };
+  s3.addText("📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)", {
+    x: 0.8, y: 0.8, w: 11.5, h: 0.6,
+    fontSize: 22, color: 'FFFFFF', bold: true
   });
+
+  data.points.forEach((pt, idx) => {
+    const xPos = 0.8 + (idx * 3.9);
+    s3.addShape(pptx.ShapeType.roundRect, {
+      x: xPos, y: 1.6, w: 3.7, h: 5.0,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 1.5 }
+    });
+    s3.addText(`POINT 0${pt.num}`, {
+      x: xPos + 0.2, y: 1.8, w: 3.3, h: 0.35,
+      fontSize: 13, color: '38BDF8', bold: true
+    });
+    s3.addText(pt.titleKo, {
+      x: xPos + 0.2, y: 2.2, w: 3.3, h: 2.2,
+      fontSize: 11.5, color: 'FFFFFF', bold: true, lineSpacing: 17
+    });
+    if (pt.titleEn) {
+      s3.addShape(pptx.ShapeType.line, {
+        x: xPos + 0.2, y: 4.45, w: 3.3, h: 0,
+        line: { color: '334155', width: 1 }
+      });
+      s3.addText(pt.titleEn, {
+        x: xPos + 0.2, y: 4.55, w: 3.3, h: 1.9,
+        fontSize: 11.5, color: 'CBD5E1', bold: true, lineSpacing: 17
+      });
+    }
+  });
+
+  const safeFileName = data.title.replace(/[^a-zA-Z0-9가-힣_]/g, '_');
+  pptx.writeFile({ fileName: `후대복음말씀_${safeFileName}.pptx` });
 }
 window.downloadWordPptx = downloadWordPptx;
 

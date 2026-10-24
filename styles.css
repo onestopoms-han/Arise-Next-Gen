@@ -4262,6 +4262,7 @@ body {
   color: #ffffff;
   margin: 0 0 0.8rem 0;
   line-height: 1.5;
+  white-space: pre-line;
 }
 
 .ppt-point-title-en {
@@ -4273,6 +4274,7 @@ body {
   line-height: 1.5;
   border-top: 1px dashed rgba(255, 255, 255, 0.15);
   padding-top: 0.8rem;
+  white-space: pre-line;
 }
 
 /* Bottom Presenter Navigation Bar */
@@ -4511,6 +4513,12 @@ body {
     margin: 0 !important;
     background: #ffffff !important;
     color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .word-doc-sheet {
+    padding: 0 !important;
   }
   @page {
     size: A4 portrait;
