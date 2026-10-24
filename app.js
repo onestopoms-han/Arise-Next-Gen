@@ -2094,7 +2094,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261024_v45_user_original_blessing_pdf';
+const DATA_VERSION = 'v20261024_v46_force_reload_october_blessing';
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
   localStorage.setItem('prayer_hub_prayers', JSON.stringify(defaultPrayers));
   localStorage.setItem('prayer_hub_testimonies', JSON.stringify(defaultTestimonies));
@@ -4753,7 +4753,8 @@ function openWordPdfModal(customSermon) {
                              rawPdf.includes("원래인간");
 
   // Exact file name
-  const activePdfUrl = isOriginalBlessing ? "Original Blessing.pdf" : "후대복음말씀_원죄.pdf";
+  const activePdfUrl = isOriginalBlessing ? "Original_Blessing.pdf" : "후대복음말씀_원죄.pdf";
+  const downloadPdfName = isOriginalBlessing ? "Original Blessing.pdf" : "후대복음말씀_원죄.pdf";
   const encodedPdfUrl = encodeURI(activePdfUrl);
 
   // Sync subtitle & links
@@ -4777,7 +4778,7 @@ function openWordPdfModal(customSermon) {
   const downloadBtns = modal.querySelectorAll('a[download]');
   downloadBtns.forEach(btn => {
     btn.setAttribute('href', encodedPdfUrl);
-    btn.setAttribute('download', activePdfUrl);
+    btn.setAttribute('download', downloadPdfName);
   });
 
   switchWordPdfTab('embed');
@@ -5482,6 +5483,25 @@ function clearSermonSearch() {
 window.clearSermonSearch = clearSermonSearch;
 
 function renderSermonsGrid() {
+  // Force ensure October 4 sermon is 1-page Original Blessing
+  const octSermon = sermons.find(s => s.id === 'sermon-20261004');
+  if (octSermon) {
+    octSermon.title = "원래인간 (Original Blessing)";
+    octSermon.title_en = "Original Blessing";
+    octSermon.scripture = "창세기 1:27-28 (Genesis 1:27-28)";
+    octSermon.pdfUrl = "Original_Blessing.pdf";
+    octSermon.summary = `1. 하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)
+지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도 다스려지지 않는다.
+2. 하나님의 형상이 회복된 증인들
+구약-다윗 (시 23 부족함이 없다) 신약-바울 (빌 4:16 능력주시는 자 안에서 다 된다) 이 의미는 예수 믿는다해서 암도 안 걸리고 죽지도 않는 다는 말이 아니다, 모든 문제가 문제되어지지않고 다스려 진다는 말이다.
+3. 후대- 이 하나님 형상이 회복되도록 도와야한다
+
+[Original Blessing]
+1. The Image of God—A human being who resemble God's character/ nature (one who exercises dominion over all things).
+2. Witnesses in whom the Image of God has been restored.
+3. The Next Generation – We must help them restore this image of God.
+📄 10월 4일 공식 원본 PDF: Original Blessing.pdf (1페이지 완본)`;
+  }
   const grid = document.getElementById('sermonsGrid');
   const countEl = document.getElementById('sermonResultsCount');
   if (!grid) return;
@@ -5785,9 +5805,10 @@ function openSermonDetailModal(sermonId) {
     const isOrig = (sermon.id === 'sermon-20261004') || 
                    (sermon.title && sermon.title.includes('원래인간')) || 
                    (sermon.title && sermon.title.includes('Original Blessing'));
-    const pdfFile = isOrig ? 'Original Blessing.pdf' : (sermon.pdfUrl || '후대복음말씀_원죄.pdf');
+    const pdfFile = isOrig ? 'Original_Blessing.pdf' : (sermon.pdfUrl || '후대복음말씀_원죄.pdf');
+    const dlName = isOrig ? 'Original Blessing.pdf' : (sermon.pdfUrl || '후대복음말씀_원죄.pdf');
     btnDetailDownload.setAttribute('href', encodeURI(pdfFile));
-    btnDetailDownload.setAttribute('download', pdfFile);
+    btnDetailDownload.setAttribute('download', dlName);
   }
 
   if (btnWatch) {
