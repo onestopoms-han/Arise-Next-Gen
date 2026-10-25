@@ -4530,10 +4530,11 @@ body {
     visibility: hidden !important;
   }
   #wordPdfModal.active, #wordPdfModal.active *,
-  #noticePdfModal.active, #noticePdfModal.active * {
+  #noticePdfModal.active, #noticePdfModal.active *,
+  #prayerPdfModal.active, #prayerPdfModal.active * {
     visibility: visible !important;
   }
-  #wordPdfModal.active, #noticePdfModal.active {
+  #wordPdfModal.active, #noticePdfModal.active, #prayerPdfModal.active {
     position: absolute !important;
     left: 0 !important;
     top: 0 !important;
