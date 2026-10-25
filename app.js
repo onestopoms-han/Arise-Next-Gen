@@ -1960,22 +1960,25 @@ const defaultRoutineContent = {
 1. 모든 인간의 근본문제 (The fundamental problem of all humanity)
 1) 하나님 떠남 (Separation from God)
 2) 죄-하나님 떠나 있는게 죄, 죄를 지을수 밖에 없는 상태 (Sin—Being apart from God is sin; a state in which one cannot help but commit sins.)
-3) 사탄- 마귀의 종, 운명팔자에서 빠져 나올수 없게 됨 (Satan—Becoming a slave to the devil, trapped in a destiny or fate from which one cannot escape.)
+3) 사탄- 마귀위 종, 운명팔자에서 빠져 나올수 없게 됨 (Satan—Becoming a slave to the devil, trapped in a destiny or fate from which one cannot escape.)
 
 2. 그래서 찾아온 문제 (The problems that ensued)
-• 하나님과 같이 되어: 자기가 신이 되고 싶은 뉴에이지 사상 ("To become like God"—The desire to be one's own god)
-• 선악을: 판단, 정죄 ("Knowledge of good and evil"—judging and condemning)
-• 눈이 밝아져: 영적 눈 닫히고 육신의 눈 열림 ("Their eyes were opened"—spiritual eyes closed, physical eyes opened)
-• 벗은 줄을 알고: 수치심 ("Realized they were naked"—shame)
-• 무화과나무 잎을 엮어 치마: 포장, 율법, 윤리, 도덕 ("Sewed fig leaves together"—covering up through legalism, ethics, morality)
-• 낯을 피하여: 어리석음 ("Hid from His presence"—foolishness)
-• 숨은지라: 죄의식 ("Hid themselves"—a sense of guilt)
-• 두려워하여: 걱정, 염려, 두려움 ("Were afraid"—worry, anxiety, and fear)
-• 하나님이 주셔서: 원망 ("The woman You put here"—resentment/blaming others)
-• 꾀므로: 핑계 ("The Serpent Deceived me"—making excuses)
+• 하나님과 같이 되어-자기가 신이 되고 싶은-뉴에이지 사상 -하나님 없이 인간 스스로 신이 될수 있다는 사상 ("To become like God"—The desire to be one's own god)
+• 선악을-판단, 정죄 ("Knowledge of good and evil"—judging and condemning)
+• 눈이 밝아져-영적 눈 닫히고 육신의 눈 열림 ("Their eyes were opened"—spiritual eyes closed, while physical eyes opened)
+• 벗은 줄을 알고-수치심 ("Realized they were naked"—shame)
+• 무화과나무 잎을 엮어 치마-포장,율법,윤리,도덕,착함, 진실함 ("Sewed fig leaves together to make coverings"—covering up through legalism, ethics, morality, goodness, sincerity)
+• 낯을 피하여-어리석음 ("Hid from His presence"—foolishness)
+• 숨은지라-죄의식 ("Hid themselves"—a sense of guilt)
+• 두려워하여-걱정,염려,두려움 ("Were afraid"—worry, anxiety, and fear)
+• 하나님이 주셔서-원망 ("The woman You put here"—resentment/blaming others)
+• 꾀므로-핑계 ("The Serpent Deceived me"—making excuses)
 
-3. 인간의 현주소-절대절망 (The current state of humanity—Absolute despair)
-모든게 다 안되는 상태 (칼빈-전적타락 / Total depravity). 우울증, 불안, 초조, 근심, 염려, 무기력감, 공황장애, 알콜/마약 중독, 깨어진 인간관계 등 우리 후대와 모든 민족에게 당연히 올 수밖에 없는 문제입니다.
+3. 인간의 현주소-절대절망-모든게 다 안되는 상태 (칼빈-전적타락)
+(The current state of humanity—Absolute despair / Total depravity)
+우울증, 불안, 초조, 근심, 염려, 무기력감, 노이로제, 불면증, 공항장애, 대인기피증, 자해, 자살, 알콜중독, 마약, 폭력, 인간관계 깨짐, 불평등, 전쟁 등등등
+놀랄일이 아니라 이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다.
+(This should come as no surprise; it is inevitable that this issue will eventually confront future generations and all nations.)
 
 📄 공식 원본 PDF 파일: 후대복음말씀_원죄.pdf (새 창 열기 및 다운로드 가능)
 어라이즈 넥스트젠 글로벌 기도 연합 · Arise Next Gen Global Prayer Hub
@@ -1983,7 +1986,38 @@ const defaultRoutineContent = {
   },
   step3: {
     title: "함께 기도합시다 (Let Us Pray Together)",
-    content: "🕊️ [1. 나를 위한 기도 / Prayer for Myself]\n“내가 제일 중요하다” | “I must begin with myself.”\n• 나의 복음이 되기를 (May the Gospel become real and evident in my life.)\n• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를 (May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture.)\n• Up & Down 되지 않는 항상이 되기를 - 성경 속 다니엘처럼 (May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.)\n\n🌍 [2. 모든 민족을 위한 기도 / Prayer for All Nations]\n• 모든 민족이 그리스도 앞에 무릎 꿇도록 (May all nations bow before Christ.)\n• 이곳에 모인 나라들과 세계 모든 나라를 위하여 (For the nations represented here and for every nation of the world.)\n• 전쟁 속에서 고통받는 나라들과 사람들을 위하여 (For countries and people suffering in the midst of war.)\n\n🌱 [3. 후대를 위한 기도 / Prayer for the Next Generation]\n• 후대가 복음을 알도록 (May the next generation know the Gospel.)\n• 복음이 정말 좋은 것임을 알도록 (May they discover that the Gospel is truly good news.)\n• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록 (May they know that whatever happens in life, they are secure when they are in Christ.)\n• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록 (May they see their studies and every part of life as preparation to serve and save all nations.)\n\n🔥 나 자신을 위하여 · 모든 민족을 위하여 · 후대를 위하여 각자의 모국어로 함께 기도합시다!"
+    content: `🕊️ [공동 기도문 • Official Prayer Guide]
+함께 기도합시다 (Let Us Pray Together)
+
+1. 나를 위한 기도 (Prayer for Myself)
+내 자신과 후대 모든 민족이
+(For Myself, the Next Generation, and All Nations)
+
+1) 하나님이 만드신 원래의 나를 회복하도록 (To restore the original self created by God)
+  - 하나님을 닮은 나 (The 'me' who resembles God)
+  - 안 되는 게 없던 나 (The 'me' for whom nothing was impossible)
+  - 모든 것이 만족되던 나 (The 'me' who was fully satisfied in all things)
+  - 모든 것이 다스려지던 나 (The 'me' who had dominion over all things)
+
+2) 원죄 — 절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살 길 없는 나를 발견하도록
+(To acknowledge as natural our state of absolute despair through Original Sin, discovering that without the Gospel there is no way to live)
+  - 모든 것이 안 되는 나 (The 'me' for whom nothing works)
+  - 문제 속에 살 수밖에 없는 나 (The 'me' who cannot help but live inside problems)
+  - 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제
+    (Spiritual, idolatry, mental, physical, afterlife, and next-generation problems)
+
+2. 모든 민족을 위한 기도 (Prayer for All Nations)
+• 모든 민족이 그리스도 앞에 무릎 꿇도록 (May all nations bow before Christ.)
+• 이곳에 모인 나라들과 세계 모든 나라를 위하여 (For the nations represented here and for every nation of the world.)
+• 전쟁 속에서 고통받는 나라들과 사람들을 위하여 (For countries and people suffering in the midst of war.)
+
+3. 후대를 위한 기도 (Prayer for the Next Generation)
+• 후대가 복음을 알도록 (May the next generation know the Gospel.)
+• 복음이 정말 좋은 것임을 알도록 (May they discover that the Gospel is truly good news.)
+• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록 (May they know that whatever happens in life, they are secure when they are in Christ.)
+• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록 (May they see their studies and every part of life as preparation to serve and save all nations.)
+
+🔥 나 자신을 위하여 · 모든 민족을 위하여 · 후대를 위하여 각자의 모국어로 함께 기도합시다!`
   },
   step4: {
     speaker: "진행: 한옥주 (Host: Christine HAN) / 통역: 아이리스 (Interpreter: Iris)",
@@ -4113,7 +4147,7 @@ let currentPptSlideIndex = 0;
 
 function getTotalWordPptSlides(data) {
   const d = data || getWordPresentationData();
-  return (d && d.scriptureKorean && d.scriptureKorean.length > 7) ? 4 : 3;
+  return (d && d.scriptureKorean && d.scriptureKorean.length > 7) ? 6 : 3;
 }
 
 let pptKeyboardHandlerAttached = false;
@@ -4122,6 +4156,7 @@ function highlightKoreanPptText(rawText) {
   if (!rawText) return "";
   let text = escapeHtml(rawText);
   const terms = [
+    // 성경 본문 구절 (창세기 3:1-14)
     "하나님과 같이 되어 선악을 알 줄",
     "하나님과 같이 되어",
     "선악을 알 줄",
@@ -4137,20 +4172,54 @@ function highlightKoreanPptText(rawText) {
     "하나님이 주셔서 나와 함께 있게 하신 여자",
     "하나님이 주셔서",
     "꾀므로",
+
+    // 1. 모든 인간의 근본문제
     "1) 하나님 떠남",
-    "2) 죄",
-    "3) 사탄",
     "하나님 떠남",
-    "하나님의 형상",
-    "복을 주시며",
-    "땅을 정복하라",
-    "다스리라",
+    "2) 죄",
+    "죄-하나님 떠나 있는게 죄",
+    "3) 사탄",
+    "사탄- 마귀위 종",
+    "사탄-마귀의 종",
+
+    // 2. 그래서 찾아온 문제 10가지 키워드 (전문 100% 매칭)
+    "하나님과 같이 되어-",
+    "선악을-",
+    "눈이 밝아져-",
+    "벗은 줄을 알고-",
+    "무화과나무 잎을 엮어 치마-",
+    "낯을 피하여-",
+    "숨은지라-",
+    "두려워하여-",
+    "하나님이 주셔서-",
+    "꾀므로-",
+
+    // 3. 인간의 현주소 - 절대절망 (칼빈-전적타락) & 언약 결론
+    "3. 인간의 현주소-절대절망-모든게 다 안되는 상태 (칼빈-전적타락)",
+    "3. 인간의 현주소",
     "절대절망",
     "전적타락",
-    "당연히 올 수밖에 없는 문제"
+    "(칼빈-전적타락)",
+    "칼빈-전적타락",
+    "모든게 다 안되는 상태",
+    "놀랄일이 아니라 이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다.",
+    "놀랄일이 아니라 이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다",
+    "이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다.",
+    "이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다",
+    "당연히 올수밖에 없다",
+    "당연히 올 수밖에 없다",
+    "당연히 올 수밖에 없는 문제",
+
+    // 10월 4일 원래인간 (창세기 1:27-28)
+    "하나님의 형상",
+    "복을 주시며",
+    "생육하고 번성하여",
+    "땅에 충만하라",
+    "땅을 정복하라",
+    "다스리라"
   ];
   terms.sort((a, b) => b.length - a.length);
-  const regex = new RegExp(`(${terms.map(t => escapeHtml(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g');
+  const regex = new RegExp(`(${terms.map(t => escapeHtml(t).replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')).join('|')})`, 'g');
   return text.replace(regex, '<span class="ppt-highlight-word">$1</span>');
 }
 
@@ -4158,45 +4227,105 @@ function highlightEnglishPptText(rawText) {
   if (!rawText) return "";
   let text = escapeHtml(rawText);
   const terms = [
+    // Scripture verses (Genesis 3:1-14)
     "you will be like God, knowing good and evil",
-    "\"To become like God\"",
-    "To become like God",
-    "\"Knowledge of good and evil\"",
-    "Knowledge of good and evil",
+    "you will be like God",
+    "knowing good and evil",
     "the eyes of both of them were opened, and they realized they were naked; so they sewed fig leaves together and made coverings for themselves",
-    "\"Eyes opened\"",
+    "the eyes of both of them were opened",
     "eyes of both of them were opened",
-    "\"Realized they were naked\"",
     "realized they were naked",
-    "\"Sewed fig leaves\"",
+    "sewed fig leaves together and made coverings for themselves",
     "sewed fig leaves together",
     "sewed fig leaves",
-    "\"Hid from His presence\"",
-    "\"Hid themselves\"",
-    "\"Hid\"",
-    "\"Were afraid\"",
+    "they hid", // 8절 형광펜 핵심 단어
+    "hid from His presence",
+    "hid themselves",
+    "hid",
+    "I was afraid",
     "was afraid",
     "were afraid",
-    "\"The woman You put here\"",
     "The woman you put here with me",
     "The woman you put here",
-    "\"The Serpent Deceived me\"",
+    "The woman You put here",
     "The serpent deceived me",
+    "The Serpent Deceived me",
+    "serpent deceived me",
     "serpent deceived",
+
+    // 1. The fundamental problem of all humanity
     "1) Separation from God",
+    "Separation from God",
     "2) Sin",
     "3) Satan",
-    "Separation from God",
+
+    // 2. The problems that ensued (all 10 items)
+    "\"To become like God\"—",
+    "\"To become like God\"-",
+    "\"To become like God\"",
+    "To become like God",
+    "\"Knowledge of good and evil\"—",
+    "\"Knowledge of good and evil\"-",
+    "\"Knowledge of good and evil\"",
+    "Knowledge of good and evil",
+    "\"Their eyes were opened\"—",
+    "\"Their eyes were opened\"-",
+    "\"Their eyes were opened\"",
+    "Their eyes were opened",
+    "\"Eyes opened\"",
+    "\"Realized they were naked\"—",
+    "\"Realized they were naked\"-",
+    "\"Realized they were naked\"",
+    "Realized they were naked",
+    "\"Sewed fig leaves together to make coverings\"—",
+    "\"Sewed fig leaves together to make coverings\"-",
+    "\"Sewed fig leaves together to make coverings\"",
+    "Sewed fig leaves together to make coverings",
+    "\"Sewed fig leaves\"",
+    "\"Hid from His presence\"—",
+    "\"Hid from His presence\"-",
+    "\"Hid from His presence\"",
+    "Hid from His presence",
+    "\"Hid themselves\"—",
+    "\"Hid themselves\"-",
+    "\"Hid themselves\"",
+    "Hid themselves",
+    "\"Were afraid\"—",
+    "\"Were afraid\"-",
+    "\"Were afraid\"",
+    "Were afraid",
+    "\"The woman You put here\"—",
+    "\"The woman You put here\"-",
+    "\"The woman You put here\"",
+    "The woman You put here",
+    "\"The Serpent Deceived me\"—",
+    "\"The Serpent Deceived me\"-",
+    "\"The Serpent Deceived me\"",
+    "The Serpent Deceived me",
+
+    // 3. The current state of humanity - Absolute despair (Total depravity)
+    "3. The current state of humanity—Absolute despair—A condition where nothing works (Calvin’s concept of \"Total depravity\").",
+    "3. The current state of humanity",
     "Absolute despair",
     "Total depravity",
+    "(Calvin’s concept of \"Total depravity\")",
+    "Calvin’s concept of \"Total depravity\"",
+    "A condition where nothing works",
+    "This should come as no surprise; it is inevitable that this issue will eventually confront future generations and all nations.",
+    "This should come as no surprise; it is inevitable that this issue will eventually confront future generations and all nations",
+    "inevitable that this issue will eventually confront future generations and all nations",
+
+    // Genesis 1:27-28 Original Blessing
     "in his own image",
     "in the image of God",
     "God blessed them",
+    "Be fruitful and increase in number",
+    "fill the earth",
     "subdue it",
     "Rule over"
   ];
   terms.sort((a, b) => b.length - a.length);
-  const regex = new RegExp(`(${terms.map(t => escapeHtml(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi');
+  const regex = new RegExp(`(${terms.map(t => escapeHtml(t).replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')).join('|')})`, 'gi');
   return text.replace(regex, '<span class="ppt-highlight-word">$1</span>');
 }
 
@@ -4311,18 +4440,18 @@ function getWordPresentationData() {
     points: [
       {
         num: 1,
-        titleKo: `모든 인간의 근본문제\n1) 하나님 떠남\n2) 죄-하나님 떠나 있는게 죄, 죄를 지을수 밖에 없는 상태\n3) 사탄-마귀의 종, 운명팔자에서 빠져 나올수 없게 됨`,
-        titleEn: `The fundamental problem of all humanity\n1) Separation from God\n2) Sin—Being apart from God is sin; a state in which one cannot help but commit sins.\n3) Satan—Becoming a slave to the devil, trapped in a destiny or fate from which one cannot escape.`
+        titleKo: `1. 모든 인간의 근본문제\n\n1) 하나님 떠남\n2) 죄-하나님 떠나 있는게 죄, 죄를 지을수 밖에 없는 상태\n3) 사탄- 마귀위 종, 운명팔자에서 빠져 나올수 없게 됨`,
+        titleEn: `1. The fundamental problem of all humanity\n\n1) Separation from God\n2) Sin—Being apart from God is sin; a state in which one cannot help but commit sins.\n3) Satan—Becoming a slave to the devil, trapped in a destiny or fate from which one cannot escape.`
       },
       {
         num: 2,
-        titleKo: `그래서 찾아온 문제\n• 하나님과 같이 되어-자기가 신이 되고 싶은 뉴에이지 사상\n• 선악을-판단, 정죄 / 눈이 밝아져-영안 닫힘, 육안 열림\n• 벗은 줄을 알고-수치심 / 무화과 잎 치마-포장,율법,윤리\n• 낯을 피하여-어리석음 / 숨은지라-죄의식 / 두려워하여-염려\n• 하나님이 주셔서-원망 / 꾀므로-핑계`,
-        titleEn: `The problems that ensued\n• "To become like God"—The desire to be one's own god (New Age ideology)\n• "Knowledge of good and evil"—judging and condemning\n• "Eyes opened"—spiritual eyes closed, fleshly eyes opened\n• "Realized they were naked"—shame / "Sewed fig leaves"—covering up through legalism, ethics\n• "Hid"—foolishness, guilt / "Were afraid"—anxiety / Blaming & making excuses`
+        titleKo: `2. 그래서 찾아온 문제\n\n• 하나님과 같이 되어-자기가 신이 되고 싶은-뉴에이지 사상 -하나님 없이 인간 스스로 신이 될수 있다는 사상\n• 선악을-판단, 정죄\n• 눈이 밝아져-영적 눈 닫히고 육신의 눈 열림\n• 벗은 줄을 알고-수치심\n• 무화과나무 잎을 엮어 치마-포장,율법,윤리,도덕,착함, 진실함\n• 낯을 피하여-어리석음\n• 숨은지라-죄의식\n• 두려워하여-걱정,염려,두려움\n• 하나님이 주셔서-원망\n• 꾀므로-핑계`,
+        titleEn: `2. The problems that ensued\n\n• "To become like God"—The desire to be one's own god (New Age ideology)—The belief that humans can become gods on their own, without God.\n• "Knowledge of good and evil"—judging and condemning.\n• "Their eyes were opened"—spiritual eyes closed, while physical (fleshly) eyes opened.\n• "Realized they were naked"—shame\n• "Sewed fig leaves together to make coverings"—covering up through legalism, ethics, morality, "goodness," or sincerity.\n• "Hid from His presence"—foolishness.\n• "Hid themselves"—a sense of guilt.\n• "Were afraid"—worry, anxiety, and fear.\n• "The woman You put here"—resentment/blaming others.\n• "The Serpent Deceived me"—making excuses.`
       },
       {
         num: 3,
-        titleKo: `인간의 현주소-절대절망 (칼빈-전적타락)\n우울증, 불안, 초조, 근심, 염려, 무기력감, 공황장애, 대인기피증, 자살, 중독, 인간관계 깨짐 등 놀랄 일이 아니라 후대와 모든 민족에게 당연히 올 수밖에 없는 문제입니다.`,
-        titleEn: `The current state of humanity—Absolute despair (Total depravity)\nDepression, anxiety, powerlessness, insomnia, panic disorders, suicide, addiction, broken human relationships—it is inevitable that this issue will confront future generations and all nations.`
+        titleKo: `3. 인간의 현주소-절대절망-모든게 다 안되는 상태 (칼빈-전적타락)\n\n우울증, 불안, 초조, 근심, 염려, 무기력감, 노이로제, 불면증, 공항장애, 대인기피증, 자해, 자살, 알콜중독, 마약, 폭력, 인간관계 깨짐, 불평등, 전쟁 등등등\n\n놀랄일이 아니라 이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다.`,
+        titleEn: `3. The current state of humanity—Absolute despair—A condition where nothing works (Calvin’s concept of "Total depravity").\n\nDepression, anxiety, restlessness, worry, powerlessness, apprehension, neurosis, insomnia, panic disorders, social phobia, self-harm, suicide, alcoholism, drug abuse, violence, broken human relationships, inequality, and war, and so on.\n\nThis should come as no surprise; it is inevitable that this issue will eventually confront future generations and all nations.`
       }
     ]
   };
@@ -4449,47 +4578,135 @@ function renderPptSlide(index) {
         </div>
       </div>
     `;
-  } else if (totalSlides === 4 && (index === 1 || index === 2)) {
-    // 4 Slides Mode (e.g. Genesis 3:1-14)
-    // Slide 2: Verses 1-7, Slide 3: Verses 8-14
-    const isFirstHalf = (index === 1);
-    const versesKo = isFirstHalf ? data.scriptureKorean.slice(0, 7) : data.scriptureKorean.slice(7);
-    const versesEn = isFirstHalf ? data.scriptureEnglish.slice(0, 7) : data.scriptureEnglish.slice(7);
-    const partLabelKo = isFirstHalf ? "① (창세기 3:1-7)" : "② (창세기 3:8-14)";
-    const partLabelEn = isFirstHalf ? "PART 1 (v.1-7)" : "PART 2 (v.8-14)";
+  } else if (totalSlides === 6) {
+    if (index === 1 || index === 2) {
+      // 6 Slides Mode: Slide 2 (Verses 1-7), Slide 3 (Verses 8-14)
+      const isFirstHalf = (index === 1);
+      const versesKo = isFirstHalf ? data.scriptureKorean.slice(0, 7) : data.scriptureKorean.slice(7);
+      const versesEn = isFirstHalf ? data.scriptureEnglish.slice(0, 7) : data.scriptureEnglish.slice(7);
+      const partLabelKo = isFirstHalf ? "① (창세기 3:1-7)" : "② (창세기 3:8-14)";
+      const partLabelEn = isFirstHalf ? "PART 1 (v.1-7)" : "PART 2 (v.8-14)";
 
-    slideContent.innerHTML = `
-      <div class="ppt-slide-header" style="margin-bottom: 1rem;">
-        <div class="ppt-slide-step-badge">STEP 2 : SCRIPTURE READING ${partLabelEn}</div>
-        <h2 class="ppt-slide-main-title" style="font-size: 1.85rem;">📖 본문 성경 말씀 낭독 ${partLabelKo} — ${escapeHtml(data.scripture)}</h2>
-      </div>
-      <div class="ppt-scripture-grid" style="flex: 1; gap: 1.2rem; min-height: 0;">
-        <div class="ppt-scripture-box" style="padding: 1.1rem 1.3rem;">
-          <div class="ppt-box-header" style="margin-bottom: 0.7rem;">
-            <span class="ppt-box-lang">🇰🇷 한국어 성경 (개역개정)</span>
-            <span class="ppt-box-label">${isFirstHalf ? "창세기 3:1-7" : "창세기 3:8-14"}</span>
-          </div>
-          ${versesKo.map(v => `
-            <div class="ppt-verse-row" style="margin-bottom: 0.75rem; line-height: 1.6; font-size: 1.05rem; font-weight: 700;">
-              <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
-              <span>${highlightKoreanPptText(v.text)}</span>
-            </div>
-          `).join('')}
+      slideContent.innerHTML = `
+        <div class="ppt-slide-header" style="margin-bottom: 1rem;">
+          <div class="ppt-slide-step-badge">STEP 2 : SCRIPTURE READING ${partLabelEn}</div>
+          <h2 class="ppt-slide-main-title" style="font-size: 1.85rem;">📖 본문 성경 말씀 낭독 ${partLabelKo} — ${escapeHtml(data.scripture)}</h2>
         </div>
-        <div class="ppt-scripture-box" style="padding: 1.1rem 1.3rem;">
-          <div class="ppt-box-header" style="margin-bottom: 0.7rem;">
-            <span class="ppt-box-lang">🇺🇸 English Bible (NIV)</span>
-            <span class="ppt-box-label">${isFirstHalf ? "Genesis 3:1-7" : "Genesis 3:8-14"}</span>
-          </div>
-          ${versesEn.map(v => `
-            <div class="ppt-verse-row" style="margin-bottom: 0.75rem; line-height: 1.6; font-size: 1.05rem; font-weight: 700; font-style: normal;">
-              <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
-              <span>${highlightEnglishPptText(v.text)}</span>
+        <div class="ppt-scripture-grid" style="flex: 1; gap: 1.2rem; min-height: 0;">
+          <div class="ppt-scripture-box" style="padding: 1.1rem 1.3rem;">
+            <div class="ppt-box-header" style="margin-bottom: 0.7rem;">
+              <span class="ppt-box-lang">🇰🇷 한국어 성경 (개역개정)</span>
+              <span class="ppt-box-label">${isFirstHalf ? "창세기 3:1-7" : "창세기 3:8-14"}</span>
             </div>
-          `).join('')}
+            ${versesKo.map(v => `
+              <div class="ppt-verse-row" style="margin-bottom: 0.75rem; line-height: 1.6; font-size: 1.05rem; font-weight: 700;">
+                <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
+                <span>${highlightKoreanPptText(v.text)}</span>
+              </div>
+            `).join('')}
+          </div>
+          <div class="ppt-scripture-box" style="padding: 1.1rem 1.3rem;">
+            <div class="ppt-box-header" style="margin-bottom: 0.7rem;">
+              <span class="ppt-box-lang">🇺🇸 English Bible (NIV)</span>
+              <span class="ppt-box-label">${isFirstHalf ? "Genesis 3:1-7" : "Genesis 3:8-14"}</span>
+            </div>
+            ${versesEn.map(v => `
+              <div class="ppt-verse-row" style="margin-bottom: 0.75rem; line-height: 1.6; font-size: 1.05rem; font-weight: 700; font-style: normal;">
+                <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
+                <span>${highlightEnglishPptText(v.text)}</span>
+              </div>
+            `).join('')}
+          </div>
         </div>
-      </div>
-    `;
+      `;
+    } else if (index === 3) {
+      // Slide 4: Point 1 (1. 모든 인간의 근본문제)
+      const pt = data.points[0];
+      slideContent.innerHTML = `
+        <div class="ppt-slide-header" style="margin-bottom: 1rem;">
+          <div class="ppt-slide-step-badge">STEP 2 : 5-MINUTE GOSPEL MESSAGE — POINT 01</div>
+          <h2 class="ppt-slide-main-title" style="font-size: 1.85rem;">📌 1. 모든 인간의 근본문제 (1. The Fundamental Problem of All Humanity)</h2>
+        </div>
+        <div class="ppt-scripture-grid" style="flex: 1; gap: 1.2rem; min-height: 0;">
+          <div class="ppt-scripture-box" style="padding: 1.4rem 1.6rem;">
+            <div class="ppt-box-header" style="margin-bottom: 1rem;">
+              <span class="ppt-box-lang">🇰🇷 한국어 (Korean)</span>
+              <span class="ppt-box-label">POINT 01</span>
+            </div>
+            <div style="font-size: 1.15rem; font-weight: 700; color: #ffffff; line-height: 1.9; white-space: pre-line;">
+              ${highlightKoreanPptText(pt.titleKo)}
+            </div>
+          </div>
+          <div class="ppt-scripture-box" style="padding: 1.4rem 1.6rem;">
+            <div class="ppt-box-header" style="margin-bottom: 1rem;">
+              <span class="ppt-box-lang">🇺🇸 English</span>
+              <span class="ppt-box-label">POINT 01</span>
+            </div>
+            <div style="font-size: 1.15rem; font-weight: 700; color: #38bdf8; line-height: 1.9; white-space: pre-line; font-style: normal;">
+              ${highlightEnglishPptText(pt.titleEn)}
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (index === 4) {
+      // Slide 5: Point 2 (2. 그래서 찾아온 문제 - 10가지 세부 항목 전문 100% 수록)
+      const pt = data.points[1];
+      slideContent.innerHTML = `
+        <div class="ppt-slide-header" style="margin-bottom: 0.8rem;">
+          <div class="ppt-slide-step-badge">STEP 2 : 5-MINUTE GOSPEL MESSAGE — POINT 02</div>
+          <h2 class="ppt-slide-main-title" style="font-size: 1.85rem;">📌 2. 그래서 찾아온 문제 (2. The Problems That Ensued — 10 Key Issues)</h2>
+        </div>
+        <div class="ppt-scripture-grid" style="flex: 1; gap: 1.2rem; min-height: 0;">
+          <div class="ppt-scripture-box" style="padding: 1.1rem 1.3rem; overflow-y: auto;">
+            <div class="ppt-box-header" style="margin-bottom: 0.8rem;">
+              <span class="ppt-box-lang">🇰🇷 한국어 (Korean) — 10가지 세부 항목 전문</span>
+              <span class="ppt-box-label">POINT 02</span>
+            </div>
+            <div style="font-size: 1.05rem; font-weight: 700; color: #ffffff; line-height: 1.7; white-space: pre-line;">
+              ${highlightKoreanPptText(pt.titleKo)}
+            </div>
+          </div>
+          <div class="ppt-scripture-box" style="padding: 1.1rem 1.3rem; overflow-y: auto;">
+            <div class="ppt-box-header" style="margin-bottom: 0.8rem;">
+              <span class="ppt-box-lang">🇺🇸 English — 10 Key Issues Unabridged</span>
+              <span class="ppt-box-label">POINT 02</span>
+            </div>
+            <div style="font-size: 1.05rem; font-weight: 700; color: #38bdf8; line-height: 1.7; white-space: pre-line; font-style: normal;">
+              ${highlightEnglishPptText(pt.titleEn)}
+            </div>
+          </div>
+        </div>
+      `;
+    } else if (index === 5) {
+      // Slide 6: Point 3 (3. 인간의 현주소 - 절대절망 & 전적타락 & 언약 결론)
+      const pt = data.points[2];
+      slideContent.innerHTML = `
+        <div class="ppt-slide-header" style="margin-bottom: 0.8rem;">
+          <div class="ppt-slide-step-badge">STEP 2 : 5-MINUTE GOSPEL MESSAGE — POINT 03</div>
+          <h2 class="ppt-slide-main-title" style="font-size: 1.85rem;">📌 3. 인간의 현주소 (3. The Current State of Humanity — Absolute Despair)</h2>
+        </div>
+        <div class="ppt-scripture-grid" style="flex: 1; gap: 1.2rem; min-height: 0;">
+          <div class="ppt-scripture-box" style="padding: 1.2rem 1.4rem; overflow-y: auto;">
+            <div class="ppt-box-header" style="margin-bottom: 0.9rem;">
+              <span class="ppt-box-lang">🇰🇷 한국어 (Korean) — 전적타락 &amp; 언약 결론</span>
+              <span class="ppt-box-label">POINT 03</span>
+            </div>
+            <div style="font-size: 1.12rem; font-weight: 700; color: #ffffff; line-height: 1.85; white-space: pre-line;">
+              ${highlightKoreanPptText(pt.titleKo)}
+            </div>
+          </div>
+          <div class="ppt-scripture-box" style="padding: 1.2rem 1.4rem; overflow-y: auto;">
+            <div class="ppt-box-header" style="margin-bottom: 0.9rem;">
+              <span class="ppt-box-lang">🇺🇸 English — Total Depravity &amp; Covenant Conclusion</span>
+              <span class="ppt-box-label">POINT 03</span>
+            </div>
+            <div style="font-size: 1.12rem; font-weight: 700; color: #38bdf8; line-height: 1.85; white-space: pre-line; font-style: normal;">
+              ${highlightEnglishPptText(pt.titleEn)}
+            </div>
+          </div>
+        </div>
+      `;
+    }
   } else if (totalSlides === 3 && index === 1) {
     // 3 Slides Mode (e.g. Genesis 1:27-28 Original Blessing)
     slideContent.innerHTML = `
@@ -4525,13 +4742,13 @@ function renderPptSlide(index) {
       </div>
     `;
   } else {
-    // Final Slide: 5-Minute Gospel Message Summary (index === 3 in 4-slide mode or index === 2 in 3-slide mode)
+    // 3-Slide Mode Final Slide: 5-Minute Gospel Message Summary (index === 2)
     slideContent.innerHTML = `
       <div class="ppt-slide-header" style="margin-bottom: 0.8rem;">
         <div class="ppt-slide-step-badge">STEP 2 : 5-MINUTE GOSPEL MESSAGE SUMMARY</div>
         <h2 class="ppt-slide-main-title" style="font-size: 1.85rem;">📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)</h2>
       </div>
-      <div class="ppt-points-grid" style="flex: 1; min-height: 0; margin-top: 0.5rem; gap: 1rem; display: grid; grid-template-columns: repeat(3, 1fr);">
+      <div class="ppt-points-grid" style="flex: 1; min-height: 0; margin-top: 0.5rem; gap: 1rem; display: grid; grid-template-columns: repeat(${data.points.length}, 1fr);">
         ${data.points.map(pt => `
           <div class="ppt-point-card" style="padding: 1.2rem 1.3rem; display: flex; flex-direction: column; overflow-y: auto; background: rgba(15, 23, 42, 0.92); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 16px;">
             <div class="ppt-point-top" style="margin-bottom: 0.6rem; display: flex; align-items: center;">
@@ -4784,7 +5001,7 @@ function getOriginalSinHtml() {
 
       <div>
         <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.8rem;">
-          3. 인간의 현주소-절대절망-모든게 다 안되는 상태 (칼빈-전적타락)
+          3. 인간의 현주소-<mark class="pdf-highlight">절대절망</mark>-모든게 다 안되는 상태 (칼빈-<mark class="pdf-highlight">전적타락</mark>)
         </div>
       </div>
     </div>
@@ -4799,7 +5016,7 @@ function getOriginalSinHtml() {
       <div style="margin-bottom: 2.2rem; font-size: 1.02rem; color: #1f2937; line-height: 1.85;">
         <p style="margin-bottom: 0.6rem;">우울증, 불안, 초조, 근심, 염려, 무기력감, 노이로제, 불면증, 공항장애, 대인기피증,<br>
         자해, 자살, 알콜중독, 마약, 폭력, 인간관계 깨짐, 불평등, 전쟁 등등등</p>
-        <p style="font-weight: 700; color: #b91c1c;">놀랄일이 아니라 이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다.</p>
+        <p style="font-weight: 700; color: #b91c1c;"><mark class="pdf-highlight">놀랄일이 아니라 이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다.</mark></p>
       </div>
 
       <!-- English Section begins with 1:1 font size & bold weight as per GEMINI.md -->
@@ -4819,7 +5036,7 @@ function getOriginalSinHtml() {
           <p style="margin-bottom: 0.8rem;"><strong>5</strong> For God knows that when you eat from it your eyes will be opened, and <mark class="pdf-highlight">you will be like God, knowing good and evil.</mark>”</p>
           <p style="margin-bottom: 0.8rem;"><strong>6</strong> When the woman saw that the fruit of the tree was good for food and pleasing to the eye, and also desirable for gaining wisdom, she took some and ate it. She also gave some to her husband, who was with her, and he ate it.</p>
           <p style="margin-bottom: 0.8rem;"><strong>7</strong> Then <mark class="pdf-highlight">the eyes of both of them were opened, and they realized they were naked; so they sewed fig leaves together and made coverings for themselves.</mark></p>
-          <p style="margin-bottom: 0.8rem;"><strong>8</strong> Then the man and his wife heard the sound of the Lord God as he was walking in the garden in the cool of the day, and they <mark class="pdf-highlight">hid</mark> from the Lord God among the trees of the garden.</p>
+          <p style="margin-bottom: 0.8rem;"><strong>8</strong> Then the man and his wife heard the sound of the Lord God as he was walking in the garden in the cool of the day, and <mark class="pdf-highlight">they hid</mark> from the Lord God among the trees of the garden.</p>
           <p style="margin-bottom: 0.8rem;"><strong>9</strong> But the Lord God called to the man, “Where are you?”</p>
         </div>
       </div>
@@ -4882,11 +5099,11 @@ function getOriginalSinHtml() {
 
       <div style="margin-bottom: 1.8rem; font-style: normal;">
         <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.8rem; font-style: normal;">
-          3. The current state of humanity—Absolute despair—A condition where nothing works (Calvin’s concept of "Total depravity").
+          3. The current state of humanity—<mark class="pdf-highlight">Absolute despair</mark>—A condition where nothing works (Calvin’s concept of "<mark class="pdf-highlight">Total depravity</mark>").
         </div>
         <div style="font-size: 1.02rem; color: #1f2937; padding-left: 0.8rem; line-height: 1.85; font-style: normal;">
           <p style="margin-bottom: 0.8rem;">Depression, anxiety, restlessness, worry, powerlessness, apprehension, neurosis, insomnia, panic disorders, social phobia, self-harm, suicide, alcoholism, drug abuse, violence, broken human relationships, inequality, and war, and so on.</p>
-          <p style="font-weight: 700; color: #b91c1c; font-style: normal;">This should come as no surprise; it is inevitable that this issue will eventually confront future generations and all nations.</p>
+          <p style="font-weight: 700; color: #b91c1c; font-style: normal;"><mark class="pdf-highlight">This should come as no surprise; it is inevitable that this issue will eventually confront future generations and all nations.</mark></p>
         </div>
       </div>
     </div>
@@ -4989,6 +5206,7 @@ function downloadWordPptx(customSermon) {
   pptx.title = `후대복음말씀 - ${data.title}`;
 
   const koKeywords = [
+    // 성경 본문 구절 (창세기 3:1-14)
     "하나님과 같이 되어 선악을 알 줄",
     "하나님과 같이 되어",
     "선악을 알 줄",
@@ -5004,54 +5222,162 @@ function downloadWordPptx(customSermon) {
     "하나님이 주셔서 나와 함께 있게 하신 여자",
     "하나님이 주셔서",
     "꾀므로",
+
+    // 1. 모든 인간의 근본문제
+    "1. 모든 인간의 근본문제",
     "1) 하나님 떠남",
-    "2) 죄",
-    "3) 사탄",
     "하나님 떠남",
-    "하나님의 형상",
-    "복을 주시며",
-    "땅을 정복하라",
-    "다스리라",
+    "2) 죄",
+    "죄-하나님 떠나 있는게 죄",
+    "3) 사탄",
+    "사탄- 마귀위 종",
+    "사탄-마귀의 종",
+
+    // 2. 그래서 찾아온 문제 10가지 키워드 (전문 100% 매칭)
+    "2. 그래서 찾아온 문제",
+    "하나님과 같이 되어-",
+    "선악을-",
+    "눈이 밝아져-",
+    "벗은 줄을 알고-",
+    "무화과나무 잎을 엮어 치마-",
+    "낯을 피하여-",
+    "숨은지라-",
+    "두려워하여-",
+    "하나님이 주셔서-",
+    "꾀므로-",
+
+    // 3. 인간의 현주소 - 절대절망 (칼빈-전적타락) & 언약 결론
+    "3. 인간의 현주소-절대절망-모든게 다 안되는 상태 (칼빈-전적타락)",
+    "3. 인간의 현주소",
     "절대절망",
     "전적타락",
-    "당연히 올 수밖에 없는 문제"
+    "(칼빈-전적타락)",
+    "칼빈-전적타락",
+    "모든게 다 안되는 상태",
+    "놀랄일이 아니라 이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다.",
+    "놀랄일이 아니라 이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다",
+    "이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다.",
+    "이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다",
+    "당연히 올수밖에 없다",
+    "당연히 올 수밖에 없다",
+    "당연히 올 수밖에 없는 문제",
+
+    // 10월 4일 원래인간 (창세기 1:27-28)
+    "하나님의 형상",
+    "복을 주시며",
+    "생육하고 번성하여",
+    "땅에 충만하라",
+    "땅을 정복하라",
+    "다스리라"
   ];
 
   const enKeywords = [
+    // Scripture verses (Genesis 3:1-14)
     "you will be like God, knowing good and evil",
-    "\"To become like God\"",
-    "To become like God",
-    "\"Knowledge of good and evil\"",
-    "Knowledge of good and evil",
+    "you will be like God",
+    "knowing good and evil",
     "the eyes of both of them were opened, and they realized they were naked; so they sewed fig leaves together and made coverings for themselves",
-    "\"Eyes opened\"",
+    "the eyes of both of them were opened",
     "eyes of both of them were opened",
-    "\"Realized they were naked\"",
+    "they realized they were naked",
     "realized they were naked",
-    "\"Sewed fig leaves\"",
+    "were naked",
+    "sewed fig leaves together and made coverings for themselves",
+    "sewed fig leaves together and made coverings for",
     "sewed fig leaves together",
     "sewed fig leaves",
-    "\"Hid from His presence\"",
-    "\"Hid themselves\"",
-    "\"Hid\"",
-    "\"Were afraid\"",
+    "they hid from the Lord God",
+    "they hid", // 8절 형광펜 핵심 단어
+    "hid from the Lord God",
+    "hid from His presence",
+    "hid themselves",
+    "hid",
+    "I was afraid because I was naked; so I hid",
+    "I was afraid",
     "was afraid",
     "were afraid",
-    "\"The woman You put here\"",
     "The woman you put here with me",
     "The woman you put here",
-    "\"The Serpent Deceived me\"",
+    "The woman You put here",
+    "The serpent deceived me, and I ate",
     "The serpent deceived me",
+    "The Serpent Deceived me",
+    "serpent deceived me",
     "serpent deceived",
+
+    // 1. The fundamental problem of all humanity
+    "1. The fundamental problem of all humanity",
     "1) Separation from God",
+    "Separation from God",
     "2) Sin",
     "3) Satan",
-    "Separation from God",
+
+    // 2. The problems that ensued (all 10 items)
+    "2. The problems that ensued",
+    "\"To become like God\"—",
+    "\"To become like God\"-",
+    "\"To become like God\"",
+    "To become like God",
+    "\"Knowledge of good and evil\"—",
+    "\"Knowledge of good and evil\"-",
+    "\"Knowledge of good and evil\"",
+    "Knowledge of good and evil",
+    "\"Their eyes were opened\"—",
+    "\"Their eyes were opened\"-",
+    "\"Their eyes were opened\"",
+    "Their eyes were opened",
+    "\"Eyes opened\"",
+    "\"Realized they were naked\"—",
+    "\"Realized they were naked\"-",
+    "\"Realized they were naked\"",
+    "Realized they were naked",
+    "\"Sewed fig leaves together to make coverings\"—",
+    "\"Sewed fig leaves together to make coverings\"-",
+    "\"Sewed fig leaves together to make coverings\"",
+    "Sewed fig leaves together to make coverings",
+    "\"Sewed fig leaves\"",
+    "\"Hid from His presence\"—",
+    "\"Hid from His presence\"-",
+    "\"Hid from His presence\"",
+    "Hid from His presence",
+    "\"Hid themselves\"—",
+    "\"Hid themselves\"-",
+    "\"Hid themselves\"",
+    "Hid themselves",
+    "\"Were afraid\"—",
+    "\"Were afraid\"-",
+    "\"Were afraid\"",
+    "Were afraid",
+    "\"The woman You put here\"—",
+    "\"The woman You put here\"-",
+    "\"The woman You put here\"",
+    "The woman You put here",
+    "The woman you put here",
+    "\"The Serpent Deceived me\"—",
+    "\"The Serpent Deceived me\"-",
+    "\"The Serpent Deceived me\"",
+    "The Serpent Deceived me",
+    "\"The serpent deceived me\"",
+    "The serpent deceived me",
+
+    // 3. The current state of humanity (Absolute despair & Total depravity) & Conclusion
+    "3. The current state of humanity—Absolute despair—A condition where nothing works (Calvin’s concept of \"Total depravity\").",
+    "3. The current state of humanity",
     "Absolute despair",
     "Total depravity",
+    "(Calvin’s concept of \"Total depravity\")",
+    "Calvin’s concept of \"Total depravity\"",
+    "A condition where nothing works",
+    "This should come as no surprise; it is inevitable that this issue will eventually confront future generations and all nations.",
+    "This should come as no surprise; it is inevitable that this issue will eventually confront future generations and all nations",
+    "inevitable that this issue will eventually confront future generations and all nations",
+
+    // Genesis 1:27-28 Original Blessing
     "in his own image",
     "in the image of God",
     "God blessed them",
+    "Be fruitful and increase in number",
+    "fill the earth",
     "subdue it",
     "Rule over"
   ];
@@ -5116,8 +5442,8 @@ function downloadWordPptx(customSermon) {
     fontSize: 12, color: '94A3B8', bold: true, align: 'center'
   });
 
-  if (totalSlides === 4) {
-    // Scripture Part 1 (Verses 1-7)
+  if (totalSlides === 6) {
+    // Slide 2: Scripture Part 1 (Verses 1-7)
     const s2 = pptx.addSlide();
     s2.background = { color: '0F172A' };
     s2.addText(`📖 본문 성경 말씀 낭독 ① (창세기 3:1-7) — ${data.scripture}`, {
@@ -5156,7 +5482,7 @@ function downloadWordPptx(customSermon) {
       lineSpacing: 17
     });
 
-    // Scripture Part 2 (Verses 8-14)
+    // Slide 3: Scripture Part 2 (Verses 8-14)
     const s3 = pptx.addSlide();
     s3.background = { color: '0F172A' };
     s3.addText(`📖 본문 성경 말씀 낭독 ② (창세기 3:8-14) — ${data.scripture}`, {
@@ -5179,7 +5505,7 @@ function downloadWordPptx(customSermon) {
       lineSpacing: 17
     });
 
-    // English Box
+    // English Box (8절 they hid 형광펜 완벽 적용)
     s3.addShape(pptx.ShapeType.roundRect, {
       x: 6.8, y: 1.35, w: 5.7, h: 5.6,
       fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
@@ -5193,6 +5519,114 @@ function downloadWordPptx(customSermon) {
     s3.addText(enRuns2, {
       x: 7.05, y: 1.95, w: 5.2, h: 4.8,
       lineSpacing: 17
+    });
+
+    // Slide 4: Point 1 (1. 모든 인간의 근본문제)
+    const s4 = pptx.addSlide();
+    s4.background = { color: '0F172A' };
+    s4.addText("📌 1. 모든 인간의 근본문제 (1. The Fundamental Problem of All Humanity)", {
+      x: 0.8, y: 0.55, w: 11.7, h: 0.6,
+      fontSize: 21, color: 'FFFFFF', bold: true
+    });
+    // Korean Box
+    s4.addShape(pptx.ShapeType.roundRect, {
+      x: 0.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s4.addText("🇰🇷 한국어 (Korean)", {
+      x: 1.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 14, color: '38BDF8', bold: true
+    });
+    const pt1KoRuns = buildPptxRuns(data.points[0].titleKo, koKeywords, { fontSize: 12, color: 'FFFFFF', bold: true });
+    s4.addText(pt1KoRuns, {
+      x: 1.05, y: 2.0, w: 5.2, h: 4.7,
+      lineSpacing: 22
+    });
+    // English Box
+    s4.addShape(pptx.ShapeType.roundRect, {
+      x: 6.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s4.addText("🇺🇸 English", {
+      x: 7.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 14, color: '38BDF8', bold: true
+    });
+    const pt1EnRuns = buildPptxRuns(data.points[0].titleEn, enKeywords, { fontSize: 12, color: '38BDF8', bold: true });
+    s4.addText(pt1EnRuns, {
+      x: 7.05, y: 2.0, w: 5.2, h: 4.7,
+      lineSpacing: 22
+    });
+
+    // Slide 5: Point 2 (2. 그래서 찾아온 문제 - 10가지 세부 항목 전문 100% 수록 & 형광펜 완벽 반영)
+    const s5 = pptx.addSlide();
+    s5.background = { color: '0F172A' };
+    s5.addText("📌 2. 그래서 찾아온 문제 (2. The Problems That Ensued — 10 Key Issues)", {
+      x: 0.8, y: 0.55, w: 11.7, h: 0.6,
+      fontSize: 21, color: 'FFFFFF', bold: true
+    });
+    // Korean Box
+    s5.addShape(pptx.ShapeType.roundRect, {
+      x: 0.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s5.addText("🇰🇷 한국어 (Korean) — 10가지 세부 항목 전문", {
+      x: 1.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 13, color: '38BDF8', bold: true
+    });
+    const pt2KoRuns = buildPptxRuns(data.points[1].titleKo, koKeywords, { fontSize: 10, color: 'FFFFFF', bold: true });
+    s5.addText(pt2KoRuns, {
+      x: 1.05, y: 1.95, w: 5.2, h: 4.8,
+      lineSpacing: 16
+    });
+    // English Box
+    s5.addShape(pptx.ShapeType.roundRect, {
+      x: 6.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s5.addText("🇺🇸 English — 10 Key Issues Unabridged", {
+      x: 7.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 13, color: '38BDF8', bold: true
+    });
+    const pt2EnRuns = buildPptxRuns(data.points[1].titleEn, enKeywords, { fontSize: 10, color: '38BDF8', bold: true });
+    s5.addText(pt2EnRuns, {
+      x: 7.05, y: 1.95, w: 5.2, h: 4.8,
+      lineSpacing: 16
+    });
+
+    // Slide 6: Point 3 (3. 인간의 현주소 - 절대절망 & 전적타락 & 결론 전문 완벽 반영)
+    const s6 = pptx.addSlide();
+    s6.background = { color: '0F172A' };
+    s6.addText("📌 3. 인간의 현주소 (3. The Current State of Humanity — Absolute Despair)", {
+      x: 0.8, y: 0.55, w: 11.7, h: 0.6,
+      fontSize: 21, color: 'FFFFFF', bold: true
+    });
+    // Korean Box
+    s6.addShape(pptx.ShapeType.roundRect, {
+      x: 0.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s6.addText("🇰🇷 한국어 (Korean) — 전적타락 & 언약 결론", {
+      x: 1.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 13, color: '38BDF8', bold: true
+    });
+    const pt3KoRuns = buildPptxRuns(data.points[2].titleKo, koKeywords, { fontSize: 11.5, color: 'FFFFFF', bold: true });
+    s6.addText(pt3KoRuns, {
+      x: 1.05, y: 1.95, w: 5.2, h: 4.8,
+      lineSpacing: 20
+    });
+    // English Box
+    s6.addShape(pptx.ShapeType.roundRect, {
+      x: 6.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s6.addText("🇺🇸 English — Total Depravity & Covenant Conclusion", {
+      x: 7.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 13, color: '38BDF8', bold: true
+    });
+    const pt3EnRuns = buildPptxRuns(data.points[2].titleEn, enKeywords, { fontSize: 11.5, color: '38BDF8', bold: true });
+    s6.addText(pt3EnRuns, {
+      x: 7.05, y: 1.95, w: 5.2, h: 4.8,
+      lineSpacing: 20
     });
   } else {
     // 3 Slides Mode: Scripture all on Slide 2 (e.g. Genesis 1:27-28)
@@ -5233,45 +5667,45 @@ function downloadWordPptx(customSermon) {
       x: 7.05, y: 1.95, w: 5.2, h: 4.8,
       lineSpacing: 19
     });
+
+    // Final Slide: 5-Minute Gospel Message Summary
+    const sLast = pptx.addSlide();
+    sLast.background = { color: '0F172A' };
+    sLast.addText("📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)", {
+      x: 0.65, y: 0.55, w: 12.0, h: 0.6,
+      fontSize: 21, color: 'FFFFFF', bold: true
+    });
+
+    data.points.forEach((pt, idx) => {
+      const xPos = 0.65 + (idx * 4.05);
+      sLast.addShape(pptx.ShapeType.roundRect, {
+        x: xPos, y: 1.35, w: 3.9, h: 5.75,
+        fill: { color: '1E293B' }, line: { color: '38BDF8', width: 1.5 }
+      });
+      sLast.addText(`POINT 0${pt.num}`, {
+        x: xPos + 0.2, y: 1.5, w: 3.5, h: 0.35,
+        fontSize: 13, color: '38BDF8', bold: true
+      });
+
+      const koRuns = buildPptxRuns(pt.titleKo, koKeywords, { fontSize: 10.5, color: 'FFFFFF', bold: true });
+      sLast.addText(koRuns, {
+        x: xPos + 0.2, y: 1.9, w: 3.5, h: 2.3,
+        lineSpacing: 16
+      });
+
+      if (pt.titleEn) {
+        sLast.addShape(pptx.ShapeType.line, {
+          x: xPos + 0.2, y: 4.3, w: 3.5, h: 0,
+          line: { color: '334155', width: 1 }
+        });
+        const enRuns = buildPptxRuns(pt.titleEn, enKeywords, { fontSize: 10.5, color: '38BDF8', bold: true });
+        sLast.addText(enRuns, {
+          x: xPos + 0.2, y: 4.4, w: 3.5, h: 2.6,
+          lineSpacing: 15
+        });
+      }
+    });
   }
-
-  // Final Slide: 5-Minute Gospel Message Summary
-  const sLast = pptx.addSlide();
-  sLast.background = { color: '0F172A' };
-  sLast.addText("📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)", {
-    x: 0.65, y: 0.55, w: 12.0, h: 0.6,
-    fontSize: 21, color: 'FFFFFF', bold: true
-  });
-
-  data.points.forEach((pt, idx) => {
-    const xPos = 0.65 + (idx * 4.05);
-    sLast.addShape(pptx.ShapeType.roundRect, {
-      x: xPos, y: 1.35, w: 3.9, h: 5.75,
-      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 1.5 }
-    });
-    sLast.addText(`POINT 0${pt.num}`, {
-      x: xPos + 0.2, y: 1.5, w: 3.5, h: 0.35,
-      fontSize: 13, color: '38BDF8', bold: true
-    });
-
-    const koRuns = buildPptxRuns(pt.titleKo, koKeywords, { fontSize: 10.5, color: 'FFFFFF', bold: true });
-    sLast.addText(koRuns, {
-      x: xPos + 0.2, y: 1.9, w: 3.5, h: 2.3,
-      lineSpacing: 16
-    });
-
-    if (pt.titleEn) {
-      sLast.addShape(pptx.ShapeType.line, {
-        x: xPos + 0.2, y: 4.3, w: 3.5, h: 0,
-        line: { color: '334155', width: 1 }
-      });
-      const enRuns = buildPptxRuns(pt.titleEn, enKeywords, { fontSize: 10.5, color: '38BDF8', bold: true });
-      sLast.addText(enRuns, {
-        x: xPos + 0.2, y: 4.4, w: 3.5, h: 2.6,
-        lineSpacing: 15
-      });
-    }
-  });
 
   const safeFileName = data.title.replace(/[^a-zA-Z0-9가-힣_]/g, '_');
   pptx.writeFile({ fileName: `후대복음말씀_${safeFileName}.pptx` });
