@@ -4219,7 +4219,8 @@ function highlightKoreanPptText(rawText) {
     "다스리라"
   ];
   terms.sort((a, b) => b.length - a.length);
-  const regex = new RegExp(`(${terms.map(t => escapeHtml(t).replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')).join('|')})`, 'g');
+  const escapedTerms = terms.map(t => escapeHtml(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const regex = new RegExp(`(${escapedTerms.join('|')})`, 'g');
   return text.replace(regex, '<span class="ppt-highlight-word">$1</span>');
 }
 
@@ -4325,7 +4326,8 @@ function highlightEnglishPptText(rawText) {
     "Rule over"
   ];
   terms.sort((a, b) => b.length - a.length);
-  const regex = new RegExp(`(${terms.map(t => escapeHtml(t).replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')).join('|')})`, 'gi');
+  const escapedTerms = terms.map(t => escapeHtml(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const regex = new RegExp(`(${escapedTerms.join('|')})`, 'gi');
   return text.replace(regex, '<span class="ppt-highlight-word">$1</span>');
 }
 
