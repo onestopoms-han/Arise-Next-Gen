@@ -153,7 +153,7 @@ const translations = {
     pillar_1_quote_sub: "For Myself, the Next Generation, and All Nations",
     p1_b1_title: "1. 하나님이 만드신 원래의 나를 회복하도록",
     p1_b1_sub: "1. To restore the original self created by God",
-    p1_b2_title: "2. 원죄-절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살 길 없는 나를 발견하도록",
+    p1_b2_title: "2. 원죄-절대절망 인간의 상태를 당연하게 인정하므로 복음 아니고는 살길 없는 나를 발견 하도록",
     p1_b2_sub: "2. To acknowledge our state of original sin and absolute despair, discovering that without the Gospel there is no way to live",
     pillar_2_cat: "열방과 세계 현장",
     pillar_2_title: "2. 모든 민족을 위한 기도",
@@ -377,7 +377,7 @@ const translations = {
     p1_b1_title: "1. To restore the original self created by God",
     p1_b1_sub: "1. 하나님이 만드신 원래의 나를 회복하도록",
     p1_b2_title: "2. To acknowledge our state of original sin and absolute despair, discovering that without the Gospel there is no way to live",
-    p1_b2_sub: "2. 원죄-절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살 길 없는 나를 발견하도록",
+    p1_b2_sub: "2. 원죄-절대절망 인간의 상태를 당연하게 인정하므로 복음 아니고는 살길 없는 나를 발견 하도록",
     pillar_2_cat: "Global Mission Fields",
     pillar_2_title: "2. Prayer for All Nations",
     pillar_2_sub: "2. 모든 민족을 위한 기도",
@@ -1999,7 +1999,7 @@ const defaultRoutineContent = {
   - 모든 것이 만족되던 나 (The 'me' who was fully satisfied in all things)
   - 모든 것이 다스려지던 나 (The 'me' who had dominion over all things)
 
-2) 원죄 — 절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살 길 없는 나를 발견하도록
+2) 원죄 — 절대절망 인간의 상태를 당연하게 인정하므로 복음 아니고는 살길 없는 나를 발견 하도록
 (To acknowledge as natural our state of absolute despair through Original Sin, discovering that without the Gospel there is no way to live)
   - 모든 것이 안 되는 나 (The 'me' for whom nothing works)
   - 문제 속에 살 수밖에 없는 나 (The 'me' who cannot help but live inside problems)
@@ -4045,7 +4045,7 @@ function copyPrayerGuideToClipboard() {
   - 모든 것이 만족되던 나 (The 'me' who was fully satisfied in all things)
   - 모든 것이 다스려지던 나 (The 'me' who had dominion over all things)
 
-2) 원죄 — 절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살 길 없는 나를 발견하도록
+2) 원죄 — 절대절망 인간의 상태를 당연하게 인정하므로 복음 아니고는 살길 없는 나를 발견 하도록
 (To acknowledge as natural our state of absolute despair through Original Sin, discovering that without the Gospel there is no way to live)
   - 모든 것이 안 되는 나 (The 'me' for whom nothing works)
   - 문제 속에 살 수밖에 없는 나 (The 'me' who cannot help but live inside problems)
@@ -6120,7 +6120,7 @@ function getPrayerGuidePdfHtml() {
       <!-- Point 2 -->
       <div style="background: #ffffff; border: 1px solid #fef3c7; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.3rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
         <div style="font-size: 1.15rem; font-weight: 800; color: #78350f; margin-bottom: 0.3rem;">
-          • 2. 원죄 — 절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살 길 없는 나를 발견하도록
+          • 2. 원죄 — 절대절망 인간의 상태를 당연하게 인정하므로 복음 아니고는 살길 없는 나를 발견 하도록
         </div>
         <div style="font-size: 1.15rem; font-weight: 800; color: #b45309; font-style: normal; margin-bottom: 0.85rem;">
           • Acknowledging our state of absolute despair through Original Sin, to discover that without the Gospel there is no way to live
