@@ -380,18 +380,6 @@ function loadCustomSongs() {
     const savedOverrides = localStorage.getItem('arise_preset_lyrics_overrides');
     if (savedOverrides) {
       overrides = JSON.parse(savedOverrides);
-      // 영문 자막이 포함된 공식 찬양들은 최신 공식 라이브러리 가사 우선 유지 (로컬 캐시로 인한 영문 자막 누락 방지)
-      const officialGlobalIds = ['amazing-grace', 'jesus-we-enthrone-you', 'as-the-deer', 'hope-desire-pray'];
-      let changed = false;
-      officialGlobalIds.forEach(id => {
-        if (overrides[id]) {
-          delete overrides[id];
-          changed = true;
-        }
-      });
-      if (changed) {
-        localStorage.setItem('arise_preset_lyrics_overrides', JSON.stringify(overrides));
-      }
     }
   } catch (e) {
     console.error('Failed to parse preset lyric overrides:', e);
@@ -1383,6 +1371,21 @@ function updateActiveSubtitleLine(currentTime) {
   // If in manual mode, DO NOT automatically advance lyrics based on currentTime!
   if (worshipStudioState.subtitleMode === 'manual') {
     return;
+  }
+
+  // If user just synced a line and is waiting to sync the next line, do not revert backward
+  if (worshipStudioState.syncLockIndex !== undefined && worshipStudioState.syncLockIndex !== null) {
+    const song = worshipStudioState.currentSong;
+    if (song && song.lines && worshipStudioState.syncLockIndex < song.lines.length) {
+      const lockLine = song.lines[worshipStudioState.syncLockIndex];
+      if (currentTime < lockLine.start) {
+        return;
+      } else {
+        worshipStudioState.syncLockIndex = null;
+      }
+    } else {
+      worshipStudioState.syncLockIndex = null;
+    }
   }
 
   const song = worshipStudioState.currentSong;
@@ -2478,6 +2481,14 @@ function stageQuickSyncCurrentLine() {
       ? Math.max(curTime + 20, song.duration || curTime + 30)
       : Math.max(curTime + 5, song.lines[curIdx].end || curTime + 15);
 
+    // Prevent subsequent lines from having start times earlier than curTime (prevent inversion)
+    for (let j = curIdx + 1; j < song.lines.length; j++) {
+      if (song.lines[j].start <= curTime) {
+        song.lines[j].start = Math.round((curTime + (j - curIdx) * 5) * 10) / 10;
+        song.lines[j].end = Math.round((song.lines[j].start + 10) * 10) / 10;
+      }
+    }
+
     // Save override to localStorage
     const overrides = JSON.parse(localStorage.getItem('arise_preset_lyrics_overrides') || '{}');
     overrides[song.id] = {
@@ -2493,9 +2504,10 @@ function stageQuickSyncCurrentLine() {
     highlightLyricStreamRow(curIdx);
     showStudioToast(`⏱️ [소절 #${curIdx + 1}] 시작: ${formatTime(curTime)} 확정 & 자동 저장!`);
 
-    // Advance to next line for the user
+    // Advance to next line for the user and hold sync lock
     if (curIdx < song.lines.length - 1) {
       worshipStudioState.currentLineIndex = curIdx + 1;
+      worshipStudioState.syncLockIndex = curIdx + 1;
       displayOverlaySubtitle(song.lines[curIdx + 1]);
       updateSubtitleControlBar();
     }

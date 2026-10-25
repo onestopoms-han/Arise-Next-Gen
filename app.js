@@ -4134,8 +4134,95 @@ async function loadGlobalRoutine() {
 // 10. Word Message Presenter (PPT Slides, PDF Handout, PPTX Export)
 // ==========================================
 let currentPptSlideIndex = 0;
-const TOTAL_PPT_SLIDES = 3;
+
+function getTotalWordPptSlides(data) {
+  const d = data || getWordPresentationData();
+  return (d && d.scriptureKorean && d.scriptureKorean.length > 7) ? 4 : 3;
+}
+
 let pptKeyboardHandlerAttached = false;
+
+function highlightKoreanPptText(rawText) {
+  if (!rawText) return "";
+  let text = escapeHtml(rawText);
+  const terms = [
+    "하나님과 같이 되어 선악을 알 줄",
+    "하나님과 같이 되어",
+    "선악을 알 줄",
+    "선악을",
+    "눈이 밝아져 자기들이 벗은 줄을 알고 무화과나무 잎을 엮어 치마로",
+    "눈이 밝아져",
+    "벗은 줄을 알고",
+    "무화과나무 잎을 엮어 치마",
+    "무화과 잎 치마",
+    "낯을 피하여",
+    "숨은지라",
+    "두려워하여",
+    "하나님이 주셔서 나와 함께 있게 하신 여자",
+    "하나님이 주셔서",
+    "꾀므로",
+    "1) 하나님 떠남",
+    "2) 죄",
+    "3) 사탄",
+    "하나님 떠남",
+    "하나님의 형상",
+    "복을 주시며",
+    "땅을 정복하라",
+    "다스리라",
+    "절대절망",
+    "전적타락",
+    "당연히 올 수밖에 없는 문제"
+  ];
+  terms.sort((a, b) => b.length - a.length);
+  const regex = new RegExp(`(${terms.map(t => escapeHtml(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g');
+  return text.replace(regex, '<span class="ppt-highlight-word">$1</span>');
+}
+
+function highlightEnglishPptText(rawText) {
+  if (!rawText) return "";
+  let text = escapeHtml(rawText);
+  const terms = [
+    "you will be like God, knowing good and evil",
+    "\"To become like God\"",
+    "To become like God",
+    "\"Knowledge of good and evil\"",
+    "Knowledge of good and evil",
+    "the eyes of both of them were opened, and they realized they were naked; so they sewed fig leaves together and made coverings for themselves",
+    "\"Eyes opened\"",
+    "eyes of both of them were opened",
+    "\"Realized they were naked\"",
+    "realized they were naked",
+    "\"Sewed fig leaves\"",
+    "sewed fig leaves together",
+    "sewed fig leaves",
+    "\"Hid from His presence\"",
+    "\"Hid themselves\"",
+    "\"Hid\"",
+    "\"Were afraid\"",
+    "was afraid",
+    "were afraid",
+    "\"The woman You put here\"",
+    "The woman you put here with me",
+    "The woman you put here",
+    "\"The Serpent Deceived me\"",
+    "The serpent deceived me",
+    "serpent deceived",
+    "1) Separation from God",
+    "2) Sin",
+    "3) Satan",
+    "Separation from God",
+    "Absolute despair",
+    "Total depravity",
+    "in his own image",
+    "in the image of God",
+    "God blessed them",
+    "subdue it",
+    "Rule over"
+  ];
+  terms.sort((a, b) => b.length - a.length);
+  const regex = new RegExp(`(${terms.map(t => escapeHtml(t).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi');
+  return text.replace(regex, '<span class="ppt-highlight-word">$1</span>');
+}
 
 function getWordPresentationData() {
   const custom = currentPresenterSermon;
@@ -4204,7 +4291,7 @@ function getWordPresentationData() {
     };
   }
 
-  // Default: 원죄 (Original Sin) — 창세기 3장 문제 (11월 1일 말씀)
+  // Default: 원죄 (Original Sin) — 창세기 3장 문제 (11월 1일 말씀) - 1~14절 완본 수록
   return {
     meetingTitle: custom ? "어라이즈 넥스트젠 30분 기도모임" : "2026 어라이즈 넥스트젠 30분 기도모임",
     meetingSub: "4단계 순서 중 2단계: 후대 복음 말씀 (5분)",
@@ -4214,32 +4301,36 @@ function getWordPresentationData() {
     pdfUrl: "후대복음말씀_원죄.pdf",
     meetingTime: custom ? (custom.displayDate || custom.date || "2026년 11월 1일 (일) 19:50") : "매월 첫 주일 호주 AEST 7:50 PM (한국 18:50)",
     scriptureKorean: [
-      {
-        verse: "4-5절",
-        text: "뱀이 여자에게 이르되 너희가 결코 죽지 아니하리라 너희가 그것을 먹는 날에는 너희 눈이 밝아져 하나님과 같이 되어 선악을 알 줄 하나님이 아심이니라"
-      },
-      {
-        verse: "6-7절",
-        text: "여자가 그 열매를 따먹고 자기와 함께 있는 남편에게도 주매 그도 먹은지라 이에 그들의 눈이 밝아져 자기들이 벗은 줄을 알고 무화과나무 잎을 엮어 치마로 삼았더라"
-      },
-      {
-        verse: "9-10절",
-        text: "여호와 하나님이 아담을 부르시며 그에게 이르시되 네가 어디 있느냐 이르되 내가 동산에서 하나님의 소리를 듣고 내가 벗었으므로 두려워하여 숨었나이다"
-      }
+      { verse: "1절", text: "그런데 뱀은 여호와 하나님이 지으신 들짐승 중에 가장 간교하니라 뱀이 여자에게 물어 이르되 하나님이 참으로 너희에게 동산 모든 나무의 열매를 먹지 말라 하시더냐" },
+      { verse: "2절", text: "여자가 뱀에게 말하되 동산 나무의 열매를 우리가 먹을 수 있으나" },
+      { verse: "3절", text: "동산 중앙에 있는 나무의 열매는 하나님의 말씀에 너희는 먹지도 말고 만지지도 말라 너희가 죽을까 하노라 하셨느니라" },
+      { verse: "4절", text: "뱀이 여자에게 이르되 너희가 결코 죽지 아니하리라" },
+      { verse: "5절", text: "너희가 그것을 먹는 날에는 너희 눈이 밝아져 하나님과 같이 되어 선악을 알 줄 하나님이 아심이니라" },
+      { verse: "6절", text: "여자가 그 나무를 본즉 먹음직도 하고 보암직도 하고 지혜롭게 할 만큼 탐스럽기도 한 나무인지라 여자가 그 열매를 따먹고 자기와 함께 있는 남편에게도 주매 그도 먹은지라" },
+      { verse: "7절", text: "이에 그들의 눈이 밝아져 자기들이 벗은 줄을 알고 무화과나무 잎을 엮어 치마로 삼았더라" },
+      { verse: "8절", text: "그들이 그 날 바람이 불 때 동산에 거니시는 여호와 하나님의 소리를 듣고 아담과 그의 아내가 여호와 하나님의 낯을 피하여 동산 나무 사이에 숨은지라" },
+      { verse: "9절", text: "여호와 하나님이 아담을 부르시며 그에게 이르시되 네가 어디 있느냐" },
+      { verse: "10절", text: "이르되 내가 동산에서 하나님의 소리를 듣고 내가 벗었으므로 두려워하여 숨었나이다" },
+      { verse: "11절", text: "이르되 누가 너의 벗었음을 네게 알렸느냐 내가 네게 먹지 말라 명한 그 나무 열매를 네가 먹었느냐" },
+      { verse: "12절", text: "아담이 이르되 하나님이 주셔서 나와 함께 있게 하신 여자 그가 그 나무 열매를 내게 주므로 내가 먹었나이다" },
+      { verse: "13절", text: "여호와 하나님이 여자에게 이르시되 네가 어찌하여 이렇게 하였느냐 여자가 이르되 뱀이 나를 꾀므로 내가 먹었나이다" },
+      { verse: "14절", text: "여호와 하나님이 뱀에게 이르시되 네가 이렇게 하였으니 네가 모든 가축과 들의 모든 짐승보다 더욱 저주를 받아 배로 다니고 살아 있는 동안 흙을 먹을지니라" }
     ],
     scriptureEnglish: [
-      {
-        verse: "v.4-5",
-        text: "The serpent said to the woman, \"You will not certainly die. For God knows that when you eat from it your eyes will be opened, and you will be like God, knowing good and evil.\""
-      },
-      {
-        verse: "v.6-7",
-        text: "She took some and ate it. She also gave some to her husband, who was with her, and he ate it. Then the eyes of both of them were opened, and they realized they were naked; so they sewed fig leaves together and made coverings."
-      },
-      {
-        verse: "v.9-10",
-        text: "But the Lord God called to the man, \"Where are you?\" He answered, \"I heard you in the garden, and I was afraid because I was naked; so I hid.\""
-      }
+      { verse: "v.1", text: "Now the serpent was more crafty than any of the wild animals the Lord God had made. He said to the woman, \"Did God really say, 'You must not eat from any tree in the garden'?\"" },
+      { verse: "v.2", text: "The woman said to the serpent, \"We may eat fruit from the trees in the garden," },
+      { verse: "v.3", text: "but God did say, 'You must not eat fruit from the tree that is in the middle of the garden, and you must not touch it, or you will die.'\"" },
+      { verse: "v.4", text: "The serpent said to the woman, \"You will not certainly die." },
+      { verse: "v.5", text: "For God knows that when you eat from it your eyes will be opened, and you will be like God, knowing good and evil.\"" },
+      { verse: "v.6", text: "When the woman saw that the fruit of the tree was good for food and pleasing to the eye, and also desirable for gaining wisdom, she took some and ate it. She also gave some to her husband, who was with her, and he ate it." },
+      { verse: "v.7", text: "Then the eyes of both of them were opened, and they realized they were naked; so they sewed fig leaves together and made coverings for themselves." },
+      { verse: "v.8", text: "Then the man and his wife heard the sound of the Lord God as he was walking in the garden in the cool of the day, and they hid from the Lord God among the trees of the garden." },
+      { verse: "v.9", text: "But the Lord God called to the man, \"Where are you?\"" },
+      { verse: "v.10", text: "He answered, \"I heard you in the garden, and I was afraid because I was naked; so I hid.\"" },
+      { verse: "v.11", text: "And he said, \"Who told you that you were naked? Have you eaten from the tree that I commanded you not to eat from?\"" },
+      { verse: "v.12", text: "The man said, \"The woman you put here with me—she gave me some fruit from the tree, and I ate it.\"" },
+      { verse: "v.13", text: "Then the Lord God said to the woman, \"What is this you have done?\" The woman said, \"The serpent deceived me, and I ate.\"" },
+      { verse: "v.14", text: "So the Lord God said to the serpent, \"Because you have done this, cursed are you above all livestock and all wild animals! You will crawl on your belly and you will eat dust all the days of your life.\"" }
     ],
     points: [
       {
@@ -4317,23 +4408,26 @@ function handlePptKeydown(e) {
 function renderPptDots() {
   const container = document.getElementById('pptDotsContainer');
   if (!container) return;
+  const total = getTotalWordPptSlides();
   let html = '';
-  for (let i = 0; i < TOTAL_PPT_SLIDES; i++) {
+  for (let i = 0; i < total; i++) {
     html += `<div class="ppt-dot ${i === currentPptSlideIndex ? 'active' : ''}" onclick="jumpToPptSlide(${i})" title="슬라이드 ${i + 1}"></div>`;
   }
   container.innerHTML = html;
 }
 
 function jumpToPptSlide(idx) {
-  if (idx < 0 || idx >= TOTAL_PPT_SLIDES) return;
+  const total = getTotalWordPptSlides();
+  if (idx < 0 || idx >= total) return;
   currentPptSlideIndex = idx;
   renderPptSlide(currentPptSlideIndex);
 }
 window.jumpToPptSlide = jumpToPptSlide;
 
 function navigatePptSlide(delta) {
+  const total = getTotalWordPptSlides();
   const target = currentPptSlideIndex + delta;
-  if (target >= 0 && target < TOTAL_PPT_SLIDES) {
+  if (target >= 0 && target < total) {
     currentPptSlideIndex = target;
     renderPptSlide(currentPptSlideIndex);
   }
@@ -4347,13 +4441,15 @@ function renderPptSlide(index) {
   const btnNext = document.getElementById('btnPptNext');
   const headerTitle = document.getElementById('pptHeaderTitle');
 
-  if (counter) counter.textContent = `${index + 1} / ${TOTAL_PPT_SLIDES}`;
+  const data = getWordPresentationData();
+  const totalSlides = getTotalWordPptSlides(data);
+
+  if (counter) counter.textContent = `${index + 1} / ${totalSlides}`;
   if (btnPrev) btnPrev.disabled = (index === 0);
-  if (btnNext) btnNext.disabled = (index === TOTAL_PPT_SLIDES - 1);
+  if (btnNext) btnNext.disabled = (index === totalSlides - 1);
 
   renderPptDots();
 
-  const data = getWordPresentationData();
   if (headerTitle) {
     headerTitle.textContent = `2단계: 후대 복음 말씀 — ${data.title}`;
   }
@@ -4377,61 +4473,102 @@ function renderPptSlide(index) {
         </div>
       </div>
     `;
-  } else if (index === 1) {
-    // Slide 2: Scripture Reading
+  } else if (totalSlides === 4 && (index === 1 || index === 2)) {
+    // 4 Slides Mode (e.g. Genesis 3:1-14)
+    // Slide 2: Verses 1-7, Slide 3: Verses 8-14
+    const isFirstHalf = (index === 1);
+    const versesKo = isFirstHalf ? data.scriptureKorean.slice(0, 7) : data.scriptureKorean.slice(7);
+    const versesEn = isFirstHalf ? data.scriptureEnglish.slice(0, 7) : data.scriptureEnglish.slice(7);
+    const partLabelKo = isFirstHalf ? "① (창세기 3:1-7)" : "② (창세기 3:8-14)";
+    const partLabelEn = isFirstHalf ? "PART 1 (v.1-7)" : "PART 2 (v.8-14)";
+
     slideContent.innerHTML = `
-      <div class="ppt-slide-header">
-        <div class="ppt-slide-step-badge">STEP 2 : SCRIPTURE READING</div>
-        <h2 class="ppt-slide-main-title">📖 본문 성경 말씀 낭독 — ${escapeHtml(data.scripture)}</h2>
+      <div class="ppt-slide-header" style="margin-bottom: 1rem;">
+        <div class="ppt-slide-step-badge">STEP 2 : SCRIPTURE READING ${partLabelEn}</div>
+        <h2 class="ppt-slide-main-title" style="font-size: 1.85rem;">📖 본문 성경 말씀 낭독 ${partLabelKo} — ${escapeHtml(data.scripture)}</h2>
       </div>
-      <div class="ppt-scripture-grid" style="flex: 1; gap: 1.2rem;">
-        <div class="ppt-scripture-box" style="padding: 1.2rem 1.4rem;">
-          <div class="ppt-box-header">
+      <div class="ppt-scripture-grid" style="flex: 1; gap: 1.2rem; min-height: 0;">
+        <div class="ppt-scripture-box" style="padding: 1.1rem 1.3rem;">
+          <div class="ppt-box-header" style="margin-bottom: 0.7rem;">
             <span class="ppt-box-lang">🇰🇷 한국어 성경 (개역개정)</span>
-            <span class="ppt-box-label">${escapeHtml(data.scripture.split(' ')[0] + ' ' + (data.scripture.split(' ')[1] || ''))}</span>
+            <span class="ppt-box-label">${isFirstHalf ? "창세기 3:1-7" : "창세기 3:8-14"}</span>
           </div>
-          ${data.scriptureKorean.map(v => `
-            <div class="ppt-verse-row" style="margin-bottom: 0.9rem;">
+          ${versesKo.map(v => `
+            <div class="ppt-verse-row" style="margin-bottom: 0.75rem; line-height: 1.6; font-size: 1.05rem; font-weight: 700;">
               <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
-              <span style="line-height: 1.65; font-size: 1.08rem; font-weight: 700;">${
-                v.text.replace(/하나님과 같이 되어|선악을 알 줄|눈이 밝아져|무화과나무 잎을 엮어 치마|두려워하여/g, '<span class="ppt-highlight-word">$&</span>')
-                      .replace(/하나님의 형상|복을 주시며|땅을 정복하라|다스리라/g, '<span class="ppt-highlight-word">$&</span>')
-              }</span>
+              <span>${highlightKoreanPptText(v.text)}</span>
             </div>
           `).join('')}
         </div>
-        <div class="ppt-scripture-box" style="padding: 1.2rem 1.4rem;">
-          <div class="ppt-box-header">
+        <div class="ppt-scripture-box" style="padding: 1.1rem 1.3rem;">
+          <div class="ppt-box-header" style="margin-bottom: 0.7rem;">
             <span class="ppt-box-lang">🇺🇸 English Bible (NIV)</span>
-            <span class="ppt-box-label">${escapeHtml(data.scripture.split('(')[1] ? data.scripture.split('(')[1].replace(')', '') : 'Scripture')}</span>
+            <span class="ppt-box-label">${isFirstHalf ? "Genesis 3:1-7" : "Genesis 3:8-14"}</span>
           </div>
-          ${data.scriptureEnglish.map(v => `
-            <div class="ppt-verse-row" style="margin-bottom: 0.9rem;">
+          ${versesEn.map(v => `
+            <div class="ppt-verse-row" style="margin-bottom: 0.75rem; line-height: 1.6; font-size: 1.05rem; font-weight: 700; font-style: normal;">
               <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
-              <span style="line-height: 1.65; font-size: 1.08rem; font-weight: 700; font-style: normal;">${
-                v.text.replace(/you will be like God|knowing good and evil|eyes.*opened|sewed fig leaves|afraid/gi, '<span class="ppt-highlight-word">$&</span>')
-                      .replace(/in his own image|God blessed them|subdue it|rule over/gi, '<span class="ppt-highlight-word">$&</span>')
-              }</span>
+              <span>${highlightEnglishPptText(v.text)}</span>
             </div>
           `).join('')}
         </div>
       </div>
     `;
-  } else if (index === 2) {
-    // Slide 3: 5-Minute Gospel Message Summary
+  } else if (totalSlides === 3 && index === 1) {
+    // 3 Slides Mode (e.g. Genesis 1:27-28 Original Blessing)
     slideContent.innerHTML = `
-      <div class="ppt-slide-header">
-        <div class="ppt-slide-step-badge">STEP 2 : 5-MINUTE GOSPEL MESSAGE SUMMARY</div>
-        <h2 class="ppt-slide-main-title">📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)</h2>
+      <div class="ppt-slide-header" style="margin-bottom: 1.2rem;">
+        <div class="ppt-slide-step-badge">STEP 2 : SCRIPTURE READING</div>
+        <h2 class="ppt-slide-main-title" style="font-size: 2rem;">📖 본문 성경 말씀 낭독 — ${escapeHtml(data.scripture)}</h2>
       </div>
-      <div class="ppt-points-grid" style="flex: 1; margin-top: 0.8rem; gap: 1rem;">
-        ${data.points.map(pt => `
-          <div class="ppt-point-card" style="padding: 1.2rem;">
-            <div class="ppt-point-top">
-              <span class="ppt-point-num">0${pt.num}</span>
+      <div class="ppt-scripture-grid" style="flex: 1; gap: 1.2rem; min-height: 0;">
+        <div class="ppt-scripture-box" style="padding: 1.3rem 1.5rem;">
+          <div class="ppt-box-header">
+            <span class="ppt-box-lang">🇰🇷 한국어 성경 (개역개정)</span>
+            <span class="ppt-box-label">${escapeHtml(data.scripture.split(' ')[0] + ' ' + (data.scripture.split(' ')[1] || ''))}</span>
+          </div>
+          ${data.scriptureKorean.map(v => `
+            <div class="ppt-verse-row" style="margin-bottom: 1rem; line-height: 1.7; font-size: 1.12rem; font-weight: 700;">
+              <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
+              <span>${highlightKoreanPptText(v.text)}</span>
             </div>
-            <h3 class="ppt-point-title-ko" style="font-size: 1.02rem; line-height: 1.55; margin-bottom: 0.6rem;">${escapeHtml(pt.titleKo)}</h3>
-            ${pt.titleEn ? `<div class="ppt-point-title-en" style="font-size: 1.02rem; font-weight: 700; font-style: normal; line-height: 1.55;">${escapeHtml(pt.titleEn)}</div>` : ''}
+          `).join('')}
+        </div>
+        <div class="ppt-scripture-box" style="padding: 1.3rem 1.5rem;">
+          <div class="ppt-box-header">
+            <span class="ppt-box-lang">🇺🇸 English Bible (NIV)</span>
+            <span class="ppt-box-label">${escapeHtml(data.scripture.split('(')[1] ? data.scripture.split('(')[1].replace(')', '') : 'Scripture')}</span>
+          </div>
+          ${data.scriptureEnglish.map(v => `
+            <div class="ppt-verse-row" style="margin-bottom: 1rem; line-height: 1.7; font-size: 1.12rem; font-weight: 700; font-style: normal;">
+              <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
+              <span>${highlightEnglishPptText(v.text)}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  } else {
+    // Final Slide: 5-Minute Gospel Message Summary (index === 3 in 4-slide mode or index === 2 in 3-slide mode)
+    slideContent.innerHTML = `
+      <div class="ppt-slide-header" style="margin-bottom: 0.8rem;">
+        <div class="ppt-slide-step-badge">STEP 2 : 5-MINUTE GOSPEL MESSAGE SUMMARY</div>
+        <h2 class="ppt-slide-main-title" style="font-size: 1.85rem;">📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)</h2>
+      </div>
+      <div class="ppt-points-grid" style="flex: 1; min-height: 0; margin-top: 0.5rem; gap: 1rem; display: grid; grid-template-columns: repeat(3, 1fr);">
+        ${data.points.map(pt => `
+          <div class="ppt-point-card" style="padding: 1.2rem 1.3rem; display: flex; flex-direction: column; overflow-y: auto; background: rgba(15, 23, 42, 0.92); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 16px;">
+            <div class="ppt-point-top" style="margin-bottom: 0.6rem; display: flex; align-items: center;">
+              <span class="ppt-point-num" style="font-size: 1.05rem; font-weight: 900; color: #38bdf8; background: rgba(56, 189, 248, 0.18); padding: 0.25rem 0.75rem; border-radius: 9999px;">0${pt.num}</span>
+            </div>
+            <div class="ppt-point-title-ko" style="font-size: 1.02rem; font-weight: 800; color: #ffffff; line-height: 1.55; margin-bottom: 0.75rem; white-space: pre-line;">
+              ${highlightKoreanPptText(pt.titleKo)}
+            </div>
+            ${pt.titleEn ? `
+              <div class="ppt-point-title-en" style="font-size: 1.02rem; color: #38bdf8; font-weight: 800; font-style: normal; line-height: 1.55; border-top: 1px dashed rgba(56, 189, 248, 0.35); padding-top: 0.75rem; white-space: pre-line; margin-top: auto;">
+                ${highlightEnglishPptText(pt.titleEn)}
+              </div>
+            ` : ''}
           </div>
         `).join('')}
       </div>
@@ -4867,6 +5004,7 @@ function downloadWordPptx(customSermon) {
   }
 
   const data = getWordPresentationData();
+  const totalSlides = getTotalWordPptSlides(data);
   const pptx = new PptxGenJS();
 
   pptx.layout = 'LAYOUT_16x9';
@@ -4874,101 +5012,287 @@ function downloadWordPptx(customSermon) {
   pptx.company = 'Arise Next Gen';
   pptx.title = `후대복음말씀 - ${data.title}`;
 
+  const koKeywords = [
+    "하나님과 같이 되어 선악을 알 줄",
+    "하나님과 같이 되어",
+    "선악을 알 줄",
+    "선악을",
+    "눈이 밝아져 자기들이 벗은 줄을 알고 무화과나무 잎을 엮어 치마로",
+    "눈이 밝아져",
+    "벗은 줄을 알고",
+    "무화과나무 잎을 엮어 치마",
+    "무화과 잎 치마",
+    "낯을 피하여",
+    "숨은지라",
+    "두려워하여",
+    "하나님이 주셔서 나와 함께 있게 하신 여자",
+    "하나님이 주셔서",
+    "꾀므로",
+    "1) 하나님 떠남",
+    "2) 죄",
+    "3) 사탄",
+    "하나님 떠남",
+    "하나님의 형상",
+    "복을 주시며",
+    "땅을 정복하라",
+    "다스리라",
+    "절대절망",
+    "전적타락",
+    "당연히 올 수밖에 없는 문제"
+  ];
+
+  const enKeywords = [
+    "you will be like God, knowing good and evil",
+    "\"To become like God\"",
+    "To become like God",
+    "\"Knowledge of good and evil\"",
+    "Knowledge of good and evil",
+    "the eyes of both of them were opened, and they realized they were naked; so they sewed fig leaves together and made coverings for themselves",
+    "\"Eyes opened\"",
+    "eyes of both of them were opened",
+    "\"Realized they were naked\"",
+    "realized they were naked",
+    "\"Sewed fig leaves\"",
+    "sewed fig leaves together",
+    "sewed fig leaves",
+    "\"Hid from His presence\"",
+    "\"Hid themselves\"",
+    "\"Hid\"",
+    "\"Were afraid\"",
+    "was afraid",
+    "were afraid",
+    "\"The woman You put here\"",
+    "The woman you put here with me",
+    "The woman you put here",
+    "\"The Serpent Deceived me\"",
+    "The serpent deceived me",
+    "serpent deceived",
+    "1) Separation from God",
+    "2) Sin",
+    "3) Satan",
+    "Separation from God",
+    "Absolute despair",
+    "Total depravity",
+    "in his own image",
+    "in the image of God",
+    "God blessed them",
+    "subdue it",
+    "Rule over"
+  ];
+
+  function buildPptxRuns(text, keywords, baseOptions) {
+    if (!text) return [];
+    const sorted = keywords.slice().sort((a, b) => b.length - a.length);
+    const escaped = sorted.map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    const regex = new RegExp(`(${escaped.join('|')})`, 'gi');
+    const parts = text.split(regex);
+    const runs = [];
+    parts.forEach(part => {
+      if (!part) return;
+      const matched = sorted.some(k => k.toLowerCase() === part.toLowerCase());
+      if (matched) {
+        runs.push({
+          text: part,
+          options: {
+            ...baseOptions,
+            color: '0F172A',
+            highlight: 'FFFF00',
+            bold: true
+          }
+        });
+      } else {
+        runs.push({
+          text: part,
+          options: {
+            ...baseOptions
+          }
+        });
+      }
+    });
+    return runs;
+  }
+
   // Slide 1: Cover
   const s1 = pptx.addSlide();
   s1.background = { color: '0F172A' };
   s1.addText(data.meetingTitle.toUpperCase(), {
-    x: 0.8, y: 0.8, w: 11.5, h: 0.5,
+    x: 0.8, y: 0.8, w: 11.7, h: 0.5,
     fontSize: 15, color: '38BDF8', bold: true, align: 'center'
   });
   s1.addText("2단계: 후대 복음 말씀 (5분)", {
-    x: 0.8, y: 1.4, w: 11.5, h: 0.5,
+    x: 0.8, y: 1.4, w: 11.7, h: 0.5,
     fontSize: 16, color: '94A3B8', bold: true, align: 'center'
   });
   s1.addText(data.title, {
-    x: 0.8, y: 2.2, w: 11.5, h: 1.4,
+    x: 0.8, y: 2.2, w: 11.7, h: 1.4,
     fontSize: 34, color: 'FFFFFF', bold: true, align: 'center'
   });
   s1.addText(`📖 ${data.scripture}`, {
-    x: 0.8, y: 3.8, w: 11.5, h: 0.8,
+    x: 0.8, y: 3.8, w: 11.7, h: 0.8,
     fontSize: 22, color: '34D399', bold: true, align: 'center'
   });
   s1.addText(data.theme, {
-    x: 0.8, y: 4.8, w: 11.5, h: 0.6,
+    x: 0.8, y: 4.8, w: 11.7, h: 0.6,
     fontSize: 16, color: 'CBD5E1', bold: true, align: 'center'
   });
   s1.addText("매월 첫 주일 8:00 PM AEST | 전 세계 다민족 언약의 후대 연합 기도회", {
-    x: 0.8, y: 6.2, w: 11.5, h: 0.5,
+    x: 0.8, y: 6.2, w: 11.7, h: 0.5,
     fontSize: 12, color: '94A3B8', bold: true, align: 'center'
   });
 
-  // Slide 2: Scripture
-  const s2 = pptx.addSlide();
-  s2.background = { color: '0F172A' };
-  s2.addText(`📖 본문 말씀 낭독 (Scripture) — ${data.scripture}`, {
-    x: 0.8, y: 0.6, w: 11.5, h: 0.6,
-    fontSize: 22, color: 'FFFFFF', bold: true
-  });
-  // Korean Box
-  s2.addShape(pptx.ShapeType.roundRect, {
-    x: 0.8, y: 1.4, w: 5.6, h: 5.2,
-    fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
-  });
-  s2.addText("🇰🇷 한국어 성경 (개역개정)", {
-    x: 1.1, y: 1.6, w: 5.0, h: 0.4,
-    fontSize: 15, color: '38BDF8', bold: true
-  });
-  const koText = data.scriptureKorean.map(v => `${v.verse} ${v.text}`).join('\n\n');
-  s2.addText(koText, {
-    x: 1.1, y: 2.1, w: 5.0, h: 4.3,
-    fontSize: 12.5, color: 'FFFFFF', bold: true, lineSpacing: 20
-  });
+  if (totalSlides === 4) {
+    // Scripture Part 1 (Verses 1-7)
+    const s2 = pptx.addSlide();
+    s2.background = { color: '0F172A' };
+    s2.addText(`📖 본문 성경 말씀 낭독 ① (창세기 3:1-7) — ${data.scripture}`, {
+      x: 0.8, y: 0.55, w: 11.7, h: 0.6,
+      fontSize: 21, color: 'FFFFFF', bold: true
+    });
+    // Korean Box
+    s2.addShape(pptx.ShapeType.roundRect, {
+      x: 0.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s2.addText("🇰🇷 한국어 성경 (개역개정) 창세기 3:1-7", {
+      x: 1.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 14, color: '38BDF8', bold: true
+    });
+    const koPassage1 = data.scriptureKorean.slice(0, 7).map(v => `${v.verse} ${v.text}`).join('\n\n');
+    const koRuns1 = buildPptxRuns(koPassage1, koKeywords, { fontSize: 11, color: 'FFFFFF', bold: true });
+    s2.addText(koRuns1, {
+      x: 1.05, y: 1.95, w: 5.2, h: 4.8,
+      lineSpacing: 17
+    });
 
-  // English Box (Identical 1:1 font size & bold weight as Korean)
-  s2.addShape(pptx.ShapeType.roundRect, {
-    x: 6.8, y: 1.4, w: 5.6, h: 5.2,
-    fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
-  });
-  s2.addText("🇺🇸 English Bible (NIV)", {
-    x: 7.1, y: 1.6, w: 5.0, h: 0.4,
-    fontSize: 15, color: '38BDF8', bold: true
-  });
-  const enText = data.scriptureEnglish.map(v => `${v.verse} ${v.text}`).join('\n\n');
-  s2.addText(enText, {
-    x: 7.1, y: 2.1, w: 5.0, h: 4.3,
-    fontSize: 12.5, color: 'FFFFFF', bold: true, lineSpacing: 20
-  });
+    // English Box
+    s2.addShape(pptx.ShapeType.roundRect, {
+      x: 6.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s2.addText("🇺🇸 English Bible (NIV) Genesis 3:1-7", {
+      x: 7.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 14, color: '38BDF8', bold: true
+    });
+    const enPassage1 = data.scriptureEnglish.slice(0, 7).map(v => `${v.verse} ${v.text}`).join('\n\n');
+    const enRuns1 = buildPptxRuns(enPassage1, enKeywords, { fontSize: 11, color: 'FFFFFF', bold: true });
+    s2.addText(enRuns1, {
+      x: 7.05, y: 1.95, w: 5.2, h: 4.8,
+      lineSpacing: 17
+    });
 
-  // Slide 3: 5-Minute Gospel Message Summary
-  const s3 = pptx.addSlide();
-  s3.background = { color: '0F172A' };
-  s3.addText("📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)", {
-    x: 0.8, y: 0.8, w: 11.5, h: 0.6,
-    fontSize: 22, color: 'FFFFFF', bold: true
+    // Scripture Part 2 (Verses 8-14)
+    const s3 = pptx.addSlide();
+    s3.background = { color: '0F172A' };
+    s3.addText(`📖 본문 성경 말씀 낭독 ② (창세기 3:8-14) — ${data.scripture}`, {
+      x: 0.8, y: 0.55, w: 11.7, h: 0.6,
+      fontSize: 21, color: 'FFFFFF', bold: true
+    });
+    // Korean Box
+    s3.addShape(pptx.ShapeType.roundRect, {
+      x: 0.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s3.addText("🇰🇷 한국어 성경 (개역개정) 창세기 3:8-14", {
+      x: 1.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 14, color: '38BDF8', bold: true
+    });
+    const koPassage2 = data.scriptureKorean.slice(7).map(v => `${v.verse} ${v.text}`).join('\n\n');
+    const koRuns2 = buildPptxRuns(koPassage2, koKeywords, { fontSize: 11, color: 'FFFFFF', bold: true });
+    s3.addText(koRuns2, {
+      x: 1.05, y: 1.95, w: 5.2, h: 4.8,
+      lineSpacing: 17
+    });
+
+    // English Box
+    s3.addShape(pptx.ShapeType.roundRect, {
+      x: 6.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s3.addText("🇺🇸 English Bible (NIV) Genesis 3:8-14", {
+      x: 7.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 14, color: '38BDF8', bold: true
+    });
+    const enPassage2 = data.scriptureEnglish.slice(7).map(v => `${v.verse} ${v.text}`).join('\n\n');
+    const enRuns2 = buildPptxRuns(enPassage2, enKeywords, { fontSize: 11, color: 'FFFFFF', bold: true });
+    s3.addText(enRuns2, {
+      x: 7.05, y: 1.95, w: 5.2, h: 4.8,
+      lineSpacing: 17
+    });
+  } else {
+    // 3 Slides Mode: Scripture all on Slide 2 (e.g. Genesis 1:27-28)
+    const s2 = pptx.addSlide();
+    s2.background = { color: '0F172A' };
+    s2.addText(`📖 본문 말씀 낭독 (Scripture) — ${data.scripture}`, {
+      x: 0.8, y: 0.55, w: 11.7, h: 0.6,
+      fontSize: 21, color: 'FFFFFF', bold: true
+    });
+    // Korean Box
+    s2.addShape(pptx.ShapeType.roundRect, {
+      x: 0.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s2.addText("🇰🇷 한국어 성경 (개역개정)", {
+      x: 1.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 14, color: '38BDF8', bold: true
+    });
+    const koText = data.scriptureKorean.map(v => `${v.verse} ${v.text}`).join('\n\n');
+    const koRuns = buildPptxRuns(koText, koKeywords, { fontSize: 12, color: 'FFFFFF', bold: true });
+    s2.addText(koRuns, {
+      x: 1.05, y: 1.95, w: 5.2, h: 4.8,
+      lineSpacing: 19
+    });
+
+    // English Box
+    s2.addShape(pptx.ShapeType.roundRect, {
+      x: 6.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s2.addText("🇺🇸 English Bible (NIV)", {
+      x: 7.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 14, color: '38BDF8', bold: true
+    });
+    const enText = data.scriptureEnglish.map(v => `${v.verse} ${v.text}`).join('\n\n');
+    const enRuns = buildPptxRuns(enText, enKeywords, { fontSize: 12, color: 'FFFFFF', bold: true });
+    s2.addText(enRuns, {
+      x: 7.05, y: 1.95, w: 5.2, h: 4.8,
+      lineSpacing: 19
+    });
+  }
+
+  // Final Slide: 5-Minute Gospel Message Summary
+  const sLast = pptx.addSlide();
+  sLast.background = { color: '0F172A' };
+  sLast.addText("📌 5분 복음 메시지 요약 (Summary of the 5-Minute Gospel Message)", {
+    x: 0.65, y: 0.55, w: 12.0, h: 0.6,
+    fontSize: 21, color: 'FFFFFF', bold: true
   });
 
   data.points.forEach((pt, idx) => {
-    const xPos = 0.8 + (idx * 3.9);
-    s3.addShape(pptx.ShapeType.roundRect, {
-      x: xPos, y: 1.6, w: 3.7, h: 5.0,
+    const xPos = 0.65 + (idx * 4.05);
+    sLast.addShape(pptx.ShapeType.roundRect, {
+      x: xPos, y: 1.35, w: 3.9, h: 5.75,
       fill: { color: '1E293B' }, line: { color: '38BDF8', width: 1.5 }
     });
-    s3.addText(`POINT 0${pt.num}`, {
-      x: xPos + 0.2, y: 1.8, w: 3.3, h: 0.35,
+    sLast.addText(`POINT 0${pt.num}`, {
+      x: xPos + 0.2, y: 1.5, w: 3.5, h: 0.35,
       fontSize: 13, color: '38BDF8', bold: true
     });
-    s3.addText(pt.titleKo, {
-      x: xPos + 0.2, y: 2.2, w: 3.3, h: 2.2,
-      fontSize: 11.5, color: 'FFFFFF', bold: true, lineSpacing: 17
+
+    const koRuns = buildPptxRuns(pt.titleKo, koKeywords, { fontSize: 10.5, color: 'FFFFFF', bold: true });
+    sLast.addText(koRuns, {
+      x: xPos + 0.2, y: 1.9, w: 3.5, h: 2.3,
+      lineSpacing: 16
     });
+
     if (pt.titleEn) {
-      s3.addShape(pptx.ShapeType.line, {
-        x: xPos + 0.2, y: 4.45, w: 3.3, h: 0,
+      sLast.addShape(pptx.ShapeType.line, {
+        x: xPos + 0.2, y: 4.3, w: 3.5, h: 0,
         line: { color: '334155', width: 1 }
       });
-      s3.addText(pt.titleEn, {
-        x: xPos + 0.2, y: 4.55, w: 3.3, h: 1.9,
-        fontSize: 11.5, color: 'CBD5E1', bold: true, lineSpacing: 17
+      const enRuns = buildPptxRuns(pt.titleEn, enKeywords, { fontSize: 10.5, color: '38BDF8', bold: true });
+      sLast.addText(enRuns, {
+        x: xPos + 0.2, y: 4.4, w: 3.5, h: 2.6,
+        lineSpacing: 15
       });
     }
   });
