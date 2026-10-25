@@ -252,7 +252,7 @@ body {
   -webkit-backdrop-filter: blur(20px);
   background: rgba(9, 13, 26, 0.8);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 0.9rem 0;
+  padding: 0.65rem 0;
 }
 
 .header-container {
@@ -461,7 +461,7 @@ body {
 
 /* ================= HERO SECTION ================= */
 .hero-section {
-  padding: 3rem 0 3.8rem;
+  padding: 0.75rem 0 1.25rem;
   position: relative;
 }
 
@@ -473,7 +473,7 @@ body {
 .hero-split-layout {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 2.5rem;
+  gap: 1.75rem;
   align-items: stretch;
 }
 
@@ -489,15 +489,15 @@ body {
   display: inline-flex;
   align-items: center;
   align-self: flex-start;
-  gap: 0.6rem;
-  padding: 0.45rem 1.15rem;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
   border-radius: 999px;
   background: rgba(99, 102, 241, 0.12);
   border: 1px solid rgba(99, 102, 241, 0.35);
   color: #A5B4FC;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.65rem;
 }
 
 .pulse-dot {
@@ -516,19 +516,19 @@ body {
 }
 
 .hero-title {
-  font-size: clamp(2.2rem, 3.2vw, 3.2rem);
-  line-height: 1.22;
+  font-size: clamp(2.75rem, 3.9vw, 3.85rem);
+  line-height: 1.15;
   font-weight: 800;
   letter-spacing: -0.025em;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.75rem;
   text-align: left;
 }
 
 .hero-subtitle {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   color: var(--text-secondary);
-  line-height: 1.72;
-  margin: 0 0 1.6rem 0;
+  line-height: 1.55;
+  margin: 0 0 0.85rem 0;
   text-align: left;
   max-width: 100%;
 }
@@ -540,44 +540,44 @@ body {
   background: linear-gradient(135deg, rgba(22, 30, 56, 0.75) 0%, rgba(30, 41, 75, 0.45) 100%);
   border: 1px solid rgba(245, 158, 11, 0.25);
   border-left: 4px solid var(--accent-gold);
-  border-radius: 16px;
-  padding: 1.35rem 1.6rem 1.35rem 1.8rem;
+  border-radius: 12px;
+  padding: 0.85rem 1.25rem 0.85rem 1.4rem;
   position: relative;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 10px 28px -8px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.4);
   text-align: left;
 }
 
 .scripture-quote-icon {
   position: absolute;
-  top: -12px;
-  left: 18px;
-  font-size: 2.6rem;
+  top: -10px;
+  left: 14px;
+  font-size: 2.2rem;
   color: var(--accent-gold);
   line-height: 1;
-  opacity: 0.7;
+  opacity: 0.65;
 }
 
 .scripture-text {
-  font-size: 1.02rem;
+  font-size: 0.92rem;
   font-style: normal;
   font-weight: 500;
   color: #F1F5F9;
-  line-height: 1.62;
-  margin-bottom: 0.6rem;
-  padding-top: 0.4rem;
+  line-height: 1.5;
+  margin-bottom: 0.4rem;
+  padding-top: 0.15rem;
 }
 
 .scripture-ref {
   display: inline-block;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--accent-gold);
   font-weight: 700;
   letter-spacing: 0.04em;
   background: rgba(245, 158, 11, 0.12);
   border: 1px solid rgba(245, 158, 11, 0.28);
-  padding: 0.2rem 0.65rem;
+  padding: 0.15rem 0.55rem;
   border-radius: 6px;
 }
 
@@ -593,8 +593,8 @@ body {
   margin: 0;
   background: rgba(16, 22, 42, 0.85);
   border: 1px solid var(--border-glow);
-  border-radius: 20px;
-  padding: 1.45rem 1.35rem;
+  border-radius: 16px;
+  padding: 1rem 1.15rem;
   box-shadow: var(--shadow-card), 0 0 25px rgba(245, 158, 11, 0.18);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -607,10 +607,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.55rem;
-  margin-bottom: 1.1rem;
+  gap: 0.35rem;
+  margin-bottom: 0.65rem;
   border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 0.95rem;
+  padding-bottom: 0.55rem;
 }
 
 .meeting-meta {
@@ -630,22 +630,22 @@ body {
 }
 
 .next-meeting-date {
-  font-size: 1.05rem;
+  font-size: 0.96rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-top: 0.25rem;
-  line-height: 1.45;
+  margin-top: 0.15rem;
+  line-height: 1.35;
 }
 
 .world-clock-badge {
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   color: var(--accent-sky);
   background: rgba(56, 189, 248, 0.1);
   border: 1px solid rgba(56, 189, 248, 0.25);
-  padding: 0.35rem 0.8rem;
-  border-radius: 8px;
+  padding: 0.22rem 0.65rem;
+  border-radius: 6px;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.35;
   display: inline-block;
 }
 
@@ -653,8 +653,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  margin: 1rem 0 1.2rem;
+  gap: 0.45rem;
+  margin: 0.65rem 0 0.75rem;
 }
 
 .time-block {
@@ -662,8 +662,8 @@ body {
   min-width: 0;
   background: rgba(9, 13, 26, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
-  padding: 0.9rem 0.35rem;
+  border-radius: 10px;
+  padding: 0.65rem 0.2rem;
   text-align: center;
   box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
   transition: var(--transition-smooth);
@@ -675,7 +675,7 @@ body {
 }
 
 .time-val {
-  font-size: clamp(1.45rem, 1.8vw, 2.2rem);
+  font-size: clamp(1.35rem, 1.6vw, 1.85rem);
   font-weight: 800;
   font-variant-numeric: tabular-nums;
   line-height: 1;
@@ -687,34 +687,34 @@ body {
 }
 
 .time-label {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: var(--text-muted);
   text-transform: uppercase;
-  margin-top: 0.35rem;
+  margin-top: 0.25rem;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 .time-sep {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.25);
-  margin-top: -0.6rem;
+  margin-top: -0.4rem;
 }
 
 .countdown-actions {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  margin-top: 0.6rem;
+  gap: 0.45rem;
+  margin-top: 0.45rem;
 }
 
 .countdown-actions .btn {
   width: 100%;
   min-width: 0;
-  padding: 0.72rem 1.1rem;
-  font-size: 0.92rem;
-  border-radius: 12px;
+  padding: 0.58rem 1rem;
+  font-size: 0.88rem;
+  border-radius: 10px;
 }
 
 .btn-glow {
@@ -729,16 +729,16 @@ body {
 
 /* Global Multi-Nation Timezone Bar */
 .global-times-bar {
-  margin-top: 1.2rem;
-  padding-top: 1.05rem;
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .global-times-title {
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 700;
   color: var(--accent-gold);
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.45rem;
   letter-spacing: 0.04em;
   text-align: left;
 }
@@ -747,19 +747,19 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 
 .tz-chip {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   background: rgba(10, 14, 28, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.3rem 0.65rem;
-  border-radius: 8px;
+  padding: 0.22rem 0.55rem;
+  border-radius: 6px;
   color: #E2E8F0;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.3rem;
   transition: var(--transition-smooth);
 }
 
@@ -788,39 +788,41 @@ body {
 .nations-showcase {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 2.5rem;
-  padding: 1rem 1.5rem;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+  padding: 0.55rem 0.95rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 10px;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
 }
 
 .nations-label {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--accent-gold);
+  white-space: nowrap;
 }
 
 .nations-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
+  gap: 0.4rem;
+  justify-content: flex-start;
 }
 
 .nation-pill {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
   background: rgba(99, 102, 241, 0.12);
   border: 1px solid rgba(99, 102, 241, 0.3);
   color: #C7D2FE;
-  padding: 0.25rem 0.75rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 999px;
   transition: var(--transition-smooth);
 }
@@ -2201,6 +2203,9 @@ body {
   .routine-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .portal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .core-prayer-list {
     grid-template-columns: 1fr;
     gap: 1.2rem;
@@ -2220,7 +2225,7 @@ body {
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 2.45rem;
   }
   .hero-subtitle {
     font-size: 0.98rem;
@@ -6378,63 +6383,69 @@ body {
 
 /* Home Portal Quick Navigation Grid (메인 홈 허브) */
 .home-portal-menu {
-  margin-top: 3.5rem;
-  padding-top: 3rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .portal-header {
-  text-align: center;
-  margin-bottom: 2.2rem;
+  text-align: left;
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.85rem;
 }
 
 .portal-badge {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent-gold);
   background: rgba(245, 158, 11, 0.12);
   border: 1px solid rgba(245, 158, 11, 0.25);
-  padding: 0.3rem 0.85rem;
+  padding: 0.2rem 0.65rem;
   border-radius: 999px;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0;
 }
 
 .portal-title {
-  font-size: 1.85rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.01em;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 .portal-sub {
-  font-size: 0.98rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
+  width: 100%;
+  margin-top: 0.1rem;
 }
 
 .portal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
 }
 
 .portal-card {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: 0.75rem;
   background: linear-gradient(135deg, rgba(22, 30, 56, 0.75), rgba(15, 23, 42, 0.9));
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 1.35rem 1.4rem;
+  border-radius: 12px;
+  padding: 0.75rem 0.95rem;
   text-decoration: none;
   color: inherit;
   transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
@@ -6448,9 +6459,9 @@ body {
 }
 
 .portal-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: rgba(245, 158, 11, 0.5);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 25px rgba(245, 158, 11, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 20px rgba(245, 158, 11, 0.2);
 }
 
 .portal-card:hover::before {
@@ -6458,11 +6469,11 @@ body {
 }
 
 .portal-card-icon {
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   flex-shrink: 0;
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
@@ -6472,7 +6483,7 @@ body {
 }
 
 .portal-card:hover .portal-card-icon {
-  transform: scale(1.1) rotate(4deg);
+  transform: scale(1.08) rotate(3deg);
 }
 
 .portal-card-body {
@@ -6483,23 +6494,23 @@ body {
 .portal-card-badge-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .portal-pill-badge {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 700;
   background: linear-gradient(135deg, #10B981, #059669);
   color: #FFF;
-  padding: 0.15rem 0.5rem;
-  border-radius: 6px;
+  padding: 0.12rem 0.45rem;
+  border-radius: 5px;
 }
 
 .portal-card-title {
-  font-size: 1.12rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.15rem;
   letter-spacing: -0.01em;
   transition: color 0.2s ease;
 }
@@ -6509,9 +6520,9 @@ body {
 }
 
 .portal-card-desc {
-  font-size: 0.85rem;
+  font-size: 0.76rem;
   color: var(--text-secondary);
-  line-height: 1.45;
+  line-height: 1.35;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -6519,7 +6530,7 @@ body {
 }
 
 .portal-card-arrow {
-  font-size: 1.25rem;
+  font-size: 0.95rem;
   color: var(--accent-gold);
   opacity: 0.5;
   transition: transform 0.25s ease, opacity 0.25s ease;
@@ -6528,7 +6539,7 @@ body {
 
 .portal-card:hover .portal-card-arrow {
   opacity: 1;
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 /* Prayer Guide Section standalone padding */
