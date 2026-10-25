@@ -36,10 +36,10 @@ const translations = {
     portal_badge: "EXPLORE & JOIN",
     portal_title: "어라이즈 넥스트젠 주요 사역 & 메뉴",
     portal_sub: "원하시는 항목을 선택하시면 해당 전용 페이지로 바로 전환됩니다.",
-    portal_card_routine_desc: "찬양, 말씀, 3대 집중 중보기도, 순서 & 광고 등 4단계 모임 순서 및 공식 순서지 실시간 연동",
+    portal_card_routine_desc: "찬양, 말씀, 4대 집중 중보기도, 순서 & 광고 등 4단계 모임 순서 및 공식 순서지 실시간 연동",
     portal_card_sermons_desc: "일자별 30분 기도모임 설교 메시지와 줌(Zoom) 녹화 영상 아카이브 다시보기",
     portal_card_kids_desc: "창세기 구원 복음 전자 동화책(7단계), 애니메이션 찬양, 전도 챈트 및 퀴즈",
-    portal_card_guide_desc: "성도들과 전도자가 한마음으로 고백하는 3대 공식 기도문 전문 및 슬라이드 발표 모드",
+    portal_card_guide_desc: "성도들과 전도자가 한마음으로 고백하는 4대 공식 기도문 전문 및 슬라이드 발표 모드",
     portal_card_wall_desc: "열방 각 나라 성도들이 올린 다음 세대 기도제목을 품고 함께 손잡아 기도하는 24시 네트워크",
     portal_card_testi_desc: "하나님의 역사와 응답을 누린 다민족 제자들과 전도자의 생생한 은혜의 고백 나눔",
     portal_card_worship_desc: "전 세계 성도들이 함께 부르는 다국어 찬양 연속 재생 플레이어 및 워십 스튜디오",
@@ -50,8 +50,8 @@ const translations = {
     routine_step1_desc: "전 세계 성도들이 함께 아는 익숙한 찬양 1곡으로 마음의 문을 열고 주님의 임재를 구합니다.",
     routine_step2_title: "후대 복음 말씀 (5분)",
     routine_step2_desc: "성경 본문 중심의 핵심 복음 메시지 나눔 (영어-한국어 자막 슬라이드 제공).",
-    routine_step3_title: "3대 집중 중보기도 (15분)",
-    routine_step3_desc: "① 나 자신을 위한 기도 ② 모든 민족을 위한 기도 ③ 후대를 위한 기도. 각자의 모국어로 함께 기도합시다!",
+    routine_step3_title: "4대 집중 중보기도 (15분)",
+    routine_step3_desc: "① 메시지 기도 ② 나를 위한 기도 ③ 모든 민족을 위한 기도 ④ 후대를 위한 기도. 각자의 모국어로 함께 기도합시다!",
     routine_step4_title: "순서 & 광고",
     routine_step4_title_en: "Order & Announcements",
     routine_step4_desc: "다민족 제자의 현장 응답 간증 및 모든 민족과 후대를 위한 주요 광고 안내로 마칩니다.",
@@ -259,10 +259,10 @@ const translations = {
     portal_badge: "EXPLORE & JOIN",
     portal_title: "Arise Next-Gen Main Ministry & Menus",
     portal_sub: "Select any menu to navigate directly to its dedicated page view.",
-    portal_card_routine_desc: "4-step routine: Praise, Word, 3-focus intercession, order & announcements",
+    portal_card_routine_desc: "4-step routine: Praise, Word, 4-focus intercession, order & announcements",
     portal_card_sermons_desc: "Archive of monthly prayer sermons and Zoom worship recording videos by date",
     portal_card_kids_desc: "7-step Genesis gospel storybook, praise animation, evangelism chants & quizzes",
-    portal_card_guide_desc: "3 official prayer guides confessed in one voice with slide presentation mode",
+    portal_card_guide_desc: "4 official prayer guides confessed in one voice with slide presentation mode",
     portal_card_wall_desc: "24/7 global intercession network praying for next-generation prayer requests",
     portal_card_testi_desc: "Living testimonies and fruits of grace from multi-ethnic disciples and evangelists",
     portal_card_worship_desc: "Continuous streaming worship lounge sung by all nations & worship studio",
@@ -273,8 +273,8 @@ const translations = {
     routine_step1_desc: "Open our hearts with 1 globally known worship song to seek the Holy Spirit's presence together.",
     routine_step2_title: "Gospel Word for Next-Gen (5m)",
     routine_step2_desc: "Core Gospel message rooted in scripture (with Korean-English bilingual slides provided).",
-    routine_step3_title: "3 Core Intercessory Prayers (15m)",
-    routine_step3_desc: "① Prayer for Myself ② Prayer for All Nations ③ Prayer for Next Generation. Cry out in your own tongue!",
+    routine_step3_title: "4 Core Intercessory Prayers (15m)",
+    routine_step3_desc: "① Message Prayer ② Prayer for Myself ③ Prayer for All Nations ④ Prayer for Next Generation. Cry out in your own tongue!",
     routine_step4_title: "Order & Announcements",
     routine_step4_title_en: "Order & Announcements",
     routine_step4_desc: "Hear field responses from multi-ethnic disciples and key announcements for all nations.",
@@ -3995,8 +3995,8 @@ function openPrayerGuideModal() {
 }
 
 function setPrayerSlide(slideNum) {
-  currentPrayerSlide = Math.max(1, Math.min(3, slideNum));
-  for (let i = 1; i <= 3; i++) {
+  currentPrayerSlide = Math.max(1, Math.min(4, slideNum));
+  for (let i = 1; i <= 4; i++) {
     const slide = document.getElementById(`prayerSlide${i}`);
     if (slide) {
       if (i === currentPrayerSlide) {
@@ -4023,7 +4023,7 @@ function setPrayerSlide(slideNum) {
   const prevBtn = document.getElementById('btnPrevSlide');
   const nextBtn = document.getElementById('btnNextSlide');
   if (prevBtn) prevBtn.disabled = (currentPrayerSlide === 1);
-  if (nextBtn) nextBtn.disabled = (currentPrayerSlide === 3);
+  if (nextBtn) nextBtn.disabled = (currentPrayerSlide === 4);
 }
 
 function changePrayerSlide(direction) {
@@ -4034,7 +4034,7 @@ function copyPrayerGuideToClipboard() {
   const prayerText = `🕊️ [공동 기도문 • Official Prayer Guide]
 함께 기도합시다 (Let Us Pray Together)
 
-1. 나를 위한 기도 (Prayer for Myself)
+1. 메시지 기도 (Message Prayer)
 내 자신과 후대 모든 민족이
 (For Myself, the Next Generation, and All Nations)
 
@@ -4052,12 +4052,18 @@ function copyPrayerGuideToClipboard() {
   - 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제
     (Spiritual, idolatry, mental, physical, afterlife, and next-generation problems)
 
-2. 모든 민족을 위한 기도 (Prayer for All Nations)
+2. 나를 위한 기도 (Prayer for Myself)
+“내가 제일 중요하다” | “I must begin with myself.”
+• 내가 복음이 되기를 (May the Gospel become real and evident in my life)
+• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를 (May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture)
+• Up & Down에 흔들리지 않고 다니엘처럼 항상 한결같은 믿음이 되기를 (May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs)
+
+3. 모든 민족을 위한 기도 (Prayer for All Nations)
 • 모든 민족이 그리스도 앞에 무릎 꿇도록 (May all nations bow before Christ)
 • 이곳에 모인 나라들과 세계 모든 나라를 위하여 (For the nations represented here and for every nation of the world)
 • 전쟁 속에서 고통받는 나라들과 사람들을 위하여 (For countries and people suffering in the midst of war)
 
-3. 후대를 위한 기도 (Prayer for the Next Generation)
+4. 후대를 위한 기도 (Prayer for the Next Generation)
 • 후대가 복음을 알도록 (May the next generation know the Gospel)
 • 복음이 정말 좋은 것임을 알도록 (May they discover that the Gospel is truly good news)
 • 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록 (May they know that whatever happens in life, they are secure when they are in Christ)
@@ -6042,25 +6048,25 @@ function printNoticePdfDocument() {
 window.printNoticePdfDocument = printNoticePdfDocument;
 
 // ==========================================
-// 12. Step 3: Joint Prayer Guide Printable PDF (3 Pages, 1:1 Bilingual Sizing)
+// 12. Step 3: Joint Prayer Guide Printable PDF (4 Pages, 1:1 Bilingual Sizing)
 // ==========================================
 function getPrayerGuidePdfHtml() {
   return `
     <div class="no-print" style="margin-bottom: 1.4rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.8rem; flex-wrap: wrap; gap: 0.5rem;">
       <div style="display: flex; align-items: center; gap: 0.5rem;">
         <span style="background: #e0f2fe; color: #0369a1; font-weight: 800; font-size: 0.82rem; padding: 0.25rem 0.65rem; border-radius: 9999px;">
-          🕊️ 3단계: 공동 기도문 A4 공식 인쇄 규격 (총 3페이지)
+          🕊️ 3단계: 공동 기도문 A4 공식 인쇄 규격 (총 4페이지)
         </span>
         <span style="font-size: 0.88rem; color: #475569; font-weight: 700;">
-          나를 위한 기도 · 모든 민족을 위한 기도 · 후대를 위한 기도
+          메시지 기도 · 나를 위한 기도 · 모든 민족을 위한 기도 · 후대를 위한 기도
         </span>
       </div>
       <div style="font-size: 0.82rem; color: #64748b; font-weight: 600;">
-        🖨️ 인쇄 시 A4 3장 규격으로 분할 출력됩니다 (영문과 한글 글씨 크기 &amp; 굵기 1:1 동일)
+        🖨️ 인쇄 시 A4 4장 규격으로 분할 출력됩니다 (영문과 한글 글씨 크기 &amp; 굵기 1:1 동일)
       </div>
     </div>
 
-    <!-- Page 1: Pillar 1 (Prayer for Myself / 복음 회복) -->
+    <!-- Page 1: Pillar 1 (Message Prayer / 메시지 기도) -->
     <div class="word-doc-sheet" style="color: #0f172a; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.75; margin-bottom: 2.5rem; position: relative;">
       <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #0284c7; padding-bottom: 0.6rem; margin-bottom: 1.4rem;">
         <div>
@@ -6068,69 +6074,69 @@ function getPrayerGuidePdfHtml() {
           <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-top: 0.15rem;">공동 기도문 (Official Joint Prayer Guide)</div>
         </div>
         <span style="font-size: 0.85rem; color: #0284c7; background: #e0f2fe; font-weight: 800; padding: 0.2rem 0.65rem; border-radius: 9999px;">
-          Page 1 / 3 · 나를 위한 기도
+          Page 1 / 4 · 메시지 기도
         </span>
       </div>
 
       <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border: 1px solid #bae6fd; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.5rem;">
         <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;">
           <span style="background: #0284c7; color: #ffffff; font-weight: 800; font-size: 0.85rem; padding: 0.2rem 0.6rem; border-radius: 6px;">01</span>
-          <h1 style="font-size: 1.35rem; font-weight: 800; color: #0369a1; margin: 0;">1. 나를 위한 기도 (Prayer for Myself)</h1>
+          <h1 style="font-size: 1.35rem; font-weight: 800; color: #0369a1; margin: 0;">1. 메시지 기도 (Message Prayer)</h1>
         </div>
         <div style="margin-top: 0.6rem; padding: 0.6rem 0.9rem; background: #ffffff; border-left: 4px solid #0284c7; border-radius: 6px;">
-          <div style="font-size: 1.08rem; font-weight: 800; color: #0c4a6e;">내 자신과 후대 모든 민족이</div>
-          <div style="font-size: 1.08rem; font-weight: 800; color: #0369a1; font-style: normal; margin-top: 0.25rem;">For Myself, the Next Generation, and All Nations</div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0c4a6e;">“내 자신과 후대 모든 민족이”</div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0369a1; font-style: normal; margin-top: 0.25rem;">“For Myself, the Next Generation, and All Nations”</div>
         </div>
       </div>
 
       <!-- Point 1 -->
       <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.3rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-        <div style="font-size: 1.12rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
-          1. 하나님이 만드신 원래의 나를 회복하도록
+        <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
+          • 1. 하나님이 만드신 원래의 나를 회복하도록
         </div>
-        <div style="font-size: 1.12rem; font-weight: 800; color: #0284c7; font-style: normal; margin-bottom: 0.85rem;">
-          1. To restore the original self created by God
+        <div style="font-size: 1.15rem; font-weight: 800; color: #0284c7; font-style: normal; margin-bottom: 0.85rem;">
+          • To restore the original self created by God
         </div>
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
           <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.0rem; font-weight: 800; color: #0f172a;">1) 하나님을 닮은 나</div>
-            <div style="font-size: 1.0rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' who resembles God</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">1) 하나님을 닮은 나</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' who resembles God</div>
           </div>
           <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.0rem; font-weight: 800; color: #0f172a;">2) 안 되는 게 없던 나</div>
-            <div style="font-size: 1.0rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' for whom nothing was impossible</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">2) 안 되는 게 없던 나</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' for whom nothing was impossible</div>
           </div>
           <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.0rem; font-weight: 800; color: #0f172a;">3) 모든 것이 만족되던 나</div>
-            <div style="font-size: 1.0rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' who was fully satisfied in all things</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">3) 모든 것이 만족되던 나</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' who was fully satisfied in all things</div>
           </div>
           <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.0rem; font-weight: 800; color: #0f172a;">4) 모든 것이 다스려지던 나</div>
-            <div style="font-size: 1.0rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' who had dominion over all things</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">4) 모든 것이 다스려지던 나</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' who had dominion over all things</div>
           </div>
         </div>
       </div>
 
       <!-- Point 2 -->
       <div style="background: #ffffff; border: 1px solid #fef3c7; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.3rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-        <div style="font-size: 1.12rem; font-weight: 800; color: #78350f; margin-bottom: 0.3rem;">
-          2. 원죄 — 절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살 길 없는 나를 발견하도록
+        <div style="font-size: 1.15rem; font-weight: 800; color: #78350f; margin-bottom: 0.3rem;">
+          • 2. 원죄 — 절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살 길 없는 나를 발견하도록
         </div>
-        <div style="font-size: 1.12rem; font-weight: 800; color: #b45309; font-style: normal; margin-bottom: 0.85rem;">
-          2. To acknowledge as natural our state of absolute despair through Original Sin, discovering that without the Gospel there is no way to live
+        <div style="font-size: 1.15rem; font-weight: 800; color: #b45309; font-style: normal; margin-bottom: 0.85rem;">
+          • Acknowledging our state of absolute despair through Original Sin, to discover that without the Gospel there is no way to live
         </div>
         <div style="display: flex; flex-direction: column; gap: 0.65rem;">
           <div style="background: #fefce8; border-left: 3px solid #f59e0b; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.0rem; font-weight: 800; color: #0f172a;">1) 모든 것이 안 되는 나</div>
-            <div style="font-size: 1.0rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' for whom nothing works</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">1) 모든 것이 안 되는 나</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' for whom nothing works</div>
           </div>
           <div style="background: #fefce8; border-left: 3px solid #f59e0b; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.0rem; font-weight: 800; color: #0f172a;">2) 문제 속에 살 수밖에 없는 나</div>
-            <div style="font-size: 1.0rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' who cannot help but live inside problems</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">2) 문제 속에 살 수밖에 없는 나</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' who cannot help but live inside problems</div>
           </div>
           <div style="background: #fefce8; border-left: 3px solid #ef4444; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.0rem; font-weight: 800; color: #991b1b;">3) 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제</div>
-            <div style="font-size: 1.0rem; font-weight: 800; color: #b91c1c; font-style: normal; margin-top: 0.15rem;">Spiritual, idolatry, mental, physical, afterlife, and next-generation problems</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #991b1b;">3) 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #b91c1c; font-style: normal; margin-top: 0.15rem;">Spiritual, idolatry, mental, physical, afterlife, and next-generation problems</div>
           </div>
         </div>
       </div>
@@ -6141,7 +6147,65 @@ function getPrayerGuidePdfHtml() {
       </div>
     </div>
 
-    <!-- Page 2: Pillar 2 (Prayer for All Nations) -->
+    <!-- Page 2: Pillar 2 (Prayer for Myself / 나를 위한 기도 - RESTORED) -->
+    <div class="word-doc-sheet" style="color: #0f172a; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.75; margin-bottom: 2.5rem; position: relative; page-break-before: always; break-before: page;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #0284c7; padding-bottom: 0.6rem; margin-bottom: 1.4rem;">
+        <div>
+          <span style="font-size: 0.85rem; font-weight: 800; color: #0284c7; letter-spacing: 0.05em; text-transform: uppercase;">ARISE NEXT-GEN GLOBAL PRAYER HUB</span>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-top: 0.15rem;">공동 기도문 (Official Joint Prayer Guide)</div>
+        </div>
+        <span style="font-size: 0.85rem; color: #0284c7; background: #e0f2fe; font-weight: 800; padding: 0.2rem 0.65rem; border-radius: 9999px;">
+          Page 2 / 4 · 나를 위한 기도
+        </span>
+      </div>
+
+      <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border: 1px solid #bae6fd; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.8rem;">
+        <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;">
+          <span style="background: #0284c7; color: #ffffff; font-weight: 800; font-size: 0.85rem; padding: 0.2rem 0.6rem; border-radius: 6px;">02</span>
+          <h1 style="font-size: 1.35rem; font-weight: 800; color: #0369a1; margin: 0;">2. 나를 위한 기도 (Prayer for Myself)</h1>
+        </div>
+        <div style="margin-top: 0.6rem; padding: 0.6rem 0.9rem; background: #ffffff; border-left: 4px solid #0284c7; border-radius: 6px;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0c4a6e;">“내가 제일 중요하다”</div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0369a1; font-style: normal; margin-top: 0.25rem;">“I must begin with myself.”</div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2rem;">
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 8px; padding: 1.1rem 1.3rem;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
+            • 내가 복음이 되기를
+          </div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0284c7; font-style: normal;">
+            • May the Gospel become real and evident in my life.
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 8px; padding: 1.1rem 1.3rem;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
+            • 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를
+          </div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0284c7; font-style: normal;">
+            • May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture.
+          </div>
+        </div>
+
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 8px; padding: 1.1rem 1.3rem;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
+            • Up & Down에 흔들리지 않고 다니엘처럼 항상 한결같은 믿음이 되기를
+          </div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0284c7; font-style: normal;">
+            • May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.
+          </div>
+        </div>
+      </div>
+
+      <div class="pdf-footer-seal" style="margin-top: 2.5rem;">
+        <span>어라이즈 넥스트젠 글로벌 기도 연합 · Arise Next Gen Global Prayer Hub</span>
+        <span>모든 민족과 후대를 살리는 언약 공동체 · Amen</span>
+      </div>
+    </div>
+
+    <!-- Page 3: Pillar 3 (Prayer for All Nations / 모든 민족을 위한 기도) -->
     <div class="word-doc-sheet" style="color: #0f172a; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.75; margin-bottom: 2.5rem; position: relative; page-break-before: always; break-before: page;">
       <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #059669; padding-bottom: 0.6rem; margin-bottom: 1.4rem;">
         <div>
@@ -6149,44 +6213,44 @@ function getPrayerGuidePdfHtml() {
           <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-top: 0.15rem;">공동 기도문 (Official Joint Prayer Guide)</div>
         </div>
         <span style="font-size: 0.85rem; color: #059669; background: #d1fae5; font-weight: 800; padding: 0.2rem 0.65rem; border-radius: 9999px;">
-          Page 2 / 3 · 모든 민족을 위한 기도
+          Page 3 / 4 · 모든 민족을 위한 기도
         </span>
       </div>
 
       <div style="background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 1px solid #a7f3d0; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.8rem;">
         <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;">
-          <span style="background: #059669; color: #ffffff; font-weight: 800; font-size: 0.85rem; padding: 0.2rem 0.6rem; border-radius: 6px;">02</span>
-          <h1 style="font-size: 1.35rem; font-weight: 800; color: #047857; margin: 0;">2. 모든 민족을 위한 기도 (Prayer for All Nations)</h1>
+          <span style="background: #059669; color: #ffffff; font-weight: 800; font-size: 0.85rem; padding: 0.2rem 0.6rem; border-radius: 6px;">03</span>
+          <h1 style="font-size: 1.35rem; font-weight: 800; color: #047857; margin: 0;">3. 모든 민족을 위한 기도 (Prayer for All Nations)</h1>
         </div>
         <div style="font-size: 1.02rem; font-weight: 700; color: #065f46; margin-top: 0.35rem;">
           열방과 세계 선교 현장 복음화 · Global Mission Fields
         </div>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 2rem;">
+      <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2rem;">
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #059669; border-radius: 8px; padding: 1.1rem 1.3rem;">
-          <div style="font-size: 1.12rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
             • 모든 민족이 그리스도 앞에 무릎 꿇도록
           </div>
-          <div style="font-size: 1.12rem; font-weight: 800; color: #047857; font-style: normal;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #047857; font-style: normal;">
             • May all nations bow before Christ.
           </div>
         </div>
 
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #059669; border-radius: 8px; padding: 1.1rem 1.3rem;">
-          <div style="font-size: 1.12rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
             • 이곳에 모인 나라들과 세계 모든 나라를 위하여
           </div>
-          <div style="font-size: 1.12rem; font-weight: 800; color: #047857; font-style: normal;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #047857; font-style: normal;">
             • For the nations represented here and for every nation of the world.
           </div>
         </div>
 
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #059669; border-radius: 8px; padding: 1.1rem 1.3rem;">
-          <div style="font-size: 1.12rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
             • 전쟁 속에서 고통받는 나라들과 사람들을 위하여
           </div>
-          <div style="font-size: 1.12rem; font-weight: 800; color: #047857; font-style: normal;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #047857; font-style: normal;">
             • For countries and people suffering in the midst of war.
           </div>
         </div>
@@ -6198,7 +6262,7 @@ function getPrayerGuidePdfHtml() {
       </div>
     </div>
 
-    <!-- Page 3: Pillar 3 (Prayer for the Next Generation) -->
+    <!-- Page 4: Pillar 4 (Prayer for the Next Generation / 후대를 위한 기도) -->
     <div class="word-doc-sheet" style="color: #0f172a; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.75; position: relative; page-break-before: always; break-before: page;">
       <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #7c3aed; padding-bottom: 0.6rem; margin-bottom: 1.4rem;">
         <div>
@@ -6206,53 +6270,53 @@ function getPrayerGuidePdfHtml() {
           <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-top: 0.15rem;">공동 기도문 (Official Joint Prayer Guide)</div>
         </div>
         <span style="font-size: 0.85rem; color: #7c3aed; background: #ede9fe; font-weight: 800; padding: 0.2rem 0.65rem; border-radius: 9999px;">
-          Page 3 / 3 · 후대를 위한 기도
+          Page 4 / 4 · 후대를 위한 기도
         </span>
       </div>
 
       <div style="background: linear-gradient(135deg, #f5f3ff, #ede9fe); border: 1px solid #ddd6fe; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.8rem;">
         <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem;">
-          <span style="background: #7c3aed; color: #ffffff; font-weight: 800; font-size: 0.85rem; padding: 0.2rem 0.6rem; border-radius: 6px;">03</span>
-          <h1 style="font-size: 1.35rem; font-weight: 800; color: #6d28d9; margin: 0;">3. 후대를 위한 기도 (Prayer for the Next Generation)</h1>
+          <span style="background: #7c3aed; color: #ffffff; font-weight: 800; font-size: 0.85rem; padding: 0.2rem 0.6rem; border-radius: 6px;">04</span>
+          <h1 style="font-size: 1.35rem; font-weight: 800; color: #6d28d9; margin: 0;">4. 후대를 위한 기도 (Prayer for the Next Generation)</h1>
         </div>
         <div style="font-size: 1.02rem; font-weight: 700; color: #5b21b6; margin-top: 0.35rem;">
           다음 세대와 미래 복음 각인 · Next Generation & Future
         </div>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 2rem;">
+      <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2rem;">
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #7c3aed; border-radius: 8px; padding: 1.1rem 1.3rem;">
-          <div style="font-size: 1.12rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
             • 후대가 복음을 알도록
           </div>
-          <div style="font-size: 1.12rem; font-weight: 800; color: #7c3aed; font-style: normal;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #7c3aed; font-style: normal;">
             • May the next generation know the Gospel.
           </div>
         </div>
 
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #7c3aed; border-radius: 8px; padding: 1.1rem 1.3rem;">
-          <div style="font-size: 1.12rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
             • 복음이 정말 좋은 것임을 알도록
           </div>
-          <div style="font-size: 1.12rem; font-weight: 800; color: #7c3aed; font-style: normal;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #7c3aed; font-style: normal;">
             • May they discover that the Gospel is truly good news.
           </div>
         </div>
 
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #7c3aed; border-radius: 8px; padding: 1.1rem 1.3rem;">
-          <div style="font-size: 1.12rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
             • 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록
           </div>
-          <div style="font-size: 1.12rem; font-weight: 800; color: #7c3aed; font-style: normal;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #7c3aed; font-style: normal;">
             • May they know that whatever happens in life, they are secure when they are in Christ.
           </div>
         </div>
 
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #7c3aed; border-radius: 8px; padding: 1.1rem 1.3rem;">
-          <div style="font-size: 1.12rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
             • 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록
           </div>
-          <div style="font-size: 1.12rem; font-weight: 800; color: #7c3aed; font-style: normal;">
+          <div style="font-size: 1.15rem; font-weight: 800; color: #7c3aed; font-style: normal;">
             • May they see their studies and every part of life as preparation to serve and save all nations.
           </div>
         </div>
