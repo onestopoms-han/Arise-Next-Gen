@@ -4054,9 +4054,9 @@ function copyPrayerGuideToClipboard() {
 
 2. 나를 위한 기도 (Prayer for Myself)
 “내가 제일 중요하다” | “I must begin with myself.”
-• 내가 복음이 되기를 (May the Gospel become real and evident in my life)
+• 복음이 나의 복음이 되기를 (May the Gospel become real and evident in my life)
 • 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를 (May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture)
-• Up & Down에 흔들리지 않고 다니엘처럼 항상 한결같은 믿음이 되기를 (May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs)
+• Up & Down에 흔들리지 않고 다니엘처럼 항상이 되기를 (May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs)
 
 3. 모든 민족을 위한 기도 (Prayer for All Nations)
 • 모든 민족이 그리스도 앞에 무릎 꿇도록 (May all nations bow before Christ)
@@ -6173,7 +6173,7 @@ function getPrayerGuidePdfHtml() {
       <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2rem;">
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 8px; padding: 1.1rem 1.3rem;">
           <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
-            • 내가 복음이 되기를
+            • 복음이 나의 복음이 되기를
           </div>
           <div style="font-size: 1.15rem; font-weight: 800; color: #0284c7; font-style: normal;">
             • May the Gospel become real and evident in my life.
@@ -6191,7 +6191,7 @@ function getPrayerGuidePdfHtml() {
 
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; border-radius: 8px; padding: 1.1rem 1.3rem;">
           <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.35rem;">
-            • Up & Down에 흔들리지 않고 다니엘처럼 항상 한결같은 믿음이 되기를
+            • Up & Down에 흔들리지 않고 다니엘처럼 항상이 되기를
           </div>
           <div style="font-size: 1.15rem; font-weight: 800; color: #0284c7; font-style: normal;">
             • May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.
