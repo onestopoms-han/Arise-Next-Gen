@@ -241,7 +241,7 @@ const PRESET_PRAISE_SONGS = [
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
       { "start": 0.0, "end": 19.0, "kr": "🎵 광야를 지나며 - 히즈윌 전주", "en": "Passing Through the Wilderness - HisWill (Intro)" },
-      { "start": 19.0, "end": 35.0, "kr": "왜 나를 깊은 어둠속에 홀로 두시는지, 어두운 밤은 왜 그리 길었는지", "en": "Why You left me alone in deep darkness, why the night was so long" },
+      { "start": 19.0, "end": 35.0, "kr": "왜 나를 깊은 어둠속에 홀로 두시는지, 어두운 밤은 왜 그리 길었는지", "en": "Why did You leave me alone in deep darkness, and why was the dark night so long?" },
       { "start": 35.0, "end": 54.0, "kr": "나를 고독하게 나를 낮아지게, 세상 어디도 기댈 곳이 없게 하셨네", "en": "Making me solitary and humble, leaving me nowhere in this world to lean" },
       { "start": 54.0, "end": 71.5, "kr": "광야 광야에 서 있네, 주님만 내 도움이 되시고", "en": "I stand in the wilderness, where the Lord alone is my help" },
       { "start": 71.5, "end": 83.0, "kr": "주님만 내 빛이 되시는  주님만 내 친구 되시는 광야", "en": "In the wilderness where the Lord alone is my light and my friend" },
@@ -365,7 +365,7 @@ function loadCustomSongs() {
   }
 
   // 전 세계 모바일 및 모든 접속 기기 최신 한/영 자막 강제 동기화 (구버전 캐시 무효화)
-  const CURRENT_LIBRARY_VER = '20261026_v36_wilderness_lyrics_and_sync';
+  const CURRENT_LIBRARY_VER = '20261026_v37_wilderness_verse1_english_update';
   const savedVer = localStorage.getItem('arise_praise_library_ver');
   if (savedVer !== CURRENT_LIBRARY_VER) {
     try {
