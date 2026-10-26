@@ -138,7 +138,7 @@ const PRESET_PRAISE_SONGS = [
     "artist": "비컴퍼니 (새찬송가 305장) • 정통 4절 보컬 찬양 완곡",
     "category": "hymn",
     "videoId": "SfUoRQy-LH4",
-    "duration": 215,
+    "duration": 216,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
       { "start": 0.0, "end": 15.0, "kr": "🎵 나 같은 죄인 살리신 (새찬송가 305장) - 비컴퍼니 전주", "en": "Amazing Grace (Hymn 305) - Intro" },
@@ -146,11 +146,11 @@ const PRESET_PRAISE_SONGS = [
       { "start": 36.5, "end": 58.0, "kr": "잃었던 생명 찾았고 광명을 얻었네", "en": "I once was lost, but now am found, Was blind, but now I see." },
       { "start": 58.0, "end": 75.0, "kr": "[2절] 큰 죄악에서 건지신 주 은혜 고마워", "en": "'Twas grace that taught my heart to fear, And grace my fears relieved;" },
       { "start": 75.0, "end": 101.0, "kr": "나 처음 믿은 그 시간 귀하고 귀하다", "en": "How precious did that grace appear The hour I first believed!" },
-      { "start": 101.0, "end": 122.5, "kr": "[3절] 이제껏 내가 산 것도 주님의 은혜라", "en": "Through many dangers, toils and snares, I have already come;" },
-      { "start": 122.5, "end": 144.0, "kr": "또 나를 장차 본향에 인도해 주시리", "en": "'Tis grace hath brought me safe thus far, And grace will lead me home." },
-      { "start": 144.0, "end": 166.5, "kr": "[4절] 거기서 우리 영원히 주님의 은혜로", "en": "When we've been there ten thousand years, Bright shining as the sun," },
-      { "start": 166.5, "end": 190.0, "kr": "해처럼 밝게 살면서 주 찬양 하리라", "en": "We've no less days to sing God's praise Than when we'd first begun." },
-      { "start": 190.0, "end": 215.0, "kr": "🕊️ 나 같은 죄인 살리신 주님의 크신 은혜를 영원히 찬양합니다 · 아멘", "en": "Praising God's Boundless Grace Forever and Ever · Amen" }
+      { "start": 101.0, "end": 133.0, "kr": "[3절] 이제껏 내가 산 것도 주님의 은혜라", "en": "Through many dangers, toils and snares, I have already come;" },
+      { "start": 133.0, "end": 152.0, "kr": "또 나를 장차 본향에 인도해 주시리", "en": "'Tis grace hath brought me safe thus far, And grace will lead me home." },
+      { "start": 152.0, "end": 172.0, "kr": "[4절] 거기서 우리 영원히 주님의 은혜로", "en": "When we've been there ten thousand years, Bright shining as the sun," },
+      { "start": 172.0, "end": 191.0, "kr": "해처럼 밝게 살면서 주 찬양 하리라", "en": "We've no less days to sing God's praise Than when we'd first begun." },
+      { "start": 191.0, "end": 216.0, "kr": "아멘~~~", "en": "Amen~~" }
     ]
   },
   {
@@ -357,7 +357,7 @@ function loadCustomSongs() {
   }
 
   // 전 세계 모바일 및 모든 접속 기기 최신 한/영 자막 강제 동기화 (구버전 캐시 무효화)
-  const CURRENT_LIBRARY_VER = '20261003_v33_as_the_deer_and_hope_sync';
+  const CURRENT_LIBRARY_VER = '20261026_v35_amazing_grace_sync_perfect';
   const savedVer = localStorage.getItem('arise_praise_library_ver');
   if (savedVer !== CURRENT_LIBRARY_VER) {
     try {
