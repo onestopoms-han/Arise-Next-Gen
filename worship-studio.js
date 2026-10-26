@@ -252,8 +252,8 @@ const PRESET_PRAISE_SONGS = [
       { "start": 158.0, "end": 176.0, "kr": "주님만 내 도움이 되시고,주님만 내 빛이 되시는 주님만 내 친구 되시는 광야", "en": "Where the Lord alone is my help, my light, and my faithful friend in the wilderness" },
       { "start": 176.0, "end": 191.0, "kr": "주님 손 놓고는 단 하루도 살 수 없는 곳, 광야~ 광야~", "en": "A place where I cannot live a single day without holding Your hand, wilderness~" },
       { "start": 191.0, "end": 200.0, "kr": "주께서 나를 사용하시려 나를 더 정결케 하시며", "en": "That the Lord may use me, and purify me even more" },
-      { "start": 200.0, "end": 210.0, "kr": "나를 택하여 보내신 그곳, 광야~", "en": "The place where He chose and sent me, the wilderness~" },
-      { "start": 210.0, "end": 226.0, "kr": "성령이  내영을 다시태어나게하는곳~ 광야~ 광야에 서있네", "en": "The place where the Holy Spirit rebirths my soul~ standing in the wilderness" },
+      { "start": 200.0, "end": 207.5, "kr": "나를 택하여 보내신 그곳, 광야~", "en": "The place where He chose and sent me, the wilderness~" },
+      { "start": 207.5, "end": 226.0, "kr": "성령이  내영을 다시태어나게하는곳~ 광야~ 광야에 서있네", "en": "The place where the Holy Spirit rebirths my soul~ standing in the wilderness" },
       { "start": 226.0, "end": 240.0, "kr": "내자아가 산산이 깨지고 높아지려했던", "en": "Where my ego is completely broken, and my dreams that sought to rise" },
       { "start": 240.0, "end": 256.0, "kr": "내꿈도 주님앞에 내어놓고  오직주님뜻만 이루어지기를", "en": "I lay down before the Lord, praying only that the Lord's will be done" },
       { "start": 256.0, "end": 330.0, "kr": "나를통해 주님만 들어나시기를 광야를지나며~~", "en": "Praying that only the Lord be revealed through me, passing through the wilderness~~" }
@@ -364,7 +364,7 @@ function loadCustomSongs() {
   }
 
   // 전 세계 모바일 및 모든 접속 기기 최신 한/영 자막 강제 동기화 (구버전 캐시 무효화)
-  const CURRENT_LIBRARY_VER = '20261026_v39_wilderness_sync_final';
+  const CURRENT_LIBRARY_VER = '20261026_v40_wilderness_sync_207s';
   const savedVer = localStorage.getItem('arise_praise_library_ver');
   if (savedVer !== CURRENT_LIBRARY_VER) {
     try {
