@@ -2104,7 +2104,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261106_v50_cartoon_summary_title';
+const DATA_VERSION = 'v20261107_v51_fix_video_playback';
 
 
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
@@ -6682,7 +6682,7 @@ function renderSermonsGrid() {
             </span>
             <div class="sermon-top-badges">
               ${isFeatured ? `<span class="sermon-featured-badge">⭐ 이번 모임 말씀</span>` : ''}
-              ${hasVideo ? `<span class="sermon-video-badge pulse" title="${isCartoonVideo ? '만화로 보는 말씀요약 영상 수록' : '줌 예배 녹화 영상 수록'}">${isCartoonVideo ? '🎬 만화로 보는 말씀요약' : '🎬 줌 영상'}</span>` : ''}
+              ${hasVideo ? `<span class="sermon-video-badge pulse" onclick="openWorshipVideoModal('${escapeHtml(item.id)}')" style="cursor: pointer;" title="${isCartoonVideo ? '클릭하여 만화로 보는 말씀요약 영상 시청' : '클릭하여 줌 예배 녹화 영상 시청'}">${isCartoonVideo ? '🎬 만화로 보는 말씀요약' : '🎬 줌 영상'}</span>` : ''}
             </div>
           </div>
 
@@ -6714,8 +6714,8 @@ function renderSermonsGrid() {
         <!-- Action Buttons -->
         <div class="sermon-card-actions">
           ${hasVideo ? `
-            <button type="button" class="btn btn-sm btn-sermon-watch" onclick="openWorshipVideoModal('${escapeHtml(item.id)}')" title="줌 예배 녹화 동영상 시청">
-              <span>🎬 영상 시청</span>
+            <button type="button" class="btn btn-sm btn-sermon-watch" onclick="openWorshipVideoModal('${escapeHtml(item.id)}')" title="${isCartoonVideo ? '만화로 보는 말씀요약 동영상 시청' : '줌 예배 녹화 동영상 시청'}">
+              <span>${isCartoonVideo ? '🎬 만화로 보는 말씀요약' : '🎬 영상 시청'}</span>
             </button>
           ` : `
             <button type="button" class="btn btn-sm btn-outline" onclick="openSermonDetailModal('${escapeHtml(item.id)}')" style="flex: 1; border-color: #38bdf8; color: #38bdf8; font-weight: 700;">
@@ -6770,9 +6770,9 @@ function openWorshipVideoModal(sermonId) {
   const zoomTitle = document.getElementById('zoomFallbackTitle');
 
   const videoData = sermon.video || {};
-  const rawUrl = videoData.url || '';
-  const videoType = videoData.type || 'zoom';
-  const isCartoonSummary = (sermon.id === 'sermon-20261004') || rawUrl.includes('original_me') || (videoData.title && videoData.title.includes('만화로 보는 말씀요약'));
+  const isCartoonSummary = (sermon.id === 'sermon-20261004') || (sermon.title && sermon.title.includes('원래인간')) || (videoData.url && videoData.url.includes('original_me')) || (videoData.title && videoData.title.includes('만화로 보는 말씀요약'));
+  const rawUrl = isCartoonSummary ? 'assets/original_me_cartoon.mp4' : (videoData.url || '');
+  const videoType = isCartoonSummary ? 'mp4' : (videoData.type || 'zoom');
 
   if (titleEl) {
     if (isCartoonSummary) {
@@ -6788,8 +6788,8 @@ function openWorshipVideoModal(sermonId) {
   if (summaryEl) summaryEl.textContent = sermon.summary || '';
 
   // Reset video players
-  if (iframeEl) { iframeEl.style.display = 'none'; iframeEl.src = ''; }
-  if (html5El) { html5El.style.display = 'none'; html5El.pause(); html5El.src = ''; }
+  if (iframeEl) { iframeEl.style.display = 'none'; iframeEl.removeAttribute('src'); }
+  if (html5El) { html5El.style.display = 'none'; html5El.pause(); html5El.removeAttribute('src'); }
   if (fallbackEl) fallbackEl.style.display = 'none';
 
   // 1. YouTube Video
@@ -6808,22 +6808,30 @@ function openWorshipVideoModal(sermonId) {
     }
   } 
   // 2. Direct MP4 Video
-  else if (rawUrl.endsWith('.mp4') || rawUrl.endsWith('.webm') || videoType === 'mp4' || rawUrl.startsWith('assets/')) {
+  else if (rawUrl.endsWith('.mp4') || rawUrl.includes('.mp4') || rawUrl.endsWith('.webm') || videoType === 'mp4' || rawUrl.startsWith('assets/')) {
+    const cleanMp4Url = rawUrl.split('?')[0];
     const dlBtn = document.getElementById('btnVideoDownloadMp4');
     if (dlBtn) {
-      dlBtn.href = rawUrl;
+      dlBtn.href = cleanMp4Url;
       dlBtn.style.display = 'inline-flex';
     }
     if (html5El) {
-      if (rawUrl.includes('original_me')) {
+      if (cleanMp4Url.includes('original_me')) {
         html5El.poster = 'assets/original_me_1.jpg';
       } else {
         html5El.removeAttribute('poster');
       }
-      html5El.src = rawUrl;
       html5El.style.display = 'block';
+      html5El.src = cleanMp4Url + '?v=20261107';
+      html5El.muted = false;
+      html5El.volume = 1.0;
       html5El.load();
-      html5El.play().catch(() => {});
+      const playPromise = html5El.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.warn("Unmuted autoplay prevented by browser, user can press play:", err);
+        });
+      }
     }
   } 
   // 3. Zoom Cloud Recording / Fallback Launcher
@@ -6867,10 +6875,11 @@ function closeWorshipVideoModal() {
   const iframeEl = document.getElementById('videoIframe');
   const html5El = document.getElementById('videoHtml5Player');
 
-  if (iframeEl) iframeEl.src = '';
+  if (iframeEl) iframeEl.removeAttribute('src');
   if (html5El) {
     html5El.pause();
-    html5El.src = '';
+    html5El.removeAttribute('src');
+    html5El.load();
   }
 
   if (modal) {
@@ -6942,8 +6951,10 @@ function openSermonDetailModal(sermonId) {
   }
 
   if (btnWatch) {
-    if (sermon.video && sermon.video.hasVideo && sermon.video.url) {
+    const isOrigVideo = (sermon.id === 'sermon-20261004') || (sermon.title && sermon.title.includes('원래인간'));
+    if (isOrigVideo || (sermon.video && sermon.video.hasVideo && sermon.video.url)) {
       btnWatch.style.display = 'inline-flex';
+      btnWatch.innerHTML = isOrigVideo ? '🎬 만화로 보는 말씀요약' : '🎬 줌 영상 시청';
     } else {
       btnWatch.style.display = 'none';
     }
