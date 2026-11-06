@@ -1043,17 +1043,66 @@
 
         <!-- 2. Animation Video Mode (Toggled via tab) -->
         <div class="kids-video-mode" id="kidsVideoMode" style="display: none;">
+          <!-- Episode / Voice Mode Selector -->
+          <div class="kids-video-selector" style="display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-bottom: 1rem;">
+            <button type="button" class="btn btn-sm kids-ep-btn active" id="btnVidOriginalKo" onclick="selectKidsCartoonVideo('original_ko')" style="background: linear-gradient(135deg, #0ea5e9, #2563eb); color: #fff; font-weight: 800; border: 1px solid #38bdf8; border-radius: 999px; padding: 0.5rem 1.1rem;">
+              🎬 하나님이 만드신 원래의 나 (한국어 성우 + 한/영 자막)
+            </button>
+            <button type="button" class="btn btn-sm kids-ep-btn" id="btnVidOriginalBi" onclick="selectKidsCartoonVideo('original_bi')" style="background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.1rem;">
+              🌍 하나님이 만드신 원래의 나 (한·영 성우 + 한/영 자막)
+            </button>
+            <button type="button" class="btn btn-sm kids-ep-btn" id="btnVidFullStory" onclick="selectKidsCartoonVideo('full_story')" style="background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.1rem;">
+              📖 복음 동화 5단계 풀스토리 (BGM 영상)
+            </button>
+          </div>
+
           <div class="kids-video-container">
-            <video id="kidsVideoPlayer" controls preload="metadata" poster="assets/kids_gospel_1.jpg" style="width: 100%; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-              <source src="assets/kids_gospel_animation.mp4" type="video/mp4">
+            <video id="kidsVideoPlayer" controls preload="metadata" poster="assets/original_me_1.jpg" style="width: 100%; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+              <source id="kidsVideoSource" src="assets/original_me_cartoon_ko.mp4" type="video/mp4">
               브라우저가 비디오 재생을 지원하지 않습니다.
             </video>
           </div>
-          <div class="kids-video-desc">
-            <p>🎵 <strong>BGM 찬양:</strong> 하나님의 은혜 (Only By Grace) · 5단계 풀스토리 영상 (1280x720 HD)</p>
-            <a href="assets/kids_gospel_animation.mp4" download="믿음의후대_복음동화_원래축복.mp4" class="btn btn-sm btn-outline" style="display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.5rem; border-color: #38bdf8; color: #38bdf8;" data-i18n="kids_btn_video_download">
-              📥 720p HD 애니메이션 비디오 다운로드
-            </a>
+          <div class="kids-video-desc" style="margin-top: 1rem;">
+            <p id="kidsVideoDescText" style="font-size: 1.05rem; font-weight: 700; color: #f8fafc;">
+              🎬 <strong>하나님이 만드신 원래의 나 (The Original Me Created by God)</strong> · 성우 내레이션 + 하나님의 은혜 BGM + 한/영 1:1 자막 (1280x720 HD)
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-top: 0.6rem;">
+              <a href="assets/original_me_cartoon_ko.mp4" download="하나님이만드신원래의나_한국어성우_만화영상.mp4" id="kidsVideoDownloadKo" class="btn btn-sm btn-outline" style="display: inline-flex; align-items: center; gap: 0.4rem; border-color: #38bdf8; color: #38bdf8; font-weight: 700;">
+                📥 만화 동영상 다운로드 (한국어 성우 MP4)
+              </a>
+              <a href="assets/original_me_cartoon.mp4" download="하나님이만드신원래의나_한영성우_만화영상.mp4" id="kidsVideoDownloadBi" class="btn btn-sm btn-outline" style="display: inline-flex; align-items: center; gap: 0.4rem; border-color: #fbbf24; color: #fbbf24; font-weight: 700;">
+                📥 만화 동영상 다운로드 (한·영 성우 MP4)
+              </a>
+            </div>
+          </div>
+
+          <!-- 5-Scene Script & Storyboard Cards (1:1 Bilingual Size & Weight) -->
+          <div style="margin-top: 1.5rem; background: rgba(15, 23, 42, 0.78); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 1.25rem; text-align: left;">
+            <h4 style="color: #38bdf8; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+              <span>📖</span> <span>[하나님이 만드신 원래의 나] 5장면 만화 대본 (한·영 1:1 동일 크기/굵기)</span>
+            </h4>
+            <div style="display: grid; gap: 0.75rem;">
+              <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #38bdf8; border-radius: 10px; padding: 0.8rem 1rem;">
+                <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">1. 하나님이 만드신 원래의 나</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">1. The Original Me Created by God</div>
+              </div>
+              <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #34d399; border-radius: 10px; padding: 0.8rem 1rem;">
+                <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">2. 하나님을 닮아서 안 되는 게 없었어요.</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">2. Because I resembled God, nothing was impossible.</div>
+              </div>
+              <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #f472b6; border-radius: 10px; padding: 0.8rem 1rem;">
+                <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">3. 모든 게 아름답게 보였고, 사랑스러웠고, 걱정도 두려움도 없었고, 모든 것이 만족스러웠고,</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">3. Everything looked beautiful and lovely, with no worry or fear, and everything was completely satisfying,</div>
+              </div>
+              <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #fbbf24; border-radius: 10px; padding: 0.8rem 1rem;">
+                <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">4. 문제가 와도 다 다스릴 수 있었어요.</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">4. Even if a problem came, I could rule over it all.</div>
+              </div>
+              <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #a78bfa; border-radius: 10px; padding: 0.8rem 1rem;">
+                <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">5. 우리는 이런 사람이었어요.</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">5. This is who we originally were.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2561,6 +2610,9 @@
               <div style="font-size: 0.82rem; color: #94a3b8;" id="videoSpeakerText">진행: 한옥주 / 통역: 아이리스</div>
             </div>
             <div style="display: flex; gap: 0.45rem; flex-wrap: wrap;">
+              <a href="assets/original_me_cartoon.mp4" download="하나님이만드신원래의나_한영성우_만화영상.mp4" class="btn btn-sm btn-outline" id="btnVideoDownloadMp4" style="display: none; border-color: #fbbf24; color: #fbbf24; font-weight: 700;">
+                📥 MP4 영상 다운로드
+              </a>
               <button type="button" class="btn btn-sm btn-outline" id="btnVideoOpenSermonDetail" onclick="openSermonDetailFromVideo()" style="border-color: #38bdf8; color: #38bdf8; font-weight: 600;">
                 📖 말씀 전문 보기
               </button>

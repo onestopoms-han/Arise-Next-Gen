@@ -2093,10 +2093,10 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
     video: {
       hasVideo: true,
       type: "mp4",
-      url: "assets/amazing_grace_bilingual.mp4",
+      url: "assets/original_me_cartoon.mp4",
       passcode: "5gZkTM",
-      duration: "30분",
-      title: "2026.10 줌 온라인 기도모임 전체 실황 및 찬양"
+      duration: "54초 (720p HD)",
+      title: "하나님이 만드신 원래의 나 (한·영 이중언어 성우 내레이션 만화 영상)"
     },
     isFeatured: false,
     tags: ["창세기", "원래인간", "Original Blessing", "후대", "다스리고정복하라"]
@@ -2104,7 +2104,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261024_v48_final_sync';
+const DATA_VERSION = 'v20261106_v49_original_me_video';
 
 
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
@@ -2198,6 +2198,14 @@ try {
   sOct.speaker = "진행: 한옥주 / 통역: 아이리스";
   sOct.pdfUrl = "Original_Blessing.pdf";
   sOct.isFeatured = false;
+  sOct.video = {
+    hasVideo: true,
+    type: "mp4",
+    url: "assets/original_me_cartoon.mp4",
+    passcode: "5gZkTM",
+    duration: "54초 (720p HD)",
+    title: "하나님이 만드신 원래의 나 (한·영 이중언어 성우 내레이션 만화 영상)"
+  };
   sOct.summary = `1. 하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)
 지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도 다스려지지 않는다.
 2. 하나님의 형상이 회복된 증인들: 구약-다윗 (시 23 부족함이 없다), 신약-바울 (빌 4:16)
@@ -6583,6 +6591,14 @@ function renderSermonsGrid() {
     octSermon.title_en = "Original Blessing";
     octSermon.scripture = "창세기 1:27-28 (Genesis 1:27-28)";
     octSermon.pdfUrl = "Original_Blessing.pdf";
+    octSermon.video = {
+      hasVideo: true,
+      type: "mp4",
+      url: "assets/original_me_cartoon.mp4",
+      passcode: "5gZkTM",
+      duration: "54초 (720p HD)",
+      title: "하나님이 만드신 원래의 나 (한·영 이중언어 성우 내레이션 만화 영상)"
+    };
     octSermon.summary = `1. 하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)
 지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도 다스려지지 않는다.
 2. 하나님의 형상이 회복된 증인들
@@ -6785,14 +6801,27 @@ function openWorshipVideoModal(sermonId) {
   } 
   // 2. Direct MP4 Video
   else if (rawUrl.endsWith('.mp4') || rawUrl.endsWith('.webm') || videoType === 'mp4' || rawUrl.startsWith('assets/')) {
+    const dlBtn = document.getElementById('btnVideoDownloadMp4');
+    if (dlBtn) {
+      dlBtn.href = rawUrl;
+      dlBtn.style.display = 'inline-flex';
+    }
     if (html5El) {
+      if (rawUrl.includes('original_me')) {
+        html5El.poster = 'assets/original_me_1.jpg';
+      } else {
+        html5El.removeAttribute('poster');
+      }
       html5El.src = rawUrl;
       html5El.style.display = 'block';
+      html5El.load();
       html5El.play().catch(() => {});
     }
   } 
   // 3. Zoom Cloud Recording / Fallback Launcher
   else {
+    const dlBtn = document.getElementById('btnVideoDownloadMp4');
+    if (dlBtn) dlBtn.style.display = 'none';
     if (fallbackEl) {
       fallbackEl.style.display = 'flex';
       if (zoomTitle) zoomTitle.textContent = sermon.title ? `🎬 ${sermon.title} 줌 예배 녹화` : '줌 클라우드 녹화 예배 영상';

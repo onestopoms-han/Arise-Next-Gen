@@ -1671,6 +1671,56 @@ function updateKidsZoneLanguage(lang) {
   renderKidsSlide(kidsStoryState.currentSlideIndex, false);
 }
 
+// -------------------------------------------------------------
+// 만화 애니메이션 비디오 선택기 (하나님이 만드신 원래의 나 / 풀스토리)
+// -------------------------------------------------------------
+function selectKidsCartoonVideo(videoKey) {
+  const player = document.getElementById('kidsVideoPlayer');
+  const source = document.getElementById('kidsVideoSource');
+  const descText = document.getElementById('kidsVideoDescText');
+  const btnKo = document.getElementById('btnVidOriginalKo');
+  const btnBi = document.getElementById('btnVidOriginalBi');
+  const btnFull = document.getElementById('btnVidFullStory');
+
+  if (!player || !source) return;
+
+  const activeStyle = 'background: linear-gradient(135deg, #0ea5e9, #2563eb); color: #fff; font-weight: 800; border: 1px solid #38bdf8; border-radius: 999px; padding: 0.5rem 1.1rem;';
+  const inactiveStyle = 'background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.1rem;';
+
+  [btnKo, btnBi, btnFull].forEach(btn => {
+    if (btn) {
+      btn.classList.remove('active');
+      btn.setAttribute('style', inactiveStyle);
+    }
+  });
+
+  if (videoKey === 'original_ko') {
+    if (btnKo) { btnKo.classList.add('active'); btnKo.setAttribute('style', activeStyle); }
+    player.poster = 'assets/original_me_1.jpg';
+    source.src = 'assets/original_me_cartoon_ko.mp4';
+    if (descText) {
+      descText.innerHTML = '🎬 <strong>하나님이 만드신 원래의 나 (한국어 성우 내레이션 + 한/영 1:1 자막)</strong> · 하나님의 은혜 BGM 수록 (약 30초, 1280x720 HD)';
+    }
+  } else if (videoKey === 'original_bi') {
+    if (btnBi) { btnBi.classList.add('active'); btnBi.setAttribute('style', activeStyle); }
+    player.poster = 'assets/original_me_1.jpg';
+    source.src = 'assets/original_me_cartoon.mp4';
+    if (descText) {
+      descText.innerHTML = '🌍 <strong>하나님이 만드신 원래의 나 (한·영 이중언어 성우 내레이션 + 한/영 1:1 자막)</strong> · 하나님의 은혜 BGM 수록 (약 54초, 1280x720 HD)';
+    }
+  } else {
+    if (btnFull) { btnFull.classList.add('active'); btnFull.setAttribute('style', activeStyle); }
+    player.poster = 'assets/kids_gospel_1.jpg';
+    source.src = 'assets/kids_gospel_animation.mp4';
+    if (descText) {
+      descText.innerHTML = '🎵 <strong>BGM 찬양:</strong> 하나님의 은혜 (Only By Grace) · 5단계 풀스토리 영상 (1280x720 HD)';
+    }
+  }
+
+  player.load();
+  player.play().catch(() => {});
+}
+
 // 전역 window 함수 노출
 window.nextKidsSlide = nextKidsSlide;
 window.prevKidsSlide = prevKidsSlide;
@@ -1691,3 +1741,4 @@ window.openKidsFullscreen = openKidsFullscreen;
 window.closeKidsFullscreen = closeKidsFullscreen;
 window.downloadKidsStorybookPptx = downloadKidsStorybookPptx;
 window.updateKidsZoneLanguage = updateKidsZoneLanguage;
+window.selectKidsCartoonVideo = selectKidsCartoonVideo;
