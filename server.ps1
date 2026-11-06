@@ -17,6 +17,9 @@ function Process-Request($context) {
         $response.AddHeader("Access-Control-Allow-Headers", "Range, Content-Type, Authorization")
         $response.AddHeader("Access-Control-Expose-Headers", "Content-Range, Accept-Ranges, Content-Length")
         $response.AddHeader("Accept-Ranges", "bytes")
+        $response.AddHeader("Cache-Control", "no-cache, no-store, must-revalidate")
+        $response.AddHeader("Pragma", "no-cache")
+        $response.AddHeader("Expires", "0")
 
         if ($request.HttpMethod -eq "OPTIONS") {
             $response.StatusCode = 200

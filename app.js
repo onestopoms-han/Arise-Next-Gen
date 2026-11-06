@@ -6816,13 +6816,13 @@ function openWorshipVideoModal(sermonId) {
       dlBtn.style.display = 'inline-flex';
     }
     if (html5El) {
+      html5El.style.cssText = 'display: block !important; width: 100% !important; height: auto !important; min-height: 340px !important; max-height: 62vh !important; aspect-ratio: 16 / 9 !important; background: #000 !important; object-fit: contain !important; border-radius: 12px !important;';
       if (cleanMp4Url.includes('original_me')) {
         html5El.poster = 'assets/original_me_1.jpg';
       } else {
         html5El.removeAttribute('poster');
       }
-      html5El.style.display = 'block';
-      html5El.src = cleanMp4Url + '?v=20261107';
+      html5El.src = cleanMp4Url;
       html5El.muted = false;
       html5El.volume = 1.0;
       html5El.load();

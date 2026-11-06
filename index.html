@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css?v=20261025_v52_prayer_guide_3p">
+  <link rel="stylesheet" href="styles.css?v=20261107_v56_video_fix">
 </head>
 <body data-lang="ko">
   <!-- Background Glow Orbs -->
@@ -2561,7 +2561,7 @@
         <div style="display: flex; align-items: center; gap: 0.65rem;">
           <span style="font-size: 1.4rem;">🎬</span>
           <div>
-            <h3 class="modal-title" id="videoModalTitle" style="margin: 0; font-size: 1.15rem;">줌(Zoom) 예배 녹화 동영상</h3>
+            <h3 class="modal-title" id="videoModalTitle" style="margin: 0; font-size: 1.15rem;">원래인간 (Original Blessing) — 만화로 보는 말씀요약</h3>
             <span style="font-size: 0.8rem; color: #94a3b8;" id="videoModalDate">2026년 모임 실황</span>
           </div>
         </div>
@@ -2570,10 +2570,10 @@
 
       <div class="modal-body" style="padding: 1.25rem; overflow-y: auto; max-height: calc(90vh - 80px);">
         <!-- Responsive 16:9 Video Player Screen -->
-        <div class="video-player-container" id="videoPlayerContainer">
+        <div class="video-player-container" id="videoPlayerContainer" style="width: 100%; min-height: 340px; aspect-ratio: 16 / 9; background: #000; border-radius: 12px; overflow: hidden; position: relative;">
           <!-- Dynamically inserted iframe or video tag -->
-          <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display: none;"></iframe>
-          <video id="videoHtml5Player" controls playsinline style="display: none; width: 100%; height: 100%; background: #000;"></video>
+          <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display: none; width: 100%; height: 100%; min-height: 340px;"></iframe>
+          <video id="videoHtml5Player" controls playsinline preload="auto" poster="assets/original_me_1.jpg" src="assets/original_me_cartoon.mp4" style="display: block; width: 100%; height: auto; min-height: 340px; max-height: 62vh; aspect-ratio: 16 / 9; background: #000; object-fit: contain;"></video>
           
           <!-- Zoom Cloud Recording Fallback / Launcher Screen -->
           <div class="zoom-recording-fallback-box" id="zoomRecordingFallback" style="display: none;">
@@ -2854,9 +2854,9 @@
   <!-- Main JavaScript Files -->
   <script src="pptxgen.bundle.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="worship-studio.js?v=20261106_v55_cartoon_video"></script>
-  <script src="kids-gospel.js?v=20261106_v55_cartoon_video"></script>
-  <script src="app.js?v=20261106_v55_cartoon_video"></script>
+  <script src="worship-studio.js?v=20261107_v56_video_fix"></script>
+  <script src="kids-gospel.js?v=20261107_v56_video_fix"></script>
+  <script src="app.js?v=20261107_v56_video_fix"></script>
 </body>
 </html>
 
