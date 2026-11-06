@@ -2096,7 +2096,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
       url: "assets/original_me_cartoon.mp4",
       passcode: "5gZkTM",
       duration: "54초 (720p HD)",
-      title: "하나님이 만드신 원래의 나 (한·영 이중언어 성우 내레이션 만화 영상)"
+      title: "원래인간 (Original Blessing) — 만화로 보는 말씀요약"
     },
     isFeatured: false,
     tags: ["창세기", "원래인간", "Original Blessing", "후대", "다스리고정복하라"]
@@ -2104,7 +2104,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261106_v49_original_me_video';
+const DATA_VERSION = 'v20261106_v50_cartoon_summary_title';
 
 
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
@@ -2204,7 +2204,7 @@ try {
     url: "assets/original_me_cartoon.mp4",
     passcode: "5gZkTM",
     duration: "54초 (720p HD)",
-    title: "하나님이 만드신 원래의 나 (한·영 이중언어 성우 내레이션 만화 영상)"
+    title: "원래인간 (Original Blessing) — 만화로 보는 말씀요약"
   };
   sOct.summary = `1. 하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)
 지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도 다스려지지 않는다.
@@ -6597,7 +6597,7 @@ function renderSermonsGrid() {
       url: "assets/original_me_cartoon.mp4",
       passcode: "5gZkTM",
       duration: "54초 (720p HD)",
-      title: "하나님이 만드신 원래의 나 (한·영 이중언어 성우 내레이션 만화 영상)"
+      title: "원래인간 (Original Blessing) — 만화로 보는 말씀요약"
     };
     octSermon.summary = `1. 하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)
 지금의 우리는 나라, 민족, 사회, 가정, 부부관계, 자식, 특히 내자신도 다스려지지 않는다.
@@ -6668,6 +6668,7 @@ function renderSermonsGrid() {
 
   grid.innerHTML = list.map(item => {
     const hasVideo = !!(item.video && item.video.hasVideo && item.video.url);
+    const isCartoonVideo = hasVideo && (item.id === 'sermon-20261004' || (item.video.url && item.video.url.includes('original_me')));
     const dateFormatted = item.displayDate || (item.date ? item.date.slice(0, 10) : '날짜 미지정');
     const isFeatured = !!item.isFeatured;
 
@@ -6681,7 +6682,7 @@ function renderSermonsGrid() {
             </span>
             <div class="sermon-top-badges">
               ${isFeatured ? `<span class="sermon-featured-badge">⭐ 이번 모임 말씀</span>` : ''}
-              ${hasVideo ? `<span class="sermon-video-badge pulse" title="줌 예배 녹화 영상 수록">🎬 줌 영상</span>` : ''}
+              ${hasVideo ? `<span class="sermon-video-badge pulse" title="${isCartoonVideo ? '만화로 보는 말씀요약 영상 수록' : '줌 예배 녹화 영상 수록'}">${isCartoonVideo ? '🎬 만화로 보는 말씀요약' : '🎬 줌 영상'}</span>` : ''}
             </div>
           </div>
 
@@ -6768,16 +6769,23 @@ function openWorshipVideoModal(sermonId) {
   const launchZoomBtn = document.getElementById('btnLaunchZoomRecording');
   const zoomTitle = document.getElementById('zoomFallbackTitle');
 
-  if (titleEl) titleEl.textContent = sermon.title ? `🎬 ${sermon.title} — 줌 예배 동영상` : '줌 예배 녹화 동영상';
+  const videoData = sermon.video || {};
+  const rawUrl = videoData.url || '';
+  const videoType = videoData.type || 'zoom';
+  const isCartoonSummary = (sermon.id === 'sermon-20261004') || rawUrl.includes('original_me') || (videoData.title && videoData.title.includes('만화로 보는 말씀요약'));
+
+  if (titleEl) {
+    if (isCartoonSummary) {
+      titleEl.textContent = `🎬 ${sermon.title || '원래인간 (Original Blessing)'} — 만화로 보는 말씀요약`;
+    } else {
+      titleEl.textContent = sermon.title ? `🎬 ${sermon.title} — 줌 예배 동영상` : '줌 예배 녹화 동영상';
+    }
+  }
   if (dateEl) dateEl.textContent = sermon.displayDate || sermon.date || '30분 기도모임 실황';
   if (scriptureEl) scriptureEl.textContent = `📖 ${sermon.scripture || ''}`;
   if (sermonTitleEl) sermonTitleEl.textContent = sermon.title || '';
   if (speakerEl) speakerEl.textContent = `인도: ${sermon.speaker || '진행: 한옥주 / 통역: 아이리스'}`;
   if (summaryEl) summaryEl.textContent = sermon.summary || '';
-
-  const videoData = sermon.video || {};
-  const rawUrl = videoData.url || '';
-  const videoType = videoData.type || 'zoom';
 
   // Reset video players
   if (iframeEl) { iframeEl.style.display = 'none'; iframeEl.src = ''; }
