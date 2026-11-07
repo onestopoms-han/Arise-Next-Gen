@@ -2093,9 +2093,9 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
     video: {
       hasVideo: true,
       type: "mp4",
-      url: "assets/original_me_cartoon.mp4",
+      url: "assets/original_me_cartoon.mp4?v=2",
       passcode: "5gZkTM",
-      duration: "54초 (720p HD)",
+      duration: "56초 (720p HD)",
       title: "원래인간 (Original Blessing) — 만화로 보는 말씀요약"
     },
     isFeatured: false,
@@ -2104,7 +2104,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261107_v52_auto_next_month_meeting';
+const DATA_VERSION = 'v20261107_v53_cartoon_v2';
 
 
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
