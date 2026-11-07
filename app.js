@@ -2056,7 +2056,7 @@ const defaultSermons = [
     video: {
       hasVideo: true,
       type: "mp4",
-      url: "assets/original_sin_cartoon.mp4",
+      url: "assets/original_sin_cartoon.mp4?v=2",
       passcode: "5gZkTM",
       duration: "1분 48초 (720p HD)",
       title: "원죄 (Original Sin) — 만화로 보는 말씀요약"
@@ -2104,7 +2104,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261107_v54_nov1_cartoon';
+const DATA_VERSION = 'v20261107_v55_nov1_adam_eve';
 
 
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
@@ -6627,7 +6627,7 @@ function renderSermonsGrid() {
     novSermon.video = {
       hasVideo: true,
       type: "mp4",
-      url: "assets/original_sin_cartoon.mp4",
+      url: "assets/original_sin_cartoon.mp4?v=2",
       passcode: "5gZkTM",
       duration: "1분 48초 (720p HD)",
       title: "원죄 (Original Sin) — 만화로 보는 말씀요약"
@@ -6822,7 +6822,7 @@ function openWorshipVideoModal(sermonId) {
   const isOctCartoon = (sermon.id === 'sermon-20261004') || (sermon.title && sermon.title.includes('원래인간')) || (videoData.url && videoData.url.includes('original_me'));
   const isNovCartoon = (sermon.id === 'sermon-20261101') || (sermon.title && sermon.title.includes('원죄')) || (videoData.url && videoData.url.includes('original_sin'));
   const isCartoonSummary = isOctCartoon || isNovCartoon || (videoData.title && videoData.title.includes('만화로 보는 말씀요약'));
-  const rawUrl = isOctCartoon ? 'assets/original_me_cartoon.mp4?v=2' : (isNovCartoon ? 'assets/original_sin_cartoon.mp4' : (videoData.url || ''));
+  const rawUrl = isOctCartoon ? 'assets/original_me_cartoon.mp4?v=2' : (isNovCartoon ? 'assets/original_sin_cartoon.mp4?v=2' : (videoData.url || ''));
   const videoType = isCartoonSummary ? 'mp4' : (videoData.type || 'zoom');
 
   if (titleEl) {
