@@ -2055,11 +2055,11 @@ const defaultSermons = [
     announcements: "개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임",
     video: {
       hasVideo: true,
-      type: "zoom",
-      url: "https://us06web.zoom.us/j/88382833525?pwd=yY6ubogs8Hz1nTgrVD4zeHhs3if0UG.1",
+      type: "mp4",
+      url: "assets/original_sin_cartoon.mp4",
       passcode: "5gZkTM",
-      duration: "30분",
-      title: "2026.11 줌 온라인 기도모임 실시간 라이브 & 녹화"
+      duration: "1분 48초 (720p HD)",
+      title: "원죄 (Original Sin) — 만화로 보는 말씀요약"
     },
     isFeatured: true,
     tags: ["창세기", "원죄", "창세기3장", "절대절망", "전적타락", "후대"]
@@ -2104,7 +2104,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261107_v53_cartoon_v2';
+const DATA_VERSION = 'v20261107_v54_nov1_cartoon';
 
 
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
@@ -6621,6 +6621,18 @@ function clearSermonSearch() {
 window.clearSermonSearch = clearSermonSearch;
 
 function renderSermonsGrid() {
+  // Force ensure November 1 sermon has Original Sin cartoon video
+  const novSermon = sermons.find(s => s.id === 'sermon-20261101');
+  if (novSermon) {
+    novSermon.video = {
+      hasVideo: true,
+      type: "mp4",
+      url: "assets/original_sin_cartoon.mp4",
+      passcode: "5gZkTM",
+      duration: "1분 48초 (720p HD)",
+      title: "원죄 (Original Sin) — 만화로 보는 말씀요약"
+    };
+  }
   // Force ensure October 4 sermon is 1-page Original Blessing
   const octSermon = sermons.find(s => s.id === 'sermon-20261004');
   if (octSermon) {
@@ -6631,9 +6643,9 @@ function renderSermonsGrid() {
     octSermon.video = {
       hasVideo: true,
       type: "mp4",
-      url: "assets/original_me_cartoon.mp4",
+      url: "assets/original_me_cartoon.mp4?v=2",
       passcode: "5gZkTM",
-      duration: "54초 (720p HD)",
+      duration: "56초 (720p HD)",
       title: "원래인간 (Original Blessing) — 만화로 보는 말씀요약"
     };
     octSermon.summary = `1. 하나님의 형상-하나님처럼 다 되는 인간(모든것이 다스려지는 인간)
@@ -6705,7 +6717,7 @@ function renderSermonsGrid() {
 
   grid.innerHTML = list.map(item => {
     const hasVideo = !!(item.video && item.video.hasVideo && item.video.url);
-    const isCartoonVideo = hasVideo && (item.id === 'sermon-20261004' || (item.video.url && item.video.url.includes('original_me')));
+    const isCartoonVideo = hasVideo && (item.id === 'sermon-20261004' || item.id === 'sermon-20261101' || item.video.type === 'mp4' || (item.video.url && (item.video.url.includes('original_me') || item.video.url.includes('original_sin'))));
     const dateFormatted = item.displayDate || (item.date ? item.date.slice(0, 10) : '날짜 미지정');
     const isFeatured = !!item.isFeatured;
 
@@ -6807,13 +6819,15 @@ function openWorshipVideoModal(sermonId) {
   const zoomTitle = document.getElementById('zoomFallbackTitle');
 
   const videoData = sermon.video || {};
-  const isCartoonSummary = (sermon.id === 'sermon-20261004') || (sermon.title && sermon.title.includes('원래인간')) || (videoData.url && videoData.url.includes('original_me')) || (videoData.title && videoData.title.includes('만화로 보는 말씀요약'));
-  const rawUrl = isCartoonSummary ? 'assets/original_me_cartoon.mp4' : (videoData.url || '');
+  const isOctCartoon = (sermon.id === 'sermon-20261004') || (sermon.title && sermon.title.includes('원래인간')) || (videoData.url && videoData.url.includes('original_me'));
+  const isNovCartoon = (sermon.id === 'sermon-20261101') || (sermon.title && sermon.title.includes('원죄')) || (videoData.url && videoData.url.includes('original_sin'));
+  const isCartoonSummary = isOctCartoon || isNovCartoon || (videoData.title && videoData.title.includes('만화로 보는 말씀요약'));
+  const rawUrl = isOctCartoon ? 'assets/original_me_cartoon.mp4?v=2' : (isNovCartoon ? 'assets/original_sin_cartoon.mp4' : (videoData.url || ''));
   const videoType = isCartoonSummary ? 'mp4' : (videoData.type || 'zoom');
 
   if (titleEl) {
     if (isCartoonSummary) {
-      titleEl.textContent = `🎬 ${sermon.title || '원래인간 (Original Blessing)'} — 만화로 보는 말씀요약`;
+      titleEl.textContent = `🎬 ${sermon.title || '원죄 (Original Sin)'} — 만화로 보는 말씀요약`;
     } else {
       titleEl.textContent = sermon.title ? `🎬 ${sermon.title} — 줌 예배 동영상` : '줌 예배 녹화 동영상';
     }
@@ -6850,16 +6864,19 @@ function openWorshipVideoModal(sermonId) {
     const dlBtn = document.getElementById('btnVideoDownloadMp4');
     if (dlBtn) {
       dlBtn.href = cleanMp4Url;
+      dlBtn.setAttribute('download', cleanMp4Url.includes('original_sin') ? '원죄_창세기3장문제_한영성우_만화영상.mp4' : '하나님이만드신원래의나_한영성우_만화영상.mp4');
       dlBtn.style.display = 'inline-flex';
     }
     if (html5El) {
       html5El.style.cssText = 'display: block !important; width: 100% !important; height: auto !important; min-height: 340px !important; max-height: 62vh !important; aspect-ratio: 16 / 9 !important; background: #000 !important; object-fit: contain !important; border-radius: 12px !important;';
       if (cleanMp4Url.includes('original_me')) {
         html5El.poster = 'assets/original_me_1.jpg';
+      } else if (cleanMp4Url.includes('original_sin')) {
+        html5El.poster = 'assets/original_sin_1.jpg';
       } else {
         html5El.removeAttribute('poster');
       }
-      html5El.src = cleanMp4Url;
+      html5El.src = rawUrl;
       html5El.muted = false;
       html5El.volume = 1.0;
       html5El.load();
@@ -6988,7 +7005,7 @@ function openSermonDetailModal(sermonId) {
   }
 
   if (btnWatch) {
-    const isOrigVideo = (sermon.id === 'sermon-20261004') || (sermon.title && sermon.title.includes('원래인간'));
+    const isOrigVideo = (sermon.id === 'sermon-20261004') || (sermon.id === 'sermon-20261101') || (sermon.title && (sermon.title.includes('원래인간') || sermon.title.includes('원죄')));
     if (isOrigVideo || (sermon.video && sermon.video.hasVideo && sermon.video.url)) {
       btnWatch.style.display = 'inline-flex';
       btnWatch.innerHTML = isOrigVideo ? '🎬 만화로 보는 말씀요약' : '🎬 줌 영상 시청';

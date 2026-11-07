@@ -16,11 +16,11 @@
     "announcements": "개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임",
     "video": {
       "hasVideo": true,
-      "type": "zoom",
-      "url": "https://us06web.zoom.us/j/88382833525?pwd=yY6ubogs8Hz1nTgrVD4zeHhs3if0UG.1",
+      "type": "mp4",
+      "url": "assets/original_sin_cartoon.mp4",
       "passcode": "5gZkTM",
-      "duration": "30분",
-      "title": "2026.11 줌 온라인 기도모임 실시간 라이브 & 녹화"
+      "duration": "1분 48초 (720p HD)",
+      "title": "원죄 (Original Sin) — 만화로 보는 말씀요약"
     },
     "isFeatured": true,
     "tags": [
