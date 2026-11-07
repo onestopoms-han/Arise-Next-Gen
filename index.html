@@ -921,7 +921,7 @@
               🎭 역할놀이 입체 낭독극 (Role-Play)
             </button>
             <button type="button" class="kids-tab-btn" id="tabBookVideo" onclick="switchKidsViewerMode('video')" data-i18n="kids_tab_video">
-              🎬 찬양 애니메이션 영상 (Video)
+              🎬 만화로 보는 말씀요약 영상 (Video)
             </button>
           </div>
 
@@ -964,6 +964,31 @@
             <!-- PPTX Download -->
             <button type="button" class="btn btn-sm btn-kids-outline" onclick="downloadKidsStorybookPptx()" title="주일학교 공과용 PPTX 다운로드" data-i18n="kids_btn_pptx">
               📊 PPTX 다운로드
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Launch Banner for Cartoon Gospel Summary Videos -->
+        <div style="margin: 0 0 1.15rem 0; padding: 0.9rem 1.15rem; background: linear-gradient(135deg, rgba(14, 165, 233, 0.16), rgba(37, 99, 235, 0.18)); border: 1.5px solid rgba(56, 189, 248, 0.45); border-radius: 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.55rem;">
+            <span style="font-size: 1.35rem;">🎬</span>
+            <div>
+              <div style="font-size: 0.98rem; font-weight: 800; color: #f8fafc;">만화로 보는 말씀요약 동영상 바로보기 (한·영 성우 / 한국어 성우)</div>
+              <div style="font-size: 0.82rem; color: #93c5fd; font-weight: 600;">10월 말씀 《원래인간》 · 11월 말씀 《원죄 — 창세기 3장 문제》 애니메이션</div>
+            </div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <button type="button" class="btn btn-sm" onclick="switchKidsViewerMode('video'); selectKidsCartoonVideo('original_bi');" style="background: linear-gradient(135deg, #0284c7, #2563eb); color: #fff; font-weight: 800; border: 1px solid #38bdf8; border-radius: 999px; padding: 0.42rem 0.95rem;">
+              🌍 10월: 원래인간 (한·영 성우)
+            </button>
+            <button type="button" class="btn btn-sm" onclick="switchKidsViewerMode('video'); selectKidsCartoonVideo('original_ko');" style="background: rgba(15, 23, 42, 0.85); color: #e0f2fe; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.5); border-radius: 999px; padding: 0.42rem 0.95rem;">
+              🇰🇷 10월: 원래인간 (한국어)
+            </button>
+            <button type="button" class="btn btn-sm" onclick="switchKidsViewerMode('video'); selectKidsCartoonVideo('sin_bi');" style="background: linear-gradient(135deg, #d97706, #b45309); color: #fff; font-weight: 800; border: 1px solid #fbbf24; border-radius: 999px; padding: 0.42rem 0.95rem;">
+              🌍 11월: 원죄·창세기3장 (한·영 성우)
+            </button>
+            <button type="button" class="btn btn-sm" onclick="switchKidsViewerMode('video'); selectKidsCartoonVideo('sin_ko');" style="background: rgba(15, 23, 42, 0.85); color: #fef08a; font-weight: 700; border: 1px solid rgba(251, 191, 36, 0.5); border-radius: 999px; padding: 0.42rem 0.95rem;">
+              🇰🇷 11월: 원죄·창세기3장 (한국어)
             </button>
           </div>
         </div>
@@ -1044,42 +1069,48 @@
         <!-- 2. Animation Video Mode (Toggled via tab) -->
         <div class="kids-video-mode" id="kidsVideoMode" style="display: none;">
           <!-- Episode / Voice Mode Selector -->
-          <div class="kids-video-selector" style="display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-bottom: 1rem;">
-            <button type="button" class="btn btn-sm kids-ep-btn active" id="btnVidOriginalKo" onclick="selectKidsCartoonVideo('original_ko')" style="background: linear-gradient(135deg, #0ea5e9, #2563eb); color: #fff; font-weight: 800; border: 1px solid #38bdf8; border-radius: 999px; padding: 0.5rem 1.1rem;">
-              🎬 하나님이 만드신 원래의 나 (한국어 성우 + 한/영 자막)
+          <div class="kids-video-selector" style="display: flex; flex-wrap: wrap; gap: 0.55rem; justify-content: center; margin-bottom: 1rem;">
+            <button type="button" class="btn btn-sm kids-ep-btn active" id="btnVidOriginalBi" onclick="selectKidsCartoonVideo('original_bi')" style="background: linear-gradient(135deg, #0ea5e9, #2563eb); color: #fff; font-weight: 800; border: 1px solid #38bdf8; border-radius: 999px; padding: 0.5rem 1.05rem;">
+              🌍 [10월] 원래인간 — 만화로 보는 말씀요약 (한·영 성우)
             </button>
-            <button type="button" class="btn btn-sm kids-ep-btn" id="btnVidOriginalBi" onclick="selectKidsCartoonVideo('original_bi')" style="background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.1rem;">
-              🌍 하나님이 만드신 원래의 나 (한·영 성우 + 한/영 자막)
+            <button type="button" class="btn btn-sm kids-ep-btn" id="btnVidOriginalKo" onclick="selectKidsCartoonVideo('original_ko')" style="background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.05rem;">
+              🇰🇷 [10월] 원래인간 — 만화로 보는 말씀요약 (한국어 성우)
             </button>
-            <button type="button" class="btn btn-sm kids-ep-btn" id="btnVidFullStory" onclick="selectKidsCartoonVideo('full_story')" style="background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.1rem;">
+            <button type="button" class="btn btn-sm kids-ep-btn" id="btnVidSinBi" onclick="selectKidsCartoonVideo('sin_bi')" style="background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.05rem;">
+              🌍 [11월] 원죄 (창세기 3장 문제) — 만화로 보는 말씀요약 (한·영 성우)
+            </button>
+            <button type="button" class="btn btn-sm kids-ep-btn" id="btnVidSinKo" onclick="selectKidsCartoonVideo('sin_ko')" style="background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.05rem;">
+              🇰🇷 [11월] 원죄 (창세기 3장 문제) — 만화로 보는 말씀요약 (한국어 성우)
+            </button>
+            <button type="button" class="btn btn-sm kids-ep-btn" id="btnVidFullStory" onclick="selectKidsCartoonVideo('full_story')" style="background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.05rem;">
               📖 복음 동화 5단계 풀스토리 (BGM 영상)
             </button>
           </div>
 
           <div class="kids-video-container">
-            <video id="kidsVideoPlayer" controls preload="metadata" poster="assets/original_me_1.jpg" style="width: 100%; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-              <source id="kidsVideoSource" src="assets/original_me_cartoon_ko.mp4" type="video/mp4">
+            <video id="kidsVideoPlayer" controls playsinline preload="metadata" poster="assets/original_me_1.jpg" style="width: 100%; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+              <source id="kidsVideoSource" src="assets/original_me_cartoon.mp4?v=2" type="video/mp4">
               브라우저가 비디오 재생을 지원하지 않습니다.
             </video>
           </div>
           <div class="kids-video-desc" style="margin-top: 1rem;">
             <p id="kidsVideoDescText" style="font-size: 1.05rem; font-weight: 700; color: #f8fafc;">
-              🎬 <strong>하나님이 만드신 원래의 나 (The Original Me Created by God)</strong> · 성우 내레이션 + 하나님의 은혜 BGM + 한/영 1:1 자막 (1280x720 HD)
+              🌍 <strong>[10월 말씀] 원래인간 — 하나님이 만드신 원래의 나 (한·영 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 56초 (1280x720 HD)
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-top: 0.6rem;">
-              <a href="assets/original_me_cartoon_ko.mp4" download="하나님이만드신원래의나_한국어성우_만화영상.mp4" id="kidsVideoDownloadKo" class="btn btn-sm btn-outline" style="display: inline-flex; align-items: center; gap: 0.4rem; border-color: #38bdf8; color: #38bdf8; font-weight: 700;">
-                📥 만화 동영상 다운로드 (한국어 성우 MP4)
+              <a href="assets/original_me_cartoon_ko.mp4" download="원래인간_하나님이만드신원래의나_한국어성우.mp4" id="kidsVideoDownloadKo" class="btn btn-sm btn-outline" style="display: inline-flex; align-items: center; gap: 0.4rem; border-color: #38bdf8; color: #38bdf8; font-weight: 700;">
+                📥 현재 말씀 영상 다운로드 (한국어 성우 MP4)
               </a>
-              <a href="assets/original_me_cartoon.mp4" download="하나님이만드신원래의나_한영성우_만화영상.mp4" id="kidsVideoDownloadBi" class="btn btn-sm btn-outline" style="display: inline-flex; align-items: center; gap: 0.4rem; border-color: #fbbf24; color: #fbbf24; font-weight: 700;">
-                📥 만화 동영상 다운로드 (한·영 성우 MP4)
+              <a href="assets/original_me_cartoon.mp4" download="원래인간_하나님이만드신원래의나_한영성우.mp4" id="kidsVideoDownloadBi" class="btn btn-sm btn-outline" style="display: inline-flex; align-items: center; gap: 0.4rem; border-color: #fbbf24; color: #fbbf24; font-weight: 700;">
+                📥 현재 말씀 영상 다운로드 (한·영 성우 MP4)
               </a>
             </div>
           </div>
 
           <!-- 5-Scene Script & Storyboard Cards (1:1 Bilingual Size & Weight) -->
-          <div style="margin-top: 1.5rem; background: rgba(15, 23, 42, 0.78); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 1.25rem; text-align: left;">
+          <div id="kidsScriptCardOriginalMe" style="margin-top: 1.5rem; background: rgba(15, 23, 42, 0.78); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 1.25rem; text-align: left;">
             <h4 style="color: #38bdf8; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span>📖</span> <span>[하나님이 만드신 원래의 나] 5장면 만화 대본 (한·영 1:1 동일 크기/굵기)</span>
+              <span>📖</span> <span>[10월 말씀 · 원래인간] 하나님이 만드신 원래의 나 — 5장면 만화 대본 (한·영 1:1 동일 크기/굵기)</span>
             </h4>
             <div style="display: grid; gap: 0.75rem;">
               <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #38bdf8; border-radius: 10px; padding: 0.8rem 1rem;">
@@ -1091,8 +1122,8 @@
                 <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">2. Because I resembled God, nothing was impossible.</div>
               </div>
               <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #f472b6; border-radius: 10px; padding: 0.8rem 1rem;">
-                <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">3. 모든 게 아름답게 보였고, 사랑스러웠고, 걱정도 두려움도 없었고, 모든 것이 만족스러웠고,</div>
-                <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">3. Everything looked beautiful and lovely, with no worry or fear, and everything was completely satisfying,</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">3. 모든것이 아름답게 보였고, 모든것이 사랑스러웠고, 걱정도 두려움도 없었고, 모든것이 만족 스러웠어요.</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">3. Everything looked beautiful, everything was lovely, with no worry or fear, and everything was satisfying.</div>
               </div>
               <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #fbbf24; border-radius: 10px; padding: 0.8rem 1rem;">
                 <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">4. 문제가 와도 다 다스릴 수 있었어요.</div>
@@ -1101,6 +1132,34 @@
               <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #a78bfa; border-radius: 10px; padding: 0.8rem 1rem;">
                 <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">5. 우리는 이런 사람이었어요.</div>
                 <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">5. This is who we originally were.</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="kidsScriptCardOriginalSin" style="margin-top: 1.25rem; background: rgba(15, 23, 42, 0.78); border: 1px solid rgba(251, 191, 36, 0.35); border-radius: 16px; padding: 1.25rem; text-align: left;">
+            <h4 style="color: #fbbf24; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem;">
+              <span>📖</span> <span>[11월 말씀 · 원죄] 창세기 3장 문제 — 5장면 만화 대본 (한·영 1:1 동일 크기/굵기)</span>
+            </h4>
+            <div style="display: grid; gap: 0.75rem;">
+              <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #38bdf8; border-radius: 10px; padding: 0.8rem 1rem;">
+                <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">1. 원죄 — 왜 모든 사람에게 문제가 찾아왔을까요? 하나님 말씀을 버리고 사탄에게 속아 하나님을 떠나면서 죄와 사탄에 지배아래 놓이게 되었어요.</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">1. Original Sin — Why did problems come to everyone? Forsaking God's Word and deceived by Satan, we left God and fell under the rule of sin and Satan.</div>
+              </div>
+              <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #34d399; border-radius: 10px; padding: 0.8rem 1rem;">
+                <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">2. 하나님처럼 될수 있다는 거짓말에 속아 하나님이 먹지 말라한 선악과를 따먹은후 영적인 눈은 닫히고 수치심에 무화과나무 잎으로 자신을 포장하기 시작했어요.</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">2. Fooled by the lie of becoming like God and eating the forbidden fruit, our spiritual eyes closed, and in shame we covered ourselves with fig leaves.</div>
+              </div>
+              <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #f472b6; border-radius: 10px; padding: 0.8rem 1rem;">
+                <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">3. 하나님의 낯을 피해 숨으며 죄의식과 두려움에 떨었고, 서로를 판단하고 원망하며 핑계 대는 사람이 되었어요.</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">3. Hiding from God's presence in guilt and fear, we began judging, blaming others, and making excuses.</div>
+              </div>
+              <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #fbbf24; border-radius: 10px; padding: 0.8rem 1rem;">
+                <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">4. 마음에는 불안과 우울함, 무기력과 외로움이 찾아왔고, 내 힘으로는 아무것도 안 되는 절대절망 상태가 되었어요.</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">4. Anxiety, depression, helplessness and loneliness filled our hearts— a state of absolute despair where nothing works by our own strength.</div>
+              </div>
+              <div style="background: rgba(30, 41, 59, 0.85); border-left: 4px solid #a78bfa; border-radius: 10px; padding: 0.8rem 1rem;">
+                <div style="font-size: 1.05rem; font-weight: 800; color: #ffffff; font-style: normal;">5. 이 문제는 우리 후대와 모든 민족에게 당연히 올 수밖에 없어요. 그래서 우리에게는 오직 예수 그리스도의 복음이 꼭 필요해요!</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #fde047; font-style: normal; margin-top: 0.2rem;">5. This problem inevitably comes to all nations and the next generation— that is why we truly need the Gospel of Jesus Christ!</div>
               </div>
             </div>
           </div>
@@ -2854,9 +2913,9 @@
   <!-- Main JavaScript Files -->
   <script src="pptxgen.bundle.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="worship-studio.js?v=20261107_v63_nov1_scene4_sub"></script>
-  <script src="kids-gospel.js?v=20261107_v63_nov1_scene4_sub"></script>
-  <script src="app.js?v=20261107_v63_nov1_scene4_sub"></script>
+  <script src="worship-studio.js?v=20261107_v64_kids_zone_videos"></script>
+  <script src="kids-gospel.js?v=20261107_v64_kids_zone_videos"></script>
+  <script src="app.js?v=20261107_v64_kids_zone_videos"></script>
 </body>
 </html>
 

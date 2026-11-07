@@ -1672,22 +1672,26 @@ function updateKidsZoneLanguage(lang) {
 }
 
 // -------------------------------------------------------------
-// 만화 애니메이션 비디오 선택기 (하나님이 만드신 원래의 나 / 풀스토리)
+// 만화 애니메이션 비디오 선택기 (10월 원래인간 / 11월 원죄 / 풀스토리)
 // -------------------------------------------------------------
 function selectKidsCartoonVideo(videoKey) {
   const player = document.getElementById('kidsVideoPlayer');
   const source = document.getElementById('kidsVideoSource');
   const descText = document.getElementById('kidsVideoDescText');
-  const btnKo = document.getElementById('btnVidOriginalKo');
-  const btnBi = document.getElementById('btnVidOriginalBi');
+  const dlKo = document.getElementById('kidsVideoDownloadKo');
+  const dlBi = document.getElementById('kidsVideoDownloadBi');
+  const btnOriginalBi = document.getElementById('btnVidOriginalBi');
+  const btnOriginalKo = document.getElementById('btnVidOriginalKo');
+  const btnSinBi = document.getElementById('btnVidSinBi');
+  const btnSinKo = document.getElementById('btnVidSinKo');
   const btnFull = document.getElementById('btnVidFullStory');
 
   if (!player || !source) return;
 
-  const activeStyle = 'background: linear-gradient(135deg, #0ea5e9, #2563eb); color: #fff; font-weight: 800; border: 1px solid #38bdf8; border-radius: 999px; padding: 0.5rem 1.1rem;';
-  const inactiveStyle = 'background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.1rem;';
+  const activeStyle = 'background: linear-gradient(135deg, #0ea5e9, #2563eb); color: #fff; font-weight: 800; border: 1px solid #38bdf8; border-radius: 999px; padding: 0.5rem 1.05rem;';
+  const inactiveStyle = 'background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.05rem;';
 
-  [btnKo, btnBi, btnFull].forEach(btn => {
+  [btnOriginalBi, btnOriginalKo, btnSinBi, btnSinKo, btnFull].forEach(btn => {
     if (btn) {
       btn.classList.remove('active');
       btn.setAttribute('style', inactiveStyle);
@@ -1695,23 +1699,50 @@ function selectKidsCartoonVideo(videoKey) {
   });
 
   if (videoKey === 'original_ko') {
-    if (btnKo) { btnKo.classList.add('active'); btnKo.setAttribute('style', activeStyle); }
+    if (btnOriginalKo) { btnOriginalKo.classList.add('active'); btnOriginalKo.setAttribute('style', activeStyle); }
     player.poster = 'assets/original_me_1.jpg';
-    source.src = 'assets/original_me_cartoon_ko.mp4';
+    source.src = 'assets/original_me_cartoon_ko.mp4?v=2';
+    player.src = 'assets/original_me_cartoon_ko.mp4?v=2';
+    if (dlKo) { dlKo.href = 'assets/original_me_cartoon_ko.mp4'; dlKo.setAttribute('download', '10월_원래인간_한국어성우_만화영상.mp4'); }
+    if (dlBi) { dlBi.href = 'assets/original_me_cartoon.mp4'; dlBi.setAttribute('download', '10월_원래인간_한영성우_만화영상.mp4'); }
     if (descText) {
-      descText.innerHTML = '🎬 <strong>하나님이 만드신 원래의 나 (한국어 성우 내레이션 + 한/영 1:1 자막)</strong> · 하나님의 은혜 BGM 수록 (약 30초, 1280x720 HD)';
+      descText.innerHTML = '🇰🇷 <strong>[10월 말씀] 원래인간 — 하나님이 만드신 원래의 나 (한국어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 31초 (1280x720 HD)';
     }
   } else if (videoKey === 'original_bi') {
-    if (btnBi) { btnBi.classList.add('active'); btnBi.setAttribute('style', activeStyle); }
+    if (btnOriginalBi) { btnOriginalBi.classList.add('active'); btnOriginalBi.setAttribute('style', activeStyle); }
     player.poster = 'assets/original_me_1.jpg';
-    source.src = 'assets/original_me_cartoon.mp4';
+    source.src = 'assets/original_me_cartoon.mp4?v=2';
+    player.src = 'assets/original_me_cartoon.mp4?v=2';
+    if (dlKo) { dlKo.href = 'assets/original_me_cartoon_ko.mp4'; dlKo.setAttribute('download', '10월_원래인간_한국어성우_만화영상.mp4'); }
+    if (dlBi) { dlBi.href = 'assets/original_me_cartoon.mp4'; dlBi.setAttribute('download', '10월_원래인간_한영성우_만화영상.mp4'); }
     if (descText) {
-      descText.innerHTML = '🌍 <strong>하나님이 만드신 원래의 나 (한·영 이중언어 성우 내레이션 + 한/영 1:1 자막)</strong> · 하나님의 은혜 BGM 수록 (약 54초, 1280x720 HD)';
+      descText.innerHTML = '🌍 <strong>[10월 말씀] 원래인간 — 하나님이 만드신 원래의 나 (한·영 이중언어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 56초 (1280x720 HD)';
+    }
+  } else if (videoKey === 'sin_bi') {
+    if (btnSinBi) { btnSinBi.classList.add('active'); btnSinBi.setAttribute('style', activeStyle); }
+    player.poster = 'assets/original_sin_1.jpg';
+    source.src = 'assets/original_sin_cartoon.mp4?v=5';
+    player.src = 'assets/original_sin_cartoon.mp4?v=5';
+    if (dlKo) { dlKo.href = 'assets/original_sin_cartoon_ko.mp4'; dlKo.setAttribute('download', '11월_원죄_창세기3장문제_한국어성우_만화영상.mp4'); }
+    if (dlBi) { dlBi.href = 'assets/original_sin_cartoon.mp4'; dlBi.setAttribute('download', '11월_원죄_창세기3장문제_한영성우_만화영상.mp4'); }
+    if (descText) {
+      descText.innerHTML = '🌍 <strong>[11월 말씀] 원죄 (창세기 3장 문제) — 만화로 보는 말씀요약 (한·영 이중언어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 1분 55초 (1280x720 HD)';
+    }
+  } else if (videoKey === 'sin_ko') {
+    if (btnSinKo) { btnSinKo.classList.add('active'); btnSinKo.setAttribute('style', activeStyle); }
+    player.poster = 'assets/original_sin_1.jpg';
+    source.src = 'assets/original_sin_cartoon_ko.mp4?v=5';
+    player.src = 'assets/original_sin_cartoon_ko.mp4?v=5';
+    if (dlKo) { dlKo.href = 'assets/original_sin_cartoon_ko.mp4'; dlKo.setAttribute('download', '11월_원죄_창세기3장문제_한국어성우_만화영상.mp4'); }
+    if (dlBi) { dlBi.href = 'assets/original_sin_cartoon.mp4'; dlBi.setAttribute('download', '11월_원죄_창세기3장문제_한영성우_만화영상.mp4'); }
+    if (descText) {
+      descText.innerHTML = '🇰🇷 <strong>[11월 말씀] 원죄 (창세기 3장 문제) — 만화로 보는 말씀요약 (한국어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 1분 00초 (1280x720 HD)';
     }
   } else {
     if (btnFull) { btnFull.classList.add('active'); btnFull.setAttribute('style', activeStyle); }
     player.poster = 'assets/kids_gospel_1.jpg';
     source.src = 'assets/kids_gospel_animation.mp4';
+    player.src = 'assets/kids_gospel_animation.mp4';
     if (descText) {
       descText.innerHTML = '🎵 <strong>BGM 찬양:</strong> 하나님의 은혜 (Only By Grace) · 5단계 풀스토리 영상 (1280x720 HD)';
     }
