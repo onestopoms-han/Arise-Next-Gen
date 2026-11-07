@@ -2029,8 +2029,8 @@ const defaultRoutineContent = {
 const defaultMeetingSettings = {
   // 2026년 12월 6일 (일) 호주 퀸즈랜드 7:50 PM (AEST, UTC+10) = 한국 18:50 KST (UTC+9)
   meetingDate: "2026-12-06T19:50:00+10:00",
-  zoomUrl: "https://us06web.zoom.us/j/88382833525?pwd=yY6ubogs8Hz1nTgrVD4zeHhs3if0UG.1",
-  meetingId: "ID: 883 8697 3041 / PW: 5gZkTM"
+  zoomUrl: "https://us06web.zoom.us/j/84752215344?pwd=6jMYQiKD0mfiDwKKBw41NPj77pvMMb.1",
+  meetingId: "ID: 847 5221 5344 / PW: 641747"
 };
 
 // Default Date-Organized Sermons & Zoom Worship Archive (일자별 말씀 및 줌 녹화 영상)
@@ -3923,6 +3923,7 @@ function openModal(id) {
 
     // Populate settings inputs if opening settings
     if (id === 'settingsModal') {
+      ensureUpcomingMeetingDate();
       const pinInput = document.getElementById('settingsAdminPin');
       if (pinInput) pinInput.value = '';
 
