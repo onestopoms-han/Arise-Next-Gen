@@ -2025,10 +2025,10 @@ const defaultRoutineContent = {
   }
 };
 
-// Meeting Settings Seed Data (호주 퀸즈랜드 7:30 PM AEST 기준)
+// Meeting Settings Seed Data (호주 퀸즈랜드 7:50 PM AEST 기준 - 매월 첫 주일)
 const defaultMeetingSettings = {
-  // 2026년 11월 1일 (일) 호주 퀸즈랜드 7:50 PM (AEST, UTC+10) = 한국 18:50 KST (UTC+9)
-  meetingDate: "2026-11-01T19:50:00+10:00",
+  // 2026년 12월 6일 (일) 호주 퀸즈랜드 7:50 PM (AEST, UTC+10) = 한국 18:50 KST (UTC+9)
+  meetingDate: "2026-12-06T19:50:00+10:00",
   zoomUrl: "https://us06web.zoom.us/j/88382833525?pwd=yY6ubogs8Hz1nTgrVD4zeHhs3if0UG.1",
   meetingId: "ID: 883 8697 3041 / PW: 5gZkTM"
 };
@@ -2104,7 +2104,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261107_v51_fix_video_playback';
+const DATA_VERSION = 'v20261107_v52_auto_next_month_meeting';
 
 
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
@@ -2222,18 +2222,47 @@ try {
 const DEFAULT_GOOGLE_SHEET_ID = '';
 let googleSheetId = localStorage.getItem('prayer_hub_google_sheet_id') || DEFAULT_GOOGLE_SHEET_ID;
 
-// Compute default next first Tuesday in Queensland (AEST, UTC+10) time
-function getNextMeetingDateString() {
-  const now = new Date();
-  const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-  while (nextMonth.getDay() !== 2) {
-    nextMonth.setDate(nextMonth.getDate() + 1);
+// Compute upcoming First Sunday of the month in Queensland (AEST, UTC+10) at 19:50 (한국 18:50)
+function getFirstSundayOfMonthString(year, monthIndex) {
+  const d = new Date(Date.UTC(year, monthIndex, 1));
+  while (d.getUTCDay() !== 0) {
+    d.setUTCDate(d.getUTCDate() + 1);
   }
-  const year = nextMonth.getFullYear();
-  const month = String(nextMonth.getMonth() + 1).padStart(2, '0');
-  const date = String(nextMonth.getDate()).padStart(2, '0');
-  return `${year}-${month}-${date}T20:00:00+10:00`;
+  const yyyy = d.getUTCFullYear();
+  const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const dd = String(d.getUTCDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}T19:50:00+10:00`;
 }
+
+function getNextMeetingDateString() {
+  const nowMs = Date.now();
+  const now = new Date();
+  // 1) Check this month's First Sunday at 19:50+10:00 (allow 2-hour grace window during live meeting)
+  const thisMonthCandidate = getFirstSundayOfMonthString(now.getUTCFullYear(), now.getUTCMonth());
+  const thisMonthMs = new Date(thisMonthCandidate).getTime();
+  if (nowMs <= thisMonthMs + 2 * 60 * 60 * 1000) {
+    return thisMonthCandidate;
+  }
+  // 2) Otherwise roll over to next month's First Sunday at 19:50+10:00
+  const nextMonthDate = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1));
+  return getFirstSundayOfMonthString(nextMonthDate.getUTCFullYear(), nextMonthDate.getUTCMonth());
+}
+
+// Automatically advance meetingSettings.meetingDate if the saved meeting time has already finished (> 2 hours past)
+function ensureUpcomingMeetingDate() {
+  if (!meetingSettings || !meetingSettings.meetingDate) {
+    meetingSettings = Object.assign({}, defaultMeetingSettings, { meetingDate: getNextMeetingDateString() });
+    localStorage.setItem('prayer_hub_meeting_settings', JSON.stringify(meetingSettings));
+    return;
+  }
+  const targetMs = new Date(meetingSettings.meetingDate).getTime();
+  // If invalid or more than 2 hours in the past, automatically advance to next month's First Sunday 19:50 AEST
+  if (isNaN(targetMs) || (Date.now() - targetMs > 2 * 60 * 60 * 1000)) {
+    meetingSettings.meetingDate = getNextMeetingDateString();
+    localStorage.setItem('prayer_hub_meeting_settings', JSON.stringify(meetingSettings));
+  }
+}
+ensureUpcomingMeetingDate();
 
 // ==========================================
 // 3. Language Switcher (i18n Engine - 8 Languages)
@@ -2335,6 +2364,12 @@ function startCountdown() {
     }
 
     if (diff <= 0) {
+      // 모임 시작 후 2시간까지는 LIVE 표시, 2시간 경과 후에는 자동으로 다음 달 첫 주일 모임 시간으로 전환
+      if (now - target > 2 * 60 * 60 * 1000) {
+        ensureUpcomingMeetingDate();
+        updateMeetingDisplay();
+        return;
+      }
       if (daysEl) daysEl.textContent = "00";
       if (hoursEl) hoursEl.textContent = "00";
       if (minsEl) minsEl.textContent = "00";
@@ -4147,6 +4182,7 @@ async function loadGlobalRoutine() {
     // 2. Sync Meeting Settings (Date/Time & Zoom Link)
     if (loadedData.meetingSettings && loadedData.meetingSettings.meetingDate) {
       meetingSettings = Object.assign({}, defaultMeetingSettings, loadedData.meetingSettings);
+      ensureUpcomingMeetingDate();
       localStorage.setItem('prayer_hub_meeting_settings', JSON.stringify(meetingSettings));
       updateMeetingDisplay();
       startCountdown();

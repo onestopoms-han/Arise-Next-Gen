@@ -161,6 +161,40 @@ export default async function handler(req, res) {
         throw new Error(`GitHub 커밋 저장 실패 (${putRes.status})`);
       }
 
+      // Secondary repo sync (onestopoms-han/arise-nextgen-web for www.arisenextgen.org)
+      try {
+        const webGhUrl = `https://api.github.com/repos/onestopoms-han/arise-nextgen-web/contents/${GITHUB_FILE_PATH}`;
+        const webGet = await fetch(webGhUrl, {
+          headers: {
+            'Authorization': `Bearer ${GITHUB_TOKEN}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'User-Agent': 'Arise-Next-Gen-Serverless'
+          }
+        });
+        let webSha = null;
+        if (webGet.ok) {
+          const webJson = await webGet.json();
+          webSha = webJson.sha;
+        }
+        await fetch(webGhUrl, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${GITHUB_TOKEN}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json',
+            'User-Agent': 'Arise-Next-Gen-Serverless'
+          },
+          body: JSON.stringify({
+            message: `feat: ${actionDesc} 업데이트 (3인 관리자 수정)`,
+            content: updatedContentBase64,
+            branch: 'main',
+            ...(webSha ? { sha: webSha } : {})
+          })
+        });
+      } catch (e) {
+        console.warn('Secondary repo sync warning:', e.message);
+      }
+
       // 로컬 파일 동기화
       try {
         const localFilePath = path.join(process.cwd(), 'routine.json');
