@@ -375,6 +375,12 @@
                   <button type="button" class="btn btn-sm btn-outline" onclick="openWorshipStudio()">
                     <span data-i18n="routine_btn_worship_library">🎶 찬양 보관함 (엄선 10곡)</span>
                   </button>
+                  <a href="assets/as_the_deer.mp4" download="목마른사슴_As_the_Deer_찬양영상.mp4" id="btnDownloadStep1Mp4" class="btn btn-sm btn-outline" style="border-color: #fbbf24; color: #fbbf24; font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem;">
+                    <span>📥 찬양 영상(MP4) 다운로드</span>
+                  </a>
+                  <a href="assets/as_the_deer.mp3" download="목마른사슴_As_the_Deer_찬양음원.mp3" id="btnDownloadStep1Mp3" class="btn btn-sm btn-outline" style="border-color: #34d399; color: #34d399; font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem;">
+                    <span>🎵 찬양 음원(MP3) 다운로드</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -2032,9 +2038,12 @@
             <button type="button" class="btn btn-sm btn-primary" onclick="toggleStudioFullscreen()" title="줌 화면 공유에 최적화된 전체화면 모드 (단축키: F)">
               🖥️ 줌 전체화면 (F)
             </button>
-            <button type="button" class="btn btn-sm btn-outline" onclick="downloadCurrentVideo()" title="고음질 음원 또는 MP4 동영상 다운로드">
-              📥 음원/영상 다운
-            </button>
+            <a href="assets/as_the_deer.mp4" download="목마른사슴_As_the_Deer_찬양영상.mp4" id="btnStudioDownloadMp4" class="btn btn-sm btn-outline" style="border-color: #fbbf24; color: #fbbf24; font-weight: 700;" title="현재 찬양 MP4 동영상 다운로드">
+              📥 MP4 영상 다운
+            </a>
+            <a href="assets/as_the_deer.mp3" download="목마른사슴_As_the_Deer_찬양음원.mp3" id="btnStudioDownloadMp3" class="btn btn-sm btn-outline" style="border-color: #34d399; color: #34d399; font-weight: 700;" title="현재 찬양 고음질 MP3 음원 다운로드">
+              🎵 MP3 음원 다운
+            </a>
             <button type="button" class="btn btn-sm btn-ghost" onclick="downloadCurrentSrt()" title="SRT 자막 파일 다운로드">
               📄 SRT 자막
             </button>
@@ -2048,9 +2057,9 @@
         <div class="studio-stage-area" id="studioStageArea">
           <!-- Active Song Title Banner -->
           <div class="studio-stage-title" id="studioActiveSongTitle">
-            <span class="title-en">Amazing Grace (Hymn 305)</span>
+            <span class="title-en">As the Deer</span>
             <span class="title-divider" style="opacity: 0.6; margin: 0 0.4rem;">|</span>
-            <span class="title-kr">나 같은 죄인 살리신</span>
+            <span class="title-kr">목마른 사슴 (As the Deer)</span>
           </div>
 
           <!-- Video / Audio Canvas Wrapper -->
@@ -2913,9 +2922,9 @@
   <!-- Main JavaScript Files -->
   <script src="pptxgen.bundle.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="worship-studio.js?v=20261116_v65_as_the_deer"></script>
-  <script src="kids-gospel.js?v=20261116_v65_as_the_deer"></script>
-  <script src="app.js?v=20261116_v65_as_the_deer"></script>
+  <script src="worship-studio.js?v=20261116_v66_praise_download"></script>
+  <script src="kids-gospel.js?v=20261116_v66_praise_download"></script>
+  <script src="app.js?v=20261116_v66_praise_download"></script>
 </body>
 </html>
 

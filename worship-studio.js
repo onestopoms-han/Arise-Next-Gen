@@ -1053,6 +1053,27 @@ function selectWorshipSong(songId, requestedMode = null, autoPlay = false) {
   if (songSelectEl && songSelectEl.value !== song.id) {
     songSelectEl.value = song.id;
   }
+  const btnStudioDlMp4 = document.getElementById('btnStudioDownloadMp4');
+  const btnStudioDlMp3 = document.getElementById('btnStudioDownloadMp3');
+  const safeDlName = (song.titleKo || song.titleEn || 'worship').replace(/[^a-zA-Z0-9가-힣_-]/g, '_');
+  if (btnStudioDlMp4) {
+    if (song.videoUrl) {
+      btnStudioDlMp4.href = song.videoUrl;
+      btnStudioDlMp4.setAttribute('download', `${safeDlName}_영상.mp4`);
+      btnStudioDlMp4.style.display = 'inline-flex';
+    } else {
+      btnStudioDlMp4.style.display = 'none';
+    }
+  }
+  if (btnStudioDlMp3) {
+    if (song.audioUrl) {
+      btnStudioDlMp3.href = song.audioUrl;
+      btnStudioDlMp3.setAttribute('download', `${safeDlName}_음원.mp3`);
+      btnStudioDlMp3.style.display = 'inline-flex';
+    } else {
+      btnStudioDlMp3.style.display = 'none';
+    }
+  }
   displayOverlaySubtitle(null);
 
   updateSourceToggleBtn(song);
@@ -1597,7 +1618,10 @@ function setCurrentMeetingSong(songId) {
     }
   }
 
-  // 3. Re-render Lounge cards if lounge is active
+  // 3. Re-render Routine & Lounge cards if active
+  if (typeof renderRoutineDisplay === 'function') {
+    renderRoutineDisplay();
+  }
   if (typeof renderWorshipLounge === 'function') {
     renderWorshipLounge();
   }

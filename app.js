@@ -3177,15 +3177,18 @@ function renderWorshipLounge() {
                 ${assignMeetingBtnLabel}
               </button>
             </div>
-            ${song.videoUrl ? `
-              <a href="${song.videoUrl}" download class="btn-routine-link" style="margin-top: 0.35rem; text-align: center; font-size: 0.85rem; padding: 0.45rem; display: block;">
-                ${t.worship_btn_download_mp4 || '📥 Download 1080p MP4 (한/영 자막 영상)'}
-              </a>
-            ` : (song.audioUrl ? `
-              <a href="${song.audioUrl}" download class="btn-routine-link" style="margin-top: 0.35rem; text-align: center; font-size: 0.85rem; padding: 0.45rem; display: block;">
-                ${t.worship_btn_download_mp3 || '📥 Download High-Quality MP3 (고음질 음원)'}
-              </a>
-            ` : '')}
+            <div style="display: flex; gap: 0.45rem; flex-wrap: wrap; margin-top: 0.4rem;">
+              ${song.videoUrl ? `
+                <a href="${song.videoUrl}" download="${escapeHtml((song.titleKo || song.titleEn).replace(/[^a-zA-Z0-9가-힣_-]/g, '_'))}.mp4" class="btn-routine-link" style="flex: 1; text-align: center; font-size: 0.82rem; padding: 0.42rem 0.5rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.3rem;">
+                  📥 영상(MP4) 다운로드
+                </a>
+              ` : ''}
+              ${song.audioUrl ? `
+                <a href="${song.audioUrl}" download="${escapeHtml((song.titleKo || song.titleEn).replace(/[^a-zA-Z0-9가-힣_-]/g, '_'))}.mp3" class="btn-routine-link" style="flex: 1; text-align: center; font-size: 0.82rem; padding: 0.42rem 0.5rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.3rem; border-color: rgba(52, 211, 153, 0.45); color: #34d399;">
+                  🎵 음원(MP3) 다운로드
+                </a>
+              ` : ''}
+            </div>
           </div>
         </div>
       </div>
@@ -3680,11 +3683,31 @@ function renderRoutineDisplay() {
     const detailSongLinkArea = document.getElementById('detailSongLinkArea');
     const btnPlayMeetingSongStudio = document.getElementById('btnPlayMeetingSongStudio');
 
-    const songTitleText = data.step1?.songTitle || 'Way Maker';
+    const songTitleText = data.step1?.songTitle || '목마른 사슴 (As the Deer)';
     if (routineSub1) routineSub1.textContent = songTitleText;
     if (detailSongTitle) detailSongTitle.textContent = songTitleText;
     if (btnPlayMeetingSongStudio) {
       btnPlayMeetingSongStudio.innerHTML = `▶️ Play ${escapeHtml(songTitleText)} (Bilingual Subtitles)`;
+    }
+    // Sync Step 1 direct MP4/MP3 download buttons with the designated song
+    const btnDlMp4 = document.getElementById('btnDownloadStep1Mp4');
+    const btnDlMp3 = document.getElementById('btnDownloadStep1Mp3');
+    if ((btnDlMp4 || btnDlMp3) && typeof PRESET_PRAISE_SONGS !== 'undefined') {
+      const sId = data.step1?.songId || routineContent?.step1?.songId || 'as-the-deer';
+      const matchedSong = PRESET_PRAISE_SONGS.find(s => s.id === sId || (songTitleText && s.titleKo && songTitleText.includes(s.titleKo.split(' ')[0]))) || PRESET_PRAISE_SONGS.find(s => s.id === 'as-the-deer');
+      if (matchedSong) {
+        const safeName = (matchedSong.titleKo || '찬양').replace(/[^a-zA-Z0-9가-힣_-]/g, '_');
+        if (btnDlMp4 && matchedSong.videoUrl) {
+          btnDlMp4.href = matchedSong.videoUrl;
+          btnDlMp4.setAttribute('download', `${safeName}_영상.mp4`);
+          btnDlMp4.style.display = 'inline-flex';
+        }
+        if (btnDlMp3 && matchedSong.audioUrl) {
+          btnDlMp3.href = matchedSong.audioUrl;
+          btnDlMp3.setAttribute('download', `${safeName}_음원.mp3`);
+          btnDlMp3.style.display = 'inline-flex';
+        }
+      }
     }
     if (detailSongContent) {
       detailSongContent.innerHTML = escapeHtml(data.step1?.content || '').replace(/\n/g, '<br>');
