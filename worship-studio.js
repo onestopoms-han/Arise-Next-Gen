@@ -110,7 +110,9 @@ const PRESET_PRAISE_SONGS = [
     "titleEn": "As the Deer",
     "artist": "비컴퍼니 (호산나싱어즈) / Martin Nystrom • 정규 앨범 원곡",
     "category": "global",
-    "videoId": "JYv2A1lIJS0",
+    "videoUrl": "assets/as_the_deer.mp4",
+    "audioUrl": "assets/as_the_deer.mp3",
+    "videoId": "u97LgdHybVs",
     "duration": 244,
     "bgImage": "assets/worship_bg.jpg",
     "lines": [
@@ -1562,6 +1564,13 @@ function setCurrentMeetingSong(songId) {
     }
     routineContent.step1.content = `전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다.\n• 지정 찬양: ${song.titleKo}\n• 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace to you)`;
     localStorage.setItem('prayer_hub_routine_content', JSON.stringify(routineContent));
+
+    // 서버(/api/routine)에도 영구 저장하여 새로고침 시 이전 찬양으로 되돌아가지 않도록 처리
+    fetch('/api/routine', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin: '7777', routine: routineContent })
+    }).catch(err => console.warn('Server routine sync warning:', err));
   }
 
   // 2. Update Step 1 DOM elements on main page immediately
@@ -1598,7 +1607,7 @@ function setCurrentMeetingSong(songId) {
 
 function openCurrentMeetingPraiseStudio() {
   const pool = (worshipStudioState.allSongs && worshipStudioState.allSongs.length > 0) ? worshipStudioState.allSongs : PRESET_PRAISE_SONGS;
-  let targetId = 'amazing-grace';
+  let targetId = 'as-the-deer';
 
   if (typeof routineContent !== 'undefined' && routineContent.step1) {
     const s1 = routineContent.step1;
@@ -1624,6 +1633,10 @@ function openCurrentMeetingPraiseStudio() {
       const clean = norm(s1.songTitle);
       
       // Known keywords check
+      if (clean.includes('목마른사슴') || clean.includes('asthedeer')) {
+        openWorshipStudio('as-the-deer', true);
+        return;
+      }
       if (clean.includes('예수우리왕') || clean.includes('애수우리왕') || clean.includes('우리왕이여') || clean.includes('enthrone')) {
         openWorshipStudio('jesus-we-enthrone-you', true);
         return;

@@ -1943,10 +1943,10 @@ const defaultTestimonies = [
 // Routine 4-Step Actual Program Content Seed Data (2026.10 기준)
 const defaultRoutineContent = {
   step1: {
-    songId: "amazing-grace",
-    songTitle: "나 같은 죄인 살리신 (Amazing Grace)",
-    link: "https://www.youtube.com/watch?v=4-IlkTVvqKk",
-    content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다. (A global anthem sung across all nations.)\n• 지정 찬양 (Official Worship): 나 같은 죄인 살리신 | Amazing Grace (새찬송가 305장)\n• Global Subtitles: 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace and peace to you in Christ)"
+    songId: "as-the-deer",
+    songTitle: "목마른 사슴 (As the Deer)",
+    link: "https://www.youtube.com/watch?v=u97LgdHybVs",
+    content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다. (A global anthem sung across all nations.)\n• 지정 찬양 (Official Worship): 목마른 사슴 | As the Deer (비컴퍼니 호산나싱어즈 / Martin Nystrom)\n• Global Subtitles: 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace and peace to you in Christ)"
   },
   step2: {
     scripture: "창세기 3:1-14 (Genesis 3:1-14)",
@@ -2104,7 +2104,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261107_v58_nov1_scene4_sub';
+const DATA_VERSION = 'v20261116_v59_as_the_deer';
 
 
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
@@ -2123,8 +2123,8 @@ let testimonies = (JSON.parse(localStorage.getItem('prayer_hub_testimonies')) ||
 let routineContent = JSON.parse(localStorage.getItem('prayer_hub_routine_content')) || defaultRoutineContent;
 // Ensure designated song title is always cleanly displayed
 if (routineContent && routineContent.step1 && (!routineContent.step1.songTitle || routineContent.step1.songTitle.includes('애수'))) {
-  routineContent.step1.songId = 'amazing-grace';
-  routineContent.step1.songTitle = '나 같은 죄인 살리신 (Amazing Grace)';
+  routineContent.step1.songId = 'as-the-deer';
+  routineContent.step1.songTitle = '목마른 사슴 (As the Deer)';
 }
 let meetingSettings = JSON.parse(localStorage.getItem('prayer_hub_meeting_settings')) || defaultMeetingSettings;
 let currentFilter = 'all';
@@ -3025,11 +3025,11 @@ function renderWorshipLounge() {
         pool[(startIndex + 1) % total],
         pool[(startIndex + 2) % total]
       ];
-      // Highlight current meeting song in weekly if available, fallback to amazing-grace
+      // Highlight current meeting song in weekly if available, fallback to as-the-deer
       const targetMeetingSongId = (typeof routineContent !== 'undefined' && routineContent.step1?.songId) 
         ? routineContent.step1.songId 
-        : 'amazing-grace';
-      const meetingPraise = pool.find(s => s.id === targetMeetingSongId) || pool.find(s => s.id === 'amazing-grace');
+        : 'as-the-deer';
+      const meetingPraise = pool.find(s => s.id === targetMeetingSongId) || pool.find(s => s.id === 'as-the-deer');
       if (meetingPraise) {
         if (!displaySongs.some(s => s.id === meetingPraise.id)) {
           displaySongs[0] = meetingPraise;
@@ -3069,6 +3069,8 @@ function renderWorshipLounge() {
       isCurrentMeeting = true;
     } else if (cleanMeetingTitle) {
       if (song.id === 'jesus-we-enthrone-you' && (cleanMeetingTitle.includes('예수우리왕') || cleanMeetingTitle.includes('애수우리왕') || cleanMeetingTitle.includes('enthrone'))) {
+        isCurrentMeeting = true;
+      } else if (song.id === 'as-the-deer' && (cleanMeetingTitle.includes('목마른사슴') || cleanMeetingTitle.includes('asthedeer'))) {
         isCurrentMeeting = true;
       } else if (song.id === 'amazing-grace' && (cleanMeetingTitle.includes('나같은죄인') || cleanMeetingTitle.includes('amazinggrace') || cleanMeetingTitle.includes('305'))) {
         isCurrentMeeting = true;
