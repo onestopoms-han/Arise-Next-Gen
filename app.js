@@ -1992,29 +1992,42 @@ const defaultRoutineContent = {
     content: `🕊️ [공동 기도문 • Official Prayer Guide]
 함께 기도합시다 (Let Us Pray Together)
 
-1. 나를 위한 기도 (Prayer for Myself)
-내 자신과 후대 모든 민족이
-(For Myself, the Next Generation, and All Nations)
+1. 메시지 기도 (Message Prayer)
+나, 후대, 모든 민족
+(Myself, the Next Generation, and All Nations)
 
-1) 하나님이 만드신 원래의 나를 회복하도록 (To restore the original self created by God)
-  - 하나님을 닮은 나 (The 'me' who resembles God)
-  - 안 되는 게 없던 나 (The 'me' for whom nothing was impossible)
-  - 모든 것이 만족되던 나 (The 'me' who was fully satisfied in all things)
-  - 모든 것이 다스려지던 나 (The 'me' who had dominion over all things)
+1. 원래만드신 내가 회복되게 해 주세요.
+(1. Please Restore Me to the Person You Originally Created Me to Be.)
+  1) 하나님을 닮은 나 (1) Me, created in the image of God.)
+  2) 안 되는게 없던 나 (2) Me, for whom nothing was impossible.)
+  3) 모든것이 만족되던 나 (3) Me, who was satisfied with everything.)
+  4) 모든것이 다스려지던 나 (4) Me, who had dominion over everything.)
 
-2) 원죄 — 절대절망 인간의 상태를 당연하게 인정하므로 복음 아니고는 살길 없는 나를 발견 하도록
-(To acknowledge as natural our state of absolute despair through Original Sin, discovering that without the Gospel there is no way to live)
-  - 모든 것이 안 되는 나 (The 'me' for whom nothing works)
-  - 문제 속에 살 수밖에 없는 나 (The 'me' who cannot help but live inside problems)
-  - 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제
-    (Spiritual, idolatry, mental, physical, afterlife, and next-generation problems)
+2. 원죄-절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살길없는 나를 발견하게 해 주세요.
+(2. Original Sin – Please Help Me Naturally Accept my State of Absolute Despair and Discover That I Have No Way to Live Except Through the Gospel.)
+  1) 모든것이 안되는 나 (1) Me, for whom nothing works out.)
+  2) 문제속에 살수 밖에 없는 나 (2) Me, who cannot help but live surrounded by problems.)
+  3) 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제
+     (3) Spiritual problems, idolatry problems, mental problems, physical problems, problems concerning the afterlife, and problems of the next generation.)
 
-2. 모든 민족을 위한 기도 (Prayer for All Nations)
+3. 절대절망을 깨뜨리신 유일한 길-여인의 후손
+(3. The Only Way That Destroyed Absolute Despair – The Offspring of the Woman)
+  1) 그 누구도 아담의 후손으로는 하나님 만나게 할수 없어요 (1) No descendant of Adam can ever bring anyone to God.)
+  2) 그리스도만이 하나님 만나고 죄와 저주 사탄에서 빠져나오는 길입니다. (2) Christ alone is the way to meet God and escape from sin, curses, and Satan.)
+  3) 이 그리스도 능력이 내 삶에 나타나게 하옵소서 (3) May the power of this Christ be manifested in my life.)
+
+2. 나를 위한 기도 (Prayer for Myself)
+“내가 제일 중요하다” | “I must begin with myself.”
+• 복음이 나의 복음이 되기를 (May the Gospel become real and evident in my life)
+• 무기력하게 느껴지는 그리스도가 아니라, 성경에 나타난 능력의 그리스도를 누리기를 (May I experience Christ not as powerless, but as the powerful Christ revealed in Scripture)
+• Up & Down에 흔들리지 않고 다니엘처럼 항상이 되기를 (May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs)
+
+3. 모든 민족을 위한 기도 (Prayer for All Nations)
 • 모든 민족이 그리스도 앞에 무릎 꿇도록 (May all nations bow before Christ.)
 • 이곳에 모인 나라들과 세계 모든 나라를 위하여 (For the nations represented here and for every nation of the world.)
 • 전쟁 속에서 고통받는 나라들과 사람들을 위하여 (For countries and people suffering in the midst of war.)
 
-3. 후대를 위한 기도 (Prayer for the Next Generation)
+4. 후대를 위한 기도 (Prayer for the Next Generation)
 • 후대가 복음을 알도록 (May the next generation know the Gospel.)
 • 복음이 정말 좋은 것임을 알도록 (May they discover that the Gospel is truly good news.)
 • 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록 (May they know that whatever happens in life, they are secure when they are in Christ.)
@@ -2137,7 +2150,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261116_v60_dec6_proto_gospel';
+const DATA_VERSION = 'v20261116_v61_prayer_topics_dec6';
 
 
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
@@ -4137,22 +4150,28 @@ function copyPrayerGuideToClipboard() {
 함께 기도합시다 (Let Us Pray Together)
 
 1. 메시지 기도 (Message Prayer)
-내 자신과 후대 모든 민족이
-(For Myself, the Next Generation, and All Nations)
+나, 후대, 모든 민족
+(Myself, the Next Generation, and All Nations)
 
-1) 하나님이 만드신 원래의 나를 회복하도록
-(To restore the original self created by God)
-  - 하나님을 닮은 나 (The 'me' who resembles God)
-  - 안 되는 게 없던 나 (The 'me' for whom nothing was impossible)
-  - 모든 것이 만족되던 나 (The 'me' who was fully satisfied in all things)
-  - 모든 것이 다스려지던 나 (The 'me' who had dominion over all things)
+1. 원래만드신 내가 회복되게 해 주세요.
+(1. Please Restore Me to the Person You Originally Created Me to Be.)
+  1) 하나님을 닮은 나 (1) Me, created in the image of God.)
+  2) 안 되는게 없던 나 (2) Me, for whom nothing was impossible.)
+  3) 모든것이 만족되던 나 (3) Me, who was satisfied with everything.)
+  4) 모든것이 다스려지던 나 (4) Me, who had dominion over everything.)
 
-2) 원죄 — 절대절망 인간의 상태를 당연하게 인정하므로 복음 아니고는 살길 없는 나를 발견 하도록
-(To acknowledge as natural our state of absolute despair through Original Sin, discovering that without the Gospel there is no way to live)
-  - 모든 것이 안 되는 나 (The 'me' for whom nothing works)
-  - 문제 속에 살 수밖에 없는 나 (The 'me' who cannot help but live inside problems)
-  - 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제
-    (Spiritual, idolatry, mental, physical, afterlife, and next-generation problems)
+2. 원죄-절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살길없는 나를 발견하게 해 주세요.
+(2. Original Sin – Please Help Me Naturally Accept my State of Absolute Despair and Discover That I Have No Way to Live Except Through the Gospel.)
+  1) 모든것이 안되는 나 (1) Me, for whom nothing works out.)
+  2) 문제속에 살수 밖에 없는 나 (2) Me, who cannot help but live surrounded by problems.)
+  3) 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제
+     (3) Spiritual problems, idolatry problems, mental problems, physical problems, problems concerning the afterlife, and problems of the next generation.)
+
+3. 절대절망을 깨뜨리신 유일한 길-여인의 후손
+(3. The Only Way That Destroyed Absolute Despair – The Offspring of the Woman)
+  1) 그 누구도 아담의 후손으로는 하나님 만나게 할수 없어요 (1) No descendant of Adam can ever bring anyone to God.)
+  2) 그리스도만이 하나님 만나고 죄와 저주 사탄에서 빠져나오는 길입니다. (2) Christ alone is the way to meet God and escape from sin, curses, and Satan.)
+  3) 이 그리스도 능력이 내 삶에 나타나게 하옵소서 (3) May the power of this Christ be manifested in my life.)
 
 2. 나를 위한 기도 (Prayer for Myself)
 “내가 제일 중요하다” | “I must begin with myself.”
@@ -6472,59 +6491,83 @@ function getPrayerGuidePdfHtml() {
           <h1 style="font-size: 1.35rem; font-weight: 800; color: #0369a1; margin: 0;">1. 메시지 기도 (Message Prayer)</h1>
         </div>
         <div style="margin-top: 0.6rem; padding: 0.6rem 0.9rem; background: #ffffff; border-left: 4px solid #0284c7; border-radius: 6px;">
-          <div style="font-size: 1.15rem; font-weight: 800; color: #0c4a6e;">“내 자신과 후대 모든 민족이”</div>
-          <div style="font-size: 1.15rem; font-weight: 800; color: #0369a1; font-style: normal; margin-top: 0.25rem;">“For Myself, the Next Generation, and All Nations”</div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0c4a6e;">“나, 후대, 모든 민족”</div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #0369a1; font-style: normal; margin-top: 0.25rem;">“Myself, the Next Generation, and All Nations”</div>
         </div>
       </div>
 
       <!-- Point 1 -->
-      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.3rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
         <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
-          • 1. 하나님이 만드신 원래의 나를 회복하도록
+          • 1. 원래만드신 내가 회복되게 해 주세요.
         </div>
         <div style="font-size: 1.15rem; font-weight: 800; color: #0284c7; font-style: normal; margin-bottom: 0.85rem;">
-          • To restore the original self created by God
+          • 1. Please Restore Me to the Person You Originally Created Me to Be.
         </div>
         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
           <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
             <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">1) 하나님을 닮은 나</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' who resembles God</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">1) Me, created in the image of God.</div>
           </div>
           <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">2) 안 되는 게 없던 나</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' for whom nothing was impossible</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">2) 안 되는게 없던 나</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">2) Me, for whom nothing was impossible.</div>
           </div>
           <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">3) 모든 것이 만족되던 나</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' who was fully satisfied in all things</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">3) 모든것이 만족되던 나</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">3) Me, who was satisfied with everything.</div>
           </div>
           <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">4) 모든 것이 다스려지던 나</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' who had dominion over all things</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">4) 모든것이 다스려지던 나</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">4) Me, who had dominion over everything.</div>
           </div>
         </div>
       </div>
 
       <!-- Point 2 -->
-      <div style="background: #ffffff; border: 1px solid #fef3c7; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.3rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+      <div style="background: #ffffff; border: 1px solid #fef3c7; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
         <div style="font-size: 1.15rem; font-weight: 800; color: #78350f; margin-bottom: 0.3rem;">
-          • 2. 원죄 — 절대절망 인간의 상태를 당연하게 인정하므로 복음 아니고는 살길 없는 나를 발견 하도록
+          • 2. 원죄-절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살길없는 나를 발견하게 해 주세요.
         </div>
         <div style="font-size: 1.15rem; font-weight: 800; color: #b45309; font-style: normal; margin-bottom: 0.85rem;">
-          • Acknowledging our state of absolute despair through Original Sin, to discover that without the Gospel there is no way to live
+          • 2. Original Sin – Please Help Me Naturally Accept my State of Absolute Despair and Discover That I Have No Way to Live Except Through the Gospel.
         </div>
         <div style="display: flex; flex-direction: column; gap: 0.65rem;">
           <div style="background: #fefce8; border-left: 3px solid #f59e0b; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">1) 모든 것이 안 되는 나</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' for whom nothing works</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">1) 모든것이 안되는 나</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">1) Me, for whom nothing works out.</div>
           </div>
           <div style="background: #fefce8; border-left: 3px solid #f59e0b; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">2) 문제 속에 살 수밖에 없는 나</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">The 'me' who cannot help but live inside problems</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">2) 문제속에 살수 밖에 없는 나</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">2) Me, who cannot help but live surrounded by problems.</div>
           </div>
           <div style="background: #fefce8; border-left: 3px solid #ef4444; border-radius: 6px; padding: 0.65rem 0.85rem;">
             <div style="font-size: 1.05rem; font-weight: 800; color: #991b1b;">3) 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #b91c1c; font-style: normal; margin-top: 0.15rem;">Spiritual, idolatry, mental, physical, afterlife, and next-generation problems</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #b91c1c; font-style: normal; margin-top: 0.15rem;">3) Spiritual problems, idolatry problems, mental problems, physical problems, problems concerning the afterlife, and problems of the next generation.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Point 3 -->
+      <div style="background: #ffffff; border: 1px solid #bbf7d0; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+        <div style="font-size: 1.15rem; font-weight: 800; color: #064e3b; margin-bottom: 0.3rem;">
+          • 3. 절대절망을 깨뜨리신 유일한 길-여인의 후손
+        </div>
+        <div style="font-size: 1.15rem; font-weight: 800; color: #047857; font-style: normal; margin-bottom: 0.85rem;">
+          • 3. The Only Way That Destroyed Absolute Despair – The Offspring of the Woman
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+          <div style="background: #f0fdf4; border-left: 3px solid #10b981; border-radius: 6px; padding: 0.65rem 0.85rem;">
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">1) 그 누구도 아담의 후손으로는 하나님 만나게 할수 없어요</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #065f46; font-style: normal; margin-top: 0.15rem;">1) No descendant of Adam can ever bring anyone to God.</div>
+          </div>
+          <div style="background: #f0fdf4; border-left: 3px solid #10b981; border-radius: 6px; padding: 0.65rem 0.85rem;">
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">2) 그리스도만이 하나님 만나고 죄와 저주 사탄에서 빠져나오는 길입니다.</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #065f46; font-style: normal; margin-top: 0.15rem;">2) Christ alone is the way to meet God and escape from sin, curses, and Satan.</div>
+          </div>
+          <div style="background: #f0fdf4; border-left: 3px solid #10b981; border-radius: 6px; padding: 0.65rem 0.85rem;">
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">3) 이 그리스도 능력이 내 삶에 나타나게 하옵소서</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #065f46; font-style: normal; margin-top: 0.15rem;">3) May the power of this Christ be manifested in my life.</div>
           </div>
         </div>
       </div>
