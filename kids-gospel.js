@@ -1680,6 +1680,8 @@ function selectKidsCartoonVideo(videoKey) {
   const descText = document.getElementById('kidsVideoDescText');
   const dlKo = document.getElementById('kidsVideoDownloadKo');
   const dlBi = document.getElementById('kidsVideoDownloadBi');
+  const btnProtoBi = document.getElementById('btnVidProtoBi');
+  const btnProtoKo = document.getElementById('btnVidProtoKo');
   const btnOriginalBi = document.getElementById('btnVidOriginalBi');
   const btnOriginalKo = document.getElementById('btnVidOriginalKo');
   const btnSinBi = document.getElementById('btnVidSinBi');
@@ -1691,14 +1693,34 @@ function selectKidsCartoonVideo(videoKey) {
   const activeStyle = 'background: linear-gradient(135deg, #0ea5e9, #2563eb); color: #fff; font-weight: 800; border: 1px solid #38bdf8; border-radius: 999px; padding: 0.5rem 1.05rem;';
   const inactiveStyle = 'background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.05rem;';
 
-  [btnOriginalBi, btnOriginalKo, btnSinBi, btnSinKo, btnFull].forEach(btn => {
+  [btnProtoBi, btnProtoKo, btnOriginalBi, btnOriginalKo, btnSinBi, btnSinKo, btnFull].forEach(btn => {
     if (btn) {
       btn.classList.remove('active');
       btn.setAttribute('style', inactiveStyle);
     }
   });
 
-  if (videoKey === 'original_ko') {
+  if (videoKey === 'proto_bi') {
+    if (btnProtoBi) { btnProtoBi.classList.add('active'); btnProtoBi.setAttribute('style', activeStyle); }
+    player.poster = 'assets/proto_gospel_1.jpg';
+    source.src = 'assets/proto_gospel_cartoon.mp4';
+    player.src = 'assets/proto_gospel_cartoon.mp4';
+    if (dlKo) { dlKo.href = 'assets/proto_gospel_cartoon_ko.mp4'; dlKo.setAttribute('download', '12월_원시복음_여인의후손_한국어성우_만화영상.mp4'); }
+    if (dlBi) { dlBi.href = 'assets/proto_gospel_cartoon.mp4'; dlBi.setAttribute('download', '12월_원시복음_여인의후손_한영성우_만화영상.mp4'); }
+    if (descText) {
+      descText.innerHTML = '🌍 <strong>[12월 말씀] 원시복음 (창3:15, 21 여인의 후손) — 만화로 보는 말씀요약 (한·영 이중언어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 2분 47초 (1280x720 HD)';
+    }
+  } else if (videoKey === 'proto_ko') {
+    if (btnProtoKo) { btnProtoKo.classList.add('active'); btnProtoKo.setAttribute('style', activeStyle); }
+    player.poster = 'assets/proto_gospel_1.jpg';
+    source.src = 'assets/proto_gospel_cartoon_ko.mp4';
+    player.src = 'assets/proto_gospel_cartoon_ko.mp4';
+    if (dlKo) { dlKo.href = 'assets/proto_gospel_cartoon_ko.mp4'; dlKo.setAttribute('download', '12월_원시복음_여인의후손_한국어성우_만화영상.mp4'); }
+    if (dlBi) { dlBi.href = 'assets/proto_gospel_cartoon.mp4'; dlBi.setAttribute('download', '12월_원시복음_여인의후손_한영성우_만화영상.mp4'); }
+    if (descText) {
+      descText.innerHTML = '🇰🇷 <strong>[12월 말씀] 원시복음 (창3:15, 21 여인의 후손) — 만화로 보는 말씀요약 (한국어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 1분 22초 (1280x720 HD)';
+    }
+  } else if (videoKey === 'original_ko') {
     if (btnOriginalKo) { btnOriginalKo.classList.add('active'); btnOriginalKo.setAttribute('style', activeStyle); }
     player.poster = 'assets/original_me_1.jpg';
     source.src = 'assets/original_me_cartoon_ko.mp4?v=2';

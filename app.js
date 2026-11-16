@@ -1949,40 +1949,43 @@ const defaultRoutineContent = {
     content: "전 세계 성도들과 열방의 후대가 한목소리로 고백하는 대표 찬양입니다. (A global anthem sung across all nations.)\n• 지정 찬양 (Official Worship): 목마른 사슴 | As the Deer (비컴퍼니 호산나싱어즈 / Martin Nystrom)\n• Global Subtitles: 한국어 찬양 & 영어 가사 자막 슬라이드 및 고음질 음원 제공\n• 찬양 후 각국 지체들과의 따뜻한 환영과 다국어 인사 (샬롬, Grace and peace to you in Christ)"
   },
   step2: {
-    scripture: "창세기 3:1-14 (Genesis 3:1-14)",
-    title: "원죄 (Original Sin) — 창세기 3장 문제",
-    title_en: "Original Sin — Genesis Chapter 3",
-    pdfUrl: "후대복음말씀_원죄.pdf",
-    content: `📖 본문: 창세기 3:1-14 (Genesis 3:1-14)
+    scripture: "창세기 3:15, 21 (Genesis 3:15, 21)",
+    title: "원시복음 (창3:15, 21) - 여인의 후손",
+    title_en: "The Original Gospel (Genesis 3:15, 21) – The Offspring of the Woman",
+    pdfUrl: "후대복음말씀_원시복음.pdf",
+    content: `📖 본문: 창세기 3:15, 21 (Genesis 3:15, 21)
 매월 첫 주일 호주 AEST 7:50 PM (한국 18:50)
 
-[원죄 (Original Sin) — 창세기 3장 문제]
-1. 모든 인간의 근본문제 (The fundamental problem of all humanity)
-1) 하나님 떠남 (Separation from God)
-2) 죄-하나님 떠나 있는게 죄, 죄를 지을수 밖에 없는 상태 (Sin—Being apart from God is sin; a state in which one cannot help but commit sins.)
-3) 사탄- 마귀위 종, 운명팔자에서 빠져 나올수 없게 됨 (Satan—Becoming a slave to the devil, trapped in a destiny or fate from which one cannot escape.)
+[원시복음 (창3:15, 21) - 여인의 후손 | The Original Gospel – The Offspring of the Woman]
+절대 절망속에 빠져버린 인간을 버려두지 않으시고 하나님은 바로 구원의 문을 여셨다.
+(God did not abandon humanity, who had fallen into absolute despair. Instead, He immediately opened the door to salvation.)
 
-2. 그래서 찾아온 문제 (The problems that ensued)
-• 하나님과 같이 되어-자기가 신이 되고 싶은-뉴에이지 사상 -하나님 없이 인간 스스로 신이 될수 있다는 사상 ("To become like God"—The desire to be one's own god)
-• 선악을-판단, 정죄 ("Knowledge of good and evil"—judging and condemning)
-• 눈이 밝아져-영적 눈 닫히고 육신의 눈 열림 ("Their eyes were opened"—spiritual eyes closed, while physical eyes opened)
-• 벗은 줄을 알고-수치심 ("Realized they were naked"—shame)
-• 무화과나무 잎을 엮어 치마-포장,율법,윤리,도덕,착함, 진실함 ("Sewed fig leaves together to make coverings"—covering up through legalism, ethics, morality, goodness, sincerity)
-• 낯을 피하여-어리석음 ("Hid from His presence"—foolishness)
-• 숨은지라-죄의식 ("Hid themselves"—a sense of guilt)
-• 두려워하여-걱정,염려,두려움 ("Were afraid"—worry, anxiety, and fear)
-• 하나님이 주셔서-원망 ("The woman You put here"—resentment/blaming others)
-• 꾀므로-핑계 ("The Serpent Deceived me"—making excuses)
+1. 아담의 후손 (The Descendants of Adam)
+원죄를 가진 아담의 후손은 절대절망에서 단 한 사람도 빠져나올수 없다. 다른종교를 비방하려는것이 아니고 부처가 인간의 생로병사를 고민한 현명한 철학자일수 있지만 하나님은 아니다. 훌륭한 종교 지도자가 많겠지만 하나님은 아니다. 이들 모두 아담의 후손이기 때문에, 원죄가 있어 구원자가 될수 없다.
+(The descendants of Adam, who inherited original sin, cannot escape from absolute despair—not even a single person. I am not trying to criticize other religions. Buddha may have been a wise philosopher who deeply reflected on human birth, aging, sickness, and death, but he is not God. There may be many great religious leaders, but they are not God. All of them are descendants of Adam, and because they have original sin, they cannot be the Savior.)
 
-3. 인간의 현주소-절대절망-모든게 다 안되는 상태 (칼빈-전적타락)
-(The current state of humanity—Absolute despair / Total depravity)
-우울증, 불안, 초조, 근심, 염려, 무기력감, 노이로제, 불면증, 공항장애, 대인기피증, 자해, 자살, 알콜중독, 마약, 폭력, 인간관계 깨짐, 불평등, 전쟁 등등등
-놀랄일이 아니라 이 문제가 우리 후대 모든민족에게 당연히 올수밖에 없다.
-(This should come as no surprise; it is inevitable that this issue will eventually confront future generations and all nations.)
+2. 여인의 후손 (창3:15) (The Offspring of the Woman – Genesis 3:15)
+1) 인간을 구원할자는 여인의 후손, 즉 동정녀 마리아를 통해 오셔야하고, (The One who would save humanity had to come as the offspring of the woman, that is, through the Virgin Mary.)
+2) 참하나님이면서 참사람으로 오셔야한다 (He had to come as both fully God and fully man.)
+3) 십자가에서 죽으셔야한다 (He had to die on the cross.)
+4) 부활하셔서 사탄의 머리를 깨뜨릴 권세가 있으셔야한다 (He had to rise from the dead and have the authority to crush Satan's head.)
+5) 재림주로 오실것이다. (He will come again as the returning Lord.)
+이 모든것을 만족시키는 분은 인류 역사상 예수님 한분밖에 없다.
+(Throughout all of human history, Jesus Christ is the only One who fulfills all these requirements.)
 
-📄 공식 원본 PDF 파일: 후대복음말씀_원죄.pdf (새 창 열기 및 다운로드 가능)
-어라이즈 넥스트젠 글로벌 기도 연합 · Arise Next Gen Global Prayer Hub
-모든 민족과 후대를 살리는 언약 공동체 · Amen`
+3. 구원의 방법- 가죽옷 (창3:21) (The Way of Salvation – Garments of Skin – Genesis 3:21)
+하나님은 인간을 절대 절망에서 건져내기위해 우리 죄 되신 짐승이 죽어 피를 흘리게했고 그 짐승의 가죽옷으로 우리의 수치를 가려주셨다. 우리의 어린양 예수께서 십자가에서 죽으셔서 피 흘려주셨고 그 피의 옷으로 우리 죄의 수치를 가려주신것이다.
+(For humanity to escape from absolute despair, an animal had to die and shed its blood because of our sins, and God covered our shame with garments made from its skin. Jesus, our Lamb of God, died on the cross and shed His blood for us. Through His blood, He covered the shame of our sins.)
+
+[기억할것 | Things to Remember]
+• 하나님 앞에는 죄의 크기가 없다. 살인죄가 클까요 남을 미워한죄가 클까요? 성경은 같다고 말한다 (요일3:15)
+  (Before God, there is no difference in the seriousness of sin. Which is the greater sin—murdering someone or hating someone? The Bible says they are the same. — 1 John 3:15)
+• 착하고 진실하면 될까요? 무엇이 죄일까요? 성경은 하나님 떠나있는 상태가 죄라서 아무도 죄를 안 짖고 살 사람이 없다고 말한다 (롬 3:23)
+  (Is it enough simply to be good and honest? What is sin? The Bible teaches that being separated from God is sin, and therefore, no one can live without sinning. — Romans 3:23)
+• 죄로 오는 저주는 어느누구도 감당할수 없다. 우리는 모두 죄인이고 다 죽고 다 실패해도 우리가 할수 있는건 없다 (롬6:23)
+  (No one can bear the curse that comes from sin. We are all sinners, and even if we all die and fail, there is nothing we can do to save ourselves. — Romans 6:23)
+• 그래서 오직 여인의 후손(그리스도)이 오셔야했다. 그분을 통해서만 하나님을 만날수 있다. (요14:6)
+  (That is why the offspring of the woman (Christ) had to come. Only through Him can we meet God. — John 14:6)`
   },
   step3: {
     title: "함께 기도합시다 (Let Us Pray Together)",
@@ -2036,6 +2039,36 @@ const defaultMeetingSettings = {
 // Default Date-Organized Sermons & Zoom Worship Archive (일자별 말씀 및 줌 녹화 영상)
 const defaultSermons = [
   {
+    id: "sermon-20261206",
+    date: "2026-12-06T19:50:00+10:00",
+    displayDate: "2026년 12월 6일 (일) 19:50 (AEST) / 18:50 (KST)",
+    title: "원시복음 (창3:15, 21) - 여인의 후손",
+    title_en: "The Original Gospel (Genesis 3:15, 21) – The Offspring of the Woman",
+    scripture: "창세기 3:15, 21 (Genesis 3:15, 21)",
+    speaker: "진행: 한옥주 / 통역: 아이리스",
+    speaker_en: "Host: Christine Han / Interpreter: Iris",
+    pdfUrl: "후대복음말씀_원시복음.pdf",
+    summary: `절대 절망속에 빠져버린 인간을 버려두지 않으시고 하나님은 바로 구원의 문을 여셨다.
+1. 아담의 후손: 원죄를 가진 아담의 후손은 절대절망에서 단 한 사람도 빠져나올수 없다. 훌륭한 철학자나 종교 지도자라도 모두 아담의 후손이기 때문에 원죄가 있어 구원자가 될수 없다.
+2. 여인의 후손 (창3:15): 1) 동정녀 마리아를 통해 오셔야 하고 2) 참하나님이면서 참사람 3) 십자가에서 죽으셔야 하고 4) 부활하셔서 사탄의 머리를 깨뜨릴 권세 5) 재림주로 오실 것이다. 이 모든 것을 만족시키는 분은 인류 역사상 예수님 한 분밖에 없다.
+3. 구원의 방법- 가죽옷 (창3:21): 우리 죄 대신 짐승이 피 흘려 죽고 가죽옷으로 수치를 가려주셨듯, 어린양 예수께서 십자가에서 피 흘려 죽으심으로 우리 죄의 수치를 가려주셨다.
+• 기억할것: 하나님 앞에는 죄의 크기가 없다(요일3:15). 하나님 떠나있는 상태가 죄다(롬3:23). 우리가 할수 있는 건 없다(롬6:23). 오직 여인의 후손(그리스도)을 통해서만 하나님을 만날수 있다(요14:6).`,
+    praise: "목마른 사슴 (As the Deer)",
+    praiseLink: "https://www.youtube.com/watch?v=u97LgdHybVs",
+    prayerTopic: "① 메시지 기도 (원시복음·여인의 후손·피의 가죽옷) ② 나 자신을 위한 기도 ③ 모든 민족을 위한 기도 ④ 후대를 위한 기도",
+    announcements: "개인(부부, 가족)이 모든 민족과 후대를 위한 기도시간, 충성된 사람과 함께 모든 민족과 후대를 위한 기도모임",
+    video: {
+      hasVideo: true,
+      type: "mp4",
+      url: "assets/proto_gospel_cartoon.mp4",
+      passcode: "5gZkTM",
+      duration: "2분 47초 (720p HD)",
+      title: "원시복음 (창3:15, 21) 여인의 후손 — 만화로 보는 말씀요약"
+    },
+    isFeatured: true,
+    tags: ["창세기", "원시복음", "여인의후손", "가죽옷", "창세기3장15절", "예수그리스도", "후대"]
+  },
+  {
     id: "sermon-20261101",
     date: "2026-11-01T19:50:00+10:00",
     displayDate: "2026년 11월 1일 (일) 19:50 (AEST) / 18:50 (KST)",
@@ -2061,7 +2094,7 @@ const defaultSermons = [
       duration: "1분 54초 (720p HD)",
       title: "원죄 (Original Sin) — 만화로 보는 말씀요약"
     },
-    isFeatured: true,
+    isFeatured: false,
     tags: ["창세기", "원죄", "창세기3장", "절대절망", "전적타락", "후대"]
   },
   {
@@ -2104,7 +2137,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261116_v59_as_the_deer';
+const DATA_VERSION = 'v20261116_v60_dec6_proto_gospel';
 
 
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
@@ -4223,6 +4256,7 @@ let currentPptSlideIndex = 0;
 
 function getTotalWordPptSlides(data) {
   const d = data || getWordPresentationData();
+  if (d && d.isProtoGospel) return 6;
   return (d && d.scriptureKorean && d.scriptureKorean.length > 7) ? 6 : 3;
 }
 
@@ -4424,6 +4458,73 @@ function getWordPresentationData() {
                              rawScripture.includes("1:27") || 
                              rawPdf.includes("Original") ||
                              rawPdf.includes("원래인간");
+
+  const isProtoGospel = (rawId === 'sermon-20261206') ||
+                        rawTitle.includes("원시복음") ||
+                        rawTitle.includes("여인의 후손") ||
+                        rawTitle.includes("Original Gospel") ||
+                        rawTitle.includes("Offspring") ||
+                        rawScripture.includes("3:15") ||
+                        rawPdf.includes("원시복음");
+
+  if (isProtoGospel) {
+    return {
+      isProtoGospel: true,
+      meetingTitle: custom ? "어라이즈 넥스트젠 30분 기도모임" : "2026 어라이즈 넥스트젠 30분 기도모임",
+      meetingSub: "4단계 순서 중 2단계: 후대 복음 말씀 (5분)",
+      title: "원시복음 (창3:15, 21) - 여인의 후손",
+      scripture: "창세기 3:15, 21 (Genesis 3:15, 21)",
+      theme: "절대 절망 속에 빠진 인간을 건지시기 위해 하나님이 여신 구원의 문: 여인의 후손과 가죽옷",
+      pdfUrl: "후대복음말씀_원시복음.pdf",
+      meetingTime: custom ? (custom.displayDate || custom.date || "2026년 12월 6일 (일) 19:50") : "2026년 12월 6일 (일) 19:50 (AEST) / 18:50 (KST)",
+      scriptureKorean: [
+        { verse: "창 3:15", text: "내가 너로 여자와 원수가 되게 하고 네 후손도 여자의 후손과 원수가 되게 하리니 여자의 후손은 네 머리를 상하게 할 것이요 너는 그의 발꿈치를 상하게 할 것이니라 하시고" },
+        { verse: "창 3:21", text: "여호와 하나님이 아담과 그의 아내를 위하여 가죽옷을 지어 입히시니라" },
+        { verse: "요일 3:15", text: "그 형제를 미워하는 자마다 살인하는 자니 살인하는 자마다 영생이 그 속에 거하지 아니하는 것을 너희가 아는 바라" },
+        { verse: "롬 3:23", text: "모든 사람이 죄를 범하였으매 하나님의 영광에 이르지 못하더니" },
+        { verse: "롬 6:23", text: "죄의 삯은 사망이요 하나님의 은사는 그리스도 예수 우리 주 안에 있는 영생이니라" },
+        { verse: "요 14:6", text: "예수께서 이르시되 내가 곧 길이요 진리요 생명이니 나로 말미암지 않고는 아버지께로 올 자가 없느니라" }
+      ],
+      scriptureEnglish: [
+        { verse: "Gen 3:15", text: "And I will put enmity between you and the woman, and between your offspring and hers; he will crush your head, and you will strike his heel." },
+        { verse: "Gen 3:21", text: "The Lord God made garments of skin for Adam and his wife and clothed them." },
+        { verse: "1 Jn 3:15", text: "Anyone who hates a brother or sister is a murderer, and you know that no murderer has eternal life residing in him." },
+        { verse: "Rom 3:23", text: "For all have sinned and fall short of the glory of God." },
+        { verse: "Rom 6:23", text: "For the wages of sin is death, but the gift of God is eternal life in Christ Jesus our Lord." },
+        { verse: "John 14:6", text: "Jesus answered, \"I am the way and the truth and the life. No one comes to the Father except through me.\"" }
+      ],
+      points: [
+        {
+          num: 1,
+          headingKo: "1. 아담의 후손 (절대절망에서 구원의 문을 여신 하나님)",
+          headingEn: "1. The Descendants of Adam",
+          titleKo: `절대 절망속에 빠져버린 인간을 버려두지 않으시고 하나님은 바로 구원의 문을 여셨다.\n\n1. 아담의 후손\n원죄를 가진 아담의 후손은 절대절망에서 단 한 사람도 빠져나올수 없다. 다른종교를 비방하려는것이 아니고 부처가 인간의 생로병사를 고민한 현명한 철학자일수 있지만 하나님은 아니다. 훌륭한 종교 지도자가 많겠지만 하나님은 아니다. 이들 모두 아담의 후손이기 때문에, 원죄가 있어 구원자가 될수 없다.`,
+          titleEn: `God did not abandon humanity, who had fallen into absolute despair. Instead, He immediately opened the door to salvation.\n\n1. The Descendants of Adam\nThe descendants of Adam, who inherited original sin, cannot escape from absolute despair—not even a single person. I am not trying to criticize other religions. Buddha may have been a wise philosopher who deeply reflected on human birth, aging, sickness, and death, but he is not God. There may be many great religious leaders, but they are not God. All of them are descendants of Adam, and because they have original sin, they cannot be the Savior.`
+        },
+        {
+          num: 2,
+          headingKo: "2. 여인의 후손 (창3:15)",
+          headingEn: "2. The Offspring of the Woman (Genesis 3:15)",
+          titleKo: `2. 여인의 후손 (창3:15)\n1) 인간을 구원할자는 여인의 후손, 즉 동정녀 마리아를 통해 오셔야하고,\n2) 참하나님이면서 참사람으로 오셔야한다\n3) 십자가에서 죽으셔야한다\n4) 부활하셔서 사탄의 머리를 깨뜨릴 권세가 있으셔야한다\n5) 재림주로 오실것이다.\n\n이 모든것을 만족시키는 분은 인류 역사상 예수님 한분밖에 없다.`,
+          titleEn: `2. The Offspring of the Woman (Genesis 3:15)\n1) The One who would save humanity had to come as the offspring of the woman, that is, through the Virgin Mary.\n2) He had to come as both fully God and fully man.\n3) He had to die on the cross.\n4) He had to rise from the dead and have the authority to crush Satan's head.\n5) He will come again as the returning Lord.\n\nThroughout all of human history, Jesus Christ is the only One who fulfills all these requirements.`
+        },
+        {
+          num: 3,
+          headingKo: "3. 구원의 방법- 가죽옷 (창3:21)",
+          headingEn: "3. The Way of Salvation – Garments of Skin (Genesis 3:21)",
+          titleKo: `3. 구원의 방법- 가죽옷 (창3:21)\n하나님은 인간을 절대 절망에서 건져내기위해 우리 죄 되신 짐승이 죽어 피를 흘리게했고 그 짐승의 가죽옷으로 우리의 수치를 가려주셨다.\n\n우리의 어린양 예수께서 십자가에서 죽으셔서 피 흘려주셨고 그 피의 옷으로 우리 죄의 수치를 가려주신것이다.`,
+          titleEn: `3. The Way of Salvation – Garments of Skin (Genesis 3:21)\nFor humanity to escape from absolute despair, an animal had to die and shed its blood because of our sins, and God covered our shame with garments made from its skin.\n\nJesus, our Lamb of God, died on the cross and shed His blood for us. Through His blood, He covered the shame of our sins.`
+        },
+        {
+          num: 4,
+          headingKo: "기억할것 — 오직 여인의 후손(그리스도)을 통한 구원",
+          headingEn: "Things to Remember — Salvation Only Through Christ",
+          titleKo: `[기억할것]\n• 하나님 앞에는 죄의 크기가 없다. 살인죄가 클까요 남을 미워한죄가 클까요? 성경은 같다고 말한다 (요일3:15)\n• 착하고 진실하면 될까요? 무엇이 죄일까요? 성경은 하나님 떠나있는 상태가 죄라서 아무도 죄를 안 짖고 살 사람이 없다고 말한다 (롬 3:23)\n• 죄로 오는 저주는 어느누구도 감당할수 없다. 우리는 모두 죄인이고 다 죽고 다 실패해도 우리가 할수 있는건 없다 (롬6:23)\n\n그래서 오직 여인의 후손(그리스도)이 오셔야했다. 그분을 통해서만 하나님을 만날수 있다. (요14:6)`,
+          titleEn: `[Things to Remember]\n• Before God, there is no difference in the seriousness of sin. Which is the greater sin—murdering someone or hating someone? The Bible says they are the same. (1 John 3:15) Is it enough simply to be good and honest? What is sin?\n• The Bible teaches that being separated from God is sin, and therefore, no one can live without sinning. (Romans 3:23) No one can bear the curse that comes from sin.\n• We are all sinners, and even if we all die and fail, there is nothing we can do to save ourselves. (Romans 6:23)\n\nThat is why the offspring of the woman (Christ) had to come. Only through Him can we meet God. (John 14:6)`
+        }
+      ]
+    };
+  }
 
   if (isOriginalBlessing) {
     return {
@@ -4656,6 +4757,71 @@ function renderPptSlide(index) {
         </div>
       </div>
     `;
+  } else if (data.isProtoGospel) {
+    if (index === 1) {
+      // Slide 2: Core Scripture Verses (창 3:15, 21 & 요일 3:15, 롬 3:23, 6:23, 요 14:6)
+      slideContent.innerHTML = `
+        <div class="ppt-slide-header" style="margin-bottom: 1rem;">
+          <div class="ppt-slide-step-badge">STEP 2 : SCRIPTURE READING</div>
+          <h2 class="ppt-slide-main-title" style="font-size: 1.85rem;">📖 본문 및 핵심 성경 구절 — ${escapeHtml(data.scripture)}</h2>
+        </div>
+        <div class="ppt-scripture-grid" style="flex: 1; gap: 1.2rem; min-height: 0;">
+          <div class="ppt-scripture-box" style="padding: 1.1rem 1.3rem; overflow-y: auto;">
+            <div class="ppt-box-header" style="margin-bottom: 0.7rem;">
+              <span class="ppt-box-lang">🇰🇷 한국어 성경 (개역개정)</span>
+              <span class="ppt-box-label">창 3:15, 21 외</span>
+            </div>
+            ${data.scriptureKorean.map(v => `
+              <div class="ppt-verse-row" style="margin-bottom: 0.75rem; line-height: 1.6; font-size: 1.05rem; font-weight: 700;">
+                <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
+                <span>${escapeHtml(v.text)}</span>
+              </div>
+            `).join('')}
+          </div>
+          <div class="ppt-scripture-box" style="padding: 1.1rem 1.3rem; overflow-y: auto;">
+            <div class="ppt-box-header" style="margin-bottom: 0.7rem;">
+              <span class="ppt-box-lang">🇺🇸 English Bible (NIV)</span>
+              <span class="ppt-box-label">Gen 3:15, 21 &amp; Key Verses</span>
+            </div>
+            ${data.scriptureEnglish.map(v => `
+              <div class="ppt-verse-row" style="margin-bottom: 0.75rem; line-height: 1.6; font-size: 1.05rem; font-weight: 700; font-style: normal;">
+                <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
+                <span>${escapeHtml(v.text)}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    } else {
+      // Slides 3, 4, 5, 6 -> Points 1, 2, 3, 4 (1:1 identical Korean & English font size and bold weight!)
+      const pt = data.points[index - 2] || data.points[0];
+      slideContent.innerHTML = `
+        <div class="ppt-slide-header" style="margin-bottom: 0.9rem;">
+          <div class="ppt-slide-step-badge">STEP 2 : 5-MINUTE GOSPEL MESSAGE — PART 0${pt.num}</div>
+          <h2 class="ppt-slide-main-title" style="font-size: 1.8rem;">📌 ${escapeHtml(pt.headingKo)} (${escapeHtml(pt.headingEn)})</h2>
+        </div>
+        <div class="ppt-scripture-grid" style="flex: 1; gap: 1.2rem; min-height: 0;">
+          <div class="ppt-scripture-box" style="padding: 1.3rem 1.5rem; overflow-y: auto;">
+            <div class="ppt-box-header" style="margin-bottom: 0.85rem;">
+              <span class="ppt-box-lang">🇰🇷 한국어 (Korean)</span>
+              <span class="ppt-box-label">PART 0${pt.num}</span>
+            </div>
+            <div style="font-size: 1.12rem; font-weight: 800; color: #ffffff; line-height: 1.8; white-space: pre-line; font-style: normal;">
+              ${escapeHtml(pt.titleKo)}
+            </div>
+          </div>
+          <div class="ppt-scripture-box" style="padding: 1.3rem 1.5rem; overflow-y: auto;">
+            <div class="ppt-box-header" style="margin-bottom: 0.85rem;">
+              <span class="ppt-box-lang">🇺🇸 English (1:1 Size &amp; Bold)</span>
+              <span class="ppt-box-label">PART 0${pt.num}</span>
+            </div>
+            <div style="font-size: 1.12rem; font-weight: 800; color: #38bdf8; line-height: 1.8; white-space: pre-line; font-style: normal;">
+              ${escapeHtml(pt.titleEn)}
+            </div>
+          </div>
+        </div>
+      `;
+    }
   } else if (totalSlides === 6) {
     if (index === 1 || index === 2) {
       // 6 Slides Mode: Slide 2 (Verses 1-7), Slide 3 (Verses 8-14)
@@ -5188,6 +5354,144 @@ function getOriginalSinHtml() {
   `;
 }
 
+// 12월 6일 원시복음 (창3:15, 21) - 여인의 후손 완본 HTML (한·영 1:1 동일 크기 및 굵기 규격)
+function getProtoGospelHtml() {
+  return `
+    <div class="no-print" style="margin-bottom: 1.4rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.8rem; flex-wrap: wrap; gap: 0.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="background: #fef08a; color: #854d0e; font-weight: 800; font-size: 0.82rem; padding: 0.25rem 0.65rem; border-radius: 9999px;">
+          📄 공식 원본 규격 A4 (12월 6일 예배 말씀 · 한/영 완본)
+        </span>
+        <span style="font-size: 0.88rem; color: #475569; font-weight: 700;">
+          원시복음 (창3:15, 21) - 여인의 후손 · The Original Gospel – The Offspring of the Woman
+        </span>
+      </div>
+      <div style="font-size: 0.82rem; color: #64748b; font-weight: 600;">
+        🖨️ 인쇄 시 A4 규격으로 깔끔하게 출력됩니다 (한·영 1:1 동일 폰트 크기 &amp; 굵기)
+      </div>
+    </div>
+
+    <!-- Page 1: Korean Message -->
+    <div class="word-doc-sheet" style="color: #111827; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.8; margin-bottom: 2rem; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #0284c7; padding-bottom: 0.6rem; margin-bottom: 1.4rem;">
+        <h1 style="font-size: 1.35rem; font-weight: 800; color: #111827; margin: 0; letter-spacing: -0.01em;">
+          원시복음 (창3:15, 21)-여인의 후손
+        </h1>
+        <span style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">Page 1 / 2 (Korean)</span>
+      </div>
+
+      <p style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 1.4rem; background: #fef9c3; padding: 0.75rem 1rem; border-left: 4px solid #eab308; border-radius: 6px;">
+        절대 절망속에 빠져버린 인간을 버려두지 않으시고 하나님은 바로 구원의 문을 여셨다.
+      </p>
+
+      <div style="margin-bottom: 1.5rem;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.5rem;">
+          1. 아담의 후손
+        </div>
+        <div style="font-size: 1.02rem; font-weight: 700; color: #1f2937; padding-left: 0.6rem; line-height: 1.8;">
+          원죄를 가진 아담의 후손은 절대절망에서 단 한 사람도 빠져나올수 없다. 다른종교를 비방하려는것이 아니고 부처가 인간의 생로병사를 고민한 현명한 철학자일수 있지만 하나님은 아니다. 훌륭한 종교 지도자가 많겠지만 하나님은 아니다. 이들 모두 아담의 후손이기 때문에, 원죄가 있어 구원자가 될수 없다.
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.5rem;">
+          2. 여인의 후손 (창3:15)
+        </div>
+        <div style="font-size: 1.02rem; font-weight: 700; color: #1f2937; padding-left: 0.6rem; line-height: 1.8;">
+          <p style="margin-bottom: 0.3rem;">1) 인간을 구원할자는 여인의 후손, 즉 동정녀 마리아를 통해 오셔야하고,</p>
+          <p style="margin-bottom: 0.3rem;">2) 참하나님이면서 참사람으로 오셔야한다</p>
+          <p style="margin-bottom: 0.3rem;">3) 십자가에서 죽으셔야한다</p>
+          <p style="margin-bottom: 0.3rem;">4) 부활하셔서 사탄의 머리를 깨뜨릴 권세가 있으셔야한다</p>
+          <p style="margin-bottom: 0.5rem;">5) 재림주로 오실것이다.</p>
+          <p style="font-weight: 800; color: #0369a1;"><mark class="pdf-highlight">이 모든것을 만족시키는 분은 인류 역사상 예수님 한분밖에 없다.</mark></p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.5rem;">
+          3. 구원의 방법- 가죽옷 (창3:21)
+        </div>
+        <div style="font-size: 1.02rem; font-weight: 700; color: #1f2937; padding-left: 0.6rem; line-height: 1.8;">
+          하나님은 인간을 절대 절망에서 건져내기위해 우리 죄 되신 짐승이 죽어 피를 흘리게했고 그 짐승의 가죽옷으로 우리의 수치를 가려주셨다. 우리의 어린양 예수께서 십자가에서 죽으셔서 피 흘려주셨고 그 피의 옷으로 우리 죄의 수치를 가려주신것이다.
+        </div>
+      </div>
+
+      <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 1.1rem 1.25rem;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #b91c1c; margin-bottom: 0.55rem;">
+          📌 기억할것
+        </div>
+        <div style="font-size: 1.02rem; font-weight: 700; color: #1f2937; line-height: 1.8;">
+          <p style="margin-bottom: 0.4rem;">• 하나님 앞에는 죄의 크기가 없다. 살인죄가 클까요 남을 미워한죄가 클까요? 성경은 같다고 말한다 (요일3:15)</p>
+          <p style="margin-bottom: 0.4rem;">• 착하고 진실하면 될까요? 무엇이 죄일까요? 성경은 하나님 떠나있는 상태가 죄라서 아무도 죄를 안 짖고 살 사람이 없다고 말한다 (롬 3:23)</p>
+          <p style="margin-bottom: 0.55rem;">• 죄로 오는 저주는 어느누구도 감당할수 없다. 우리는 모두 죄인이고 다 죽고 다 실패해도 우리가 할수 있는건 없다 (롬6:23)</p>
+          <p style="font-size: 1.05rem; font-weight: 800; color: #0f172a;"><mark class="pdf-highlight">그래서 오직 여인의 후손(그리스도)이 오셔야했다. 그분을 통해서만 하나님을 만날수 있다. (요14:6)</mark></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page 2: English Translation (1:1 Identical Font Size & Bold Weight per GEMINI.md) -->
+    <div class="word-doc-sheet" style="color: #111827; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.8; position: relative; font-style: normal;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #0284c7; padding-bottom: 0.6rem; margin-bottom: 1.4rem;">
+        <h1 style="font-size: 1.35rem; font-weight: 800; color: #111827; margin: 0; letter-spacing: -0.01em; font-style: normal;">
+          The Original Gospel (Genesis 3:15, 21) – The Offspring of the Woman
+        </h1>
+        <span style="font-size: 0.8rem; color: #0284c7; font-weight: 700; font-style: normal;">Page 2 / 2 (English)</span>
+      </div>
+
+      <p style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 1.4rem; background: #fef9c3; padding: 0.75rem 1rem; border-left: 4px solid #eab308; border-radius: 6px; font-style: normal;">
+        God did not abandon humanity, who had fallen into absolute despair. Instead, He immediately opened the door to salvation.
+      </p>
+
+      <div style="margin-bottom: 1.5rem; font-style: normal;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.5rem; font-style: normal;">
+          1. The Descendants of Adam
+        </div>
+        <div style="font-size: 1.02rem; font-weight: 700; color: #1f2937; padding-left: 0.6rem; line-height: 1.8; font-style: normal;">
+          <p style="margin-bottom: 0.4rem;">The descendants of Adam, who inherited original sin, cannot escape from absolute despair—not even a single person.</p>
+          <p style="margin-bottom: 0.4rem;">I am not trying to criticize other religions. Buddha may have been a wise philosopher who deeply reflected on human birth, aging, sickness, and death, but he is not God.</p>
+          <p style="margin-bottom: 0.2rem;">There may be many great religious leaders, but they are not God. All of them are descendants of Adam, and because they have original sin, they cannot be the Savior.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.5rem; font-style: normal;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.5rem; font-style: normal;">
+          2. The Offspring of the Woman (Genesis 3:15)
+        </div>
+        <div style="font-size: 1.02rem; font-weight: 700; color: #1f2937; padding-left: 0.6rem; line-height: 1.8; font-style: normal;">
+          <p style="margin-bottom: 0.3rem;">1) The One who would save humanity had to come as the offspring of the woman, that is, through the Virgin Mary.</p>
+          <p style="margin-bottom: 0.3rem;">2) He had to come as both fully God and fully man.</p>
+          <p style="margin-bottom: 0.3rem;">3) He had to die on the cross.</p>
+          <p style="margin-bottom: 0.3rem;">4) He had to rise from the dead and have the authority to crush Satan's head.</p>
+          <p style="margin-bottom: 0.5rem;">5) He will come again as the returning Lord.</p>
+          <p style="font-weight: 800; color: #0369a1; font-style: normal;"><mark class="pdf-highlight">Throughout all of human history, Jesus Christ is the only One who fulfills all these requirements.</mark></p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1.5rem; font-style: normal;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #111827; margin-bottom: 0.5rem; font-style: normal;">
+          3. The Way of Salvation – Garments of Skin (Genesis 3:21)
+        </div>
+        <div style="font-size: 1.02rem; font-weight: 700; color: #1f2937; padding-left: 0.6rem; line-height: 1.8; font-style: normal;">
+          <p style="margin-bottom: 0.4rem;">For humanity to escape from absolute despair, an animal had to die and shed its blood because of our sins, and God covered our shame with garments made from its skin.</p>
+          <p style="margin-bottom: 0.2rem;">Jesus, our Lamb of God, died on the cross and shed His blood for us. Through His blood, He covered the shame of our sins.</p>
+        </div>
+      </div>
+
+      <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 1.1rem 1.25rem; font-style: normal;">
+        <div style="font-size: 1.12rem; font-weight: 800; color: #b91c1c; margin-bottom: 0.55rem; font-style: normal;">
+          📌 Things to Remember
+        </div>
+        <div style="font-size: 1.02rem; font-weight: 700; color: #1f2937; line-height: 1.8; font-style: normal;">
+          <p style="margin-bottom: 0.4rem;">• Before God, there is no difference in the seriousness of sin. Which is the greater sin—murdering someone or hating someone? The Bible says they are the same. (1 John 3:15) Is it enough simply to be good and honest? What is sin?</p>
+          <p style="margin-bottom: 0.4rem;">• The Bible teaches that being separated from God is sin, and therefore, no one can live without sinning. (Romans 3:23) No one can bear the curse that comes from sin.</p>
+          <p style="margin-bottom: 0.55rem;">• We are all sinners, and even if we all die and fail, there is nothing we can do to save ourselves. (Romans 6:23)</p>
+          <p style="font-size: 1.05rem; font-weight: 800; color: #0f172a; font-style: normal;"><mark class="pdf-highlight">That is why the offspring of the woman (Christ) had to come. Only through Him can we meet God. (John 14:6)</mark></p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function openWordPdfModal(customSermon) {
   // Explicitly assign or reset currentPresenterSermon
   currentPresenterSermon = customSermon || null;
@@ -5213,6 +5517,14 @@ function openWordPdfModal(customSermon) {
                              rawPdf.includes("Original") ||
                              rawPdf.includes("원래인간");
 
+  const isProtoGospel = (rawId === 'sermon-20261206') ||
+                        rawTitle.includes("원시복음") ||
+                        rawTitle.includes("여인의 후손") ||
+                        rawTitle.includes("Original Gospel") ||
+                        rawTitle.includes("Offspring") ||
+                        rawScripture.includes("3:15") ||
+                        rawPdf.includes("원시복음");
+
   // Exact file name
   const activePdfUrl = isOriginalBlessing ? "Original_Blessing.pdf" : "후대복음말씀_원죄.pdf";
   const downloadPdfName = isOriginalBlessing ? "Original Blessing.pdf" : "후대복음말씀_원죄.pdf";
@@ -5221,9 +5533,13 @@ function openWordPdfModal(customSermon) {
   // Sync subtitle & links
   const subtitle = document.getElementById('wordPdfSubtitle');
   if (subtitle) {
-    subtitle.textContent = isOriginalBlessing 
-      ? "원래인간 (Original Blessing) · 본문 (창 1:27-28) · 10월 4일 말씀" 
-      : "원죄 (Original Sin) — 창세기 3장 문제 · 본문 (창 3:1-14) · 11월 1일 말씀";
+    if (isProtoGospel) {
+      subtitle.textContent = "원시복음 (창3:15, 21) - 여인의 후손 · 12월 6일 말씀";
+    } else if (isOriginalBlessing) {
+      subtitle.textContent = "원래인간 (Original Blessing) · 본문 (창 1:27-28) · 10월 4일 말씀";
+    } else {
+      subtitle.textContent = "원죄 (Original Sin) — 창세기 3장 문제 · 본문 (창 3:1-14) · 11월 1일 말씀";
+    }
   }
   const directLink = document.getElementById('wordPdfDirectLink');
   if (directLink) {
@@ -5242,13 +5558,15 @@ function openWordPdfModal(customSermon) {
     btn.setAttribute('download', downloadPdfName);
   });
 
-  switchWordPdfTab('embed');
-
-  // Render HTML Sheet view according to current sermon
-  if (isOriginalBlessing) {
+  if (isProtoGospel) {
+    printArea.innerHTML = getProtoGospelHtml();
+    switchWordPdfTab('html');
+  } else if (isOriginalBlessing) {
     printArea.innerHTML = getOriginalBlessingHtml();
+    switchWordPdfTab('embed');
   } else {
     printArea.innerHTML = getOriginalSinHtml();
+    switchWordPdfTab('embed');
   }
 
   modal.classList.add('active');
@@ -6646,9 +6964,25 @@ function clearSermonSearch() {
 window.clearSermonSearch = clearSermonSearch;
 
 function renderSermonsGrid() {
+  // Force ensure December 6 sermon (Proto-Gospel) exists and has cartoon video
+  if (!sermons.some(s => s.id === 'sermon-20261206')) {
+    sermons.unshift(defaultSermons[0]);
+  }
+  const decSermon = sermons.find(s => s.id === 'sermon-20261206');
+  if (decSermon) {
+    decSermon.video = {
+      hasVideo: true,
+      type: "mp4",
+      url: "assets/proto_gospel_cartoon.mp4",
+      passcode: "5gZkTM",
+      duration: "2분 47초 (720p HD)",
+      title: "원시복음 (창3:15, 21) 여인의 후손 — 만화로 보는 말씀요약"
+    };
+  }
   // Force ensure November 1 sermon has Original Sin cartoon video
   const novSermon = sermons.find(s => s.id === 'sermon-20261101');
   if (novSermon) {
+    novSermon.isFeatured = false;
     novSermon.video = {
       hasVideo: true,
       type: "mp4",
@@ -6742,7 +7076,7 @@ function renderSermonsGrid() {
 
   grid.innerHTML = list.map(item => {
     const hasVideo = !!(item.video && item.video.hasVideo && item.video.url);
-    const isCartoonVideo = hasVideo && (item.id === 'sermon-20261004' || item.id === 'sermon-20261101' || item.video.type === 'mp4' || (item.video.url && (item.video.url.includes('original_me') || item.video.url.includes('original_sin'))));
+    const isCartoonVideo = hasVideo && (item.id === 'sermon-20261004' || item.id === 'sermon-20261101' || item.id === 'sermon-20261206' || item.video.type === 'mp4' || (item.video.url && (item.video.url.includes('original_me') || item.video.url.includes('original_sin') || item.video.url.includes('proto_gospel'))));
     const dateFormatted = item.displayDate || (item.date ? item.date.slice(0, 10) : '날짜 미지정');
     const isFeatured = !!item.isFeatured;
 
@@ -6846,8 +7180,9 @@ function openWorshipVideoModal(sermonId) {
   const videoData = sermon.video || {};
   const isOctCartoon = (sermon.id === 'sermon-20261004') || (sermon.title && sermon.title.includes('원래인간')) || (videoData.url && videoData.url.includes('original_me'));
   const isNovCartoon = (sermon.id === 'sermon-20261101') || (sermon.title && sermon.title.includes('원죄')) || (videoData.url && videoData.url.includes('original_sin'));
-  const isCartoonSummary = isOctCartoon || isNovCartoon || (videoData.title && videoData.title.includes('만화로 보는 말씀요약'));
-  const rawUrl = isOctCartoon ? 'assets/original_me_cartoon.mp4?v=2' : (isNovCartoon ? 'assets/original_sin_cartoon.mp4?v=5' : (videoData.url || ''));
+  const isDecCartoon = (sermon.id === 'sermon-20261206') || (sermon.title && sermon.title.includes('원시복음')) || (videoData.url && videoData.url.includes('proto_gospel'));
+  const isCartoonSummary = isOctCartoon || isNovCartoon || isDecCartoon || (videoData.title && videoData.title.includes('만화로 보는 말씀요약'));
+  const rawUrl = isOctCartoon ? 'assets/original_me_cartoon.mp4?v=2' : (isNovCartoon ? 'assets/original_sin_cartoon.mp4?v=5' : (isDecCartoon ? 'assets/proto_gospel_cartoon.mp4' : (videoData.url || '')));
   const videoType = isCartoonSummary ? 'mp4' : (videoData.type || 'zoom');
 
   if (titleEl) {
@@ -6889,7 +7224,7 @@ function openWorshipVideoModal(sermonId) {
     const dlBtn = document.getElementById('btnVideoDownloadMp4');
     if (dlBtn) {
       dlBtn.href = cleanMp4Url;
-      dlBtn.setAttribute('download', cleanMp4Url.includes('original_sin') ? '원죄_창세기3장문제_한영성우_만화영상.mp4' : '하나님이만드신원래의나_한영성우_만화영상.mp4');
+      dlBtn.setAttribute('download', cleanMp4Url.includes('proto_gospel') ? '원시복음_여인의후손_한영성우_만화영상.mp4' : (cleanMp4Url.includes('original_sin') ? '원죄_창세기3장문제_한영성우_만화영상.mp4' : '하나님이만드신원래의나_한영성우_만화영상.mp4'));
       dlBtn.style.display = 'inline-flex';
     }
     if (html5El) {
@@ -6898,6 +7233,8 @@ function openWorshipVideoModal(sermonId) {
         html5El.poster = 'assets/original_me_1.jpg';
       } else if (cleanMp4Url.includes('original_sin')) {
         html5El.poster = 'assets/original_sin_1.jpg';
+      } else if (cleanMp4Url.includes('proto_gospel')) {
+        html5El.poster = 'assets/proto_gospel_1.jpg';
       } else {
         html5El.removeAttribute('poster');
       }
