@@ -615,10 +615,6 @@
               <span class="btn-icon">📋</span>
               <span data-i18n="btn_copy_prayer_guide">줌 채팅용 복사</span>
             </button>
-            <a href="기도문.pdf?v=20261025_v4" target="_blank" class="btn btn-ghost btn-sm" title="기도문 원본 PDF 보기 및 다운로드">
-              <span class="btn-icon">📄</span>
-              <span data-i18n="btn_open_pdf">PDF 원본</span>
-            </a>
           </div>
         </div>
 
@@ -2055,9 +2051,6 @@
           <button type="button" class="btn btn-primary btn-sm" onclick="openPrayerPdfModal()" style="background: linear-gradient(135deg, #0284c7, #2563eb); border: none; font-weight: 700;">
             🖨️ <span>인쇄 / PDF 보기</span>
           </button>
-          <a href="기도문.pdf?v=20261025_v4" target="_blank" class="btn btn-ghost btn-sm">
-            <span>📄 기도문.pdf 원본 열기</span>
-          </a>
         </div>
         <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
           <button type="button" class="btn btn-outline btn-sm" onclick="copyPrayerGuideToClipboard()">
@@ -2640,10 +2633,13 @@
           <span style="font-size: 1.5rem;">🕊️</span>
           <div>
             <h3 class="modal-title" style="margin: 0; font-size: 1.2rem;">공동 기도문 인쇄 및 PDF (Official Joint Prayer Guide)</h3>
-            <span style="font-size: 0.8rem; color: #94a3b8;">3단계 집중 중보기도 · 성도 배포 및 묵상용 A4 규격 (총 3페이지)</span>
+            <span style="font-size: 0.8rem; color: #94a3b8;">3단계 집중 중보기도 · 성도 배포 및 묵상용 A4 규격 (총 4페이지)</span>
           </div>
         </div>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <a href="기도문.pdf?v=20261116" download="어라이즈넥스트젠_공동기도문.pdf" class="btn btn-outline btn-sm" style="border-color: #38bdf8; color: #38bdf8; font-weight: 700; padding: 0.4rem 0.85rem; border-radius: 6px;">
+            📥 PDF 파일 다운로드
+          </a>
           <button type="button" class="btn btn-primary btn-sm" onclick="printPrayerPdfDocument()" style="background: linear-gradient(135deg, #0284c7, #2563eb); border: none; font-weight: 700; padding: 0.4rem 0.85rem; border-radius: 6px;">
             🖨️ PDF로 저장 / 인쇄하기
           </button>
