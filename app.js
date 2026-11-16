@@ -6504,7 +6504,7 @@ function getPrayerGuidePdfHtml() {
         <div style="font-size: 1.15rem; font-weight: 800; color: #0284c7; font-style: normal; margin-bottom: 0.85rem;">
           • 1. Please Restore Me to the Person You Originally Created Me to Be.
         </div>
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;">
+        <div style="display: flex; flex-direction: column; gap: 0.65rem;">
           <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
             <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">1) 하나님을 닮은 나</div>
             <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">1) Me, created in the image of God.</div>

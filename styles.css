@@ -4529,6 +4529,12 @@ body {
   color: #64748b;
 }
 
+/* Top-level @page rule so Chrome/Edge Print Preview always defaults to A4 Portrait (세로 보기) */
+@page {
+  size: A4 portrait;
+  margin: 10mm 12mm;
+}
+
 /* Print Media Query */
 @media print {
   /* Hide all app contents except the PDF sheet */
