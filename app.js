@@ -1950,13 +1950,13 @@ const defaultRoutineContent = {
   },
   step2: {
     scripture: "창세기 3:15, 21 (Genesis 3:15, 21)",
-    title: "원시복음 (창3:15, 21) - 여인의 후손",
+    title: "원시복음 (Original Gospel) — 여인의 후손 (창3:15, 21)",
     title_en: "The Original Gospel (Genesis 3:15, 21) – The Offspring of the Woman",
     pdfUrl: "후대복음말씀_원시복음.pdf",
     content: `📖 본문: 창세기 3:15, 21 (Genesis 3:15, 21)
 매월 첫 주일 호주 AEST 7:50 PM (한국 18:50)
 
-[원시복음 (창3:15, 21) - 여인의 후손 | The Original Gospel – The Offspring of the Woman]
+[원시복음 (Original Gospel) — 여인의 후손 (창3:15, 21) | The Original Gospel – The Offspring of the Woman]
 절대 절망속에 빠져버린 인간을 버려두지 않으시고 하나님은 바로 구원의 문을 여셨다.
 (God did not abandon humanity, who had fallen into absolute despair. Instead, He immediately opened the door to salvation.)
 
@@ -2055,7 +2055,7 @@ const defaultSermons = [
     id: "sermon-20261206",
     date: "2026-12-06T19:50:00+10:00",
     displayDate: "2026년 12월 6일 (일) 19:50 (AEST) / 18:50 (KST)",
-    title: "원시복음 (창3:15, 21) - 여인의 후손",
+    title: "원시복음 (Original Gospel) — 여인의 후손 (창3:15, 21)",
     title_en: "The Original Gospel (Genesis 3:15, 21) – The Offspring of the Woman",
     scripture: "창세기 3:15, 21 (Genesis 3:15, 21)",
     speaker: "진행: 한옥주 / 통역: 아이리스",
@@ -2076,10 +2076,10 @@ const defaultSermons = [
       url: "assets/proto_gospel_cartoon.mp4",
       passcode: "5gZkTM",
       duration: "2분 47초 (720p HD)",
-      title: "원시복음 (창3:15, 21) 여인의 후손 — 만화로 보는 말씀요약"
+      title: "원시복음 (Original Gospel) — 만화로 보는 말씀요약"
     },
     isFeatured: true,
-    tags: ["창세기", "원시복음", "여인의후손", "가죽옷", "창세기3장15절", "예수그리스도", "후대"]
+    tags: ["창세기", "원시복음", "Original Gospel", "여인의후손", "가죽옷", "창세기3장15절", "예수그리스도", "후대"]
   },
   {
     id: "sermon-20261101",
@@ -2150,7 +2150,7 @@ In our current state, we fail to exercise dominion—whether over our nation, pe
 ];
 
 // Always sync newly added nations & routine content & meeting settings (Force Mobile Cache Sync)
-const DATA_VERSION = 'v20261116_v61_prayer_topics_dec6';
+const DATA_VERSION = 'v20261117_v62_original_gospel_title';
 
 
 if (localStorage.getItem('prayer_hub_data_ver') !== DATA_VERSION) {
@@ -4491,7 +4491,7 @@ function getWordPresentationData() {
       isProtoGospel: true,
       meetingTitle: custom ? "어라이즈 넥스트젠 30분 기도모임" : "2026 어라이즈 넥스트젠 30분 기도모임",
       meetingSub: "4단계 순서 중 2단계: 후대 복음 말씀 (5분)",
-      title: "원시복음 (창3:15, 21) - 여인의 후손",
+      title: "원시복음 (Original Gospel) — 여인의 후손 (창3:15, 21)",
       scripture: "창세기 3:15, 21 (Genesis 3:15, 21)",
       theme: "절대 절망 속에 빠진 인간을 건지시기 위해 하나님이 여신 구원의 문: 여인의 후손과 가죽옷",
       pdfUrl: "후대복음말씀_원시복음.pdf",
@@ -5373,7 +5373,7 @@ function getOriginalSinHtml() {
   `;
 }
 
-// 12월 6일 원시복음 (창3:15, 21) - 여인의 후손 완본 HTML (한·영 1:1 동일 크기 및 굵기 규격)
+// 12월 6일 원시복음 (Original Gospel) — 여인의 후손 (창3:15, 21) 완본 HTML (한·영 1:1 동일 크기 및 굵기 규격)
 function getProtoGospelHtml() {
   return `
     <div class="no-print" style="margin-bottom: 1.4rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.8rem; flex-wrap: wrap; gap: 0.5rem;">
@@ -5382,7 +5382,7 @@ function getProtoGospelHtml() {
           📄 공식 원본 규격 A4 (12월 6일 예배 말씀 · 한/영 완본)
         </span>
         <span style="font-size: 0.88rem; color: #475569; font-weight: 700;">
-          원시복음 (창3:15, 21) - 여인의 후손 · The Original Gospel – The Offspring of the Woman
+          원시복음 (Original Gospel) — 여인의 후손 (창3:15, 21) · The Original Gospel – The Offspring of the Woman
         </span>
       </div>
       <div style="font-size: 0.82rem; color: #64748b; font-weight: 600;">
@@ -5394,7 +5394,7 @@ function getProtoGospelHtml() {
     <div class="word-doc-sheet" style="color: #111827; font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.8; margin-bottom: 2rem; position: relative;">
       <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #0284c7; padding-bottom: 0.6rem; margin-bottom: 1.4rem;">
         <h1 style="font-size: 1.35rem; font-weight: 800; color: #111827; margin: 0; letter-spacing: -0.01em;">
-          원시복음 (창3:15, 21)-여인의 후손
+          원시복음 (Original Gospel) — 여인의 후손 (창3:15, 21)
         </h1>
         <span style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">Page 1 / 2 (Korean)</span>
       </div>
@@ -5553,7 +5553,7 @@ function openWordPdfModal(customSermon) {
   const subtitle = document.getElementById('wordPdfSubtitle');
   if (subtitle) {
     if (isProtoGospel) {
-      subtitle.textContent = "원시복음 (창3:15, 21) - 여인의 후손 · 12월 6일 말씀";
+      subtitle.textContent = "원시복음 (Original Gospel) — 여인의 후손 (창3:15, 21) · 12월 6일 말씀";
     } else if (isOriginalBlessing) {
       subtitle.textContent = "원래인간 (Original Blessing) · 본문 (창 1:27-28) · 10월 4일 말씀";
     } else {
@@ -7013,13 +7013,15 @@ function renderSermonsGrid() {
   }
   const decSermon = sermons.find(s => s.id === 'sermon-20261206');
   if (decSermon) {
+    decSermon.title = "원시복음 (Original Gospel) — 여인의 후손 (창3:15, 21)";
+    decSermon.title_en = "The Original Gospel (Genesis 3:15, 21) – The Offspring of the Woman";
     decSermon.video = {
       hasVideo: true,
       type: "mp4",
       url: "assets/proto_gospel_cartoon.mp4",
       passcode: "5gZkTM",
       duration: "2분 47초 (720p HD)",
-      title: "원시복음 (창3:15, 21) 여인의 후손 — 만화로 보는 말씀요약"
+      title: "원시복음 (Original Gospel) — 만화로 보는 말씀요약"
     };
   }
   // Force ensure November 1 sermon has Original Sin cartoon video

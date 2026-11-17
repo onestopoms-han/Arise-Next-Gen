@@ -1705,20 +1705,20 @@ function selectKidsCartoonVideo(videoKey) {
     player.poster = 'assets/proto_gospel_1.jpg';
     source.src = 'assets/proto_gospel_cartoon.mp4';
     player.src = 'assets/proto_gospel_cartoon.mp4';
-    if (dlKo) { dlKo.href = 'assets/proto_gospel_cartoon_ko.mp4'; dlKo.setAttribute('download', '12월_원시복음_여인의후손_한국어성우_만화영상.mp4'); }
-    if (dlBi) { dlBi.href = 'assets/proto_gospel_cartoon.mp4'; dlBi.setAttribute('download', '12월_원시복음_여인의후손_한영성우_만화영상.mp4'); }
+    if (dlKo) { dlKo.href = 'assets/proto_gospel_cartoon_ko.mp4'; dlKo.setAttribute('download', '12월_원시복음_Original_Gospel_한국어성우_만화영상.mp4'); }
+    if (dlBi) { dlBi.href = 'assets/proto_gospel_cartoon.mp4'; dlBi.setAttribute('download', '12월_원시복음_Original_Gospel_한영성우_만화영상.mp4'); }
     if (descText) {
-      descText.innerHTML = '🌍 <strong>[12월 말씀] 원시복음 (창3:15, 21 여인의 후손) — 만화로 보는 말씀요약 (한·영 이중언어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 2분 47초 (1280x720 HD)';
+      descText.innerHTML = '🌍 <strong>[12월 말씀] 원시복음 (Original Gospel) — 만화로 보는 말씀요약 (한·영 이중언어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 2분 47초 (1280x720 HD)';
     }
   } else if (videoKey === 'proto_ko') {
     if (btnProtoKo) { btnProtoKo.classList.add('active'); btnProtoKo.setAttribute('style', activeStyle); }
     player.poster = 'assets/proto_gospel_1.jpg';
     source.src = 'assets/proto_gospel_cartoon_ko.mp4';
     player.src = 'assets/proto_gospel_cartoon_ko.mp4';
-    if (dlKo) { dlKo.href = 'assets/proto_gospel_cartoon_ko.mp4'; dlKo.setAttribute('download', '12월_원시복음_여인의후손_한국어성우_만화영상.mp4'); }
-    if (dlBi) { dlBi.href = 'assets/proto_gospel_cartoon.mp4'; dlBi.setAttribute('download', '12월_원시복음_여인의후손_한영성우_만화영상.mp4'); }
+    if (dlKo) { dlKo.href = 'assets/proto_gospel_cartoon_ko.mp4'; dlKo.setAttribute('download', '12월_원시복음_Original_Gospel_한국어성우_만화영상.mp4'); }
+    if (dlBi) { dlBi.href = 'assets/proto_gospel_cartoon.mp4'; dlBi.setAttribute('download', '12월_원시복음_Original_Gospel_한영성우_만화영상.mp4'); }
     if (descText) {
-      descText.innerHTML = '🇰🇷 <strong>[12월 말씀] 원시복음 (창3:15, 21 여인의 후손) — 만화로 보는 말씀요약 (한국어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 1분 22초 (1280x720 HD)';
+      descText.innerHTML = '🇰🇷 <strong>[12월 말씀] 원시복음 (Original Gospel) — 만화로 보는 말씀요약 (한국어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 1분 22초 (1280x720 HD)';
     }
   } else if (videoKey === 'original_ko') {
     if (btnOriginalKo) { btnOriginalKo.classList.add('active'); btnOriginalKo.setAttribute('style', activeStyle); }
