@@ -1680,6 +1680,8 @@ function selectKidsCartoonVideo(videoKey) {
   const descText = document.getElementById('kidsVideoDescText');
   const dlKo = document.getElementById('kidsVideoDownloadKo');
   const dlBi = document.getElementById('kidsVideoDownloadBi');
+  const shKo = document.getElementById('kidsShortsDownloadKo');
+  const shBi = document.getElementById('kidsShortsDownloadBi');
   const btnProtoBi = document.getElementById('btnVidProtoBi');
   const btnProtoKo = document.getElementById('btnVidProtoKo');
   const btnOriginalBi = document.getElementById('btnVidOriginalBi');
@@ -1707,6 +1709,8 @@ function selectKidsCartoonVideo(videoKey) {
     player.src = 'assets/proto_gospel_cartoon.mp4';
     if (dlKo) { dlKo.href = 'assets/proto_gospel_cartoon_ko.mp4'; dlKo.setAttribute('download', '12월_원시복음_Original_Gospel_한국어성우_만화영상.mp4'); }
     if (dlBi) { dlBi.href = 'assets/proto_gospel_cartoon.mp4'; dlBi.setAttribute('download', '12월_원시복음_Original_Gospel_한영성우_만화영상.mp4'); }
+    if (shKo) { shKo.href = 'assets/shorts_proto_gospel_ko.mp4'; shKo.setAttribute('download', '유튜브쇼츠_3편_원시복음_한국어성우_Shorts.mp4'); }
+    if (shBi) { shBi.href = 'assets/shorts_proto_gospel.mp4'; shBi.setAttribute('download', '유튜브쇼츠_3편_원시복음_한영성우_Shorts.mp4'); }
     if (descText) {
       descText.innerHTML = '🌍 <strong>[12월 말씀] 원시복음 (Original Gospel) — 만화로 보는 말씀요약 (한·영 이중언어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 2분 47초 (1280x720 HD)';
     }
@@ -1717,6 +1721,8 @@ function selectKidsCartoonVideo(videoKey) {
     player.src = 'assets/proto_gospel_cartoon_ko.mp4';
     if (dlKo) { dlKo.href = 'assets/proto_gospel_cartoon_ko.mp4'; dlKo.setAttribute('download', '12월_원시복음_Original_Gospel_한국어성우_만화영상.mp4'); }
     if (dlBi) { dlBi.href = 'assets/proto_gospel_cartoon.mp4'; dlBi.setAttribute('download', '12월_원시복음_Original_Gospel_한영성우_만화영상.mp4'); }
+    if (shKo) { shKo.href = 'assets/shorts_proto_gospel_ko.mp4'; shKo.setAttribute('download', '유튜브쇼츠_3편_원시복음_한국어성우_Shorts.mp4'); }
+    if (shBi) { shBi.href = 'assets/shorts_proto_gospel.mp4'; shBi.setAttribute('download', '유튜브쇼츠_3편_원시복음_한영성우_Shorts.mp4'); }
     if (descText) {
       descText.innerHTML = '🇰🇷 <strong>[12월 말씀] 원시복음 (Original Gospel) — 만화로 보는 말씀요약 (한국어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 1분 22초 (1280x720 HD)';
     }
@@ -1727,6 +1733,8 @@ function selectKidsCartoonVideo(videoKey) {
     player.src = 'assets/original_me_cartoon_ko.mp4?v=2';
     if (dlKo) { dlKo.href = 'assets/original_me_cartoon_ko.mp4'; dlKo.setAttribute('download', '10월_원래인간_한국어성우_만화영상.mp4'); }
     if (dlBi) { dlBi.href = 'assets/original_me_cartoon.mp4'; dlBi.setAttribute('download', '10월_원래인간_한영성우_만화영상.mp4'); }
+    if (shKo) { shKo.href = 'assets/shorts_original_me_ko.mp4'; shKo.setAttribute('download', '유튜브쇼츠_1편_원래인간_한국어성우_Shorts.mp4'); }
+    if (shBi) { shBi.href = 'assets/shorts_original_me.mp4'; shBi.setAttribute('download', '유튜브쇼츠_1편_원래인간_한영성우_Shorts.mp4'); }
     if (descText) {
       descText.innerHTML = '🇰🇷 <strong>[10월 말씀] 원래인간 — 하나님이 만드신 원래의 나 (한국어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 31초 (1280x720 HD)';
     }
@@ -1737,6 +1745,8 @@ function selectKidsCartoonVideo(videoKey) {
     player.src = 'assets/original_me_cartoon.mp4?v=2';
     if (dlKo) { dlKo.href = 'assets/original_me_cartoon_ko.mp4'; dlKo.setAttribute('download', '10월_원래인간_한국어성우_만화영상.mp4'); }
     if (dlBi) { dlBi.href = 'assets/original_me_cartoon.mp4'; dlBi.setAttribute('download', '10월_원래인간_한영성우_만화영상.mp4'); }
+    if (shKo) { shKo.href = 'assets/shorts_original_me_ko.mp4'; shKo.setAttribute('download', '유튜브쇼츠_1편_원래인간_한국어성우_Shorts.mp4'); }
+    if (shBi) { shBi.href = 'assets/shorts_original_me.mp4'; shBi.setAttribute('download', '유튜브쇼츠_1편_원래인간_한영성우_Shorts.mp4'); }
     if (descText) {
       descText.innerHTML = '🌍 <strong>[10월 말씀] 원래인간 — 하나님이 만드신 원래의 나 (한·영 이중언어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 56초 (1280x720 HD)';
     }
@@ -1747,6 +1757,8 @@ function selectKidsCartoonVideo(videoKey) {
     player.src = 'assets/original_sin_cartoon.mp4?v=5';
     if (dlKo) { dlKo.href = 'assets/original_sin_cartoon_ko.mp4'; dlKo.setAttribute('download', '11월_원죄_창세기3장문제_한국어성우_만화영상.mp4'); }
     if (dlBi) { dlBi.href = 'assets/original_sin_cartoon.mp4'; dlBi.setAttribute('download', '11월_원죄_창세기3장문제_한영성우_만화영상.mp4'); }
+    if (shKo) { shKo.href = 'assets/shorts_original_sin_ko.mp4'; shKo.setAttribute('download', '유튜브쇼츠_2편_원죄_한국어성우_Shorts.mp4'); }
+    if (shBi) { shBi.href = 'assets/shorts_original_sin.mp4'; shBi.setAttribute('download', '유튜브쇼츠_2편_원죄_한영성우_Shorts.mp4'); }
     if (descText) {
       descText.innerHTML = '🌍 <strong>[11월 말씀] 원죄 (창세기 3장 문제) — 만화로 보는 말씀요약 (한·영 이중언어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 1분 55초 (1280x720 HD)';
     }
@@ -1757,6 +1769,8 @@ function selectKidsCartoonVideo(videoKey) {
     player.src = 'assets/original_sin_cartoon_ko.mp4?v=5';
     if (dlKo) { dlKo.href = 'assets/original_sin_cartoon_ko.mp4'; dlKo.setAttribute('download', '11월_원죄_창세기3장문제_한국어성우_만화영상.mp4'); }
     if (dlBi) { dlBi.href = 'assets/original_sin_cartoon.mp4'; dlBi.setAttribute('download', '11월_원죄_창세기3장문제_한영성우_만화영상.mp4'); }
+    if (shKo) { shKo.href = 'assets/shorts_original_sin_ko.mp4'; shKo.setAttribute('download', '유튜브쇼츠_2편_원죄_한국어성우_Shorts.mp4'); }
+    if (shBi) { shBi.href = 'assets/shorts_original_sin.mp4'; shBi.setAttribute('download', '유튜브쇼츠_2편_원죄_한영성우_Shorts.mp4'); }
     if (descText) {
       descText.innerHTML = '🇰🇷 <strong>[11월 말씀] 원죄 (창세기 3장 문제) — 만화로 보는 말씀요약 (한국어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 1분 00초 (1280x720 HD)';
     }
@@ -1772,6 +1786,21 @@ function selectKidsCartoonVideo(videoKey) {
 
   player.load();
   player.play().catch(() => {});
+}
+
+function copyYoutubeShortsMeta(epKey) {
+  const metaMap = {
+    original_me: `[유튜브 쇼츠 제목]\n원래인간 — 하나님이 만드신 원래의 나 (Original Blessing | 창세기 1:27-28) #Shorts #후대복음만화\n\n[유튜브 쇼츠 설명]\n🕊️ 어라이즈 넥스트젠 (Arise Next-Gen) 후대 복음 만화 1편: 원래인간 (Original Blessing)\n📖 본문: 창세기 1:27-28 (Genesis 1:27-28)\n\n1. 하나님이 만드신 원래의 나 (The Original Me Created by God)\n2. 하나님을 닮아서 안 되는 게 없었어요 (Because I resembled God, nothing was impossible)\n3. 모든 것이 아름답고 사랑스러웠고, 걱정도 두려움도 없이 모든 것이 만족스러웠어요 (Everything was beautiful, lovely, and satisfying without worry or fear)\n4. 문제가 와도 다 다스릴 수 있었어요 (Even if a problem came, I could rule over it all)\n\n🌍 공식 홈페이지: https://www.arisenextgen.org/\n#Shorts #원래인간 #OriginalBlessing #창세기1장27절 #어린이복음만화 #후대복음 #AriseNextGen #GospelCartoon`,
+    original_sin: `[유튜브 쇼츠 제목]\n원죄 — 왜 모든 사람에게 문제가 찾아왔을까요? (Original Sin | 창세기 3:1-14) #Shorts #후대복음만화\n\n[유튜브 쇼츠 설명]\n🕊️ 어라이즈 넥스트젠 (Arise Next-Gen) 후대 복음 만화 2편: 원죄 — 창세기 3장 문제 (Original Sin)\n📖 본문: 창세기 3:1-14 (Genesis 3:1-14)\n\n1. 하나님 말씀을 버리고 사탄에게 속아 하나님을 떠나면서 죄와 사탄의 지배 아래 놓이게 되었어요.\n2. 영적인 눈은 닫히고 수치심에 무화과나무 잎으로 자신을 포장하기 시작했어요.\n3. 죄의식과 두려움에 떨며 서로를 원망하고 핑계 대는 절대절망 상태가 되었어요.\n4. 그래서 우리 후대와 모든 민족에게는 오직 예수 그리스도의 복음이 꼭 필요해요!\n\n🌍 공식 홈페이지: https://www.arisenextgen.org/\n#Shorts #원죄 #OriginalSin #창세기3장 #절대절망 #오직그리스도 #어린이복음만화 #AriseNextGen`,
+    proto_gospel: `[유튜브 쇼츠 제목]\n원시복음 — 여인의 후손과 가죽옷 (The Original Gospel | 창세기 3:15, 21) #Shorts #후대복음만화\n\n[유튜브 쇼츠 설명]\n🕊️ 어라이즈 넥스트젠 (Arise Next-Gen) 후대 복음 만화 3편: 원시복음 — 여인의 후손 (The Original Gospel)\n📖 본문: 창세기 3:15, 21 (Genesis 3:15, 21)\n\n1. 아담의 후손은 원죄가 있어 절대절망에서 스스로 빠져나올 수 없어요.\n2. 동정녀 마리아를 통해 여인의 후손으로 오셔서 십자가에서 피 흘려 죽으시고 부활하사 사탄의 머리를 깨뜨리신 분은 오직 예수 그리스도 한 분뿐이에요! (창 3:15)\n3. 어린양 예수님이 십자가 피의 가죽옷으로 우리 죄의 수치를 완전히 가려주셨어요. (창 3:21)\n4. 오직 예수 그리스도를 통해서만 하나님을 만날 수 있어요! (요 14:6)\n\n🌍 공식 홈페이지: https://www.arisenextgen.org/\n#Shorts #원시복음 # 여인의후손 #가죽옷 #창세기3장15절 #예수그리스도 #OriginalGospel #AriseNextGen`
+  };
+  const text = metaMap[epKey] || metaMap.proto_gospel;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      if (typeof showToast === 'function') showToast("유튜브 쇼츠 제목·설명·해시태그(#Shorts)가 복사되었습니다! 📋", "📱");
+      else alert("유튜브 쇼츠 제목·설명·해시태그(#Shorts)가 복사되었습니다!");
+    });
+  }
 }
 
 // 전역 window 함수 노출
@@ -1795,3 +1824,4 @@ window.closeKidsFullscreen = closeKidsFullscreen;
 window.downloadKidsStorybookPptx = downloadKidsStorybookPptx;
 window.updateKidsZoneLanguage = updateKidsZoneLanguage;
 window.selectKidsCartoonVideo = selectKidsCartoonVideo;
+window.copyYoutubeShortsMeta = copyYoutubeShortsMeta;
