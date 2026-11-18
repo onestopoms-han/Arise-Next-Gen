@@ -4589,6 +4589,11 @@ body {
   .word-doc-sheet {
     padding: 0 !important;
   }
+  .prayer-pdf-landscape-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.45rem !important;
+  }
   @page {
     size: A4 portrait;
     margin: 10mm;

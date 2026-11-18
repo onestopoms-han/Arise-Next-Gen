@@ -6496,7 +6496,7 @@ function getPrayerGuidePdfHtml() {
         </div>
       </div>
 
-      <!-- Point 1 (2x2 Grid in Landscape) -->
+      <!-- Point 1 (2x2 Grid in Landscape View, 1-Column in Portrait Print) -->
       <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.9rem 1.15rem; margin-bottom: 0.85rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
         <div style="font-size: 1.08rem; font-weight: 800; color: #0f172a; margin-bottom: 0.2rem;">
           • 1. 원래만드신 내가 회복되게 해 주세요.
@@ -6504,7 +6504,7 @@ function getPrayerGuidePdfHtml() {
         <div style="font-size: 1.08rem; font-weight: 800; color: #0284c7; font-style: normal; margin-bottom: 0.65rem;">
           • 1. Please Restore Me to the Person You Originally Created Me to Be.
         </div>
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.55rem;">
+        <div class="prayer-pdf-landscape-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.55rem;">
           <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.5rem 0.75rem;">
             <div style="font-size: 0.98rem; font-weight: 800; color: #0f172a;">1) 하나님을 닮은 나</div>
             <div style="font-size: 0.98rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.1rem;">1) Me, created in the image of God.</div>
@@ -6524,8 +6524,8 @@ function getPrayerGuidePdfHtml() {
         </div>
       </div>
 
-      <!-- Point 2 & Point 3 Side-by-Side in A4 Landscape -->
-      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; margin-bottom: 0.85rem;">
+      <!-- Point 2 & Point 3 Side-by-Side in Landscape View, 1-Column in Portrait Print -->
+      <div class="prayer-pdf-landscape-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; margin-bottom: 0.85rem;">
         <!-- Point 2 -->
         <div style="background: #ffffff; border: 1px solid #fef3c7; border-radius: 10px; padding: 0.9rem 1.1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
           <div style="font-size: 1.02rem; font-weight: 800; color: #78350f; margin-bottom: 0.25rem; line-height: 1.45;">
@@ -6781,7 +6781,7 @@ function printPrayerPdfDocument() {
     pageStyle.id = 'dynamicPrintPageStyle';
     document.head.appendChild(pageStyle);
   }
-  pageStyle.innerHTML = '@page { size: A4 landscape !important; margin: 10mm 12mm !important; }';
+  pageStyle.innerHTML = '@page { size: A4 portrait !important; margin: 10mm 12mm !important; }';
   setTimeout(() => {
     window.print();
   }, 100);
