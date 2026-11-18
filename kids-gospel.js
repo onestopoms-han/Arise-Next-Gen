@@ -1688,14 +1688,15 @@ function selectKidsCartoonVideo(videoKey) {
   const btnOriginalKo = document.getElementById('btnVidOriginalKo');
   const btnSinBi = document.getElementById('btnVidSinBi');
   const btnSinKo = document.getElementById('btnVidSinKo');
-  const btnFull = document.getElementById('btnVidFullStory');
+  const btnFullBi = document.getElementById('btnVidFullStoryBi');
+  const btnFullKo = document.getElementById('btnVidFullStoryKo');
 
   if (!player || !source) return;
 
   const activeStyle = 'background: linear-gradient(135deg, #0ea5e9, #2563eb); color: #fff; font-weight: 800; border: 1px solid #38bdf8; border-radius: 999px; padding: 0.5rem 1.05rem;';
   const inactiveStyle = 'background: rgba(15, 23, 42, 0.85); color: #e2e8f0; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 999px; padding: 0.5rem 1.05rem;';
 
-  [btnProtoBi, btnProtoKo, btnOriginalBi, btnOriginalKo, btnSinBi, btnSinKo, btnFull].forEach(btn => {
+  [btnProtoBi, btnProtoKo, btnOriginalBi, btnOriginalKo, btnSinBi, btnSinKo, btnFullBi, btnFullKo].forEach(btn => {
     if (btn) {
       btn.classList.remove('active');
       btn.setAttribute('style', inactiveStyle);
@@ -1774,13 +1775,29 @@ function selectKidsCartoonVideo(videoKey) {
     if (descText) {
       descText.innerHTML = '🇰🇷 <strong>[11월 말씀] 원죄 (창세기 3장 문제) — 만화로 보는 말씀요약 (한국어 성우 내레이션 + 한/영 1:1 자막)</strong> · 약 1분 00초 (1280x720 HD)';
     }
-  } else {
-    if (btnFull) { btnFull.classList.add('active'); btnFull.setAttribute('style', activeStyle); }
+  } else if (videoKey === 'full_story_ko') {
+    if (btnFullKo) { btnFullKo.classList.add('active'); btnFullKo.setAttribute('style', activeStyle); }
     player.poster = 'assets/kids_gospel_1.jpg';
-    source.src = 'assets/kids_gospel_animation.mp4';
-    player.src = 'assets/kids_gospel_animation.mp4';
+    source.src = 'assets/storybook_full_cartoon_ko.mp4';
+    player.src = 'assets/storybook_full_cartoon_ko.mp4';
+    if (dlKo) { dlKo.href = 'assets/storybook_full_cartoon_ko.mp4'; dlKo.setAttribute('download', '복음동화7장_하나님의심히큰기쁨원래인간_한국어성우_만화영상.mp4'); }
+    if (dlBi) { dlBi.href = 'assets/storybook_full_cartoon.mp4'; dlBi.setAttribute('download', '복음동화7장_하나님의심히큰기쁨원래인간_한영성우_만화영상.mp4'); }
+    if (shKo) { shKo.href = 'assets/shorts_storybook_full_ko.mp4'; shKo.setAttribute('download', '유튜브쇼츠_4편_하나님의심히큰기쁨원래인간_한국어성우_Shorts.mp4'); }
+    if (shBi) { shBi.href = 'assets/shorts_storybook_full.mp4'; shBi.setAttribute('download', '유튜브쇼츠_4편_하나님의심히큰기쁨원래인간_한영성우_Shorts.mp4'); }
     if (descText) {
-      descText.innerHTML = '🎵 <strong>BGM 찬양:</strong> 하나님의 은혜 (Only By Grace) · 5단계 풀스토리 영상 (1280x720 HD)';
+      descText.innerHTML = '🇰🇷 <strong>[복음동화 7장 완본] 하나님의 심히 큰 기쁨, 원래 인간과 피의 언약 (한국어 성우 내레이션 + 한/영 1:1 자막)</strong> (1280x720 HD)';
+    }
+  } else {
+    if (btnFullBi) { btnFullBi.classList.add('active'); btnFullBi.setAttribute('style', activeStyle); }
+    player.poster = 'assets/kids_gospel_1.jpg';
+    source.src = 'assets/storybook_full_cartoon.mp4';
+    player.src = 'assets/storybook_full_cartoon.mp4';
+    if (dlKo) { dlKo.href = 'assets/storybook_full_cartoon_ko.mp4'; dlKo.setAttribute('download', '복음동화7장_하나님의심히큰기쁨원래인간_한국어성우_만화영상.mp4'); }
+    if (dlBi) { dlBi.href = 'assets/storybook_full_cartoon.mp4'; dlBi.setAttribute('download', '복음동화7장_하나님의심히큰기쁨원래인간_한영성우_만화영상.mp4'); }
+    if (shKo) { shKo.href = 'assets/shorts_storybook_full_ko.mp4'; shKo.setAttribute('download', '유튜브쇼츠_4편_하나님의심히큰기쁨원래인간_한국어성우_Shorts.mp4'); }
+    if (shBi) { shBi.href = 'assets/shorts_storybook_full.mp4'; shBi.setAttribute('download', '유튜브쇼츠_4편_하나님의심히큰기쁨원래인간_한영성우_Shorts.mp4'); }
+    if (descText) {
+      descText.innerHTML = '🌍 <strong>[복음동화 7장 완본] 하나님의 심히 큰 기쁨, 원래 인간과 피의 언약 (한·영 이중언어 성우 내레이션 + 한/영 1:1 자막)</strong> (1280x720 HD)';
     }
   }
 
@@ -1790,9 +1807,10 @@ function selectKidsCartoonVideo(videoKey) {
 
 function copyYoutubeShortsMeta(epKey) {
   const metaMap = {
-    original_me: `[유튜브 쇼츠 제목]\n원래인간 — 하나님이 만드신 원래의 나 (Original Blessing | 창세기 1:27-28) #Shorts #후대복음만화\n\n[유튜브 쇼츠 설명]\n🕊️ 어라이즈 넥스트젠 (Arise Next-Gen) 후대 복음 만화 1편: 원래인간 (Original Blessing)\n📖 본문: 창세기 1:27-28 (Genesis 1:27-28)\n\n1. 하나님이 만드신 원래의 나 (The Original Me Created by God)\n2. 하나님을 닮아서 안 되는 게 없었어요 (Because I resembled God, nothing was impossible)\n3. 모든 것이 아름답고 사랑스러웠고, 걱정도 두려움도 없이 모든 것이 만족스러웠어요 (Everything was beautiful, lovely, and satisfying without worry or fear)\n4. 문제가 와도 다 다스릴 수 있었어요 (Even if a problem came, I could rule over it all)\n\n🌍 공식 홈페이지: https://www.arisenextgen.org/\n#Shorts #원래인간 #OriginalBlessing #창세기1장27절 #어린이복음만화 #후대복음 #AriseNextGen #GospelCartoon`,
-    original_sin: `[유튜브 쇼츠 제목]\n원죄 — 왜 모든 사람에게 문제가 찾아왔을까요? (Original Sin | 창세기 3:1-14) #Shorts #후대복음만화\n\n[유튜브 쇼츠 설명]\n🕊️ 어라이즈 넥스트젠 (Arise Next-Gen) 후대 복음 만화 2편: 원죄 — 창세기 3장 문제 (Original Sin)\n📖 본문: 창세기 3:1-14 (Genesis 3:1-14)\n\n1. 하나님 말씀을 버리고 사탄에게 속아 하나님을 떠나면서 죄와 사탄의 지배 아래 놓이게 되었어요.\n2. 영적인 눈은 닫히고 수치심에 무화과나무 잎으로 자신을 포장하기 시작했어요.\n3. 죄의식과 두려움에 떨며 서로를 원망하고 핑계 대는 절대절망 상태가 되었어요.\n4. 그래서 우리 후대와 모든 민족에게는 오직 예수 그리스도의 복음이 꼭 필요해요!\n\n🌍 공식 홈페이지: https://www.arisenextgen.org/\n#Shorts #원죄 #OriginalSin #창세기3장 #절대절망 #오직그리스도 #어린이복음만화 #AriseNextGen`,
-    proto_gospel: `[유튜브 쇼츠 제목]\n원시복음 — 여인의 후손과 가죽옷 (The Original Gospel | 창세기 3:15, 21) #Shorts #후대복음만화\n\n[유튜브 쇼츠 설명]\n🕊️ 어라이즈 넥스트젠 (Arise Next-Gen) 후대 복음 만화 3편: 원시복음 — 여인의 후손 (The Original Gospel)\n📖 본문: 창세기 3:15, 21 (Genesis 3:15, 21)\n\n1. 아담의 후손은 원죄가 있어 절대절망에서 스스로 빠져나올 수 없어요.\n2. 동정녀 마리아를 통해 여인의 후손으로 오셔서 십자가에서 피 흘려 죽으시고 부활하사 사탄의 머리를 깨뜨리신 분은 오직 예수 그리스도 한 분뿐이에요! (창 3:15)\n3. 어린양 예수님이 십자가 피의 가죽옷으로 우리 죄의 수치를 완전히 가려주셨어요. (창 3:21)\n4. 오직 예수 그리스도를 통해서만 하나님을 만날 수 있어요! (요 14:6)\n\n🌍 공식 홈페이지: https://www.arisenextgen.org/\n#Shorts #원시복음 # 여인의후손 #가죽옷 #창세기3장15절 #예수그리스도 #OriginalGospel #AriseNextGen`
+    original_me: `[유튜브 쇼츠 제목]\n하나님이 처음 만드신 나는 어떤 모습이었을까? 🌱 원래인간 (Original Blessing | 창1:27-28) #Shorts #복음만화\n\n[유튜브 쇼츠 설명]\n🕊️ 어라이즈 넥스트젠 (Arise Next-Gen) 후대 복음 만화 1편: 원래인간 (Original Blessing)\n📖 본문: 창세기 1:27-28 (Genesis 1:27-28)\n\n1. 하나님이 만드신 원래의 나 (The Original Me Created by God)\n2. 하나님을 닮아서 안 되는 게 없었어요 (Because I resembled God, nothing was impossible)\n3. 모든 것이 아름답고 사랑스러웠고, 걱정도 두려움도 없이 모든 것이 만족스러웠어요 (Everything was beautiful, lovely, and satisfying without worry or fear)\n4. 문제가 와도 다 다스릴 수 있었어요 (Even if a problem came, I could rule over it all)\n\n🌍 공식 홈페이지: https://www.arisenextgen.org/\n#Shorts #원래인간 #OriginalBlessing #창세기1장27절 #어린이복음만화 #후대복음 #AriseNextGen #GospelCartoon`,
+    original_sin: `[유튜브 쇼츠 제목]\n왜 세상 모든 사람에게 문제가 찾아왔을까? 🍎 원죄 (Original Sin | 창세기 3장 문제) #Shorts #복음만화\n\n[유튜브 쇼츠 설명]\n🕊️ 어라이즈 넥스트젠 (Arise Next-Gen) 후대 복음 만화 2편: 원죄 — 창세기 3장 문제 (Original Sin)\n📖 본문: 창세기 3:1-14 (Genesis 3:1-14)\n\n1. 하나님 말씀을 버리고 사탄에게 속아 하나님을 떠나면서 죄와 사탄의 지배 아래 놓이게 되었어요.\n2. 영적인 눈은 닫히고 수치심에 무화과나무 잎으로 자신을 포장하기 시작했어요.\n3. 죄의식과 두려움에 떨며 서로를 원망하고 핑계 대는 절대절망 상태가 되었어요.\n4. 그래서 우리 후대와 모든 민족에게는 오직 예수 그리스도의 복음이 꼭 필요해요!\n\n🌍 공식 홈페이지: https://www.arisenextgen.org/\n#Shorts #원죄 #OriginalSin #창세기3장 #절대절망 #오직그리스도 #어린이복음만화 #AriseNextGen`,
+    proto_gospel: `[유튜브 쇼츠 제목]\n절대절망을 깨뜨리신 유일한 구원의 길! ✝️ 원시복음 여인의 후손 (창3:15, 21 | Original Gospel) #Shorts\n\n[유튜브 쇼츠 설명]\n🕊️ 어라이즈 넥스트젠 (Arise Next-Gen) 후대 복음 만화 3편: 원시복음 — 여인의 후손 (The Original Gospel)\n📖 본문: 창세기 3:15, 21 (Genesis 3:15, 21)\n\n1. 아담의 후손은 원죄가 있어 절대절망에서 스스로 빠져나올 수 없어요.\n2. 동정녀 마리아를 통해 여인의 후손으로 오셔서 십자가에서 피 흘려 죽으시고 부활하사 사탄의 머리를 깨뜨리신 분은 오직 예수 그리스도 한 분뿐이에요! (창 3:15)\n3. 어린양 예수님이 십자가 피의 가죽옷으로 우리 죄의 수치를 완전히 가려주셨어요. (창 3:21)\n4. 오직 예수 그리스도를 통해서만 하나님을 만날 수 있어요! (요 14:6)\n\n🌍 공식 홈페이지: https://www.arisenextgen.org/\n#Shorts #원시복음 #여인의후손 #가죽옷 #창세기3장15절 #예수그리스도 #OriginalGospel #AriseNextGen`,
+    storybook_full: `[유튜브 쇼츠 제목]\n하나님의 심히 큰 기쁨, 원래 인간과 피의 언약 🌟 창세기 1~3장 복음동화 7장 완본 (God's Exceeding Joy) #Shorts\n\n[유튜브 쇼츠 설명]\n🕊️ 어라이즈 넥스트젠 (Arise Next-Gen) 복음 동화 7장 풀스토리: 하나님의 심히 큰 기쁨, 원래 인간과 피의 언약 (God's Exceeding Joy: The Original Human & The Covenant of Blood)\n📖 본문: 창세기 1:27~3:21, 요한복음 19:30, 1:12\n\n1장. 하나님의 심히 큰 기쁨, 원래 인간 (창 1:27, 31)\n2장. 사랑의 안전벨트, 생명의 언약 (창 1:28, 2:17)\n3장. 약속을 깨뜨린 거짓말쟁이 뱀 (창 3:1-6)\n4장. 숨음과 핑계 (창 3:7-13)\n5장. 뱀의 머리를 깨뜨릴 살 길, 여자의 후손 (창 3:15)\n6장. 피의 언약, 따뜻한 가죽옷을 입히시다 (창 3:21)\n7장. 원래 축복을 회복한 믿음의 후대 (요 19:30, 1:12)\n\n🌍 공식 홈페이지 & 무료 말씀·만화 자료실: https://www.arisenextgen.org/\n#Shorts #하나님의심히큰기쁨 #원래인간 #여자의후손 #가죽옷 #피의언약 #어린이복음동화 #성경만화 #영어성경동화 #AriseNextGen #GospelStorybook`
   };
   const text = metaMap[epKey] || metaMap.proto_gospel;
   if (navigator.clipboard && navigator.clipboard.writeText) {
