@@ -499,6 +499,20 @@
           <p class="step-desc" id="routineDesc3" data-i18n="routine_step3_desc">
             ① 메시지 기도 ② 나를 위한 기도 ③ 모든 민족을 위한 기도 ④ 후대를 위한 기도. 각자의 모국어로 함께 기도합시다!
           </p>
+
+          <!-- Prayer Guide Presenter Quick Launch Group -->
+          <div style="display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.85rem;">
+            <button type="button" class="btn btn-xs btn-primary" onclick="openPrayerGuideModal()" style="background: linear-gradient(135deg, #0284c7, #2563eb); border-color: #0284c7; font-weight: 700; padding: 0.35rem 0.75rem; font-size: 0.82rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);" title="줌 화면 공유용 16:9 와이드 공동 기도문 PPT 슬라이드 발표 화면을 띄웁니다">
+              <span>📽️ 기도문 PPT 띄우기 (Zoom)</span>
+            </button>
+            <button type="button" class="btn btn-xs btn-outline" onclick="openPrayerPdfModal()" style="border-color: #38bdf8; color: #38bdf8; font-weight: 600; padding: 0.35rem 0.7rem; font-size: 0.82rem; border-radius: 6px;" title="공동 기도문을 깔끔한 PDF로 보기 및 인쇄합니다">
+              <span>📄 PDF 보기/인쇄</span>
+            </button>
+            <button type="button" class="btn btn-xs btn-outline" onclick="downloadPrayerGuidePptx()" style="border-color: #f59e0b; color: #fbbf24; font-weight: 600; padding: 0.35rem 0.7rem; font-size: 0.82rem; border-radius: 6px;" title="공동 기도문을 파워포인트(.pptx) 파일로 다운로드합니다">
+              <span>📊 PPTX 다운로드</span>
+            </button>
+          </div>
+
           <div class="routine-expand-wrapper">
             <button type="button" class="btn-toggle-routine" onclick="toggleRoutineDetail(3)">
               <span id="routineBtnText3" data-i18n="routine_btn_text3">이번 모임 집중 기도제목 보기</span>
@@ -603,13 +617,17 @@
             </p>
           </div>
           <div class="prayer-guide-actions">
-            <button class="btn btn-primary btn-sm" onclick="openPrayerGuideModal()" title="기도문 슬라이드 발표 모드 열기">
-              <span class="btn-icon">📖</span>
-              <span data-i18n="btn_prayer_presentation">기도문 전문 발표 모드</span>
+            <button class="btn btn-primary btn-sm" onclick="openPrayerGuideModal()" title="줌 화면공유용 16:9 기도문 PPT 가로 슬라이드 전체화면 열기">
+              <span class="btn-icon">📽️</span>
+              <span data-i18n="btn_prayer_presentation">전체화면 가로 슬라이드 (Zoom)</span>
             </button>
-            <button class="btn btn-outline btn-sm" onclick="openPrayerPdfModal()" title="기도문 4페이지 인쇄 및 PDF 저장">
+            <button class="btn btn-outline btn-sm" onclick="openPrayerPdfModal()" title="기도문 가로 PDF 보기 및 세로 인쇄">
               <span class="btn-icon">🖨️</span>
               <span>인쇄 / PDF 보기</span>
+            </button>
+            <button class="btn btn-outline btn-sm" onclick="downloadPrayerGuidePptx()" style="border-color: #f59e0b; color: #fbbf24; font-weight: 700;" title="공동 기도문 파워포인트(.pptx) 가로 슬라이드 다운로드">
+              <span class="btn-icon">📊</span>
+              <span>PPTX 다운로드</span>
             </button>
             <button class="btn btn-outline btn-sm" onclick="copyPrayerGuideToClipboard()" title="줌 채팅창에 붙여넣기 할 수 있도록 복사">
               <span class="btn-icon">📋</span>
@@ -618,111 +636,139 @@
           </div>
         </div>
 
-        <!-- 4 Pillars Grid -->
-        <div class="prayer-guide-grid">
-          <!-- Pillar 1: Message Prayer -->
-          <div class="prayer-pillar-card highlight-pillar">
-            <div class="pillar-header">
-              <div class="pillar-top-meta">
-                <span class="pillar-num">01</span>
-                <span class="pillar-category-tag" data-i18n="pillar_msg_cat">금주 강단 메세지</span>
+        <!-- ======================================================= -->
+        <!-- 📽️ Interactive 16:9 Widescreen Horizontal Slide Viewer (한눈에 보는 가로 슬라이드) -->
+        <!-- ======================================================= -->
+        <div id="inlinePrayerSlideViewer" style="margin-bottom: 2rem; background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(8, 12, 24, 0.98)); border: 1.5px solid rgba(56, 189, 248, 0.35); border-radius: 18px; box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45); overflow: hidden;">
+          <!-- Top Slide Tab Bar -->
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; padding: 0.85rem 1.25rem; background: rgba(2, 6, 23, 0.75); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+            <div id="inlinePrayerSlideTabs" style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.4rem;">
+              <!-- Populated dynamically by setPrayerSlide() -->
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.45rem;">
+              <button type="button" class="btn btn-outline btn-sm" onclick="changePrayerSlide(-1)" style="padding: 0.32rem 0.7rem; font-weight: 800;">◀ 이전</button>
+              <span id="inlinePrayerSlideCounter" style="font-size: 0.88rem; font-weight: 800; color: #38bdf8; min-width: 48px; text-align: center;">1 / 8</span>
+              <button type="button" class="btn btn-outline btn-sm" onclick="changePrayerSlide(1)" style="padding: 0.32rem 0.7rem; font-weight: 800;">다음 ▶</button>
+              <button type="button" class="btn btn-primary btn-sm" onclick="openPrayerGuideModal()" style="padding: 0.32rem 0.8rem; font-weight: 800;" title="16:9 전체화면 슬라이드 발표 모드 열기">🖥️ 크게 보기</button>
+            </div>
+          </div>
+
+          <!-- Horizontal Slide Stage -->
+          <div style="position: relative; padding: 1.4rem 1.6rem; min-height: 410px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div id="inlinePrayerSlideContent">
+              <!-- Populated dynamically by setPrayerSlide() -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ======================================================= -->
+        <!-- 📋 가로 한눈에 전체 보기 보드 (Row 1: 1. 메시지 기도 가로 3단 / Row 2: 2~4대 중보기도 가로 3단) -->
+        <!-- ======================================================= -->
+        <div style="display: flex; flex-direction: column; gap: 1.35rem;">
+          <!-- Row 1: Pillar 1 (1. 메시지 기도 — 가로 3단 한눈에 보기) -->
+          <div class="prayer-pillar-card highlight-pillar" style="width: 100%;">
+            <div class="pillar-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; padding-bottom: 0.9rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(56, 189, 248, 0.25);">
+              <div>
+                <div class="pillar-top-meta" style="margin-bottom: 0.25rem;">
+                  <span class="pillar-num">01</span>
+                  <span class="pillar-category-tag" data-i18n="pillar_msg_cat">금주 강단 메세지 (가로 3단 한눈에 보기)</span>
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 0.65rem; flex-wrap: wrap;">
+                  <h4 class="pillar-title" data-i18n="pillar_msg_title" style="margin: 0; font-size: 1.28rem;">1. 메시지 기도</h4>
+                  <span class="pillar-title-en" data-i18n="pillar_msg_sub" style="font-size: 1.28rem; font-weight: 800; color: #38bdf8; font-style: normal;">1. Message Prayer</span>
+                </div>
               </div>
-              <h4 class="pillar-title" data-i18n="pillar_msg_title">1. 메시지 기도</h4>
-              <span class="pillar-title-en" data-i18n="pillar_msg_sub">1. Message Prayer</span>
-              <div class="pillar-quote-box" style="margin-top: 0.6rem; padding: 0.5rem 0.8rem; background: rgba(56, 189, 248, 0.12); border-left: 3px solid #38bdf8; border-radius: 6px;">
-                <div style="font-weight: 800; font-size: 0.95rem; color: #38bdf8;">나, 후대, 모든 민족</div>
-                <div style="font-weight: 800; font-size: 0.95rem; color: #7dd3fc; font-style: normal; margin-top: 0.2rem;">Myself, the Next Generation, and All Nations</div>
+              <div class="pillar-quote-box" style="margin: 0; padding: 0.5rem 1rem; background: rgba(56, 189, 248, 0.14); border-left: 4px solid #38bdf8; border-radius: 8px;">
+                <div style="font-weight: 800; font-size: 0.98rem; color: #38bdf8;">나, 후대, 모든 민족</div>
+                <div style="font-weight: 800; font-size: 0.98rem; color: #7dd3fc; font-style: normal; margin-top: 0.15rem;">Myself, the Next Generation, and All Nations</div>
               </div>
             </div>
-            <div class="pillar-bullets">
+
+            <!-- Horizontal 3-Column Grid for Message Prayer 1, 2, 3 -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1rem; align-items: stretch;">
               <!-- Section 1 -->
-              <div class="prayer-bullet-item" style="border-bottom: 1px dashed rgba(255, 255, 255, 0.12); padding-bottom: 0.85rem; margin-bottom: 0.85rem;">
-                <span class="bullet-dot" style="margin-top: 0.35rem;"></span>
-                <div class="bullet-text-box">
-                  <div class="bullet-kr" style="font-size: 0.98rem; font-weight: 800; color: #ffffff; margin-bottom: 0.3rem;">
-                    1. 원래만드신 내가 회복되게 해 주세요.
+              <div style="background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(56, 189, 248, 0.3); border-top: 3px solid #38bdf8; border-radius: 12px; padding: 1rem 1.1rem; cursor: pointer;" onclick="setPrayerSlide(3)" title="클릭하면 1-1 슬라이드로 이동">
+                <div class="bullet-kr" style="font-size: 0.98rem; font-weight: 800; color: #ffffff; margin-bottom: 0.3rem; line-height: 1.4;">
+                  1. 원래만드신 내가 회복되게 해 주세요.
+                </div>
+                <div class="bullet-en" style="font-size: 0.98rem; font-weight: 800; color: #38bdf8; font-style: normal; margin-bottom: 0.65rem; line-height: 1.4;">
+                  1. Please Restore Me to the Person You Originally Created Me to Be.
+                </div>
+                <div style="padding-left: 0.6rem; display: flex; flex-direction: column; gap: 0.38rem; border-left: 2px solid rgba(56, 189, 248, 0.35);">
+                  <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0; line-height: 1.4;">
+                    1) 하나님을 닮은 나<br><span style="font-size: 0.9rem; font-weight: 700; color: #7dd3fc; font-style: normal;">1) Me, created in the image of God.</span>
                   </div>
-                  <div class="bullet-en" style="font-size: 0.98rem; font-weight: 800; color: #38bdf8; font-style: normal; margin-bottom: 0.5rem;">
-                    1. Please Restore Me to the Person You Originally Created Me to Be.
+                  <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0; line-height: 1.4;">
+                    2) 안 되는게 없던 나<br><span style="font-size: 0.9rem; font-weight: 700; color: #7dd3fc; font-style: normal;">2) Me, for whom nothing was impossible.</span>
                   </div>
-                  <div style="padding-left: 0.6rem; display: flex; flex-direction: column; gap: 0.35rem; border-left: 2px solid rgba(56, 189, 248, 0.3);">
-                    <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0;">
-                      1) 하나님을 닮은 나 <span style="font-size: 0.9rem; font-weight: 700; color: #94a3b8; font-style: normal;">(1) Me, created in the image of God.)</span>
-                    </div>
-                    <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0;">
-                      2) 안 되는게 없던 나 <span style="font-size: 0.9rem; font-weight: 700; color: #94a3b8; font-style: normal;">(2) Me, for whom nothing was impossible.)</span>
-                    </div>
-                    <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0;">
-                      3) 모든것이 만족되던 나 <span style="font-size: 0.9rem; font-weight: 700; color: #94a3b8; font-style: normal;">(3) Me, who was satisfied with everything.)</span>
-                    </div>
-                    <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0;">
-                      4) 모든것이 다스려지던 나 <span style="font-size: 0.9rem; font-weight: 700; color: #94a3b8; font-style: normal;">(4) Me, who had dominion over everything.)</span>
-                    </div>
+                  <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0; line-height: 1.4;">
+                    3) 모든것이 만족되던 나<br><span style="font-size: 0.9rem; font-weight: 700; color: #7dd3fc; font-style: normal;">3) Me, who was satisfied with everything.</span>
+                  </div>
+                  <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0; line-height: 1.4;">
+                    4) 모든것이 다스려지던 나<br><span style="font-size: 0.9rem; font-weight: 700; color: #7dd3fc; font-style: normal;">4) Me, who had dominion over everything.</span>
                   </div>
                 </div>
               </div>
+
               <!-- Section 2 -->
-              <div class="prayer-bullet-item" style="border-bottom: 1px dashed rgba(255, 255, 255, 0.12); padding-bottom: 0.85rem; margin-bottom: 0.85rem;">
-                <span class="bullet-dot" style="margin-top: 0.35rem;"></span>
-                <div class="bullet-text-box">
-                  <div class="bullet-kr" style="font-size: 0.98rem; font-weight: 800; color: #ffffff; margin-bottom: 0.3rem;">
-                    2. 원죄-절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살길없는 나를 발견하게 해 주세요.
+              <div style="background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(245, 158, 11, 0.3); border-top: 3px solid #f59e0b; border-radius: 12px; padding: 1rem 1.1rem; cursor: pointer;" onclick="setPrayerSlide(4)" title="클릭하면 1-2 슬라이드로 이동">
+                <div class="bullet-kr" style="font-size: 0.98rem; font-weight: 800; color: #ffffff; margin-bottom: 0.3rem; line-height: 1.4;">
+                  2. 원죄-절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살길없는 나를 발견하게 해 주세요.
+                </div>
+                <div class="bullet-en" style="font-size: 0.98rem; font-weight: 800; color: #fbbf24; font-style: normal; margin-bottom: 0.65rem; line-height: 1.4;">
+                  2. Original Sin – Please Help Me Naturally Accept my State of Absolute Despair and Discover That I Have No Way to Live Except Through the Gospel.
+                </div>
+                <div style="padding-left: 0.6rem; display: flex; flex-direction: column; gap: 0.38rem; border-left: 2px solid rgba(245, 158, 11, 0.4);">
+                  <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0; line-height: 1.4;">
+                    1) 모든것이 안되는 나<br><span style="font-size: 0.9rem; font-weight: 700; color: #fde68a; font-style: normal;">1) Me, for whom nothing works out.</span>
                   </div>
-                  <div class="bullet-en" style="font-size: 0.98rem; font-weight: 800; color: #38bdf8; font-style: normal; margin-bottom: 0.5rem;">
-                    2. Original Sin – Please Help Me Naturally Accept my State of Absolute Despair and Discover That I Have No Way to Live Except Through the Gospel.
+                  <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0; line-height: 1.4;">
+                    2) 문제속에 살수 밖에 없는 나<br><span style="font-size: 0.9rem; font-weight: 700; color: #fde68a; font-style: normal;">2) Me, who cannot help but live surrounded by problems.</span>
                   </div>
-                  <div style="padding-left: 0.6rem; display: flex; flex-direction: column; gap: 0.35rem; border-left: 2px solid rgba(245, 158, 11, 0.4);">
-                    <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0;">
-                      1) 모든것이 안되는 나 <span style="font-size: 0.9rem; font-weight: 700; color: #94a3b8; font-style: normal;">(1) Me, for whom nothing works out.)</span>
-                    </div>
-                    <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0;">
-                      2) 문제속에 살수 밖에 없는 나 <span style="font-size: 0.9rem; font-weight: 700; color: #94a3b8; font-style: normal;">(2) Me, who cannot help but live surrounded by problems.)</span>
-                    </div>
-                    <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0;">
-                      3) 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제<br>
-                      <span style="font-size: 0.9rem; font-weight: 700; color: #94a3b8; font-style: normal;">(3) Spiritual problems, idolatry problems, mental problems, physical problems, problems concerning the afterlife, and problems of the next generation.)</span>
-                    </div>
+                  <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0; line-height: 1.4;">
+                    3) 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제<br>
+                    <span style="font-size: 0.9rem; font-weight: 700; color: #fde68a; font-style: normal;">3) Spiritual problems, idolatry problems, mental problems, physical problems, problems concerning the afterlife, and problems of the next generation.</span>
                   </div>
                 </div>
               </div>
+
               <!-- Section 3 -->
-              <div class="prayer-bullet-item">
-                <span class="bullet-dot" style="margin-top: 0.35rem;"></span>
-                <div class="bullet-text-box">
-                  <div class="bullet-kr" style="font-size: 0.98rem; font-weight: 800; color: #ffffff; margin-bottom: 0.3rem;">
-                    3. 절대절망을 깨뜨리신 유일한 길-여인의 후손
+              <div style="background: rgba(15, 23, 42, 0.65); border: 1px solid rgba(52, 211, 153, 0.35); border-top: 3px solid #34d399; border-radius: 12px; padding: 1rem 1.1rem; cursor: pointer;" onclick="setPrayerSlide(5)" title="클릭하면 1-3 슬라이드로 이동">
+                <div class="bullet-kr" style="font-size: 0.98rem; font-weight: 800; color: #ffffff; margin-bottom: 0.3rem; line-height: 1.4;">
+                  3. 절대절망을 깨뜨리신 유일한 길-여인의 후손
+                </div>
+                <div class="bullet-en" style="font-size: 0.98rem; font-weight: 800; color: #34d399; font-style: normal; margin-bottom: 0.65rem; line-height: 1.4;">
+                  3. The Only Way That Destroyed Absolute Despair – The Offspring of the Woman
+                </div>
+                <div style="padding-left: 0.6rem; display: flex; flex-direction: column; gap: 0.38rem; border-left: 2px solid rgba(52, 211, 153, 0.45);">
+                  <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0; line-height: 1.4;">
+                    1) 그 누구도 아담의 후손으로는 하나님 만나게 할수 없어요<br>
+                    <span style="font-size: 0.9rem; font-weight: 700; color: #6ee7b7; font-style: normal;">1) No descendant of Adam can ever bring anyone to God.</span>
                   </div>
-                  <div class="bullet-en" style="font-size: 0.98rem; font-weight: 800; color: #34d399; font-style: normal; margin-bottom: 0.5rem;">
-                    3. The Only Way That Destroyed Absolute Despair – The Offspring of the Woman
+                  <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0; line-height: 1.4;">
+                    2) 그리스도만이 하나님 만나고 죄와 저주 사탄에서 빠져나오는 길입니다.<br>
+                    <span style="font-size: 0.9rem; font-weight: 700; color: #6ee7b7; font-style: normal;">2) Christ alone is the way to meet God and escape from sin, curses, and Satan.</span>
                   </div>
-                  <div style="padding-left: 0.6rem; display: flex; flex-direction: column; gap: 0.35rem; border-left: 2px solid rgba(52, 211, 153, 0.45);">
-                    <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0;">
-                      1) 그 누구도 아담의 후손으로는 하나님 만나게 할수 없어요<br>
-                      <span style="font-size: 0.9rem; font-weight: 700; color: #94a3b8; font-style: normal;">(1) No descendant of Adam can ever bring anyone to God.)</span>
-                    </div>
-                    <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0;">
-                      2) 그리스도만이 하나님 만나고 죄와 저주 사탄에서 빠져나오는 길입니다.<br>
-                      <span style="font-size: 0.9rem; font-weight: 700; color: #94a3b8; font-style: normal;">(2) Christ alone is the way to meet God and escape from sin, curses, and Satan.)</span>
-                    </div>
-                    <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0;">
-                      3) 이 그리스도 능력이 내 삶에 나타나게 하옵소서<br>
-                      <span style="font-size: 0.9rem; font-weight: 700; color: #94a3b8; font-style: normal;">(3) May the power of this Christ be manifested in my life.)</span>
-                    </div>
+                  <div style="font-size: 0.9rem; font-weight: 700; color: #e2e8f0; line-height: 1.4;">
+                    3) 이 그리스도 능력이 내 삶에 나타나게 하옵소서<br>
+                    <span style="font-size: 0.9rem; font-weight: 700; color: #6ee7b7; font-style: normal;">3) May the power of this Christ be manifested in my life.</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Row 2: Pillars 2, 3, 4 (2~4대 중보기도 가로 3단 한눈에 보기) -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.15rem; align-items: stretch;">
           <!-- Pillar 2: Myself (RESTORED) -->
-          <div class="prayer-pillar-card">
+          <div class="prayer-pillar-card" style="cursor: pointer;" onclick="setPrayerSlide(6)" title="클릭하면 2. 나를 위한 기도 슬라이드로 이동">
             <div class="pillar-header">
               <div class="pillar-top-meta">
                 <span class="pillar-num">02</span>
                 <span class="pillar-category-tag" data-i18n="pillar_1_cat">내면과 믿음의 기초</span>
               </div>
               <h4 class="pillar-title" data-i18n="pillar_1_title">2. 나를 위한 기도</h4>
-              <span class="pillar-title-en" data-i18n="pillar_1_sub">2. Prayer for Myself</span>
+              <span class="pillar-title-en" data-i18n="pillar_1_sub" style="font-style: normal; font-weight: 800;">2. Prayer for Myself</span>
               <div class="pillar-quote-box" style="margin-top: 0.6rem; padding: 0.5rem 0.8rem; background: rgba(56, 189, 248, 0.12); border-left: 3px solid #38bdf8; border-radius: 6px;">
                 <div style="font-weight: 800; font-size: 0.95rem; color: #38bdf8;">“내가 제일 중요하다”</div>
                 <div style="font-weight: 800; font-size: 0.95rem; color: #7dd3fc; font-style: normal; margin-top: 0.2rem;">“I must begin with myself.”</div>
@@ -754,14 +800,14 @@
           </div>
 
           <!-- Pillar 3: All Nations -->
-          <div class="prayer-pillar-card">
+          <div class="prayer-pillar-card" style="cursor: pointer;" onclick="setPrayerSlide(7)" title="클릭하면 3. 모든 민족을 위한 기도 슬라이드로 이동">
             <div class="pillar-header">
               <div class="pillar-top-meta">
                 <span class="pillar-num">03</span>
                 <span class="pillar-category-tag" data-i18n="pillar_2_cat">열방과 세계 현장</span>
               </div>
               <h4 class="pillar-title" data-i18n="pillar_2_title">3. 모든 민족을 위한 기도</h4>
-              <span class="pillar-title-en" data-i18n="pillar_2_sub">3. Prayer for All Nations</span>
+              <span class="pillar-title-en" data-i18n="pillar_2_sub" style="font-style: normal; font-weight: 800;">3. Prayer for All Nations</span>
             </div>
             <div class="pillar-bullets">
               <div class="prayer-bullet-item">
@@ -789,14 +835,14 @@
           </div>
 
           <!-- Pillar 4: Next Generation -->
-          <div class="prayer-pillar-card">
+          <div class="prayer-pillar-card" style="cursor: pointer;" onclick="setPrayerSlide(8)" title="클릭하면 4. 후대를 위한 기도 슬라이드로 이동">
             <div class="pillar-header">
               <div class="pillar-top-meta">
                 <span class="pillar-num">04</span>
                 <span class="pillar-category-tag" data-i18n="pillar_3_cat">다음 세대와 미래</span>
               </div>
               <h4 class="pillar-title" data-i18n="pillar_3_title">4. 후대를 위한 기도</h4>
-              <span class="pillar-title-en" data-i18n="pillar_3_sub">4. Prayer for the Next Generation</span>
+              <span class="pillar-title-en" data-i18n="pillar_3_sub" style="font-style: normal; font-weight: 800;">4. Prayer for the Next Generation</span>
             </div>
             <div class="pillar-bullets">
               <div class="prayer-bullet-item">
@@ -828,6 +874,7 @@
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -1845,217 +1892,51 @@
     </div>
   </div>
 
-  <!-- 5. Full Prayer Guide Presentation Modal (기도문.pdf 4개 슬라이드 공식 발표 뷰) -->
-  <div class="modal-overlay" id="prayerGuideModal" onclick="closeModalOnBackdrop(event, 'prayerGuideModal')">
-    <div class="modal-card modal-card-lg">
-      <div class="modal-header">
-        <h3 class="modal-title">📖 <span data-i18n="modal_guide_title">공식 기도문 (Let Us Pray Together)</span></h3>
-        <button class="modal-close" onclick="closeModal('prayerGuideModal')">&times;</button>
+  <!-- 5. Step 3: Official Prayer Guide Fullscreen 16:9 PPT Slide Presenter Modal -->
+  <div class="modal-overlay word-ppt-modal-overlay" id="prayerGuideModal">
+    <div class="word-ppt-container" id="prayerPptContainer">
+      <!-- Top Presenter Bar -->
+      <div class="word-ppt-top-bar">
+        <div class="word-ppt-brand">
+          <span class="ppt-badge">🕊️ 줌(Zoom) 화면공유 슬라이드</span>
+          <span class="ppt-title-text" id="prayerPptHeaderTitle">3단계: 공동 기도문 — 함께 기도합시다 (Let Us Pray Together)</span>
+        </div>
+        <div class="word-ppt-top-controls">
+          <button type="button" class="btn-ppt-ctrl" onclick="togglePrayerFullscreen()" title="전체화면 전환 (단축키: F)">
+            <span id="prayerPptFullscreenIcon">🖥️</span> <span data-i18n="kids_btn_fullscreen">전체화면</span>
+          </button>
+          <button type="button" class="btn-ppt-ctrl" onclick="openPrayerPdfModal()" title="공동 기도문을 PDF로 보기 및 인쇄">
+            <span>🖨️ 인쇄 / PDF 보기</span>
+          </button>
+          <button type="button" class="btn-ppt-ctrl" onclick="downloadPrayerGuidePptx()" title="공동 기도문 PowerPoint(.pptx) 파일 다운로드">
+            <span>📊 PPTX 다운로드</span>
+          </button>
+          <button type="button" class="btn-ppt-ctrl" onclick="copyPrayerGuideToClipboard()" title="줌 채팅용 전체 복사">
+            <span>📋 채팅 복사</span>
+          </button>
+          <button type="button" class="btn-ppt-close" onclick="closePrayerPresentationModal()" title="닫기 (단축키: ESC)">&times;</button>
+        </div>
       </div>
 
-      <div class="prayer-slide-container">
-        <!-- Slide 1: Message Prayer -->
-        <div class="prayer-slide-card active" id="prayerSlide1">
-          <div class="slide-badge-row">
-            <span class="slide-num-pill" data-i18n="slide_badge_msg">슬라이드 1 / 4 • 메시지 기도</span>
-            <span class="pillar-category-tag" data-i18n="pillar_msg_cat">금주 강단 메세지</span>
-          </div>
-          <div class="slide-title-area">
-            <div style="font-size: 1.1rem; font-weight: 800; color: #38bdf8; margin-bottom: 0.35rem;">
-              나, 후대, 모든 민족 • Myself, the Next Generation, and All Nations
-            </div>
-            <h2 class="slide-main-title" data-i18n="pillar_msg_title">1. 메시지 기도</h2>
-            <div class="slide-sub-title" data-i18n="pillar_msg_sub">1. Message Prayer</div>
-          </div>
-          <div class="slide-bullets" style="display: flex; flex-direction: column; gap: 0.9rem;">
-            <!-- Point 1 -->
-            <div style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 1rem 1.3rem;">
-              <div style="font-size: 1.12rem; font-weight: 800; color: #ffffff; margin-bottom: 0.25rem;">
-                1. 원래만드신 내가 회복되게 해 주세요.
-              </div>
-              <div style="font-size: 1.12rem; font-weight: 800; color: #38bdf8; font-style: normal; margin-bottom: 0.65rem;">
-                1. Please Restore Me to the Person You Originally Created Me to Be.
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 0.45rem; padding-left: 0.5rem;">
-                <div style="font-size: 1.0rem; font-weight: 700; color: #f1f5f9; line-height: 1.45;">
-                  1) 하나님을 닮은 나 • <span style="font-size: 1.0rem; font-weight: 700; color: #94a3b8; font-style: normal;">1) Me, created in the image of God.</span>
-                </div>
-                <div style="font-size: 1.0rem; font-weight: 700; color: #f1f5f9; line-height: 1.45;">
-                  2) 안 되는게 없던 나 • <span style="font-size: 1.0rem; font-weight: 700; color: #94a3b8; font-style: normal;">2) Me, for whom nothing was impossible.</span>
-                </div>
-                <div style="font-size: 1.0rem; font-weight: 700; color: #f1f5f9; line-height: 1.45;">
-                  3) 모든것이 만족되던 나 • <span style="font-size: 1.0rem; font-weight: 700; color: #94a3b8; font-style: normal;">3) Me, who was satisfied with everything.</span>
-                </div>
-                <div style="font-size: 1.0rem; font-weight: 700; color: #f1f5f9; line-height: 1.45;">
-                  4) 모든것이 다스려지던 나 • <span style="font-size: 1.0rem; font-weight: 700; color: #94a3b8; font-style: normal;">4) Me, who had dominion over everything.</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Point 2 -->
-            <div style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(245, 158, 11, 0.4); border-radius: 14px; padding: 1rem 1.3rem;">
-              <div style="font-size: 1.12rem; font-weight: 800; color: #ffffff; margin-bottom: 0.25rem;">
-                2. 원죄-절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살길없는 나를 발견하게 해 주세요.
-              </div>
-              <div style="font-size: 1.12rem; font-weight: 800; color: #fbbf24; font-style: normal; margin-bottom: 0.65rem;">
-                2. Original Sin – Please Help Me Naturally Accept my State of Absolute Despair and Discover That I Have No Way to Live Except Through the Gospel.
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 0.45rem; padding-left: 0.5rem;">
-                <div style="font-size: 1.0rem; font-weight: 700; color: #f1f5f9; line-height: 1.45;">
-                  1) 모든것이 안되는 나 • <span style="font-size: 1.0rem; font-weight: 700; color: #94a3b8; font-style: normal;">1) Me, for whom nothing works out.</span>
-                </div>
-                <div style="font-size: 1.0rem; font-weight: 700; color: #f1f5f9; line-height: 1.45;">
-                  2) 문제속에 살수 밖에 없는 나 • <span style="font-size: 1.0rem; font-weight: 700; color: #94a3b8; font-style: normal;">2) Me, who cannot help but live surrounded by problems.</span>
-                </div>
-                <div style="font-size: 1.0rem; font-weight: 700; color: #f1f5f9; line-height: 1.45;">
-                  3) 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제<br>
-                  <span style="font-size: 1.0rem; font-weight: 700; color: #94a3b8; font-style: normal;">3) Spiritual problems, idolatry problems, mental problems, physical problems, problems concerning the afterlife, and problems of the next generation.</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Point 3 -->
-            <div style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(52, 211, 153, 0.45); border-radius: 14px; padding: 1rem 1.3rem;">
-              <div style="font-size: 1.12rem; font-weight: 800; color: #ffffff; margin-bottom: 0.25rem;">
-                3. 절대절망을 깨뜨리신 유일한 길-여인의 후손
-              </div>
-              <div style="font-size: 1.12rem; font-weight: 800; color: #34d399; font-style: normal; margin-bottom: 0.65rem;">
-                3. The Only Way That Destroyed Absolute Despair – The Offspring of the Woman
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 0.45rem; padding-left: 0.5rem;">
-                <div style="font-size: 1.0rem; font-weight: 700; color: #f1f5f9; line-height: 1.45;">
-                  1) 그 누구도 아담의 후손으로는 하나님 만나게 할수 없어요<br>
-                  <span style="font-size: 1.0rem; font-weight: 700; color: #94a3b8; font-style: normal;">1) No descendant of Adam can ever bring anyone to God.</span>
-                </div>
-                <div style="font-size: 1.0rem; font-weight: 700; color: #f1f5f9; line-height: 1.45;">
-                  2) 그리스도만이 하나님 만나고 죄와 저주 사탄에서 빠져나오는 길입니다.<br>
-                  <span style="font-size: 1.0rem; font-weight: 700; color: #94a3b8; font-style: normal;">2) Christ alone is the way to meet God and escape from sin, curses, and Satan.</span>
-                </div>
-                <div style="font-size: 1.0rem; font-weight: 700; color: #f1f5f9; line-height: 1.45;">
-                  3) 이 그리스도 능력이 내 삶에 나타나게 하옵소서<br>
-                  <span style="font-size: 1.0rem; font-weight: 700; color: #94a3b8; font-style: normal;">3) May the power of this Christ be manifested in my life.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 2: Myself (RESTORED) -->
-        <div class="prayer-slide-card" id="prayerSlide2">
-          <div class="slide-badge-row">
-            <span class="slide-num-pill" data-i18n="slide_badge_2">슬라이드 2 / 4 • 나를 위한 기도</span>
-            <span class="pillar-category-tag" data-i18n="pillar_1_cat">내면과 믿음의 기초</span>
-          </div>
-          <div class="slide-title-area">
-            <div style="font-size: 1.1rem; font-weight: 800; color: #38bdf8; margin-bottom: 0.35rem;">
-              “내가 제일 중요하다” • “I must begin with myself.”
-            </div>
-            <h2 class="slide-main-title" data-i18n="pillar_1_title">2. 나를 위한 기도</h2>
-            <div class="slide-sub-title" data-i18n="pillar_1_sub">2. Prayer for Myself</div>
-          </div>
-          <div class="slide-bullets" style="display: flex; flex-direction: column; gap: 1.2rem;">
-            <div class="slide-bullet-item" style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 1.2rem 1.4rem;">
-              <div class="slide-bullet-kr" style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.4rem;">• 복음이 나의 복음이 되기를</div>
-              <div class="slide-bullet-en" style="font-size: 1.25rem; font-weight: 800; color: #38bdf8; font-style: normal;">May the Gospel become my life.</div>
-            </div>
-            <div class="slide-bullet-item" style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 1.2rem 1.4rem;">
-              <div class="slide-bullet-kr" style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.4rem;">• 무기력하게 느껴지는 그리스도가 아니라, 실제로 역사하시고 살아 계시는 그리스도를 체험하도록</div>
-              <div class="slide-bullet-en" style="font-size: 1.25rem; font-weight: 800; color: #38bdf8; font-style: normal;">May I experience Christ not as distant or powerless, but as living, active, and powerfully at work in my life.</div>
-            </div>
-            <div class="slide-bullet-item" style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(56, 189, 248, 0.3); border-radius: 12px; padding: 1.2rem 1.4rem;">
-              <div class="slide-bullet-kr" style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.4rem;">• Up & Down에 흔들리지 않고 다니엘처럼 항상이 되기를</div>
-              <div class="slide-bullet-en" style="font-size: 1.25rem; font-weight: 800; color: #38bdf8; font-style: normal;">May I not be swayed by emotional ups and downs or changing circumstances, but stand firm in steadfast faith like Daniel.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3: All Nations -->
-        <div class="prayer-slide-card" id="prayerSlide3">
-          <div class="slide-badge-row">
-            <span class="slide-num-pill" data-i18n="slide_badge_3">슬라이드 3 / 4 • 모든 민족을 위한 기도</span>
-            <span class="pillar-category-tag" data-i18n="pillar_2_cat">열방과 세계 현장</span>
-          </div>
-          <div class="slide-title-area">
-            <h2 class="slide-main-title" data-i18n="pillar_2_title">3. 모든 민족을 위한 기도</h2>
-            <div class="slide-sub-title" data-i18n="pillar_2_sub">3. Prayer for All Nations</div>
-          </div>
-          <div class="slide-bullets" style="display: flex; flex-direction: column; gap: 1.2rem;">
-            <div class="slide-bullet-item" style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 1.2rem 1.4rem;">
-              <div class="slide-bullet-kr" style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.4rem;">• 모든 민족이 그리스도 앞에 무릎 꿇도록</div>
-              <div class="slide-bullet-en" style="font-size: 1.25rem; font-weight: 800; color: #34d399; font-style: normal;">May all nations bow before Christ.</div>
-            </div>
-            <div class="slide-bullet-item" style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 1.2rem 1.4rem;">
-              <div class="slide-bullet-kr" style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.4rem;">• 이곳에 모인 나라들과 세계 모든 나라를 위하여</div>
-              <div class="slide-bullet-en" style="font-size: 1.25rem; font-weight: 800; color: #34d399; font-style: normal;">For the nations represented here and for every nation of the world.</div>
-            </div>
-            <div class="slide-bullet-item" style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 1.2rem 1.4rem;">
-              <div class="slide-bullet-kr" style="font-size: 1.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.4rem;">• 전쟁 속에서 고통받는 나라들과 사람들을 위하여</div>
-              <div class="slide-bullet-en" style="font-size: 1.25rem; font-weight: 800; color: #34d399; font-style: normal;">For countries and people suffering in the midst of war.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 4: Next Generation -->
-        <div class="prayer-slide-card" id="prayerSlide4">
-          <div class="slide-badge-row">
-            <span class="slide-num-pill" data-i18n="slide_badge_4">슬라이드 4 / 4 • 후대를 위한 기도</span>
-            <span class="pillar-category-tag" data-i18n="pillar_3_cat">다음 세대와 미래</span>
-          </div>
-          <div class="slide-title-area">
-            <h2 class="slide-main-title" data-i18n="pillar_3_title">4. 후대를 위한 기도</h2>
-            <div class="slide-sub-title" data-i18n="pillar_3_sub">4. Prayer for the Next Generation</div>
-          </div>
-          <div class="slide-bullets" style="display: flex; flex-direction: column; gap: 1rem;">
-            <div class="slide-bullet-item" style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 1.1rem 1.3rem;">
-              <div class="slide-bullet-kr" style="font-size: 1.2rem; font-weight: 800; color: #ffffff; margin-bottom: 0.35rem;">• 후대가 복음을 알도록</div>
-              <div class="slide-bullet-en" style="font-size: 1.2rem; font-weight: 800; color: #c084fc; font-style: normal;">May the next generation know the Gospel.</div>
-            </div>
-            <div class="slide-bullet-item" style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 1.1rem 1.3rem;">
-              <div class="slide-bullet-kr" style="font-size: 1.2rem; font-weight: 800; color: #ffffff; margin-bottom: 0.35rem;">• 복음이 정말 좋은 것임을 알도록</div>
-              <div class="slide-bullet-en" style="font-size: 1.2rem; font-weight: 800; color: #c084fc; font-style: normal;">May they discover that the Gospel is truly good news.</div>
-            </div>
-            <div class="slide-bullet-item" style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 1.1rem 1.3rem;">
-              <div class="slide-bullet-kr" style="font-size: 1.2rem; font-weight: 800; color: #ffffff; margin-bottom: 0.35rem;">• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록</div>
-              <div class="slide-bullet-en" style="font-size: 1.2rem; font-weight: 800; color: #c084fc; font-style: normal;">May they know that whatever happens in life, they are secure when they are in Christ.</div>
-            </div>
-            <div class="slide-bullet-item" style="background: rgba(15, 23, 42, 0.7); border: 1.5px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 1.1rem 1.3rem;">
-              <div class="slide-bullet-kr" style="font-size: 1.2rem; font-weight: 800; color: #ffffff; margin-bottom: 0.35rem;">• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록</div>
-              <div class="slide-bullet-en" style="font-size: 1.2rem; font-weight: 800; color: #c084fc; font-style: normal;">May they see their studies and every part of life as preparation to serve and save all nations.</div>
-            </div>
+      <!-- 16:9 Widescreen PPT Slide Stage -->
+      <div class="word-ppt-stage-wrapper">
+        <div class="word-ppt-slide-card" id="prayerPptSlideCard">
+          <div id="prayerPptSlideContent" class="word-ppt-slide-inner">
+            <!-- Dynamic 7-Slide Content rendered by app.js -->
           </div>
         </div>
       </div>
 
-      <!-- Slide Navigation Bar -->
-      <div class="slide-nav-bar">
-        <button type="button" class="btn btn-outline btn-sm" id="btnPrevSlide" onclick="changePrayerSlide(-1)">
+      <!-- Bottom Navigation Bar -->
+      <div class="word-ppt-bottom-bar">
+        <button type="button" class="btn-slide-nav" id="btnPrevSlide" onclick="changePrayerSlide(-1)">
           ◀ <span data-i18n="btn_prev_slide">이전 슬라이드</span>
         </button>
-        <div class="slide-indicators" id="slideIndicators">
-          <span class="slide-dot active" onclick="setPrayerSlide(1)" title="1. 메시지 기도"></span>
-          <span class="slide-dot" onclick="setPrayerSlide(2)" title="2. 나를 위한 기도"></span>
-          <span class="slide-dot" onclick="setPrayerSlide(3)" title="3. 모든 민족을 위한 기도"></span>
-          <span class="slide-dot" onclick="setPrayerSlide(4)" title="4. 후대를 위한 기도"></span>
-        </div>
-        <button type="button" class="btn btn-outline btn-sm" id="btnNextSlide" onclick="changePrayerSlide(1)">
+        <div class="ppt-dots-container" id="slideIndicators"></div>
+        <div class="ppt-counter" id="prayerPptSlideCounter">1 / 8</div>
+        <button type="button" class="btn-slide-nav" id="btnNextSlide" onclick="changePrayerSlide(1)">
           <span data-i18n="btn_next_slide">다음 슬라이드</span> ▶
         </button>
-      </div>
-
-      <div class="modal-footer" style="margin-top: 1.4rem; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;">
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <button type="button" class="btn btn-primary btn-sm" onclick="openPrayerPdfModal()" style="background: linear-gradient(135deg, #0284c7, #2563eb); border: none; font-weight: 700;">
-            🖨️ <span>인쇄 / PDF 보기</span>
-          </button>
-        </div>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <button type="button" class="btn btn-outline btn-sm" onclick="copyPrayerGuideToClipboard()">
-            📋 <span>줌 채팅용 복사</span>
-          </button>
-          <button type="button" class="btn btn-primary btn-sm" onclick="closeModal('prayerGuideModal')">
-            <span>닫기</span>
-          </button>
-        </div>
       </div>
     </div>
   </div>
@@ -3003,9 +2884,9 @@
   <!-- Main JavaScript Files -->
   <script src="pptxgen.bundle.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="worship-studio.js?v=20261118_v72_print_portrait_view_landscape"></script>
-  <script src="kids-gospel.js?v=20261118_v72_print_portrait_view_landscape"></script>
-  <script src="app.js?v=20261118_v72_print_portrait_view_landscape"></script>
+  <script src="worship-studio.js?v=20261118_v74_prayer_horizontal_slides"></script>
+  <script src="kids-gospel.js?v=20261118_v74_prayer_horizontal_slides"></script>
+  <script src="app.js?v=20261118_v74_prayer_horizontal_slides"></script>
 </body>
 </html>
 

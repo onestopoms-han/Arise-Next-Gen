@@ -4100,50 +4100,447 @@ function escapeHtml(string) {
 }
 
 // ==========================================
-// 8.5. Official Prayer Guide Slide Presentation & Clipboard Copy
+// 8.5. Official Prayer Guide 16:9 PPT Slide Presentation, PPTX Export & Clipboard Copy
 // ==========================================
 let currentPrayerSlide = 1;
+const TOTAL_PRAYER_PPT_SLIDES = 8;
+
+const PRAYER_PPT_SLIDES_DATA = [
+  {
+    type: 'overview3',
+    tabTitle: '📊 1. 메시지기도 한눈에 (가로 3단)',
+    stepBadge: 'OVERVIEW 1 / 2 : 1. MESSAGE PRAYER AT A GLANCE (가로 3단 한눈에 보기)',
+    mainTitle: '🕊️ 1. 메시지 기도 — 나, 후대, 모든 민족 (Myself, the Next Generation, and All Nations)',
+    columns: [
+      {
+        accent: '#38bdf8',
+        titleKo: '1. 원래만드신 내가 회복되게 해 주세요.',
+        titleEn: '1. Please Restore Me to the Person You Originally Created Me to Be.',
+        pairs: [
+          { ko: '1) 하나님을 닮은 나', en: '1) Me, created in the image of God.' },
+          { ko: '2) 안 되는게 없던 나', en: '2) Me, for whom nothing was impossible.' },
+          { ko: '3) 모든것이 만족되던 나', en: '3) Me, who was satisfied with everything.' },
+          { ko: '4) 모든것이 다스려지던 나', en: '4) Me, who had dominion over everything.' }
+        ]
+      },
+      {
+        accent: '#f59e0b',
+        titleKo: '2. 원죄-절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살길없는 나를 발견하게 해 주세요.',
+        titleEn: '2. Original Sin – Please Help Me Naturally Accept my State of Absolute Despair and Discover That I Have No Way to Live Except Through the Gospel.',
+        pairs: [
+          { ko: '1) 모든것이 안되는 나', en: '1) Me, for whom nothing works out.' },
+          { ko: '2) 문제속에 살수 밖에 없는 나', en: '2) Me, who cannot help but live surrounded by problems.' },
+          { ko: '3) 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제', en: '3) Spiritual problems, idolatry problems, mental problems, physical problems, problems concerning the afterlife, and problems of the next generation.' }
+        ]
+      },
+      {
+        accent: '#34d399',
+        titleKo: '3. 절대절망을 깨뜨리신 유일한 길-여인의 후손',
+        titleEn: '3. The Only Way That Destroyed Absolute Despair – The Offspring of the Woman',
+        pairs: [
+          { ko: '1) 그 누구도 아담의 후손으로는 하나님 만나게 할수 없어요', en: '1) No descendant of Adam can ever bring anyone to God.' },
+          { ko: '2) 그리스도만이 하나님 만나고 죄와 저주 사탄에서 빠져나오는 길입니다.', en: '2) Christ alone is the way to meet God and escape from sin, curses, and Satan.' },
+          { ko: '3) 이 그리스도 능력이 내 삶에 나타나게 하옵소서', en: '3) May the power of this Christ be manifested in my life.' }
+        ]
+      }
+    ]
+  },
+  {
+    type: 'overview3',
+    tabTitle: '📊 2~4. 중보기도 한눈에 (가로 3단)',
+    stepBadge: 'OVERVIEW 2 / 2 : 2~4. INTERCESSORY PRAYERS AT A GLANCE (가로 3단 한눈에 보기)',
+    mainTitle: '🙏 2~4. 집중 중보기도 — 나 · 모든 민족 · 후대 (Myself · All Nations · Next Generation)',
+    columns: [
+      {
+        accent: '#38bdf8',
+        titleKo: '2. 나를 위한 기도 — “내가 제일 중요하다”',
+        titleEn: '2. Prayer for Myself — “I must begin with myself.”',
+        pairs: [
+          { ko: '• 복음이 나의 복음이 되기를', en: '• May the Gospel become real and evident in my life.' },
+          { ko: '• 무기력하게 느껴지는 그리스도가 아니라, 실제로 역사하시고 살아 계시는 능력의 그리스도를 누리기를', en: '• May I experience Christ not as powerless, but as the living, powerful Christ revealed in Scripture.' },
+          { ko: '• Up & Down에 흔들리지 않고 다니엘처럼 항상이 되기를', en: '• May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.' }
+        ]
+      },
+      {
+        accent: '#f59e0b',
+        titleKo: '3. 모든 민족을 위한 기도',
+        titleEn: '3. Prayer for All Nations',
+        pairs: [
+          { ko: '• 모든 민족이 그리스도 앞에 무릎 꿇도록', en: '• May all nations bow before Christ.' },
+          { ko: '• 이곳에 모인 나라들과 세계 모든 나라를 위하여', en: '• For the nations represented here and for every nation of the world.' },
+          { ko: '• 전쟁 속에서 고통받는 나라들과 사람들을 위하여', en: '• For countries and people suffering in the midst of war.' }
+        ]
+      },
+      {
+        accent: '#34d399',
+        titleKo: '4. 후대를 위한 기도',
+        titleEn: '4. Prayer for the Next Generation',
+        pairs: [
+          { ko: '• 후대가 복음을 알도록', en: '• May the next generation know the Gospel.' },
+          { ko: '• 복음이 정말 좋은 것임을 알도록', en: '• May they discover that the Gospel is truly good news.' },
+          { ko: '• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록', en: '• May they know that whatever happens in life, they are secure when they are in Christ.' },
+          { ko: '• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록', en: '• May they see their studies and every part of life as preparation to serve and save all nations.' }
+        ]
+      }
+    ]
+  },
+  {
+    tabTitle: '1-1. 원래만드신 나',
+    stepBadge: 'STEP 3 : 1. MESSAGE PRAYER (PART 1 / 3)',
+    mainTitle: '🕊️ 1. 메시지 기도 — 나, 후대, 모든 민족 (Myself, the Next Generation, and All Nations)',
+    labelKo: '1. 원래만드신 나 회복',
+    labelEn: '1. Restore the Original Me',
+    headingKo: '1. 원래만드신 내가 회복되게 해 주세요.',
+    headingEn: '1. Please Restore Me to the Person You Originally Created Me to Be.',
+    itemsKo: [
+      '1) 하나님을 닮은 나',
+      '2) 안 되는게 없던 나',
+      '3) 모든것이 만족되던 나',
+      '4) 모든것이 다스려지던 나'
+    ],
+    itemsEn: [
+      '1) Me, created in the image of God.',
+      '2) Me, for whom nothing was impossible.',
+      '3) Me, who was satisfied with everything.',
+      '4) Me, who had dominion over everything.'
+    ]
+  },
+  {
+    tabTitle: '1-2. 원죄·절대절망',
+    stepBadge: 'STEP 3 : 1. MESSAGE PRAYER (PART 2 / 3)',
+    mainTitle: '🕊️ 1. 메시지 기도 — 나, 후대, 모든 민족 (Myself, the Next Generation, and All Nations)',
+    labelKo: '2. 원죄 · 절대절망 인정과 오직 복음',
+    labelEn: '2. Original Sin & Only the Gospel',
+    headingKo: '2. 원죄-절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살길없는 나를 발견하게 해 주세요.',
+    headingEn: '2. Original Sin – Please Help Me Naturally Accept my State of Absolute Despair and Discover That I Have No Way to Live Except Through the Gospel.',
+    itemsKo: [
+      '1) 모든것이 안되는 나',
+      '2) 문제속에 살수 밖에 없는 나',
+      '3) 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제'
+    ],
+    itemsEn: [
+      '1) Me, for whom nothing works out.',
+      '2) Me, who cannot help but live surrounded by problems.',
+      '3) Spiritual problems, idolatry problems, mental problems, physical problems, problems concerning the afterlife, and problems of the next generation.'
+    ]
+  },
+  {
+    tabTitle: '1-3. 여인의 후손',
+    stepBadge: 'STEP 3 : 1. MESSAGE PRAYER (PART 3 / 3)',
+    mainTitle: '🕊️ 1. 메시지 기도 — 나, 후대, 모든 민족 (Myself, the Next Generation, and All Nations)',
+    labelKo: '3. 여인의 후손 (창 3:15)',
+    labelEn: '3. The Offspring of the Woman',
+    headingKo: '3. 절대절망을 깨뜨리신 유일한 길-여인의 후손',
+    headingEn: '3. The Only Way That Destroyed Absolute Despair – The Offspring of the Woman',
+    itemsKo: [
+      '1) 그 누구도 아담의 후손으로는 하나님 만나게 할수 없어요',
+      '2) 그리스도만이 하나님 만나고 죄와 저주 사탄에서 빠져나오는 길입니다.',
+      '3) 이 그리스도 능력이 내 삶에 나타나게 하옵소서'
+    ],
+    itemsEn: [
+      '1) No descendant of Adam can ever bring anyone to God.',
+      '2) Christ alone is the way to meet God and escape from sin, curses, and Satan.',
+      '3) May the power of this Christ be manifested in my life.'
+    ]
+  },
+  {
+    tabTitle: '2. 나를 위한 기도',
+    stepBadge: 'STEP 3 : 2. PRAYER FOR MYSELF',
+    mainTitle: '🙏 2. 나를 위한 기도 (2. Prayer for Myself)',
+    labelKo: '나를 위한 기도',
+    labelEn: 'Prayer for Myself',
+    headingKo: '“내가 제일 중요하다”',
+    headingEn: '“I must begin with myself.”',
+    itemsKo: [
+      '• 복음이 나의 복음이 되기를',
+      '• 무기력하게 느껴지는 그리스도가 아니라, 실제로 역사하시고 살아 계시는 능력의 그리스도를 누리기를',
+      '• Up & Down에 흔들리지 않고 다니엘처럼 항상이 되기를'
+    ],
+    itemsEn: [
+      '• May the Gospel become real and evident in my life.',
+      '• May I experience Christ not as powerless, but as the living, powerful Christ revealed in Scripture.',
+      '• May my faith remain steady like Daniel’s, not controlled by spiritual ups and downs.'
+    ]
+  },
+  {
+    tabTitle: '3. 모든 민족 기도',
+    stepBadge: 'STEP 3 : 3. PRAYER FOR ALL NATIONS',
+    mainTitle: '🌍 3. 모든 민족을 위한 기도 (3. Prayer for All Nations)',
+    labelKo: '열방과 세계 현장',
+    labelEn: 'Global Mission Fields',
+    headingKo: '모든 민족과 세계 현장을 위한 중보기도',
+    headingEn: 'Intercession for All Nations & the World',
+    itemsKo: [
+      '• 모든 민족이 그리스도 앞에 무릎 꿇도록',
+      '• 이곳에 모인 나라들과 세계 모든 나라를 위하여',
+      '• 전쟁 속에서 고통받는 나라들과 사람들을 위하여'
+    ],
+    itemsEn: [
+      '• May all nations bow before Christ.',
+      '• For the nations represented here and for every nation of the world.',
+      '• For countries and people suffering in the midst of war.'
+    ]
+  },
+  {
+    tabTitle: '4. 후대를 위한 기도',
+    stepBadge: 'STEP 3 : 4. PRAYER FOR THE NEXT GENERATION',
+    mainTitle: '🌱 4. 후대를 위한 기도 (4. Prayer for the Next Generation)',
+    labelKo: '다음 세대와 미래',
+    labelEn: 'Next Generation & Future',
+    headingKo: '언약의 후대들을 살리는 중보기도',
+    headingEn: 'Intercession for the Next Generation of Faith',
+    itemsKo: [
+      '• 후대가 복음을 알도록',
+      '• 복음이 정말 좋은 것임을 알도록',
+      '• 인생에 무슨 일이 생겨도 그리스도 안에 있으면 괜찮다는 것을 알도록',
+      '• 학업과 모든 일이 모든 민족을 살리는 준비임을 알도록'
+    ],
+    itemsEn: [
+      '• May the next generation know the Gospel.',
+      '• May they discover that the Gospel is truly good news.',
+      '• May they know that whatever happens in life, they are secure when they are in Christ.',
+      '• May they see their studies and every part of life as preparation to serve and save all nations.'
+    ]
+  }
+];
 
 function openPrayerGuideModal() {
-  setPrayerSlide(1);
   openModal('prayerGuideModal');
+  setPrayerSlide(currentPrayerSlide || 1);
+}
+window.openPrayerGuideModal = openPrayerGuideModal;
+
+function closePrayerPresentationModal() {
+  closeModal('prayerGuideModal');
+  if (document.fullscreenElement && document.exitFullscreen) {
+    document.exitFullscreen().catch(() => {});
+  }
+  const fsIcon = document.getElementById('prayerPptFullscreenIcon');
+  if (fsIcon) fsIcon.textContent = '🖥️';
+}
+window.closePrayerPresentationModal = closePrayerPresentationModal;
+
+function togglePrayerFullscreen() {
+  const container = document.getElementById('prayerPptContainer');
+  const fsIcon = document.getElementById('prayerPptFullscreenIcon');
+  if (!document.fullscreenElement) {
+    if (container && container.requestFullscreen) {
+      container.requestFullscreen().catch(() => {});
+    } else if (container && container.webkitRequestFullscreen) {
+      container.webkitRequestFullscreen();
+    }
+    if (fsIcon) fsIcon.textContent = '🗗';
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen().catch(() => {});
+    }
+    if (fsIcon) fsIcon.textContent = '🖥️';
+  }
+}
+window.togglePrayerFullscreen = togglePrayerFullscreen;
+
+function buildPrayerSlideHtml(s) {
+  if (s.type === 'overview3') {
+    return `
+      <div class="ppt-slide-header" style="margin-bottom: 0.75rem;">
+        <div class="ppt-slide-step-badge">${escapeHtml(s.stepBadge)}</div>
+        <h2 class="ppt-slide-main-title" style="font-size: 1.55rem;">${escapeHtml(s.mainTitle)}</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.95rem; flex: 1; min-height: 0; align-items: stretch;">
+        ${s.columns.map(col => `
+          <div style="background: rgba(15, 23, 42, 0.88); border: 1.5px solid ${col.accent}55; border-top: 4px solid ${col.accent}; border-radius: 14px; padding: 1rem 1.05rem; display: flex; flex-direction: column; gap: 0.55rem; overflow-y: auto;">
+            <div style="padding-bottom: 0.55rem; border-bottom: 1px dashed rgba(255,255,255,0.15);">
+              <div style="font-size: 0.98rem; font-weight: 800; color: #ffffff; line-height: 1.42; font-style: normal; margin-bottom: 0.28rem;">
+                ${escapeHtml(col.titleKo)}
+              </div>
+              <div style="font-size: 0.98rem; font-weight: 800; color: ${col.accent}; line-height: 1.42; font-style: normal;">
+                ${escapeHtml(col.titleEn)}
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              ${col.pairs.map(p => `
+                <div style="padding: 0.48rem 0.65rem; background: rgba(30, 41, 59, 0.72); border-left: 3px solid ${col.accent}; border-radius: 8px;">
+                  <div style="font-size: 0.9rem; font-weight: 800; color: #f8fafc; line-height: 1.42; font-style: normal; margin-bottom: 0.18rem;">
+                    ${escapeHtml(p.ko)}
+                  </div>
+                  <div style="font-size: 0.9rem; font-weight: 800; color: #93c5fd; line-height: 1.42; font-style: normal;">
+                    ${escapeHtml(p.en)}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  return `
+    <div class="ppt-slide-header" style="margin-bottom: 0.85rem;">
+      <div class="ppt-slide-step-badge">${escapeHtml(s.stepBadge)}</div>
+      <h2 class="ppt-slide-main-title" style="font-size: 1.65rem;">${escapeHtml(s.mainTitle)}</h2>
+    </div>
+    <div class="ppt-scripture-grid" style="flex: 1; gap: 1.15rem; min-height: 0;">
+      <div class="ppt-scripture-box" style="padding: 1.2rem 1.4rem; overflow-y: auto;">
+        <div class="ppt-box-header" style="margin-bottom: 0.8rem;">
+          <span class="ppt-box-lang">🇰🇷 한국어 기도문 (Korean)</span>
+          <span class="ppt-box-label">${escapeHtml(s.labelKo)}</span>
+        </div>
+        <div style="font-size: 1.15rem; font-weight: 800; color: #fde047; line-height: 1.5; margin-bottom: 0.85rem; padding: 0.6rem 0.85rem; background: rgba(253, 224, 71, 0.1); border-left: 4px solid #fde047; border-radius: 8px; font-style: normal;">
+          ${escapeHtml(s.headingKo)}
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+          ${s.itemsKo.map(item => `
+            <div style="font-size: 1.08rem; font-weight: 800; color: #ffffff; line-height: 1.55; padding: 0.6rem 0.85rem; background: rgba(30, 41, 59, 0.75); border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); font-style: normal;">
+              ${escapeHtml(item)}
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="ppt-scripture-box" style="padding: 1.2rem 1.4rem; overflow-y: auto;">
+        <div class="ppt-box-header" style="margin-bottom: 0.8rem;">
+          <span class="ppt-box-lang">🇺🇸 English Prayer (1:1 Size &amp; Bold)</span>
+          <span class="ppt-box-label">${escapeHtml(s.labelEn)}</span>
+        </div>
+        <div style="font-size: 1.15rem; font-weight: 800; color: #38bdf8; line-height: 1.5; margin-bottom: 0.85rem; padding: 0.6rem 0.85rem; background: rgba(56, 189, 248, 0.12); border-left: 4px solid #38bdf8; border-radius: 8px; font-style: normal;">
+          ${escapeHtml(s.headingEn)}
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+          ${s.itemsEn.map(item => `
+            <div style="font-size: 1.08rem; font-weight: 800; color: #7dd3fc; line-height: 1.55; padding: 0.6rem 0.85rem; background: rgba(30, 41, 59, 0.75); border-radius: 10px; border: 1px solid rgba(56, 189, 248, 0.25); font-style: normal;">
+              ${escapeHtml(item)}
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function setPrayerSlide(slideNum) {
-  currentPrayerSlide = Math.max(1, Math.min(4, slideNum));
-  for (let i = 1; i <= 4; i++) {
-    const slide = document.getElementById(`prayerSlide${i}`);
-    if (slide) {
-      if (i === currentPrayerSlide) {
-        slide.classList.add('active');
-      } else {
-        slide.classList.remove('active');
-      }
-    }
-  }
-
-  // Update dots
-  const indicators = document.getElementById('slideIndicators');
-  if (indicators) {
-    const dots = indicators.querySelectorAll('.slide-dot');
-    dots.forEach((dot, idx) => {
-      if (idx + 1 === currentPrayerSlide) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
-    });
-  }
-
+  currentPrayerSlide = Math.max(1, Math.min(TOTAL_PRAYER_PPT_SLIDES, slideNum));
+  const slideContent = document.getElementById('prayerPptSlideContent');
+  const inlineContent = document.getElementById('inlinePrayerSlideContent');
+  const counter = document.getElementById('prayerPptSlideCounter');
+  const inlineCounter = document.getElementById('inlinePrayerSlideCounter');
   const prevBtn = document.getElementById('btnPrevSlide');
   const nextBtn = document.getElementById('btnNextSlide');
+  const indicators = document.getElementById('slideIndicators');
+  const inlineTabs = document.getElementById('inlinePrayerSlideTabs');
+
+  if (counter) counter.textContent = `${currentPrayerSlide} / ${TOTAL_PRAYER_PPT_SLIDES}`;
+  if (inlineCounter) inlineCounter.textContent = `${currentPrayerSlide} / ${TOTAL_PRAYER_PPT_SLIDES}`;
   if (prevBtn) prevBtn.disabled = (currentPrayerSlide === 1);
-  if (nextBtn) nextBtn.disabled = (currentPrayerSlide === 4);
+  if (nextBtn) nextBtn.disabled = (currentPrayerSlide === TOTAL_PRAYER_PPT_SLIDES);
+
+  if (indicators) {
+    let dotsHtml = '';
+    for (let i = 1; i <= TOTAL_PRAYER_PPT_SLIDES; i++) {
+      dotsHtml += `<div class="ppt-dot ${i === currentPrayerSlide ? 'active' : ''}" onclick="setPrayerSlide(${i})" title="${escapeHtml(PRAYER_PPT_SLIDES_DATA[i - 1].tabTitle || ('슬라이드 ' + i))}"></div>`;
+    }
+    indicators.innerHTML = dotsHtml;
+  }
+
+  if (inlineTabs) {
+    inlineTabs.innerHTML = PRAYER_PPT_SLIDES_DATA.map((item, idx) => {
+      const num = idx + 1;
+      const isActive = num === currentPrayerSlide;
+      return `<button type="button" onclick="setPrayerSlide(${num})" style="padding: 0.34rem 0.68rem; border-radius: 8px; font-size: 0.8rem; font-weight: 800; cursor: pointer; transition: all 0.18s; border: 1px solid ${isActive ? '#38bdf8' : 'rgba(255,255,255,0.14)'}; background: ${isActive ? 'rgba(56, 189, 248, 0.22)' : 'rgba(15, 23, 42, 0.7)'}; color: ${isActive ? '#38bdf8' : '#cbd5e1'};">${escapeHtml(item.tabTitle || ('슬라이드 ' + num))}</button>`;
+    }).join('');
+  }
+
+  const s = PRAYER_PPT_SLIDES_DATA[currentPrayerSlide - 1];
+  const html = buildPrayerSlideHtml(s);
+  if (slideContent) slideContent.innerHTML = html;
+  if (inlineContent) inlineContent.innerHTML = html;
 }
+window.setPrayerSlide = setPrayerSlide;
 
 function changePrayerSlide(direction) {
   setPrayerSlide(currentPrayerSlide + direction);
 }
+window.changePrayerSlide = changePrayerSlide;
+
+// Initialize inline horizontal slide viewer immediately when script loads
+document.addEventListener('DOMContentLoaded', () => {
+  setPrayerSlide(1);
+});
+setTimeout(() => { setPrayerSlide(currentPrayerSlide || 1); }, 100);
+
+function downloadPrayerGuidePptx() {
+  if (typeof PptxGenJS === 'undefined') {
+    alert("PowerPoint 생성 모듈(pptxgen.bundle.js)을 불러오는 중입니다. 잠시 후 다시 클릭해 주세요.");
+    return;
+  }
+  const pptx = new PptxGenJS();
+  pptx.layout = 'LAYOUT_16x9';
+  pptx.author = 'Arise Next Gen Global Prayer Hub';
+  pptx.company = 'Arise Next Gen';
+  pptx.title = '어라이즈 넥스트젠 공동 기도문 가로 슬라이드';
+
+  PRAYER_PPT_SLIDES_DATA.forEach((s) => {
+    const slide = pptx.addSlide();
+    slide.background = { color: '0B1120' };
+
+    slide.addText(s.stepBadge, {
+      x: 0.5, y: 0.3, w: 12.3, h: 0.32,
+      fontSize: 11, bold: true, color: '38BDF8', fontFace: 'Malgun Gothic'
+    });
+    slide.addText(s.mainTitle, {
+      x: 0.5, y: 0.62, w: 12.3, h: 0.48,
+      fontSize: 19, bold: true, color: 'FFFFFF', fontFace: 'Malgun Gothic'
+    });
+
+    if (s.type === 'overview3') {
+      s.columns.forEach((col, cIdx) => {
+        const xPos = 0.5 + cIdx * 4.15;
+        const borderHex = col.accent.replace('#', '').toUpperCase();
+        slide.addShape(pptx.ShapeType.roundRect, {
+          x: xPos, y: 1.22, w: 3.95, h: 5.9,
+          fill: { color: '0F172A' },
+          line: { color: borderHex, width: 1.5 },
+          rectRadius: 0.08
+        });
+        const colBody = `${col.titleKo}\n${col.titleEn}\n\n` + col.pairs.map(p => `${p.ko}\n${p.en}`).join('\n\n');
+        slide.addText(colBody, {
+          x: xPos + 0.14, y: 1.34, w: 3.67, h: 5.65,
+          fontSize: 10.5, bold: true, color: 'FFFFFF', valign: 'top', fontFace: 'Malgun Gothic', lineSpacingMultiple: 1.15
+        });
+      });
+    } else {
+      // Left Box (Korean - 1:1 Size & Bold)
+      slide.addShape(pptx.ShapeType.roundRect, {
+        x: 0.5, y: 1.28, w: 6.0, h: 5.8,
+        fill: { color: '0F172A' },
+        line: { color: '334155', width: 1.5 },
+        rectRadius: 0.1
+      });
+      // Right Box (English - 1:1 Size & Bold)
+      slide.addShape(pptx.ShapeType.roundRect, {
+        x: 6.8, y: 1.28, w: 6.0, h: 5.8,
+        fill: { color: '0F172A' },
+        line: { color: '38BDF8', width: 1.5 },
+        rectRadius: 0.1
+      });
+
+      const koText = `${s.headingKo}\n\n${s.itemsKo.join('\n\n')}`;
+      const enText = `${s.headingEn}\n\n${s.itemsEn.join('\n\n')}`;
+
+      slide.addText(koText, {
+        x: 0.75, y: 1.5, w: 5.5, h: 5.3,
+        fontSize: 15, bold: true, color: 'FFFFFF', valign: 'top', fontFace: 'Malgun Gothic', lineSpacingMultiple: 1.22
+      });
+      slide.addText(enText, {
+        x: 7.05, y: 1.5, w: 5.5, h: 5.3,
+        fontSize: 15, bold: true, color: '7DD3FC', valign: 'top', fontFace: 'Malgun Gothic', lineSpacingMultiple: 1.22
+      });
+    }
+  });
+
+  pptx.writeFile({ fileName: '어라이즈넥스트젠_공동기도문_가로슬라이드.pptx' });
+  showToast("공동 기도문 파워포인트(.pptx) 가로 슬라이드 다운로드가 시작되었습니다! 📊", "🕊️");
+}
+window.downloadPrayerGuidePptx = downloadPrayerGuidePptx;
 
 function copyPrayerGuideToClipboard() {
   const prayerText = `🕊️ [공동 기도문 • Official Prayer Guide]
@@ -4209,8 +4606,10 @@ function copyPrayerGuideToClipboard() {
 document.addEventListener('keydown', (e) => {
   const guideModal = document.getElementById('prayerGuideModal');
   if (guideModal && guideModal.classList.contains('active')) {
-    if (e.key === 'ArrowLeft') changePrayerSlide(-1);
-    if (e.key === 'ArrowRight') changePrayerSlide(1);
+    if (e.key === 'ArrowLeft') { e.preventDefault(); changePrayerSlide(-1); }
+    else if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); changePrayerSlide(1); }
+    else if (e.key === 'Escape') { closePrayerPresentationModal(); }
+    else if (e.key === 'f' || e.key === 'F') { togglePrayerFullscreen(); }
   }
 });
 
