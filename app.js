@@ -6496,78 +6496,81 @@ function getPrayerGuidePdfHtml() {
         </div>
       </div>
 
-      <!-- Point 1 -->
-      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-        <div style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.3rem;">
+      <!-- Point 1 (2x2 Grid in Landscape) -->
+      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.9rem 1.15rem; margin-bottom: 0.85rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+        <div style="font-size: 1.08rem; font-weight: 800; color: #0f172a; margin-bottom: 0.2rem;">
           • 1. 원래만드신 내가 회복되게 해 주세요.
         </div>
-        <div style="font-size: 1.15rem; font-weight: 800; color: #0284c7; font-style: normal; margin-bottom: 0.85rem;">
+        <div style="font-size: 1.08rem; font-weight: 800; color: #0284c7; font-style: normal; margin-bottom: 0.65rem;">
           • 1. Please Restore Me to the Person You Originally Created Me to Be.
         </div>
-        <div style="display: flex; flex-direction: column; gap: 0.65rem;">
-          <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">1) 하나님을 닮은 나</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">1) Me, created in the image of God.</div>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.55rem;">
+          <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.5rem 0.75rem;">
+            <div style="font-size: 0.98rem; font-weight: 800; color: #0f172a;">1) 하나님을 닮은 나</div>
+            <div style="font-size: 0.98rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.1rem;">1) Me, created in the image of God.</div>
           </div>
-          <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">2) 안 되는게 없던 나</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">2) Me, for whom nothing was impossible.</div>
+          <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.5rem 0.75rem;">
+            <div style="font-size: 0.98rem; font-weight: 800; color: #0f172a;">2) 안 되는게 없던 나</div>
+            <div style="font-size: 0.98rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.1rem;">2) Me, for whom nothing was impossible.</div>
           </div>
-          <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">3) 모든것이 만족되던 나</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">3) Me, who was satisfied with everything.</div>
+          <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.5rem 0.75rem;">
+            <div style="font-size: 0.98rem; font-weight: 800; color: #0f172a;">3) 모든것이 만족되던 나</div>
+            <div style="font-size: 0.98rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.1rem;">3) Me, who was satisfied with everything.</div>
           </div>
-          <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">4) 모든것이 다스려지던 나</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">4) Me, who had dominion over everything.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Point 2 -->
-      <div style="background: #ffffff; border: 1px solid #fef3c7; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-        <div style="font-size: 1.15rem; font-weight: 800; color: #78350f; margin-bottom: 0.3rem;">
-          • 2. 원죄-절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살길없는 나를 발견하게 해 주세요.
-        </div>
-        <div style="font-size: 1.15rem; font-weight: 800; color: #b45309; font-style: normal; margin-bottom: 0.85rem;">
-          • 2. Original Sin – Please Help Me Naturally Accept my State of Absolute Despair and Discover That I Have No Way to Live Except Through the Gospel.
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 0.65rem;">
-          <div style="background: #fefce8; border-left: 3px solid #f59e0b; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">1) 모든것이 안되는 나</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">1) Me, for whom nothing works out.</div>
-          </div>
-          <div style="background: #fefce8; border-left: 3px solid #f59e0b; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">2) 문제속에 살수 밖에 없는 나</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.15rem;">2) Me, who cannot help but live surrounded by problems.</div>
-          </div>
-          <div style="background: #fefce8; border-left: 3px solid #ef4444; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #991b1b;">3) 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #b91c1c; font-style: normal; margin-top: 0.15rem;">3) Spiritual problems, idolatry problems, mental problems, physical problems, problems concerning the afterlife, and problems of the next generation.</div>
+          <div style="background: #f8fafc; border-left: 3px solid #38bdf8; border-radius: 6px; padding: 0.5rem 0.75rem;">
+            <div style="font-size: 0.98rem; font-weight: 800; color: #0f172a;">4) 모든것이 다스려지던 나</div>
+            <div style="font-size: 0.98rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.1rem;">4) Me, who had dominion over everything.</div>
           </div>
         </div>
       </div>
 
-      <!-- Point 3 -->
-      <div style="background: #ffffff; border: 1px solid #bbf7d0; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: 1.1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-        <div style="font-size: 1.15rem; font-weight: 800; color: #064e3b; margin-bottom: 0.3rem;">
-          • 3. 절대절망을 깨뜨리신 유일한 길-여인의 후손
-        </div>
-        <div style="font-size: 1.15rem; font-weight: 800; color: #047857; font-style: normal; margin-bottom: 0.85rem;">
-          • 3. The Only Way That Destroyed Absolute Despair – The Offspring of the Woman
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 0.65rem;">
-          <div style="background: #f0fdf4; border-left: 3px solid #10b981; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">1) 그 누구도 아담의 후손으로는 하나님 만나게 할수 없어요</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #065f46; font-style: normal; margin-top: 0.15rem;">1) No descendant of Adam can ever bring anyone to God.</div>
+      <!-- Point 2 & Point 3 Side-by-Side in A4 Landscape -->
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; margin-bottom: 0.85rem;">
+        <!-- Point 2 -->
+        <div style="background: #ffffff; border: 1px solid #fef3c7; border-radius: 10px; padding: 0.9rem 1.1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          <div style="font-size: 1.02rem; font-weight: 800; color: #78350f; margin-bottom: 0.25rem; line-height: 1.45;">
+            • 2. 원죄-절대 절망의 우리의 상태를 당연하게 인정하므로 복음 말고 살길없는 나를 발견하게 해 주세요.
           </div>
-          <div style="background: #f0fdf4; border-left: 3px solid #10b981; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">2) 그리스도만이 하나님 만나고 죄와 저주 사탄에서 빠져나오는 길입니다.</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #065f46; font-style: normal; margin-top: 0.15rem;">2) Christ alone is the way to meet God and escape from sin, curses, and Satan.</div>
+          <div style="font-size: 1.02rem; font-weight: 800; color: #b45309; font-style: normal; margin-bottom: 0.65rem; line-height: 1.45;">
+            • 2. Original Sin – Please Help Me Naturally Accept my State of Absolute Despair and Discover That I Have No Way to Live Except Through the Gospel.
           </div>
-          <div style="background: #f0fdf4; border-left: 3px solid #10b981; border-radius: 6px; padding: 0.65rem 0.85rem;">
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">3) 이 그리스도 능력이 내 삶에 나타나게 하옵소서</div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #065f46; font-style: normal; margin-top: 0.15rem;">3) May the power of this Christ be manifested in my life.</div>
+          <div style="display: flex; flex-direction: column; gap: 0.45rem;">
+            <div style="background: #fefce8; border-left: 3px solid #f59e0b; border-radius: 6px; padding: 0.45rem 0.7rem;">
+              <div style="font-size: 0.95rem; font-weight: 800; color: #0f172a;">1) 모든것이 안되는 나</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.1rem;">1) Me, for whom nothing works out.</div>
+            </div>
+            <div style="background: #fefce8; border-left: 3px solid #f59e0b; border-radius: 6px; padding: 0.45rem 0.7rem;">
+              <div style="font-size: 0.95rem; font-weight: 800; color: #0f172a;">2) 문제속에 살수 밖에 없는 나</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: #475569; font-style: normal; margin-top: 0.1rem;">2) Me, who cannot help but live surrounded by problems.</div>
+            </div>
+            <div style="background: #fefce8; border-left: 3px solid #ef4444; border-radius: 6px; padding: 0.45rem 0.7rem;">
+              <div style="font-size: 0.95rem; font-weight: 800; color: #991b1b;">3) 영적문제, 우상문제, 정신문제, 육신문제, 내세문제, 후대문제</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: #b91c1c; font-style: normal; margin-top: 0.1rem;">3) Spiritual problems, idolatry problems, mental problems, physical problems, problems concerning the afterlife, and problems of the next generation.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Point 3 -->
+        <div style="background: #ffffff; border: 1px solid #bbf7d0; border-radius: 10px; padding: 0.9rem 1.1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+          <div style="font-size: 1.02rem; font-weight: 800; color: #064e3b; margin-bottom: 0.25rem; line-height: 1.45;">
+            • 3. 절대절망을 깨뜨리신 유일한 길-여인의 후손
+          </div>
+          <div style="font-size: 1.02rem; font-weight: 800; color: #047857; font-style: normal; margin-bottom: 0.65rem; line-height: 1.45;">
+            • 3. The Only Way That Destroyed Absolute Despair – The Offspring of the Woman
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.45rem;">
+            <div style="background: #f0fdf4; border-left: 3px solid #10b981; border-radius: 6px; padding: 0.45rem 0.7rem;">
+              <div style="font-size: 0.95rem; font-weight: 800; color: #0f172a;">1) 그 누구도 아담의 후손으로는 하나님 만나게 할수 없어요</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: #065f46; font-style: normal; margin-top: 0.1rem;">1) No descendant of Adam can ever bring anyone to God.</div>
+            </div>
+            <div style="background: #f0fdf4; border-left: 3px solid #10b981; border-radius: 6px; padding: 0.45rem 0.7rem;">
+              <div style="font-size: 0.95rem; font-weight: 800; color: #0f172a;">2) 그리스도만이 하나님 만나고 죄와 저주 사탄에서 빠져나오는 길입니다.</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: #065f46; font-style: normal; margin-top: 0.1rem;">2) Christ alone is the way to meet God and escape from sin, curses, and Satan.</div>
+            </div>
+            <div style="background: #f0fdf4; border-left: 3px solid #10b981; border-radius: 6px; padding: 0.45rem 0.7rem;">
+              <div style="font-size: 0.95rem; font-weight: 800; color: #0f172a;">3) 이 그리스도 능력이 내 삶에 나타나게 하옵소서</div>
+              <div style="font-size: 0.95rem; font-weight: 800; color: #065f46; font-style: normal; margin-top: 0.1rem;">3) May the power of this Christ be manifested in my life.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -6772,7 +6775,16 @@ function openPrayerPdfModal() {
 window.openPrayerPdfModal = openPrayerPdfModal;
 
 function printPrayerPdfDocument() {
-  window.print();
+  let pageStyle = document.getElementById('dynamicPrintPageStyle');
+  if (!pageStyle) {
+    pageStyle = document.createElement('style');
+    pageStyle.id = 'dynamicPrintPageStyle';
+    document.head.appendChild(pageStyle);
+  }
+  pageStyle.innerHTML = '@page { size: A4 landscape !important; margin: 10mm 12mm !important; }';
+  setTimeout(() => {
+    window.print();
+  }, 100);
 }
 window.printPrayerPdfDocument = printPrayerPdfDocument;
 
