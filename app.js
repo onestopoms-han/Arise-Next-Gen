@@ -4889,27 +4889,22 @@ function getWordPresentationData() {
     return {
       isProtoGospel: true,
       meetingTitle: custom ? "어라이즈 넥스트젠 30분 기도모임" : "2026 어라이즈 넥스트젠 30분 기도모임",
+      meetingTitleEn: "2026 Arise Next-Gen 30-Minute Prayer Meeting · Step 2: Next-Gen Gospel Message",
       meetingSub: "4단계 순서 중 2단계: 후대 복음 말씀 (5분)",
       title: "원시복음 (Original Gospel) — 여인의 후손 (창3:15, 21)",
+      titleEn: "The Original Gospel (Genesis 3:15, 21) – The Offspring of the Woman",
       scripture: "창세기 3:15, 21 (Genesis 3:15, 21)",
-      theme: "절대 절망 속에 빠진 인간을 건지시기 위해 하나님이 여신 구원의 문: 여인의 후손과 가죽옷",
+      theme: "절대 절망속에 빠져버린 인간을 버려두지 않으시고 하나님은 바로 구원의 문을 여셨다.",
+      themeEn: "God did not abandon humanity, who had fallen into absolute despair. Instead, He immediately opened the door to salvation.",
       pdfUrl: "후대복음말씀_원시복음.pdf",
-      meetingTime: custom ? (custom.displayDate || custom.date || "2026년 12월 6일 (일) 19:50") : "2026년 12월 6일 (일) 19:50 (AEST) / 18:50 (KST)",
+      meetingTime: custom ? (custom.displayDate || custom.date || "2026년 12월 6일 (일) 19:50") : "2026년 12월 6일 (일) 19:50 (AEST) / 18:50 (KST) · Sun, Dec 6, 2026 (7:50 PM AEST / 6:50 PM KST)",
       scriptureKorean: [
-        { verse: "창 3:15", text: "내가 너로 여자와 원수가 되게 하고 네 후손도 여자의 후손과 원수가 되게 하리니 여자의 후손은 네 머리를 상하게 할 것이요 너는 그의 발꿈치를 상하게 할 것이니라 하시고" },
-        { verse: "창 3:21", text: "여호와 하나님이 아담과 그의 아내를 위하여 가죽옷을 지어 입히시니라" },
-        { verse: "요일 3:15", text: "그 형제를 미워하는 자마다 살인하는 자니 살인하는 자마다 영생이 그 속에 거하지 아니하는 것을 너희가 아는 바라" },
-        { verse: "롬 3:23", text: "모든 사람이 죄를 범하였으매 하나님의 영광에 이르지 못하더니" },
-        { verse: "롬 6:23", text: "죄의 삯은 사망이요 하나님의 은사는 그리스도 예수 우리 주 안에 있는 영생이니라" },
-        { verse: "요 14:6", text: "예수께서 이르시되 내가 곧 길이요 진리요 생명이니 나로 말미암지 않고는 아버지께로 올 자가 없느니라" }
+        { verse: "창세기 3:15", text: "내가 너로 여자와 원수가 되게 하고 네 후손도 여자의 후손과 원수가 되게 하리니 여자의 후손은 네 머리를 상하게 할 것이요 너는 그의 발꿈치를 상하게 할 것이니라 하시고" },
+        { verse: "창세기 3:21", text: "여호와 하나님이 아담과 그의 아내를 위하여 가죽옷을 지어 입히시니라" }
       ],
       scriptureEnglish: [
-        { verse: "Gen 3:15", text: "And I will put enmity between you and the woman, and between your offspring and hers; he will crush your head, and you will strike his heel." },
-        { verse: "Gen 3:21", text: "The Lord God made garments of skin for Adam and his wife and clothed them." },
-        { verse: "1 Jn 3:15", text: "Anyone who hates a brother or sister is a murderer, and you know that no murderer has eternal life residing in him." },
-        { verse: "Rom 3:23", text: "For all have sinned and fall short of the glory of God." },
-        { verse: "Rom 6:23", text: "For the wages of sin is death, but the gift of God is eternal life in Christ Jesus our Lord." },
-        { verse: "John 14:6", text: "Jesus answered, \"I am the way and the truth and the life. No one comes to the Father except through me.\"" }
+        { verse: "Genesis 3:15", text: "And I will put enmity between you and the woman, and between your offspring and hers; he will crush your head, and you will strike his heel." },
+        { verse: "Genesis 3:21", text: "The Lord God made garments of skin for Adam and his wife and clothed them." }
       ],
       points: [
         {
@@ -4947,12 +4942,15 @@ function getWordPresentationData() {
   if (isOriginalBlessing) {
     return {
       meetingTitle: custom ? "어라이즈 넥스트젠 30분 기도모임" : "2026 어라이즈 넥스트젠 30분 기도모임",
+      meetingTitleEn: "2026 Arise Next-Gen 30-Minute Prayer Meeting · Step 2: Next-Gen Gospel Message",
       meetingSub: "4단계 순서 중 2단계: 후대 복음 말씀 (5분)",
       title: "원래인간 (Original Blessing)",
+      titleEn: "Original Blessing — Restoration of the Image of God",
       scripture: "창세기 1:27-28 (Genesis 1:27-28)",
       theme: "하나님의 형상 회복과 언약의 후대 살리기",
+      themeEn: "Restoring the Image of God & Raising the Next Generation of the Covenant",
       pdfUrl: "Original Blessing.pdf",
-      meetingTime: custom ? (custom.displayDate || custom.date || "2026년 10월 4일 (일) 19:50") : "2026년 10월 4일 (일) 19:50 (AEST) / 18:50 (KST)",
+      meetingTime: custom ? (custom.displayDate || custom.date || "2026년 10월 4일 (일) 19:50") : "2026년 10월 4일 (일) 19:50 (AEST) / 18:50 (KST) · Sun, Oct 4, 2026 (7:50 PM AEST / 6:50 PM KST)",
       scriptureKorean: [
         {
           verse: "27절",
@@ -4996,12 +4994,15 @@ function getWordPresentationData() {
   // Default: 원죄 (Original Sin) — 창세기 3장 문제 (11월 1일 말씀) - 1~14절 완본 수록
   return {
     meetingTitle: custom ? "어라이즈 넥스트젠 30분 기도모임" : "2026 어라이즈 넥스트젠 30분 기도모임",
+    meetingTitleEn: "2026 Arise Next-Gen 30-Minute Prayer Meeting · Step 2: Next-Gen Gospel Message",
     meetingSub: "4단계 순서 중 2단계: 후대 복음 말씀 (5분)",
     title: "원죄 (Original Sin) — 창세기 3장 문제",
+    titleEn: "Original Sin — The Genesis 3 Problem",
     scripture: "창세기 3:1-14 (Genesis 3:1-14)",
     theme: "인간의 근본문제, 찾아온 문제, 절대절망과 오직 그리스도의 필요성",
+    themeEn: "The Fundamental Problem of Humanity, Absolute Despair, and the Necessity of Christ Alone",
     pdfUrl: "후대복음말씀_원죄.pdf",
-    meetingTime: custom ? (custom.displayDate || custom.date || "2026년 11월 1일 (일) 19:50") : "매월 첫 주일 호주 AEST 7:50 PM (한국 18:50)",
+    meetingTime: custom ? (custom.displayDate || custom.date || "2026년 11월 1일 (일) 19:50") : "매월 첫 주일 호주 AEST 7:50 PM (한국 18:50) · First Sunday 7:50 PM AEST / 6:50 PM KST",
     scriptureKorean: [
       { verse: "1절", text: "그런데 뱀은 여호와 하나님이 지으신 들짐승 중에 가장 간교하니라 뱀이 여자에게 물어 이르되 하나님이 참으로 너희에게 동산 모든 나무의 열매를 먹지 말라 하시더냐" },
       { verse: "2절", text: "여자가 뱀에게 말하되 동산 나무의 열매를 우리가 먹을 수 있으나" },
@@ -5159,52 +5160,65 @@ function renderPptSlide(index) {
   if (!slideContent) return;
 
   if (index === 0) {
-    // Slide 1: Cover Slide
+    // Slide 1: Cover Slide (Full 1:1 Korean & English subtitles on every line)
     slideContent.innerHTML = `
-      <div class="ppt-cover-layout">
-        <div class="ppt-cover-badge">🕊️ ${escapeHtml(data.meetingTitle)} · 2단계 후대 복음 말씀</div>
-        <h1 class="ppt-cover-title">${escapeHtml(data.title)}</h1>
-        <div class="ppt-cover-scripture">📖 ${escapeHtml(data.scripture)}</div>
-        <div class="ppt-cover-desc">${escapeHtml(data.theme)}</div>
-        <div class="ppt-cover-footer">
-          <span>⏰ ${escapeHtml(data.meetingTime)}</span>
-          <span>•</span>
-          <span>🌍 전 세계 다민족 언약의 후대 연합 기도회</span>
-          <span>•</span>
-          <span style="color: #38bdf8;">▶ 방향키(→)나 스페이스바로 다음 슬라이드</span>
+      <div class="ppt-cover-layout" style="gap: 0.75rem; padding: 1.5rem 2rem;">
+        <div class="ppt-cover-badge" style="display: flex; flex-direction: column; align-items: center; gap: 0.2rem; padding: 0.45rem 1.2rem;">
+          <div style="font-size: 0.95rem; font-weight: 800; color: #38bdf8; font-style: normal;">🕊️ ${escapeHtml(data.meetingTitle)} · 2단계 후대 복음 말씀</div>
+          <div style="font-size: 0.95rem; font-weight: 800; color: #7dd3fc; font-style: normal;">${escapeHtml(data.meetingTitleEn || "2026 Arise Next-Gen 30-Minute Prayer Meeting · Step 2: Next-Gen Gospel Message")}</div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem; text-align: center;">
+          <h1 class="ppt-cover-title" style="font-size: 2.35rem; font-weight: 800; margin: 0; line-height: 1.3; font-style: normal;">${escapeHtml(data.title)}</h1>
+          ${data.titleEn ? `<div style="font-size: 2.35rem; font-weight: 800; color: #38bdf8; line-height: 1.3; font-style: normal;">${escapeHtml(data.titleEn)}</div>` : ''}
+        </div>
+        <div class="ppt-cover-scripture" style="font-size: 1.35rem; font-weight: 800; font-style: normal;">📖 본문 말씀 (Scripture): ${escapeHtml(data.scripture)}</div>
+        <div class="ppt-cover-desc" style="display: flex; flex-direction: column; align-items: center; gap: 0.35rem; max-width: 980px; padding: 0.85rem 1.4rem;">
+          <div style="font-size: 1.12rem; font-weight: 800; color: #f8fafc; line-height: 1.5; font-style: normal;">${escapeHtml(data.theme)}</div>
+          ${data.themeEn ? `<div style="font-size: 1.12rem; font-weight: 800; color: #7dd3fc; line-height: 1.5; font-style: normal;">${escapeHtml(data.themeEn)}</div>` : ''}
+        </div>
+        <div class="ppt-cover-footer" style="display: flex; flex-direction: column; align-items: center; gap: 0.28rem; margin-top: 0.2rem;">
+          <div style="font-size: 0.92rem; font-weight: 800; color: #cbd5e1; font-style: normal;">
+            ⏰ ${escapeHtml(data.meetingTime)}
+          </div>
+          <div style="font-size: 0.92rem; font-weight: 800; color: #cbd5e1; font-style: normal;">
+            🌍 전 세계 다민족 언약의 후대 연합 기도회 · Global Multi-Ethnic Next-Gen Covenant Prayer Meeting
+          </div>
+          <div style="font-size: 0.92rem; font-weight: 800; color: #38bdf8; font-style: normal;">
+            ▶ 방향키(→)나 스페이스바로 다음 슬라이드 · Press Right Arrow (→) or Spacebar for Next Slide
+          </div>
         </div>
       </div>
     `;
   } else if (data.isProtoGospel) {
     if (index === 1) {
-      // Slide 2: Core Scripture Verses (창 3:15, 21 & 요일 3:15, 롬 3:23, 6:23, 요 14:6)
+      // Slide 2: Core Scripture Verses (ONLY Genesis 3:15 & Genesis 3:21)
       slideContent.innerHTML = `
         <div class="ppt-slide-header" style="margin-bottom: 1rem;">
-          <div class="ppt-slide-step-badge">STEP 2 : SCRIPTURE READING</div>
-          <h2 class="ppt-slide-main-title" style="font-size: 1.85rem;">📖 본문 및 핵심 성경 구절 — ${escapeHtml(data.scripture)}</h2>
+          <div class="ppt-slide-step-badge">STEP 2 : SCRIPTURE READING (본문 성경 말씀 낭독)</div>
+          <h2 class="ppt-slide-main-title" style="font-size: 1.85rem;">📖 본문 성경 말씀 (Scripture) — ${escapeHtml(data.scripture)}</h2>
         </div>
         <div class="ppt-scripture-grid" style="flex: 1; gap: 1.2rem; min-height: 0;">
-          <div class="ppt-scripture-box" style="padding: 1.1rem 1.3rem; overflow-y: auto;">
-            <div class="ppt-box-header" style="margin-bottom: 0.7rem;">
+          <div class="ppt-scripture-box" style="padding: 1.4rem 1.6rem; overflow-y: auto; display: flex; flex-direction: column; justify-content: center;">
+            <div class="ppt-box-header" style="margin-bottom: 1.1rem;">
               <span class="ppt-box-lang">🇰🇷 한국어 성경 (개역개정)</span>
-              <span class="ppt-box-label">창 3:15, 21 외</span>
+              <span class="ppt-box-label">창세기 3:15, 21</span>
             </div>
             ${data.scriptureKorean.map(v => `
-              <div class="ppt-verse-row" style="margin-bottom: 0.75rem; line-height: 1.6; font-size: 1.05rem; font-weight: 700;">
-                <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
-                <span>${escapeHtml(v.text)}</span>
+              <div class="ppt-verse-row" style="margin-bottom: 1.25rem; line-height: 1.75; font-size: 1.25rem; font-weight: 800; padding: 0.9rem 1.1rem; background: rgba(30, 41, 59, 0.72); border-radius: 12px; border-left: 4px solid #fde047;">
+                <span class="ppt-verse-num" style="font-size: 1.25rem; font-weight: 800; color: #fde047; margin-right: 0.5rem;">${escapeHtml(v.verse)}</span>
+                <span style="font-size: 1.25rem; font-weight: 800; color: #ffffff; font-style: normal;">${escapeHtml(v.text)}</span>
               </div>
             `).join('')}
           </div>
-          <div class="ppt-scripture-box" style="padding: 1.1rem 1.3rem; overflow-y: auto;">
-            <div class="ppt-box-header" style="margin-bottom: 0.7rem;">
+          <div class="ppt-scripture-box" style="padding: 1.4rem 1.6rem; overflow-y: auto; display: flex; flex-direction: column; justify-content: center;">
+            <div class="ppt-box-header" style="margin-bottom: 1.1rem;">
               <span class="ppt-box-lang">🇺🇸 English Bible (NIV)</span>
-              <span class="ppt-box-label">Gen 3:15, 21 &amp; Key Verses</span>
+              <span class="ppt-box-label">Genesis 3:15, 21</span>
             </div>
             ${data.scriptureEnglish.map(v => `
-              <div class="ppt-verse-row" style="margin-bottom: 0.75rem; line-height: 1.6; font-size: 1.05rem; font-weight: 700; font-style: normal;">
-                <span class="ppt-verse-num">${escapeHtml(v.verse)}</span>
-                <span>${escapeHtml(v.text)}</span>
+              <div class="ppt-verse-row" style="margin-bottom: 1.25rem; line-height: 1.75; font-size: 1.25rem; font-weight: 800; font-style: normal; padding: 0.9rem 1.1rem; background: rgba(30, 41, 59, 0.72); border-radius: 12px; border-left: 4px solid #38bdf8;">
+                <span class="ppt-verse-num" style="font-size: 1.25rem; font-weight: 800; color: #38bdf8; margin-right: 0.5rem; font-style: normal;">${escapeHtml(v.verse)}</span>
+                <span style="font-size: 1.25rem; font-weight: 800; color: #7dd3fc; font-style: normal;">${escapeHtml(v.text)}</span>
               </div>
             `).join('')}
           </div>
@@ -6228,35 +6242,92 @@ function downloadWordPptx(customSermon) {
     return runs;
   }
 
-  // Slide 1: Cover
+  // Slide 1: Cover (Full 1:1 Korean & English Subtitles)
   const s1 = pptx.addSlide();
   s1.background = { color: '0F172A' };
-  s1.addText(data.meetingTitle.toUpperCase(), {
-    x: 0.8, y: 0.8, w: 11.7, h: 0.5,
-    fontSize: 15, color: '38BDF8', bold: true, align: 'center'
+  s1.addText(`🕊️ ${data.meetingTitle} · 2단계 후대 복음 말씀\n${data.meetingTitleEn || "2026 Arise Next-Gen 30-Minute Prayer Meeting · Step 2: Next-Gen Gospel Message"}`, {
+    x: 0.8, y: 0.65, w: 11.7, h: 0.85,
+    fontSize: 13.5, color: '38BDF8', bold: true, align: 'center', fontFace: 'Malgun Gothic'
   });
-  s1.addText("2단계: 후대 복음 말씀 (5분)", {
-    x: 0.8, y: 1.4, w: 11.7, h: 0.5,
-    fontSize: 16, color: '94A3B8', bold: true, align: 'center'
+  s1.addText(data.titleEn ? `${data.title}\n${data.titleEn}` : data.title, {
+    x: 0.8, y: 1.75, w: 11.7, h: 1.7,
+    fontSize: 27, color: 'FFFFFF', bold: true, align: 'center', fontFace: 'Malgun Gothic'
   });
-  s1.addText(data.title, {
-    x: 0.8, y: 2.2, w: 11.7, h: 1.4,
-    fontSize: 34, color: 'FFFFFF', bold: true, align: 'center'
+  s1.addText(`📖 본문 말씀 (Scripture): ${data.scripture}`, {
+    x: 0.8, y: 3.65, w: 11.7, h: 0.65,
+    fontSize: 19, color: '34D399', bold: true, align: 'center', fontFace: 'Malgun Gothic'
   });
-  s1.addText(`📖 ${data.scripture}`, {
-    x: 0.8, y: 3.8, w: 11.7, h: 0.8,
-    fontSize: 22, color: '34D399', bold: true, align: 'center'
+  s1.addText(data.themeEn ? `${data.theme}\n${data.themeEn}` : data.theme, {
+    x: 0.8, y: 4.45, w: 11.7, h: 1.15,
+    fontSize: 14, color: 'CBD5E1', bold: true, align: 'center', fontFace: 'Malgun Gothic'
   });
-  s1.addText(data.theme, {
-    x: 0.8, y: 4.8, w: 11.7, h: 0.6,
-    fontSize: 16, color: 'CBD5E1', bold: true, align: 'center'
-  });
-  s1.addText("매월 첫 주일 8:00 PM AEST | 전 세계 다민족 언약의 후대 연합 기도회", {
-    x: 0.8, y: 6.2, w: 11.7, h: 0.5,
-    fontSize: 12, color: '94A3B8', bold: true, align: 'center'
+  s1.addText(`⏰ ${data.meetingTime}\n🌍 전 세계 다민족 언약의 후대 연합 기도회 · Global Multi-Ethnic Next-Gen Covenant Prayer Meeting`, {
+    x: 0.8, y: 5.95, w: 11.7, h: 0.75,
+    fontSize: 11.5, color: '94A3B8', bold: true, align: 'center', fontFace: 'Malgun Gothic'
   });
 
-  if (totalSlides === 6) {
+  if (data.isProtoGospel) {
+    // Slide 2: Scripture Reading (ONLY Genesis 3:15 & Genesis 3:21)
+    const s2 = pptx.addSlide();
+    s2.background = { color: '0F172A' };
+    s2.addText(`📖 본문 성경 말씀 (Scripture) — ${data.scripture}`, {
+      x: 0.8, y: 0.55, w: 11.7, h: 0.6,
+      fontSize: 21, color: 'FFFFFF', bold: true, fontFace: 'Malgun Gothic'
+    });
+    s2.addShape(pptx.ShapeType.roundRect, {
+      x: 0.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: 'FDE047', width: 2 }
+    });
+    s2.addText("🇰🇷 한국어 성경 (개역개정) — 창세기 3:15, 21", {
+      x: 1.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 14, color: 'FDE047', bold: true, fontFace: 'Malgun Gothic'
+    });
+    const koVersesText = data.scriptureKorean.map(v => `${v.verse}\n${v.text}`).join('\n\n');
+    s2.addText(koVersesText, {
+      x: 1.05, y: 2.05, w: 5.2, h: 4.6,
+      fontSize: 15, color: 'FFFFFF', bold: true, valign: 'top', fontFace: 'Malgun Gothic', lineSpacingMultiple: 1.3
+    });
+
+    s2.addShape(pptx.ShapeType.roundRect, {
+      x: 6.8, y: 1.35, w: 5.7, h: 5.6,
+      fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+    });
+    s2.addText("🇺🇸 English Bible (NIV) — Genesis 3:15, 21", {
+      x: 7.05, y: 1.5, w: 5.2, h: 0.35,
+      fontSize: 14, color: '38BDF8', bold: true, fontFace: 'Malgun Gothic'
+    });
+    const enVersesText = data.scriptureEnglish.map(v => `${v.verse}\n${v.text}`).join('\n\n');
+    s2.addText(enVersesText, {
+      x: 7.05, y: 2.05, w: 5.2, h: 4.6,
+      fontSize: 15, color: '7DD3FC', bold: true, valign: 'top', fontFace: 'Malgun Gothic', lineSpacingMultiple: 1.3
+    });
+
+    // Slides 3..6: Points 1..4
+    data.points.forEach((pt) => {
+      const sp = pptx.addSlide();
+      sp.background = { color: '0F172A' };
+      sp.addText(`📌 ${pt.headingKo} (${pt.headingEn})`, {
+        x: 0.8, y: 0.55, w: 11.7, h: 0.6,
+        fontSize: 20, color: 'FFFFFF', bold: true, fontFace: 'Malgun Gothic'
+      });
+      sp.addShape(pptx.ShapeType.roundRect, {
+        x: 0.8, y: 1.35, w: 5.7, h: 5.6,
+        fill: { color: '1E293B' }, line: { color: '334155', width: 2 }
+      });
+      sp.addText(pt.titleKo, {
+        x: 1.05, y: 1.65, w: 5.2, h: 5.0,
+        fontSize: 13.5, color: 'FFFFFF', bold: true, valign: 'top', fontFace: 'Malgun Gothic', lineSpacingMultiple: 1.25
+      });
+      sp.addShape(pptx.ShapeType.roundRect, {
+        x: 6.8, y: 1.35, w: 5.7, h: 5.6,
+        fill: { color: '1E293B' }, line: { color: '38BDF8', width: 2 }
+      });
+      sp.addText(pt.titleEn, {
+        x: 7.05, y: 1.65, w: 5.2, h: 5.0,
+        fontSize: 13.5, color: '38BDF8', bold: true, valign: 'top', fontFace: 'Malgun Gothic', lineSpacingMultiple: 1.25
+      });
+    });
+  } else if (totalSlides === 6) {
     // Slide 2: Scripture Part 1 (Verses 1-7)
     const s2 = pptx.addSlide();
     s2.background = { color: '0F172A' };
